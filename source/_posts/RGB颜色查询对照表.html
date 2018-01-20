@@ -1,0 +1,1644 @@
+layout: false
+title: "404"
+date: 2018-01-08
+
+
+<html>
+<head>  
+<title>在线颜色选择器 | RGB颜色查询对照表</title>
+<meta charset=utf-8">
+<link rel="stylesheet" href="css/bijou.min.css" />
+<style>.center td { height:18px;}</style>
+</head>  
+<body> 
+<div class='container'>
+    <h2 class='explainer'>在线颜色选择器 | RGB颜色查询对照表</h2>
+    <div class='divider'></div>
+    <h3 class='explainer'>色值转换工具 | Color Convent</h3>
+    <form action="" name="name_form" method="get">
+        <div class='row'>
+            <div class='span six xs-five'>
+                <input type="text" class="input-text" placeholder="DCAB3D 或者 12,34,56" id="input_color"></input>
+            </div>
+            <div class='span six xs-five'>
+                <input type="text" class="input-text" id="output_color" placeholder="转换结果"></input>
+            </div>
+            <div>
+                <div id="canvas_color" style="border: 1px solid rgb(237, 237, 237); height: 3em; clear: both; position: relative; top: 0.5em; background-color: rgb(0, 0, 0);"></div>
+            </div>
+        </div>
+        <script type="text/javascript">
+        var input=document.getElementById("input_color");var output=document.getElementById("output_color");var canvas=document.getElementById("canvas_color");function hex2dec(hex){if(hex.length===3){var tmp="";tmp+=hex.charAt(0)+hex.charAt(0);tmp+=hex.charAt(1)+hex.charAt(1);tmp+=hex.charAt(2)+hex.charAt(2);hex=tmp}var res="";res+=parseInt(hex.substring(0,2),16);res+=", "+parseInt(hex.substring(2,4),16);res+=", "+parseInt(hex.substring(4,6),16);if(hex.length>6){res+=", "+parseInt(hex.substring(6,8),16)}return res}function dec2hex(dec){var arr=dec.split(",");var res="";res+=addPrefix0(parseInt(arr[0],10).toString(16),2);res+=addPrefix0(parseInt(arr[1],10).toString(16),2);res+=addPrefix0(parseInt(arr[2],10).toString(16),2);if(arr.length>3){res+=addPrefix0(parseInt(arr[3],10).toString(16),2)}return res}function addPrefix0(str,len){var i=len;while(i>0){str="0"+str;i--}return str.substring(str.length-len)}input.onchange=function(e){var val=input.value;if(val.indexOf(",")===-1){if(val.indexOf("#")===0){val=val.substring(1)}var dec=hex2dec(val);var len=dec.split(", ").length;output.value=dec;if(len===3){canvas.style.backgroundColor="rgb("+output.value+")"}else{if(len===4){canvas.style.backgroundColor="rgba("+output.value+")"}}}else{var hex=dec2hex(val);output.value=hex;canvas.style.backgroundColor="#"+hex.substring(0,6)}if(output.value.indexOf("NaN")!==-1){output.value="无效输入！";canvas.style.backgroundColor="#f00"}};output.onclick=function(e){output.select()};
+        </script>
+    </form>
+    <h3 class='explainer'>颜色代码大全 - RGB颜色查询对照表</h3>
+    <table width="90%" height="978" cellspacing="3" cellpadding="2" border="0" align="center" style="line-height: 22px;">
+        <tbody style="line-height: 22px;">
+            <tr style="line-height: 22px;">
+                <td height="18" bgcolor="#FFFF00" align="center" style="line-height: 22px;">ffff00</td>
+                <td height="18" bgcolor="#FFFF33" align="center" style="line-height: 22px;">ffff33</td>
+                <td height="18" bgcolor="#FFFF66" align="center" style="line-height: 22px;">ffff66</td>
+                <td height="18" bgcolor="#FFFF99" align="center" style="line-height: 22px;">ffff99</td>
+                <td height="18" bgcolor="#FFFFCC" align="center" style="line-height: 22px;">ffffcc</td>
+                <td height="18" bgcolor="#FFFFFF" align="center" style="line-height: 22px;">ffffff</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" bgcolor="#FFCC00" align="center" style="line-height: 22px;">ffcc00</td>
+                <td height="18" bgcolor="#FFCC33" align="center" style="line-height: 22px;">ffcc33</td>
+                <td height="18" bgcolor="#FFCC66" align="center" style="line-height: 22px;">ffcc66</td>
+                <td height="18" bgcolor="#FFCC99" align="center" style="line-height: 22px;">ffcc99</td>
+                <td height="18" bgcolor="#FFCCCC" align="center" style="line-height: 22px;">ffcccc</td>
+                <td height="18" bgcolor="#FFCCFF" align="center" style="line-height: 22px;">ffccff</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" bgcolor="#FF9900" align="center" style="line-height: 22px;">ff9900</td>
+                <td height="18" bgcolor="#FF9933" align="center" style="line-height: 22px;">ff9933</td>
+                <td height="18" bgcolor="#FF9966" align="center" style="line-height: 22px;">ff9966</td>
+                <td height="18" bgcolor="#FF9999" align="center" style="line-height: 22px;">ff9999</td>
+                <td height="18" bgcolor="#FF99CC" align="center" style="line-height: 22px;">ff99cc</td>
+                <td height="18" bgcolor="#FF99FF" align="center" style="line-height: 22px;">ff99ff</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" bgcolor="#FF6600" align="center" style="line-height: 22px;">ff6600</td>
+                <td height="18" bgcolor="#FF6633" align="center" style="line-height: 22px;">ff6633</td>
+                <td height="18" bgcolor="#FF6666" align="center" style="line-height: 22px;">ff6666</td>
+                <td height="18" bgcolor="#FF6699" align="center" style="line-height: 22px;">ff6699</td>
+                <td height="18" bgcolor="#FF66CC" align="center" style="line-height: 22px;">ff66cc</td>
+                <td height="18" bgcolor="#FF66FF" align="center" style="line-height: 22px;">ff66ff</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" bgcolor="#FF3300" align="center" style="line-height: 22px;">ff3300</td>
+                <td height="18" bgcolor="#FF3333" align="center" style="line-height: 22px;">ff3333</td>
+                <td height="18" bgcolor="#FF3366" align="center" style="line-height: 22px;">ff3366</td>
+                <td height="18" bgcolor="#FF3399" align="center" style="line-height: 22px;">ff3399</td>
+                <td height="18" bgcolor="#FF33CC" align="center" style="line-height: 22px;">ff33cc</td>
+                <td height="18" bgcolor="#FF33FF" align="center" style="line-height: 22px;">ff33ff</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" bgcolor="#FF0000" align="center" style="line-height: 22px;">ff0000</td>
+                <td height="18" bgcolor="#FF001A" align="center" style="line-height: 22px;">ff0033</td>
+                <td height="18" bgcolor="#FF004D" align="center" style="line-height: 22px;">ff0066</td>
+                <td height="18" bgcolor="#FF0080" align="center" style="line-height: 22px;">ff0099</td>
+                <td height="18" bgcolor="#FF00B3" align="center" style="line-height: 22px;">ff00cc</td>
+                <td height="18" bgcolor="#FF00E6" align="center" style="line-height: 22px;">ff00ff</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" bgcolor="#CCFF00" align="center" style="line-height: 22px;">ccff00</td>
+                <td height="18" bgcolor="#CCFF33" align="center" style="line-height: 22px;">ccff33</td>
+                <td height="18" bgcolor="#CCFF66" align="center" style="line-height: 22px;">ccff66</td>
+                <td height="18" bgcolor="#CCFF99" align="center" style="line-height: 22px;">ccff99</td>
+                <td height="18" bgcolor="#CCFFCC" align="center" style="line-height: 22px;">ccffcc</td>
+                <td height="18" bgcolor="#CCFFFF" align="center" style="line-height: 22px;">ccffff</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" bgcolor="#CCCC00" align="center" style="line-height: 22px;">cccc00</td>
+                <td height="18" bgcolor="#CCCC33" align="center" style="line-height: 22px;">cccc33</td>
+                <td height="18" bgcolor="#CCCC66" align="center" style="line-height: 22px;">cccc66</td>
+                <td height="18" bgcolor="#CCCC99" align="center" style="line-height: 22px;">cccc99</td>
+                <td height="18" bgcolor="#CCCCCC" align="center" style="line-height: 22px;">cccccc</td>
+                <td height="18" bgcolor="#CCCCFF" align="center" style="line-height: 22px;">ccccff</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" bgcolor="#CC9900" align="center" style="line-height: 22px;">cc9900</td>
+                <td height="18" bgcolor="#CC9933" align="center" style="line-height: 22px;">cc9933</td>
+                <td height="18" bgcolor="#CC9966" align="center" style="line-height: 22px;">cc9966</td>
+                <td height="18" bgcolor="#CC9999" align="center" style="line-height: 22px;">cc9999</td>
+                <td height="18" bgcolor="#CC99CC" align="center" style="line-height: 22px;">cc99cc</td>
+                <td height="18" bgcolor="#CC99FF" align="center" style="line-height: 22px;">cc99ff</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" bgcolor="#CC6600" align="center" style="line-height: 22px;">cc6600</td>
+                <td height="18" bgcolor="#CC6633" align="center" style="line-height: 22px;">cc6633</td>
+                <td height="18" bgcolor="#CC6666" align="center" style="line-height: 22px;">cc6666</td>
+                <td height="18" bgcolor="#CC6699" align="center" style="line-height: 22px;">cc6699</td>
+                <td height="18" bgcolor="#CC66CC" align="center" style="line-height: 22px;">cc66cc</td>
+                <td height="18" bgcolor="#CC66FF" align="center" style="line-height: 22px;">cc66ff</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" bgcolor="#CC3300" align="center" style="line-height: 22px;">cc3300</td>
+                <td height="18" bgcolor="#CC3333" align="center" style="line-height: 22px;">cc3333</td>
+                <td height="18" bgcolor="#CC3366" align="center" style="line-height: 22px;">cc3366</td>
+                <td height="18" bgcolor="#CC3399" align="center" style="line-height: 22px;">cc3399</td>
+                <td height="18" bgcolor="#CC33CC" align="center" style="line-height: 22px;">cc33cc</td>
+                <td height="18" bgcolor="#CC33FF" align="center" style="line-height: 22px;">cc33ff</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" bgcolor="#CC0000" align="center" style="line-height: 22px;">cc0000</td>
+                <td height="18" bgcolor="#CC0033" align="center" style="line-height: 22px;">cc0033</td>
+                <td height="18" bgcolor="#CC0066" align="center" style="line-height: 22px;">cc0066</td>
+                <td height="18" bgcolor="#CC0099" align="center" style="line-height: 22px;">cc0099</td>
+                <td height="18" bgcolor="#CC00CC" align="center" style="line-height: 22px;">cc00cc</td>
+                <td height="18" bgcolor="#CC00FF" align="center" style="line-height: 22px;">cc00ff</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" bgcolor="#99FF00" align="center" style="line-height: 22px;">99ff00</td>
+                <td height="18" bgcolor="#99FF33" align="center" style="line-height: 22px;">99ff33</td>
+                <td height="18" bgcolor="#99FF66" align="center" style="line-height: 22px;">99ff66</td>
+                <td height="18" bgcolor="#99FF99" align="center" style="line-height: 22px;">99ff99</td>
+                <td height="18" bgcolor="#99FFCC" align="center" style="line-height: 22px;">99ffcc</td>
+                <td height="18" bgcolor="#99FFFF" align="center" style="line-height: 22px;">99ffff</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" bgcolor="#99CC00" align="center" style="line-height: 22px;">99cc00</td>
+                <td height="18" bgcolor="#99CC33" align="center" style="line-height: 22px;">99cc33</td>
+                <td height="18" bgcolor="#99CC66" align="center" style="line-height: 22px;">99cc66</td>
+                <td height="18" bgcolor="#99CC99" align="center" style="line-height: 22px;">99cc99</td>
+                <td height="18" bgcolor="#99CCCC" align="center" style="line-height: 22px;">99cccc</td>
+                <td height="18" bgcolor="#99CCFF" align="center" style="line-height: 22px;">99ccff</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" bgcolor="#999900" align="center" style="line-height: 22px;">999900</td>
+                <td height="18" bgcolor="#999933" align="center" style="line-height: 22px;">999933</td>
+                <td height="18" bgcolor="#999966" align="center" style="line-height: 22px;">999966</td>
+                <td height="18" bgcolor="#999999" align="center" style="line-height: 22px;">999999</td>
+                <td height="18" bgcolor="#9999CC" align="center" style="line-height: 22px;">9999cc</td>
+                <td height="18" bgcolor="#9999FF" align="center" style="line-height: 22px;">9999ff</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" bgcolor="#996600" align="center" style="line-height: 22px;">996600</td>
+                <td height="18" bgcolor="#996633" align="center" style="line-height: 22px;">996633</td>
+                <td height="18" bgcolor="#996666" align="center" style="line-height: 22px;">996666</td>
+                <td height="18" bgcolor="#996699" align="center" style="line-height: 22px;">996699</td>
+                <td height="18" bgcolor="#9966CC" align="center" style="line-height: 22px;">9966cc</td>
+                <td height="18" bgcolor="#9966FF" align="center" style="line-height: 22px;">9966ff</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" bgcolor="#993300" align="center" style="line-height: 22px;">993300</td>
+                <td height="18" bgcolor="#993333" align="center" style="line-height: 22px;">993333</td>
+                <td height="18" bgcolor="#993366" align="center" style="line-height: 22px;">993366</td>
+                <td height="18" bgcolor="#993399" align="center" style="line-height: 22px;">993399</td>
+                <td height="18" bgcolor="#9933CC" align="center" style="line-height: 22px;">9933cc</td>
+                <td height="18" bgcolor="#9933FF" align="center" style="line-height: 22px;">9933ff</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" bgcolor="#990000" align="center" style="line-height: 22px;">990000</td>
+                <td height="18" bgcolor="#990033" align="center" style="line-height: 22px;">990033</td>
+                <td height="18" bgcolor="#990066" align="center" style="line-height: 22px;">990066</td>
+                <td height="18" bgcolor="#990099" align="center" style="line-height: 22px;">990099</td>
+                <td height="18" bgcolor="#9900CC" align="center" style="line-height: 22px;">9900cc</td>
+                <td height="18" bgcolor="#9900FF" align="center" style="line-height: 22px;">9900ff</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" bgcolor="#66FF00" align="center" style="line-height: 22px;">66ff00</td>
+                <td height="18" bgcolor="#66FF33" align="center" style="line-height: 22px;">66ff33</td>
+                <td height="18" bgcolor="#66FF66" align="center" style="line-height: 22px;">66ff66</td>
+                <td height="18" bgcolor="#66FF99" align="center" style="line-height: 22px;">66ff99</td>
+                <td height="18" bgcolor="#66FFCC" align="center" style="line-height: 22px;">66ffcc</td>
+                <td height="18" bgcolor="#66FFFF" align="center" style="line-height: 22px;">66ffff</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" bgcolor="#66CC00" align="center" style="line-height: 22px;">66cc00</td>
+                <td height="18" bgcolor="#66CC33" align="center" style="line-height: 22px;">66cc33</td>
+                <td height="18" bgcolor="#66CC66" align="center" style="line-height: 22px;">66cc66</td>
+                <td height="18" bgcolor="#66CC99" align="center" style="line-height: 22px;">66cc99</td>
+                <td height="18" bgcolor="#66CCCC" align="center" style="line-height: 22px;">66cccc</td>
+                <td height="18" bgcolor="#66CCFF" align="center" style="line-height: 22px;">66ccff</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" bgcolor="#669900" align="center" style="line-height: 22px;">669900</td>
+                <td height="18" bgcolor="#669933" align="center" style="line-height: 22px;">669933</td>
+                <td height="18" bgcolor="#669966" align="center" style="line-height: 22px;">669966</td>
+                <td height="18" bgcolor="#669999" align="center" style="line-height: 22px;">669999</td>
+                <td height="18" bgcolor="#6699CC" align="center" style="line-height: 22px;">6699cc</td>
+                <td height="18" bgcolor="#6699FF" align="center" style="line-height: 22px;">6699ff</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" bgcolor="#666600" align="center" style="line-height: 22px;">666600</td>
+                <td height="18" bgcolor="#666633" align="center" style="line-height: 22px;">666633</td>
+                <td height="18" bgcolor="#666666" align="center" style="line-height: 22px;">666666</td>
+                <td height="18" bgcolor="#666699" align="center" style="line-height: 22px;">666699</td>
+                <td height="18" bgcolor="#6666CC" align="center" style="line-height: 22px;">6666cc</td>
+                <td height="18" bgcolor="#6666FF" align="center" style="line-height: 22px;">6666ff</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" bgcolor="#663300" align="center" style="line-height: 22px;"><font color="#FFFFFF" style="line-height: 22px;">663300</font></td>
+                <td height="18" bgcolor="#663333" align="center" style="line-height: 22px;"><font color="#FFFFFF" style="line-height: 22px;">663333</font></td>
+                <td height="18" bgcolor="#663366" align="center" style="line-height: 22px;"><font color="#FFFFFF" style="line-height: 22px;">663366</font></td>
+                <td height="18" bgcolor="#663399" align="center" style="line-height: 22px;"><font color="#FFFFFF" style="line-height: 22px;">663399</font></td>
+                <td height="18" bgcolor="#6633CC" align="center" style="line-height: 22px;">6633cc</td>
+                <td height="18" bgcolor="#6633FF" align="center" style="line-height: 22px;">6633ff</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" bgcolor="#660000" align="center" style="line-height: 22px;"><font color="#FFFFFF" style="line-height: 22px;">660000</font></td>
+                <td height="18" bgcolor="#660033" align="center" style="line-height: 22px;"><font color="#FFFFFF" style="line-height: 22px;">660033</font></td>
+                <td height="18" bgcolor="#660066" align="center" style="line-height: 22px;"><font color="#FFFFFF" style="line-height: 22px;">660066</font></td>
+                <td height="18" bgcolor="#660099" align="center" style="line-height: 22px;"><font color="#FFFFFF" style="line-height: 22px;">660099</font></td>
+                <td height="18" bgcolor="#6600CC" align="center" style="line-height: 22px;">6600cc</td>
+                <td height="18" bgcolor="#6600FF" align="center" style="line-height: 22px;">6600ff</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" bgcolor="#33FF00" align="center" style="line-height: 22px;">33ff00</td>
+                <td height="18" bgcolor="#33FF33" align="center" style="line-height: 22px;">33ff33</td>
+                <td height="18" bgcolor="#33FF66" align="center" style="line-height: 22px;">33ff66</td>
+                <td height="18" bgcolor="#33FF99" align="center" style="line-height: 22px;">33ff99</td>
+                <td height="18" bgcolor="#33FFCC" align="center" style="line-height: 22px;">33ffcc</td>
+                <td height="18" bgcolor="#33FFFF" align="center" style="line-height: 22px;">33ffff</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" bgcolor="#33CC00" align="center" style="line-height: 22px;">33cc00</td>
+                <td height="18" bgcolor="#33CC33" align="center" style="line-height: 22px;">33cc33</td>
+                <td height="18" bgcolor="#33CC66" align="center" style="line-height: 22px;">33cc66</td>
+                <td height="18" bgcolor="#33CC99" align="center" style="line-height: 22px;">33cc99</td>
+                <td height="18" bgcolor="#33CCCC" align="center" style="line-height: 22px;">33cccc</td>
+                <td height="18" bgcolor="#33CCFF" align="center" style="line-height: 22px;">33ccff</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" bgcolor="#339900" align="center" style="line-height: 22px;">339900</td>
+                <td height="18" bgcolor="#339933" align="center" style="line-height: 22px;">339933</td>
+                <td height="18" bgcolor="#339966" align="center" style="line-height: 22px;">339966</td>
+                <td height="18" bgcolor="#339999" align="center" style="line-height: 22px;">339999</td>
+                <td height="18" bgcolor="#3399CC" align="center" style="line-height: 22px;">3399cc</td>
+                <td height="18" bgcolor="#3399FF" align="center" style="line-height: 22px;">3399ff</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" bgcolor="#336600" align="center" style="line-height: 22px;">336600</td>
+                <td height="18" bgcolor="#336633" align="center" style="line-height: 22px;">336633</td>
+                <td height="18" bgcolor="#336666" align="center" style="line-height: 22px;">336666</td>
+                <td height="18" bgcolor="#336699" align="center" style="line-height: 22px;">336699</td>
+                <td height="18" bgcolor="#3366CC" align="center" style="line-height: 22px;">3366cc</td>
+                <td height="18" bgcolor="#3366FF" align="center" style="line-height: 22px;">3366ff</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" bgcolor="#333300" align="center" style="line-height: 22px;"><font color="#FFFFFF" style="line-height: 22px;">333300</font></td>
+                <td height="18" bgcolor="#333333" align="center" style="line-height: 22px;"><font color="#FFFFFF" style="line-height: 22px;">333333</font></td>
+                <td height="18" bgcolor="#333366" align="center" style="line-height: 22px;"><font color="#FFFFFF" style="line-height: 22px;">333366</font></td>
+                <td height="18" bgcolor="#333399" align="center" style="line-height: 22px;"><font color="#FFFFFF" style="line-height: 22px;">333399</font></td>
+                <td height="18" bgcolor="#3333CC" align="center" style="line-height: 22px;">3333cc</td>
+                <td height="18" bgcolor="#3333FF" align="center" style="line-height: 22px;">3333ff</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" bgcolor="#330000" align="center" style="line-height: 22px;"><font color="#FFFFFF" style="line-height: 22px;">330000</font></td>
+                <td height="18" bgcolor="#330033" align="center" style="line-height: 22px;"><font color="#FFFFFF" style="line-height: 22px;">330033</font></td>
+                <td height="18" bgcolor="#330066" align="center" style="line-height: 22px;"><font color="#FFFFFF" style="line-height: 22px;">330066</font></td>
+                <td height="18" bgcolor="#330099" align="center" style="line-height: 22px;"><font color="#FFFFFF" style="line-height: 22px;">330099</font></td>
+                <td height="18" bgcolor="#3300CC" align="center" style="line-height: 22px;">3300cc</td>
+                <td height="18" bgcolor="#3300FF" align="center" style="line-height: 22px;">3300ff</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" bgcolor="#00FF00" align="center" style="line-height: 22px;">00ff00</td>
+                <td height="18" bgcolor="#00FF33" align="center" style="line-height: 22px;">00ff33</td>
+                <td height="18" bgcolor="#00FF66" align="center" style="line-height: 22px;">00ff66</td>
+                <td height="18" bgcolor="#00FF99" align="center" style="line-height: 22px;">00ff99</td>
+                <td height="18" bgcolor="#00FFCC" align="center" style="line-height: 22px;">00ffcc</td>
+                <td height="18" bgcolor="#00FFFF" align="center" style="line-height: 22px;">00ffff</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" bgcolor="#00CC00" align="center" style="line-height: 22px;">00cc00</td>
+                <td height="18" bgcolor="#00CC33" align="center" style="line-height: 22px;">00cc33</td>
+                <td height="18" bgcolor="#00CC66" align="center" style="line-height: 22px;">00cc66</td>
+                <td height="18" bgcolor="#00CC99" align="center" style="line-height: 22px;">00cc99</td>
+                <td height="18" bgcolor="#00CCCC" align="center" style="line-height: 22px;">00cccc</td>
+                <td height="18" bgcolor="#00CCFF" align="center" style="line-height: 22px;">00ccff</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" bgcolor="#009900" align="center" style="line-height: 22px;">009900</td>
+                <td height="18" bgcolor="#009933" align="center" style="line-height: 22px;">009933</td>
+                <td height="18" bgcolor="#009966" align="center" style="line-height: 22px;">009966</td>
+                <td height="18" bgcolor="#009999" align="center" style="line-height: 22px;">009999</td>
+                <td height="18" bgcolor="#0099CC" align="center" style="line-height: 22px;">0099cc</td>
+                <td height="18" bgcolor="#0099FF" align="center" style="line-height: 22px;">0099ff</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" bgcolor="#006600" align="center" style="line-height: 22px;">006600</td>
+                <td height="18" bgcolor="#006633" align="center" style="line-height: 22px;">006633</td>
+                <td height="18" bgcolor="#006666" align="center" style="line-height: 22px;">006666</td>
+                <td height="18" bgcolor="#006699" align="center" style="line-height: 22px;">006699</td>
+                <td height="18" bgcolor="#0066CC" align="center" style="line-height: 22px;">0066cc</td>
+                <td height="18" bgcolor="#0066FF" align="center" style="line-height: 22px;">0066ff</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" bgcolor="#003300" align="center" style="line-height: 22px;"><font color="#FFFFFF" style="line-height: 22px;">003300</font></td>
+                <td height="18" bgcolor="#003333" align="center" style="line-height: 22px;"><font color="#FFFFFF" style="line-height: 22px;">003333</font></td>
+                <td height="18" bgcolor="#003366" align="center" style="line-height: 22px;"><font color="#FFFFFF" style="line-height: 22px;">003366</font></td>
+                <td height="18" bgcolor="#003399" align="center" style="line-height: 22px;"><font color="#FFFFFF" style="line-height: 22px;">003399</font></td>
+                <td height="18" bgcolor="#0033CC" align="center" style="line-height: 22px;">0033cc</td>
+                <td height="18" bgcolor="#0033FF" align="center" style="line-height: 22px;">0033ff</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" bgcolor="#000000" align="center" style="line-height: 22px;"><font color="#FFFFFF" style="line-height: 22px;">000000</font></td>
+                <td height="18" bgcolor="#000033" align="center" style="line-height: 22px;"><font color="#FFFFFF" style="line-height: 22px;">000033</font></td>
+                <td height="18" bgcolor="#000066" align="center" style="line-height: 22px;"><font color="#FFFFFF" style="line-height: 22px;">000066</font></td>
+                <td height="18" bgcolor="#000099" align="center" style="line-height: 22px;"><font color="#FFFFFF" style="line-height: 22px;">000099</font></td>
+                <td height="18" bgcolor="#0000CC" align="center" style="line-height: 22px;">0000cc</td>
+                <td height="18" bgcolor="#0000FF" align="center" style="line-height: 22px;">0000ff</td>
+            </tr>
+        </tbody>
+    </table>
+    <table width="90%" cellspacing="3" cellpadding="2" border="0" align="center" style="line-height: 22px;">
+        <tbody style="line-height: 22px;">
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%"  bgcolor="#FFFFFF" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FFFFFF</td>
+                <td height="18" width="15%"  bgcolor="#FFFFF0" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FFFFF0</td>
+                <td height="18" width="15%"  bgcolor="#FFFFE0" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FFFFE0</td>
+                <td height="18" width="15%"  bgcolor="#FFFF00" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FFFF00</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#FFFAFA" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FFFAFA</td>
+                <td height="18" width="15%" bgcolor="#FFFAF0" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FFFAF0</td>
+                <td height="18" width="15%" bgcolor="#FFFACD" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FFFACD</td>
+                <td height="18" width="15%" bgcolor="#FFF8DC" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FFF8DC</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#FFF68F" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FFF68F</td>
+                <td height="18" width="15%" bgcolor="#FFF5EE" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FFF5EE</td>
+                <td height="18" width="15%" bgcolor="#FFF0F5" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FFF0F5</td>
+                <td height="18" width="15%" bgcolor="#FFEFDB" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FFEFDB</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#FFEFD5" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FFEFD5</td>
+                <td height="18" width="15%" bgcolor="#FFEC8B" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FFEC8B</td>
+                <td height="18" width="15%" bgcolor="#FFEBCD" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FFEBCD</td>
+                <td height="18" width="15%" bgcolor="#FFE7BA" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FFE7BA</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#FFE4E1" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FFE4E1</td>
+                <td height="18" width="15%" bgcolor="#FFE4C4" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FFE4C4</td>
+                <td height="18" width="15%" bgcolor="#FFE4B5" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FFE4B5</td>
+                <td height="18" width="15%" bgcolor="#FFE1FF" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FFE1FF</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#FFDEAD" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FFDEAD</td>
+                <td height="18" width="15%" bgcolor="#FFDAB9" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FFDAB9</td>
+                <td height="18" width="15%" bgcolor="#FFD700" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FFD700</td>
+                <td height="18" width="15%" bgcolor="#FFD39B" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FFD39B</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#FFC1C1" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FFC1C1</td>
+                <td height="18" width="15%" bgcolor="#FFC125" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FFC125</td>
+                <td height="18" width="15%" bgcolor="#FFC0CB" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FFC0CB</td>
+                <td height="18" width="15%" bgcolor="#FFBBFF" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FFBBFF</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#FFB90F" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FFB90F</td>
+                <td height="18" width="15%" bgcolor="#FFB6C1" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FFB6C1</td>
+                <td height="18" width="15%" bgcolor="#FFB5C5" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FFB5C5</td>
+                <td height="18" width="15%" bgcolor="#FFAEB9" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FFAEB9</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#FFA54F" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FFA54F</td>
+                <td height="18" width="15%" bgcolor="#FFA500" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FFA500</td>
+                <td height="18" width="15%" bgcolor="#FFA07A" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FFA07A</td>
+                <td height="18" width="15%" bgcolor="#FF8C69" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FF8C69</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#FF8C00" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FF8C00</td>
+                <td height="18" width="15%" bgcolor="#FF83FA" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FF83FA</td>
+                <td height="18" width="15%" bgcolor="#FF82AB" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FF82AB</td>
+                <td height="18" width="15%" bgcolor="#FF8247" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FF8247</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#FF7F50" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FF7F50</td>
+                <td height="18" width="15%" bgcolor="#FF7F24" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FF7F24</td>
+                <td height="18" width="15%" bgcolor="#FF7F00" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FF7F00</td>
+                <td height="18" width="15%" bgcolor="#FF7256" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FF7256</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#FF6EB4" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FF6EB4</td>
+                <td height="18" width="15%" bgcolor="#FF6A6A" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FF6A6A</td>
+                <td height="18" width="15%" bgcolor="#FF69B4" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FF69B4</td>
+                <td height="18" width="15%" bgcolor="#FF6347" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FF6347</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#FF4500" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FF4500</td>
+                <td height="18" width="15%" bgcolor="#FF4040" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FF4040</td>
+                <td height="18" width="15%" bgcolor="#FF3E96" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FF3E96</td>
+                <td height="18" width="15%" bgcolor="#FF34B3" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FF34B3</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#FF3030" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FF3030</td>
+                <td height="18" width="15%" bgcolor="#FF1493" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FF1493</td>
+                <td height="18" width="15%" bgcolor="#FF00FF" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FF00FF</td>
+                <td height="18" width="15%" bgcolor="#FF0000" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FF0000</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#FDF5E6" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FDF5E6</td>
+                <td height="18" width="15%" bgcolor="#FCFCFC" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FCFCFC</td>
+                <td height="18" width="15%" bgcolor="#FAFAFA" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FAFAFA</td>
+                <td height="18" width="15%" bgcolor="#FAFAD2" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FAFAD2</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#FAF0E6" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FAF0E6</td>
+                <td height="18" width="15%" bgcolor="#FAEBD7" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FAEBD7</td>
+                <td height="18" width="15%" bgcolor="#FA8072" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#FA8072</td>
+                <td height="18" width="15%" bgcolor="#F8F8FF" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#F8F8FF</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#F7F7F7" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#F7F7F7</td>
+                <td height="18" width="15%" bgcolor="#F5FFFA" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#F5FFFA</td>
+                <td height="18" width="15%" bgcolor="#F5F5F5" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#F5F5F5</td>
+                <td height="18" width="15%" bgcolor="#F5F5DC" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#F5F5DC</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#F5DEB3" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#F5DEB3</td>
+                <td height="18" width="15%" bgcolor="#F4F4F4" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#F4F4F4</td>
+                <td height="18" width="15%" bgcolor="#F4A460" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#F4A460</td>
+                <td height="18" width="15%" bgcolor="#F2F2F2" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#F2F2F2</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#F0FFFF" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#F0FFFF</td>
+                <td height="18" width="15%" bgcolor="#F0FFF0" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#F0FFF0</td>
+                <td height="18" width="15%" bgcolor="#F0F8FF" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#F0F8FF</td>
+                <td height="18" width="15%" bgcolor="#F0F0F0" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#F0F0F0</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#F0E68C" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#F0E68C</td>
+                <td height="18" width="15%" bgcolor="#F08080" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#F08080</td>
+                <td height="18" width="15%" bgcolor="#EEEEE0" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EEEEE0</td>
+                <td height="18" width="15%" bgcolor="#EEEED1" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EEEED1</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#EEEE00" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EEEE00</td>
+                <td height="18" width="15%" bgcolor="#EEE9E9" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EEE9E9</td>
+                <td height="18" width="15%" bgcolor="#EEE9BF" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EEE9BF</td>
+                <td height="18" width="15%" bgcolor="#EEE8CD" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EEE8CD</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#EEE8AA" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EEE8AA</td>
+                <td height="18" width="15%" bgcolor="#EEE685" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EEE685</td>
+                <td height="18" width="15%" bgcolor="#EEE5DE" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EEE5DE</td>
+                <td height="18" width="15%" bgcolor="#EEE0E5" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EEE0E5</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#EEDFCC" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EEDFCC</td>
+                <td height="18" width="15%" bgcolor="#EEDC82" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EEDC82</td>
+                <td height="18" width="15%" bgcolor="#EED8AE" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EED8AE</td>
+                <td height="18" width="15%" bgcolor="#EED5D2" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EED5D2</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#EED5B7" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EED5B7</td>
+                <td height="18" width="15%" bgcolor="#EED2EE" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EED2EE</td>
+                <td height="18" width="15%" bgcolor="#EECFA1" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EECFA1</td>
+                <td height="18" width="15%" bgcolor="#EECBAD" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EECBAD</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#EEC900" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EEC900</td>
+                <td height="18" width="15%" bgcolor="#EEC591" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EEC591</td>
+                <td height="18" width="15%" bgcolor="#EEB4B4" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EEB4B4</td>
+                <td height="18" width="15%" bgcolor="#EEB422" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EEB422</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#EEAEEE" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EEAEEE</td>
+                <td height="18" width="15%" bgcolor="#EEAD0E" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EEAD0E</td>
+                <td height="18" width="15%" bgcolor="#EEA9B8" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EEA9B8</td>
+                <td height="18" width="15%" bgcolor="#EEA2AD" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EEA2AD</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#EE9A49" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EE9A49</td>
+                <td height="18" width="15%" bgcolor="#EE9A00" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EE9A00</td>
+                <td height="18" width="15%" bgcolor="#EE9572" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EE9572</td>
+                <td height="18" width="15%" bgcolor="#EE82EE" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EE82EE</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#EE8262" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EE8262</td>
+                <td height="18" width="15%" bgcolor="#EE7AE9" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EE7AE9</td>
+                <td height="18" width="15%" bgcolor="#EE799F" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EE799F</td>
+                <td height="18" width="15%" bgcolor="#EE7942" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EE7942</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#EE7621" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EE7621</td>
+                <td height="18" width="15%" bgcolor="#EE7600" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EE7600</td>
+                <td height="18" width="15%" bgcolor="#EE6AA7" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EE6AA7</td>
+                <td height="18" width="15%" bgcolor="#EE6A50" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EE6A50</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#EE6363" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EE6363</td>
+                <td height="18" width="15%" bgcolor="#EE5C42" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EE5C42</td>
+                <td height="18" width="15%" bgcolor="#EE4000" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EE4000</td>
+                <td height="18" width="15%" bgcolor="#EE3B3B" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EE3B3B</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#EE3A8C" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EE3A8C</td>
+                <td height="18" width="15%" bgcolor="#EE30A7" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EE30A7</td>
+                <td height="18" width="15%" bgcolor="#EE2C2C" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EE2C2C</td>
+                <td height="18" width="15%" bgcolor="#EE1289" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EE1289</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#EE00EE" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EE00EE</td>
+                <td height="18" width="15%" bgcolor="#EE0000" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EE0000</td>
+                <td height="18" width="15%" bgcolor="#EDEDED" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EDEDED</td>
+                <td height="18" width="15%" bgcolor="#EBEBEB" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EBEBEB</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#EAEAEA" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#EAEAEA</td>
+                <td height="18" width="15%" bgcolor="#E9967A" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#E9967A</td>
+                <td height="18" width="15%" bgcolor="#E8E8E8" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#E8E8E8</td>
+                <td height="18" width="15%" bgcolor="#E6E6FA" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#E6E6FA</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#E5E5E5" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#E5E5E5</td>
+                <td height="18" width="15%" bgcolor="#E3E3E3" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#E3E3E3</td>
+                <td height="18" width="15%" bgcolor="#E0FFFF" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#E0FFFF</td>
+                <td height="18" width="15%" bgcolor="#E0EEEE" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#E0EEEE</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#E0EEE0" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#E0EEE0</td>
+                <td height="18" width="15%" bgcolor="#E0E0E0" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#E0E0E0</td>
+                <td height="18" width="15%" bgcolor="#E066FF" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#E066FF</td>
+                <td height="18" width="15%" bgcolor="#DEDEDE" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#DEDEDE</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#DEB887" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#DEB887</td>
+                <td height="18" width="15%" bgcolor="#DDA0DD" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#DDA0DD</td>
+                <td height="18" width="15%" bgcolor="#DCDCDC" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#DCDCDC</td>
+                <td height="18" width="15%" bgcolor="#DC143C" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#DC143C</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#DBDBDB" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#DBDBDB</td>
+                <td height="18" width="15%" bgcolor="#DB7093" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#DB7093</td>
+                <td height="18" width="15%" bgcolor="#DAA520" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#DAA520</td>
+                <td height="18" width="15%" bgcolor="#DA70D6" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#DA70D6</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#D9D9D9" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#D9D9D9</td>
+                <td height="18" width="15%" bgcolor="#D8BFD8" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#D8BFD8</td>
+                <td height="18" width="15%" bgcolor="#D6D6D6" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#D6D6D6</td>
+                <td height="18" width="15%" bgcolor="#D4D4D4" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#D4D4D4</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#D3D3D3" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#D3D3D3</td>
+                <td height="18" width="15%" bgcolor="#D2B48C" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#D2B48C</td>
+                <td height="18" width="15%" bgcolor="#D2691E" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#D2691E</td>
+                <td height="18" width="15%" bgcolor="#D1EEEE" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#D1EEEE</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#D1D1D1" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#D1D1D1</td>
+                <td height="18" width="15%" bgcolor="#D15FEE" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#D15FEE</td>
+                <td height="18" width="15%" bgcolor="#D02090" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#D02090</td>
+                <td height="18" width="15%" bgcolor="#CFCFCF" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CFCFCF</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#CDCDC1" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CDCDC1</td>
+                <td height="18" width="15%" bgcolor="#CDCDB4" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CDCDB4</td>
+                <td height="18" width="15%" bgcolor="#CDCD00" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CDCD00</td>
+                <td height="18" width="15%" bgcolor="#CDC9C9" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CDC9C9</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#CDC9A5" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CDC9A5</td>
+                <td height="18" width="15%" bgcolor="#CDC8B1" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CDC8B1</td>
+                <td height="18" width="15%" bgcolor="#CDC673" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CDC673</td>
+                <td height="18" width="15%" bgcolor="#CDC5BF" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CDC5BF</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#CDC1C5" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CDC1C5</td>
+                <td height="18" width="15%" bgcolor="#CDC0B0" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CDC0B0</td>
+                <td height="18" width="15%" bgcolor="#CDBE70" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CDBE70</td>
+                <td height="18" width="15%" bgcolor="#CDBA96" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CDBA96</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#CDB7B5" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CDB7B5</td>
+                <td height="18" width="15%" bgcolor="#CDB79E" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CDB79E</td>
+                <td height="18" width="15%" bgcolor="#CDB5CD" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CDB5CD</td>
+                <td height="18" width="15%" bgcolor="#CDB38B" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CDB38B</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#CDAF95" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CDAF95</td>
+                <td height="18" width="15%" bgcolor="#CDAD00" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CDAD00</td>
+                <td height="18" width="15%" bgcolor="#CDAA7D" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CDAA7D</td>
+                <td height="18" width="15%" bgcolor="#CD9B9B" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CD9B9B</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#CD9B1D" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CD9B1D</td>
+                <td height="18" width="15%" bgcolor="#CD96CD" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CD96CD</td>
+                <td height="18" width="15%" bgcolor="#CD950C" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CD950C</td>
+                <td height="18" width="15%" bgcolor="#CD919E" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CD919E</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#CD8C95" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CD8C95</td>
+                <td height="18" width="15%" bgcolor="#CD853F" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CD853F</td>
+                <td height="18" width="15%" bgcolor="#CD8500" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CD8500</td>
+                <td height="18" width="15%" bgcolor="#CD8162" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CD8162</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#CD7054" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CD7054</td>
+                <td height="18" width="15%" bgcolor="#CD69C9" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CD69C9</td>
+                <td height="18" width="15%" bgcolor="#CD6889" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CD6889</td>
+                <td height="18" width="15%" bgcolor="#CD6839" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CD6839</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#CD661D" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CD661D</td>
+                <td height="18" width="15%" bgcolor="#CD6600" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CD6600</td>
+                <td height="18" width="15%" bgcolor="#CD6090" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CD6090</td>
+                <td height="18" width="15%" bgcolor="#CD5C5C" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CD5C5C</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#CD5B45" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CD5B45</td>
+                <td height="18" width="15%" bgcolor="#CD5555" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CD5555</td>
+                <td height="18" width="15%" bgcolor="#CD4F39" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CD4F39</td>
+                <td height="18" width="15%" bgcolor="#CD3700" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CD3700</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#CD3333" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CD3333</td>
+                <td height="18" width="15%" bgcolor="#CD3278" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CD3278</td>
+                <td height="18" width="15%" bgcolor="#CD2990" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CD2990</td>
+                <td height="18" width="15%" bgcolor="#CD2626" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CD2626</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#CD1076" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CD1076</td>
+                <td height="18" width="15%" bgcolor="#CD00CD" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CD00CD</td>
+                <td height="18" width="15%" bgcolor="#CD0000" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CD0000</td>
+                <td height="18" width="15%" bgcolor="#CCCCCC" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CCCCCC</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#CAFF70" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CAFF70</td>
+                <td height="18" width="15%" bgcolor="#CAE1FF" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#CAE1FF</td>
+                <td height="18" width="15%" bgcolor="#C9C9C9" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#C9C9C9</td>
+                <td height="18" width="15%" bgcolor="#C7C7C7" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#C7C7C7</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#C71585" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#C71585</td>
+                <td height="18" width="15%" bgcolor="#C6E2FF" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#C6E2FF</td>
+                <td height="18" width="15%" bgcolor="#C67171" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#C67171</td>
+                <td height="18" width="15%" bgcolor="#C5C1AA" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#C5C1AA</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#C4C4C4" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#C4C4C4</td>
+                <td height="18" width="15%" bgcolor="#C2C2C2" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#C2C2C2</td>
+                <td height="18" width="15%" bgcolor="#C1FFC1" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#C1FFC1</td>
+                <td height="18" width="15%" bgcolor="#C1CDCD" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#C1CDCD</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#C1CDC1" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#C1CDC1</td>
+                <td height="18" width="15%" bgcolor="#C1C1C1" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#C1C1C1</td>
+                <td height="18" width="15%" bgcolor="#C0FF3E" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#C0FF3E</td>
+                <td height="18" width="15%" bgcolor="#BFEFFF" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#BFEFFF</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#BFBFBF" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#BFBFBF</td>
+                <td height="18" width="15%" bgcolor="#BF3EFF" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#BF3EFF</td>
+                <td height="18" width="15%" bgcolor="#BEBEBE" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#BEBEBE</td>
+                <td height="18" width="15%" bgcolor="#BDBDBD" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#BDBDBD</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#BDB76B" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#BDB76B</td>
+                <td height="18" width="15%" bgcolor="#BCEE68" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#BCEE68</td>
+                <td height="18" width="15%" bgcolor="#BCD2EE" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#BCD2EE</td>
+                <td height="18" width="15%" bgcolor="#BC8F8F" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#BC8F8F</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#BBFFFF" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#BBFFFF</td>
+                <td height="18" width="15%" bgcolor="#BABABA" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#BABABA</td>
+                <td height="18" width="15%" bgcolor="#BA55D3" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#BA55D3</td>
+                <td height="18" width="15%" bgcolor="#B9D3EE" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#B9D3EE</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#B8B8B8" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#B8B8B8</td>
+                <td height="18" width="15%" bgcolor="#B8860B" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#B8860B</td>
+                <td height="18" width="15%" bgcolor="#B7B7B7" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#B7B7B7</td>
+                <td height="18" width="15%" bgcolor="#B5B5B5" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#B5B5B5</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#B4EEB4" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#B4EEB4</td>
+                <td height="18" width="15%" bgcolor="#B4CDCD" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#B4CDCD</td>
+                <td height="18" width="15%" bgcolor="#B452CD" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#B452CD</td>
+                <td height="18" width="15%" bgcolor="#B3EE3A" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#B3EE3A</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#B3B3B3" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#B3B3B3</td>
+                <td height="18" width="15%" bgcolor="#B2DFEE" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#B2DFEE</td>
+                <td height="18" width="15%" bgcolor="#B23AEE" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#B23AEE</td>
+                <td height="18" width="15%" bgcolor="#B22222" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#B22222</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#B0E2FF" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#B0E2FF</td>
+                <td height="18" width="15%" bgcolor="#B0E0E6" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#B0E0E6</td>
+                <td height="18" width="15%" bgcolor="#B0C4DE" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#B0C4DE</td>
+                <td height="18" width="15%" bgcolor="#B0B0B0" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#B0B0B0</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#B03060" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#B03060</td>
+                <td height="18" width="15%" bgcolor="#AEEEEE" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#AEEEEE</td>
+                <td height="18" width="15%" bgcolor="#ADFF2F" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#ADFF2F</td>
+                <td height="18" width="15%" bgcolor="#ADD8E6" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#ADD8E6</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#ADADAD" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#ADADAD</td>
+                <td height="18" width="15%" bgcolor="#ABABAB" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#ABABAB</td>
+                <td height="18" width="15%" bgcolor="#AB82FF" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#AB82FF</td>
+                <td height="18" width="15%" bgcolor="#AAAAAA" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#AAAAAA</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#A9A9A9" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#A9A9A9</td>
+                <td height="18" width="15%" bgcolor="#A8A8A8" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#A8A8A8</td>
+                <td height="18" width="15%" bgcolor="#A6A6A6" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#A6A6A6</td>
+                <td height="18" width="15%" bgcolor="#A52A2A" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#A52A2A</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#A4D3EE" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#A4D3EE</td>
+                <td height="18" width="15%" bgcolor="#A3A3A3" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#A3A3A3</td>
+                <td height="18" width="15%" bgcolor="#A2CD5A" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#A2CD5A</td>
+                <td height="18" width="15%" bgcolor="#A2B5CD" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#A2B5CD</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#A1A1A1" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#A1A1A1</td>
+                <td height="18" width="15%" bgcolor="#A0522D" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#A0522D</td>
+                <td height="18" width="15%" bgcolor="#A020F0" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#A020F0</td>
+                <td height="18" width="15%" bgcolor="#9FB6CD" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#9FB6CD</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#9F79EE" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#9F79EE</td>
+                <td height="18" width="15%" bgcolor="#9E9E9E" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#9E9E9E</td>
+                <td height="18" width="15%" bgcolor="#9C9C9C" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#9C9C9C</td>
+                <td height="18" width="15%" bgcolor="#9BCD9B" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#9BCD9B</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#9B30FF" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#9B30FF</td>
+                <td height="18" width="15%" bgcolor="#9AFF9A" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#9AFF9A</td>
+                <td height="18" width="15%" bgcolor="#9ACD32" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#9ACD32</td>
+                <td height="18" width="15%" bgcolor="#9AC0CD" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#9AC0CD</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#9A32CD" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#9A32CD</td>
+                <td height="18" width="15%" bgcolor="#999999" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#999999</td>
+                <td height="18" width="15%" bgcolor="#9932CC" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#9932CC</td>
+                <td height="18" width="15%" bgcolor="#98FB98" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#98FB98</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#98F5FF" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#98F5FF</td>
+                <td height="18" width="15%" bgcolor="#97FFFF" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#97FFFF</td>
+                <td height="18" width="15%" bgcolor="#96CDCD" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#96CDCD</td>
+                <td height="18" width="15%" bgcolor="#969696" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#969696</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#949494" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#949494</td>
+                <td height="18" width="15%" bgcolor="#9400D3" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#9400D3</td>
+                <td height="18" width="15%" bgcolor="#9370DB" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#9370DB</td>
+                <td height="18" width="15%" bgcolor="#919191" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#919191</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#912CEE" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#912CEE</td>
+                <td height="18" width="15%" bgcolor="#90EE90" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#90EE90</td>
+                <td height="18" width="15%" bgcolor="#8FBC8F" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8FBC8F</td>
+                <td height="18" width="15%" bgcolor="#8F8F8F" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8F8F8F</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#8EE5EE" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8EE5EE</td>
+                <td height="18" width="15%" bgcolor="#8E8E8E" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8E8E8E</td>
+                <td height="18" width="15%" bgcolor="#8E8E38" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8E8E38</td>
+                <td height="18" width="15%" bgcolor="#8E388E" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8E388E</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#8DEEEE" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8DEEEE</td>
+                <td height="18" width="15%" bgcolor="#8DB6CD" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8DB6CD</td>
+                <td height="18" width="15%" bgcolor="#8C8C8C" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8C8C8C</td>
+                <td height="18" width="15%" bgcolor="#8B8B83" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8B8B83</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#8B8B7A" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8B8B7A</td>
+                <td height="18" width="15%" bgcolor="#8B8B00" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8B8B00</td>
+                <td height="18" width="15%" bgcolor="#8B8989" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8B8989</td>
+                <td height="18" width="15%" bgcolor="#8B8970" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8B8970</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#8B8878" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8B8878</td>
+                <td height="18" width="15%" bgcolor="#8B8682" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8B8682</td>
+                <td height="18" width="15%" bgcolor="#8B864E" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8B864E</td>
+                <td height="18" width="15%" bgcolor="#8B8386" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8B8386</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#8B8378" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8B8378</td>
+                <td height="18" width="15%" bgcolor="#8B814C" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8B814C</td>
+                <td height="18" width="15%" bgcolor="#8B7E66" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8B7E66</td>
+                <td height="18" width="15%" bgcolor="#8B7D7B" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8B7D7B</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#8B7D6B" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8B7D6B</td>
+                <td height="18" width="15%" bgcolor="#8B7B8B" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8B7B8B</td>
+                <td height="18" width="15%" bgcolor="#8B795E" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8B795E</td>
+                <td height="18" width="15%" bgcolor="#8B7765" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8B7765</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#8B7500" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8B7500</td>
+                <td height="18" width="15%" bgcolor="#8B7355" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8B7355</td>
+                <td height="18" width="15%" bgcolor="#8B6969" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8B6969</td>
+                <td height="18" width="15%" bgcolor="#8B6914" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8B6914</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#8B668B" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8B668B</td>
+                <td height="18" width="15%" bgcolor="#8B6508" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8B6508</td>
+                <td height="18" width="15%" bgcolor="#8B636C" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8B636C</td>
+                <td height="18" width="15%" bgcolor="#8B5F65" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8B5F65</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#8B5A2B" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8B5A2B</td>
+                <td height="18" width="15%" bgcolor="#8B5A00" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8B5A00</td>
+                <td height="18" width="15%" bgcolor="#8B5742" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8B5742</td>
+                <td height="18" width="15%" bgcolor="#8B4C39" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8B4C39</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#8B4789" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8B4789</td>
+                <td height="18" width="15%" bgcolor="#8B475D" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8B475D</td>
+                <td height="18" width="15%" bgcolor="#8B4726" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8B4726</td>
+                <td height="18" width="15%" bgcolor="#8B4513" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8B4513</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#8B4500" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8B4500</td>
+                <td height="18" width="15%" bgcolor="#8B3E2F" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8B3E2F</td>
+                <td height="18" width="15%" bgcolor="#8B3A62" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8B3A62</td>
+                <td height="18" width="15%" bgcolor="#8B3A3A" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8B3A3A</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#8B3626" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8B3626</td>
+                <td height="18" width="15%" bgcolor="#8B2500" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8B2500</td>
+                <td height="18" width="15%" bgcolor="#8B2323" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8B2323</td>
+                <td height="18" width="15%" bgcolor="#8B2252" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8B2252</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#8B1C62" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8B1C62</td>
+                <td height="18" width="15%" bgcolor="#8B1A1A" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8B1A1A</td>
+                <td height="18" width="15%" bgcolor="#8B0A50" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8B0A50</td>
+                <td height="18" width="15%" bgcolor="#8B008B" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8B008B</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#8B0000" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8B0000</td>
+                <td height="18" width="15%" bgcolor="#8A8A8A" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8A8A8A</td>
+                <td height="18" width="15%" bgcolor="#8A2BE2" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8A2BE2</td>
+                <td height="18" width="15%" bgcolor="#8968CD" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8968CD</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#87CEFF" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#87CEFF</td>
+                <td height="18" width="15%" bgcolor="#87CEFA" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#87CEFA</td>
+                <td height="18" width="15%" bgcolor="#87CEEB" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#87CEEB</td>
+                <td height="18" width="15%" bgcolor="#878787" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#878787</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#858585" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#858585</td>
+                <td height="18" width="15%" bgcolor="#848484" style="line-height: 22px;"></td>
+
+                <td width="10%" style="line-height: 22px;">#848484</td>
+                <td height="18" width="15%" bgcolor="#8470FF" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#8470FF</td>
+                <td height="18" width="15%" bgcolor="#838B8B" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#838B8B</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#838B83" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#838B83</td>
+                <td height="18" width="15%" bgcolor="#836FFF" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#836FFF</td>
+                <td height="18" width="15%" bgcolor="#828282" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#828282</td>
+                <td height="18" width="15%" bgcolor="#7FFFD4" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#7FFFD4</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#7FFF00" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#7FFF00</td>
+                <td height="18" width="15%" bgcolor="#7F7F7F" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#7F7F7F</td>
+                <td height="18" width="15%" bgcolor="#7EC0EE" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#7EC0EE</td>
+                <td height="18" width="15%" bgcolor="#7D9EC0" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#7D9EC0</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#7D7D7D" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#7D7D7D</td>
+                <td height="18" width="15%" bgcolor="#7D26CD" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#7D26CD</td>
+                <td height="18" width="15%" bgcolor="#7CFC00" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#7CFC00</td>
+                <td height="18" width="15%" bgcolor="#7CCD7C" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#7CCD7C</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#7B68EE" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#7B68EE</td>
+                <td height="18" width="15%" bgcolor="#7AC5CD" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#7AC5CD</td>
+                <td height="18" width="15%" bgcolor="#7A8B8B" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#7A8B8B</td>
+                <td height="18" width="15%" bgcolor="#7A7A7A" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#7A7A7A</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#7A67EE" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#7A67EE</td>
+                <td height="18" width="15%" bgcolor="#7A378B" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#7A378B</td>
+                <td height="18" width="15%" bgcolor="#79CDCD" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#79CDCD</td>
+                <td height="18" width="15%" bgcolor="#787878" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#787878</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#778899" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#778899</td>
+                <td height="18" width="15%" bgcolor="#76EEC6" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#76EEC6</td>
+                <td height="18" width="15%" bgcolor="#76EE00" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#76EE00</td>
+                <td height="18" width="15%" bgcolor="#757575" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#757575</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#737373" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#737373</td>
+                <td height="18" width="15%" bgcolor="#71C671" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#71C671</td>
+                <td height="18" width="15%" bgcolor="#7171C6" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#7171C6</td>
+                <td height="18" width="15%" bgcolor="#708090" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#708090</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#707070" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#707070</td>
+                <td height="18" width="15%" bgcolor="#6E8B3D" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#6E8B3D</td>
+                <td height="18" width="15%" bgcolor="#6E7B8B" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#6E7B8B</td>
+                <td height="18" width="15%" bgcolor="#6E6E6E" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#6E6E6E</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#6CA6CD" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#6CA6CD</td>
+                <td height="18" width="15%" bgcolor="#6C7B8B" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#6C7B8B</td>
+                <td height="18" width="15%" bgcolor="#6B8E23" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#6B8E23</td>
+                <td height="18" width="15%" bgcolor="#6B6B6B" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#6B6B6B</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#6A5ACD" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#6A5ACD</td>
+                <td height="18" width="15%" bgcolor="#698B69" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#698B69</td>
+                <td height="18" width="15%" bgcolor="#698B22" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#698B22</td>
+                <td height="18" width="15%" bgcolor="#696969" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#696969</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#6959CD" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#6959CD</td>
+                <td height="18" width="15%" bgcolor="#68838B" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#68838B</td>
+                <td height="18" width="15%" bgcolor="#68228B" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#68228B</td>
+                <td height="18" width="15%" bgcolor="#66CDAA" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#66CDAA</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#66CD00" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#66CD00</td>
+                <td height="18" width="15%" bgcolor="#668B8B" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#668B8B</td>
+                <td height="18" width="15%" bgcolor="#666666" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#666666</td>
+                <td height="18" width="15%" bgcolor="#6495ED" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#6495ED</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#63B8FF" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#63B8FF</td>
+                <td height="18" width="15%" bgcolor="#636363" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#636363</td>
+                <td height="18" width="15%" bgcolor="#616161" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#616161</td>
+                <td height="18" width="15%" bgcolor="#607B8B" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#607B8B</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#5F9EA0" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#5F9EA0</td>
+                <td height="18" width="15%" bgcolor="#5E5E5E" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#5E5E5E</td>
+                <td height="18" width="15%" bgcolor="#5D478B" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#5D478B</td>
+                <td height="18" width="15%" bgcolor="#5CACEE" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#5CACEE</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#5C5C5C" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#5C5C5C</td>
+                <td height="18" width="15%" bgcolor="#5B5B5B" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#5B5B5B</td>
+                <td height="18" width="15%" bgcolor="#595959" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#595959</td>
+                <td height="18" width="15%" bgcolor="#575757" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#575757</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#556B2F" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#556B2F</td>
+                <td height="18" width="15%" bgcolor="#555555" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#555555</td>
+                <td height="18" width="15%" bgcolor="#551A8B" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#551A8B</td>
+                <td height="18" width="15%" bgcolor="#54FF9F" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#54FF9F</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#548B54" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#548B54</td>
+                <td height="18" width="15%" bgcolor="#545454" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#545454</td>
+                <td height="18" width="15%" bgcolor="#53868B" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#53868B</td>
+                <td height="18" width="15%" bgcolor="#528B8B" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#528B8B</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#525252" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#525252</td>
+                <td height="18" width="15%" bgcolor="#515151" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#515151</td>
+                <td height="18" width="15%" bgcolor="#4F94CD" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#4F94CD</td>
+                <td height="18" width="15%" bgcolor="#4F4F4F" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#4F4F4F</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#4EEE94" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#4EEE94</td>
+                <td height="18" width="15%" bgcolor="#4D4D4D" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#4D4D4D</td>
+                <td height="18" width="15%" bgcolor="#4B0082" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#4B0082</td>
+                <td height="18" width="15%" bgcolor="#4A708B" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#4A708B</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#4A4A4A" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#4A4A4A</td>
+                <td height="18" width="15%" bgcolor="#48D1CC" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#48D1CC</td>
+                <td height="18" width="15%" bgcolor="#4876FF" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#4876FF</td>
+                <td height="18" width="15%" bgcolor="#483D8B" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#483D8B</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#474747" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#474747</td>
+                <td height="18" width="15%" bgcolor="#473C8B" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#473C8B</td>
+                <td height="18" width="15%" bgcolor="#4682B4" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#4682B4</td>
+                <td height="18" width="15%" bgcolor="#458B74" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#458B74</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#458B00" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#458B00</td>
+                <td height="18" width="15%" bgcolor="#454545" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#454545</td>
+                <td height="18" width="15%" bgcolor="#43CD80" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#43CD80</td>
+                <td height="18" width="15%" bgcolor="#436EEE" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#436EEE</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#424242" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#424242</td>
+                <td height="18" width="15%" bgcolor="#4169E1" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#4169E1</td>
+                <td height="18" width="15%" bgcolor="#40E0D0" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#40E0D0</td>
+                <td height="18" width="15%" bgcolor="#404040" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#404040</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#3D3D3D" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#3D3D3D</td>
+                <td height="18" width="15%" bgcolor="#3CB371" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#3CB371</td>
+                <td height="18" width="15%" bgcolor="#3B3B3B" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#3B3B3B</td>
+                <td height="18" width="15%" bgcolor="#3A5FCD" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#3A5FCD</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#388E8E" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#388E8E</td>
+                <td height="18" width="15%" bgcolor="#383838" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#383838</td>
+                <td height="18" width="15%" bgcolor="#36648B" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#36648B</td>
+                <td height="18" width="15%" bgcolor="#363636" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#363636</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#333333" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#333333</td>
+                <td height="18" width="15%" bgcolor="#32CD32" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#32CD32</td>
+                <td height="18" width="15%" bgcolor="#303030" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#303030</td>
+                <td height="18" width="15%" bgcolor="#2F4F4F" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#2F4F4F</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#2E8B57" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#2E8B57</td>
+                <td height="18" width="15%" bgcolor="#2E2E2E" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#2E2E2E</td>
+                <td height="18" width="15%" bgcolor="#2B2B2B" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#2B2B2B</td>
+                <td height="18" width="15%" bgcolor="#292929" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#292929</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#282828" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#282828</td>
+                <td height="18" width="15%" bgcolor="#27408B" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#27408B</td>
+                <td height="18" width="15%" bgcolor="#262626" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#262626</td>
+                <td height="18" width="15%" bgcolor="#242424" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#242424</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#228B22" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#228B22</td>
+                <td height="18" width="15%" bgcolor="#218868" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#218868</td>
+                <td height="18" width="15%" bgcolor="#212121" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#212121</td>
+                <td height="18" width="15%" bgcolor="#20B2AA" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#20B2AA</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#1F1F1F" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#1F1F1F</td>
+                <td height="18" width="15%" bgcolor="#1E90FF" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#1E90FF</td>
+                <td height="18" width="15%" bgcolor="#1E1E1E" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#1E1E1E</td>
+                <td height="18" width="15%" bgcolor="#1C86EE" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#1C86EE</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#1C1C1C" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#1C1C1C</td>
+                <td height="18" width="15%" bgcolor="#1A1A1A" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#1A1A1A</td>
+                <td height="18" width="15%" bgcolor="#191970" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#191970</td>
+                <td height="18" width="15%" bgcolor="#1874CD" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#1874CD</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#171717" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#171717</td>
+                <td height="18" width="15%" bgcolor="#141414" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#141414</td>
+                <td height="18" width="15%" bgcolor="#121212" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#121212</td>
+                <td height="18" width="15%" bgcolor="#104E8B" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#104E8B</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#0F0F0F" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#0F0F0F</td>
+                <td height="18" width="15%" bgcolor="#0D0D0D" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#0D0D0D</td>
+                <td height="18" width="15%" bgcolor="#0A0A0A" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#0A0A0A</td>
+                <td height="18" width="15%" bgcolor="#080808" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#080808</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#050505" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#050505</td>
+                <td height="18" width="15%" bgcolor="#030303" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#030303</td>
+                <td height="18" width="15%" bgcolor="#00FFFF" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#00FFFF</td>
+                <td height="18" width="15%" bgcolor="#00FF7F" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#00FF7F</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#00FF00" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#00FF00</td>
+                <td height="18" width="15%" bgcolor="#00FA9A" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#00FA9A</td>
+                <td height="18" width="15%" bgcolor="#00F5FF" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#00F5FF</td>
+                <td height="18" width="15%" bgcolor="#00EEEE" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#00EEEE</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#00EE76" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#00EE76</td>
+                <td height="18" width="15%" bgcolor="#00EE00" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#00EE00</td>
+                <td height="18" width="15%" bgcolor="#00E5EE" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#00E5EE</td>
+                <td height="18" width="15%" bgcolor="#00CED1" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#00CED1</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#00CDCD" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#00CDCD</td>
+                <td height="18" width="15%" bgcolor="#00CD66" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#00CD66</td>
+                <td height="18" width="15%" bgcolor="#00CD00" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#00CD00</td>
+                <td height="18" width="15%" bgcolor="#00C5CD" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#00C5CD</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#00BFFF" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#00BFFF</td>
+                <td height="18" width="15%" bgcolor="#00B2EE" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#00B2EE</td>
+                <td height="18" width="15%" bgcolor="#009ACD" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#009ACD</td>
+                <td height="18" width="15%" bgcolor="#008B8B" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#008B8B</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#008B45" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#008B45</td>
+                <td height="18" width="15%" bgcolor="#008B00" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#008B00</td>
+                <td height="18" width="15%" bgcolor="#00868B" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#00868B</td>
+                <td height="18" width="15%" bgcolor="#00688B" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#00688B</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#006400" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#006400</td>
+                <td height="18" width="15%" bgcolor="#0000FF" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#0000FF</td>
+                <td height="18" width="15%" bgcolor="#0000EE" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#0000EE</td>
+                <td height="18" width="15%" bgcolor="#0000CD" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#0000CD</td>
+            </tr>
+            <tr style="line-height: 22px;">
+                <td height="18" width="15%" bgcolor="#0000AA" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#0000AA</td>
+                <td height="18" width="15%" bgcolor="#00008B" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#00008B</td>
+                <td height="18" width="15%" bgcolor="#000080" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#000080</td>
+                <td height="18" width="15%" bgcolor="#000000" style="line-height: 22px;"></td>
+                <td width="10%" style="line-height: 22px;">#000000</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>  
+</html>
