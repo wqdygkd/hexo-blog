@@ -1,0 +1,26 @@
+---
+title: Hexo 博客备份
+date: 2017-12-22
+updated: 2018-01-18
+tags: Hexo
+---
+
+# 创建备份分支
+```
+git checkout -b hexo
+```
+
+> 修改 `.gitignore` 将 `node_modules/` 删除
+> `node_modules\mime-db\db.json` 文件会被忽略，需手动add
+
+所有的修改添加均在此分支下进行，并 `push` 到远程 `hexo` 分支
+
+# 恢复
+
+使用git clone 将仓库拷贝至本地
+重新安装插件
+```
+npm install hexo-generator-search --save
+npm install --save hexo-generator-feed
+npm install hexo-deployer-git --save
+```

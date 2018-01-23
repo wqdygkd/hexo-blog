@@ -58,7 +58,7 @@ Enter same passphrase again:再次输入密码
 
 输入密码后会出现以下结果。
 
-```bash
+```
 Your identification has been saved in /Users/your_user_directory/.ssh/id_rsa.
 Your public key has been saved in /Users/your_user_directory/.ssh/id_rsa.pub.
 The key fingerprint is:SHA256:hbn1zPihlVDe/Y2FvzzZU8l+AOSlVRlaOmro/nTQDGg cui3155@gmail.com(fingerprint值+your_email@example.com)
@@ -93,7 +93,7 @@ ssh-rsa公开密钥的内容your_email@example.com
 完成以上设置后，就可以用手中的私人密钥与 GitHub 进行认证和
 通信了。
 
-```bash
+```
 ssh -T git@github.com
 The authenticity of host 'github.com (192.30.255.113)' can't be established.
 RSA key fingerprint is (fingerprint值).
@@ -104,7 +104,7 @@ Enter passphrase for key '/c/Users/C.DESKTOP-3S4APJ4/.ssh/id_rsa':
 
 出现如下结果即为成功。
 
-```bash
+```
 Hi cuilongjin! You've successfully authenticated, but GitHub does not provide shell access.
 ```
 
@@ -267,7 +267,7 @@ git reset -h			"查看帮助"
 2. 使用 `commit_id` 回退 , `git reflog` 用来记录你的每一次命令和 `commit_id`
 
 ```bash
-git reset --soft HEAD^ 
+git reset --soft HEAD^
 
 git reset --hard commit_id
 
