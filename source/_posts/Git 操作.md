@@ -19,6 +19,7 @@ tags: Git
 * **`.git`**：存放Git管理信息的目录，初始化仓库的时候会自动创建。
 
 >![](../../../../images/img/git.jpg)
+>![](../../../../images/img/github-flows.png)
 
 # Git 初始设置
 
