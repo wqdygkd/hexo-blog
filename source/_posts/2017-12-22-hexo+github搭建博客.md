@@ -26,18 +26,18 @@ tags: Hexo
 执行如下命令安装hexo：
 
 ```bash
-$ npm install hexo-cli -g
+npm install hexo-cli -g
 ```
 
 初始化命令：
 
-```
-$ hexo init
+```bash
+hexo init
 ```
 
 文件夹的目录如下：
 
-```
+```bash
 ├── _config.yml  
 ├── package.json  
 ├── scaffolds  
@@ -64,22 +64,22 @@ timezone    | 网站时区。Hexo 默认使用您电脑的时区。时区列表�
 
 将md文件放到source_posts文件夹下执行命令：
 
-```
-$ hexo generate（hexo g 也可以）/生成静态页面至public目录
+```bash
+hexo generate（hexo g 也可以）/生成静态页面至public目录
 ```
 
 > -w, --watch参数监视文件变动
 
 安装本地服务
 
-```
-$ npm install hexo-server --save
+```bash
+npm install hexo-server --save
 ```
 
 启动本地服务，进行文章预览调试，命令：
 
-```
-$ hexo server /开启预览访问端口（默认端口4000，'ctrl + c'关闭server）
+```bash
+hexo server /开启预览访问端口（默认端口4000，'ctrl + c'关闭server）
 ```
 
 > --debug参数开启调试模式 -p, --port参数重设端口
@@ -90,8 +90,8 @@ $ hexo server /开启预览访问端口（默认端口4000，'ctrl + c'关闭ser
 
 服务器默认运行在 0.0.0.0，您可以覆盖默认的 IP 设置，如下：
 
-```
-$ hexo server -i 192.168.1.1
+```bash
+hexo server -i 192.168.1.1
 ```
 
 # 配置Github
@@ -104,25 +104,25 @@ $ hexo server -i 192.168.1.1
 
 > 打开站点配置文件`_config.yml` 翻到最下面，改成我这样子的，注意： : 后面要有空格
 
- ```
+```bash
 deploy:
    type: git
    repository: ssh://git@github.com/cuilongjin/cuilongjin.github.io.git
    branch: master
- ```
+```
 
 > 为了便于以后管理，可以创建备份分支，`$ git checkout -b hexo`创建hexo分支用于备份原始文件 所有的修改添加均在此分支下进行，并push到远程hexo分支。<br>
 注意：`node_modules\mime-db\db.json` 文件会被忽略，需手动add
 
 执行如下命令
 
-```
+```bash
 npm install hexo-deployer-git --save
 ```
 
 然后，执行配置命令：
 
-```
+```bash
 hexo deploy  /将.deploy目录部署到GitHub
 ```
 
@@ -132,23 +132,23 @@ hexo deploy  /将.deploy目录部署到GitHub
 
 每次部署的步骤，可按以下三步来进行。
 
-```
-$ hexo clean
-$ hexo generate
-$ hexo deploy
+```bash
+hexo clean
+hexo generate
+hexo deploy
 ```
 
 # 写作
 
 执行下列命令来创建一篇新文章。
 
-```
-$ hexo new [layout] <title>
+```bash
+hexo new [layout] <title>
 ```
 
 在文章中插入指定大小的图片。
 
-```
+```bash
 {% img [class names] /path/to/image [width] [height] [title text [alt text]] %}
 ```
 
@@ -158,9 +158,9 @@ $ hexo new [layout] <title>
 
 ## 下载 NexT 主题
 
-```
-$ cd your-hexo-site
-$ git submodule add git@github.com:cuilongjin/hexo-theme-next.git themes/next
+```bash
+cd your-hexo-site
+git submodule add git@github.com:cuilongjin/hexo-theme-next.git themes/next
 ```
 
 ## 启用主题
@@ -171,8 +171,8 @@ $ git submodule add git@github.com:cuilongjin/hexo-theme-next.git themes/next
 
 以添加about页面为例，在hexo目录下执行：
 
-```
-$ hexo new page "about"
+```bash
+hexo new page "about"
 ```
 
 然后你会发现source里面多了个目录about，里面有个index.md。其实你也可以手动建立。 然后在主题配置文件 `_config.yml` 中找到menu一项，添加一行About: /about。
@@ -181,7 +181,7 @@ $ hexo new page "about"
 
 打开主题配置文件 `_config.yml` ，启用`auto_excerpt`
 
-```
+```bash
 auto_excerpt:
   enable: true
   length: 150
@@ -191,13 +191,13 @@ auto_excerpt:
 
 在博客根目录下执行：
 
-```
-$ npm install --save hexo-generator-feed
+```bash
+npm install --save hexo-generator-feed
 ```
 
 打开站点配置文件 `_config.yml` ，添加：
 
-```
+```bash
 # Extensions
 ## Plugins: http://hexo.io/plugins/
 plugins: hexo-generate-feed
@@ -205,7 +205,7 @@ plugins: hexo-generate-feed
 
 打开主题配置文件 `_config.yml` ，添加：
 
-```
+```bash
 rss: /atom.yml
 ```
 
@@ -213,13 +213,13 @@ rss: /atom.yml
 
 安装 hexo-generator-search，执行以下命令：
 
-```
-$ npm install hexo-generator-search --save
+```bash
+npm install hexo-generator-search --save
 ```
 
 打开主题配置文件 `_config.yml` ，添加：
 
-```
+```bash
 local_search:
   enable: true
 ```
@@ -242,7 +242,7 @@ Gitment是使用的GitHub Issues作为评论系统，在接入Gitment前，需�
 
 打开主题配置文件 `_config.yml` 修改如下：
 
-```
+```bash
 gitment:
     enable: true
     github_user: # MUST HAVE, Your Github ID
@@ -259,11 +259,26 @@ gitment:
 
 打开主题配置文件 `_config.yml` 添加：
 
-```
+```bash
 # Support for LiveRe comments system.
 # You can get your uid from https://livere.com/insight/myCode (General web site)
 livere_uid: your uid
 ```
+
+### 添加 Hypercomments 超级评论
+
+注册[Hypercomments][13]
+
+打开主题配置文件 `_config.yml` 添加：
+
+```bash
+# Hypercomments
+#hypercomments_id: your id
+```
+
+
+
+
 
 ## Google 分析
 
@@ -465,3 +480,4 @@ $ git pull
 [7]: https://github.com/theme-next/hexo-theme-next/blob/master/docs/cn/DATA-FILES.md
 [8]: https://github.com/theme-next/hexo-theme-next
 [9]: https://github.com/settings/applications/new/
+[13]: https://www.hypercomments.com
