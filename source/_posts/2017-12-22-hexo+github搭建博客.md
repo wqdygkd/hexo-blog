@@ -1,7 +1,7 @@
 ---
 title: Hexo+Github 搭建博客
-date: 2017-12-22T00:00:00.000Z
-updated: 2018-01-18T00:00:00.000Z
+date: 2017-12-22
+updated: 2018-01-18
 tags: Hexo
 ---
 
