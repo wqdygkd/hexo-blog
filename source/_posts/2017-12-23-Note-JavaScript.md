@@ -5,10 +5,6 @@ updated: 2018-2-27
 tags: js
 ---
 
-![杏](https://hbimg.b0.upaiyun.com/0dabec5be78e034ea8fcaa0033a48b4b4ed44ef234d14-lYDqmA "杏")
-
-<!--more-->
-
 # JS引入
 
 ```html

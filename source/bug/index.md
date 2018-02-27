@@ -7,7 +7,7 @@ comments: false
 
 2018.01.30 - 注册 Hypercomments 超级评论，并加入博客
 2018.01.21 - 添加 Fancybox3 (图片弹出框)
-2018.01.16 - img文件夹 `themes\next\source\images\img\`
+2018.01.16 - images文件夹 `hexo\source\images\`
 2018.01.16 - 提交01.15更新
 2018.01.15 - 文章加密访问
 2018.01.15 - 添加顶部加载条

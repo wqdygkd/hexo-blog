@@ -5,10 +5,6 @@ updated: 2018-02-26
 tags: Hexo
 ---
 
-![鸡蛋果](https://hbimg.b0.upaiyun.com/ba3ff731170dd5ba6729f6bb6553a34884a369777609b-OZWVrG "鸡蛋果")
-
-<!--more-->
-
 [Hexo文档](https://hexo.io/zh-cn/docs/index.html)
 
 # 配置环境
