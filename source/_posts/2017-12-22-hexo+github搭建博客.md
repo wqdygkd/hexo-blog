@@ -1,9 +1,13 @@
 ---
 title: Hexo+Github 搭建博客
 date: 2017-12-22
-updated: 2018-01-18
+updated: 2018-02-26
 tags: Hexo
 ---
+
+![鸡蛋果](https://hbimg.b0.upaiyun.com/ba3ff731170dd5ba6729f6bb6553a34884a369777609b-OZWVrG "鸡蛋果")
+
+<!--more-->
 
 [Hexo文档](https://hexo.io/zh-cn/docs/index.html)
 
@@ -148,7 +152,7 @@ hexo new [layout] <title>
 
 在文章中插入指定大小的图片。
 
-```bash
+```html
 {% img [class names] /path/to/image [width] [height] [title text [alt text]] %}
 ```
 
@@ -277,9 +281,6 @@ livere_uid: your uid
 ```
 
 
-
-
-
 ## Google 分析
 
 注册[google_analytics][11]
@@ -290,7 +291,7 @@ livere_uid: your uid
 
 修改文件 `themes\next\source\css\_common\components\post\post.styl` ，在末尾添加如下css样式，：
 
-```
+```css
 // 文章内链接文本样式
 .post-body p a{
   color: #0593d3;
@@ -312,7 +313,7 @@ livere_uid: your uid
 
 在路径 `\themes\next\layout\_macro` 中新建 `passage-end-tag.swig` 文件,并添加以下内容：
 
-```
+```html
 div>
     {% if not is_index %}
         <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束-------------</div>
@@ -322,7 +323,7 @@ div>
 
 接着打开 `\themes\next\layout\_macro\post.swig` 文件，在 `post-body` 之后， `post-footer` 之前添加如下代码：
 
-```
+```html
 <div>
   {% if not is_index %}
     {% include 'passage-end-tag.swig' %}
@@ -332,7 +333,7 @@ div>
 
 然后打开主题配置文件 `_config.yml` ,在末尾添加：
 
-```
+```yml
 # 文章末尾添加“本文结束”标记
 passage_end_tag:
   enabled: true
@@ -340,14 +341,14 @@ passage_end_tag:
 
 ## 添加分享
 
-```
-$ cd themes/next
-$ git submodule add https://github.com/theme-next/theme-next-needmoreshare2 source/lib/needsharebutton
+```bash
+cd themes/next
+git submodule add https://github.com/theme-next/theme-next-needmoreshare2 source/lib/needsharebutton
 ```
 
 打开主题配置文件 `_config.yml` ，加入：
 
-```
+```yml
 needmoreshare2:
   enable: true
   postbottom:
@@ -360,7 +361,7 @@ needmoreshare2:
 
 打开 `\themes\next\source\css\_custom\custom.styl` ，加入：
 
-```
+```css
 code {
     color: #ff7600;
     background: #fbf7f8;
@@ -378,7 +379,7 @@ code {
 
 在 Hexo 目录下的 source 根目录下添加一个 README.md 文件，修改站点配置文件 `_config.yml` ，将 `skip_render` 参数的值设置为： `skip_render: README.md` ，保存退出即可。 skip_render参数设置的路径是相对于source目录的路径。 再次使用 hexo d 命令部署博客的时候就不会在渲染 README.md 这个文件了。
 
-```
+```yml
 # 路径是相对source目录的
 # 不对文件进行渲染，保持文件原有内容
 skip_render:
@@ -388,7 +389,7 @@ skip_render:
 
 ## 添加顶部加载条
 
-```
+```bash
 cd themes/next
 git submodule add https://github.com/theme-next/theme-next-pace source/lib/pace
 ```
@@ -397,7 +398,7 @@ git submodule add https://github.com/theme-next/theme-next-pace source/lib/pace
 
 要改变颜色可以在 `/themes/next/layout/_partials/head/custom-head.swig` 文件中添加如下代码
 
-```html
+```css
 <style>
     .pace .pace-progress {
         background: #1E92FB; /*进度条颜色*/
@@ -417,7 +418,7 @@ git submodule add https://github.com/theme-next/theme-next-pace source/lib/pace
 
 打开 `/themes/next/layout/_partials/head/custom-head.swig` 文件,插入如下代码：
 
-```
+```javascript
 <script>
     (function(){
         if('{{ page.password }}'){
@@ -432,7 +433,7 @@ git submodule add https://github.com/theme-next/theme-next-pace source/lib/pace
 
 在文章上添加：
 
-```
+```yml
 ---
 password:
 ---
@@ -442,9 +443,9 @@ password:
 
 命令：
 
-```
-$ cd themes/next
-$ git pull
+```bash
+cd themes/next
+git pull
 ```
 
 推荐你使用 [Hexo 数据文件][7]特性进行主题配置
