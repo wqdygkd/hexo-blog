@@ -7,7 +7,7 @@ tags: hexo
 
 # coding上创建一个新项目
 
-* 创建项目 `cuilongjin` ，获取这个项目的ssh地址
+创建项目 `cuilongjin` ，获取这个项目的ssh地址
 
 > 若用户名与仓库名相同，可以直接访问 `用户名.coding.me` 访问博客
 
@@ -37,6 +37,9 @@ Coding 提示: Hello cuilongjin, You've connected to Coding.net via SSH. This is
 
 # pages服务方式部署
 
-在source/需要创建一个空白文件
-cd source/
+在 `source/` 需要创建一个空白文件
+
+```bash
+cd source
 touch Staticfile  #名字必须是Staticfile
+```

@@ -1,6 +1,6 @@
 ---
-title: JavaScript基础教程
-date: 2017-12-23
+title: JavaScript 基础教程
+date: 2017-12-01
 updated: 2018-2-27
 tags: js
 ---
