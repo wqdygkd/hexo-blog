@@ -18,13 +18,13 @@ HTML5 定义了一系列新元素，如 **新语义标签、多媒体标**  签�
 
 我们日常讨论的 H5 其实指的是一个泛称，它是由**HTML5+CSS3+javascript** 等技术组合而成的一个应用开发平台
 
-![html5](images/html5.png)
+![html5](html5/html5.png)
 
 
 
 ## HTML5 的历史
 
-![HTML5的历史](images/history.png)
+![HTML5的历史](html5/history.png)
 
 
 

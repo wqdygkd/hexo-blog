@@ -521,7 +521,7 @@ font-style属性用于定义字体风格，如设置斜体、倾斜或正常字�
 
 **行高测量**
 
-![](images/line2.png)
+![](css/line2.png)
 
 **行高和高度的三种关系**
 
@@ -938,7 +938,7 @@ CSS层叠性最后的执行口诀：  长江后浪推前浪，前浪死在沙滩
 
 ### 6.2 CSS继承性
 
-![](images/21%E7%BB%A7%E6%89%BF%E6%80%A7.png)
+![](css/21%E7%BB%A7%E6%89%BF%E6%80%A7.png)
 
 - 概念：
 
@@ -958,7 +958,7 @@ CSS层叠性最后的执行口诀：  长江后浪推前浪，前浪死在沙滩
 
 ### 6.3 CSS优先级（重点）
 
-![](images/22%E4%BC%98%E5%85%88%E7%BA%A7.png)
+![](css/22%E4%BC%98%E5%85%88%E7%BA%A7.png)
 
 - 概念：
 
@@ -1021,7 +1021,7 @@ css学习三大重点： css 盒子模型   、  浮动  、  定位
 
 主题思路：
 
-![](images/css%E7%9B%92%E6%A8%A1%E5%9E%8B.png)
+![](css/css%E7%9B%92%E6%A8%A1%E5%9E%8B.png)
 
 目标：
 
@@ -1254,7 +1254,7 @@ margin: 10px auto;  /* 块级盒子水平居中  左右margin 改为 auto 就阔
 
 - 当上下相邻的两个块元素相遇时，如果上面的元素有下外边距margin-bottom，下面的元素有上外边距margin-top，则他们之间的垂直间距不是margin-bottom与margin-top之和而是**取两个值中的较大者**，这种现象被称为相邻块元素垂直外边距的合并（也称外边距塌陷）。
 
- ![](images/margin%E5%90%88%E5%B9%B6.png)
+ ![](css/margin%E5%90%88%E5%B9%B6.png)
 
 **解决方案：尽量只给一个盒子添加margin值**。
 
@@ -1262,7 +1262,7 @@ margin: 10px auto;  /* 块级盒子水平居中  左右margin 改为 auto 就阔
 
 - 对于两个嵌套关系的块元素，如果父元素没有上内边距及边框，父元素的上外边距会与子元素的上外边距发生合并（父元素会跟着下来），合并后的外边距为两者中的较大者
 
- ![](images/margin%E5%90%88%E5%B9%B61.png)
+ ![](css/margin%E5%90%88%E5%B9%B61.png)
 
 **解决方案：**
 
@@ -1802,7 +1802,7 @@ outline: outline-color ||outline-style || outline-width;
 
 **行内**、**行内块**、表单元格 垂直方向的对齐方式: vertical-align
 
-![](images/xian.jpg)
+![](css/xian.jpg)
 
 
 
@@ -1820,7 +1820,7 @@ middle: 当前元素的中线和父元素的基线加上x高度的一半对齐;
 
 **去除图片底侧空白缝隙**
 
-![](images/vertical.png)
+![](css/vertical.png)
 
 - 原因：
 

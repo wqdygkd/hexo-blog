@@ -284,7 +284,7 @@ transform: translateX(800px) scale(1.5) rotate(360deg);
 
 > 用 X、Y、Z 分别表示空间的3个维度，三条轴互相垂直。**注意+Y是向下的**
 
-![img](images/zbz.png)
+![img](CSS3/zbz.png)
 
 
 
@@ -304,7 +304,7 @@ perspective：500px;
 
 对于我们眼睛来说，离我们越近的房子，我们会感觉到这个房子越大，离我们越远的房子，就会感觉越小，其实房子的大小都是一样的，只是在视觉上的一种不同。
 
-![img](images/per3.png)
+![img](CSS3/per3.png)
 
 ### rotate 旋转
 
@@ -439,7 +439,7 @@ CSS3 在布局方面做了非常大的改进，使得我们对块级元素的布
 主轴：默认是水平方向向右，子元素在主轴上排列
 侧轴：与主轴垂直的轴称作侧轴，默认是垂直方向向下
 
-![](images/flex.png)
+![](CSS3/flex.png)
 
 
 

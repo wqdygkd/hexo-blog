@@ -375,7 +375,7 @@ utf-8是目前最常用的字符集编码方式，常用的字符集编码方式
 
 显示效果如下：
 
-![](images/h.png)
+![](html/h.png)
 
 **小结 :**
 
@@ -1238,7 +1238,7 @@ input新属性：
 
 
 
-![](images/html5.png ':size=600')
+![](html/html5.png ':size=600')
 
 
 
