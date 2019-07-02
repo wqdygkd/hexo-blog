@@ -21,3 +21,10 @@ https://zerocnw.com/
 
 ## ASMR
 http://qiangweijun.cf
+
+## 联机工具
+Hamachi
+
+## 下载工具
+[pandownload](https://pandownload.com/) 百度网盘第三方下载客户端(会被限速)
+[pandownload网页版](https://www.baiduwp.com/) 百度网盘资源下载网页版(搭配aria2) 每日有次数限制

@@ -29,3 +29,8 @@ git add  && git commit && git push
 cd blog
 git add next && git commit && git push
 ```
+
+```
+hexo clean
+hexo g -d
+```
