@@ -591,8 +591,8 @@ git branch
 * git checkout -b 创建、切换分支
 
 ```bash
-# 创建名为 feature-A 的分支
-git checkout -b feature-A
+# 以 branch 为基础创建名为 feature-A 的分支
+git checkout -b feature-A <branch>
 ```
 
 
@@ -614,10 +614,10 @@ git checkout -
 首先切换到 master 分支，然后执行
 
 ```bash
-git merge --no-ff -m "描述" feature-A
+git merge [--squash] [--no-ff] -m "描述" feature-A
+--squash # 只是将<branch>中的修改内容迁移过来，而不保留其中的commit历史
+--no-ff # 创建合并提交，为了在历史记录中明确记录下本次分支合并
 ```
-
-为了在历史记录中明确记录下本次分支合并，我们需要创建合并提交。因此，在合并时加上 `--no-ff` 参数
 
 * git branch -d 删除分支
 
@@ -638,6 +638,9 @@ git push origin :feature-A
 ```bash
 # 重命名本地分支
 git branch -m old_branch new_branch
+
+# 重命名远程分支
+# 重命名本地分支 -> 删除远程分支 -> 推送到远程分支
 ```
 
 
@@ -824,3 +827,24 @@ git filter-branch -f --env-filter \
 "GIT_AUTHOR_NAME='Newname'; GIT_AUTHOR_EMAIL='newemail'; \
 GIT_COMMITTER_NAME='committed-name'; GIT_COMMITTER_EMAIL='committed-email';" HEAD
 ```
+
+
+
+
+
+### fork 的项目 A 与原项目 B 保持同步
+
+1. 将 A 克隆到本地做中转
+2. 将 B 的 master 分支拉取到本地
+
+```bash
+git fetch <B 远程仓库地址> master:updated
+
+# 或添加 B 远程仓库地址并拉取
+git remote add update <B 远程仓库地址>
+git fetch update master:updated
+```
+
+3. 合并并解决冲突
+
+4. 推送
