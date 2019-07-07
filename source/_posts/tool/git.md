@@ -315,6 +315,8 @@ git init
 > `mkdir project` 命令创建 project 空文件夹
 * `pwd` 命令用于显示当前目录
 
+
+
 ### git add
 
 ```bash
@@ -335,6 +337,8 @@ git add -A
 git add --all
 ```
 
+
+
 ### git commit
 
 ```bash
@@ -354,6 +358,8 @@ git commit --amend -m '提交说明'
 ​	第二行：空行
 ​	第三行以后：记述更改的原因和详细内容
 
+
+
 ### git status
 
 ```bash
@@ -366,6 +372,8 @@ git stauts -s (short)
 ```
 
 `git status` 命令可以让我们时刻掌握仓库当前的状态，但不能看到具体修改了什么内容，需要用 `git diff` 这个命令来查看具体修改内容。
+
+
 
 ### git diff
 
@@ -392,6 +400,8 @@ git diff c265262 de4845b
 
 >HEAD 是指向当前分支中最新一次提交的指针
 
+
+
 ### git log
 
 ```bash
@@ -416,6 +426,8 @@ git log -p 文件名
 git reflog
 ```
 
+
+
 ### git reset
 
 ```bash
@@ -435,6 +447,8 @@ git reset --hard commit_id
 git reset HEAD [file]
 ```
 
+
+
 ### git checkout --file
 
 ```bash
@@ -449,7 +463,9 @@ git checkout -- README.md
 
 2. 一种是 README.md 已经添加到暂存区后，又作了修改，现在撤销修改就回到添加到暂存区后的状态
 
-总之，就是让这个文件回到最近一次git commit或git add时的状态，可用于**撤销文件修改或恢复误删文件**
+总之，就是让这个文件回到最近一次 git commit 或 git add 时的状态，可用于**撤销文件修改或恢复误删文件**
+
+
 
 ### git remote
 
@@ -501,6 +517,8 @@ git push origin --force --all
 解决方法——http://github.com/settings/emails 把Keep my email address private这一项去掉勾选即可。
 
 如果推送失败，则因为远程分支比你的本地更新，需要先用 `git pull` 拉取远程的新提交
+
+
 
 ### git clone
 
@@ -609,16 +627,6 @@ git checkout feature-A
 git checkout -
 ```
 
-* git merge 合并分支
-
-首先切换到 master 分支，然后执行
-
-```bash
-git merge [--squash] [--no-ff] -m "描述" feature-A
---squash # 只是将<branch>中的修改内容迁移过来，而不保留其中的commit历史
---no-ff # 创建合并提交，为了在历史记录中明确记录下本次分支合并
-```
-
 * git branch -d 删除分支
 
 ```bash
@@ -644,6 +652,18 @@ git branch -m old_branch new_branch
 ```
 
 
+
+### git merge
+
+合并分支
+
+```bash
+# 将 feature-A 合并到 master 上
+# 首先切换到 master 分支，然后执行
+git merge [--squash] [--no-ff] -m "描述" feature-A
+--squash # 只是将<branch>中的修改内容迁移过来，而不保留其中的commit历史
+--no-ff # 创建合并提交，为了在历史记录中明确记录下本次分支合并
+```
 
 
 
@@ -679,9 +699,10 @@ git stash pop
 [廖雪峰Git教程Bug分支](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137602359178794d966923e5c4134bc8bf98dfb03aea3000)
 
 
-## Git 标签管理
 
-### 创建标签
+### git tag
+
+* 创建标签
 
 ```bash
 # 首先切换到需要打标签的分支上
@@ -698,7 +719,7 @@ git tag -a v1.0 -m "version1.0 released" <commit id>
 git tag -s v1.0 -m "signed version1.0 released" <commit id>
 ```
 
-### 查看标签
+* 查看标签
 
 ```bash
 # 查看所有标签
@@ -715,7 +736,7 @@ Author:xxx
 Date:xxx
 ```
 
-### 推送标签到远程
+* 推送标签到远程
 
 ```bash
 # 推送 v1.0 标签到远程
@@ -725,7 +746,7 @@ git push origin v1.0
 git push origin --tags
 ```
 
-### 删除标签
+* 删除标签
 
 ```bash
 # 删除本地标签 v1.0
@@ -739,13 +760,13 @@ git push origin :refs/tags/v1.0
 
 ## git 修改提交历史
 
-修改最后一条commit
+修改最后一条 commit
 
 ```bash
 git commit --amend
 ```
 
-修改多条commit
+修改多条 commit
 
 ```
 git rebase -i HEAD~3 修改最近三次提交
@@ -776,7 +797,7 @@ Commands
 
 ## other
 
-* git add .` 的时候遇到 `warning: LF will be replaced by CRLF in ......`
+### git add .` 的时候遇到 `warning: LF will be replaced by CRLF in ......`
 
 ```bash
 git config core.autocrlf
@@ -793,7 +814,7 @@ git config --global core.autocrlf false
 
 
 
-* Git 永久删除文件(包括历史记录)
+### Git 永久删除文件(包括历史记录)
 
 https://help.github.com/articles/removing-sensitive-data-from-a-repository/
 
@@ -830,8 +851,6 @@ GIT_COMMITTER_NAME='committed-name'; GIT_COMMITTER_EMAIL='committed-email';" HEA
 
 
 
-
-
 ### fork 的项目 A 与原项目 B 保持同步
 
 1. 将 A 克隆到本地做中转
@@ -848,3 +867,6 @@ git fetch update master:updated
 3. 合并并解决冲突
 
 4. 推送
+
+
+
