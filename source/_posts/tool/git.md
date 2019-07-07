@@ -473,20 +473,26 @@ git checkout -- README.md
 git remote add origin git@github.com:cuilongjin/git_test.git
 ```
 
-添加后，远程库的名字就是origin，这是Git默认的叫法，也可以改成别的，但是origin这个名字一看就知道是远程库
+添加后，远程库的名字就是 origin，这是 Git 默认的叫法，也可以改成别的，但是 origin 这个名字一看就知道是远程库
 
 ```bash
 # 查看远程库的信息
 git remote -v
 origin  git@github.com:cuilongjin/git_test.git (fetch)
 origin  git@github.com:cuilongjin/git_test.git (push)
+
+# 查看指定远程库的详细信息
+git remote show <远程库>
 ```
 
-上面显示了可以抓取和推送的origin的地址。如果没有推送权限，就看不到push的地址
+上面显示了可以抓取和推送的 origin 的地址。如果没有推送权限，就看不到 push 的地址
 
 ```bash
-# 删除已有的GitHub远程库
+# 删除已有的 GitHub 远程库
 git remote rm origin
+
+# 修改远程库名称
+git remote rename <原远程库名> <新远程库名>
 ```
 
 
@@ -495,7 +501,17 @@ git remote rm origin
 
 ```bash
 # 获取远程仓库的更新，并且与本地的分支进行合并
-git pull
+git pull <远程仓库名> <远程分支名>:<本地分支名>
+
+# 如果远程分支是与当前分支合并，则冒号后面的部分可以省略
+git pull origin next 等同于 git fetch origin && git merge origin/next
+
+# 远程主机删除了某个分支，默认情况下，git pull 不会在拉取远程分支的时候，删除对应的本地分支
+# 加上参数 -p 就会在本地删除远程已经删除的分支
+$ git pull -p
+# 等同于下面的命令
+$ git fetch --prune origin 
+$ git fetch -p
 
 # 合并 pull 两个不同的项目出现 fatal: refusing to merge unrelated histories
 git pull origin master ----allow-unrelated-histories
@@ -506,12 +522,21 @@ git pull origin master ----allow-unrelated-histories
 ### git push
 
 ```bash
+git push <远程仓库名> <本地分支名>:<远程分支名>
+
+# 第一次推送分支时，加上 -u 参数，git 会把本地分支和远程分支关联起来，在以后的推送或者拉取时就可以简化命令
 git push -u origin master
+
+# 如果没有本地分支，表示删除远程分支
+git push origin :master
+# 等同于
+$ git push origin --delete master
+
 # 以强制覆盖的方式推送修改后的 repo （重新上传 repo）（不指定分支即所有分支）
 git push origin --force --all
 ```
 
-第一次推送分支时，加上 -u 参数，Git 会把本地分支和远程分支关联起来，在以后的推送或者拉取时就可以简化命令
+
 
 >remote: error: GH007: Your push would publish a private email address.
 解决方法——http://github.com/settings/emails 把Keep my email address private这一项去掉勾选即可。
@@ -524,6 +549,9 @@ git push origin --force --all
 
 ```bash
 git clone git@github.com:cuilongjin/仓库名.git [指定文件夹]
+
+# 默认远程主机为 origin ， -o 指定主机名
+git clone --o origin1 git@github.com:cuilongjin/仓库名.git
 ```
 
 Git 支持多种协议，包括 https，但通过 ssh 支持的原生 git 协议速度最快
@@ -539,6 +567,24 @@ git branch --set-upstream dev origin/dev
 ```
 
 
+
+### git fetch
+
+```bash
+# 将某个远程仓库的更新，全部取回本地。默认取回所有分支（branch）的更新
+git fetch <远程仓库>
+
+# 取回特定分支的更新
+git fetch <远程仓库> <分支名>
+```
+
+
+
+git fetch 和 git pull 区别
+
+* git pull 获取远程仓库的更新，并且与本地的分支进行合并
+
+* git fetch 所取回的更新，在本地主机上要用 "远程仓库/分支名" 的形式读取，即不会与本地分支合并
 
 ### git 忽视文件
 
@@ -600,11 +646,12 @@ git check-ignore -v <file>
 ```bash
 git branch
 * master
+
+-r 参数查看远程分支
+-a 查看所有分支(远程分支会用红色表示出来)
 ```
 
 `*`（星号）表示当前所在的分支
-
--a 参数可以查看远程分支(远程分支会用红色表示出来)
 
 * git checkout -b 创建、切换分支
 
@@ -851,22 +898,39 @@ GIT_COMMITTER_NAME='committed-name'; GIT_COMMITTER_EMAIL='committed-email';" HEA
 
 
 
-### fork 的项目 A 与原项目 B 保持同步
-
-1. 将 A 克隆到本地做中转
-2. 将 B 的 master 分支拉取到本地
+### fork 的项目( A )与原项目 (B) 保持同步
 
 ```bash
-git fetch <B 远程仓库地址> master:updated
+# 将 A 克隆到本地做中转
 
-# 或添加 B 远程仓库地址并拉取
+# 添加 B 远程仓库地址并拉取
 git remote add update <B 远程仓库地址>
 git fetch update master:updated
+
+# 合并并解决冲突
+git merge updated
+
+# 也可以直接合并远程分支
+git merge update/master
 ```
 
-3. 合并并解决冲突
-
-4. 推送
 
 
+### 远程分支删除以后，本地显示仍然存在的解决办法
+
+```bash
+# 显示所有分支：
+git branch -a
+
+# 命令查看远程分支和本地分支的对应关系
+git remote show origin
+
+# 会看到
+refs/remotes/origin/<branch> stale (use 'git remote prune' to remove)
+
+# 执行下面命令同步删除
+git remote prune origin
+或者
+git fetch -p
+```
 
