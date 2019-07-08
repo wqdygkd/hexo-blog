@@ -1,10 +1,17 @@
-
+---
+title: npm 使用
+tags: Markdown
+categories:
+  - [工具]
+date: 2019/07/03
+updated: 2019/07/03
+---
 
 ## npm 使用
 
 ### 解决 npm 包无法下载
 
- electron sass 
+electron sass
 
 进入 `~/.npmrc`，增加如下内容
 
@@ -15,11 +22,7 @@ phantomjs_cdnurl=http://npm.taobao.org/mirrors/phantomjs
 electron_mirror=http://npm.taobao.org/mirrors/electron/
 ```
 
-
-
 淘宝 npm 镜像 https://npm.taobao.org/
-
-
 
 ### npm 基本命令
 
@@ -28,7 +31,7 @@ electron_mirror=http://npm.taobao.org/mirrors/electron/
 npm -v|--version
 npm install npm@latest -g
 
-# nvm : npm Version Manager 
+# nvm : npm Version Manager
 
 # 搜索包
 npm search <pkg>
@@ -76,19 +79,15 @@ npm init --yes or -y
 
 ```
 
-
-
 ### npm 修改源
 
-* 进入~/.npmrc 增加 `registry=https://registry.npm.taobao.org`
+- 进入~/.npmrc 增加 `registry=https://registry.npm.taobao.org`
 
-* 通过命令 `npm config set registry http://registry.cnpmjs.org`
+- 通过命令 `npm config set registry http://registry.cnpmjs.org`
 
-* 临时使用指定源下载 `npm install jquery --registry=https://registry.npm.taobao.org`
+- 临时使用指定源下载 `npm install jquery --registry=https://registry.npm.taobao.org`
 
-* 使用 nrm 管理源
-
-
+- 使用 nrm 管理源
 
 ### npm 配置文件
 
@@ -112,23 +111,19 @@ npm config set prefix "<new_path>"
 npm config set cache "<new_path>"
 ```
 
-
-
 ### 版本号
 
-使用NPM下载和发布代码时都会接触到版本号。NPM使用语义版本号来管理代码
+使用 NPM 下载和发布代码时都会接触到版本号。NPM 使用语义版本号来管理代码
 
-语义版本号分为X.Y.Z三位，分别代表主版本号、次版本号和补丁版本号。当代码变更时，版本号按以下原则更新。
+语义版本号分为 X.Y.Z 三位，分别代表主版本号、次版本号和补丁版本号。当代码变更时，版本号按以下原则更新。
 
-- 如果只是修复bug，需要更新Z位
-- 如果是新增了功能，但是向下兼容，需要更新Y位
-- 如果有大变动，向下不兼容，需要更新X位
-
-
+- 如果只是修复 bug，需要更新 Z 位
+- 如果是新增了功能，但是向下兼容，需要更新 Y 位
+- 如果有大变动，向下不兼容，需要更新 X 位
 
 ### nrm 使用
 
-nrm ls 查看配置列表，带*号即为当前使用的配置
+nrm ls 查看配置列表，带\*号即为当前使用的配置
 
 nrm use 源的别名：切换源
 
@@ -137,8 +132,3 @@ nrm add 别名 地址 ： 添加源
 nrm test 别名 ： 测速
 
 nrm del 别名 ：删除源
-
-
-
-
-

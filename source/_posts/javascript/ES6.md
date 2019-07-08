@@ -34,13 +34,6 @@ console.log(a) // 1
 console.log(b) // ReferenceError: b is not defined
 ```
 
-- 不存在变量提升
-
-```js
-console.log(b) // ReferenceError: b is not defined
-let b = 2
-```
-
 - 不允许重复声明
 
 ```js
@@ -57,15 +50,25 @@ let c = 1
 console.log(window.c) // undefined
 ```
 
--
+* <span class="error">存在变量提升</span>
 
 ```javascript
 let a = 1
 {
-  console.log(a) // 报错
-  let a = 2
+  a = 2
+  let a
 }
+// 如果 let 不会提升，那么 a = 2 就会将外面的 a 由 1 变成 2
+// 但运行发现 a = 2 报错：Uncaught ReferenceError: Cannot access 'a' before initialization
 ```
+
+
+
+总结：
+
+* let 声明会提升到块顶部
+* 从块顶部到该变量的初始化语句，这块区域叫做 TDZ（临时死区）
+* 如果你在 TDZ 内使用该变量，JS 就会报错
 
 
 
