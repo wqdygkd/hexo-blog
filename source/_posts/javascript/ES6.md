@@ -4,7 +4,7 @@ tags: es6
 categories:
 - [js]
 date: 2018/12/29 18:00:00
-updated: 2019/03/19 23:40:00
+updated: 2019/07/08
 ---
 
 
@@ -17,6 +17,12 @@ ECMAScript 6.0（以下简称 ES6）是在 2015 年 6 月正式发布的标准�
 ## let 与 const
 
 > ES6 中提供了两个声明变量的关键字：const 和 let
+
+参考链接
+
+[[知乎]我用了两个月的时间才理解 let](https://zhuanlan.zhihu.com/p/28140450)
+
+[[MDN]变量提升](https://developer.mozilla.org/zh-CN/docs/Glossary/Hoisting)
 
 ### let 的使用
 
@@ -64,13 +70,32 @@ let a = 1
 
 
 
-总结：
+总结1：
 
 * let 声明会提升到块顶部
 * 从块顶部到该变量的初始化语句，这块区域叫做 TDZ（临时死区）
 * 如果你在 TDZ 内使用该变量，JS 就会报错
 
+总结2：
 
+* let 的「创建」过程被提升了，但是初始化没有提升
+* var 的「创建」和「初始化」都被提升了
+* function 的「创建」「初始化」和「赋值」都被提升了
+
+所谓暂时死区，就是不能在初始化之前，使用变量
+
+总结3：
+
+```js
+a = 1; let a; // Uncaught ReferenceError: Cannot access 'a' before initialization
+a // Uncaught ReferenceError: Cannot access 'a' before initialization
+```
+
+如果 let x 的初始化过程失败了，那么
+
+* x 变量就将永远处于 created 状态
+* 你无法再次对 x 进行初始化（初始化只有一次机会，而那次机会你失败了）
+* 由于 x 无法被初始化，所以 x 永远处在暂时死区
 
 ### const 的使用
 
@@ -100,12 +125,9 @@ obj = {} // TypeError: Assignment to constant variable
 
 - 其他用法和 let 一样
 
-```
 只能在当前代码块中使用
-不会提升
 不能重复声明
 不绑定全局作用域
-```
 
 
 
