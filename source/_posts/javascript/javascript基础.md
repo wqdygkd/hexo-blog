@@ -4,7 +4,7 @@ tags: javascript
 categories:
 - [js]
 date: 2018/09/08 16:19:00
-updated: 2019/03/13 23:18:00
+updated: 2019/07/09
 ---
 
 
@@ -2032,58 +2032,56 @@ function Person(name, age, salary) {
 
 ## Math 对象
 
->
-
 - 属性PI
 
   `Math.PI`
 
 - 最大值/最小值
 
-  ```
-  Math.max()
-  Math.min()
-  ```
+```
+Math.max()
+Math.min()
+```
 
 - 取整
 
-  ```javascript
-  Math.ceil() // 向上取整
-  Math.floor() // 向下取整
-  Math.round() // 四舍五入，如果是.5，则取更大的那个数
-  ```
+```javascript
+Math.ceil() // 向上取整
+Math.floor() // 向下取整
+Math.round() // 四舍五入，如果是.5，则取更大的那个数 (-1.5 -> -1)
+```
 
 - 随机数
 
-  ```javascript
-  Math.random() // 返回一个[0,1)之间的数，能取到0，取不到1
-  // [0~N]随机数 parseInt(Math.random * (N+1))
-  // [4~9] ==> [0~5]+4
-  ```
+```javascript
+Math.random() // 返回一个[0,1)之间的数，能取到0，取不到1
+// [0~N]随机数 parseInt(Math.random * (N+1))
+// [4~9] ==> [0~5]+4
+```
 
 - 绝对值
 
-  ```javascript
-  Math.abs() // 求绝对值
-  ```
+```javascript
+Math.abs() // 求绝对值
+```
 
 - 次幂和平方
 
-  ```javascript
-  Math.pow(num, power) // 求num的power次方
-  Math.sqrt(num) // 对num开平方
-  ```
+```javascript
+Math.pow(num, power) // 求 num 的 power 次方
+Math.sqrt(num) // 对 num 开平方
+```
 
 - 练习
 
 ```javascript
-  随机生成一个rgb颜色？
-  function randomRGB () {
-    var colorA = parseInt( Math.random() * 256 )
-    var colorB = parseInt( Math.random() * 256 )
-    var colorC = parseInt( Math.random() * 256 )
-    return 'rgb('+ colorA + "," + colorB + ',' + colorC +')'
-  }
+// 随机生成一个 rgb 颜色?
+function randomRGB () {
+  var colorA = parseInt( Math.random() * 256 )
+  var colorB = parseInt( Math.random() * 256 )
+  var colorC = parseInt( Math.random() * 256 )
+  return 'rgb('+ colorA + "," + colorB + ',' + colorC +')'
+}
 ```
 
 
@@ -2094,56 +2092,56 @@ function Person(name, age, salary) {
 
 - 创建一个日期对象
 
-  ```javascript
-  // 不传参数：创建一个当前时间的对象
-  var date = new Date()
+```javascript
+// 不传参数：创建一个当前时间的对象
+var date = new Date()
 
-  // 日期格式字符串：创建一个指定时间的日期对象
-  // '-' 在 safari 下不识别，推荐用 /
-  var date = new Date('2018/12/02')
-  var date = new Date('2018/12/02 00:02:05')
+// 日期格式字符串：创建一个指定时间的日期对象
+// '-' 在 safari 下不识别，推荐用 /
+var date = new Date('2018/12/02')
+var date = new Date('2018/12/02 00:02:05')
 
-  // 日期以逗号分隔：注意月份从0开始
-  var date = new Date(2018, 11, 2, 0, 2, 5) // 2018/12/02
+// 日期以逗号分隔：注意月份从0开始
+var date = new Date(2018, 11, 2, 0, 2, 5) // 2018/12/02
 
-  // 时间戳
-  var date = new Date(1543680125000)
-  ```
+// 时间戳
+var date = new Date(1543680125000)
+```
 
 - 日期格式化(了解)
 
-  ```javascript
-  date.toString() // 默认的日期格式 ，包括日期和时间
-  date.toLocalString() // 本地风格的日期格式（兼容性）
-  date.toDateString() // 只显示日期
-  date.toLocalDateString()
-  date.toTimeString() // 只显示时间
-  date.toLocalTimeString()
-  ```
+```javascript
+date.toString() // 默认的日期格式 ，包括日期和时间
+date.toLocalString() // 本地风格的日期格式（兼容性）
+date.toDateString() // 只显示日期
+date.toLocalDateString()
+date.toTimeString() // 只显示时间
+date.toLocalTimeString()
+```
 
 - 获取日期的指定部分
 
-  ```javascript
-  getMilliseconds() // 获取毫秒值
-  getSeconds() // 获取秒
-  getMinutes() // 获取分钟
-  getHours() // 获取小时
-  getDay() // 获取星期，0-6    0：星期天
-  getDate() // 获取日，即当月的第几天
-  getMonth() // 返回月份，注意月份从0开始
-  getFullYear() // 返回4位的年份  如 2018
+```javascript
+getMilliseconds() // 获取毫秒值
+getSeconds() // 获取秒
+getMinutes() // 获取分钟
+getHours() // 获取小时
+getDay() // 获取星期，0-6    0：星期天
+getDate() // 获取日，即当月的第几天
+getMonth() // 返回月份，注意月份从0开始
+getFullYear() // 返回4位的年份  如 2018
 
-  // 思考：
-  // 封装一个函数，返回当前的时间，格式是：yyyy-MM-dd HH:mm:ss
-  ```
+// 思考：
+// 封装一个函数，返回当前的时间，格式是：yyyy-MM-dd HH:mm:ss
+```
 
 - 时间戳
 
-  ```javascript
-  var date = +new Date() // 1970年01月01日00时00分00秒起至现在的总毫秒数
-  // 思考
-  // 如何统计一段代码的执行时间？
-  ```
+```javascript
+var date = +new Date() // 1970年01月01日00时00分00秒起至现在的总毫秒数
+// 思考
+// 如何统计一段代码的执行时间？
+```
 
 
 
@@ -2153,113 +2151,115 @@ function Person(name, age, salary) {
 
 - 数组转换
 
-  ```javascript
-  // 语法：arr.join(separator)
-  // 作用：将数组的值拼接成字符串
+```javascript
+// 语法：arr.join(separator)
+// 作用：将数组的值拼接成字符串
 
-  var arr = [1,2,3,4,5]
-  arr.join() // 不传参数，默认用逗号进行拼接，返回拼接好的字符串
-  arr.join('')
-  arr.join('-') // 用 - 进行拼接
-  ```
+var arr = [1,2,3,4,5]
+arr.join() // 不传参数，默认用逗号进行拼接，返回拼接好的字符串
+arr.join('')
+arr.join('-') // 用 - 进行拼接
+```
 
 - 数组的增删操作
 
-  ```javascript
-  arr.push() // 从后面添加一个或多个元素，逗号隔开，返回新数组的 length
-  arr.pop() // 从数组的后面删除元素，返回删除的那个元素
-  arr.unshift() // 从数组的前面的添加元素，返回新数组的 length
-  arr.shift() // 从数组的最前面删除元素，返回删除的那个元素
-  arr.push(arr1) // 把 arr1 当成一个整体放到 arr 里
 
-  // 练习1
-  var arr = ['刘备']
-  // 添加数据后变成：['赵云','马超','刘备','关羽','张飞']
-  // 删除数据后变成：['关羽','张飞']
 
-  // 练习2
-  var arr = ['赵云','马超','刘备','关羽','张飞']
-  // 把数组的最后一个元素变成数组的第一个元素
-  // 把数组的第一个元素变成数组的最后一个元素
-  ```
+```javascript
+arr.push() // 从后面添加一个或多个元素，逗号隔开，返回新数组的 length
+arr.pop() // 从数组的后面删除元素，返回删除的那个元素
+arr.unshift() // 从数组的前面的添加元素，返回新数组的 length
+arr.shift() // 从数组的最前面删除元素，返回删除的那个元素
+arr.push(arr1) // 把 arr1 当成一个整体放到 arr 里
+
+// 练习1
+var arr = ['刘备']
+// 添加数据后变成：['赵云','马超','刘备','关羽','张飞']
+// 删除数据后变成：['关羽','张飞']
+
+// 练习2
+var arr = ['赵云','马超','刘备','关羽','张飞']
+// 把数组的最后一个元素变成数组的第一个元素
+// 把数组的第一个元素变成数组的最后一个元素
+```
 
 - 数组的翻转与排序
 
-  ```javascript
-  arr.reverse() // 翻转数组
-  arr.sort() // 数组的排序，按照首字符依次比较
+```javascript
+arr.reverse() // 翻转数组
+arr.sort() // 数组的排序，按照首字符依次比较
 
-  // sort 方法可以传递一个函数作为参数，这个参数用来控制数组如何进行排序
-  arr.sort(function (a, b) {
-    // 参数为 true 时，即返回值 > 0 时，交换位置
-    // return a - b // 从小到大排序
-    return b - a  // 从大到小排序
-  })
-  ```
+// sort 方法可以传递一个函数作为参数，这个参数用来控制数组如何进行排序
+arr.sort(function (a, b) {
+  // 参数为 true 时，即返回值 > 0 时，交换位置
+  // return a - b // 从小到大排序
+  return b - a  // 从大到小排序
+})
+```
 
-    ```javascript
-  // 思考：
-  // 将[3, 6, 1, 5, 10, 2,11]从小到大排列
-  // 将字符串数组按照字符长度从小到大排列 a.sort(function (a, b) {return a.length - b.length})
-  // 将学生数组按照年龄从小到大排列
-    ```
+```javascript
+// 思考：
+// 将[3, 6, 1, 5, 10, 2,11]从小到大排列
+// 将字符串数组按照字符长度从小到大排列 a.sort(function (a, b) {return a.length - b.length})
+// 将学生数组按照年龄从小到大排列
+```
 
 - 数组的拼接与截取
 
-  ```javascript
-  // concat：数组合并，返回一个新数组，原数组不受影响
-  var newArr = arr.concat(arr2) // 把 arr 和 arr2 中的所有元素放到 newArr 里
+```javascript
+// concat：数组合并，返回一个新数组，原数组不受影响
+var newArr = arr.concat(arr2) // 把 arr 和 arr2 中的所有元素放到 newArr 里
 
-  // slice: 数组切分，复制数组的一部分到一个新数组，并返回这个新数组，原数组不受影响
-  // slice(begin, end) 包含 begin，不包含 end， begin 和 end 为下标
-  // slice(begin) 只有一个参数时，为开始参数，截取到末尾
-  // slice() 没有参数，全部截取
-  // 可以为负数，会将字符串的长度与对应的负数相加，结果作为参数，-1 表示从后数第一个
-  var newArr = arr.slice(begin, end)
+// slice: 数组切分，复制数组的一部分到一个新数组，并返回这个新数组，原数组不受影响
+// slice(begin, end) 包含 begin，不包含 end， begin 和 end 为下标
+// slice(begin) 只有一个参数时，为开始参数，截取到末尾
+// slice() 没有参数，全部截取
+// 可以为负数，会将字符串的长度与对应的负数相加，结果作为参数，-1 表示从后数第一个
+var newArr = arr.slice(begin, end)
 
-  // splice: 删除或者增加数组元素，修改原数组，返回删除的内容（数组形式）
-  // start: 开始位置  deletedCount: 删除的个数（如果不删除为 0）items: 替换的内容, 可为多个
-  arr.splice(start, deletedCount, [items]) // items 将作为 arr 的一项
+// splice: 删除或者增加数组元素，修改原数组，返回删除的内容（数组形式）
+// start: 开始位置  deletedCount: 删除的个数（如果不删除为 0）items: 替换的内容, 可为多个
+arr.splice(start, deletedCount, [items]) // items 将作为 arr 的一项
 
-  // 练习：
-  var arr = ['赵云','马超','刘备','关羽','张飞']
-  // 截取['刘备','关羽']
-  // 在马超后面增加马腾
-  arr.splice(2, 0, '马腾')
-  // 删除关羽
-  ```
+// 练习：
+var arr = ['赵云','马超','刘备','关羽','张飞']
+// 截取['刘备','关羽']
+// 在马超后面增加马腾
+arr.splice(2, 0, '马腾')
+// 删除关羽
+```
 
 - 数组查找元素
 
-  ```javascript
-  // indexOf 方法返回数组中某个元素第一次出现的位置，如果找不到，返回 -1
-  // 可以用来判断元素是否在数组中
-  // fromIndex 表示从 fromIndex 下标开始查找
-  arr.indexOf('zs', [fromIndex])
+```javascript
+// indexOf 方法返回数组中某个元素第一次出现的位置，如果找不到，返回 -1
+// 可以用来判断元素是否在数组中
+// fromIndex 表示从 fromIndex 下标开始查找
+arr.indexOf('zs', [fromIndex])
 
-  // lastIndexOf() 从后面开始查找数组中元素出现位置,即查找某元素最后一次出现的位置
-  // 如果找不到，返回 -1
-  arr.lastIndexOf('zs', [fromIndex])
-  ```
+// lastIndexOf() 从后面开始查找数组中元素出现位置,即查找某元素最后一次出现的位置
+// 如果找不到，返回 -1
+arr.lastIndexOf('zs', [fromIndex])
+```
 
 - 清空数组
 
-  ```javascript
-  // 1. arr.splice(0,arr.length) // 删除数组中所有的元素
-  // 2．arr.length = 0 // 直接修改数组的长度
-  // 3．arr = [] // 将数组赋值为一个空数组，推荐
-  ```
+```javascript
+// 1. arr.splice(0,arr.length) // 删除数组中所有的元素
+// 2．arr.length = 0 // 直接修改数组的长度
+// 3．arr = [] // 将数组赋值为一个空数组，推荐
+```
 
 - 数组综合练习
 
-  ```javascript
-  var arr = ['c', 'a', 'z', 'a', 'x', 'a', 'a', 'z', 'c', 'x', 'a', 'x']
-  // 1. 找到数组中第一个a出现的位置
-  // 2. 找到数组中最后一个a出现的位置
-  // 3. 找到数组中每一个a出现的位置
-  // 4. 数组去重，返回一个新数组
-  // 5. 获取数组中每个元素出现的次数
-  ```
+```javascript
+var arr = ['c', 'a', 'z', 'a', 'x', 'a', 'a', 'z', 'c', 'x', 'a', 'x']
+// 1. 找到数组中第一个a出现的位置
+// 2. 找到数组中最后一个a出现的位置
+// 3. 找到数组中每一个a出现的位置
+// 4. 数组去重，返回一个新数组
+// 5. 获取数组中每个元素出现的次数
+```
 
 
 
@@ -2443,10 +2443,8 @@ var result = str.indexOf('a')
 
 > Number 对象是数字的包装类型，数字可以直接使用这些方法
 
-```javascript
-num.toFixed(2) // 返回保留2位小数的新数的字符串格式
-num.toString() // 转换成字符串并返回
-```
+`num.toFixed(2)` ：返回保留 2 位小数的新数的字符串格式
+`num.toString()` ：转换成字符串并返回
 
 ### Boolean 对象
 
@@ -2456,7 +2454,7 @@ num.toString() // 转换成字符串并返回
 toString() // 转换成字符串并返回
 ```
 
-**undefined 和 null 没有包装类型，所以调用toString方法会报错**
+**undefined 和 null 没有包装类型，所以调用 toString 方法会报错**
 
 ### String 对象
 
@@ -2466,86 +2464,86 @@ toString() // 转换成字符串并返回
 
 - 查找指定字符串
 
-  ```javascript
-  str.indexOf(‘‘) // 获取某个字符串第一次出现的位置，如果没有，返回-1
-  str.lastIndexOf(’’) // 从后面开始查找第一次出现的位置。如果没有，返回-1
+```javascript
+str.indexOf(‘‘) // 获取某个字符串第一次出现的位置，如果没有，返回-1
+str.lastIndexOf(’’) // 从后面开始查找第一次出现的位置。如果没有，返回-1
 
-  str.search(regexp) // 查找并输出索引位置,找不到输出-1
-  str.match(regexp) // 输出匹配到的第一个字符，匹配不到返回 null
-  str.match(regexp/g) // 全部输出
+str.search(regexp) // 查找并输出索引位置,找不到输出-1
+str.match(regexp) // 输出匹配到的第一个字符，匹配不到返回 null
+str.match(regexp/g) // 全部输出
 
-  str.startsWith(str1) // 判断 str 字符串是否以 str1 字符串开头，若符合返回 true
-  	// 等价于判断 str.indexOf(str1) === 0
-  str.endsWith(str1) // 判断 str 字符串是否以 str1 字符串结尾，若符合返回 true
-  	str.indexOf(str1) === str.length - str1.length
-  ```
+str.startsWith(str1) // 判断 str 字符串是否以 str1 字符串开头，若符合返回 true
+	// 等价于判断 str.indexOf(str1) === 0
+str.endsWith(str1) // 判断 str 字符串是否以 str1 字符串结尾，若符合返回 true
+	str.indexOf(str1) === str.length - str1.length
+```
 
 - 去除空白
 
-  ```javascript
-  str.trim() // 去除字符串两边的空格，内部空格不会去除
-  ```
+```javascript
+str.trim() // 去除字符串两边的空格，内部空格不会去除
+```
 
 - 大小写转换
 
-  ```javascript
-  str.toUpperCase() // 全部转换成大写字母
-  str.toLowerCase() // 全部转换成小写字母
-  ```
+```javascript
+str.toUpperCase() // 全部转换成大写字母
+str.toLowerCase() // 全部转换成小写字母
+```
 
 - 字符串拼接与截取
 
-  ```javascript
-  // 字符串拼接 可以用 concat，用法与数组一样，但是字符串拼串我们一般都用 +
+```javascript
+// 字符串拼接 可以用 concat，用法与数组一样，但是字符串拼串我们一般都用 +
 
-  str.slice(start, end) // 从 start 开始，end 结束，并且取不到 end，没有 end 则截取到末尾
-  // 可以为负数，会将字符串的长度与对应的负数相加，结果作为参数，-1 表示从后数第一个，一次为 -2、-3...
-  str.slice(-3) // 截取字符串后三位
-  // str.slice() 与 str.slice(0) 等价 截取全部
+str.slice(start, end) // 从 start 开始，end 结束，并且取不到 end，没有 end 则截取到末尾
+// 可以为负数，会将字符串的长度与对应的负数相加，结果作为参数，-1 表示从后数第一个，一次为 -2、-3...
+str.slice(-3) // 截取字符串后三位
+// str.slice() 与 str.slice(0) 等价 截取全部
 
-  str.substring(start, end) // 以两个参数中较小一个作为起始位置，较大的参数作为结束位置
-  // 负参数会被直接转换为 0
-  // str.substring() 与 str.substring(0) 等价 截取全部
+str.substring(start, end) // 以两个参数中较小一个作为起始位置，较大的参数作为结束位置
+// 负参数会被直接转换为 0
+// str.substring() 与 str.substring(0) 等价 截取全部
 
-  str.substr(start, length) // 从 start 开始，截取 length 个字符，没有 length 则截取到末尾
-  // 第一个参数为负参数时，会将第一个参数与字符串长度相加后的结果作为第一个参数，
-  // 第二个参数为负数时，会被转化为 0 ，即截取长度为 0
-  ```
+str.substr(start, length) // 从 start 开始，截取 length 个字符，没有 length 则截取到末尾
+// 第一个参数为负参数时，会将第一个参数与字符串长度相加后的结果作为第一个参数，
+// 第二个参数为负数时，会被转化为 0 ，即截取长度为 0
+```
 
 - 字符串切割
 
-  ```javascript
-  // 将字符串分割成数组（很常用）
-  str.split()
-  // 功能和数组的 join 正好相反
-  var str = 'zs,ls,ww'
-  var arr = str.split(',')
-  ```
+```javascript
+// 将字符串分割成数组（很常用）
+str.split()
+// 功能和数组的 join 正好相反
+var str = 'zs,ls,ww'
+var arr = str.split(',')
+```
 
 - 字符串替换
 
-  ```javascript
-  str.replace(searchValue, replaceValue)
-  // 参数：searchValue: 需要替换的值    replaceValue: 用来替换的值  默认只替换第一个
-  str.replace(/searchValue/g, replaceValue) // 全部替换
-  str.replace(/ /g, '') // 将全部空格去掉
-  ```
+```javascript
+str.replace(searchValue, replaceValue)
+// 参数：searchValue: 需要替换的值    replaceValue: 用来替换的值  默认只替换第一个
+str.replace(/searchValue/g, replaceValue) // 全部替换
+str.replace(/ /g, '') // 将全部空格去掉
+```
 
 - 访问
 
-  ```javascript
-  str[i]
-  str.charAt(i)
-  // i 均为下标
-  ```
+```javascript
+str[i]
+str.charAt(i)
+// i 均为下标
+```
 
 - 练习
 
-  ```javascript
-  1. 截取字符串’我爱中华人民共和国’，中的’中华’
-  2. ’abcoefoxyozzopp’查找字符串中所有o出现的位置
-  3. 把字符串中所有的o替换成!
-  4. 把一个字符串中所有的空格全部去掉
-  5. 统计一个字符串中每个字符出现的次数
-  ```
+```
+1. 截取字符串’我爱中华人民共和国’，中的’中华’
+2. ’abcoefoxyozzopp’查找字符串中所有o出现的位置
+3. 把字符串中所有的o替换成!
+4. 把一个字符串中所有的空格全部去掉
+5. 统计一个字符串中每个字符出现的次数
+```
 
