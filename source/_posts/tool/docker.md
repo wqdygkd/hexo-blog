@@ -4,7 +4,7 @@ tags: docker
 categories:
 - [工具]
 date: 2019/06/18 19:52
-updated: 2019/06/18 19:52
+updated: 2019/07/09 12:00
 ---
 
 
@@ -154,8 +154,8 @@ docker commit 98 ubuntu_test:1.0
 # 查看镜像是否创建
 docker images
 
-# 保存镜像到docker账号中
-# 登录进Docker注册中心
+# 保存镜像到 docker 账号中
+# 登录进 Docker 注册中心
 docker login
 
 # 推送镜像

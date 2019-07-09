@@ -4,7 +4,7 @@ tags: Webpack
 categories:
 - [工具]
 date: 2019/01/15 18:00:00
-updated: 2019/03/21 18:29:00
+updated: 2019/07/09 18:29:00
 ---
 
 
@@ -200,8 +200,17 @@ module.exports = {
     // 自动打开浏览器
     open: true,
     // 端口号
-    port: 3000
-    // hot: true
+    port: 3000,
+    // hot: true,
+    
+    proxy: {
+      '/api': { // api 表示当前项目请求的 key
+        target: 'http://www.baidu.com', // 代理服务器路径
+        pathRewrite: { '^/api': '/api' }, // 重写路径
+        changeOrigin: true
+      }
+    }
+    // 请求 localhost:8080/api/.. 会被代理到 http://www.baidu.com/api/..
   },
 
   // plugins: [
