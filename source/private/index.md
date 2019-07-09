@@ -4,9 +4,13 @@ date: 2019-06-30
 ---
 
 
-[IOS 下载旧版本应用](IOS下载旧版本应用)
-[SS/SSR 客户端](SS&SSR)
-[如何注册美区 PayPal 并绑定美区 Apple ID，以及风控的解决方案](注册美区PayPal并绑定美区AppleID)
+- [IOS 下载旧版本应用](IOS下载旧版本应用)
+- [SS/SSR 客户端](SS&SSR)
+- [如何注册美区 PayPal 并绑定美区 Apple ID，以及风控的解决方案](注册美区PayPal并绑定美区AppleID)
+- [Vulrt搭建ssr服务器](vulrt搭建ssr服务器)
+- [配置web服务器](配置web服务器)
+- [解决VPS通过SS访问谷歌学术受限](解决VPS通过SS访问谷歌学术受限)
+
 
 
 ## 工具
