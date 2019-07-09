@@ -107,7 +107,7 @@
 <meta property="og:site_name" content="稻草人">
 <meta property="og:description" content="安装 dcoker安装 ubuntu 16.04 (LTS)安装docker 卸载旧版本 1$ sudo apt-get remove docker docker-engine docker.io  镜像仓库方式安装 12345678910111213# 设置镜像仓库# 更新 apt 软件包索引：$ sudo apt-get update# 安装软件包，以允许 apt 通过 HTTPS 使用镜像仓">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-18T11:52:00.000Z">
+<meta property="og:updated_time" content="2019-07-09T04:00:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker">
 <meta name="twitter:description" content="安装 dcoker安装 ubuntu 16.04 (LTS)安装docker 卸载旧版本 1$ sudo apt-get remove docker docker-engine docker.io  镜像仓库方式安装 12345678910111213# 设置镜像仓库# 更新 apt 软件包索引：$ sudo apt-get update# 安装软件包，以允许 apt 通过 HTTPS 使用镜像仓">
@@ -439,6 +439,20 @@
           
 
           
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-07-09 12:00:00" itemprop="dateModified" datetime="2019-07-09T12:00:00+08:00">2019-07-09</time>
+              </span>
+            
+          
 
           
             <span class="post-meta-item">
@@ -540,7 +554,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">docker search ubuntu <span class="comment"># 查找 Ubuntu 镜像</span></span><br><span class="line">docker pull ubuntu <span class="comment"># 安装 Ubuntu 镜像</span></span><br><span class="line">docker images <span class="comment">#查看 docker 镜像</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建并运行 docker 容器</span></span><br><span class="line">docker run -it -d --name ubuntu_test -p 8088:80 ubuntu</span><br><span class="line"><span class="comment"># --name 自定义容器名，-p 指定端口映射，前者为虚拟机端口，后者为容器端口,成功后返回 id</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行 docker 容器  启动一个bash交互终端</span></span><br><span class="line">docker run -it 容器名:容器tag /bin/bash</span><br><span class="line"></span><br><span class="line">docker start container_id</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看所有启动的容器(查看所有容器加 -a)</span></span><br><span class="line">docker ps</span><br><span class="line"></span><br><span class="line"><span class="comment"># 根据 id 查看容器信息</span></span><br><span class="line">docker inspect id</span><br><span class="line"></span><br><span class="line"><span class="comment"># 进入docker(或者把容器id改为容器名，也可以进入)</span></span><br><span class="line">docker <span class="built_in">exec</span> -it 容器id或容器名 /bin/bash</span><br><span class="line"></span><br><span class="line"><span class="comment"># 退出容器</span></span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止容器</span></span><br><span class="line">docker stop id</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除容器</span></span><br><span class="line">docker rm 容器id</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除镜像</span></span><br><span class="line">docker rmi 删除镜像</span><br></pre></td></tr></table></figure>
 
 <p>备份镜像</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 制作 docker 镜像  1.0 为版本号</span></span><br><span class="line">docker commit 98 ubuntu_test:1.0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看镜像是否创建</span></span><br><span class="line">docker images</span><br><span class="line"></span><br><span class="line"><span class="comment"># 保存镜像到docker账号中</span></span><br><span class="line"><span class="comment"># 登录进Docker注册中心</span></span><br><span class="line">docker login</span><br><span class="line"></span><br><span class="line"><span class="comment"># 推送镜像</span></span><br><span class="line">docker tag a25ddfec4d2a arunpyasi/container-backup:<span class="built_in">test</span></span><br><span class="line">docker push arunpyasi/container-backup</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打包镜像并查看</span></span><br><span class="line">docker save -o ubuntu_test.tar ubuntu_test:1.0</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 制作 docker 镜像  1.0 为版本号</span></span><br><span class="line">docker commit 98 ubuntu_test:1.0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看镜像是否创建</span></span><br><span class="line">docker images</span><br><span class="line"></span><br><span class="line"><span class="comment"># 保存镜像到 docker 账号中</span></span><br><span class="line"><span class="comment"># 登录进 Docker 注册中心</span></span><br><span class="line">docker login</span><br><span class="line"></span><br><span class="line"><span class="comment"># 推送镜像</span></span><br><span class="line">docker tag a25ddfec4d2a arunpyasi/container-backup:<span class="built_in">test</span></span><br><span class="line">docker push arunpyasi/container-backup</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打包镜像并查看</span></span><br><span class="line">docker save -o ubuntu_test.tar ubuntu_test:1.0</span><br></pre></td></tr></table></figure>
 
 <p>恢复容器</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 从docker账号中拉取</span></span><br><span class="line">docker pull arunpyasi/container-backup:<span class="built_in">test</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 从本地</span></span><br><span class="line">docker load -i ~/container-backup.tar</span><br><span class="line"></span><br><span class="line"><span class="comment"># docker images</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 用加载的镜像去运行Docker容器</span></span><br><span class="line">docker run -d -p 80:80 container-backup</span><br></pre></td></tr></table></figure>
@@ -594,8 +608,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/other/面试题/" rel="next" title="面试题">
-                <i class="fa fa-chevron-left"></i> 面试题
+              <a href="/2019/tool/移动端调试/" rel="next" title="移动端调试">
+                <i class="fa fa-chevron-left"></i> 移动端调试
               </a>
             
           </div>
@@ -604,8 +618,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/tool/移动端调试/" rel="prev" title="移动端调试">
-                移动端调试 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/tool/npm/" rel="prev" title="npm 使用">
+                npm 使用 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -681,7 +695,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">41</span>
+                    <span class="site-state-item-count">43</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
