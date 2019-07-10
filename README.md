@@ -25,6 +25,7 @@ git submodule update
 # blog/themes/next/source/css/_custom/custom.styl 自定义样式文件
 
 cd blog/themes/next
+git fetch && git merge origin/master | git submodule update --remote
 git add  && git commit && git push
 cd blog
 git add next && git commit && git push
