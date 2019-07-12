@@ -4,7 +4,7 @@ tags: esLint
 categories:
 - [工具]
 date: 2018/11/15 18:00:00
-updated: 2019/01/26 22:11:00
+updated: 2019/07/12
 ---
 
 
@@ -16,6 +16,10 @@ updated: 2019/01/26 22:11:00
 > [Google JavaScript Style Guide](https://google.github.io/styleguide/jsguide)
 >
 > [JavaScript Standard Style Guide](https://github.com/standard/standard)
+
+
+
+[JavaScript 语句后应该加分号么？](https://www.zhihu.com/question/20298345/answer/49551142)
 
 
 
