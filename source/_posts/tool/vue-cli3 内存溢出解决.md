@@ -1,5 +1,7 @@
 ---
 title: vue-cli3.0 内存溢出 JavaScript heap out of memory
+categories:
+  - [工具]
 data: 2019/07/11
 ---
 
@@ -51,5 +53,5 @@ npm run serve
 
 最后将 lintOnsave: false 解决了
 
-https://github.com/vuejs/vue-cli/issues/1453 
+https://github.com/vuejs/vue-cli/issues/1453
 

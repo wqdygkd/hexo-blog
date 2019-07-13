@@ -1,12 +1,12 @@
 ---
-title: vue-cl 常用配置
+title: vue-cli 常用配置
 categories:
   - [工具]
 data: 2019/07/11
 update: 2019/07/12
 ---
 
-## vue-cli webpack 打包后 index.html 引入文件没有引号
+* ## vue-cli webpack 打包后 index.html 引入文件没有引号
 
 解决办法：
 
@@ -39,7 +39,7 @@ chainWebpack: config => {
 }
 ```
 
-## vue-cli 打包时删除 console、deugger、注释
+* ## svue-cli 打包时删除 console、deugger、注释
 
 vue-cli2：
 
@@ -89,3 +89,4 @@ module.exports = {
   }
 }
 ```
+
