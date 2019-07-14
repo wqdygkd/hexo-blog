@@ -31,11 +31,7 @@ $ sudo apt-get remove docker docker-engine docker.io
 # 更新 apt 软件包索引：
 $ sudo apt-get update
 # 安装软件包，以允许 apt 通过 HTTPS 使用镜像仓库：
-$ sudo apt-get install \
-     apt-transport-https \
-     ca-certificates \
-     curl \
-     software-properties-common
+$ sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
 # 添加 Docker 的官方 GPG 密钥：
 $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 # 验证密钥指纹是否为 9DC8 5822 9FC7 DD38 854A E2D8 8D81 803C 0EBF CD88。
@@ -47,10 +43,8 @@ $ sudo apt-key fingerprint 0EBFCD88
 设置 stable 镜像仓库
 
 ```bash
-$ amd64：
-$ sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \   $(lsb_release -cs) \
-   stable"
+# amd64：
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 ```
 
 
