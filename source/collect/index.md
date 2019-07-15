@@ -5,8 +5,8 @@ updated: 2019/06/23
 comments: false
 ---
 
-
 ### 开发文档
+
 <div class="collect">
 
   <!-- vue -->
@@ -85,11 +85,60 @@ comments: false
       </div>
     </a>
   </div>
+</div>
+
+### 小程序框架
+
+<div class="collect">
+
+  <!-- WePY -->
+  <div class="card">
+    <a href="https://wepyjs.github.io/wepy-docs/" target="_blank">
+      <img src="/image/wepy.png" />
+      <div class="desc">
+        <div class="name">WePY</div>
+        <div class="info">小程序组件化开发框架</div>
+      </div>
+    </a>
+  </div>
+
+  <!-- mpvue -->
+  <div class="card">
+    <a href="http://mpvue.com/" target="_blank">
+      <img src="/image/mpvue.ico" />
+      <div class="desc">
+        <div class="name">mpvue</div>
+        <div class="info">一个使用 Vue.js 开发小程序的前端框架</div>
+      </div>
+    </a>
+  </div>
+
+  <!-- Taro -->
+  <div class="card">
+    <a href="https://taro.jd.com/" target="_blank">
+      <img src="/image/taro.ico" />
+      <div class="desc">
+        <div class="name">Taro</div>
+        <div class="info">一套遵循 React 语法规范的多端开发解决方案</div>
+      </div>
+    </a>
+  </div>
+
+  <!-- MPX -->
+  <div class="card">
+    <a href="https://didi.github.io/mpx/" target="_blank">
+      <img src="/image/mpx.ico" />
+      <div class="desc">
+        <div class="name">MPX</div>
+        <div class="info">一款致力于提高小程序开发体验的增强型小程序框架</div>
+      </div>
+    </a>
+  </div>
 
 </div>
 
-
 ### 社区
+
 <div class="collect">
 
   <!-- D2 Daily -->
@@ -128,6 +177,7 @@ comments: false
 </div>
 
 ### 工具
+
 <div class="collect">
 
   <!-- mdn -->
@@ -216,6 +266,7 @@ comments: false
 </div>
 
 ### 代码在线演示
+
 <div class="collect">
 
   <!-- runjs -->
@@ -254,6 +305,7 @@ comments: false
 </div>
 
 ### 博客工具
+
 <div class="collect">
 
   <!-- Hexo -->
@@ -282,10 +334,10 @@ comments: false
 
 ### 博客收藏
 
-* [心谭博客](https://xin-tan.com/)
-
+- [心谭博客](https://xin-tan.com/)
 
 ### 未分类
+
 <div class="collect">
 
  <!-- animate -->
@@ -301,12 +353,9 @@ comments: false
 
 </div>
 
-
-
-
 ### 工具软件
 
-* [Dash/Mac](https://kapeli.com/dash):an API Documentation Browser and Code Snippet Manager
-* [Zeal/Win](https://zealdocs.org/)
+- [Dash/Mac](https://kapeli.com/dash):an API Documentation Browser and Code Snippet Manager
+- [Zeal/Win](https://zealdocs.org/)
 
-* [Xshell 5](https://www.netsarang.com/products/xsh_overview.html):Secure terminal emulator
+- [Xshell 5](https://www.netsarang.com/products/xsh_overview.html):Secure terminal emulator

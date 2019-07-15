@@ -96,6 +96,18 @@ $ sudo rm -rf /var/lib/docker
 
 ## 使用 docker 安装 ubuntu 镜像
 
+修改 docker 源
+
+daemon.json
+
+```json
+{
+  "registry-mirrors": ["https://registry.docker-cn.com"]
+}
+```
+
+重启 docker
+
 
 
 安装
