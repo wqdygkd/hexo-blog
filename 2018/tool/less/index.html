@@ -334,22 +334,6 @@
     <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-sitemap">
-
-    
-    
-      
-    
-
-    
-
-    <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>站点地图</a>
-
-  </li>
 
       
       
@@ -585,16 +569,16 @@
 <p>优点：不用node环境，不用less环境，koala内置了</p>
 <h3 id="使用插件"><a href="#使用插件" class="headerlink" title="使用插件"></a>使用插件</h3><p>easy less</p>
 <h2 id="Less-语法"><a href="#Less-语法" class="headerlink" title="Less 语法"></a>Less 语法</h2><h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p><strong>注释</strong></p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 这是CSS中的注释，因此会编译到css中 */</span></span><br><span class="line"><span class="comment">// 这是less的注释，css不能识别这个注释， 最后不会编译到css文件</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 这是CSS中的注释，因此会编译到css中 */</span></span><br><span class="line"><span class="comment">// 这是less的注释，css不能识别这个注释， 最后不会编译到css文件</span></span><br></pre></td></tr></table></figure>
 
 <p><strong>变量</strong></p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// @变量名: 变量值;</span></span><br><span class="line"><span class="variable">@color:</span> <span class="number">#ccc</span>;</span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="variable">@color</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="comment">// @变量名: 变量值;</span></span><br><span class="line"><span class="variable">@color:</span> <span class="number">#ccc</span>;</span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="variable">@color</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="mixin-函数"><a href="#mixin-函数" class="headerlink" title="mixin 函数"></a>mixin 函数</h3><p><strong>混入函数</strong></p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个函数：不带参数</span></span><br><span class="line"><span class="selector-class">.btn</span>() &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 调用函数</span></span><br><span class="line"><span class="selector-class">.my_btn</span> &#123;</span><br><span class="line">  <span class="selector-class">.btn</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义一个函数：带参数</span></span><br><span class="line"><span class="selector-class">.btn_border</span>(<span class="variable">@width</span>) &#123;</span><br><span class="line">  <span class="attribute">border</span>: <span class="variable">@width</span> solid <span class="number">#000</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.my_btn</span> &#123;</span><br><span class="line">  <span class="comment">// 如果函数定义了参数，调用的时候必须传入参数，否则会报错</span></span><br><span class="line">  <span class="selector-class">.btn_border</span>(<span class="number">10px</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义一个函数：带参数默认值</span></span><br><span class="line"><span class="selector-class">.btn_border</span>(<span class="variable">@width</span>: <span class="number">1px</span>) &#123;</span><br><span class="line">  <span class="attribute">border</span>: <span class="variable">@width</span> solid <span class="number">#000</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.my_btn</span> &#123;</span><br><span class="line">  <span class="comment">// 因为有默认值，所以不会报错</span></span><br><span class="line">  <span class="selector-class">.btn_border</span>();</span><br><span class="line">  <span class="selector-class">.btn_border</span>(<span class="number">10px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义一个函数：不带参数</span></span><br><span class="line"><span class="selector-class">.btn</span>() &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 调用函数</span></span><br><span class="line"><span class="selector-class">.my_btn</span> &#123;</span><br><span class="line">  <span class="selector-class">.btn</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义一个函数：带参数</span></span><br><span class="line"><span class="selector-class">.btn_border</span>(<span class="variable">@width</span>) &#123;</span><br><span class="line">  <span class="attribute">border</span>: <span class="variable">@width</span> solid <span class="number">#000</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.my_btn</span> &#123;</span><br><span class="line">  <span class="comment">// 如果函数定义了参数，调用的时候必须传入参数，否则会报错</span></span><br><span class="line">  <span class="selector-class">.btn_border</span>(<span class="number">10px</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义一个函数：带参数默认值</span></span><br><span class="line"><span class="selector-class">.btn_border</span>(<span class="variable">@width</span>: <span class="number">1px</span>) &#123;</span><br><span class="line">  <span class="attribute">border</span>: <span class="variable">@width</span> solid <span class="number">#000</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.my_btn</span> &#123;</span><br><span class="line">  <span class="comment">// 因为有默认值，所以不会报错</span></span><br><span class="line">  <span class="selector-class">.btn_border</span>();</span><br><span class="line">  <span class="selector-class">.btn_border</span>(<span class="number">10px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>应用：定义兼容多浏览器的圆角</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.border_radius</span>(<span class="variable">@value</span>: <span class="number">5px</span>) &#123;</span><br><span class="line">  <span class="attribute">-webkit-border-radius</span>:<span class="variable">@value</span>;</span><br><span class="line">  <span class="attribute">-moz-border-radius</span>:<span class="variable">@value</span>;</span><br><span class="line">  <span class="attribute">-ms-border-radius</span>:<span class="variable">@value</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>:<span class="variable">@value</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="selector-class">.border_radius</span>(<span class="number">10px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.border_radius</span>(<span class="variable">@value</span>: <span class="number">5px</span>) &#123;</span><br><span class="line">  <span class="attribute">-webkit-border-radius</span>:<span class="variable">@value</span>;</span><br><span class="line">  <span class="attribute">-moz-border-radius</span>:<span class="variable">@value</span>;</span><br><span class="line">  <span class="attribute">-ms-border-radius</span>:<span class="variable">@value</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>:<span class="variable">@value</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="selector-class">.border_radius</span>(<span class="number">10px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h3><blockquote>
 <p>我们可以在一个选择器中嵌套另一个选择器来实现继承，这样很大程度减少了代码量，并且代码看起来更加的清晰。</p>
@@ -602,15 +586,15 @@
 <ul>
 <li>使用伪类的时候 可以使用<code>&amp;</code> 表示自己</li>
 </ul>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.father</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="comment">// 子代</span></span><br><span class="line">  <span class="selector-class">.son1</span> &#123;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 后代</span></span><br><span class="line">  &gt; <span class="selector-class">.son2</span> &#123;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 交集： &amp; 表示本身</span></span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-class">.now</span> &#123;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.father</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="comment">// 子代</span></span><br><span class="line">  <span class="selector-class">.son1</span> &#123;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 后代</span></span><br><span class="line">  &gt; <span class="selector-class">.son2</span> &#123;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 交集： &amp; 表示本身</span></span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-class">.now</span> &#123;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h3><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 可以省略后缀名</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">"variable"</span>;</span><br><span class="line"><span class="keyword">@import</span> <span class="string">"maxin"</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h3><figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 可以省略后缀名</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">"variable"</span>;</span><br><span class="line"><span class="keyword">@import</span> <span class="string">"maxin"</span>;</span><br></pre></td></tr></table></figure>
 
 <p>模块化的思想，分模块进行管理这些less文件，最终只需要使用import将less引入到一起即可。</p>
 <h3 id="函数（运算）"><a href="#函数（运算）" class="headerlink" title="函数（运算）"></a>函数（运算）</h3><blockquote>
 <p>在我们的 CSS 中充斥着大量的数值型的 value，less可以直接支持运算，也提供了一系列的函数提供给我们使用。</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">li &#123;</span><br><span class="line">  float: left;</span><br><span class="line">  width: round(100%/6, 2);</span><br><span class="line">  height: 100px + 100px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">li &#123;</span><br><span class="line">  float: left;</span><br><span class="line">  width: round(100%/6, 2);</span><br><span class="line">  height: 100px + 100px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><a href="http://www.1024i.com/demo/less/reference.html" target="_blank" rel="noopener">http://www.1024i.com/demo/less/reference.html</a></p>
 
@@ -654,10 +638,16 @@
       
         <div class="post-widgets">
         
-
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
         
 
         
+
+        
+          
+            <span class="post-meta-divider">|</span>
           
           <div class="social_share">
             
@@ -679,8 +669,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/other/技术栈/" rel="next" title="技术栈">
-                <i class="fa fa-chevron-left"></i> 技术栈
+              <a href="/2018/移动web/移动web/" rel="next" title="移动 web">
+                <i class="fa fa-chevron-left"></i> 移动 web
               </a>
             
           </div>
@@ -689,8 +679,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/bootstrap/bootstrap/" rel="prev" title="bootstrap 框架">
-                bootstrap 框架 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/tool/gulp前端自动化环境/" rel="prev" title="gulp 前端自动化环境">
+                gulp 前端自动化环境 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -766,7 +756,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">45</span>
+                    <span class="site-state-item-count">46</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -811,7 +801,7 @@
                     
                       
                     
-                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1167,7 +1157,7 @@
       $("body")
         .append('<div class="search-popup-overlay local-search-pop-overlay">' +
           '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '<i class="fa fa-circle-o-notch fa-spin fa-5x fa-fw margin-bottom"></i>' +
           '</div>' +
           '</div>')
         .css('overflow', 'hidden');
@@ -1495,6 +1485,25 @@
 
 
   
+  <script>
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id: 19735,
+      el: 'wpac-rating',
+      color: 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  </script>
+
 
   
 

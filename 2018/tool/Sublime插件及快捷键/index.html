@@ -334,22 +334,6 @@
     <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-sitemap">
-
-    
-    
-      
-    
-
-    
-
-    <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>站点地图</a>
-
-  </li>
 
       
       
@@ -619,13 +603,13 @@
 </blockquote>
 <p>Quick Fix 1: Remove Strikethrough Extension</p>
 <p><code>Sublime Text &gt; Preferences &gt; Package Settings &gt; OmniMarkupPreviewer &gt; Settings - User</code><br>paste the following to remove the strikeout package.</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "renderer_options-MarkdownRenderer": &#123;</span><br><span class="line">        "<span class="selector-tag">extensions</span>": <span class="selector-attr">["tables", "fenced_code", "codehilite"]</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "renderer_options-MarkdownRenderer": &#123;</span><br><span class="line">        "<span class="selector-tag">extensions</span>": <span class="selector-attr">["tables", "fenced_code", "codehilite"]</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>Quick Fix 2: Fix the Strikethrough Extension (if you need it)</p>
 <p>Find the python-markdown sublime package.</p>
 <p><code>/Packages/OmniMarkupPreviewer/OmniMarkupLib/Renderers/libs/mdx_strikeout.py</code></p>
 <p>Replace the makeExtension() method with the following:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">makeExtension</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> StrikeoutExtension(*args, **kwargs)</span><br><span class="line">Save, quit <span class="keyword">and</span> reload Sublime Text.</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">makeExtension</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> StrikeoutExtension(*args, **kwargs)</span><br><span class="line">Save, quit <span class="keyword">and</span> reload Sublime Text.</span><br></pre></td></tr></table></figure>
 
 
       
@@ -668,10 +652,16 @@
       
         <div class="post-widgets">
         
-
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
         
 
         
+
+        
+          
+            <span class="post-meta-divider">|</span>
           
           <div class="social_share">
             
@@ -780,7 +770,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">45</span>
+                    <span class="site-state-item-count">46</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -825,7 +815,7 @@
                     
                       
                     
-                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1181,7 +1171,7 @@
       $("body")
         .append('<div class="search-popup-overlay local-search-pop-overlay">' +
           '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '<i class="fa fa-circle-o-notch fa-spin fa-5x fa-fw margin-bottom"></i>' +
           '</div>' +
           '</div>')
         .css('overflow', 'hidden');
@@ -1509,6 +1499,25 @@
 
 
   
+  <script>
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id: 19735,
+      el: 'wpac-rating',
+      color: 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  </script>
+
 
   
 

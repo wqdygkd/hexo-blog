@@ -334,22 +334,6 @@
     <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-sitemap">
-
-    
-    
-      
-    
-
-    
-
-    <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>站点地图</a>
-
-  </li>
 
       
       
@@ -604,20 +588,20 @@
 <li><p>传参数的话，紧挨着方法名后面继续传就可以了，推荐传入一个对象（payload 即可）</p>
 </li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">methods: &#123;</span><br><span class="line">  addTodo () &#123;</span><br><span class="line">    <span class="comment">// commit =&gt; 找 mutations</span></span><br><span class="line">    <span class="keyword">this</span>.$store.commit(<span class="string">'addTodo'</span>, &#123;</span><br><span class="line">      todoName: <span class="keyword">this</span>.todoName</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">methods: &#123;</span><br><span class="line">  addTodo () &#123;</span><br><span class="line">    <span class="comment">// commit =&gt; 找 mutations</span></span><br><span class="line">    <span class="keyword">this</span>.$store.commit(<span class="string">'addTodo'</span>, &#123;</span><br><span class="line">      todoName: <span class="keyword">this</span>.todoName</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mutations: &#123;</span><br><span class="line">  addTodo (state, playload) &#123;</span><br><span class="line">    state.list.push(playload)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">mutations: &#123;</span><br><span class="line">  addTodo (state, playload) &#123;</span><br><span class="line">    state.list.push(playload)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="actions"><a href="#actions" class="headerlink" title="actions"></a>actions</h3><p>提供异步修改 state 的状态数据的方法</p>
 <p>处理函数总是接受 <code>context</code> 作为第一个参数，<code>payload</code>作为第二个参数（可选）</p>
 <p>通过 <code>$store.dispatch(&#39;方法名&#39;)</code> 调用 actions 中的方法</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">methods: &#123;</span><br><span class="line">  addTodo () &#123;</span><br><span class="line">    <span class="comment">// 异步: 分发 dispatch  =&gt; actions</span></span><br><span class="line">    <span class="keyword">this</span>.$store.dispatch(<span class="string">'addTodoAsync'</span>, &#123;</span><br><span class="line">      todoName: <span class="keyword">this</span>.todoName</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">methods: &#123;</span><br><span class="line">  addTodo () &#123;</span><br><span class="line">    <span class="comment">// 异步: 分发 dispatch  =&gt; actions</span></span><br><span class="line">    <span class="keyword">this</span>.$store.dispatch(<span class="string">'addTodoAsync'</span>, &#123;</span><br><span class="line">      todoName: <span class="keyword">this</span>.todoName</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">actions: &#123;</span><br><span class="line">  addTodoAsync (context, playload) &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      context.commit(<span class="string">'addTodo'</span>, playload)</span><br><span class="line">    &#125;, <span class="number">1000</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">actions: &#123;</span><br><span class="line">  addTodoAsync (context, playload) &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      context.commit(<span class="string">'addTodo'</span>, playload)</span><br><span class="line">    &#125;, <span class="number">1000</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="getters"><a href="#getters" class="headerlink" title="getters"></a>getters</h3><p>可以认为是 store 的计算属性，getter 的返回值会根据它的依赖被缓存起来，且只有当它的依赖值发生了改变才会被重新计算</p>
 <p>getter 接受 state 作为其第一个参数，Getter 也可以接受其他 getter 作为第二个参数</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">getters: &#123;</span><br><span class="line">  doneTodos: <span class="function"><span class="params">state</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> state.todos.filter(<span class="function"><span class="params">todo</span> =&gt;</span> todo.done)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">getters: &#123;</span><br><span class="line">  doneTodos: <span class="function"><span class="params">state</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> state.todos.filter(<span class="function"><span class="params">todo</span> =&gt;</span> todo.done)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>Getter 会暴露为 <code>store.getters</code> 对象，你可以以属性的形式访问这些值：<code>store.getters.doneTodos</code></p>
 <h2 id="vue-和-vuex-的配合使用"><a href="#vue-和-vuex-的配合使用" class="headerlink" title="vue 和 vuex 的配合使用"></a>vue 和 vuex 的配合使用</h2><ol>
@@ -674,10 +658,16 @@
       
         <div class="post-widgets">
         
-
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
         
 
         
+
+        
+          
+            <span class="post-meta-divider">|</span>
           
           <div class="social_share">
             
@@ -699,8 +689,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/vue/vue-lifecycle/" rel="next" title="Vue 生命周期">
-                <i class="fa fa-chevron-left"></i> Vue 生命周期
+              <a href="/2019/javascript/promise/" rel="next" title="Promise">
+                <i class="fa fa-chevron-left"></i> Promise
               </a>
             
           </div>
@@ -709,8 +699,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/javascript/promise/" rel="prev" title="Promise">
-                Promise <i class="fa fa-chevron-right"></i>
+              <a href="/2019/vue/vue+elementui/" rel="prev" title="Vuex">
+                Vuex <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -786,7 +776,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">45</span>
+                    <span class="site-state-item-count">46</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -831,7 +821,7 @@
                     
                       
                     
-                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1187,7 +1177,7 @@
       $("body")
         .append('<div class="search-popup-overlay local-search-pop-overlay">' +
           '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '<i class="fa fa-circle-o-notch fa-spin fa-5x fa-fw margin-bottom"></i>' +
           '</div>' +
           '</div>')
         .css('overflow', 'hidden');
@@ -1515,6 +1505,25 @@
 
 
   
+  <script>
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id: 19735,
+      el: 'wpac-rating',
+      color: 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  </script>
+
 
   
 
