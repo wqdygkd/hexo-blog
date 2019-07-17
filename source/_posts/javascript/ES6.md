@@ -318,7 +318,7 @@ obj.sayHi()
 // 当属性的 key 和变量的名相同时可以简写
 let person = {name: name} ==> let person = {name}
 
-声明函数
+// 声明函数
 let cal = {
   add: function () {
     return 1
