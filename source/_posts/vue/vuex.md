@@ -2,11 +2,10 @@
 title: Vuex
 tags: [vue, vuex]
 categories:
-- [框架, vue]
+  - [vue]
 date: 2019/01/08 18:00:00
 updated: 2019/02/19 19:38:00
 ---
-
 
 # Vuex
 
@@ -32,20 +31,21 @@ updated: 2019/02/19 19:38:00
 - 导入 vuex
 - 创建 vuex 示例
 
-
 ## vuex 中的概念
 
 ### state
- - 状态 , 状态即数据
- - 状态是由 store 提供的
- - 状态也是响应的
- - 推荐通过 mutations 中提供的方法去修改数据，因为在严格模式下不允许在 mutation 外部修改 state下的数据，否则会报错
 
- ### mutations
- - 作用：提供修改 state 的状态数据的方法
- - 只要想改变 state 中的状态数据，就应该在 mutations 中提供一个方法来修改，接受 `state` 作为第一个参数（如果定义在模块中，则为模块的局部状态），`payload` 作为第二个参数（可选）
- - 通过 ` $store.commit('方法名')` 调用 mutations 中的方法
- - 传参数的话，紧挨着方法名后面继续传就可以了，推荐传入一个对象（payload 即可）
+- 状态 , 状态即数据
+- 状态是由 store 提供的
+- 状态也是响应的
+- 推荐通过 mutations 中提供的方法去修改数据，因为在严格模式下不允许在 mutation 外部修改 state 下的数据，否则会报错
+
+### mutations
+
+- 作用：提供修改 state 的状态数据的方法
+- 只要想改变 state 中的状态数据，就应该在 mutations 中提供一个方法来修改，接受 `state` 作为第一个参数（如果定义在模块中，则为模块的局部状态），`payload` 作为第二个参数（可选）
+- 通过 `$store.commit('方法名')` 调用 mutations 中的方法
+- 传参数的话，紧挨着方法名后面继续传就可以了，推荐传入一个对象（payload 即可）
 
 ```javascript
 methods: {
@@ -66,14 +66,13 @@ mutations: {
 }
 ```
 
-
 ### actions
 
 提供异步修改 state 的状态数据的方法
 
 处理函数总是接受 `context` 作为第一个参数，`payload`作为第二个参数（可选）
 
-通过 ` $store.dispatch('方法名')` 调用 actions 中的方法
+通过 `$store.dispatch('方法名')` 调用 actions 中的方法
 
 ```javascript
 methods: {
@@ -96,7 +95,6 @@ actions: {
 }
 ```
 
-
 ### getters
 
 可以认为是 store 的计算属性，getter 的返回值会根据它的依赖被缓存起来，且只有当它的依赖值发生了改变才会被重新计算
@@ -113,13 +111,13 @@ getters: {
 
 Getter 会暴露为 `store.getters` 对象，你可以以属性的形式访问这些值：`store.getters.doneTodos`
 
-
 ## vue 和 vuex 的配合使用
 
 1. 实例 vue 和实例 store
-2. 一定要把 store 挂在到 vue上
+2. 一定要把 store 挂在到 vue 上
 3. 读取
-  * 组件读取:`{{ $store.state.count }}`
-  * js读取: `this.$store.state.count`
-  * js操作: 在 mutations 里放一个方法，在方法里修改
-  * js中触发这个方法 `this.​$store.commit('addCount', { num : 8})`
+
+- 组件读取:`{{ $store.state.count }}`
+- js 读取: `this.$store.state.count`
+- js 操作: 在 mutations 里放一个方法，在方法里修改
+- js 中触发这个方法 `this.​$store.commit('addCount', { num : 8})`

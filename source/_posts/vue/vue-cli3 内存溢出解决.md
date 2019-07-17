@@ -1,11 +1,9 @@
 ---
 title: vue-cli3.0 内存溢出 JavaScript heap out of memory
 categories:
-  - [工具]
-data: 2019/07/11
+  - [vue]
+date: 2019/07/11
 ---
-
-
 
 错误内容：
 
@@ -21,8 +19,6 @@ Security context: 0x002fdeb1e6e9 <JSObject>
 
 FATAL ERROR: CALL_AND_RETRY_LAST Allocation failed - JavaScript heap out of memory
 ```
-
-
 
 nodejs 内存限制，通过添加启动参数可以解决
 
@@ -47,11 +43,6 @@ npm run fix-memory-limit
 npm run serve
 ```
 
-
-
-
-
 最后将 lintOnsave: false 解决了
 
 https://github.com/vuejs/vue-cli/issues/1453
-

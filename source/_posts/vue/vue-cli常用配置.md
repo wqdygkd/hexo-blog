@@ -1,12 +1,12 @@
 ---
 title: vue-cli 常用配置
 categories:
-  - [工具]
-data: 2019/07/11
-update: 2019/07/12
+  - [vue]
+date: 2019/07/11
+updated: 2019/07/12
 ---
 
-* ## vue-cli webpack 打包后 index.html 引入文件没有引号
+- ## vue-cli webpack 打包后 index.html 引入文件没有引号
 
 解决办法：
 
@@ -19,12 +19,10 @@ plugins: [
   new HtmlWebpackPlugin({
     minify: {
       removeAttributeQuotes: false // 如果该方法没有用那就把整个 minify 去掉
-    },
-  }),
+    }
+  })
 ]
 ```
-
-
 
 vue-cli3:
 
@@ -39,7 +37,7 @@ chainWebpack: config => {
 }
 ```
 
-* ## svue-cli 打包时删除 console、deugger、注释
+- ## svue-cli 打包时删除 console、deugger、注释
 
 vue-cli2：
 
@@ -60,8 +58,6 @@ plugins: [
   })
 ]
 ```
-
-
 
 vue-cli3：
 
@@ -89,4 +85,3 @@ module.exports = {
   }
 }
 ```
-

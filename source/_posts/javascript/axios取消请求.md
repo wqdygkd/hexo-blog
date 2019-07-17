@@ -1,12 +1,18 @@
-axios 取消请求
+---
+title: axios 取消请求
+categories:
+  - [js]
+date: 2019/07/17
+---
 
-原生js abort() 方法
+原生 js abort() 方法
+
 ```js
 let A = $.ajax({})
 A.abort()
-
 ```
-Axios 提供了一个 CancelToken的函数，这是一个构造函数，该函数的作用就是用来取消接口请求的
+
+Axios 提供了一个 CancelToken 的函数，这是一个构造函数，该函数的作用就是用来取消接口请求的
 
 ```js
 methods: {

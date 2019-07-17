@@ -2,7 +2,7 @@
 title: Vue
 tags: vue
 categories:
-- [框架, vue]
+- [vue]
 date: 2019/01/08 18:00:00
 updated: 2019/03/22 02:35:00
 ---

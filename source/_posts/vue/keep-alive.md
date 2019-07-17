@@ -1,15 +1,15 @@
 ---
 title: keep-alive 实现页面缓存
 categories:
- -[vue]
-data: 2019/07/15
+  - [vue]
+date: 2019/07/15
+updated: 2019/07/16
 ---
-
-
 
 缓存
 
 - pageAList -> pageADetail -> pageAList，缓存 pageAList，同时如果 pageAList 发生变化需要更新
+
 - 其他页面 -> pageAList，pageAList 不缓存
 
 router 配置
@@ -137,8 +137,6 @@ export default {
 }
 ```
 
-
-
 总结
 
 - 进入 pageAList，离开当前组件的时候有两种情况：
@@ -146,5 +144,5 @@ export default {
   - 跳转到非 pageADetail 的页面，在 pageAList 的 beforeRouteLeave 钩子里面清除 pageAList 的缓存
 
 * 从 pageADetail 离开的时候，也有两种情况：
-  * 回到 pageAList，在 pageADetail 的 beforeRouteLeave 钩子里面缓存 pageAList，所以从pageAList-pageADetail-pageAList的时候，pageAList 可以被缓存，还是之前的页码状态
-  * 进入其他路由，在 pageADetail 的 beforeRouteLeave 钩子里面清除 pageAList 的缓存
+  - 回到 pageAList，在 pageADetail 的 beforeRouteLeave 钩子里面缓存 pageAList，所以从 pageAList-pageADetail-pageAList 的时候，pageAList 可以被缓存，还是之前的页码状态
+  - 进入其他路由，在 pageADetail 的 beforeRouteLeave 钩子里面清除 pageAList 的缓存
