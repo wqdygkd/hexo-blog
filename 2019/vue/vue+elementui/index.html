@@ -484,21 +484,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/框架/" itemprop="url" rel="index"><span itemprop="name">框架</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/框架/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/element/" itemprop="url" rel="index"><span itemprop="name">element</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a></span>
 
                 
                 
@@ -564,22 +550,22 @@
 <p>scoped</p>
 <p>vue 组件之间的样式有自动复用的问题，给一个类设置样式，其他组件中相同类的元素也会被设置样式</p>
 <p>解决：在 <code>style</code> 标签上添加 <code>scoped</code> 字段，设置样式只作用于当前组件</p>
-<p> <code>&lt;style scoped&gt;&lt;/style&gt;</code></p>
+<p><code>&lt;style scoped&gt;&lt;/style&gt;</code></p>
 <p>作用 1：让当前组件内的样式，只能在当前组件上起效果<br>作用 2：如果添加了 scoped，样式只会对本来就存在的标签/组件起效果，如果是动态添加的组件/标签，是无效的</p>
 <p>动态添加的组件/标签，在 <code>.vue</code>文件里添加一个 style 标签，在标签里设置该样式属性，或者在选择器前添加<code>/deep/</code></p>
 <p>vm.$nextTick( [callback] )：将回调延迟到下次 DOM 更新循环之后执行</p>
 <p>如果没有提供回调且在支持 Promise 的环境中，则返回一个 Promise：<code>await this.$nextTick()</code></p>
 <p>插槽</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;template slot-scope=&quot;scope&quot;&gt;</span><br><span class="line">通过 scope.row 获取当前行的数据</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;template slot-scope=&quot;scope&quot;&gt;</span><br><span class="line">  通过 scope.row 获取当前行的数据</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 页面跳转</span></span><br><span class="line"><span class="keyword">this</span>.$router.push(<span class="string">'/login'</span>)</span><br><span class="line"><span class="keyword">this</span>.$router.push(&#123; <span class="attr">name</span>: <span class="string">'login'</span> &#125;)</span><br><span class="line"><span class="keyword">this</span>.$router.go(<span class="number">-1</span>)</span><br></pre></td></tr></table></figure>
 
 <h2 id="element"><a href="#element" class="headerlink" title="element"></a>element</h2><p><code>span=&#39;1&#39;</code>：赋值 span 的是一个字符串 ‘1’</p>
-<p><code>:span=&#39;1&#39;</code>：前面加一个<code>:</code> 意思是动态数据绑定，赋值 span 的是具体数据类型的数据，即数字  1</p>
+<p><code>:span=&#39;1&#39;</code>：前面加一个<code>:</code> 意思是动态数据绑定，赋值 span 的是具体数据类型的数据，即数字 1</p>
 <h3 id="时间日期选择器"><a href="#时间日期选择器" class="headerlink" title="时间日期选择器"></a>时间日期选择器</h3><p>日期选择器限制选择范围</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">el-date-picker</span> <span class="attr">v-model</span>=<span class="string">"options.endDate"</span> <span class="attr">type</span>=<span class="string">"date"</span> <span class="attr">:picker-options</span>=<span class="string">"endDateOptions"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">el-date-picker</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">el-date-picker</span> <span class="attr">v-model</span>=<span class="string">"options.endDate"</span> <span class="attr">type</span>=<span class="string">"date"</span> <span class="attr">:picker-options</span>=<span class="string">"endDateOptions"</span>&gt;</span><span class="tag">&lt;/<span class="name">el-date-picker</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">endDateOptions: &#123;</span><br><span class="line">  disabledDate: <span class="function"><span class="params">time</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 限制结束时间范围为大于开始时间，并在一周内</span></span><br><span class="line">  	<span class="keyword">return</span> time.getTime() &lt; <span class="keyword">this</span>.options.startDate || time.getTime() &gt; <span class="keyword">this</span>.options.startDate + <span class="number">24</span> * <span class="number">60</span> * <span class="number">60</span> * <span class="number">1000</span> * <span class="number">7</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">endDateOptions: &#123;</span><br><span class="line">  disabledDate: <span class="function"><span class="params">time</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 限制结束时间范围为大于开始时间，并在一周内</span></span><br><span class="line">    <span class="keyword">return</span> time.getTime() &lt; <span class="keyword">this</span>.options.startDate || time.getTime() &gt; <span class="keyword">this</span>.options.startDate + <span class="number">24</span> * <span class="number">60</span> * <span class="number">60</span> * <span class="number">1000</span> * <span class="number">7</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="Tree-树形控件"><a href="#Tree-树形控件" class="headerlink" title="Tree 树形控件"></a>Tree 树形控件</h3><ul>
 <li>Attributes</li>
@@ -605,24 +591,24 @@
 <ul>
 <li>自定义索引 <code>index</code>：如果设置了 <code>type=index</code>，可以通过传递 <code>index</code> 属性来自定义索引，属性传入数字时，将作为索引的起始值。传入方法是，它提供当前行的行号（从 <code>0</code> 开始）作为参数，返回值将作为索引展示。</li>
 </ul>
-<p><code>type=&quot;index&quot; :index=&quot;indexMethod&quot;</code>  <code>indexMethod(index) {return index}</code></p>
+<p><code>type=&quot;index&quot; :index=&quot;indexMethod&quot;</code> <code>indexMethod(index) {return index}</code></p>
 <h3 id="Radio-单选框"><a href="#Radio-单选框" class="headerlink" title="Radio 单选框"></a>Radio 单选框</h3><h4 id="基础用法"><a href="#基础用法" class="headerlink" title="基础用法"></a>基础用法</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;el-radio v-model=&quot;radio&quot; label=&quot;1&quot;&gt;备选项&lt;/el-radio&gt;</span><br><span class="line">&lt;el-radio v-model=&quot;radio&quot; label=&quot;2&quot;&gt;备选项&lt;/el-radio&gt;</span><br></pre></td></tr></table></figure>
 
 <p>选中意味着变量的值为相应 <code>label</code> 属性的值，<code>label</code>可以是<code>String</code>、<code>Number</code>或<code>Boolean</code>。</p>
 <h4 id="禁用状态"><a href="#禁用状态" class="headerlink" title="禁用状态"></a>禁用状态</h4><p>设置<code>disabled</code>属性<code>true</code>为禁用</p>
-<h4 id="单选框组"><a href="#单选框组" class="headerlink" title="单选框组"></a>单选框组</h4><p>结合 el-radio-group 元素和子元素 el-radio 可以实现单选组，在 el-radio-group 中绑定 v-model，在 el-radio 中设置好 label 即可，无需再给每一个 el-radio 绑定变量，另外，还提供了 change 事件来响应变化，它会传入一个参数value</p>
-<h4 id="Radio-Events"><a href="#Radio-Events" class="headerlink" title="Radio Events"></a>Radio Events</h4><p>change：绑定值变化时触发的事件  选中的 Radio label 值</p>
+<h4 id="单选框组"><a href="#单选框组" class="headerlink" title="单选框组"></a>单选框组</h4><p>结合 el-radio-group 元素和子元素 el-radio 可以实现单选组，在 el-radio-group 中绑定 v-model，在 el-radio 中设置好 label 即可，无需再给每一个 el-radio 绑定变量，另外，还提供了 change 事件来响应变化，它会传入一个参数 value</p>
+<h4 id="Radio-Events"><a href="#Radio-Events" class="headerlink" title="Radio Events"></a>Radio Events</h4><p>change：绑定值变化时触发的事件 选中的 Radio label 值</p>
 <h3 id="Cascader-级联选择器"><a href="#Cascader-级联选择器" class="headerlink" title="Cascader 级联选择器"></a>Cascader 级联选择器</h3><h4 id="Attributes"><a href="#Attributes" class="headerlink" title="Attributes"></a>Attributes</h4><p>options：可选项数据源，键名可通过 <code>props</code> 属性配置</p>
 <p>props：配置选项，对象</p>
-<p>​    value：指定选项的值为选项对象的某个属性值</p>
-<p>​    label：指定选项标签为选项对象的某个属性值</p>
-<p>​    children：指定选项的子选项为选项对象的某个属性值</p>
+<p>​ value：指定选项的值为选项对象的某个属性值</p>
+<p>​ label：指定选项标签为选项对象的某个属性值</p>
+<p>​ children：指定选项的子选项为选项对象的某个属性值</p>
 <h3 id="Upload-上传"><a href="#Upload-上传" class="headerlink" title="Upload 上传"></a>Upload 上传</h3><h4 id="Attribute"><a href="#Attribute" class="headerlink" title="Attribute"></a>Attribute</h4><ul>
 <li><p>action: 必选参数，上传的完整地址</p>
 </li>
 <li><p>multiple: 是否支持多选文件</p>
 </li>
-<li><p>:on-preview: 点击文件列表中已上传的文件时的钩子  function(file)</p>
+<li><p>:on-preview: 点击文件列表中已上传的文件时的钩子 function(file)</p>
 </li>
 <li><p>:on-remove: 文件列表移除文件时的钩子 function(file, fileList)</p>
 </li>
@@ -630,30 +616,30 @@
 </li>
 <li><p>:before-upload: 对文件校验 function(file)，若返回 false 或者返回 Promise 且被 reject，则停止上传</p>
 </li>
-<li><p>:on-success: 文件上传成功时的钩子  function(response, file, fileList)</p>
+<li><p>:on-success: 文件上传成功时的钩子 function(response, file, fileList)</p>
 </li>
 </ul>
-<p>​    response：参数一， 接口的响应结；file：参数二， 文件对象；fileLIst：参数三，文件对象列表</p>
-<p>​    自定义参数 <code>:on-success=&quot;(res, file, fileList) =&gt; UploadImg(1, res, file, fileList)&quot;</code></p>
+<p>​ response：参数一， 接口的响应结；file：参数二， 文件对象；fileLIst：参数三，文件对象列表</p>
+<p>​ 自定义参数 <code>:on-success=&quot;(res, file, fileList) =&gt; UploadImg(1, res, file, fileList)&quot;</code></p>
 <ul>
 <li><p>headers: 设置上传的请求头部 object</p>
 </li>
 <li><p>:auto-upload=”false”：手动调用<code>this.$refs.upload.submit()</code>上传</p>
 </li>
-<li><p>on-progress: 文件上传时的钩子    function(event, file, fileList)</p>
+<li><p>on-progress: 文件上传时的钩子 function(event, file, fileList)</p>
 </li>
 </ul>
-<h3 id="Steps-步骤条"><a href="#Steps-步骤条" class="headerlink" title="Steps 步骤条"></a>Steps 步骤条</h3><p>active    设置当前激活步骤    number</p>
+<h3 id="Steps-步骤条"><a href="#Steps-步骤条" class="headerlink" title="Steps 步骤条"></a>Steps 步骤条</h3><p>active 设置当前激活步骤 number</p>
 <p>设置<code>active</code>属性，接受一个<code>Number</code>，表明步骤的 index，从 0 开始</p>
-<h3 id="Tabs-标签页"><a href="#Tabs-标签页" class="headerlink" title="Tabs 标签页"></a>Tabs 标签页</h3><h4 id="Tabs-Attributes"><a href="#Tabs-Attributes" class="headerlink" title="Tabs Attributes"></a>Tabs Attributes</h4><p>value / v-model    绑定值，选中选项卡的 name       string    —    第一个选项卡的 name</p>
-<p>tab-position    选项卡所在位置    string    top/right/bottom/left    top</p>
-<h4 id="Tabs-Events"><a href="#Tabs-Events" class="headerlink" title="Tabs Events"></a>Tabs Events</h4><p>tab-click    tab 被选中时触发    被选中的标签 tab 实例</p>
-<h3 id="element-中的-Events-和-Methods"><a href="#element-中的-Events-和-Methods" class="headerlink" title="element 中的 Events 和 Methods"></a>element 中的 Events 和 Methods</h3><p>// 假设有个el-box ,如果看文档,有个 Events 和 Methods<br><el-box></el-box></p>
+<h3 id="Tabs-标签页"><a href="#Tabs-标签页" class="headerlink" title="Tabs 标签页"></a>Tabs 标签页</h3><h4 id="Tabs-Attributes"><a href="#Tabs-Attributes" class="headerlink" title="Tabs Attributes"></a>Tabs Attributes</h4><p>value / v-model 绑定值，选中选项卡的 name string — 第一个选项卡的 name</p>
+<p>tab-position 选项卡所在位置 string top/right/bottom/left top</p>
+<h4 id="Tabs-Events"><a href="#Tabs-Events" class="headerlink" title="Tabs Events"></a>Tabs Events</h4><p>tab-click tab 被选中时触发 被选中的标签 tab 实例</p>
+<h3 id="element-中的-Events-和-Methods"><a href="#element-中的-Events-和-Methods" class="headerlink" title="element 中的 Events 和 Methods"></a>element 中的 Events 和 Methods</h3><p>// 假设有个 el-box ,如果看文档,有个 Events 和 Methods<br><el-box></el-box></p>
 <p>// Events<br>close</p>
 <p>// Methdos<br>getData</p>
 <p>// 使用<br>&lt;el-box ref=’box’ @close=’函数名自己写’&gt;</p>
 <p>this.$refs.box.getData()</p>
-<h3 id="项目上线"><a href="#项目上线" class="headerlink" title="项目上线"></a>项目上线</h3><p>打包 :  npm run build<br>把打好的包放到 http-server 里面</p>
+<h3 id="项目上线"><a href="#项目上线" class="headerlink" title="项目上线"></a>项目上线</h3><p>打包 : npm run build<br>把打好的包放到 http-server 里面</p>
 <p>介绍 vendor : 里面放一些第三方包 vue/vue-router/element-ui 包等</p>
 <h4 id="优化"><a href="#优化" class="headerlink" title="优化 :"></a>优化 :</h4><ul>
 <li><p>按需加载</p>
@@ -675,7 +661,7 @@
 <li>CDN</li>
 </ul>
 <p>在 index.html 引入 CDN 提供的文件</p>
-<p>在 webpack.base.conf.js中配置</p>
+<p>在 webpack.base.conf.js 中配置</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">externals: &#123;</span><br><span class="line">  <span class="comment">// 键：表示 导入包语法 from 后面跟着的名称</span></span><br><span class="line">  <span class="comment">// 值：表示 script 引入JS文件时，在全局环境中的变量名称</span></span><br><span class="line">  vue: <span class="string">'Vue'</span>,</span><br><span class="line">  <span class="string">'vue-router'</span>: <span class="string">'VueRouter'</span>,</span><br><span class="line">  axios: <span class="string">'axios'</span>,</span><br><span class="line">  <span class="string">'element-ui'</span>: <span class="string">'ELEMENT'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>在 index.html 引入 css 文件就不需要在 main.js 中引入了</p>
@@ -763,8 +749,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/vue/vue/" rel="prev" title="Vue">
-                Vue <i class="fa fa-chevron-right"></i>
+              <a href="/2019/vue/vue-lifecycle/" rel="prev" title="Vue 生命周期">
+                Vue 生命周期 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -840,7 +826,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">46</span>
+                    <span class="site-state-item-count">50</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -883,9 +869,7 @@
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
