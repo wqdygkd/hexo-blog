@@ -10,9 +10,7 @@ updated: 2019/07/09 12:00
 
 ## 安装 dcoker
 
-安装
-
-ubuntu 16.04 (LTS)安装docker
+### ubuntu 16.04 (LTS) 安装 docker
 
 
 
@@ -64,17 +62,17 @@ $ sudo apt-get install docker-ce
 $ sudo docker run hello-world
 ```
 
-此命令将下载一个测试镜像并在容器中运行它。容器运行时，它将输出一条参考消息并退出。
+此命令将下载一个测试镜像并在容器中运行它。容器运行时，它将输出一条参考消息并退出
 
 
 
-升级 DOCKER CE
+升级 docker ce
 
 如需升级 Docker CE，首先运行 `sudo apt-get update`，然后按照顺序执行操作，并选择您要安装的新版本
 
 
 
-卸载 Docker CE
+卸载 docker ce
 
 ```bash
 $ sudo apt-get purge docker-ce
@@ -88,13 +86,59 @@ $ sudo rm -rf /var/lib/docker
 
 
 
-将 Docker 配置为在启动时启动
+将 docker 配置为在启动时启动
 
 
 
 
 
-## 使用 docker 安装 ubuntu 镜像
+### centos 安装 docker
+
+卸载旧版本(如果安装过旧版本的话)
+
+```bash
+$ sudo yum remove docker  docker-common docker-selinux docker-engine
+```
+
+安装需要的软件包， yum-util 提供 yum-config-manager 功能，另外两个是 devicemapper 驱动依赖的
+
+```bash
+$ sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+```
+
+设置 yum 源
+
+```bash
+$ sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+```
+
+可以查看所有仓库中所有 docker 版本，并选择特定版本安装
+
+```bash
+$ yum list docker-ce --showduplicates | sort -r
+```
+
+安装
+
+```bash
+$ sudo yum install docker-ce
+```
+
+```bash
+# 报错：Requires: container-selinux >= 2:2.74 
+You could try using --skip-broken to work around the problem
+
+$ wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo  
+$ yum install epel-release   # 阿里云上的 epel 源
+$ yum makecache
+$ yum install container-selinux
+```
+
+
+
+## 使用 docker 
+
+### 安装镜像
 
 修改 docker 源
 
@@ -110,7 +154,7 @@ daemon.json
 
 
 
-安装
+安装 Ubuntu
 
 ```bash
 docker search ubuntu # 查找 Ubuntu 镜像
@@ -120,8 +164,9 @@ docker images #查看 docker 镜像
 # 创建并运行 docker 容器
 docker run -it -d --name ubuntu_test -p 8088:80 ubuntu
 # --name 自定义容器名，-p 指定端口映射，前者为虚拟机端口，后者为容器端口,成功后返回 id
+# 多个 -p 指定多个端口映射
 
-# 运行 docker 容器  启动一个bash交互终端
+# 运行 docker 容器  启动一个 bash 交互终端
 docker run -it 容器名:容器tag /bin/bash
 
 docker start container_id
@@ -187,5 +232,52 @@ docker load -i ~/container-backup.tar
 
 # 用加载的镜像去运行Docker容器
 docker run -d -p 80:80 container-backup
+```
+
+
+
+**docker 给已存在的容器添加或修改端口映射**
+
+方式 1：
+
+提交一个运行中的容器为镜像
+
+```bash
+$ docker commit containerid foo/live
+```
+
+运行镜像并添加端口
+
+```bash
+$ docker run -d -p 8000:80  foo/live /bin/bash
+```
+
+
+
+方式 2：iptable 转发端口
+
+将容器的 8000 端口映射到 docker 主机的 8001 端口
+
+```bash
+$ iptables -t nat -A  DOCKER -p tcp --dport 8001 -j DNAT --to-destination 172.17.0.19:8000
+```
+
+
+
+### docker 容器使用问题
+
+Centos7 docker 容器报 docker Failed to get D-Bus connection 错误
+
+```bash
+$ systemctl start nginx
+Failed to get D-Bus connection: Operation not permitted。
+```
+
+原因是 dbus-daemon 没能启动
+
+解决方法
+
+```bash
+$ docker run --privileged -ti --name test1  centos /usr/sbin/init
 ```
 

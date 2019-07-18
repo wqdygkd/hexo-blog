@@ -104,7 +104,62 @@ SSLCertificateChainFile   /etc/httpd/ssl/cert-1541656252121_cuilongjin.top_chain
 
 # Nginx 的安装与配置
 
-## **CentOS**下安装：
+## **CentOS** 下安装：
+
+通过安装包安装
+
+```bash
+# 安装所需环境
+yum install gcc-c++
+yum install -y pcre pcre-devel
+yum install -y zlib zlib-devel
+yum install -y openssl openssl-devel
+
+# 官网下载 nginx https://nginx.org/
+yum install wget
+wget -c https://nginx.org/download/nginx-1.17.1.tar.gz
+# 解压
+tar -zxvf nginx-1.17.1.tar.gz
+cd nginx-1.17.1
+
+# 配置
+./configure
+
+# 编译安装
+make
+make install
+
+# 查找安装路径：
+whereis nginx
+
+# 启动、停止 重启 nginx
+cd /usr/local/nginx/sbin/
+./nginx # 启动
+./nginx -s stop # 此方式相当于先查出nginx进程id再使用kill命令强制杀掉进程
+./nginx -s quit # 此方式停止步骤是待nginx进程处理任务完毕进行停止
+./nginx -s quit && ./nginx # 重启 nginx
+
+# 重新加载配置文件
+# 配置文件 nginx.conf 修改后，要想让配置生效需要重启 nginx，使用 -s reload 不用先停止 nginx 再启动即可将配置信息在 nginx 中生效，如下：
+./nginx -s reload
+
+# 查询 nginx 进程
+ps aux|grep nginx
+
+# 开机自启动
+在 rc.local 增加启动代码
+vi /etc/rc.local
+# 增加一行 /usr/local/nginx/sbin/nginx
+# 设置执行权限
+chmod 755 rc.local
+
+# 添加 nginx 为系统服务
+
+```
+
+
+
+centos下，yum 源不提供 nginx 的安装，可以通过切换 yum 源的方法获取安装
 
 ```
 yum -y install nginx
@@ -114,7 +169,7 @@ yum -y install nginx
 
 
 
-**配置Nginx：**
+**配置 Nginx：**
 
 Nginx的配置文件默认位置为：`/etc/nginx/nginx.conf`
 
@@ -137,7 +192,7 @@ server {
 }
 ```
 
-自定义Nginx站点配置文件存放目录
+自定义 Nginx 站点配置文件存放目录
 
 ```
 /etc/nginx/conf.d/
@@ -149,7 +204,7 @@ server {
 
 
 
-安装php
+安装 php
 
 ```
 yum install php php-fpm
@@ -195,13 +250,16 @@ sudo iptables -I INPUT -p tcp -m tcp --dport 443 -j ACCEPT
 
 /usr/sbin/nginx
 
-查询nginx进程
+查询 nginx 进程
 
 ps -ef | grep nginx
 
 
 
+nginx 配置
+
 ```
+#
 # HTTPS server configuration
 #
 
@@ -243,7 +301,7 @@ server {
 
 
 
-```
+```conf
 #
 # The default server
 #
@@ -274,17 +332,16 @@ server {
     error_page 500 502 503 504 /50x.html;
         location = /50x.html {
     }
-
 }
-
-
 ```
+
+
 
 
 
 ## ubuntu下安装
 
-安装nginx
+安装 nginx
 
 ```bash
 sudo apt-get install nginx
