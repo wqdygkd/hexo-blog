@@ -8,6 +8,8 @@ updated: 2019/07/09
 ---
 
 
+
+
 # JavaScript 基础
 
 
@@ -478,13 +480,16 @@ console.log(num4) // 345
 ### 补充
 
 > `parseInt()` 函数解析一个字符串参数，指定该字符串为指定基数的进制值，并返回一个10进制的整数，如果被解析参数的第一个字符无法被转化成数值类型，则返回 `NaN`
+>
+> 参考 [parseInt](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/parseInt)
 
 ```javascript
 // 语法
 parseInt(string, radix)
 // string 要被解析的值，如果参数不是一个字符串，则将其转换为字符串
-// radix 基数,表示进制，介于2和36之间的整数，默认为10
-parseInt('123', 5) // 将'123'看作5进制数，返回十进制数38
+// radix 基数,表示进制，介于 2 和 36 之间的整数，参数 radix 的值为 0，或没有设置该参数时，parseInt() 会根据 string 来判断数字的基数
+// 返回解析后的整数值。 如果被解析参数的第一个字符无法被转化成数值类型，则返回 NaN。
+parseInt('123', 5) // 将 '123' 看作 5 进制数，返回十进制数 38
 
 [1, 2, 3].map(parseInt) // [1, NaN, NaN]
 // [1, 2, 3].map(parseInt(item, index))
@@ -1388,184 +1393,6 @@ fn1()() // 呵呵
 
 
 
-## 作用域
-
-> 作用域：变量起作用的区域
-
-**全局作用域** ：在script标签内，**函数外**的区域就是全局作用域，在全局作用内声明的变量叫做**全局变量** 。全局变量可以在任意地方访问。（if/while/for 语句中声明的变量也是全局变量）
-
-**函数作用域** ：在函数内的区域叫做函数作用域，在函数作用域内声明的变量叫做**局部变量** ，局部变量只有在当前函数内才能访问到。
-
-> 隐式全局变量：没有使用var定义的变量也是全局变量，叫做隐式全局变量。(不要使用)
-
-
-
-```javascript
-var num = 11
-function fn() {
-  var num1 = 22
-  num2 = 33
-  num = 33
-  console.log(num1)
-}
-fn()
-console.log(num)
-// console.log(num1)
-console.log(num2)
-```
-
-变量的查找规则：
-
-- 函数内部可以使用函数外部的变量
-
-- 有局部变量就用局部变量，没有局部变量就用全局变量。
-
-
-
-```javascript
-var num = 10
-var num1 = 10
-
-function test(){
-    var num = 20
-    num = 30  // num 在局部声明过，只能修改局部的num值
-    num1 = 20 // 修改全局的 num1 值
-    var num2 = 40
-    num3 = 50 // 隐式全局
-    console.log(num)  // 30
-    console.log(num1)  // 20
-    console.log(num2)  // 40
-    console.log(num3)  // 50
-}
-test()
-console.log(num) // 10
-
-console.log(num1) // 20
-// 如果 text 函数没执行过，则num1值为 10
-
-console.log(num3) // 50
-console.log(num2) // 报错
-```
-
-
-
-## 预解析
-
-js执行代码分为两个过程：
-
-- 预解析过程（var 声明与函数声明提升）（提升到当前作用域的最顶端）
-- 代码一行一行执行
-
-```js
-// 预解析过程
-// 1. var声明的变量：只提升声明,不会提升赋值
-	var num = 10; var fn = function(){..}
-// 2. 函数声明：整体提升
-	function fn(){..}
-// 先提升var声明的变量，后提升函数声明
-// 3. 如果函数声明同名，后者会覆盖前者
-// 4. 如果 var声明 和 函数声明 同名,函数声明会把var声明覆盖
-```
-
-
-
-```javascript
-// 函数预解析
-// 1.
-function fn(){
-    console.log(a); // undefined
-}
-fn();
-var a = 1
-
-// 2.
-var n = 45
-function fn5() {
-    console.log(n) // undefined
-    n = 20
-    console.log(n) // 20
-    var n = 0
-    console.log(n) // 0
-}
-fn5()
-console.log(n) // 45
-
-// 3.
-console.log(b) // 函数体
-var b = 23
-function b() {
-    console.log(b)
-}
-console.log(b) // 23
-// b() // 报错
-
-// 4.
-console.log(c) // 函数体
-c() // 嘿嘿
-var c = function (){
-    comsole.log("哈哈")
-}
-
-function c() {
-    console.log("嘿嘿");
-}
-
-// 5.
-console.log(fn1) // 函数体
-fn1()
-function fn1(){
-    console.log("哈哈") // 哈哈
-}
-console.log(fn2) // undefined
-fn2() // 报错
-var fn2 = function () {
-    console.log("嘿嘿")
-}
-// 对于函数表达式，函数的调用必须在表达式声明之后
-fn2() // 嘿嘿
-
-// 6.
-// 只有用 var 声明的变量才会预解析
-console.log(d) // 报错
-d = 5
-
-// 7.
-console.log(e)
-console.log(f) // 报错
-var e = f = 10
-console.log(f) // 10
-```
-
-
-
-## 递归函数（了解）
-
-> 递归函数：自己直接或者间接调用自己的函数
->
-> 注意 : 递归函数一定要留有出口，不然就是死循环了
-
-
-
-```js
- 1. 求1-100所有数的和
- 2. 斐波那契数列，有个人想知道，一年之内一对兔子能繁殖多少对？于是就筑了一道围墙把一对兔子关在里面。已知一对兔子每个月可以生一对小兔子，而一对兔子从出生后第3个月起每月生一对小兔子。假如一年内没有发生死亡现象，那么，一对兔子一年内（12个月）能繁殖成多少对？
-//兔子的规律为数列，1，1，2，3，5，8，13，21 ,34 , 55, 89, 144
-// 求斐波那契数列 Fibonacci 中第n个数
-function fn(n) {
-    if (n == 1 || n == 2) {
-        return 1
-    }
-    return fn(n - 1) + fn(n - 2)
-}
-console.log(fn(12))
-```
-
-
-
-![](javascript基础/递归兔子.png)
-
-
-
 ## 函数的断点调试
 
 1. 跳到下个断点, 如果后面没有断点了,那么代码直接执行完
@@ -1755,59 +1582,114 @@ console.log(tea)
 
 
 
-## 查看一个对象的类型
+## 查看一个对象的类型(类型识别)
 
 ```js
-typeof 只能查看基本数据类型的类型
-instanceof 判断对象的具体类型
-constructor.name 获取对象的具体类型
+typeof // 只能查看基本数据类型的类型
+instanceof // 判断对象的具体类型
+constructor.name // 获取对象的具体类型 适用于任何类型的检测
+Object.prototype.toString.call('str') // '[object String]' 适用于任何类型的检测
 ```
 
-关于typeof
+**typeof**
 
-- 用于查看基本的数据类型， number string boolean undefined
+用于查看基本数据的数据类型， number string boolean undefined
 
-- null 比较特殊，结果是 object
+null 比较特殊，结果是 object
 
-- 如果查看复杂数据类型，返回的都是 object 类型。
+如果查看复杂数据类型，返回的都是 object 类型
 
-- 函数的结果是 function
+函数的结果是 function
+
+```js
+// typeof 判断
+// 简单类型
+typeof 12 // 'number'
+typeof 'abc' // 'string'
+typeof true // 'boolean'
+typeof undefined // 'underfined'
+typeof null // 'object'
+
+// 复杂类型 (引用类型)
+typeof function () {} // 'function'
+typeof [] // 'object'
+typeof {} // 'object'
+```
+
+
+
+**instanceof 判断**
+
+```js
+// 语法
+object instanceof constructor
+```
+
+用来检测 `constructor.prototype `是否存在于参数 `object` 的原型链中
+
+不能用于类型识别
+
 
   ```js
-  // typeof 判断
-  // 简单类型
-  var num1 = 12 // number
-  var num2 = 'abc' // string
-  var num3 = true // boolean
-  var num4 = undefined // underfined
-  var num5 = null // object
-  // 复杂类型 (引用类型)
-  va fn = function () {} // function
-  var arr = [] // object
-  var obj = {} // object
+// instanceof 判断
+var simpleStr = 'This is a simple string'
+var myString = new String()
+var newStr = new String('String created with constructor')
+var myObj = {}
+var myNonObj = Object.create(null)
+var myArr = []
+var myFn = function () {}
 
-  // 方式2 : instanceof 判断
-  var arr = []
-  var obj = {}
-  var fn = function () {}
-  console.log( arr instanceof Array) // true
-  console.log(arr instanceof Object) // true
-  console.log( obj instanceof Object) // true
-  console.log( fn instanceof Function) // true
 
-  // 方式3 : constructor.name
-  // 原型的构造函数
-  console.log(arr.constructor.name) // Array
-  console.log(obj.constructor.name) // Object
-  console.log(fn.constructor.name) // Function
-  // 自定义构造函数
-  function Teacher(name, age) {
-      this.name = name
-      this.age = age
-  }
-  var tea = new Teacher("zs", 18)
-  console.log(tea.constructor.name) // Teacher
+simpleStr instanceof String // 返回 false, 检查原型链会找到 undefined
+myString instanceof String // 返回 true
+newStr instanceof String // 返回 true
+myString instanceof Object // 返回 true
+
+myObj instanceof Object // 返回 true, 尽管原型没有定义
+;({} instanceof Object) // 返回 true, 同上
+myNonObj instanceof Object // 返回 false, 一种创建对象的方法，这种方法创建的对象不
+
+myArr instanceof Array // true
+myArr instanceof Object // true
+myFn instanceof Object // true
+myFn instanceof Function // true
   ```
+
+
+
+**constructor.name**
+
+Undefined/Null 没有 constructor 属性
+
+```js
+var myArr = []
+var myFn = function () {}
+var myObj = {}
+
+// 原型的构造函数
+myArr.constructor.name // Array
+myFn.constructor.name // Object
+myObj.constructor.name // Function
+
+// 自定义构造函数
+function Teacher(name, age) {
+  this.name = name
+  this.age = age
+}
+var tea = new Teacher('zs', 18)
+tea.constructor.name // Teacher
+```
+
+
+
+**Object.prototype.toString**
+
+适用于任何类型的检测，不能识别自定义对象类型
+
+```js
+Object.prototype.toString.call('str') // '[object String]'
+```
 
 
 

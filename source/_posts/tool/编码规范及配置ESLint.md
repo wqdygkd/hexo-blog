@@ -1,15 +1,13 @@
 ---
-title: 编码规范及配置ESLint
+title: 编码规范及配置 ESLint
 tags: esLint
 categories:
-- [工具]
+  - [工具]
 date: 2018/11/15 18:00:00
 updated: 2019/07/12
 ---
 
-
 # 编码规范
-
 
 > [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
 >
@@ -21,17 +19,13 @@ updated: 2019/07/12
 
 [JavaScript 语句后应该加分号么？](https://www.zhihu.com/question/20298345/answer/49551142)
 
+## `Vue + ESLint + Prettier`
 
-
-##  `Vue + ESLint + Prettier`
-
-
+[vue 官方风格指南(https://cn.vuejs.org/v2/style-guide/)]
 
 ### 安装 `node`
 
 https://nodejs.org/zh-cn/
-
-
 
 ### 配置 `ESlint`
 
@@ -57,8 +51,6 @@ $ npm install eslint-plugin-vue -g
 # es6 语法支持
 $ npm install babel-eslint vue-eslint-parser -g
 ```
-
-
 
 `.eslintrc.json` 文件
 
@@ -109,13 +101,9 @@ $ npm install babel-eslint vue-eslint-parser -g
 }
 ```
 
-
-
-
-
 vscode 插件安装 `ESLint`
 
-vscode配置 `User Settings`
+vscode 配置 `User Settings`
 
 ```json
 {
@@ -127,28 +115,20 @@ vscode配置 `User Settings`
   },
   "eslint.alwaysShowStatus": true,
   "eslint.autoFixOnSave": true,
-  "eslint.validate": [
-    "javascript", "javascriptreact",
-    {"language": "html", "autoFix": true},
-    {"language": "vue", "autoFix": true}
-  ],
+  "eslint.validate": ["javascript", "javascriptreact", { "language": "html", "autoFix": true }, { "language": "vue", "autoFix": true }]
 }
 ```
 
-
-
 ### 配置 prettier
 
-```
+```bash
 $ npm install prettier -g
 $ npm install eslint-plugin-prettier -g
 ```
 
-
-
 vscode 插件安装 `prettier`
 
-vscode配置 `User Settings`
+vscode 配置 `User Settings`
 
 ```json
 {
@@ -162,11 +142,9 @@ vscode配置 `User Settings`
   "prettier.htmlWhitespaceSensitivity": "ignore",
   // 标签换行长度
   "prettier.printWidth": 800,
-  "prettier.bracketSpacing": true,
+  "prettier.bracketSpacing": true
 }
 ```
-
-
 
 vuter
 
@@ -186,12 +164,6 @@ vuter
 }
 ```
 
-
-
-
-
-
-
 ## ESLint 规则列表
 
 `.eslintrc.json` 规则值：
@@ -201,6 +173,7 @@ vuter
 "warn"或者1   // 在打开的规则作为警告（不影响退出代码）
 "error"或者2  // 把规则作为一个错误（退出代码触发时为1
 ```
+
 忽略检测警告
 
 ```js
@@ -211,8 +184,6 @@ vuter
 // 忽略 no-new 规则
 /* eslint-disable no-new */
 ```
-
-
 
 [规则列表 https://eslint.org/docs/rules/](https://eslint.org/docs/rules/)
 
@@ -393,4 +364,3 @@ vuter
   "yoda": [2, "never"]//禁止尤达条件
 }
 ```
-

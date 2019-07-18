@@ -513,7 +513,7 @@ div.className = 'box'
 >  var ret2 = window.getComputedStyle(div, '::after').width
 > ```
 
-​
+
 
 ### 关于 body 的样式操作
 
@@ -1300,9 +1300,9 @@ function removeEvent(element, type, fn) {
 
 ### 事件冒泡
 
-> 当一个元素的事件被触发时，同样的事件将会在该元素的所有祖先元素中依次被触发。这一过程被称为冒泡
->
-> 说白了就是：**当我们触发了子元素的某个事件后，父元素对应的事件也会触发**
+当一个元素的事件被触发时，同样的事件将会在该元素的所有祖先元素中依次被触发。这一过程被称为冒泡
+
+说白了就是：**当我们触发了子元素的某个事件后，父元素对应的事件也会触发**
 
 on 创建的事件默认为冒泡，无法修改
 
@@ -1310,69 +1310,68 @@ on 创建的事件默认为冒泡，无法修改
 
 
 
-#### 阻止事件冒泡  (掌握)
-
-**代码 :   e.stopPropagation()**
+**阻止事件冒泡** `e.stopPropagation()`
 
 ```js
-// 1. 因为是事件的冒泡，因事件引起，也要因事件停止
-father/son/sun.onclick = function (e) {
-    e.stopPropagation()
+box.onclick = function (e) {
+  e.stopPropagation()
 }
-// 参数3：true => 捕获 ， false => 冒泡（默认）
-father/son/sun.addEventListener('click', function(){}, 参数3)
+
+// 参数1：true => 捕获， false => 冒泡（默认）
+box.addEventListener('click', function(){}, 参数1)
 ```
 
 
 
-```javascript
-// 阻止事件冒泡的兼容性封装
+阻止事件冒泡的兼容性封装
+
+```js
 function stopPropagation(e) {
-    if (e && e.stopPropagation) {
-        e.stopPropagation() // 标准浏览器
-    } else {
-        window.event.cancelBubble = true // 兼容IE的方式来取消事件冒泡
-    }
+  if (e && e.stopPropagation) {
+    e.stopPropagation() // 标准浏览器
+  } else {
+    window.event.cancelBubble = true // 兼容 IE
+  }
 }
 ```
 
 
 
-### 事件捕获  (了解)
+### 事件捕获
 
-> 事件冒泡是 ie 提出来的
->
-> ​    路径 :  触发事件的目标元素(son) > you > father > body > document
->
-> 事件捕获是火狐提出来的
->
->    路径 : document > body >  father >you  > 触发事件的目标元素 (son)
->
-> 解析 : 事件的处理将从DOM层次的根开始，而不是从触发事件的目标元素开始，事件被从目标元素的所有祖先元素依次往下传递
+事件冒泡是 ie 提出来的
+
+路径 :  触发事件的目标元素(son) > you > father > body > document
+
+事件捕获是火狐提出来的
+
+路径 : document > body >  father >you  > 触发事件的目标元素 (son)
+
+解析 : 事件的处理将从 DOM 层次的根开始，而不是从触发事件的目标元素开始，事件被从目标元素的所有祖先元素依次往下传递
 
 
 
 ```js
 // 当 addEventListener 第三个参数为 true 时，表示事件捕获
 arr[i].addEventListener('click', function () {
-    console.log(this)
-},true)
+  //
+}, true)
 ```
 
 
 
-### 事件流的三个阶段 (掌握)
+### 事件流的三个阶段
 
-> 1. 事件的捕获阶段
-> 2. 事件的目标阶段（触发自己的事件）
-> 3. 事件的冒泡阶段
+1. 事件的捕获阶段
+2. 事件的目标阶段（触发自己的事件）
+3. 事件的冒泡阶段
 
 事件有三个阶段  :
 
 - 捕获事件和冒泡事件都存在的话，首先发生的是捕获阶段，然后是目标阶段，最后才是冒泡阶段
 - addEventListener 第三个参数为是否捕获
-- 如果为true时，表示该事件在捕获阶段发生
-- 如果为false时，表示该事件在冒泡阶段发生
+- 如果为 true 时，表示该事件在捕获阶段发生
+- 如果为 false 时，表示该事件在冒泡阶段发生
 - 某一个事件只会执行一次
 
 

@@ -224,6 +224,17 @@ comments: false
     </a>
   </div>
 
+  <!-- MOBILE DEBUG -->
+  <div class="card">
+    <a href="https://www.lodashjs.com/" target="_blank">
+      <img src="/index/lodash.png" />
+      <div class="desc">
+        <div class="name">Lodash</div>
+        <div class="info">一个一致性、模块化、高性能的 JavaScript 实用工具库</div>
+      </div>
+    </a>
+  </div>
+
 </div>
 
 ### IDE/编辑器
