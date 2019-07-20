@@ -121,6 +121,7 @@
 
 
   <meta name="description" content="Hexo文档 配置环境安装Node作用：用来生成静态页面的 到Node.js官网下载相应平台的最新版本，一路安装即可。 安装Git作用：把本地的hexo内容提交到github上去。Git官网下载 申请GitHub作用：是用来做博客的远程创库、域名、服务器之类的。 github账号注册，github配置 安装HEXO执行如下命令安装 hexo： npm install hexo-cli -g  初始">
+<meta name="keywords" content="web">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo+Github 搭建博客教程及进阶设置">
 <meta property="og:url" content="https://cuilongjin.top/2017/tool/hexo+github搭建博客/index.html">
@@ -632,6 +633,12 @@
 <p>在文章中插入指定大小的图片</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;% img [class names] /path/to/image [width] [height] [title text [alt text]] %&#125;</span><br></pre></td></tr></table></figure>
 
+<p>Bootstrap Callout</p>
+<p>使用方式</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% note class_name %&#125; Content (md partial supported) &#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其中，<code>class_name</code> 可以是以下列表中的一个值：</p>
+<p><code>default</code>、<code>primary</code>、<code>success</code>、<code>info</code>、<code>warning</code>、<code>danger</code></p>
 <h1 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h1><p><a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">NexT v5.1.x</a> <a href="https://github.com/theme-next/hexo-theme-next" target="_blank" rel="noopener">NexT v6.0.0</a> <a href="https://segmentfault.com/a/1190000009544924/" target="_blank" rel="noopener">next主题个性化配置</a></p>
 <h2 id="下载-NexT-主题"><a href="#下载-NexT-主题" class="headerlink" title="下载 NexT 主题"></a>下载 NexT 主题</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> your-hexo-site</span><br><span class="line">git submodule add git@github.com:cuilongjin/hexo-theme-next.git themes/next</span><br></pre></td></tr></table></figure>
 
@@ -643,9 +650,16 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new page <span class="string">"about"</span></span><br></pre></td></tr></table></figure>
 
 <p>然后你会发现 source 里面多了个目录 about，里面有个 index.md。其实你也可以手动建立。 然后在主题配置文件 <code>_config.yml</code> 中找到 menu 一项，添加一行 About: /about</p>
-<h2 id="设置首页不显示全文-只显示预览"><a href="#设置首页不显示全文-只显示预览" class="headerlink" title="设置首页不显示全文(只显示预览)"></a>设置首页不显示全文(只显示预览)</h2><p>打开主题配置文件 <code>_config.yml</code> ，启用<code>auto_excerpt</code></p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">auto_excerpt:</span></span><br><span class="line"><span class="attr">  enable:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  length:</span> <span class="number">150</span></span><br></pre></td></tr></table></figure>
+<h2 id="设置「阅读全文」"><a href="#设置「阅读全文」" class="headerlink" title="设置「阅读全文」"></a>设置「阅读全文」</h2><p>在首页显示文章的摘录并显示 <strong>阅读全文</strong> 按钮，可以通过以下方法：</p>
+<ol>
+<li>在文章中使用 <code>&lt;!-- more --&gt;</code> 手动进行截断，Hexo 提供的方式 <strong>推荐</strong></li>
+<li>在文章的 <a href="https://hexo.io/docs/front-matter.html" target="_blank" rel="noopener">front-matter</a> 中添加 <code>description</code>，并提供文章摘录</li>
+<li>自动形成摘要，在主题配置文件 <code>_config.yml</code> ，启用<code>auto_excerpt</code></li>
+</ol>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">auto_excerpt:</span></span><br><span class="line">	<span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">	<span class="attr">length:</span> <span class="number">150</span></span><br></pre></td></tr></table></figure>
 
+<p>默认截取的长度为 <code>150</code> 字符，可以根据需要自行设定</p>
+<p>建议使用 <code>&lt;!-- more --&gt;</code>（即第一种方式），除了可以精确控制需要显示的摘录内容以外， 这种方式也可以让 Hexo 中的插件更好的识别。</p>
 <h2 id="添加-RSS"><a href="#添加-RSS" class="headerlink" title="添加 RSS"></a>添加 RSS</h2><p>在博客根目录下执行：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install --save hexo-generator-feed</span><br></pre></td></tr></table></figure>
 
@@ -732,7 +746,11 @@
 <p>注册<a href="https://analytics.google.com/" target="_blank" rel="noopener">Google Analysis</a></p>
 <p>编辑主题配置文件 <code>_config.yml</code> ， 修改字段 google_analytics， 值设置成你的 Google 跟踪 ID。跟踪 ID 通常是以 UA- 开头</p>
 <p><a href="https://search.google.com/search-console/" target="_blank" rel="noopener">Google 站长工具</a> 提交sitemap</p>
-<h2 id="设置忽略文件渲染"><a href="#设置忽略文件渲染" class="headerlink" title="设置忽略文件渲染"></a>设置忽略文件渲染</h2><p>打开站点配置文件 <code>_config.yml</code> ，修改 <code>skip_render</code> 参数的值</p>
+<h3 id="添加蜘蛛协议robots-txt"><a href="#添加蜘蛛协议robots-txt" class="headerlink" title="添加蜘蛛协议robots.txt"></a>添加蜘蛛协议robots.txt</h3><p>robots.txt，代码如下</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># hexo robots.txt</span><br><span class="line">User-agent: *</span><br><span class="line">Allow: /</span><br><span class="line">Allow: /archives/</span><br><span class="line"></span><br><span class="line">Disallow: /vendors/</span><br><span class="line">Disallow: /js/</span><br><span class="line">Disallow: /css/</span><br><span class="line">Disallow: /fonts/</span><br><span class="line">Disallow: /vendors/</span><br><span class="line">Disallow: /fancybox/</span><br><span class="line"></span><br><span class="line">Sitemap: https://cuilongjin.top/sitemap.xml</span><br><span class="line">Sitemap: https://cuilongjin.top/baidusitemap.xml</span><br></pre></td></tr></table></figure>
+
+<p>把<code>robots.txt</code>放在你的<code>hexo</code>站点的<code>source</code>文件下即可</p>
+<h3 id="给出站链接添加-nofollow标签"><a href="#给出站链接添加-nofollow标签" class="headerlink" title="给出站链接添加 nofollow标签"></a>给出站链接添加 <code>nofollow</code>标签</h3><h2 id="设置忽略文件渲染"><a href="#设置忽略文件渲染" class="headerlink" title="设置忽略文件渲染"></a>设置忽略文件渲染</h2><p>打开站点配置文件 <code>_config.yml</code> ，修改 <code>skip_render</code> 参数的值</p>
 <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 路径是相对source目录的</span></span><br><span class="line"><span class="comment"># 不对文件进行渲染，保持文件原有内容</span></span><br><span class="line"><span class="attr">skip_render:</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">"*.html"</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">"demo/**"</span> <span class="string">//</span> <span class="string">排除</span> <span class="string">demo</span> <span class="string">整个目录</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">README.md</span></span><br></pre></td></tr></table></figure>
 
 <p>再次使用 hexo d 命令部署博客的时候就不会在渲染这些文件了</p>
@@ -1116,7 +1134,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#配置环境"><span class="nav-text">配置环境</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Node"><span class="nav-text">安装Node</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Git"><span class="nav-text">安装Git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#申请GitHub"><span class="nav-text">申请GitHub</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装HEXO"><span class="nav-text">安装HEXO</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置-Github"><span class="nav-text">配置 Github</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#建立-Repository"><span class="nav-text">建立 Repository</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建立关联"><span class="nav-text">建立关联</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署步骤"><span class="nav-text">部署步骤</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#写作"><span class="nav-text">写作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#主题"><span class="nav-text">主题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载-NexT-主题"><span class="nav-text">下载 NexT 主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启用主题"><span class="nav-text">启用主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在菜单上添加页面"><span class="nav-text">在菜单上添加页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置首页不显示全文-只显示预览"><span class="nav-text">设置首页不显示全文(只显示预览)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加-RSS"><span class="nav-text">添加 RSS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加本地搜索"><span class="nav-text">添加本地搜索</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义样式"><span class="nav-text">自定义样式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#修改头像样式"><span class="nav-text">修改头像样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更改主题背景"><span class="nav-text">更改主题背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改-local-search-加载图标"><span class="nav-text">修改 local-search 加载图标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改文章内链接文本样式"><span class="nav-text">修改文章内链接文本样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义代码块样式"><span class="nav-text">自定义代码块样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改文章底部的那个带-号的标签"><span class="nav-text">修改文章底部的那个带 # 号的标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在每篇文章末尾统一添加”本文结束”标记"><span class="nav-text">在每篇文章末尾统一添加”本文结束”标记</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加顶部加载条"><span class="nav-text">添加顶部加载条</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加评论系统"><span class="nav-text">添加评论系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Gitmen-评论"><span class="nav-text">Gitmen 评论</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#GitHub-授权接入"><span class="nav-text">GitHub 授权接入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加-Gitment"><span class="nav-text">添加 Gitment</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LiveRe-评论"><span class="nav-text">LiveRe 评论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hypercomments-超级评论"><span class="nav-text">Hypercomments 超级评论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#valine-评论系统"><span class="nav-text">valine 评论系统</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加分享"><span class="nav-text">添加分享</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SEO-优化"><span class="nav-text">SEO 优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加站点地图（sitemap-xml）"><span class="nav-text">添加站点地图（sitemap.xml）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提交博客地址到搜索引擎"><span class="nav-text">提交博客地址到搜索引擎</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Google-站长工具-和-Google-Analysis"><span class="nav-text">Google 站长工具 和 Google Analysis</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置忽略文件渲染"><span class="nav-text">设置忽略文件渲染</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加-google-adsense"><span class="nav-text">添加 google adsense</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文章加密访问"><span class="nav-text">文章加密访问</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加评分系统"><span class="nav-text">添加评分系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加萌萌哒看板娘"><span class="nav-text">添加萌萌哒看板娘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加-Hitokoto-一言功能"><span class="nav-text">添加 Hitokoto 一言功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Hexo-Admin"><span class="nav-text">安装Hexo Admin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题更新"><span class="nav-text">主题更新</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#从-NexT-v5-1-x-更新"><span class="nav-text">从 NexT v5.1.x 更新</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#配置环境"><span class="nav-text">配置环境</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Node"><span class="nav-text">安装Node</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Git"><span class="nav-text">安装Git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#申请GitHub"><span class="nav-text">申请GitHub</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装HEXO"><span class="nav-text">安装HEXO</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置-Github"><span class="nav-text">配置 Github</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#建立-Repository"><span class="nav-text">建立 Repository</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建立关联"><span class="nav-text">建立关联</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署步骤"><span class="nav-text">部署步骤</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#写作"><span class="nav-text">写作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#主题"><span class="nav-text">主题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载-NexT-主题"><span class="nav-text">下载 NexT 主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启用主题"><span class="nav-text">启用主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在菜单上添加页面"><span class="nav-text">在菜单上添加页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置「阅读全文」"><span class="nav-text">设置「阅读全文」</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加-RSS"><span class="nav-text">添加 RSS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加本地搜索"><span class="nav-text">添加本地搜索</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义样式"><span class="nav-text">自定义样式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#修改头像样式"><span class="nav-text">修改头像样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更改主题背景"><span class="nav-text">更改主题背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改-local-search-加载图标"><span class="nav-text">修改 local-search 加载图标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改文章内链接文本样式"><span class="nav-text">修改文章内链接文本样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义代码块样式"><span class="nav-text">自定义代码块样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改文章底部的那个带-号的标签"><span class="nav-text">修改文章底部的那个带 # 号的标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在每篇文章末尾统一添加”本文结束”标记"><span class="nav-text">在每篇文章末尾统一添加”本文结束”标记</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加顶部加载条"><span class="nav-text">添加顶部加载条</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加评论系统"><span class="nav-text">添加评论系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Gitmen-评论"><span class="nav-text">Gitmen 评论</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#GitHub-授权接入"><span class="nav-text">GitHub 授权接入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加-Gitment"><span class="nav-text">添加 Gitment</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LiveRe-评论"><span class="nav-text">LiveRe 评论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hypercomments-超级评论"><span class="nav-text">Hypercomments 超级评论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#valine-评论系统"><span class="nav-text">valine 评论系统</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加分享"><span class="nav-text">添加分享</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SEO-优化"><span class="nav-text">SEO 优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加站点地图（sitemap-xml）"><span class="nav-text">添加站点地图（sitemap.xml）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提交博客地址到搜索引擎"><span class="nav-text">提交博客地址到搜索引擎</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Google-站长工具-和-Google-Analysis"><span class="nav-text">Google 站长工具 和 Google Analysis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加蜘蛛协议robots-txt"><span class="nav-text">添加蜘蛛协议robots.txt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#给出站链接添加-nofollow标签"><span class="nav-text">给出站链接添加 nofollow标签</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置忽略文件渲染"><span class="nav-text">设置忽略文件渲染</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加-google-adsense"><span class="nav-text">添加 google adsense</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文章加密访问"><span class="nav-text">文章加密访问</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加评分系统"><span class="nav-text">添加评分系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加萌萌哒看板娘"><span class="nav-text">添加萌萌哒看板娘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加-Hitokoto-一言功能"><span class="nav-text">添加 Hitokoto 一言功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Hexo-Admin"><span class="nav-text">安装Hexo Admin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题更新"><span class="nav-text">主题更新</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#从-NexT-v5-1-x-更新"><span class="nav-text">从 NexT v5.1.x 更新</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -1162,6 +1180,32 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
 
 
 
@@ -1284,7 +1328,7 @@
     avatar: 'monsterid',
     meta: guest,
     pageSize: '10' || 10,
-    visitor: true,
+    visitor: false,
     lang: '' || 'zh-cn'
   });
 </script>
@@ -1621,6 +1665,68 @@
 
 
   
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $('.leancloud_visitors');
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+            
+              .done(function() {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.time + 1);
+              })
+            
+              .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+              })
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! More info at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .fail(function ({ responseJSON }) {
+          console.log('LeanCloud Counter Error: ' + responseJSON.code + ' ' + responseJSON.error);
+        });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'i2ouGvmHTW7EhnCLQOBXVrub-gzGzoHsz')
+        .done(function({ api_server }) {
+          var Counter = function(method, url, data) {
+            return $.ajax({
+              method: method,
+              url: 'https://' + api_server + '/1.1' + url,
+              headers: {
+                'X-LC-Id': 'i2ouGvmHTW7EhnCLQOBXVrub-gzGzoHsz',
+                'X-LC-Key': 'AybRqrp4wjRmuVSiflCxLBrO',
+                'Content-Type': 'application/json',
+              },
+              data: data
+            });
+          };
+          
+            const localhost = /http:\/\/(localhost|127.0.0.1|0.0.0.0)/;
+            if (localhost.test(document.URL)) return;
+            addCount(Counter);
+          
+        });
+    });
+  </script>
+
+
 
   
 

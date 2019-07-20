@@ -121,6 +121,7 @@
 
 
   <meta name="description" content="vue-cli webpack 打包后 index.html 引入文件没有引号  解决办法： vue-cli2： 在 webpack.prod.conf.js 中修改： plugins: [  new HtmlWebpackPlugin(&amp;#123;    minify: &amp;#123;      removeAttributeQuotes: false // 如果该方法没有用那就把整个 mini">
+<meta name="keywords" content="web">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue-cli 常用配置">
 <meta property="og:url" content="https://cuilongjin.top/2019/vue/vue-cli常用配置/index.html">
@@ -630,8 +631,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/vue/vue-cli3 内存溢出解决/" rel="next" title="vue-cli3.0 内存溢出 JavaScript heap out of memory">
-                <i class="fa fa-chevron-left"></i> vue-cli3.0 内存溢出 JavaScript heap out of memory
+              <a href="/2019/other/js 中编码（encode）和解码（decode）的三种方法/" rel="next" title="js 中编码（encode）和解码（decode）的三种方法">
+                <i class="fa fa-chevron-left"></i> js 中编码（encode）和解码（decode）的三种方法
               </a>
             
           </div>
@@ -640,8 +641,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/vue/keep-alive/" rel="prev" title="keep-alive 实现页面缓存">
-                keep-alive 实现页面缓存 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/vue/vue-cli3 内存溢出解决/" rel="prev" title="vue-cli3.0 内存溢出 JavaScript heap out of memory">
+                vue-cli3.0 内存溢出 JavaScript heap out of memory <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -939,6 +940,32 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
 
 
 
@@ -1061,7 +1088,7 @@
     avatar: 'monsterid',
     meta: guest,
     pageSize: '10' || 10,
-    visitor: true,
+    visitor: false,
     lang: '' || 'zh-cn'
   });
 </script>
@@ -1398,6 +1425,68 @@
 
 
   
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $('.leancloud_visitors');
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+            
+              .done(function() {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.time + 1);
+              })
+            
+              .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+              })
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! More info at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .fail(function ({ responseJSON }) {
+          console.log('LeanCloud Counter Error: ' + responseJSON.code + ' ' + responseJSON.error);
+        });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'i2ouGvmHTW7EhnCLQOBXVrub-gzGzoHsz')
+        .done(function({ api_server }) {
+          var Counter = function(method, url, data) {
+            return $.ajax({
+              method: method,
+              url: 'https://' + api_server + '/1.1' + url,
+              headers: {
+                'X-LC-Id': 'i2ouGvmHTW7EhnCLQOBXVrub-gzGzoHsz',
+                'X-LC-Key': 'AybRqrp4wjRmuVSiflCxLBrO',
+                'Content-Type': 'application/json',
+              },
+              data: data
+            });
+          };
+          
+            const localhost = /http:\/\/(localhost|127.0.0.1|0.0.0.0)/;
+            if (localhost.test(document.URL)) return;
+            addCount(Counter);
+          
+        });
+    });
+  </script>
+
+
 
   
 

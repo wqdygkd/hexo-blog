@@ -121,6 +121,7 @@
 
 
   <meta name="description" content="A doc for web">
+<meta name="keywords" content="web">
 <meta property="og:type" content="website">
 <meta property="og:title" content="稻草人">
 <meta property="og:url" content="https://cuilongjin.top/categories/vue/index.html">
@@ -487,32 +488,6 @@
 
       <h3 class="post-title">
         
-          <a class="post-title-link" href="/2019/vue/vue-cli常用配置/" itemprop="url">
-            
-              <span itemprop="name">vue-cli 常用配置</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-11T00:00:00+08:00" content="2019-07-11">
-          07-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
           <a class="post-title-link" href="/2019/vue/vue-cli3 内存溢出解决/" itemprop="url">
             
               <span itemprop="name">vue-cli3.0 内存溢出 JavaScript heap out of memory</span>
@@ -539,17 +514,17 @@
 
       <h3 class="post-title">
         
-          <a class="post-title-link" href="/2019/vue/vue-lifecycle/" itemprop="url">
+          <a class="post-title-link" href="/2019/vue/vue-cli常用配置/" itemprop="url">
             
-              <span itemprop="name">Vue 生命周期</span>
+              <span itemprop="name">vue-cli 常用配置</span>
             
           </a>
         
       </h3>
 
       <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-01-08T18:00:00+08:00" content="2019-01-08">
-          01-08
+        <time class="post-time" itemprop="dateCreated" datetime="2019-07-11T00:00:00+08:00" content="2019-07-11">
+          07-11
         </time>
       </div>
 
@@ -594,6 +569,32 @@
           <a class="post-title-link" href="/2019/vue/vuex/" itemprop="url">
             
               <span itemprop="name">Vuex</span>
+            
+          </a>
+        
+      </h3>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-01-08T18:00:00+08:00" content="2019-01-08">
+          01-08
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h3 class="post-title">
+        
+          <a class="post-title-link" href="/2019/vue/vue-lifecycle/" itemprop="url">
+            
+              <span itemprop="name">Vue 生命周期</span>
             
           </a>
         
@@ -891,6 +892,32 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
 
 
 
@@ -1009,7 +1036,7 @@
     avatar: 'monsterid',
     meta: guest,
     pageSize: '10' || 10,
-    visitor: true,
+    visitor: false,
     lang: '' || 'zh-cn'
   });
 </script>
@@ -1344,6 +1371,74 @@
 
 
   
+  
+  <script>
+    
+    function showTime(Counter) {
+      var entries = [];
+      var $visitors = $('.leancloud_visitors');
+
+      $visitors.each(function() {
+        entries.push( $(this).attr('id').trim() );
+      });
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url: { '$in': entries } }) })
+        .done(function({ results }) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.url;
+            var time = item.time;
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for (var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if (countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function ({ responseJSON }) {
+          console.log('LeanCloud Counter Error: ' + responseJSON.code + ' ' + responseJSON.error);
+        });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'i2ouGvmHTW7EhnCLQOBXVrub-gzGzoHsz')
+        .done(function({ api_server }) {
+          var Counter = function(method, url, data) {
+            return $.ajax({
+              method: method,
+              url: 'https://' + api_server + '/1.1' + url,
+              headers: {
+                'X-LC-Id': 'i2ouGvmHTW7EhnCLQOBXVrub-gzGzoHsz',
+                'X-LC-Key': 'AybRqrp4wjRmuVSiflCxLBrO',
+                'Content-Type': 'application/json',
+              },
+              data: data
+            });
+          };
+          
+            if ($('.post-title-link').length >= 1) {
+              showTime(Counter);
+            }
+          
+        });
+    });
+  </script>
+
+
 
   
 
