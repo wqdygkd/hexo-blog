@@ -1,30 +1,28 @@
 ---
 title: Hexo+Github 搭建博客教程及进阶设置
 categories:
-- [博客]
+  - [博客]
 date: 2017/12/22
 updated: 2019/07/13
 ---
 
-
-
-[Hexo文档](https://hexo.io/zh-cn/docs/index.html)
+[Hexo 文档](https://hexo.io/zh-cn/docs/index.html)
 
 # 配置环境
 
-## 安装Node
+## 安装 Node
 
-作用：用来生成静态页面的 到[Node.js官网][1]下载相应平台的最新版本，一路安装即可。
+作用：用来生成静态页面的 到[Node.js 官网][1]下载相应平台的最新版本，一路安装即可。
 
-## 安装Git
+## 安装 Git
 
-作用：把本地的hexo内容提交到github上去。[Git官网下载][2]
+作用：把本地的 hexo 内容提交到 github 上去。[Git 官网下载][2]
 
-## 申请GitHub
+## 申请 GitHub
 
-作用：是用来做博客的远程创库、域名、服务器之类的。 [github账号注册][3]，[github配置][4]
+作用：是用来做博客的远程创库、域名、服务器之类的。 [github 账号注册][3]，[github 配置][4]
 
-## 安装HEXO
+## 安装 HEXO
 
 执行如下命令安装 hexo：
 
@@ -41,31 +39,31 @@ hexo init
 文件夹的目录如下：
 
 ```bash
-├── _config.yml  
-├── package.json  
-├── scaffolds  
-├── source  
-|   ├── _drafts  
-|   └── _posts  
-└── themes  
+├── _config.yml
+├── package.json
+├── scaffolds
+├── source
+|   ├── _drafts
+|   └── _posts
+└── themes
 ```
 
 `_config.yml` 网站配置文件
 
-参数          | 描述
------------ | --------------------------------------------------------------
-title       | 网站标题
-subtitle    | 网站副标题
-description | 网站描述
-author      | 您的名字
-language    | 网站使用的语言
-timezone    | 网站时区。Hexo 默认使用您电脑的时区。时区列表。比如说：America/New_York, Japan, 和 UTC 
+| 参数        | 描述                                                                                   |
+| ----------- | -------------------------------------------------------------------------------------- |
+| title       | 网站标题                                                                               |
+| subtitle    | 网站副标题                                                                             |
+| description | 网站描述                                                                               |
+| author      | 您的名字                                                                               |
+| language    | 网站使用的语言                                                                         |
+| timezone    | 网站时区。Hexo 默认使用您电脑的时区。时区列表。比如说：America/New_York, Japan, 和 UTC |
 
-> 其中，description主要用于SEO，告诉搜索引擎一个关于您站点的简单描述，通常建议在其中包含您网站的关键词。author 参数用于主题显示文章的作者
+> 其中，description 主要用于 SEO，告诉搜索引擎一个关于您站点的简单描述，通常建议在其中包含您网站的关键词。author 参数用于主题显示文章的作者
 
 生成静态页面
 
-将 md 文件放到 source/_posts 文件夹下执行命令：
+将 md 文件放到 source/\_posts 文件夹下执行命令：
 
 ```bash
 hexo g/generate # 生成静态页面至 public 目录
@@ -95,8 +93,6 @@ hexo server # 开启预览访问端口(默认端口4000，'ctrl + c'关闭server
 hexo server -i 192.168.1.1
 ```
 
-
-
 # 配置 Github
 
 ## 建立 Repository
@@ -114,7 +110,7 @@ deploy:
    branch: master
 ```
 
-> 为了便于以后管理，可以创建备份分支，`$ git checkout -b hexo`创建 hexo 分支用于备份原始文件 所有的修改添加均在此分支下进行，并push到远程hexo分支
+> 为了便于以后管理，可以创建备份分支，`$ git checkout -b hexo`创建 hexo 分支用于备份原始文件 所有的修改添加均在此分支下进行，并 push 到远程 hexo 分支
 
 执行如下命令
 
@@ -140,8 +136,6 @@ hexo generate
 hexo deploy
 ```
 
-
-
 # 写作
 
 执行下列命令来创建一篇新文章
@@ -156,11 +150,21 @@ hexo new [layout] <title>
 {% img [class names] /path/to/image [width] [height] [title text [alt text]] %}
 ```
 
+Bootstrap Callout
 
+使用方式
+
+```
+{% note class_name %} Content (md partial supported) {% endnote %}
+```
+
+其中，`class_name` 可以是以下列表中的一个值：
+
+`default`、`primary`、`success`、`info`、`warning`、`danger`
 
 # 主题
 
-[NexT v5.1.x][6] [NexT v6.0.0][8] [next主题个性化配置][12]
+[NexT v5.1.x][6] [NexT v6.0.0][8] [next 主题个性化配置][12]
 
 ## 下载 NexT 主题
 
@@ -173,7 +177,7 @@ git submodule add git@github.com:cuilongjin/hexo-theme-next.git themes/next
 
 打开站点配置文件 `_config.yml` ， 找到 theme 字段，并将其值更改为 next
 
-NexT主题的目录架构
+NexT 主题的目录架构
 
 ```
 ├── .github                #github信息
@@ -216,8 +220,6 @@ NexT主题的目录架构
 └── README.md              #说明文件
 ```
 
-
-
 ## 在菜单上添加页面
 
 以添加 about 页面为例，在 hexo 目录下执行：
@@ -228,15 +230,23 @@ hexo new page "about"
 
 然后你会发现 source 里面多了个目录 about，里面有个 index.md。其实你也可以手动建立。 然后在主题配置文件 `_config.yml` 中找到 menu 一项，添加一行 About: /about
 
-## 设置首页不显示全文(只显示预览)
+## 设置「阅读全文」
 
-打开主题配置文件 `_config.yml` ，启用`auto_excerpt`
+在首页显示文章的摘录并显示 **阅读全文** 按钮，可以通过以下方法：
+
+1. 在文章中使用 `<!-- more -->` 手动进行截断，Hexo 提供的方式 **推荐**
+2. 在文章的 [front-matter](https://hexo.io/docs/front-matter.html) 中添加 `description`，并提供文章摘录
+3. 自动形成摘要，在主题配置文件 `_config.yml` ，启用`auto_excerpt`
 
 ```yml
 auto_excerpt:
   enable: true
-  length: 150
+length: 150
 ```
+
+默认截取的长度为 `150` 字符，可以根据需要自行设定
+
+建议使用 `<!-- more -->`（即第一种方式），除了可以精确控制需要显示的摘录内容以外， 这种方式也可以让 Hexo 中的插件更好的识别。
 
 ## 添加 RSS
 
@@ -275,8 +285,6 @@ local_search:
   enable: true
 ```
 
-
-
 ## 自定义样式
 
 `themes\next\source\css\_custom\custom.styl` 文件中添加自定义样式
@@ -294,12 +302,12 @@ local_search:
 ```css
 // 背景图片相关
 body {
-  background-image:url(../images/background.jpg);
-  height:100%;
-  width:100%;
-  background-repeat:repeat-x;
-  background-attachment:fixed;
-  background-size:cover;
+  background-image: url(../images/background.jpg);
+  height: 100%;
+  width: 100%;
+  background-repeat: repeat-x;
+  background-attachment: fixed;
+  background-size: cover;
 }
 ```
 
@@ -323,15 +331,13 @@ body {
 }
 // 菜单栏的透明度设置
 .header-inner {
-  background: rgba(255,255,255,0.85);
+  background: rgba(255, 255, 255, 0.85);
 }
 // 搜索框的透明度设置
 .popup {
   opacity: 0.9;
 }
 ```
-
-
 
 ### 修改 local-search 加载图标
 
@@ -347,13 +353,11 @@ body {
 <i class="fa fa-circle-o-notch fa-spin fa-5x fa-fw margin-bottom"></i>
 ```
 
-
-
 ### 修改文章内链接文本样式
 
 ```css
 // 文章内链接文本样式
-.post-body p a{
+.post-body p a {
   color: #0593d3;
   border-bottom: 1px solid #0593d3;
   &:hover {
@@ -362,8 +366,6 @@ body {
   }
 }
 ```
-
-
 
 ### 自定义代码块样式
 
@@ -374,14 +376,13 @@ code {
   margin: 2px;
 }
 // 大代码块的自定义样式
-.highlight, pre {
+.highlight,
+pre {
   margin: 5px 0;
   padding: 5px;
   border-radius: 3px;
 }
 ```
-
-
 
 ### 修改文章底部的那个带 # 号的标签
 
@@ -390,8 +391,6 @@ code {
 ```yml
 tag_icon: tag
 ```
-
-
 
 ### 在每篇文章末尾统一添加"本文结束"标记
 
@@ -413,8 +412,6 @@ passage_end_tag:
   enabled: true
 ```
 
-
-
 ### 添加顶部加载条
 
 ```bash
@@ -430,20 +427,18 @@ git clone https://github.com/theme-next/theme-next-pace source/lib/pace
 /* 自定义进度条颜色 */
 .pace {
   .pace-progress {
-    background: #1E92FB; // 进度条颜色
+    background: #1e92fb; // 进度条颜色
     height: 3px;
   }
   .pace-progress-inner {
-    box-shadow: 0 0 10px #1E92FB, 0 0 5px #1E92FB; // 阴影颜色
+    box-shadow: 0 0 10px #1e92fb, 0 0 5px #1e92fb; // 阴影颜色
   }
   .pace-activity {
-    border-top-color: #1E92FB; // 上边框颜色
-    border-left-color: #1E92FB; // 左边框颜色
+    border-top-color: #1e92fb; // 上边框颜色
+    border-left-color: #1e92fb; // 左边框颜色
   }
 }
 ```
-
-
 
 ## 添加评论系统
 
@@ -451,11 +446,11 @@ git clone https://github.com/theme-next/theme-next-pace source/lib/pace
 
 #### GitHub 授权接入
 
-Gitment 是使用的 GitHub Issues 作为评论系统，在接入 Gitment 前，需要获得 GitHub 的授权，获得相应的客户端id 和客户端私钥，以备站点使用。 [OAuth application注册接入][9]
+Gitment 是使用的 GitHub Issues 作为评论系统，在接入 Gitment 前，需要获得 GitHub 的授权，获得相应的客户端 id 和客户端私钥，以备站点使用。 [OAuth application 注册接入][9]
 
 #### 添加 Gitment
 
-> 如果您使用的是 Hexo 框架的 Next 主题博客，想要添加 Gitment 的时候，记得将自己的 Next主 题更新到最新版。
+> 如果您使用的是 Hexo 框架的 Next 主题博客，想要添加 Gitment 的时候，记得将自己的 Next 主 题更新到最新版。
 
 打开主题配置文件 `_config.yml` 修改如下：
 
@@ -493,11 +488,7 @@ livere_uid: your uid
 # hypercomments_id: your id
 ```
 
-
-
 ### valine 评论系统
-
-
 
 ## 添加分享
 
@@ -517,10 +508,6 @@ needmoreshare2:
     enable: true
 ```
 
-
-
-
-
 ## SEO 优化
 
 ### 添加站点地图（sitemap.xml）
@@ -530,20 +517,16 @@ npm install hexo-generator-sitemap hexo-generator-baidu-sitemap
 npm install hexo-generator-baidu-sitemap
 ```
 
-
-
 在**站点配置文件**中添加如下代码:
 
 ```yml
 sitemap:
   path: sitemap.xml
-baidusitemap: 
+baidusitemap:
   path: baidusitemap.xml
 ```
 
 配置成功后，会生成`sitemap.xml`和`baidusitemap.xml`，前者适合提交给谷歌搜素引擎，后者适合提交百度搜索引擎。
-
-
 
 ### 提交博客地址到搜索引擎
 
@@ -557,15 +540,36 @@ baidusitemap:
 
 GA 是用来统计访问信息的，站长工具是用来查看网站的查询和搜索数据
 
-注册[Google Analysis](https://analytics.google.com/ )
+注册[Google Analysis](https://analytics.google.com/)
 
 编辑主题配置文件 `_config.yml` ， 修改字段 google_analytics， 值设置成你的 Google 跟踪 ID。跟踪 ID 通常是以 UA- 开头
 
-[Google 站长工具](https://search.google.com/search-console/) 提交sitemap
+[Google 站长工具](https://search.google.com/search-console/) 提交 sitemap
 
+### 添加蜘蛛协议 robots.txt
 
+robots.txt，代码如下
 
+```txt
+# hexo robots.txt
+User-agent: *
+Allow: /
+Allow: /archives/
 
+Disallow: /vendors/
+Disallow: /js/
+Disallow: /css/
+Disallow: /fonts/
+Disallow: /vendors/
+Disallow: /fancybox/
+
+Sitemap: https://cuilongjin.top/sitemap.xml
+Sitemap: https://cuilongjin.top/baidusitemap.xml
+```
+
+把`robots.txt`放在你的`hexo`站点的`source`文件下即可
+
+### 给出站链接添加 `nofollow`标签
 
 ## 设置忽略文件渲染
 
@@ -582,8 +586,6 @@ skip_render:
 
 再次使用 hexo d 命令部署博客的时候就不会在渲染这些文件了
 
-
-
 ## 添加 google adsense
 
 注册账号 https://www.google.com/adsense/start/
@@ -593,14 +595,12 @@ skip_render:
 ```html
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-9068539038073295",
+  ;(adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: 'ca-pub-9068539038073295',
     enable_page_level_ads: true
   })
 </script>
 ```
-
-
 
 将网站关联到 AdSense
 
@@ -611,7 +611,7 @@ skip_render:
 google_adsense: true
 ```
 
-主题文件夹下找到 /layout/_partial/head.swig 里添加代码：
+主题文件夹下找到 /layout/\_partial/head.swig 里添加代码：
 
 ```swig
 {% if theme.google_adsense %}
@@ -625,13 +625,9 @@ google_adsense: true
 {% endif %}
 ```
 
-
-
 重新部署网站
 
 等待审核，审核成功会向你发送邮件
-
-
 
 ## 文章加密访问
 
@@ -667,8 +663,6 @@ message: 博客查看时，密码输入框上面的描述性文字
 - 字数统计功能字数会显得比实际值大
 - 加密文章内代码复制失效
 
-
-
 ## 添加评分系统
 
 [https://widgetpack.com](https://widgetpack.com/) 注册
@@ -680,28 +674,20 @@ message: 博客查看时，密码输入框上面的描述性文字
 ```yml
 rating:
   enable: true
-  id: 
+  id:
 ```
 
-
-
 在侧栏找到 rating 的 setting：推荐将投票方式改为 ip 投票，因为这个平台提供的账号投票基本不面向国内。
-
-
 
 ## 添加萌萌哒看板娘
 
 https://blog.bill.moe/hexo-live2d-poster-girl/
 
-
-
 ## 添加 Hitokoto 一言功能
 
 https://hitokoto.cn/api
 
-
-
-## 安装Hexo Admin
+## 安装 Hexo Admin
 
 ```bash
 npm install hexo-admin
@@ -712,7 +698,7 @@ hexo server
 
 设置登陆 admin 的用户名和密码，打开**http://localhost:4000/admin/#/auth-setup**
 
-可以直接输入你想要的用户名和密码，把生成的文本复制到 hexo 根目录配置文件中**_config.yml**
+可以直接输入你想要的用户名和密码，把生成的文本复制到 hexo 根目录配置文件中**\_config.yml**
 
 ```yml
 # hexo-admin authentification
@@ -721,8 +707,6 @@ admin:
   password_hash: $2a$10$L.XAIqIWgTc5S1zpvV3MEu7/rH34p4Is/nq824smv8EZ3lIPCp1su
   secret: my super secret phrase
 ```
-
-
 
 ## 主题更新
 
