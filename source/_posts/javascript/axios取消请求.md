@@ -3,6 +3,7 @@ title: axios 取消请求
 categories:
   - [js]
 date: 2019/07/17
+updated: 2019/07/18
 ---
 
 原生 js abort() 方法
