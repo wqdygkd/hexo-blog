@@ -6,6 +6,61 @@ Object.prototype.toString.call('str') // '[object String]'
 typeof 'str' // 'string'
 ```
 
+getRawType：获取数据类型，返回结果为 Number、String、Object、Array 等
+
+```js
+function getRawType(value) {
+  return Object.prototype.toString.call(value).slice(8, -1)
+}
+```
+
+isObject：判断数据是不是引用类型的数据 (例如： arrays, functions, objects, regexes, new Number(0),以及 new String(''))
+
+```js
+function isObject(value) {
+  let type = typeof value
+  return value != null && (type == 'object' || type == 'function')
+}
+```
+
+isPlainObject：判断数据是不是 Object 类型的数据
+
+```js
+function isPlainObject(obj) {
+  return Object.prototype.toString.call(obj) === '[object Object]'
+}
+```
+
+isArray：判断数据是不是数组类型的数据
+
+```js
+function isArray(arr) {
+  return Object.prototype.toString.call(arr) === '[object Array]'
+}
+```
+
+将 isArray 挂载到 Array 上
+
+```js
+Array.isArray = Array.isArray || isArray
+```
+
+isRegExp：判断数据是不是正则对象
+
+```js
+function isRegExp(value) {
+  return Object.prototype.toString.call(value) === '[object RegExp]'
+}
+```
+
+isDate：判断数据是不是时间对象
+
+```js
+function isDate(value) {
+  return Object.prototype.toString.call(value) === '[object Date]'
+}
+```
+
 进制转换
 parseInt(str,radix) // 任意进制转换为 10 进制整数值
 与 Number.toString(radix) 返回表示该数字的指定进制形式的字符串
@@ -94,9 +149,36 @@ function entities(s) {
 }
 ```
 
+数组去重
+
 ```js
-// 数组去重
 function distinct(arr) {
   return arr.filter((v, i, array) => array.indexOf(v) === i)
+}
+```
+
+Object.create(null) 和 {} 区别
+
+Object.create(null) 没有继承任何原型方法，也就是说它的原型链没有上一层
+
+```js
+console.log(Object.create({}).toString) // function toString() { [native code] }
+console.log(Object.create(null).toString) // undefined
+```
+
+```js
+// Object.create() 的定义
+Object.create(proto, [propertiesObject])
+// proto:新创建对象的原型对象
+// propertiesObject:可选。要添加到新对象的可枚举（新添加的属性是其自身的属性，而不是其原型链上的属性）的属性。
+```
+
+Object.create()方法的内部实现简单来说是这样的：
+
+```js
+Object.create = function(o) {
+  var F = function() {}
+  F.prototype = o
+  return new F()
 }
 ```
