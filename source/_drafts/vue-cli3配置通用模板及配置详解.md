@@ -1,11 +1,9 @@
 ---
-title: vue-cli3配置通用模板及配置详解
+title: vue-cli3 配置通用模板及配置详解
 categories:
-- [vue]
+  - [vue]
 date: 2019/07/22
 ---
-
-
 
 安装：
 
@@ -41,11 +39,9 @@ vue add @vue/eslint
 
 `vue add` 的设计意图是为了安装和调用 Vue CLI 插件。对于普通的 npm 包而言，这不意味有一个替代（命令）。对于这些普通的 npm 包，你仍然需要（根据所选的 npm 包）使用包管理器。
 
-
-
 ## vue.config.js 配置
 
-[官网配置参考]( https://cli.vuejs.org/zh/config)
+[官网配置参考](https://cli.vuejs.org/zh/config)
 
 ```js
 // vue.config.js
@@ -53,8 +49,6 @@ module.exports = {
   // 选项...
 }
 ```
-
-
 
 ### publicPath
 
@@ -99,8 +93,6 @@ assetsDir: 'static'
 ```js
 indexPath: 'index.html'
 ```
-
-
 
 ### pages
 
@@ -168,11 +160,9 @@ runtimeCompiler: false
 productionSourceMap: false
 ```
 
-
-
 ### chainWebpack
 
- 对内部的 webpack 配置进行更细粒度的修改
+对内部的 webpack 配置进行更细粒度的修改
 
 ```js
 const chainWebpack = config => {
@@ -187,13 +177,13 @@ const chainWebpack = config => {
   //   args[0].minify = false
   //   return args
   // })
-  
+
   // 修改静态资源打包方式，下例为超过10k才用文件导入的方式，否则为base64.默认为4k
   config.module
-  .rule('images')
-      .use('url-loader')
-      .loader('url-loader')
-      .tap(options => Object.assign(options, { limit: 10240 }))
+    .rule('images')
+    .use('url-loader')
+    .loader('url-loader')
+    .tap(options => Object.assign(options, { limit: 10240 }))
 }
 module.export = {
   chainWebpack
@@ -205,8 +195,6 @@ https://cli.vuejs.org/zh/guide/html-and-static-assets.html#preload
 [`<link rel="preload">`](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Preloading_content)是一种 resource hint，用来指定页面加载后很快会被用到的资源，所以在页面加载的过程中，我们希望在浏览器开始主体渲染之前尽早 preload。
 
 [`<link rel="prefetch">`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ) 是一种 resource hint，用来告诉浏览器在页面加载完成后，利用空闲时间提前获取用户未来可能会访问的内容。
-
-
 
 ### configureWebpack
 
@@ -224,7 +212,7 @@ const configureWebpack = config => {
       threshold: 8192,
       minRatio: 0.8
     }),
-    
+
     // Webpack 包文件分析器(https://github.com/webpack-contrib/webpack-bundle-analyzer)
     new BundleAnalyzerPlugin(),
 
@@ -262,63 +250,77 @@ module.export = {
 }
 ```
 
+### 环境变量与分环境打包
 
+[vue-cli-service-build](https://cli.vuejs.org/zh/guide/cli-service.html#vue-cli-service-build)
+vue-cli-service build --mode 指定环境模式(默认值：production)
 
+npm run build 默认模式为 production ，命令执行时会把 process.env.NODE_ENV(环境变量) 设置为 'production'
+npm run serve 时会把 process.env.NODE_ENV 设置为 'development'
 
+所以可以根据 process.env.NODE_ENV 简单的区分出本地和线上环境
 
+但是线上环境也可能分多种，比如测试环境和预发布环境等
 
+**配置 vue-cli3 区分不同的线上环境**
 
+在项目根目录创建下列文件来制定环境变量
 
+```
+.env                # 在所有的环境中被载入
+.env.local          # 在所有的环境中被载入，但会被 git 忽略
+.env.[mode]         # 只在指定的模式中被载入
+.env.[mode].local   # 只在指定的模式中被载入，但会被 git 忽略
+```
 
+`.env.test`
 
+```
+/* VUE_APP_CURRENTMODE 当前环境变量 */
+VUE_APP_CURRENTMODE = 't' // 表明开发环境模式信息
+NODE_ENV = 'development' // 使用开发环境（因为默认开启 devtool，便于调试）
+// VUE_APP_BASEURL='' // 测试服务器地址
+VUE_APP_ENV = 'test 环境'
+```
 
+`.env.release`
 
+```
+NODE_ENV = 'development'
+VUE_APP_CURRENTMODE = 'r'
+VUE_APP_ENV = 'release 环境'
+```
 
+在 package.json 中添加
 
+```json
+"scripts": {
+  "test": "vue-cli-service build --mode t",
+  "release": "vue-cli-service build --mode r"
+}
 
+```
 
+修改 baseUrl.js 文件通过环境变量改变 baseUrl
 
+```js
+if (process.env.VUE_APP_CURRENTMODE === 't') {
+  // 测试环境
+  baseUrl = ''
+} else if (process.env.VUE_APP_CURRENTMODE === 'r') {
+  // 预发布环境
+  baseUrl = ''
+} else {
+  // 正式环境
+  baseUrl = ''
+}
+```
 
+当需要为测试环境进行打包的时候 , 只需要运行下面指令进行打包
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```bash
+npm run test
+```
 
 ```bash
 vue add router
