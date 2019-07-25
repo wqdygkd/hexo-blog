@@ -568,6 +568,16 @@ git branch --set-upstream dev origin/dev
 
 
 
+克隆指定分支
+
+```bash
+# git clone -b|--branch 分支名或tag名 仓库地址
+```
+
+
+
+
+
 ### git fetch
 
 ```bash

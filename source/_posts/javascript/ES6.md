@@ -28,7 +28,7 @@ ECMAScript 6.0（以下简称 ES6）是在 2015 年 6 月正式发布的标准�
 
 ES6 新增了`let`命令，用来声明变量。它的用法类似于`var`
 
-- let声明的变量只有在当前作用域(块作用域)有效
+- let 声明的变量只有在当前作用域(块作用域)有效
 
 ```js
 if (true) {
@@ -47,7 +47,7 @@ let a = 10
 let a = 1 // SyntaxError: Identifier 'a' has already been declared
 ```
 
-- 不绑定全局作用域
+- <span class="red">不绑定全局作用域</span>
 
 ```javascript
 var c = 1

@@ -94,6 +94,12 @@ assetsDir: 'static'
 indexPath: 'index.html'
 ```
 
+### filenameHashing
+
+默认 true
+
+默认情况下，生成的静态资源在它们的文件名中包含了 hash 以便更好的控制缓存。然而，这也要求 index 的 HTML 是被 Vue CLI 自动生成的。如果你无法使用 Vue CLI 生成的 index HTML，你可以通过将这个选项设为 false 来关闭文件名哈希
+
 ### pages
 
 默认 undefined
@@ -132,10 +138,10 @@ module.export = {
 
 默认 true
 
-是否在保存的时候检查
+是否在保存的时候检查，如果为 true ，build 时会启用 eslint-loader 进行代码检查，可以使用如下配置禁用
 
 ```js
-lintOnSave: true
+lintOnSave: process.env.NODE_ENV !== 'production'
 ```
 
 ### runtimeCompiler
@@ -144,7 +150,7 @@ lintOnSave: true
 
 是否使用包含运行时编译器的 Vue 构建版本
 
-使用 template 语法需要开启，使用渲染函数不需要开启
+使用 template 语法需要开启，但是这会让你的应用额外增加 10kb 左右，使用渲染函数不需要开启
 
 ```js
 runtimeCompiler: false
@@ -155,6 +161,8 @@ runtimeCompiler: false
 默认 true
 
 生产环境是否生成 sourceMap 文件，一般情况不建议打开
+
+map 文件的作用在于：项目打包后，代码都是经过压缩加密的，如果运行时报错，输出的错误信息无法准确得知是哪里的代码报错。有了 map 就可以像未加密的代码一样，准确的输出是哪一行哪一列有错
 
 ```js
 productionSourceMap: false
@@ -283,20 +291,11 @@ NODE_ENV = 'development' // 使用开发环境（因为默认开启 devtool，�
 VUE_APP_ENV = 'test 环境'
 ```
 
-`.env.release`
-
-```
-NODE_ENV = 'development'
-VUE_APP_CURRENTMODE = 'r'
-VUE_APP_ENV = 'release 环境'
-```
-
 在 package.json 中添加
 
 ```json
 "scripts": {
   "test": "vue-cli-service build --mode t",
-  "release": "vue-cli-service build --mode r"
 }
 
 ```
@@ -306,9 +305,6 @@ VUE_APP_ENV = 'release 环境'
 ```js
 if (process.env.VUE_APP_CURRENTMODE === 't') {
   // 测试环境
-  baseUrl = ''
-} else if (process.env.VUE_APP_CURRENTMODE === 'r') {
-  // 预发布环境
   baseUrl = ''
 } else {
   // 正式环境
@@ -321,6 +317,40 @@ if (process.env.VUE_APP_CURRENTMODE === 't') {
 ```bash
 npm run test
 ```
+
+但是将打包环境设置为 NODE_ENV = 'development' 导致打包出来的 js 文件只有 index.js 文件并且在根目录下, 并不是我们想要的
+
+所以我们可以这样配置
+.env.test
+
+```
+VUE_APP_CURRENTMODE = 't'
+NODE_ENV = 'production'
+VUE_APP_ENV = 'test 环境'
+```
+
+main.js
+
+```js
+const isDebugMode = process.env.VUE_APP_CURRENTMODE === 't'
+Vue.config.debug = isDebugMode
+Vue.config.devtools = isDebugMode
+Vue.config.productionTip = isDebugMode
+```
+
+### vue 公共路径提取
+
+vue 项目中公共路径在打包之后一旦遇到整体的路径更改就需要再次打包。我们可以将公共路径提取出来，修改公共路径后不需要重新打包就能生效
+
+在 public 文件夹下创建 config.js 文件，并配置
+
+```js
+const serverConfig = {
+  baseUrl: '' // 配置 url
+}
+```
+
+在 index.html 中引入该文件即可
 
 ```bash
 vue add router
