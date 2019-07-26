@@ -321,6 +321,7 @@ npm run test
 但是将打包环境设置为 NODE_ENV = 'development' 导致打包出来的 js 文件只有 index.js 文件并且在根目录下, 并不是我们想要的
 
 所以我们可以这样配置
+
 .env.test
 
 ```
@@ -329,7 +330,7 @@ NODE_ENV = 'production'
 VUE_APP_ENV = 'test 环境'
 ```
 
-main.js
+main.js 配置
 
 ```js
 const isDebugMode = process.env.VUE_APP_CURRENTMODE === 't'
@@ -350,7 +351,7 @@ const serverConfig = {
 }
 ```
 
-在 index.html 中引入该文件即可
+在 index.html 中引入该文件，之后在开发时就可以通过 `serverConfig.baseUrl` 使用变量
 
 ```bash
 vue add router
