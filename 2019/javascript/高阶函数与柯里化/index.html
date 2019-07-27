@@ -20,10 +20,6 @@
 <meta name="theme-color" content="#222">
 
 
-  
-  
-  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
-
 
 
   
@@ -128,7 +124,7 @@
 <meta property="og:site_name" content="稻草人">
 <meta property="og:description" content="高阶函数高阶函数定义：将函数作为参数或者返回值是函数的函数常见的 sort、reduce 等函数就是高阶函数 function add(a) &amp;#123;  return function(b) &amp;#123;    return a + b  &amp;#125;&amp;#125;var sum = add(1)(2) // 3// es6写法let add = a =&amp;gt; b =&amp;gt; a + b//">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-17T15:36:41.987Z">
+<meta property="og:updated_time" content="2019-07-17T16:00:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="高阶函数与柯里化">
 <meta name="twitter:description" content="高阶函数高阶函数定义：将函数作为参数或者返回值是函数的函数常见的 sort、reduce 等函数就是高阶函数 function add(a) &amp;#123;  return function(b) &amp;#123;    return a + b  &amp;#125;&amp;#125;var sum = add(1)(2) // 3// es6写法let add = a =&amp;gt; b =&amp;gt; a + b//">
@@ -286,54 +282,6 @@
     <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-about">
-
-    
-    
-      
-    
-
-    
-
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-收藏">
-
-    
-    
-      
-    
-
-    
-
-    <a href="/collect/" rel="section"><i class="menu-item-icon fa fa-fw fa-bookmark"></i> <br>收藏</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
-
-    
-    
-      
-    
-
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
-
-  </li>
 
       
       
@@ -455,13 +403,23 @@
                 
               
 
-              <time title="创建时间：2019-07-17 00:00:00 / 修改时间：23:36:41" itemprop="dateCreated datePublished" datetime="2019-07-17T00:00:00+08:00">2019-07-17</time>
+              <time title="创建时间：2019-07-17 00:00:00" itemprop="dateCreated datePublished" datetime="2019-07-17T00:00:00+08:00">2019-07-17</time>
             </span>
           
 
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-07-18 00:00:00" itemprop="dateModified" datetime="2019-07-18T00:00:00+08:00">2019-07-18</time>
+              </span>
             
           
 
@@ -582,33 +540,6 @@
 
       
       
-        <div class="post-widgets">
-        
-          <div class="wp_rating">
-            <div id="wpac-rating"></div>
-          </div>
-        
-
-        
-
-        
-          
-            <span class="post-meta-divider">|</span>
-          
-          <div class="social_share">
-            
-            
-              <div id="needsharebutton-postbottom">
-                <span class="btn">
-                  <i class="fa fa-share-alt" aria-hidden="true"></i>
-                </span>
-              </div>
-            
-            
-          </div>
-        
-        </div>
-      
       
 
       
@@ -718,6 +649,8 @@
                     
                   
                     
+                    
+                      
                     
                       
                     
@@ -1422,11 +1355,18 @@
           if (results.length > 0) {
             var counter = results[0];
             
-            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+
+            const localhost = /http:\/\/(localhost|127.0.0.1|0.0.0.0)/;
+            var amount = 1
+            if (localhost.test(document.URL)) {
+              amount = 0
+            }
+
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': amount } }))
             
               .done(function() {
                 var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.time + 1);
+                $element.find('.leancloud-visitors-count').text(counter.time + amount);
               })
             
               .fail(function ({ responseJSON }) {
@@ -1434,9 +1374,14 @@
               })
           } else {
             
-              var $element = $(document.getElementById(url));
-              $element.find('.leancloud-visitors-count').text('Counter not initialized! More info at console err msg.');
-              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1 }))
+                .done(function() {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function() {
+                  console.log('Failed to create');
+                });
             
           }
         })
@@ -1463,7 +1408,7 @@
           };
           
             const localhost = /http:\/\/(localhost|127.0.0.1|0.0.0.0)/;
-            if (localhost.test(document.URL)) return;
+
             addCount(Counter);
           
         });
@@ -1495,47 +1440,8 @@
   
 
   
-  
-  
-  <script src="/lib/needsharebutton/needsharebutton.js"></script>
-  <script>
-    
-      pbOptions = {};
-      
-        pbOptions.iconStyle = "default";
-      
-        pbOptions.boxForm = "horizontal";
-      
-        pbOptions.position = "bottomCenter";
-      
-        pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Evernote";
-      
-      new needShareButton('#needsharebutton-postbottom', pbOptions);
-    
-    
-  </script>
-
 
   
-  <script>
-    wpac_init = window.wpac_init || [];
-    wpac_init.push({
-      widget: 'Rating',
-      id: 19735,
-      el: 'wpac-rating',
-      color: 'fc6423'
-    });
-    (function() {
-      if ('WIDGETPACK_LOADED' in window) return;
-      WIDGETPACK_LOADED = true;
-      var mc = document.createElement('script');
-      mc.type = 'text/javascript';
-      mc.async = true;
-      mc.src = '//embed.widgetpack.com/widget.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
-    })();
-  </script>
-
 
   
 

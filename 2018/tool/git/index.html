@@ -20,10 +20,6 @@
 <meta name="theme-color" content="#222">
 
 
-  
-  
-  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
-
 
 
   
@@ -290,54 +286,6 @@
     
 
     <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-about">
-
-    
-    
-      
-    
-
-    
-
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-收藏">
-
-    
-    
-      
-    
-
-    
-
-    <a href="/collect/" rel="section"><i class="menu-item-icon fa fa-fw fa-bookmark"></i> <br>收藏</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
-
-    
-    
-      
-    
-
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
 
   </li>
 
@@ -719,6 +667,9 @@
 <p>从远程库 clone 时，默认情况下，只能看到本地的 master 分支<br>要在 dev 分支上开发，就必须创建远程 origin 的 dev 分支到本地，于是用这个命令创建本地 dev 分支</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git checkout -b dev origin/dev</span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定本地 dev 分支与远程 origin/dev 分支的链接</span></span><br><span class="line">git branch --<span class="built_in">set</span>-upstream dev origin/dev</span><br></pre></td></tr></table></figure>
 
+<p>克隆指定分支</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># git clone -b|--branch 分支名或tag名 仓库地址</span></span><br></pre></td></tr></table></figure>
+
 <h3 id="git-fetch"><a href="#git-fetch" class="headerlink" title="git fetch"></a>git fetch</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 将某个远程仓库的更新，全部取回本地。默认取回所有分支（branch）的更新</span></span><br><span class="line">git fetch &lt;远程仓库&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 取回特定分支的更新</span></span><br><span class="line">git fetch &lt;远程仓库&gt; &lt;分支名&gt;</span><br></pre></td></tr></table></figure>
 
 <p>git fetch 和 git pull 区别</p>
@@ -866,41 +817,14 @@
 
       
       
-        <div class="post-widgets">
-        
-          <div class="wp_rating">
-            <div id="wpac-rating"></div>
-          </div>
-        
-
-        
-
-        
-          
-            <span class="post-meta-divider">|</span>
-          
-          <div class="social_share">
-            
-            
-              <div id="needsharebutton-postbottom">
-                <span class="btn">
-                  <i class="fa fa-share-alt" aria-hidden="true"></i>
-                </span>
-              </div>
-            
-            
-          </div>
-        
-        </div>
-      
       
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/linux/linux/" rel="next" title="linux">
-                <i class="fa fa-chevron-left"></i> linux
+              <a href="/2018/javascript/javascript基础/" rel="next" title="javascript 基础">
+                <i class="fa fa-chevron-left"></i> javascript 基础
               </a>
             
           </div>
@@ -909,8 +833,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/tool/markdown语法/" rel="prev" title="Markdown 语法">
-                Markdown 语法 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/linux/linux/" rel="prev" title="linux">
+                linux <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1002,6 +926,8 @@
                     
                   
                     
+                    
+                      
                     
                       
                     
@@ -1706,11 +1632,18 @@
           if (results.length > 0) {
             var counter = results[0];
             
-            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+
+            const localhost = /http:\/\/(localhost|127.0.0.1|0.0.0.0)/;
+            var amount = 1
+            if (localhost.test(document.URL)) {
+              amount = 0
+            }
+
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': amount } }))
             
               .done(function() {
                 var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.time + 1);
+                $element.find('.leancloud-visitors-count').text(counter.time + amount);
               })
             
               .fail(function ({ responseJSON }) {
@@ -1718,9 +1651,14 @@
               })
           } else {
             
-              var $element = $(document.getElementById(url));
-              $element.find('.leancloud-visitors-count').text('Counter not initialized! More info at console err msg.');
-              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1 }))
+                .done(function() {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function() {
+                  console.log('Failed to create');
+                });
             
           }
         })
@@ -1747,7 +1685,7 @@
           };
           
             const localhost = /http:\/\/(localhost|127.0.0.1|0.0.0.0)/;
-            if (localhost.test(document.URL)) return;
+
             addCount(Counter);
           
         });
@@ -1779,47 +1717,8 @@
   
 
   
-  
-  
-  <script src="/lib/needsharebutton/needsharebutton.js"></script>
-  <script>
-    
-      pbOptions = {};
-      
-        pbOptions.iconStyle = "default";
-      
-        pbOptions.boxForm = "horizontal";
-      
-        pbOptions.position = "bottomCenter";
-      
-        pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Evernote";
-      
-      new needShareButton('#needsharebutton-postbottom', pbOptions);
-    
-    
-  </script>
-
 
   
-  <script>
-    wpac_init = window.wpac_init || [];
-    wpac_init.push({
-      widget: 'Rating',
-      id: 19735,
-      el: 'wpac-rating',
-      color: 'fc6423'
-    });
-    (function() {
-      if ('WIDGETPACK_LOADED' in window) return;
-      WIDGETPACK_LOADED = true;
-      var mc = document.createElement('script');
-      mc.type = 'text/javascript';
-      mc.async = true;
-      mc.src = '//embed.widgetpack.com/widget.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
-    })();
-  </script>
-
 
   
 

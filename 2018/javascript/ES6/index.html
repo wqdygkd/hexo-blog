@@ -20,10 +20,6 @@
 <meta name="theme-color" content="#222">
 
 
-  
-  
-  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
-
 
 
   
@@ -286,54 +282,6 @@
     <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-about">
-
-    
-    
-      
-    
-
-    
-
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-收藏">
-
-    
-    
-      
-    
-
-    
-
-    <a href="/collect/" rel="section"><i class="menu-item-icon fa fa-fw fa-bookmark"></i> <br>收藏</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
-
-    
-    
-      
-    
-
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
-
-  </li>
 
       
       
@@ -554,7 +502,7 @@
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Glossary/Hoisting" target="_blank" rel="noopener">[MDN]变量提升</a></p>
 <h3 id="let-的使用"><a href="#let-的使用" class="headerlink" title="let 的使用"></a>let 的使用</h3><p>ES6 新增了<code>let</code>命令，用来声明变量。它的用法类似于<code>var</code></p>
 <ul>
-<li>let声明的变量只有在当前作用域(块作用域)有效</li>
+<li>let 声明的变量只有在当前作用域(块作用域)有效</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line">  <span class="keyword">let</span> b = <span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(b) <span class="comment">// ReferenceError: b is not defined</span></span><br></pre></td></tr></table></figure>
 
@@ -564,7 +512,7 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">10</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">1</span> <span class="comment">// SyntaxError: Identifier 'a' has already been declared</span></span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>不绑定全局作用域</li>
+<li><span class="red">不绑定全局作用域</span></li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> c = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.c) <span class="comment">// 1</span></span><br><span class="line"><span class="keyword">let</span> c = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.c) <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
 
@@ -745,33 +693,6 @@
 
       
       
-        <div class="post-widgets">
-        
-          <div class="wp_rating">
-            <div id="wpac-rating"></div>
-          </div>
-        
-
-        
-
-        
-          
-            <span class="post-meta-divider">|</span>
-          
-          <div class="social_share">
-            
-            
-              <div id="needsharebutton-postbottom">
-                <span class="btn">
-                  <i class="fa fa-share-alt" aria-hidden="true"></i>
-                </span>
-              </div>
-            
-            
-          </div>
-        
-        </div>
-      
       
 
       
@@ -788,8 +709,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/vue/vue/" rel="prev" title="Vue">
-                Vue <i class="fa fa-chevron-right"></i>
+              <a href="/2019/javascript/promise/" rel="prev" title="Promise">
+                Promise <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -881,6 +802,8 @@
                     
                   
                     
+                    
+                      
                     
                       
                     
@@ -1585,11 +1508,18 @@
           if (results.length > 0) {
             var counter = results[0];
             
-            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+
+            const localhost = /http:\/\/(localhost|127.0.0.1|0.0.0.0)/;
+            var amount = 1
+            if (localhost.test(document.URL)) {
+              amount = 0
+            }
+
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': amount } }))
             
               .done(function() {
                 var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.time + 1);
+                $element.find('.leancloud-visitors-count').text(counter.time + amount);
               })
             
               .fail(function ({ responseJSON }) {
@@ -1597,9 +1527,14 @@
               })
           } else {
             
-              var $element = $(document.getElementById(url));
-              $element.find('.leancloud-visitors-count').text('Counter not initialized! More info at console err msg.');
-              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1 }))
+                .done(function() {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function() {
+                  console.log('Failed to create');
+                });
             
           }
         })
@@ -1626,7 +1561,7 @@
           };
           
             const localhost = /http:\/\/(localhost|127.0.0.1|0.0.0.0)/;
-            if (localhost.test(document.URL)) return;
+
             addCount(Counter);
           
         });
@@ -1658,47 +1593,8 @@
   
 
   
-  
-  
-  <script src="/lib/needsharebutton/needsharebutton.js"></script>
-  <script>
-    
-      pbOptions = {};
-      
-        pbOptions.iconStyle = "default";
-      
-        pbOptions.boxForm = "horizontal";
-      
-        pbOptions.position = "bottomCenter";
-      
-        pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Evernote";
-      
-      new needShareButton('#needsharebutton-postbottom', pbOptions);
-    
-    
-  </script>
-
 
   
-  <script>
-    wpac_init = window.wpac_init || [];
-    wpac_init.push({
-      widget: 'Rating',
-      id: 19735,
-      el: 'wpac-rating',
-      color: 'fc6423'
-    });
-    (function() {
-      if ('WIDGETPACK_LOADED' in window) return;
-      WIDGETPACK_LOADED = true;
-      var mc = document.createElement('script');
-      mc.type = 'text/javascript';
-      mc.async = true;
-      mc.src = '//embed.widgetpack.com/widget.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
-    })();
-  </script>
-
 
   
 

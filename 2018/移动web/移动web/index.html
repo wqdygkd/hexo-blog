@@ -20,10 +20,6 @@
 <meta name="theme-color" content="#222">
 
 
-  
-  
-  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
-
 
 
   
@@ -287,54 +283,6 @@
     
 
     <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-about">
-
-    
-    
-      
-    
-
-    
-
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-收藏">
-
-    
-    
-      
-    
-
-    
-
-    <a href="/collect/" rel="section"><i class="menu-item-icon fa fa-fw fa-bookmark"></i> <br>收藏</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
-
-    
-    
-      
-    
-
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
 
   </li>
 
@@ -613,31 +561,48 @@
 <p>总结：</p>
 <p>三种开发各有优缺点，具体用什么需要根据实际情况而定，比如预算，app注重功能还是内容等。</p>
 <p><img src="%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91%E5%88%86%E7%B1%BB.png" alt></p>
-<h2 id="屏幕与分辨率"><a href="#屏幕与分辨率" class="headerlink" title="屏幕与分辨率"></a>屏幕与分辨率</h2><blockquote>
-<p>移动设备与PC设备最大的差异在于屏幕，这主要体现在屏幕尺寸和屏幕分辨率两个方面。</p>
+<h2 id="屏幕与分辨率"><a href="#屏幕与分辨率" class="headerlink" title="屏幕与分辨率"></a>屏幕与分辨率</h2><p><a href="https://segmentfault.com/a/1190000011753855" target="_blank" rel="noopener">理解设备像素、设备独立像素和css像素</a></p>
+<blockquote>
+<p>移动设备与 PC 设备最大的差异在于屏幕，这主要体现在屏幕尺寸和屏幕分辨率两个方面</p>
 </blockquote>
-<h3 id="屏幕尺寸"><a href="#屏幕尺寸" class="headerlink" title="屏幕尺寸"></a>屏幕尺寸</h3><p>通常我们所指的屏幕<code>尺寸</code>，实际上指的是屏幕对角线的长度（一般用英寸来度量）</p>
+<p>屏幕尺寸</p>
+<p>通常我们所指的屏幕<code>尺寸</code>，实际上指的是屏幕对角线的长度（一般用英寸来度量）</p>
 <p><code>1英寸 = 2.54厘米</code></p>
-<h3 id="屏幕分辨率"><a href="#屏幕分辨率" class="headerlink" title="屏幕分辨率"></a>屏幕分辨率</h3><p>分辨率则一般用像素来度量，表示屏幕水平和垂直方向的像素数，例如1920*1080指的是屏幕垂直方向和水平方向分别有1920和1080个像素点而构成。</p>
+<p>屏幕分辨率</p>
+<p>分辨率则一般用像素来度量，表示屏幕水平和垂直方向的像素数，例如1920*1080指的是屏幕垂直方向和水平方向分别有1920和1080个像素点而构成。</p>
 <p><code>像素</code>：指计算机显示设备中的最小单位，即一个像素点的大小。每一个像素点可以理解为就是屏幕上的一个发光点。</p>
-<h3 id="像素密度ppi-了解"><a href="#像素密度ppi-了解" class="headerlink" title="像素密度ppi(了解)"></a>像素密度ppi(了解)</h3><p><code>PPI（Pixels Per Inch）</code>表示屏幕每英寸的像素数</p>
-<p>PPI值的越大说明单位尺寸里所能容纳的像素数量就越多，所能展现画面的品质也就越精细，反之就越粗糙。</p>
-<p><strong>结论：当PPI 越大，展示的画质越精细。</strong></p>
-<h2 id="设备独立像素"><a href="#设备独立像素" class="headerlink" title="设备独立像素"></a>设备独立像素</h2><blockquote>
-<p>随着技术发展，设备不断更新，出现了不同PPI的屏幕共存的状态，给我们开发带来的问题</p>
+<p>像素密度 ppi</p>
+<p><code>PPI (Pixels Per Inch)</code>表示屏幕每英寸的像素数</p>
+<p>PPI 值的越大说明单位尺寸里所能容纳的像素数量就越多，所能展现画面的品质也就越精细，反之就越粗糙。</p>
+<h2 id="设备像素"><a href="#设备像素" class="headerlink" title="设备像素"></a>设备像素</h2><blockquote>
+<p>设备像素 (device pixels）也叫物理像素</p>
 </blockquote>
-<p>做为用户是不会关心这些细节的，他们只是希望在不同PPI的设备上看到的图像内容差不多大小，所以这时我们需要一个新的单位，<code>这个新的单位能够保证图像内容在不同的PPI设备看上去大小应该差不多</code>，这就是独立像素，也叫（设备无关像素），在IOS设备上叫<code>PT</code>，Android设备上叫<code>DP</code>，在css中，叫<code>PX</code>。</p>
+<p>设备像素指的是显示器上的真实像素，每个像素的大小是屏幕固有的属性，屏幕出厂以后就不会改变了。</p>
+<p>设备分辨率描述的就是这个显示器的宽和高分别是多少个设备像素。</p>
+<p>设备像素和设备分辨率交给操作系统来管理，浏览器不知道、也不需要知道设备分辨率的大小，浏览器只需要知道<strong>逻辑分辨率</strong>就可以了。</p>
+<h2 id="设备独立像素"><a href="#设备独立像素" class="headerlink" title="设备独立像素"></a>设备独立像素</h2><blockquote>
+<p>设备独立像素（Device Independent Pixels）也叫逻辑像素、设备无关像素。在IOS设备上叫<code>PT</code>，Android 设备上叫<code>DP</code>，在 css 中，叫<code>PX</code></p>
+</blockquote>
+<p>为了能够保证 <code>图像内容在不同的 PPI 设备看上去大小应该差不多</code> ，操作系统定义了一个单位：设备独立像素，用设备独立像素定义的尺寸，不管屏幕的参数如何，都能以合适的大小显示（这也是设备独立像素名字的由来）</p>
+<p>对于那些像素密度高的屏幕，操作系统将多个设备像素划分为一个逻辑像素。屏幕的像素密度越高，就需要更多的设备像素来显示一个设备独立像素。至于将多少设备像素划分为一个逻辑像素，这由操作系统决定</p>
 <p>获取设备的像素比</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">window</span>.devicePixelRatio  <span class="comment">// 物理像素与独立像素的比值 DPR</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">window</span>.devicePixelRatio  <span class="comment">// 物理像素 与 css 像素的比值 DPR</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="2倍图与3倍图（重要）"><a href="#2倍图与3倍图（重要）" class="headerlink" title="2倍图与3倍图（重要）"></a>2倍图与3倍图（重要）</h2><blockquote>
+<p>通过 <code>screen.width/height</code>得到的屏幕宽度和高度就是逻辑分辨率（单位：设备独立像素）</p>
+<h2 id="css-像素与缩放"><a href="#css-像素与缩放" class="headerlink" title="css 像素与缩放"></a>css 像素与缩放</h2><p>在缩放比例为 100% 的情况下，一个 css 像素大小等于一个设备独立像素</p>
+<p>缩放页面的时候，元素的 css 像素数量不会改变，改变的只是每个 css 像素的大小</p>
+<p>缩放比例 = css 像素边长 / 设备独立像素边长</p>
+<p>如果原本元素宽度为 128 个设备独立像素，那么缩放 200% 以后元素宽度为 256 个设备独立像素（css像素宽度始终是128）</p>
+<p>桌面浏览器上缩放机制是 page zoom，缩放会导致CSS像素边长的改变，从而导致 window.devicePixelRatio 的改变</p>
+<p>在移动端缩放机制是 pinch zoom，计算 window.devicePixelRatio 时，不考虑 pinch zoom 对CSS像素尺寸的影响，因此 window.devicePixelRatio 不会随缩放而改变</p>
+<h2 id="2-倍图与-3-倍图"><a href="#2-倍图与-3-倍图" class="headerlink" title="2 倍图与 3 倍图"></a>2 倍图与 3 倍图</h2><blockquote>
 <p>以后同学在工作的过程中，从UI那拿到的设计图通常都是640的设计图或者是750的设计图.</p>
 </blockquote>
 <p>把更多的像素点压缩至一块屏幕里，从而达到更高的分辨率并提高屏幕显示的细腻程度。</p>
 <p><img src="2x.png" alt></p>
 <p>设备像素比devicePixelRatio：即像素的压缩比例</p>
 <p><strong>结论 ：在移动端为了在高清屏手机上显示得更加细腻，通常会使用更大的图片，比如2倍图或者3倍图。</strong></p>
-<h2 id="视口viewport（重要）"><a href="#视口viewport（重要）" class="headerlink" title="视口viewport（重要）"></a>视口viewport（重要）</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">问题：一个电脑上的网站，在手机端访问，效果是什么样的？</span><br><span class="line"></span><br><span class="line">iPhone5的设备宽度只有<span class="number">320</span>px，一张宽度为<span class="number">640</span>px的图片在手机端访问，显示的效果是什么？</span><br><span class="line"></span><br><span class="line"><span class="number">1.</span> 在手机端，html的大小都是<span class="number">980</span>px，为什么？</span><br><span class="line">这主要是历史原因导致的，因为在移动设备刚流行的时候，网站大多都是pc端的，pc端的页面宽度一般都比较大，移动设备的宽度比较小，如果pc端页面直接在移动端显示的话，页面就会错乱。为了解决这个问题，移动端html的大小直接就定死成了<span class="number">980</span>px（因为早起的pc端网站版心就是<span class="number">980</span>px居多）。</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> 视口</span><br><span class="line">在pc端，html的大小默认是继承了浏览器的宽度，即浏览器多宽，html的大小就是多宽，但是在移动端，多出来了一个视口的概念（乔布斯）,视口说白了就是介于浏览器与html之间的一个东西，视口的宽度默认定死了<span class="number">980</span>px，因此html的宽度默认就是<span class="number">980</span>px，视口的特点是能够根据设备的宽度进行缩放。</span><br><span class="line"></span><br><span class="line"><span class="number">3.</span> 视口设置。</span><br><span class="line">对于现在的移动端页面来说，视口默认为<span class="number">980</span>px肯定不合适，因为设备宽度不够的话，视口会进行缩放，导致页面展示效果不好看。</span><br></pre></td></tr></table></figure>
+<h2 id="视口-viewport"><a href="#视口-viewport" class="headerlink" title="视口 viewport"></a>视口 viewport</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">问题：一个电脑上的网站，在手机端访问，效果是什么样的？</span><br><span class="line"></span><br><span class="line">iPhone5 的设备宽度只有 <span class="number">320</span>px，一张宽度为 <span class="number">640</span>px 的图片在手机端访问，显示的效果是什么？</span><br><span class="line"></span><br><span class="line"><span class="number">1.</span> 在手机端，html的 大小都是 <span class="number">980</span>px，为什么？</span><br><span class="line">这主要是历史原因导致的，因为在移动设备刚流行的时候，网站大多都是pc端的，pc端的页面宽度一般都比较大，移动设备的宽度比较小，如果pc端页面直接在移动端显示的话，页面就会错乱。为了解决这个问题，移动端html的大小直接就定死成了<span class="number">980</span>px（因为早起的pc端网站版心就是<span class="number">980</span>px居多）。</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> 视口</span><br><span class="line">在 pc 端，html 的大小默认是继承了浏览器的宽度，即浏览器多宽，html 的大小就是多宽，但是在移动端，多出来了一个视口的概念（乔布斯）,视口说白了就是介于浏览器与 html 之间的一个东西，视口的宽度默认定死了 <span class="number">980</span>px，因此 html 的宽度默认就是 <span class="number">980</span>px，视口的特点是能够根据设备的宽度进行缩放。</span><br><span class="line"></span><br><span class="line"><span class="number">3.</span> 视口设置</span><br><span class="line">对于现在的移动端页面来说，视口默认为 <span class="number">980</span>px 肯定不合适，因为设备宽度不够的话，视口会进行缩放，导致页面展示效果不好看。</span><br></pre></td></tr></table></figure>
 
 <p><strong>视口参数设置</strong></p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// width 设置视口的宽度</span></span><br><span class="line"><span class="comment">// width=device-width   设置视口宽度为设备的宽度（常用）。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// initial-scale 设置初始缩放比例</span></span><br><span class="line"><span class="comment">// initial-scale=1.0  表示不缩放</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// user-scalable 设置是否允许用户缩放</span></span><br><span class="line"><span class="comment">// user-scalable=no  不允许用户缩放</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// maximum-scale  设置允许的最大缩放比例</span></span><br><span class="line"><span class="comment">// maximum-scale=1.0  可以不设置，因为都禁止用户缩放了。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// minimum-scale 设置允许最小缩放比</span></span><br><span class="line"><span class="comment">// minimum-scale=1.0  不设置，因为都禁用用户缩放了。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 标准写法：</span></span><br><span class="line"><span class="comment">// 快捷键：  meta:vp + tab键</span></span><br><span class="line">&lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, user-scalable=no, initial-scale=1.0"</span>&gt;</span><br></pre></td></tr></table></figure>
@@ -811,7 +776,7 @@
 
 <h1 id="bootstrap-框架"><a href="#bootstrap-框架" class="headerlink" title="bootstrap 框架"></a>bootstrap 框架</h1><p><strong>【项目：微金所】</strong></p>
 <h1 id="REM"><a href="#REM" class="headerlink" title="REM"></a>REM</h1><h2 id="rem-是什么？"><a href="#rem-是什么？" class="headerlink" title="rem 是什么？"></a>rem 是什么？</h2><p><code>rem</code>（font size of the root element）是指相对于<code>根元素</code>的字体大小的单位。它就是一个相对单位。</p>
-<p><code>em</code>（font size of the element）是指相对于当前元素的字体大小的单位。它也是一个相对单位。</p>
+<p><code>em</code>（font size of the element）是指相对于 <code>当前元素的字体大小</code> 的单位。它也是一个相对单位。</p>
 <p>它们之间其实很相似，只不过计算的规则一个是依赖根元素，一个是当前元素计算。</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">html</span>&#123;</span><br><span class="line">  <span class="attribute">font-size</span>:<span class="number">16px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>:<span class="number">20px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-class">.em</span> &#123;</span><br><span class="line">  <span class="comment">/* em 的计算方式参照的当前元素的 font-size，如果不设置，默认继承自父盒子 */</span></span><br><span class="line">  <span class="attribute">width</span>:<span class="number">2em</span>;</span><br><span class="line">  <span class="attribute">height</span>:<span class="number">2em</span>;</span><br><span class="line">  <span class="attribute">background-color</span>:red;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* rem 的计算方式参照的是 html 的 font-size */</span></span><br><span class="line"><span class="selector-tag">div</span><span class="selector-class">.rem</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>:<span class="number">2rem</span>;</span><br><span class="line">  <span class="attribute">height</span>:<span class="number">2rem</span>;</span><br><span class="line">  <span class="attribute">background-color</span>:blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -893,41 +858,14 @@
 
       
       
-        <div class="post-widgets">
-        
-          <div class="wp_rating">
-            <div id="wpac-rating"></div>
-          </div>
-        
-
-        
-
-        
-          
-            <span class="post-meta-divider">|</span>
-          
-          <div class="social_share">
-            
-            
-              <div id="needsharebutton-postbottom">
-                <span class="btn">
-                  <i class="fa fa-share-alt" aria-hidden="true"></i>
-                </span>
-              </div>
-            
-            
-          </div>
-        
-        </div>
-      
       
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/bootstrap/bootstrap/" rel="next" title="bootstrap 框架">
-                <i class="fa fa-chevron-left"></i> bootstrap 框架
+              <a href="/2018/tool/less/" rel="next" title="LESS">
+                <i class="fa fa-chevron-left"></i> LESS
               </a>
             
           </div>
@@ -936,8 +874,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/tool/less/" rel="prev" title="LESS">
-                LESS <i class="fa fa-chevron-right"></i>
+              <a href="/2018/tool/gulp前端自动化环境/" rel="prev" title="gulp 前端自动化环境">
+                gulp 前端自动化环境 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1029,6 +967,8 @@
                     
                   
                     
+                    
+                      
                     
                       
                     
@@ -1189,7 +1129,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#移动web基础"><span class="nav-text">移动web基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#移动端开发现状"><span class="nav-text">移动端开发现状</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移动端开发分类"><span class="nav-text">移动端开发分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#屏幕与分辨率"><span class="nav-text">屏幕与分辨率</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#屏幕尺寸"><span class="nav-text">屏幕尺寸</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#屏幕分辨率"><span class="nav-text">屏幕分辨率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#像素密度ppi-了解"><span class="nav-text">像素密度ppi(了解)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设备独立像素"><span class="nav-text">设备独立像素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2倍图与3倍图（重要）"><span class="nav-text">2倍图与3倍图（重要）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视口viewport（重要）"><span class="nav-text">视口viewport（重要）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移动端调试问题"><span class="nav-text">移动端调试问题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#流式布局"><span class="nav-text">流式布局</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#touch-事件"><span class="nav-text">touch 事件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#iscroll-插件使用"><span class="nav-text">iscroll 插件使用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#zepto-框架"><span class="nav-text">zepto 框架</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#zepto-与-jquery-的区别"><span class="nav-text">zepto 与 jquery 的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zepto-的基本使用"><span class="nav-text">zepto 的基本使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zepto-的定制"><span class="nav-text">zepto 的定制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zepto-手势事件"><span class="nav-text">zepto 手势事件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#响应式"><span class="nav-text">响应式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是响应式布局"><span class="nav-text">什么是响应式布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#响应式开发与移动web开发的比较"><span class="nav-text">响应式开发与移动web开发的比较</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#媒体查询"><span class="nav-text">媒体查询</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#设备分类"><span class="nav-text">设备分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#媒体查询的使用"><span class="nav-text">媒体查询的使用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bootstrap-框架"><span class="nav-text">bootstrap 框架</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#REM"><span class="nav-text">REM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#rem-是什么？"><span class="nav-text">rem 是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要用-rem？"><span class="nav-text">为什么要用 rem？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rem-布局"><span class="nav-text">rem 布局</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#rem-配合媒体查询"><span class="nav-text">rem 配合媒体查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rem-配合-javascript"><span class="nav-text">rem 配合 javascript</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rem-配合-flexible-插件"><span class="nav-text">rem 配合 flexible 插件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#swiper-插件"><span class="nav-text">swiper 插件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#other"><span class="nav-text">other</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#移动web基础"><span class="nav-text">移动web基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#移动端开发现状"><span class="nav-text">移动端开发现状</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移动端开发分类"><span class="nav-text">移动端开发分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#屏幕与分辨率"><span class="nav-text">屏幕与分辨率</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设备像素"><span class="nav-text">设备像素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设备独立像素"><span class="nav-text">设备独立像素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#css-像素与缩放"><span class="nav-text">css 像素与缩放</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-倍图与-3-倍图"><span class="nav-text">2 倍图与 3 倍图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视口-viewport"><span class="nav-text">视口 viewport</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移动端调试问题"><span class="nav-text">移动端调试问题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#流式布局"><span class="nav-text">流式布局</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#touch-事件"><span class="nav-text">touch 事件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#iscroll-插件使用"><span class="nav-text">iscroll 插件使用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#zepto-框架"><span class="nav-text">zepto 框架</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#zepto-与-jquery-的区别"><span class="nav-text">zepto 与 jquery 的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zepto-的基本使用"><span class="nav-text">zepto 的基本使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zepto-的定制"><span class="nav-text">zepto 的定制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zepto-手势事件"><span class="nav-text">zepto 手势事件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#响应式"><span class="nav-text">响应式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是响应式布局"><span class="nav-text">什么是响应式布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#响应式开发与移动web开发的比较"><span class="nav-text">响应式开发与移动web开发的比较</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#媒体查询"><span class="nav-text">媒体查询</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#设备分类"><span class="nav-text">设备分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#媒体查询的使用"><span class="nav-text">媒体查询的使用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bootstrap-框架"><span class="nav-text">bootstrap 框架</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#REM"><span class="nav-text">REM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#rem-是什么？"><span class="nav-text">rem 是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要用-rem？"><span class="nav-text">为什么要用 rem？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rem-布局"><span class="nav-text">rem 布局</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#rem-配合媒体查询"><span class="nav-text">rem 配合媒体查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rem-配合-javascript"><span class="nav-text">rem 配合 javascript</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rem-配合-flexible-插件"><span class="nav-text">rem 配合 flexible 插件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#swiper-插件"><span class="nav-text">swiper 插件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#other"><span class="nav-text">other</span></a></li></ol></div>
             
 
           </div>
@@ -1733,11 +1673,18 @@
           if (results.length > 0) {
             var counter = results[0];
             
-            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+
+            const localhost = /http:\/\/(localhost|127.0.0.1|0.0.0.0)/;
+            var amount = 1
+            if (localhost.test(document.URL)) {
+              amount = 0
+            }
+
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': amount } }))
             
               .done(function() {
                 var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.time + 1);
+                $element.find('.leancloud-visitors-count').text(counter.time + amount);
               })
             
               .fail(function ({ responseJSON }) {
@@ -1745,9 +1692,14 @@
               })
           } else {
             
-              var $element = $(document.getElementById(url));
-              $element.find('.leancloud-visitors-count').text('Counter not initialized! More info at console err msg.');
-              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1 }))
+                .done(function() {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function() {
+                  console.log('Failed to create');
+                });
             
           }
         })
@@ -1774,7 +1726,7 @@
           };
           
             const localhost = /http:\/\/(localhost|127.0.0.1|0.0.0.0)/;
-            if (localhost.test(document.URL)) return;
+
             addCount(Counter);
           
         });
@@ -1806,47 +1758,8 @@
   
 
   
-  
-  
-  <script src="/lib/needsharebutton/needsharebutton.js"></script>
-  <script>
-    
-      pbOptions = {};
-      
-        pbOptions.iconStyle = "default";
-      
-        pbOptions.boxForm = "horizontal";
-      
-        pbOptions.position = "bottomCenter";
-      
-        pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Evernote";
-      
-      new needShareButton('#needsharebutton-postbottom', pbOptions);
-    
-    
-  </script>
-
 
   
-  <script>
-    wpac_init = window.wpac_init || [];
-    wpac_init.push({
-      widget: 'Rating',
-      id: 19735,
-      el: 'wpac-rating',
-      color: 'fc6423'
-    });
-    (function() {
-      if ('WIDGETPACK_LOADED' in window) return;
-      WIDGETPACK_LOADED = true;
-      var mc = document.createElement('script');
-      mc.type = 'text/javascript';
-      mc.async = true;
-      mc.src = '//embed.widgetpack.com/widget.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
-    })();
-  </script>
-
 
   
 

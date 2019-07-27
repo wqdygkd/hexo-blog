@@ -20,10 +20,6 @@
 <meta name="theme-color" content="#222">
 
 
-  
-  
-  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
-
 
 
   
@@ -290,54 +286,6 @@
     
 
     <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-about">
-
-    
-    
-      
-    
-
-    
-
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-收藏">
-
-    
-    
-      
-    
-
-    
-
-    <a href="/collect/" rel="section"><i class="menu-item-icon fa fa-fw fa-bookmark"></i> <br>收藏</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
-
-    
-    
-      
-    
-
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
 
   </li>
 
@@ -1040,53 +988,39 @@
 
 <h5 id="标记清除法清除"><a href="#标记清除法清除" class="headerlink" title="标记清除法清除"></a>标记清除法清除</h5><p>使用引用计数法进行垃圾回收的时候，会出现循环引用导致内存泄漏的问题。因此现代的浏览器都采用标记清除法来进行垃圾回收。</p>
 <p>这个算法假定设置一个叫做根（root）的对象（在 Javascript 里，根是全局对象 Window）。定期的，垃圾回收器将从根开始，找所有从根开始引用的对象，然后找这些对象引用的对象……从根开始，垃圾回收器将找到所有可以获得的对象和所有不能获得的对象。</p>
-<p><strong>从2012年起，所有现代浏览器都使用了标记-清除垃圾回收算法。</strong></p>
+<p><strong>从 2012 年起，所有现代浏览器都使用了标记 - 清除垃圾回收算法。</strong></p>
 <h4 id="闭包占用内存释放"><a href="#闭包占用内存释放" class="headerlink" title="闭包占用内存释放"></a>闭包占用内存释放</h4><p>当闭包的功能不在需要使用了，将这个变量指向 <code>null</code>， 这样闭包占用的内存就可以被回收掉了</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">outer</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> count = <span class="number">0</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">fn</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    count++</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'执行次数'</span> + count)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> fn</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> result = outer()</span><br><span class="line">result()</span><br><span class="line">result = <span class="literal">null</span> <span class="comment">// 当函数 fn 没有被变量引用了，那么函数 fn 就会被回收，函数 fn 一旦被回收，那么 outer调用形成的作用域也就得到了释放</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><blockquote>
-<p>正则表达式(regular expression)描述了一种字符串匹配的模式（pattern），可以用来检查一个串是否含有某种子串（数据验证）、将匹配的子串替换（数据删除或替换）或者从某个串中取出符合某个条件的子串等（数据提取）。</p>
+<p>正则表达式(regular expression)描述了一种字符串匹配的模式（pattern），可以用来检查一个串是否含有某种子串（数据验证）、将匹配的子串替换（数据删除或替换）或者从某个串中取出符合某个条件的子串等（数据提取）</p>
 </blockquote>
 <h3 id="创建正则表达式"><a href="#创建正则表达式" class="headerlink" title="创建正则表达式"></a>创建正则表达式</h3><ul>
 <li>构造函数的方式</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// RegExp  （regular expression）</span></span><br><span class="line"><span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="regexp">/a/</span>); <span class="comment">// 匹配字母中有a</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// RegExp(regular expression)</span></span><br><span class="line"><span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="regexp">/a/</span>) <span class="comment">// 匹配字母中有 a</span></span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>正则字面量</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/a/</span></span><br></pre></td></tr></table></figure>
 
-<p>正则有 test 方法，作用是测试字符串是否符合正则表达式的规律，如果符合， 返回true</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(reg.test(<span class="string">'abc'</span>)) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(reg.test(<span class="string">'def'</span>)) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<p>正则有 test 方法，作用是测试字符串是否符合正则表达式的规律，如果符合， 返回 true</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(reg.test(<span class="string">'abc'</span>)) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(reg.test(<span class="string">'def'</span>)) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h3><blockquote>
-<p>正则表达式由一些普通字符和元字符组成，普通字符包括大小写字母、数字等，而元字符则具有特殊的含义。</p>
+<p>正则表达式由一些普通字符和元字符组成，普通字符包括大小写字母、数字等，而元字符则具有特殊的含义</p>
 </blockquote>
-<h4 id="常见元字符"><a href="#常见元字符" class="headerlink" title="常见元字符"></a>常见元字符</h4><ul>
-<li><p><code>\d</code>    匹配一个数字字符。等价于 <code>[0-9]</code></p>
-</li>
-<li><p><code>\D</code>    匹配一个非数字字符。等价于 <code>[^0-9]</code></p>
-</li>
-<li><p><code>\w</code>    匹配包括下划线的任何单词字符。等价于<code>[A-Za-z0-9_]</code></p>
-</li>
-<li><p><code>\W</code>    匹配任何非单词字符。等价于 <code>[^A-Za-z0-9_]</code></p>
-</li>
-<li><p><code>\s</code>    匹配任何空白字符，包括空格、制表符、换页符等等。等价于 <code>[\f\n\r\t\v]</code></p>
-</li>
-<li><p><code>\S</code>    匹配任何非空白字符。等价于 <code>[^\f\n\r\t\v]</code></p>
-</li>
-<li><p><code>\</code> 将下一个字符标记为或特殊字符、或原义字符、或向后引用、或八进制转义符。例如， <code>n</code> 匹配字符 <code>n</code>。<code>\n</code> 匹配换行符。<code>\\</code> 匹配 <code>\</code>，<code>\(</code> 则匹配 <code>(</code>。</p>
-</li>
-<li><p><code>.</code> 匹配除换行符 <code>\n</code> 之外的任何单字符。要匹配包括 ‘\n’ 在内的任何字符，可用<code>(.|\n)</code></p>
-</li>
-</ul>
-<ul>
-<li><p><code>|</code> 指明两项之间的一个选择。，优先级最低，| 的左右都是单独的整体</p>
-</li>
-<li><p><code>()</code> 优先级最高，标记一个子表达式的开始和结束位置。子表达式可以获取供以后使用。使用 $0…$9 属性。要匹配这些字符，请使用 <code>\(</code> 和 <code>\)</code> 。每个()就是一个子匹配 ‘\1’和’$1’用来指定第一个子匹配</p>
-</li>
-</ul>
+<h4 id="常见元字符"><a href="#常见元字符" class="headerlink" title="常见元字符"></a>常见元字符</h4><p><code>\d</code>    匹配一个数字字符。等价于 <code>[0-9]</code></p>
+<p><code>\D</code>    匹配一个非数字字符。等价于 <code>[^0-9]</code></p>
+<p><code>\w</code>    匹配包括下划线的任何单词字符。等价于<code>[A-Za-z0-9_]</code></p>
+<p><code>\W</code>    匹配任何非单词字符。等价于 <code>[^A-Za-z0-9_]</code></p>
+<p><code>\s</code>    匹配任何空白字符，包括空格、制表符、换页符等等。等价于 <code>[\f\n\r\t\v]</code></p>
+<p><code>\S</code>    匹配任何非空白字符。等价于 <code>[^\f\n\r\t\v]</code></p>
+<p><code>\</code> 将下一个字符标记为或特殊字符、或原义字符、或向后引用、或八进制转义符。例如， <code>n</code> 匹配字符 <code>n</code>。<code>\n</code> 匹配换行符。<code>\\</code> 匹配 <code>\</code>，<code>\(</code> 则匹配 <code>(</code>。</p>
+<p><code>.</code> 匹配除换行符 <code>\n</code> 之外的任何单字符。要匹配包括 ‘\n’ 在内的任何字符，可用<code>(.|\n)</code></p>
+<p><code>|</code> 指明两项之间的一个选择。，优先级最低，| 的左右都是单独的整体</p>
+<p><code>()</code> 优先级最高，标记一个子表达式的开始和结束位置。子表达式可以获取供以后使用。使用 $0…$9 属性。要匹配这些字符，请使用 <code>\(</code> 和 <code>\)</code> 。每个()就是一个子匹配 ‘\1’和’$1’用来指定第一个子匹配</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">/f|boot/; <span class="comment">// 匹配 `f` 和 `boot`</span></span><br><span class="line">/(f|b)oot/; <span class="comment">// 匹配 `foot` 和 `boot`</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="空白字符"><a href="#空白字符" class="headerlink" title="空白字符"></a>空白字符</h4><ul>
@@ -1228,41 +1162,14 @@
 
       
       
-        <div class="post-widgets">
-        
-          <div class="wp_rating">
-            <div id="wpac-rating"></div>
-          </div>
-        
-
-        
-
-        
-          
-            <span class="post-meta-divider">|</span>
-          
-          <div class="social_share">
-            
-            
-              <div id="needsharebutton-postbottom">
-                <span class="btn">
-                  <i class="fa fa-share-alt" aria-hidden="true"></i>
-                </span>
-              </div>
-            
-            
-          </div>
-        
-        </div>
-      
       
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/jquery/jquery-fileupload插件的使用/" rel="next" title="jquery-fileupload">
-                <i class="fa fa-chevron-left"></i> jquery-fileupload
+              <a href="/2018/jquery/jquery中AJAX的全局事件/" rel="next" title="jquery 中 AJAX 的全局事件">
+                <i class="fa fa-chevron-left"></i> jquery 中 AJAX 的全局事件
               </a>
             
           </div>
@@ -1364,6 +1271,8 @@
                     
                   
                     
+                    
+                      
                     
                       
                     
@@ -2068,11 +1977,18 @@
           if (results.length > 0) {
             var counter = results[0];
             
-            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': 1 } }))
+
+            const localhost = /http:\/\/(localhost|127.0.0.1|0.0.0.0)/;
+            var amount = 1
+            if (localhost.test(document.URL)) {
+              amount = 0
+            }
+
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': amount } }))
             
               .done(function() {
                 var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.time + 1);
+                $element.find('.leancloud-visitors-count').text(counter.time + amount);
               })
             
               .fail(function ({ responseJSON }) {
@@ -2080,9 +1996,14 @@
               })
           } else {
             
-              var $element = $(document.getElementById(url));
-              $element.find('.leancloud-visitors-count').text('Counter not initialized! More info at console err msg.');
-              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1 }))
+                .done(function() {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function() {
+                  console.log('Failed to create');
+                });
             
           }
         })
@@ -2109,7 +2030,7 @@
           };
           
             const localhost = /http:\/\/(localhost|127.0.0.1|0.0.0.0)/;
-            if (localhost.test(document.URL)) return;
+
             addCount(Counter);
           
         });
@@ -2141,47 +2062,8 @@
   
 
   
-  
-  
-  <script src="/lib/needsharebutton/needsharebutton.js"></script>
-  <script>
-    
-      pbOptions = {};
-      
-        pbOptions.iconStyle = "default";
-      
-        pbOptions.boxForm = "horizontal";
-      
-        pbOptions.position = "bottomCenter";
-      
-        pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Evernote";
-      
-      new needShareButton('#needsharebutton-postbottom', pbOptions);
-    
-    
-  </script>
-
 
   
-  <script>
-    wpac_init = window.wpac_init || [];
-    wpac_init.push({
-      widget: 'Rating',
-      id: 19735,
-      el: 'wpac-rating',
-      color: 'fc6423'
-    });
-    (function() {
-      if ('WIDGETPACK_LOADED' in window) return;
-      WIDGETPACK_LOADED = true;
-      var mc = document.createElement('script');
-      mc.type = 'text/javascript';
-      mc.async = true;
-      mc.src = '//embed.widgetpack.com/widget.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
-    })();
-  </script>
-
 
   
 
