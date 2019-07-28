@@ -6,8 +6,7 @@ comments: false
 ---
 
 ```
-此页面神不知鬼不觉的丢失了。
-Dreams can’t be stolen but page can
+祝愿我们在抵达路的末端时，都不会后悔
 ```
 
 标记
