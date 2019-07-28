@@ -1,0 +1,1610 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+
+
+
+
+
+  <meta name="google-site-verification" content="4ub2lNf2WEkusifo-b7xbJIm2G5xxYUczDoWOFGp-NM">
+
+
+
+  <meta name="msvalidate.01" content="C2030D8E2452D4B39AED09488E55F2DF">
+
+
+
+
+
+  <meta name="baidu-site-verification" content="ujJ5Hav7vs">
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-logo.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-logo.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-logo.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/favicon-logo.png?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: true,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-9068539038073295",
+      enable_page_level_ads: true
+    });
+  </script>
+
+
+  <meta name="description" content="安装： npm install -g @vue/cli  创建一个项目： vue create my-project# ORvue ui  如果你仍然需要使用旧版本的 vue init 功能，你可以全局安装一个桥接工具： npm install -g @vue/cli-init# `vue init` 的运行效果将会跟 `vue-cli@2.x` 相同vue init webpack my-pro">
+<meta name="keywords" content="web">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue-cli3 配置通用模板及配置详解">
+<meta property="og:url" content="https://cuilongjin.top/2019/vue-cli3配置通用模板及配置详解/index.html">
+<meta property="og:site_name" content="稻草人">
+<meta property="og:description" content="安装： npm install -g @vue/cli  创建一个项目： vue create my-project# ORvue ui  如果你仍然需要使用旧版本的 vue init 功能，你可以全局安装一个桥接工具： npm install -g @vue/cli-init# `vue init` 的运行效果将会跟 `vue-cli@2.x` 相同vue init webpack my-pro">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-25T15:21:46.458Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue-cli3 配置通用模板及配置详解">
+<meta name="twitter:description" content="安装： npm install -g @vue/cli  创建一个项目： vue create my-project# ORvue ui  如果你仍然需要使用旧版本的 vue init 功能，你可以全局安装一个桥接工具： npm install -g @vue/cli-init# `vue init` 的运行效果将会跟 `vue-cli@2.x` 相同vue init webpack my-pro">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="稻草人" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="https://cuilongjin.top/2019/vue-cli3配置通用模板及配置详解/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>vue-cli3 配置通用模板及配置详解 | 稻草人</title>
+  
+
+
+
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112496567-1"></script>
+  <script>
+    var host = window.location.hostname;
+    if (host !== "localhost" || !true) {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-112496567-1');
+    }
+  </script>
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?4cf9aa5b4589576262198ad166b18a05";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">稻草人</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://cuilongjin.top/2019/vue-cli3配置通用模板及配置详解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="稻草人">
+      <meta itemprop="description" content="A doc for web">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="稻草人">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">vue-cli3 配置通用模板及配置详解<a href="https://github.com/cuilongjin/cuilongjin.github.io/tree/dev/source/_posts/vue-cli3配置通用模板及配置详解.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-22 00:00:00" itemprop="dateCreated datePublished" datetime="2019-07-22T00:00:00+08:00">2019-07-22</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-07-25 23:21:46" itemprop="dateModified" datetime="2019-07-25T23:21:46+08:00">2019-07-25</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/vue-cli3配置通用模板及配置详解/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/vue-cli3配置通用模板及配置详解/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2019/vue-cli3配置通用模板及配置详解/" class="post-meta-item leancloud_visitors" data-flag-title="vue-cli3 配置通用模板及配置详解">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>安装：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g @vue/cli</span><br></pre></td></tr></table></figure>
+
+<p>创建一个项目：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vue create my-project</span><br><span class="line"><span class="comment"># OR</span></span><br><span class="line">vue ui</span><br></pre></td></tr></table></figure>
+
+<p>如果你仍然需要使用旧版本的 <code>vue init</code> 功能，你可以全局安装一个桥接工具：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g @vue/cli-init</span><br><span class="line"><span class="comment"># `vue init` 的运行效果将会跟 `vue-cli@2.x` 相同</span></span><br><span class="line">vue init webpack my-project</span><br></pre></td></tr></table></figure>
+
+<h3 id="在现有的项目中安装插件"><a href="#在现有的项目中安装插件" class="headerlink" title="在现有的项目中安装插件"></a>在现有的项目中安装插件</h3><p>每个 CLI 插件都会包含一个 (用来创建文件的) 生成器和一个 (用来调整 webpack 核心配置和注入命令的) 运行时插件。当你使用 <code>vue create</code> 来创建一个新项目的时候，有些插件会根据你选择的特性被预安装好。如果你想在一个已经被创建好的项目中安装一个插件，可以使用 <code>vue add</code> 命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vue add @vue/eslint</span><br></pre></td></tr></table></figure>
+
+<p>提示</p>
+<p><code>vue add</code> 的设计意图是为了安装和调用 Vue CLI 插件。对于普通的 npm 包而言，这不意味有一个替代（命令）。对于这些普通的 npm 包，你仍然需要（根据所选的 npm 包）使用包管理器。</p>
+<h2 id="vue-config-js-配置"><a href="#vue-config-js-配置" class="headerlink" title="vue.config.js 配置"></a>vue.config.js 配置</h2><p><a href="https://cli.vuejs.org/zh/config" target="_blank" rel="noopener">官网配置参考</a></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// vue.config.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// 选项...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="publicPath"><a href="#publicPath" class="headerlink" title="publicPath"></a>publicPath</h3><p>基本路径</p>
+<p>vue-cli3.3 以下版本使用 baseUrl</p>
+<p>vue-cli3.3+ 使用 publicPath</p>
+<p>默认 ‘/‘</p>
+<p>‘./‘ 或为空(‘’) 所有的资源都会被链接为相对路径，这样打出来的包可以被部署在任意路径, 当使用 pages 选项构建多页面应用时,应当避免使用相对路径</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">publicPath: <span class="string">'./'</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="outputDir"><a href="#outputDir" class="headerlink" title="outputDir"></a>outputDir</h3><p>默认 ‘dist’</p>
+<p>当运行 vue-cli-service build 时生成的生产环境构建文件的目录</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">outputDir: <span class="string">'dist'</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="assetsDir"><a href="#assetsDir" class="headerlink" title="assetsDir"></a>assetsDir</h3><p>默认 ‘’</p>
+<p>放置生成的静态资源 (js、css、img、fonts) 的 (相对于 outputDir 的) 目录</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">assetsDir: <span class="string">'static'</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="indexPath"><a href="#indexPath" class="headerlink" title="indexPath"></a>indexPath</h3><p>指定生成的 <code>index.html</code> 的输出路径 (相对于 <code>outputDir</code>)。也可以是一个绝对路径</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">indexPath: <span class="string">'index.html'</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="filenameHashing"><a href="#filenameHashing" class="headerlink" title="filenameHashing"></a>filenameHashing</h3><p>默认 true</p>
+<p>默认情况下，生成的静态资源在它们的文件名中包含了 hash 以便更好的控制缓存。然而，这也要求 index 的 HTML 是被 Vue CLI 自动生成的。如果你无法使用 Vue CLI 生成的 index HTML，你可以通过将这个选项设为 false 来关闭文件名哈希</p>
+<h3 id="pages"><a href="#pages" class="headerlink" title="pages"></a>pages</h3><p>默认 undefined</p>
+<p>是否以多页模式构建应用程序</p>
+<p>每个 ‘page’ 应该有一个对应的 JavaScript 入口文件。其值应该是一个对象，对象的 key 是入口的名字，value 是 一个指定了 entry, template, filename, title 和 chunks 的对象 (除了 entry 之外都是可选的) 或一个指定其 entry 的字符串</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.export = &#123;</span><br><span class="line">  pages: &#123;</span><br><span class="line">    index: &#123;</span><br><span class="line">      <span class="comment">// page 的入口</span></span><br><span class="line">      entry: <span class="string">'src/pages/index/main.js'</span>,</span><br><span class="line">      <span class="comment">// 模板来源</span></span><br><span class="line">      template: <span class="string">'public/index.html'</span>,</span><br><span class="line">      <span class="comment">// 在 dist/index.html 的输出</span></span><br><span class="line">      filename: <span class="string">'index.html'</span>,</span><br><span class="line">      <span class="comment">// template 中的 title 标签需要是 &lt;title&gt;&lt;%= htmlWebpackPlugin.options.title %&gt;&lt;/title&gt;</span></span><br><span class="line">      title: <span class="string">'Index Page'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    pageA: &#123;</span><br><span class="line">      entry: <span class="string">'src/pages/pageA/main.js'</span>,</span><br><span class="line">      template: <span class="string">'public/index.html'</span>,</span><br><span class="line">      filename: <span class="string">'pageA.html'</span></span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 当使用只有入口的字符串格式时, 模板会被推导为 `public/pageB.html`</span></span><br><span class="line">    <span class="comment">// 并且如果找不到的话，就回退到 `public/index.html`, 输出文件名会被推导为 `pageB.html`</span></span><br><span class="line">    pageB: <span class="string">'src/pages/pageB/main.js'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="lintOnSave"><a href="#lintOnSave" class="headerlink" title="lintOnSave"></a>lintOnSave</h3><p>默认 true</p>
+<p>是否在保存的时候检查，如果为 true ，build 时会启用 eslint-loader 进行代码检查，可以使用如下配置禁用</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">lintOnSave: process.env.NODE_ENV !== <span class="string">'production'</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="runtimeCompiler"><a href="#runtimeCompiler" class="headerlink" title="runtimeCompiler"></a>runtimeCompiler</h3><p>默认 false</p>
+<p>是否使用包含运行时编译器的 Vue 构建版本</p>
+<p>使用 template 语法需要开启，但是这会让你的应用额外增加 10kb 左右，使用渲染函数不需要开启</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">runtimeCompiler: <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="productionSourceMap"><a href="#productionSourceMap" class="headerlink" title="productionSourceMap"></a>productionSourceMap</h3><p>默认 true</p>
+<p>生产环境是否生成 sourceMap 文件，一般情况不建议打开</p>
+<p>map 文件的作用在于：项目打包后，代码都是经过压缩加密的，如果运行时报错，输出的错误信息无法准确得知是哪里的代码报错。有了 map 就可以像未加密的代码一样，准确的输出是哪一行哪一列有错</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">productionSourceMap: <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="chainWebpack"><a href="#chainWebpack" class="headerlink" title="chainWebpack"></a>chainWebpack</h3><p>对内部的 webpack 配置进行更细粒度的修改</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> chainWebpack = <span class="function"><span class="params">config</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 删除预加载模块的 prefetch，降低带宽压力</span></span><br><span class="line">  <span class="comment">// https://cli.vuejs.org/zh/guide/html-and-static-assets.html#prefetch</span></span><br><span class="line">  <span class="comment">// 移除 prefetch 插件</span></span><br><span class="line">  config.plugins.delete(<span class="string">'prefetch'</span>)</span><br><span class="line">  <span class="comment">// 移除 preload 插件</span></span><br><span class="line">  config.plugins.delete(<span class="string">'preload'</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// config.plugin('html').tap(args =&gt; &#123;</span></span><br><span class="line">  <span class="comment">//   args[0].minify = false</span></span><br><span class="line">  <span class="comment">//   return args</span></span><br><span class="line">  <span class="comment">// &#125;)</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 修改静态资源打包方式，下例为超过10k才用文件导入的方式，否则为base64.默认为4k</span></span><br><span class="line">  config.module</span><br><span class="line">    .rule(<span class="string">'images'</span>)</span><br><span class="line">    .use(<span class="string">'url-loader'</span>)</span><br><span class="line">    .loader(<span class="string">'url-loader'</span>)</span><br><span class="line">    .tap(<span class="function"><span class="params">options</span> =&gt;</span> <span class="built_in">Object</span>.assign(options, &#123; <span class="attr">limit</span>: <span class="number">10240</span> &#125;))</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.export = &#123;</span><br><span class="line">  chainWebpack</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://cli.vuejs.org/zh/guide/html-and-static-assets.html#preload" target="_blank" rel="noopener">https://cli.vuejs.org/zh/guide/html-and-static-assets.html#preload</a></p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Preloading_content" target="_blank" rel="noopener"><code>&lt;link rel=&quot;preload&quot;&gt;</code></a>是一种 resource hint，用来指定页面加载后很快会被用到的资源，所以在页面加载的过程中，我们希望在浏览器开始主体渲染之前尽早 preload。</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ" target="_blank" rel="noopener"><code>&lt;link rel=&quot;prefetch&quot;&gt;</code></a> 是一种 resource hint，用来告诉浏览器在页面加载完成后，利用空闲时间提前获取用户未来可能会访问的内容。</p>
+<h3 id="configureWebpack"><a href="#configureWebpack" class="headerlink" title="configureWebpack"></a>configureWebpack</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// webpack 自定义配置</span></span><br><span class="line"><span class="comment">// https://cli.vuejs.org/zh/guide/webpack.html</span></span><br><span class="line"><span class="keyword">const</span> configureWebpack = <span class="function"><span class="params">config</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 生产 and 测试环境</span></span><br><span class="line">  <span class="keyword">let</span> pluginsPro = [</span><br><span class="line">    <span class="keyword">new</span> CompressionPlugin(&#123;</span><br><span class="line">      <span class="comment">// 文件开启 Gzip，也可以通过服务端(如：nginx)(https://github.com/webpack-contrib/compression-webpack-plugin)</span></span><br><span class="line">      filename: <span class="string">'[path].gz[query]'</span>,</span><br><span class="line">      algorithm: <span class="string">'gzip'</span>,</span><br><span class="line">      test: <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'\\.('</span> + [<span class="string">'js'</span>, <span class="string">'css'</span>].join(<span class="string">'|'</span>) + <span class="string">')$'</span>),</span><br><span class="line">      threshold: <span class="number">8192</span>,</span><br><span class="line">      minRatio: <span class="number">0.8</span></span><br><span class="line">    &#125;),</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Webpack 包文件分析器(https://github.com/webpack-contrib/webpack-bundle-analyzer)</span></span><br><span class="line">    <span class="keyword">new</span> BundleAnalyzerPlugin(),</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 打包时删除 debugger 和 console</span></span><br><span class="line">    <span class="keyword">new</span> UglifyJsPlugin(&#123;</span><br><span class="line">      uglifyOptions: &#123;</span><br><span class="line">        compress: &#123;</span><br><span class="line">          drop_debugger: <span class="literal">true</span>,</span><br><span class="line">          drop_console: <span class="literal">true</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      sourceMap: <span class="literal">true</span>,</span><br><span class="line">      parallel: <span class="literal">true</span></span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">  <span class="comment">// 开发环境</span></span><br><span class="line">  <span class="keyword">let</span> pluginsDev = [</span><br><span class="line">    <span class="comment">//  移动端模拟开发者工具 (https://github.com/diamont1001/vconsole-webpack-plugin  https://github.com/Tencent/vConsole)</span></span><br><span class="line">    <span class="comment">// new vConsolePlugin(&#123;</span></span><br><span class="line">    <span class="comment">//   filter: [], // 需要过滤的入口文件</span></span><br><span class="line">    <span class="comment">//   enable: true // 发布代码前记得改回 false</span></span><br><span class="line">    <span class="comment">// &#125;)</span></span><br><span class="line">  ]</span><br><span class="line">  <span class="keyword">if</span> (process.env.NODE_ENV === <span class="string">'production'</span>) &#123;</span><br><span class="line">    <span class="comment">// 为生产环境修改配置...process.env.NODE_ENV !== 'development'</span></span><br><span class="line">    config.plugins = [...config.plugins, ...pluginsPro]</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 为开发环境修改配置...</span></span><br><span class="line">    config.plugins = [...config.plugins, ...pluginsDev]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.export = &#123;</span><br><span class="line">  configureWebpack</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="环境变量与分环境打包"><a href="#环境变量与分环境打包" class="headerlink" title="环境变量与分环境打包"></a>环境变量与分环境打包</h3><p><a href="https://cli.vuejs.org/zh/guide/cli-service.html#vue-cli-service-build" target="_blank" rel="noopener">vue-cli-service-build</a><br>vue-cli-service build –mode 指定环境模式(默认值：production)</p>
+<p>npm run build 默认模式为 production ，命令执行时会把 process.env.NODE_ENV(环境变量) 设置为 ‘production’<br>npm run serve 时会把 process.env.NODE_ENV 设置为 ‘development’</p>
+<p>所以可以根据 process.env.NODE_ENV 简单的区分出本地和线上环境</p>
+<p>但是线上环境也可能分多种，比如测试环境和预发布环境等</p>
+<p><strong>配置 vue-cli3 区分不同的线上环境</strong></p>
+<p>在项目根目录创建下列文件来制定环境变量</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.env                # 在所有的环境中被载入</span><br><span class="line">.env.local          # 在所有的环境中被载入，但会被 git 忽略</span><br><span class="line">.env.[mode]         # 只在指定的模式中被载入</span><br><span class="line">.env.[mode].local   # 只在指定的模式中被载入，但会被 git 忽略</span><br></pre></td></tr></table></figure>
+
+<p><code>.env.test</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">/* VUE_APP_CURRENTMODE 当前环境变量 */</span><br><span class="line">VUE_APP_CURRENTMODE = &apos;t&apos; // 表明开发环境模式信息</span><br><span class="line">NODE_ENV = &apos;development&apos; // 使用开发环境（因为默认开启 devtool，便于调试）</span><br><span class="line">// VUE_APP_BASEURL=&apos;&apos; // 测试服务器地址</span><br><span class="line">VUE_APP_ENV = &apos;test 环境&apos;</span><br></pre></td></tr></table></figure>
+
+<p>在 package.json 中添加</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">"scripts": &#123;</span><br><span class="line">  "test": "vue-cli-service build --mode t",</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>修改 baseUrl.js 文件通过环境变量改变 baseUrl</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (process.env.VUE_APP_CURRENTMODE === <span class="string">'t'</span>) &#123;</span><br><span class="line">  <span class="comment">// 测试环境</span></span><br><span class="line">  baseUrl = <span class="string">''</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="comment">// 正式环境</span></span><br><span class="line">  baseUrl = <span class="string">''</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当需要为测试环境进行打包的时候 , 只需要运行下面指令进行打包</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm run <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+
+<p>但是将打包环境设置为 NODE_ENV = ‘development’ 导致打包出来的 js 文件只有 index.js 文件并且在根目录下, 并不是我们想要的</p>
+<p>所以我们可以这样配置<br>.env.test</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">VUE_APP_CURRENTMODE = &apos;t&apos;</span><br><span class="line">NODE_ENV = &apos;production&apos;</span><br><span class="line">VUE_APP_ENV = &apos;test 环境&apos;</span><br></pre></td></tr></table></figure>
+
+<p>main.js</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> isDebugMode = process.env.VUE_APP_CURRENTMODE === <span class="string">'t'</span></span><br><span class="line">Vue.config.debug = isDebugMode</span><br><span class="line">Vue.config.devtools = isDebugMode</span><br><span class="line">Vue.config.productionTip = isDebugMode</span><br></pre></td></tr></table></figure>
+
+<h3 id="vue-公共路径提取"><a href="#vue-公共路径提取" class="headerlink" title="vue 公共路径提取"></a>vue 公共路径提取</h3><p>vue 项目中公共路径在打包之后一旦遇到整体的路径更改就需要再次打包。我们可以将公共路径提取出来，修改公共路径后不需要重新打包就能生效</p>
+<p>在 public 文件夹下创建 config.js 文件，并配置</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> serverConfig = &#123;</span><br><span class="line">  baseUrl: <span class="string">''</span> <span class="comment">// 配置 url</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在 index.html 中引入该文件即可</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vue add router</span><br><span class="line">vue add vuex</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+
+    <div>
+      
+        <div style="text-align:center;color: #ccc;font-size:14px;margin-top: 20px;">-------------本文结束-------------</div>
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/转-跨域多方位解决方案/" rel="next" title="【转】跨域多方位解决方案">
+                <i class="fa fa-chevron-left"></i> 【转】跨域多方位解决方案
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/转-滑动穿透/" rel="prev" title="【转】滑动穿透(锁body)终极探索">
+                【转】滑动穿透(锁body)终极探索 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="稻草人">
+            
+              <p class="site-author-name" itemprop="name">稻草人</p>
+              <div class="site-description motion-element" itemprop="description">A doc for web</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">56</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/cuilongjin" title="GitHub &rarr; https://github.com/cuilongjin" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#在现有的项目中安装插件"><span class="nav-text">在现有的项目中安装插件</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#vue-config-js-配置"><span class="nav-text">vue.config.js 配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#publicPath"><span class="nav-text">publicPath</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#outputDir"><span class="nav-text">outputDir</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#assetsDir"><span class="nav-text">assetsDir</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#indexPath"><span class="nav-text">indexPath</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#filenameHashing"><span class="nav-text">filenameHashing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pages"><span class="nav-text">pages</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lintOnSave"><span class="nav-text">lintOnSave</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#runtimeCompiler"><span class="nav-text">runtimeCompiler</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#productionSourceMap"><span class="nav-text">productionSourceMap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#chainWebpack"><span class="nav-text">chainWebpack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#configureWebpack"><span class="nav-text">configureWebpack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环境变量与分环境打包"><span class="nav-text">环境变量与分环境打包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue-公共路径提取"><span class="nav-text">vue 公共路径提取</span></a></li></ol></li></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">稻草人</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+  
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: true,
+    notify: false,
+    appId: 'i2ouGvmHTW7EhnCLQOBXVrub-gzGzoHsz',
+    appKey: 'AybRqrp4wjRmuVSiflCxLBrO',
+    placeholder: 'Just go go',
+    avatar: 'monsterid',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn'
+  });
+</script>
+
+
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-circle-o-notch fa-spin fa-5x fa-fw margin-bottom"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $('.leancloud_visitors');
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+
+            const localhost = /http:\/\/(localhost|127.0.0.1|0.0.0.0)/;
+            var amount = 1
+            if (localhost.test(document.URL)) {
+              amount = 0
+            }
+
+            Counter('put', '/classes/Counter/' + counter.objectId, JSON.stringify({ time: { '__op': 'Increment', 'amount': amount } }))
+            
+              .done(function() {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.time + amount);
+              })
+            
+              .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+              })
+          } else {
+            
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1 }))
+                .done(function() {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function() {
+                  console.log('Failed to create');
+                });
+            
+          }
+        })
+        .fail(function ({ responseJSON }) {
+          console.log('LeanCloud Counter Error: ' + responseJSON.code + ' ' + responseJSON.error);
+        });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'i2ouGvmHTW7EhnCLQOBXVrub-gzGzoHsz')
+        .done(function({ api_server }) {
+          var Counter = function(method, url, data) {
+            return $.ajax({
+              method: method,
+              url: 'https://' + api_server + '/1.1' + url,
+              headers: {
+                'X-LC-Id': 'i2ouGvmHTW7EhnCLQOBXVrub-gzGzoHsz',
+                'X-LC-Key': 'AybRqrp4wjRmuVSiflCxLBrO',
+                'Content-Type': 'application/json',
+              },
+              data: data
+            });
+          };
+          
+            const localhost = /http:\/\/(localhost|127.0.0.1|0.0.0.0)/;
+
+            addCount(Counter);
+          
+        });
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+<script>
+  $('.highlight').not('.gist .highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      const selection = document.getSelection();
+      const selected = selection.rangeCount > 0 ? selection.getRangeAt(0) : false;
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+        if (result) $(this).text('复制成功');
+        else $(this).text('复制失败');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+      if (selected) {
+        selection.removeAllRanges();
+        selection.addRange(selected);
+      }
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
+
+  
+
+  
+
+</body>
+</html>
