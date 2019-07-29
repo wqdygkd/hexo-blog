@@ -370,3 +370,5 @@ comments: false
 - [Zeal/Win](https://zealdocs.org/)
 
 - [Xshell 5](https://www.netsarang.com/products/xsh_overview.html):Secure terminal emulator
+
+FiraCode  https://github.com/tonsky/FiraCode
