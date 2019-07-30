@@ -2,29 +2,29 @@
 title: Vue
 tags: vue
 categories:
-- [vue]
+  - [vue]
 date: 2019/01/08 18:00:00
 updated: 2019/03/22 02:35:00
 ---
 
-
 # Vue
 
-* [vue 中文网](https://cn.vuejs.org/)
+- [vue 中文网](https://cn.vuejs.org/)
 
-* [github 下载地址](https://github.com/vuejs/vue)
+- [github 下载地址](https://github.com/vuejs/vue)
 
-* Vue.js (读音 /vju:/ view)
+- Vue.js (读音 /vju:/ view)
 
-* 渐进式 JavaScript 框架
+- 渐进式 JavaScript 框架
 
-  * 渐进式：小型项目使用 vue 就够了，随着页面的复杂程度提高，就要学习 vue-rouer 来管理更多的页面，再随着项目的数据越来越多，管理数据也变得麻烦起来了，就开始使用 vuex 来管理数据
+  - 渐进式：小型项目使用 vue 就够了，随着页面的复杂程度提高，就要学习 vue-rouer 来管理更多的页面，再随着项目的数据越来越多，管理数据也变得麻烦起来了，就开始使用 vuex 来管理数据
 
-  * 框架 : 一整套的解决方案
+  - 框架 : 一整套的解决方案
 
 ## 框架和库的区别
 
 ### 库(Library) ，代表 : jquery
+
 - 库就是一系列函数的集合，我们开发人员在使用库的时候，想要完成什么样的功能，就调用库中提供的某个方法
 
 比如：想要添加样式，就调用 jquery 中的 .css() / .addClass()
@@ -37,7 +37,7 @@ updated: 2019/03/22 02:35:00
 
 - 框架是一套完整的解决方案，框架中制定了一套规则，使用框架的时候，只需要按照规则把代码放到合适的地方，然后框架会在合适的时机，主动调用开发人员的代码
 
-比如 : 想用vue组件里遍历就得使用 v-for，使用 for 不行
+比如 : 想用 vue 组件里遍历就得使用 v-for，使用 for 不行
 
 ### 主要区别：控制反转
 
@@ -52,8 +52,6 @@ updated: 2019/03/22 02:35:00
 - 会发现使用框架的时候，会受到很多限制
 
 - [我们所说的前端框架与库的区别？](https://zhuanlan.zhihu.com/p/26078359?group_id=830801800406917120)
-
-
 
 ## MVC + MVVM
 
@@ -136,7 +134,7 @@ id='#app'，其他也可以
 
 边界外无法使用 msg
 
-###  插值表达式
+### 插值表达式
 
 ```
 1. {{}} : mustache 语法，小胡子语法，插值表达式
@@ -145,26 +143,21 @@ id='#app'，其他也可以
 4. `{{}}` 语法不能作用在 HTML 元素的属性上
 ```
 
-
-
 表达式 (有返回值的)：
+
 - 基本的数据类型 `1 'abc' false [] {}`
 - 数据类型 和 运算符结合在一起`1+2 arr.join('-') true ? 123 : 321`
 
 语句： `if 语句 for 语句`
 
-
-
 ## 双向数据绑定
 
 ### input + v-model
 
- v-model 指令：数据双向绑定的指令
+v-model 指令：数据双向绑定的指令
 
-* 作用：把 data 中的 num 值 和 input 上的值绑定到一起，一方的值发生了改变，另 一方也会跟着改变
-* 注意：v-model 只能用在表单控件上（input checkbox 等）
-
-
+- 作用：把 data 中的 num 值 和 input 上的值绑定到一起，一方的值发生了改变，另 一方也会跟着改变
+- 注意：v-model 只能用在表单控件上（input checkbox 等）
 
 ### Object.defineProperty()
 
@@ -175,27 +168,25 @@ let temp
 // 参数2：给对象设置什么属性
 // 参数3：属性的修饰符
 Object.defineProperty(obj, 'name', {
-  set: function(newVal) {
+  set: function (newVal) {
     console.log('赋值了', newVal)
   },
-  get: function() {
+  get: function () {
     console.log('取值了')
     return temp
   }
 })
 ```
 
-
-
 ### 数据双向绑定的原理
 
 ```html
 <div id="app">
-  <input id="input" type="text">
+  <input id="input" type="text" />
 </div>
 ```
 
-```javascript
+```js
 let obj = {}
 let temp
 Object.defineProperty(obj, 'name', {
@@ -219,17 +210,11 @@ input.oninput = function () {
 }
 ```
 
-
-
 ### 深入响应式原理
 
 检测变化注意：受现代 JavaScript 的限制 (而且 `Object.observe` 也已经被废弃)，Vue **不能检测到对象属性的添加或删除**。由于 Vue 会在初始化实例时对属性执行 `getter/setter` 转化过程，所以属性必须在 `data` 对象上存在才能让 Vue 转换它，这样才能让它是响应的
 
-
-
 **Vue 不允许在已经创建的实例上动态添加新的根级响应式属性**，可以使用 `Vue.set(object, key, value)` 方法将响应属性添加到嵌套的对象上，或者创建一个包含原对象属性和新属性的对象替换掉原对象
-
-
 
 ### 列表渲染数组更新检测
 
@@ -237,39 +222,29 @@ input.oninput = function () {
 
 `push()`、`pop()`、`shift()`、`unshift()`、`splice()`、`sort()`、`reverse()`
 
-
-
 替换数组
 
 用一个含有相同元素的数组去替换原来的数组并不会导致 Vue 丢弃现有 DOM 并重新渲染整个列表
-
-
 
 注意：由于 JavaScript 的限制，Vue 不能检测以下变动的数组：
 
 1. 当你利用索引直接设置一个项时，例如：`vm.items[indexOfItem] = newValue`
 2. 当你修改数组的长度时，例如：`vm.items.length = newLength`
 
-
-
 解决第一类问题：
 
-```javascript
+```js
 // Vue.set
 Vue.set(vm.items, indexOfItem, newValue)
 // Array.prototype.splice
 vm.items.splice(indexOfItem, 1, newValue)
 ```
 
-
-
 解决第二类问题：
 
-```javascript
+```js
 vm.items.splice(newLength)
 ```
-
-
 
 ## 指令学习
 
@@ -277,8 +252,6 @@ vm.items.splice(newLength)
 
 - 指令：就是一个特殊的标记，起一个辅助作用，使 html 具备原来没有的功能
 - vue 中所有的指令都是以 `v-` 开头的，比如 : v-model v-bind v-if v-for 等等
-
-
 
 ### v-model (常用)
 
@@ -296,7 +269,7 @@ vm.items.splice(newLength)
 </div>
 ```
 
-```javascript
+```js
 const vm = new Vue({
   el: '#app',
   data: {
@@ -306,15 +279,13 @@ const vm = new Vue({
 })
 ```
 
-
-
 ### v-text 和 v-html
 
 > 说明 : 设置文本内容
 
-v-text :  相当于之前的 innerText
+v-text : 相当于之前的 innerText
 
-v-html :  相当于之前的 innerHTML，会解析 html 标签，（已经废弃三大括号的插值）
+v-html : 相当于之前的 innerHTML，会解析 html 标签，（已经废弃三大括号的插值）
 
 ```html
 <div id="app">
@@ -323,7 +294,7 @@ v-html :  相当于之前的 innerHTML，会解析 html 标签，（已经废弃
 </div>
 ```
 
-```javascript
+```js
 const vm = new Vue({
   el: '#app',
   data: {
@@ -332,8 +303,6 @@ const vm = new Vue({
   }
 })
 ```
-
-
 
 ### v-bind (常用)
 
@@ -348,7 +317,7 @@ const vm = new Vue({
 </div>
 ```
 
-```javascript
+```js
 // v-bind：
 // 说明：动态数据绑定 (单向)，因为html的`属性`不能使用{{}} 来动态的读取数据, 需要使用 v-bind
 
@@ -360,31 +329,27 @@ const vm = new Vue({
 })
 ```
 
-
-
 #### v-bind 和 v-model 的区别
 
 ```html
 <!-- v-model 数据双向绑定 -->
 <!--场景：表单元素中 -->
-<input type="checkbox" v-model="isChecked1">
+<input type="checkbox" v-model="isChecked1" />
 
 <!--  v-bind 数据动态绑定 (单向) -->
 <!--场景：主要用在属性中 -->
-<input type="checkbox" :checked="isChecked2">
+<input type="checkbox" :checked="isChecked2" />
 ```
-
-
 
 #### 操作样式
 
 ```html
 <div id="app">
   <!-- 操作样式 -->
-  <!-- 1. 动态添加类，但不符合vue数据是核心的思想 -->
+  <!-- 1. 动态添加类，但不符合 vue 数据是核心的思想 -->
   <h1 :class="cls">hahaha</h1>
 
-  <!-- 2. class值是一个对象 -->
+  <!-- 2. class 值是一个对象 -->
   <!-- 属性名为类名 -->
   <!-- 属性值为布尔值 -->
   <h1 :class="{red: isRed, fz: isFz}">hahaha</h1>
@@ -394,9 +359,9 @@ const vm = new Vue({
 </div>
 ```
 
-```javascript
+```js
 // v-bind :
-// 说明 : 动态数据绑定 (单向)，因为html的`属性`不能使用{{}} 来动态的读取数据 , 需要使用 v-bind
+// 说明 : 动态数据绑定 (单向)，因为 html 的`属性`不能使用{{}} 来动态的读取数据 , 需要使用 v-bind
 
 const vm = new Vue({
   el: '#app',
@@ -405,8 +370,6 @@ const vm = new Vue({
   }
 })
 ```
-
-
 
 其他操作
 
@@ -420,8 +383,6 @@ const vm = new Vue({
   <!-- ===> <div class="red fz"></div> -->
 </div>
 ```
-
-
 
 ### v-on
 
@@ -443,7 +404,7 @@ const vm = new Vue({
 </div>
 ```
 
-```javascript
+```js
 // v-on 注册事件
 // v-on:click => 绑定点击事件
 
@@ -465,8 +426,6 @@ const vm = new Vue({
 })
 ```
 
-
-
 4. 函数里面的 this 指的就是 vm 实例
 
 ```js
@@ -474,8 +433,6 @@ this === vm // true
 this.msg // 获取数据
 this.msg = 'XXX' // 修改数据
 ```
-
-
 
 5. 事件对象 \$event
 
@@ -487,7 +444,7 @@ this.msg = 'XXX' // 修改数据
 <button @click="fn1($event, 123)">按钮</button>
 ```
 
-```javascript
+```js
 const vm = new Vue({
   el: '#app',
   data: {},
@@ -502,8 +459,6 @@ const vm = new Vue({
   }
 })
 ```
-
-
 
 ### v-for
 
@@ -524,48 +479,36 @@ const vm = new Vue({
 <h1 v-for="item in 10">我是h1 {{ item }}</h1>
 ```
 
-
-
 ### v-if 和 v-show
 
 ```html
-<h1 v-if='isShow'>我是h1 v-if</h1>
-<h1 v-show='isShow'>我是h1 v-show</h1>
+<h1 v-if="isShow">我是h1 v-if</h1>
+<h1 v-show="isShow">我是h1 v-show</h1>
 ```
 
-v-if 和 v-show 的异同点：
+v-if 和 v-show 都可以切换元素的显示与隐藏，不同的是 v-if 通过创建删除节点来控制元素的显示与隐藏， v-show 的元素始终会被渲染并保留在 DOM 中，只是简单地切换元素的 CSS 属性 `display`，`v-show` 不支持 `<template>` 元素，也不支持 `v-else`
 
-* 相同点: 可以切换元素的显示与隐藏
-
-* 不同点: 切换显示和隐藏的实现不同
-  * v-if：显示：创建节点；隐藏：删除节点
-  * v-show：显示：display:block；隐藏： display:none
-
-* 使用场景 :
-  * v-if 因为要不断的创建和删除来切换显示与隐藏，所以性能不高
-  * v-if：切换次数不频繁的时候
-  * v-show：切换次数频繁的时候
-
-
+使用场景 :
+- v-if 因为要不断的创建和删除来切换显示与隐藏，所以性能不高
+- v-if：切换次数不频繁的时候
+- v-show：切换次数频繁的时候
 
 ### v-else-if 和 v-else
 
-- v-else：两种情况的
+v-else：两种情况的
 
 ```html
 <h1 v-if="num > 40">第一个</h1>
 <h1 v-else>第三个</h1>
 ```
 
-- v-else-if：三种以上情况
+v-else-if：三种以上情况
 
 ```html
 <h1 v-if="num >= 40">第一个</h1>
 <h1 v-else-if="num >= 30 && num < 40">第二个</h1>
 <h1 v-else>第三个</h1>
 ```
-
-
 
 ### v-once
 
@@ -576,8 +519,6 @@ v-if 和 v-show 的异同点：
 <p v-once>带 onece 的 {{ num }}</p>
 ```
 
-
-
 ### v-pre
 
 作用：告诉 vue 这段节点中没有指令或表达式，不需要解析，从而，提升性能
@@ -587,13 +528,12 @@ v-if 和 v-show 的异同点：
 <p v-pre>带 v-pre {{ num }}</p>
 ```
 
-
-
 ### v-cloak
 
 使用遮盖
 
 - 给要遮盖的元素添加一个 v-cloak 指令：
+
 ```html
 <h1 v-cloak>{{ msg }}</h1>
 ```
@@ -602,23 +542,21 @@ v-if 和 v-show 的异同点：
 
 - vue 会在解析模板后将 v-cloak 指令从页面中移除，移除指令的时候，差值表达式已经变为对应的数据
 
-
-
 ## 按键修饰符
 
 在监听键盘事件时，我们经常需要检查常见的键值。Vue 允许为 `v-on` 在监听键盘事件时添加按键修饰符
 
- Vue 为最常用的按键提供了别名：
+Vue 为最常用的按键提供了别名：
 
 ```html
 <!-- 只有在 `keyCode` 是 13 时调用 `vm.submit()` -->
-<input v-on:keyup.13="submit">
+<input v-on:keyup.13="submit" />
 
 <!-- 同上 -->
-<input v-on:keyup.enter="submit">
+<input v-on:keyup.enter="submit" />
 
 <!-- 缩写语法 -->
-<input @keyup.enter="submit">
+<input @keyup.enter="submit" />
 ```
 
 全部的按键别名：
@@ -632,8 +570,6 @@ v-if 和 v-show 的异同点：
 - `.down`
 - `.left`
 - `.right`
-
-
 
 ## 事件修饰符
 
@@ -675,8 +611,6 @@ v-if 和 v-show 的异同点：
 
 使用修饰符时，顺序很重要；相应的代码会以同样的顺序产生。因此，用 `v-on:click.prevent.self` 会阻止**所有的点击**，而 `v-on:click.self.prevent` 只会阻止对元素自身的点击。
 
-
-
 ## 系统修饰键
 
 可以用如下修饰符来实现仅在按下相应按键时才触发鼠标或键盘事件的监听器
@@ -688,13 +622,11 @@ v-if 和 v-show 的异同点：
 
 ```html
 <!-- Alt + C -->
-<input @keyup.alt.67="clear">
+<input @keyup.alt.67="clear" />
 
 <!-- Ctrl + Click -->
 <div @click.ctrl="doSomething">Do something</div>
 ```
-
-
 
 ### 鼠标按钮修饰符
 
@@ -704,25 +636,23 @@ v-if 和 v-show 的异同点：
 
 这些修饰符会限制处理函数仅响应特定的鼠标按钮
 
-
-
 ## 计算属性
-
-写起来像一个方法，用起来像一个属性
 
 ```js
 computed: {
-  fn () {}
+  message () {},
 }
 ```
 
-特点：只有跟计算属性相关的数据发生了改变，计算属性才会重新计算
+特点：**计算属性是基于它们的响应式依赖进行缓存的**，只有跟计算属性相关的数据发生了改变，计算属性才会重新计算
+
 注意点:
 
-- 计算属性必须返回一个值
+计算属性必须返回一个值
 
-- 计算属性只能当属性用，不能当方法用
-- 不能和 data 中的属性名重名
+计算属性只能当属性用，不能当方法用
+
+不能和 data 中的属性名重名
 
 
 
@@ -734,12 +664,13 @@ computed: {
 
 建议尽可能在使用 `v-for` 时提供 `key`，除非遍历输出的 DOM 内容非常简单，或者是刻意依赖默认行为以获取性能上的提升
 
-* `就地复用`
+- `就地复用`
 
 ```html
 <!-- 显示组件 -->
 <p v-for="(item, index) in list" :key="index">
-  {{item.name}} <input type="text" />
+  {{ item.name }}
+  <input type="text" />
 </p>
 <!-- 数据 -->
 data: {list: [{id: 1, name: 'zs'}, {id: 2, name: 'ls'}, {id: 3, name: 'ww'}]
@@ -747,17 +678,14 @@ data: {list: [{id: 1, name: 'zs'}, {id: 2, name: 'ls'}, {id: 3, name: 'ww'}]
 vm.list.unshift({id:4, name:'zl'})
 ```
 
-* 使用 key
-  * 如果数组的元素是一个对象，使用对象里固定属性，一般情况下，对象里都有 id
-  * 如果数组的元素是一个简单类型，不是一个对象，就可以取索引作为 key
-
-
+- 使用 key
+  - 如果数组的元素是一个对象，使用对象里固定属性，一般情况下，对象里都有 id
+  - 如果数组的元素是一个简单类型，不是一个对象，就可以取索引作为 key
 
 ## 异步 DOM 更新
 
 1. Vue 中采用了 `异步DOM更新` 的机制
 2. 数据发生改变后，vue 没有立即将数据的改变更新到视图中，而是等到数据不再变化的时候 一次性的将数据的改变更新到视图中
-
 
 为什么是异步 DOM 更新?
 
@@ -785,15 +713,13 @@ this.$nextTick(() => {
 })
 ```
 
-
-
 ## 监听 watch
 
 vue 中可以通过 watch 配置项来监听 vue 实例中数据的变化
 
-* 基本使用
+基本使用
 
-```javascript
+```js
 data: {
   num: 0
 },
@@ -810,9 +736,7 @@ watch: {
 }
 ```
 
-
-
-* 监听对象
+监听对象
 
 ```js
 data: {
@@ -828,15 +752,14 @@ watch: {
     // 虽然 obj 中的属性值发生改变了，但 obj 引用的地址没有发生改变，所以不会触发事件
     console.log(newVal)
   },
+
   // 监听对象的属性
   // 从对象的角度来监听的
   obj: {
     // 深度监听 监听对象里面的属性
     deep: true,
-
     // 页面刚进入立即触发监听，以表达式的当前值触发回调
     immediate: true,
-
     // 对象里的属性值发生变化，调用 handler 方法
     handler (newVal) {
       this.msg = `obj.age 值变化了，新值：${newVal.age}`
@@ -849,15 +772,14 @@ watch: {
 }
 ```
 
-
-
-* 使用案例：需求 : 监听文本框字符个数，并显示格式验证码
+使用案例：需求 : 监听文本框字符个数，并显示格式验证码
 
 ```html
-<input type="text" v-model="val"><span v-show='isTrue'>{{ msg }}</span>
+<input type="text" v-model="val" />
+<span v-show="isTrue">{{ msg }}</span>
 ```
 
-```javascript
+```js
 data: {
   val: '',
   msg: '请输入 6-12 位',
@@ -873,8 +795,6 @@ watch: {
   }
 }
 ```
-
-
 
 ## 生命周期函数
 
@@ -893,15 +813,11 @@ watch: {
 注意：
 
 - vue 在执行过程中会 **自动调用** `生命周期钩子函数`，我们只需要提供这些钩子函数即可
-- 钩子函数的名称都是  vue 中规定好的
-
-
+- 钩子函数的名称都是 vue 中规定好的
 
 [vue 实例生命周期 参考 1](https://segmentfault.com/a/1190000008879966)
 
 [vue 实例生命周期 参考 2](https://segmentfault.com/a/1190000008010666)
-
-
 
 ### 钩子函数 - beforeCreate
 
@@ -909,21 +825,15 @@ watch: {
 - 此时组件的选项还未挂载，因此无法访问 methods，data，computed 上的方法或数据
 - 使用场景 : 几乎不用
 
-
-
 ### 钩子函数 - created (掌握)
 
 - 在实例创建完成后被立即调用。在这一步，实例已完成以下的配置：数据观测 (data observer)，属性和方法的运算，watch/event 事件回调。然而，挂载阶段还没开始，`$el` 属性目前不可见
-- 可以调用 methods 中的方法、改变 data 中的数据，并且修改可以通过 vue 的响应式绑定体现在页面上、获取computed 中的计算属性等
+- 可以调用 methods 中的方法、改变 data 中的数据，并且修改可以通过 vue 的响应式绑定体现在页面上、获取 computed 中的计算属性等
 - 使用场景：发送 ajax、本地存储获取数据
-
-
 
 ### 钩子函数 - beforeMounted()
 
 - 在挂载开始之前被调用（挂载：DOM 渲染）
-
-
 
 ### 钩子函数 - mounted() (掌握)
 
@@ -933,8 +843,6 @@ watch: {
 - 在这个周期内，对 data 的改变可以生效。但是要进下一轮的 DOM 更新，DOM 上的数据才会更新
 - 使用场景：发送 ajax、操作 DOM
 
-
-
 ### 钩子函数 - beforeUpdate()
 
 - 数据更新时调用，发生在虚拟 DOM 重新渲染和打补丁之前。你可以在这个钩子中进一步地更改状态，这不会触发附加的重渲染过程
@@ -943,15 +851,11 @@ watch: {
 
   > 小提示 : 打印 this.\$el ，打开小三角是之后的，是因为打印是有监听的功能，展示的是后面更改之后的
 
-
-
 ### 钩子函数 - updated()
 
 - 由于数据更改导致的虚拟 DOM 重新渲染和打补丁，在这之后会调用该钩子
 - 组件 DOM 已经更新，所以你现在可以执行依赖于 DOM 的操作
 - 应该避免在此期间更改状态。如果要相应状态改变，通常最好使用 **计算属性** 或 **watcher** 取而代之
-
-
 
 ### 钩子函数 - beforeDestroy()
 
@@ -973,13 +877,9 @@ beforeDestroy () {
 }
 ```
 
-
-
 ### 钩子函数 - destroyed()
 
 - Vue 实例销毁后调用。调用后，Vue 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。
-
-
 
 ## 使用接口的形式发送数据
 
@@ -1006,7 +906,7 @@ data.json
 }
 ```
 
-- REST API格式
+- REST API 格式
 
 ```js
 1. 查询：GET
@@ -1031,11 +931,9 @@ data.json
     DELETE
 - 可以借助 `postman` 测试接口
 
-
-
 ### axios 发送请求
 
-- **作用** : 一个专门用来发送 ajax 请求的库,  可以在浏览器或者node.js 中使用
+- **作用** : 一个专门用来发送 ajax 请求的库, 可以在浏览器或者 node.js 中使用
 - **使用步骤**
   - 本地安装 axios : `npm i -g axios`
   - 导入 axios
@@ -1044,19 +942,19 @@ data.json
 
 ```js
 // 方式1
-axios.get('http://localhost:3000/todoList/1')
-  .then(res => {
+axios.get('http://localhost:3000/todoList/1').then(res => {
   console.log('获取到数据了：', res.data)
 })
 // 方式2
-axios.get('http://localhost:3000/todoList',{
-  params : {
-    id : 1
-  }
-})
+axios
+  .get('http://localhost:3000/todoList', {
+    params: {
+      id: 1
+    }
+  })
   .then(res => {
-  console.log('获取到数据了：', res.data)
-})
+    console.log('获取到数据了：', res.data)
+  })
 ```
 
 - **POST 方式发送请求**
@@ -1064,15 +962,14 @@ axios.get('http://localhost:3000/todoList',{
 ```js
 // post 请求
 axios
-// 第一个参数：表示接口地址
-// 第二个参数：表示接口需要的参数
+  // 第一个参数：表示接口地址
+  // 第二个参数：表示接口需要的参数
   .post('http://localhost:3000/todoList', {
-  	name: 'haha',
-  	done: true
-}).then(res => {})
+    name: 'haha',
+    done: true
+  })
+  .then(res => {})
 ```
-
-
 
 ## 过滤器
 
@@ -1082,22 +979,16 @@ axios
 - 比如 : 对于日期来说，将日期格式化转化为 `年-月-日 小时:分:秒`
 
 ```html
- <!-- 直接显示 -->
- <h1>{{ date }}</h1>
- 显示：2019-01-11T10:11:19.566Z
- 不是我们想要的
- 我们想要的：2019-01-11 18-11-53
+<!-- 直接显示 -->
+<h1>{{ date }}</h1>
+显示：2019-01-11T10:11:19.566Z 不是我们想要的 我们想要的：2019-01-11 18-11-53
 ```
-
-
 
 **全局过滤器 和 局部过滤器**
 
 - 全局方式创建的过滤器，在任何一个 Vue 实例中都可以使用 (一般情况下，为了项目方便管理，都是一个 vue 实例)
 - 局部创建的过滤器只能在当前 vue 实例中使用
 - 全局过滤器应在 Vue 实例创建之前创建
-
-
 
 **注册全局过滤器**
 
@@ -1110,8 +1001,6 @@ Vue.filter('date', res => {
 })
 ```
 
-
-
 **注册局部过滤器**
 
 在 vm 的配置项里写一个 `filters`，对应的是一个对象
@@ -1123,8 +1012,6 @@ filters: {
   }
 }
 ```
-
-
 
 **moment 插件**
 
@@ -1142,8 +1029,6 @@ filters: {
   })
   ```
 
-
-
 **使用过滤器**
 
 ```html
@@ -1151,7 +1036,7 @@ filters: {
 <h1>{{ date | dataFilter }}</h1>
 ```
 
-```javascript
+```js
 // 全局
 Vue.filter('dataFilter', res => {
   return moment(res).format('YYYY-MM-DD HH-mm-ss')
@@ -1165,15 +1050,13 @@ filters: {
 }
 ```
 
-
-
 **参数问题**
 
 ```html
 <h1>{{ date | dateFilter('YYYY-MM-DD HH-mm-ss', 888) }}</h1>
 ```
 
-```javascript
+```js
 Vue.filter('dateFilter', (res, format = 'YYYY-MM-DD', arg) => {
   // res: 原始数据
   // format：dateFilter 中的第一个参数，等号后面为默认值
@@ -1183,8 +1066,6 @@ Vue.filter('dateFilter', (res, format = 'YYYY-MM-DD', arg) => {
 })
 ```
 
-
-
 ## 组件
 
 > 组件系统是 Vue 的另一个重要概念，因为它是一种抽象，允许我们使用小型、独立和通常 **可复用** 的组件构建大型应用。仔细想想，几乎任意类型的应用界面都可以抽象为一个组件树
@@ -1192,9 +1073,7 @@ Vue.filter('dateFilter', (res, format = 'YYYY-MM-DD', arg) => {
 ![组件化图释](vue/components.png)
 
 - 注册组件的两种方式：全局组件、局部组件
-- Vue实例中的配置项（如：methods、filters、watch、computed、directives、生命周期钩子函数）都可以在组件中使用
-
-
+- Vue 实例中的配置项（如：methods、filters、watch、computed、directives、生命周期钩子函数）都可以在组件中使用
 
 ### 全局组件
 
@@ -1239,11 +1118,9 @@ const One = {
 </div>
 ```
 
-
-
 ### 局部组件
 
-- 局部组件是在某一个具体的vue实例（组件）中定义的，只能在当前 vue 实例（组件）中使用
+- 局部组件是在某一个具体的 vue 实例（组件）中定义的，只能在当前 vue 实例（组件）中使用
 
 ```js
 const vm = new Vue({
@@ -1264,8 +1141,6 @@ const vm = new Vue({
 })
 ```
 
-
-
 ### 组件通讯
 
 - 组件是一个独立、封闭的个体
@@ -1276,7 +1151,6 @@ const vm = new Vue({
   - 父组件将数据传递给子组件(父 -> 子)
   - 子组件将数据传递给父组件 (子 => 父)
   - 非父子组件(兄弟组件)
-
 
 #### 父组件到子组件
 
@@ -1290,7 +1164,7 @@ const vm = new Vue({
   - 在使用 DOM 中的模板时，camelCase (驼峰命名法) 的 prop 名需要使用其等价的 kebab-case (短横线分隔命名) 命名代替
   - 如果使用字符串模板，那么这个限制就不存在了
 
-```javascript
+```js
 props: ['msg']
 ```
 
@@ -1303,7 +1177,7 @@ props: ['msg']
 <hello :num="pnum"></hello>
 ```
 
-```javascript
+```js
 Vue.component('hello', {
   template: `<div>{{ num }}</div>`,
 
@@ -1312,8 +1186,6 @@ Vue.component('hello', {
 })
 ```
 
-
-
 #### 子组件到父组件
 
 - 方式：父组件给子组件传递一个函数，由子组件调用这个函数
@@ -1321,7 +1193,7 @@ Vue.component('hello', {
 - `$emit()`：触发事件
 - 第一步：父组件了里准备一个方法
 
-```javascript
+```js
 const vm = new Vue({
   el: '#app',
   data: {},
@@ -1341,23 +1213,21 @@ const vm = new Vue({
 
 - 第三步：子组件调用父组件传过来的方法
 
-```javascript
+```js
 Vue.component('hello', {
   template: `<button @click='click'>按钮</button>`,
   data () {
-    return {num: 5}
+    return { num: 5 }
   },
   methods: {
     click () {
       // 第一个参数：表示要触发的自定义事件名称，也就是 @fn
-    	// 第二个参数：表示要传递给父组件的数据
+      // 第二个参数：表示要传递给父组件的数据
       this.$emit('fn', this.num)
     }
   }
 })
 ```
-
-
 
 #### 非父子组件通讯
 
@@ -1381,9 +1251,7 @@ bus.$on('id', id => {
 })
 ```
 
-
-
-示例：组件A ---> 组件B
+示例：组件 A ---> 组件 B
 
 ```html
 <div id="app">
@@ -1392,7 +1260,7 @@ bus.$on('id', id => {
 </div>
 ```
 
-```javascript
+```js
 // 第一步：实例化事件总线 bus
 const bus = new Vue()
 
@@ -1425,8 +1293,6 @@ const vm = new Vue({
 
 [开关灯案例]
 
-
-
 ### 单向数据流(组件与组件之间)
 
 所有的 prop 都使得其父子 prop 之间形成了一个`单向下行绑定`：父级 prop 的更新会向下流动到子组件中，但是反过来则不行。这样会防止从子组件意外改变父级组件的状态，从而导致你的应用的数据流向难以理解。
@@ -1434,15 +1300,11 @@ const vm = new Vue({
 当 todo-head 中的 todoName 设置数据后回车添加到 todoList，todoList 的长度就会发生变化，然后就会根据(组件与组件之间的)单向数据流，把数据单向下流到子组件中
 而且必须是通过 props 往下传递的才可以
 
-
-
 ## refs
 
- `vm.$refs` 一个对象，持有已注册过 ref 的所有子组件 ( HTML 元素)
+`vm.$refs` 一个对象，持有已注册过 ref 的所有子组件 ( HTML 元素)
 
-
-
-* 使用 :
+- 使用 :
 
 ```html
 <!-- 在 HTML元素 中，添加ref属性 -->
@@ -1456,7 +1318,7 @@ const vm = new Vue({
 Vue.component('child', {
   template: `<h1>组件A</h1>`,
   data () {
-    return {num: 100}
+    return { num: 100 }
   },
   methods: {
     fn () {}
@@ -1474,20 +1336,14 @@ const vm = new Vue({
 })
 ```
 
-
-
-* 如果获取的是一个子组件，那么通过 ref 就能获取到子组件中的 `data` 和 `methods`
+- 如果获取的是一个子组件，那么通过 ref 就能获取到子组件中的 `data` 和 `methods`
 
 ```js
 console.log(this.$refs.child.num) // 100
 console.log(this.$refs.child.fn) // fn
 ```
 
-
-
-* 一般在第三方的组件中， 可能会用到这个功能
-
-
+- 一般在第三方的组件中， 可能会用到这个功能
 
 ## 单页面应用程序
 
@@ -1495,29 +1351,21 @@ SPA : **Single Page Application** 单页面应用程序
 
 MPA : **Multiple Page Application** 多页面应用程序
 
-* 单页 web 应用，就是只有一个 web 页面的应用，是加载单个 HTML 页面，并在用户与应用程序交互时动态更新该页面的 web 应用程序
-
-
+- 单页 web 应用，就是只有一个 web 页面的应用，是加载单个 HTML 页面，并在用户与应用程序交互时动态更新该页面的 web 应用程序
 
 * 区别
-  * 对于传统的多页面应用程序来说，每次请求服务器返回的都是一个完整的页面
-  * 对于单页应用程序来说，只有第一次会加载页面，以后的每次请求，仅仅是获取必要的数据，然后由页面中js解析获取的数据展示在页面中
+  - 对于传统的多页面应用程序来说，每次请求服务器返回的都是一个完整的页面
+  - 对于单页应用程序来说，只有第一次会加载页面，以后的每次请求，仅仅是获取必要的数据，然后由页面中 js 解析获取的数据展示在页面中
 
-
-
-* 优势 :
-  * 减少了请求体积，加快页面响应速度，降低了对服务器的压力
-  * 更好的用户体验，让用户在 web app 感受 native app 的流畅
-
-
+- 优势 :
+  - 减少了请求体积，加快页面响应速度，降低了对服务器的压力
+  - 更好的用户体验，让用户在 web app 感受 native app 的流畅
 
 ## 路由
 
 - **路由** : 是浏览器 URL 中的`哈希值`( # hash) 与 `展示视图内容` 之间的`对应规则`
   - 在 web App 中，通过一个页面来展示和管理整个应用的功能。SPA 往往是功能复杂的应用，为了有效管理所有视图内容，前端路由应运而生。简单来说，路由就是一套映射规则(一对一的对应规则)，由开发人员制定规则。当 URL 中的哈希值( `#` hash) 发生改变后，路由会根据制定好的规则，展示对应的视图内容。
 - **vue 中的路由**；是 **hash** 和 **component** 的对应关系，一个哈希值对应一个组件
-
-
 
 ### 基本使用
 
@@ -1534,7 +1382,7 @@ MPA : **Multiple Page Application** 多页面应用程序
 
 - 实例路由对象并挂载到 vue 实例 上
 
-```javascript
+```js
 // 路由实例 与 Vue 实例 关联到一起
 const router = new VueRouter()
 const vm = new Vue({
@@ -1542,8 +1390,6 @@ const vm = new Vue({
   router
 })
 ```
-
-
 
 - 入口 (#哈希值)
 
@@ -1560,11 +1406,9 @@ router-link 标签最终会转化为 a 标签，to 属性转化为 a 标签的 h
 <router-link to="/two">Tow</router-link>
 ```
 
-
-
 - 注册组件并设置返回值
 
-```javascript
+```js
 const One = {
   template: `<div>组件 One</div>`
 }
@@ -1574,22 +1418,15 @@ const Two = {
 }
 ```
 
-
-
 - 设置规则
 
 ```js
 // path : 路由路径
 // component : 将来要展示的路由组件
 const router = new VueRouter({
-  routes: [
-    {path: '/one', component: One},
-    {path: '/two', component: Two}
-  ]
+  routes: [{ path: '/one', component: One }, { path: '/two', component: Two }]
 })
 ```
-
-
 
 - 出口
 
@@ -1599,8 +1436,6 @@ const router = new VueRouter({
   <router-view></router-view>
 </div>
 ```
-
-
 
 - 示例 ：
 
@@ -1634,8 +1469,8 @@ const Two = {
 const router = new VueRouter({
   routes: [
     // 4. 配置路由规则，路由和实例一一对应
-    {path: '/one', component: One},
-    {path: '/two', component: Two}
+    { path: '/one', component: One },
+    { path: '/two', component: Two }
   ]
 })
 
@@ -1647,8 +1482,6 @@ const vm = new Vue({
 })
 ```
 
-
-
 多出口情况
 
 ```html
@@ -1659,7 +1492,7 @@ const vm = new Vue({
 </div>
 ```
 
-```javascript
+```js
 const One = {
   template: `<div>组件 One</div>`
 }
@@ -1685,12 +1518,6 @@ const router = new VueRouter({
 })
 ```
 
-
-
-
-
-
-
 ### 入口菜单高亮处理
 
 点击导航会给链接添加两个类名：
@@ -1699,8 +1526,6 @@ const router = new VueRouter({
 <a href="#/one" class="router-link-exact-active router-link-active">One</a>
 <a href="#/two" class="">Two</a>
 ```
-
-
 
 修改方式 1：直接修改类的内容
 
@@ -1712,8 +1537,6 @@ const router = new VueRouter({
 }
 ```
 
-
-
 修饰方式 2：给默认高亮类名设置别名，别名为已经定义好样式的类名 (推荐)
 
 ```js
@@ -1724,8 +1547,6 @@ const router = new VueRouter({
   linkActiveClass: 'red'
 })
 ```
-
-
 
 ### 精确匹配和模糊匹配
 
@@ -1741,11 +1562,7 @@ const router = new VueRouter({
 
 - 注意：精确匹配和模糊匹配，只对添加类名这个机制有效，与路由的匹配规则无关
 
-
-
 ### 路由参数
-
-
 
 入口
 
@@ -1755,8 +1572,6 @@ const router = new VueRouter({
 <router-link to="/detail/2">手机2</router-link>
 <router-link to="/detail/3">手机3</router-link>
 ```
-
-
 
 传参
 
@@ -1768,20 +1583,16 @@ const Detail = Vue.component('detail', {
 })
 routes: [
   // 方式1：手动一个一个配置
-  {path: '/detail/1', component: Detail},
-  {path: '/detail/2', component: Detail},
-  {path: '/detail/3', component: Detail}，
+  { path: '/detail/1', component: Detail },
+  { path: '/detail/2', component: Detail },
+  { path: '/detail/3', component: Detail }，
 
   // 正确的方式：把传过去的 1/2/3 当成参数
-  {path: '/detail/:id?', component: Detail}
+  { path: '/detail/:id?', component: Detail }
 ]
 ```
 
-
-
 `?` 代表参数可传可不传，即可识别的路径包括：`detail`、`detail/1`、`detail2`、`detail3`
-
-
 
 获取参数的三种正确方式
 
@@ -1818,8 +1629,6 @@ const Detail = Vue.component('detail', {
 })
 ```
 
-
-
 [编程式导航](https://router.vuejs.org/zh/guide/essentials/navigation.html#%E7%BC%96%E7%A8%8B%E5%BC%8F%E7%9A%84%E5%AF%BC%E8%88%AA)
 
 ```js
@@ -1843,8 +1652,6 @@ router.push({ path: 'register', query: { plan: 'private' }}) // -> /register?pla
 routes: [{ path: '/user/:id?', name='user', component: User }]
 ```
 
-
-
 ### 重定向
 
 `redirect`
@@ -1853,8 +1660,6 @@ routes: [{ path: '/user/:id?', name='user', component: User }]
 // 将 / 重定向到 /home
 { path: '/', redirect: '/home' }
 ```
-
-
 
 ## 单文件组件
 
@@ -1870,25 +1675,19 @@ routes: [{ path: '/user/:id?', name='user', component: User }]
 - script 组件的代码逻辑
 - style 样式
 
-
-
 ### 脚手架介绍
 
 **vue-cli** 是 vue 的脚手架工具
 
 因为 webpack 配置繁琐，阻止一批想用 vue 但是不会 webpack 的开发人员
 
-vue-cli 提供了一条命令，我们直接通过这条命令就可以快速的生成一个 vue 项目 (`vue init XX`)，项目的基本结构、以及 webpack 配置项  **全部配置**  好了
-
-
+vue-cli 提供了一条命令，我们直接通过这条命令就可以快速的生成一个 vue 项目 (`vue init XX`)，项目的基本结构、以及 webpack 配置项 **全部配置** 好了
 
 [Vue Loader](https://vue-loader.vuejs.org/zh/) 手动配置置 `webpack`
 
 [Vue CLI3](https://cli.vuejs.org/zh/)
 
 [Vue webpack 配置](https://vuejs-templates.github.io/webpack/)
-
-
 
 #### 使用
 
@@ -1910,8 +1709,6 @@ vue-cli 提供了一条命令，我们直接通过这条命令就可以快速的
 ? Set up unit tests No
 ? Setup e2e tests with Nightwatch? No
 ```
-
-
 
 #### 项目目录介绍
 
@@ -1941,10 +1738,8 @@ https://vuejs-templates.github.io/webpack/structure.html
 └── README.md                   # Default README file
 ```
 
-
-
 - build 和 config 不要动，都是一些配置好的，还有一些他们之间的约定
-- .gitkeep：static 为预留的文件夹，空文件夹默认不会上传到 github，添加这个文件让static文件夹被 git 上传
+- .gitkeep：static 为预留的文件夹，空文件夹默认不会上传到 github，添加这个文件让 static 文件夹被 git 上传
 - `.editorconfig` 编译器配置，需要安装 vscode 插件：Editorconfig
 
 ```
@@ -1958,8 +1753,8 @@ trim_trailing_whitespace = true   开头去除空白
 
 - `eslint` 校验
   - 忽略文件中有这个 => /\*.js => 意思是根目录下的.js 文件不校验,,但是发现根目录就没有.js 文件
-  - /*  eslint-disable no-new */ eslint 忽略 no-new规则
-  - /_ eslint-disable_/ 也可以
+  - `/* eslint-disable no-new */` eslint 忽略 no-new 规则
+  - `/* eslint-disable */` 也可以
   - 如果去掉,就会提示你 不要以 new 开头
   - 可以前面给个变量 var vm = new Vue()
   - 但是又提示没有用,还要打印一下,其实这个赋值是没有意义的
@@ -1980,11 +1775,9 @@ trim_trailing_whitespace = true   开头去除空白
     - 作用：创建 vue 实例，导入其他组件并挂在到 vue 实例上
     - `Vue.config.productionTip = false` 不要打印提示
   - route/index.js：路由
-    - `@`：build/ webpack.base.config.js =>  `'@': resolve('src')`
+    - `@`：build/ webpack.base.config.js => `'@': resolve('src')`
     - 如果在一个模块化工程中使用它，必须要通过 `Vue.use()` 明确地安装路由功能
     - `https://router.vuejs.org/zh/installation.html`
-
-
 
 ### 两种编译模式
 
@@ -2007,8 +1800,6 @@ new Vue({
 })
 ```
 
-
-
 - 只使用运行时
 
 ```js
@@ -2019,11 +1810,7 @@ new Vue({
 })
 ```
 
-
-
-查看编译模式：build => webpack.base.config.js =>  `'vue\$': 'vue/dist/vue.esm.js',`
-
-
+查看编译模式：build => webpack.base.config.js => `'vue\$': 'vue/dist/vue.esm.js',`
 
 ### 手动配置路由
 
@@ -2032,8 +1819,6 @@ new Vue({
 准备工作：创建一个文件夹 router/router.js
 
 具体配置：
-
-
 
 ```js
 /* router.js */
@@ -2073,9 +1858,7 @@ router
 <router-view></router-view>
 ```
 
-
-
-```javascript
+```js
 /* main.js */
 new Vue({
   // 绑定路由
@@ -2083,27 +1866,20 @@ new Vue({
 })
 ```
 
-
-
 ```html
 <!-- App.vue -->
 <!-- 配置出口 -->
 <router-view></router-view>
 ```
 
-
-
 ### 编辑器配置插件
 
 - `vetur`：vue 单文件组件的高亮
 - eslint
-  - 关闭 **eslint**：打开 config/index.js，将26行 :  `dev.useEslint`设置为false，重启项目 ( npm run dev)
+
+  - 关闭 **eslint**：打开 config/index.js，将 26 行 : `dev.useEslint`设置为 false，重启项目 ( npm run dev)
 
 - `Prettier`：格式化插件
-
-
-
-
 
 ## TODOMVC 案例
 
@@ -2134,8 +1910,6 @@ new Vue({
 - 将对象添加进数组
 - 添加完，清除文本框内容
 
-
-
 ### 删除任务
 
 - 传索引
@@ -2159,10 +1933,11 @@ this.todoList = this.todoList.filter(item => item.id !== id)
 ### 编辑任务
 
 - 显示`编辑框` ( editing : true) (难点)
+
   - 在 data 中添加一个 editId : -1
   - 在 :class
     editing: item.id === editId
-  - 双击 : 接收过来双击元素的id
+  - 双击 : 接收过来双击元素的 id
     this.editId = id
   - 关键点 :
     vue 中 data 中的数据一旦发生改变，当前页面的指令和表达式都会重新计算
@@ -2172,11 +1947,9 @@ this.todoList = this.todoList.filter(item => item.id !== id)
 
 - 回车隐藏编辑框
 
-
-
 ### 底部的显示与隐藏
 
-* v-if/v-show
+- v-if/v-show
 
 ```js
 // 组件部分
@@ -2187,9 +1960,9 @@ this.todoList = this.todoList.filter(item => item.id !== id)
   }
 ```
 
-* 因为 vue 中 data 的数据发送了改变，当前页面中的指令和表达式都会重新计算，所以只要文本框里的内容发生改变，todoName 也会发送改变，isFooter 会一直被调用，性能不好。我们需要的是数组列表的个数改变才会影响底部的变化，所以需要用到计算属性
+- 因为 vue 中 data 的数据发送了改变，当前页面中的指令和表达式都会重新计算，所以只要文本框里的内容发生改变，todoName 也会发送改变，isFooter 会一直被调用，性能不好。我们需要的是数组列表的个数改变才会影响底部的变化，所以需要用到计算属性
 
-* 计算属性
+- 计算属性
 
 ```html
 <footer class="footer" v-show="isFooter"></footer>
@@ -2207,8 +1980,6 @@ computed: {
   }
 }
 ```
-
-
 
 ### 数据持久化
 
@@ -2229,8 +2000,6 @@ watch: {
 }
 ```
 
-
-
 - 获取数据
 
 ```js
@@ -2239,8 +2008,6 @@ watch: {
 todoList: JSON.parse(localStorage.getItem('todoList')) || []
 ```
 
-
-
 ### 使用钩子函数来完善数据存储
 
 ```js
@@ -2248,8 +2015,6 @@ created () {
   this.todoList = JSON.parse(localStorage.getItem('todoList')) || []
 }
 ```
-
-
 
 ### 获取接口数据
 
@@ -2263,8 +2028,6 @@ npm i axios
 json-server data.json
 ```
 
-
-
-### 组件化TODOMVC
+### 组件化 TODOMVC
 
 https://github.com/cuilongjin/todomvc-app-template/tree/zujianhua
