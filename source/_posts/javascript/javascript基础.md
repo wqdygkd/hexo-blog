@@ -1928,6 +1928,7 @@ var newArr = arr.slice(begin, end)
 
 // splice: 删除或者增加数组元素，修改原数组，返回删除的内容（数组形式）
 // start: 开始位置  deletedCount: 删除的个数（如果不删除为 0）items: 替换的内容, 可为多个
+arr.splice(start) // 删除原数组 start 位置之后的项（包含 start），返回删除的内容
 arr.splice(start, deletedCount, [items]) // items 将作为 arr 的一项
 
 // 练习：
