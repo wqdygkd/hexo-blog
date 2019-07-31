@@ -2,15 +2,12 @@
 title: Fixed定位脱离Viewport的bug
 tags: [html&css]
 categories:
-- [html&css]
+  - [html&css]
 date: 2018/08/27 18:00:00
 updated: 2019/01/21 02:17:00
 ---
 
-
-### Fixed定位脱离Viewport的bug
-
-
+### Fixed 定位脱离 Viewport 的 bug
 
 ```html
 <style>
@@ -48,5 +45,4 @@ updated: 2019/01/21 02:17:00
 </html>
 ```
 
-对于声明transfrom值非none元素，其子元素中若存在position: fixed将以声明transform的最近祖先作为基准而定位，这是因为transfrom值非none的元素[定义了一个局部坐标系统](http://www.w3.org/TR/css3-2d-transforms/#transform-rendering)，导致postion: fixed以此坐标系统计算布局。
-
+对于声明 transfrom 值非 none 元素，其子元素中若存在 position: fixed 将以声明 transform 的最近祖先作为基准而定位，这是因为 transfrom 值非 none 的元素[定义了一个局部坐标系统](http://www.w3.org/TR/css3-2d-transforms/#transform-rendering)，导致 postion: fixed 以此坐标系统计算布局。

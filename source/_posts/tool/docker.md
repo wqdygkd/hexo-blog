@@ -2,25 +2,20 @@
 title: docker
 tags: docker
 categories:
-- [工具]
+  - [工具]
 date: 2019/06/18 19:52
 updated: 2019/07/09 12:00
 ---
 
-
 ## 安装 dcoker
 
 ### ubuntu 16.04 (LTS) 安装 docker
-
-
 
 卸载旧版本
 
 ```bash
 $ sudo apt-get remove docker docker-engine docker.io
 ```
-
-
 
 镜像仓库方式安装
 
@@ -36,16 +31,12 @@ $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 $ sudo apt-key fingerprint 0EBFCD88
 ```
 
-
-
 设置 stable 镜像仓库
 
 ```bash
-# amd64：
+# amd64:
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 ```
-
-
 
 安装 DOCKER CE
 
@@ -53,8 +44,6 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubun
 $ sudo apt-get update
 $ sudo apt-get install docker-ce
 ```
-
-
 
 验证是否正确安装
 
@@ -64,13 +53,9 @@ $ sudo docker run hello-world
 
 此命令将下载一个测试镜像并在容器中运行它。容器运行时，它将输出一条参考消息并退出
 
-
-
 升级 docker ce
 
 如需升级 Docker CE，首先运行 `sudo apt-get update`，然后按照顺序执行操作，并选择您要安装的新版本
-
-
 
 卸载 docker ce
 
@@ -84,13 +69,7 @@ $ sudo apt-get purge docker-ce
 $ sudo rm -rf /var/lib/docker
 ```
 
-
-
 将 docker 配置为在启动时启动
-
-
-
-
 
 ### centos 安装 docker
 
@@ -125,18 +104,16 @@ $ sudo yum install docker-ce
 ```
 
 ```bash
-# 报错：Requires: container-selinux >= 2:2.74 
+# 报错：Requires: container-selinux >= 2:2.74
 You could try using --skip-broken to work around the problem
 
-$ wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo  
+$ wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
 $ yum install epel-release   # 阿里云上的 epel 源
 $ yum makecache
 $ yum install container-selinux
 ```
 
-
-
-## 使用 docker 
+## 使用 docker
 
 ### 安装镜像
 
@@ -151,8 +128,6 @@ daemon.json
 ```
 
 重启 docker
-
-
 
 安装 Ubuntu
 
@@ -194,8 +169,6 @@ docker rm 容器id
 docker rmi 删除镜像
 ```
 
-
-
 备份镜像
 
 ```bash
@@ -217,8 +190,6 @@ docker push arunpyasi/container-backup
 docker save -o ubuntu_test.tar ubuntu_test:1.0
 ```
 
-
-
 恢复容器
 
 ```bash
@@ -233,8 +204,6 @@ docker load -i ~/container-backup.tar
 # 用加载的镜像去运行Docker容器
 docker run -d -p 80:80 container-backup
 ```
-
-
 
 **docker 给已存在的容器添加或修改端口映射**
 
@@ -252,17 +221,13 @@ $ docker commit containerid foo/live
 $ docker run -d -p 8000:80  foo/live /bin/bash
 ```
 
-
-
 方式 2：iptable 转发端口
 
 将容器的 8000 端口映射到 docker 主机的 8001 端口
 
 ```bash
-$ iptables -t nat -A  DOCKER -p tcp --dport 8001 -j DNAT --to-destination 172.17.0.19:8000
+$ iptables -t nat -A  DOCKER -p tcp --dport 5001 -j DNAT --to-destination 45.77.150.20:8000
 ```
-
-
 
 ### docker 容器使用问题
 
@@ -278,6 +243,49 @@ Failed to get D-Bus connection: Operation not permitted。
 解决方法
 
 ```bash
+docker run -it -d --name ubuntu_test -p 8088:80 ubuntu
 $ docker run --privileged -ti --name test1  centos /usr/sbin/init
 ```
 
+ssh 链接 docker 容器
+
+进入容器
+
+安装依赖
+
+```
+yum install passwd openssl openssh-server openssh-clients -y
+```
+
+安装 service 命令：
+
+```
+yum install initscripts -y
+```
+
+修改密码：
+
+```
+passwd
+```
+
+修改配置：
+
+vi /etc/ssh/sshd_config
+
+PubkeyAuthentication yes #启用公钥私钥配对认证方式
+AuthorizedKeysFile .ssh/authorized_keys #公钥文件路径
+
+PermitRootLogin yes #root 能使用 ssh 登录
+
+重启 ssh 服务，并设置开机启动：
+
+```
+service sshd restartchkconfig sshd on
+```
+
+如果无法执行，可试着执行：
+
+```
+systemctl start sshd.servicesystemctl enable sshd.service
+```

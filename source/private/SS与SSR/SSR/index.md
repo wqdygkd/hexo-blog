@@ -3,27 +3,28 @@ title: 【学习贴】SS/SSR 客户端
 date: 2019-06-30
 ---
 
-
 [原文](https://congcong0806.github.io/2018/04/20/SS/)
 
-仅仅拥有客户端并不能FQ，还需要在客户端中添加可用的ss节点，客户端并不提供节点
+仅仅拥有客户端并不能 FQ，还需要在客户端中添加可用的 ss 节点，客户端并不提供节点
 [购买 VPS 搭建节点]()
 [免费 VPN]()
 
 ## 推荐客户端
-* iOS: Surge 3,Quantumult,Shadowrocket
-* Android: ClashA
-* macOS: Surge for Mac,ClashX
-* Windows: Clash for Windows
-* Linux: Clash
 
+- iOS: Surge 3,Quantumult,Shadowrocket
+- Android: ClashA
+- macOS: Surge for Mac,ClashX
+- Windows: Clash for Windows
+- Linux: Clash
 
 ## iOS 客户端 (全区可下载,包括中区)
-* [Pharos lite](https://testflight.apple.com/join/DAs8hpAh) 一款可以简易上手使用的多种协议代理工具
-* [FirstWingy](https://testflight.apple.com/join/c2J4uEty)
-* [Detour](https://itunes.apple.com/cn/app/id1260141606) ¥6.00
+
+- [Pharos lite](https://testflight.apple.com/join/DAs8hpAh) 一款可以简易上手使用的多种协议代理工具
+- [FirstWingy](https://testflight.apple.com/join/c2J4uEty)
+- [Detour](https://itunes.apple.com/cn/app/id1260141606) ¥6.00
 
 ## iOS 客户端 (仅国区下架,其他区可下载)
+
 <ul>
   <li><a href="https://itunes.apple.com/us/app/surge-3/id1442620678">Surge 3</a> 免费 + 内购 ¥328.00</li>
   <li><a href="https://itunes.apple.com/us/app/surge-enterprise/id1433867616">Surge Enterprise</a> Free</li>
@@ -56,6 +57,7 @@ date: 2019-06-30
 </ul>
 
 ## macOS 客户端
+
 <ul>
   <li><a href="http://nssurge.com">Surge for Mac</a> $49.99/$69.99/$99.99</li>
   <li><a href="https://github.com/yichengchen/clashX/releases">ClashX</a> Free</li>
@@ -80,8 +82,8 @@ date: 2019-06-30
   <li><a href="https://itunes.apple.com/cn/app/id1249677933">夜莺</a> Free + 内购</li>
 </ul>
 
-
 ## Windows 客户端
+
 <ul>
   <li><a href="https://github.com/Fndroid/clash_for_windows_pkg/releases">Clash for Windows</a></li>
   <li><a href="https://github.com/Dreamacro/clash/releases">Clash</a></li>
@@ -106,6 +108,7 @@ date: 2019-06-30
 </ul>
 
 ## Android 客户端
+
 <ul>
   <li><a href="https://github.com/ccg2018/ClashA/releases">ClashA</a></li>
   <li><a href="https://manual.getsurfboard.com/cn/introduction">Surfboard</a>（Surfboard 支持导入 Surge 配置）</li>
@@ -132,6 +135,7 @@ date: 2019-06-30
 </ul>
 
 ## Linux 客户端
+
 <ul>
   <li><a href="https://github.com/Dreamacro/clash/releases">Clash</a></li>
   <li><a href="https://github.com/qingshuisiyuan/electron-ssr-backup/releases">electron-ssr</a></li>
@@ -145,12 +149,14 @@ date: 2019-06-30
 </ul>
 
 ## 梅林路由器
+
 <ul>
   <li><a href="https://github.com/KOP-XIAO/Clash-Merlin/wiki">Clash-Merlin</a></li>
   <li><a href="https://github.com/hq450/fancyss">fancyss</a></li>
 </ul>
 
 ## OpenWRT 客户端
+
 <ul>
   <li><a href="https://github.com/SukkaW/Koolshare-Clash">KoolClash</a></li>
   <li><a href="https://github.com/shadowsocks/openwrt-shadowsocks">OpenWRT-Shadowsocks</a></li>
