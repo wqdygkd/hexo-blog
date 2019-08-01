@@ -180,7 +180,7 @@ Object.create(proto, [propertiesObject])
 // propertiesObject:可选。要添加到新对象的可枚举（新添加的属性是其自身的属性，而不是其原型链上的属性）的属性。
 ```
 
-Object.create()方法的内部实现简单来说是这样的：
+Object.create() 方法的内部实现简单来说是这样的：
 
 ```js
 Object.create = function(o) {

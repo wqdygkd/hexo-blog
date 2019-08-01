@@ -1,6 +1,9 @@
 ---
-title: addEventListener 以及 .passive 修饰符
+title: addEventListener 以及 vue 中的 .passive 修饰符
 date: 2019/07/31
+categories:
+  - [js]
+  - [vue]
 ---
 
 https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/addEventListener

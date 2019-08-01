@@ -1170,7 +1170,7 @@ props: ['msg']
 
 - 传递过来的 `props` 属性的用法与 `data` 属性的用法相同
 - 子组件不能直接修改父组件传过来的数据，可以将父组件传过来的值保存在一个临时变量中
-  - 如果 props 传过来的数据为引用类型，只要不是重新赋值，修改数据不会报错，但不推荐这样做
+- 如果 props 传过来的数据为引用类型，只要不是重新赋值，修改数据不会报错，但不推荐这样做
 
 ```html
 <!-- 第一步：将你要传递的数据,作为属性传递给子组件 -->
@@ -1196,10 +1196,12 @@ Vue.component('hello', {
 ```js
 const vm = new Vue({
   el: '#app',
-  data: {},
+  data: {
+    pnum: 1
+  },
   methods: {
     pfn (num) {
-      console.log(num)
+      this.pnum += num
     }
   }
 })
@@ -1209,6 +1211,10 @@ const vm = new Vue({
 
 ```html
 <hello @fn="pfn"></hello>
+<!-- 或
+<hello @fn="num += $event"></hello>
+$event 为传过来的参数
+-->
 ```
 
 - 第三步：子组件调用父组件传过来的方法

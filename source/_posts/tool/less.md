@@ -1,30 +1,28 @@
 ---
-title: LESS
+title: LESS 基本是引用
 tags: less
 categories:
-- [工具]
+  - [工具]
 date: 2018/12/11 18:00:00
 updated: 2018/12/09 18:44:00
 ---
-
 
 # LESS
 
 ## Less 简介
 
->  ***Less* 是一门 CSS 预处理语言（预先处理）,它扩展了 CSS 语言，增加了变量、Mixin、函数等特性**
+> ***Less*  是一门 CSS 预处理语言（预先处理）,它扩展了 CSS 语言，增加了变量、Mixin、函数等特性**
 >
->  浏览器不直接识别 less 文件，浏览器只识别 css 文件，所以我们写了 less 文件之后，我们需要预先把 less 文件转换成css文件。
->
+> 浏览器不直接识别 less 文件，浏览器只识别 css 文件，所以我们写了 less 文件之后，我们需要预先把 less 文件转换成 css 文件。
 
 本质上，LESS 包含一套自定义的语法及一个解析器，用户根据这些语法定义自己的样式规则，这些规则最终会通过解析器，编译生成对应的 CSS 文件。LESS 并没有裁剪 CSS 原有的特性，更不是用来取代 CSS 的，而是在现有 CSS 语法的基础上，为 CSS 加入程序式语言的特性。
 
-**less仅仅是写css的另一种方式，写出来的less文件浏览器也不识别，所以啊，我们写完了less文件，还需要通过less解析器解析成css，最终浏览器引入的还是css文件。**
+**less 仅仅是写 css 的另一种方式，写出来的 less 文件浏览器也不识别，所以啊，我们写完了 less 文件，还需要通过 less 解析器解析成 css，最终浏览器引入的还是 css 文件。**
 
 学习网站：
 
-[官网http://lesscss.org/](http://lesscss.org/)
-[中文网http://lesscss.cn/]( http://lesscss.cn/)
+[官网 http://lesscss.org/](http://lesscss.org/)
+[中文网 http://lesscss.cn/](http://lesscss.cn/)
 
 ## less 的编译
 
@@ -38,7 +36,7 @@ updated: 2018/12/09 18:44:00
 
 ### 使用考拉
 
-> koala 是一个前端预处理器语言（less/sass）图形编译工具，支持 Less、Sass、Compass、CoffeeScript，帮助web开发者更高效地使用它们进行开发。跨平台运行，完美兼容windows、linux、mac。
+> koala 是一个前端预处理器语言（less/sass）图形编译工具，支持 Less、Sass、Compass、CoffeeScript，帮助 web 开发者更高效地使用它们进行开发。跨平台运行，完美兼容 windows、linux、mac。
 
 [考拉官网](http://koala-app.com/index-zh.html)
 
@@ -47,7 +45,7 @@ updated: 2018/12/09 18:44:00
 1. 把`less`文件夹拖进去
 2. 会在当前目录生成一个`css`目录
 
-优点：不用node环境，不用less环境，koala内置了
+优点：不用 node 环境，不用 less 环境，koala 内置了
 
 ### 使用插件
 
@@ -112,10 +110,10 @@ p {
 
 ```less
 .border_radius(@value: 5px) {
-  -webkit-border-radius:@value;
-  -moz-border-radius:@value;
-  -ms-border-radius:@value;
-  border-radius:@value;
+  -webkit-border-radius: @value;
+  -moz-border-radius: @value;
+  -ms-border-radius: @value;
+  border-radius: @value;
 }
 div {
   .border_radius(10px);
@@ -151,15 +149,15 @@ div {
 
 ```less
 // 可以省略后缀名
-@import "variable";
-@import "maxin";
+@import 'variable';
+@import 'maxin';
 ```
 
-模块化的思想，分模块进行管理这些less文件，最终只需要使用import将less引入到一起即可。
+模块化的思想，分模块进行管理这些 less 文件，最终只需要使用 import 将 less 引入到一起即可
 
 ### 函数（运算）
 
-> 在我们的 CSS 中充斥着大量的数值型的 value，less可以直接支持运算，也提供了一系列的函数提供给我们使用。
+> 在我们的 CSS 中充斥着大量的数值型的 value，less 可以直接支持运算，也提供了一系列的函数提供给我们使用。
 
 ```
 li {
