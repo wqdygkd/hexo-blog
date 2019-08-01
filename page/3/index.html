@@ -218,6 +218,41 @@
   <div class="container sidebar-position-left 
   page-home">
     <div class="headband"></div>
+    
+  
+    <css-doodle>
+	:doodle {
+		@grid: 1x3 / 100vmax;
+    position: absolute;
+    top: 0; left: 0;
+    z-index: 0;
+	}
+
+	@size: 100% 150%;
+	position: absolute;
+
+	background: @m(100, (
+		linear-gradient(transparent, @p(
+      #FFFDE1@repeat(2, @p([0-9a-f])),
+      #FB3569@repeat(2, @p([0-9a-f]))
+    ))
+		@r(0%, 100%) @r(0%, 100%) /
+		@r(1px) @r(23vmin)
+		no-repeat
+	));
+
+	will-change: transform;
+	animation: f 20s linear calc(-20s / @size() * @i()) infinite;
+	@keyframes f {
+		from { transform: translateY(-100%) }
+		to { transform: translateY(100%) }
+	}
+</css-doodle>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/css-doodle/0.6.1/css-doodle.min.js"></script>
+
+  
+
+
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
@@ -302,6 +337,22 @@
         
         
           
+          <li class="menu-item menu-item-收藏">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/collect/" rel="section"><i class="menu-item-icon fa fa-fw fa-bookmark"></i> <br>收藏</a>
+
+  </li>
+        
+        
+        
+          
           <li class="menu-item menu-item-categories">
 
     
@@ -376,6 +427,431 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://cuilongjin.top/2019/vue/vue-lifecycle/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="稻草人">
+      <meta itemprop="description" content="A doc for web">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="稻草人">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/vue/vue-lifecycle/" class="post-title-link" itemprop="url">Vue 生命周期</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-08 18:00:00" itemprop="dateCreated datePublished" datetime="2019-01-08T18:00:00+08:00">2019-01-08</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-02-13 20:51:00" itemprop="dateModified" datetime="2019-02-13T20:51:00+08:00">2019-02-13</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/vue/vue-lifecycle/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/vue/vue-lifecycle/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2019/vue/vue-lifecycle/" class="post-meta-item leancloud_visitors" data-flag-title="Vue 生命周期">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>
+              生命周期
+下图展示了实例的生命周期。你不需要立马弄明白所有的东西，不过随着你的不断学习和使用，它的参考价值会越来越高。
+
+
+
+              
+            </p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/vue/vue-lifecycle/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    <div>
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://cuilongjin.top/2019/javascript/promise/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="稻草人">
+      <meta itemprop="description" content="A doc for web">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="稻草人">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/javascript/promise/" class="post-title-link" itemprop="url">Promise</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-08 18:00:00" itemprop="dateCreated datePublished" datetime="2019-01-08T18:00:00+08:00">2019-01-08</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-02-23 17:55:00" itemprop="dateModified" datetime="2019-02-23T17:55:00+08:00">2019-02-23</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/javascript/promise/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/javascript/promise/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2019/javascript/promise/" class="post-meta-item leancloud_visitors" data-flag-title="Promise">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>
+              Promise
+Promise 是异步编程的一种解决方案，它允许你以一种同步的方式编写异步代码
+promise：承诺、保证
+ES6 - Promise
+JS 是通过回调函数来实现异步编程的，当异步操作多了以后，就会产生回调嵌套回调的问题，这就是回调地狱
+Promise 方式：将异步操作以同步操作的方式表达出来，避免了层层嵌套的回调函数
+
+封装一个 Promise// 按序读取文件：a -&gt; b -&gt; c// 按顺序读取 a b c 文件// 以前// 读取 a 文件fs.readFile('./a', (err, data) =&gt; &#123;  if (err) return console.log('读取错误')  console.log(data.toString())  // 读取 b 文件  fs.readFile('./b', (err, data) =&gt; &#123;    if (err) return console.log('读取错误')    console.log(data.toString())    // 读取 c 文件    fs.
+              ...
+            </p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/javascript/promise/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    <div>
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -549,6 +1025,235 @@ Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境，nodejs 允
           
             <div class="post-button text-center">
               <a class="btn" href="/2018/javascript/nodejs/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    <div>
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://cuilongjin.top/2018/javascript/ES6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="稻草人">
+      <meta itemprop="description" content="A doc for web">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="稻草人">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/javascript/ES6/" class="post-title-link" itemprop="url">ES6（ECMAScript）</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-29 18:00:00" itemprop="dateCreated datePublished" datetime="2018-12-29T18:00:00+08:00">2018-12-29</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-07-08 00:00:00" itemprop="dateModified" datetime="2019-07-08T00:00:00+08:00">2019-07-08</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2018/javascript/ES6/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/javascript/ES6/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2018/javascript/ES6/" class="post-meta-item leancloud_visitors" data-flag-title="ES6（ECMAScript）">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>
+              ES6（ECMAScript）ECMAScript 6.0（以下简称 ES6）是在 2015 年 6 月正式发布的标准。它的目标，是使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语言
+ECMAScript 6 入门 阮一峰
+let 与 const
+ES6 中提供了两个声明变量的关键字：const 和 let
+
+参考链接
+[知乎]我用了两个月的时间才理解 let
+[MDN]变量提升
+let 的使用ES6 新增了let命令，用来声明变量。它的用法类似于var
+
+let 声明的变量只有在当前作用域(块作用域)有效
+
+if (true) &#123;  var a = 1  let b = 2&#125;console.log(a) // 1console.log(b) // ReferenceError: b is not defined
+
+
+不允许重复声明
+
+let a = 10let a = 1 // SyntaxError: Identifier 'a' has already been declared
+
+
+不绑定全局作用域
+
+var c = 1con
+              ...
+            </p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/javascript/ES6/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1193,252 +1898,29 @@ gulp 环境Gulp 是基于 Node.js 的，需要要安装 Node.js
         
           
             <p>
-              移动web基础移动端开发现状
-移动web开发指的是需要适配移动设备的网页开发
-移动web开发与pc端web开发没有本质的区别，使用的还是HTML/CSS/JavaScript的技术
-移动web开发与pc端web开发的区别是什么？
+              移动 web 基础移动端开发现状
+移动 web 开发指的是需要适配移动设备的网页开发
+移动 web 开发与 pc 端 web 开发没有本质的区别，使用的还是 HTML/CSS/JavaScript 的技术
+移动 web 开发与 pc 端 web 开发的区别是什么？
 
-移动端的浏览器与pc端不同
-谷歌浏览器 苹果浏览器、 UC浏览器 QQ浏览器 欧朋浏览器 百度手机浏览器  360安全浏览器  搜狗浏览器  猎豹浏览器等国内的手机浏览器都是根据webkit内核修改过来的，国内没有自主研发的内核，国内的操作系统也是基于Android系统修改的。因此在移动端，css3属性只需要加webkit前缀即可。
+移动端的浏览器与 pc 端不同
+谷歌浏览器 苹果浏览器、 UC浏览器 QQ浏览器 欧朋浏览器 百度手机浏览器  360安全浏览器  搜狗浏览器  猎豹浏览器等国内的手机浏览器都是根据webkit内核修改过来的，国内没有自主研发的内核，国内的操作系统也是基于Android系统修改的。因此在移动端，css3 属性只需要加 webkit 前缀即可
 
 移动端设备尺寸不一样(尺寸非常多，碎片化很严重)
 Android： 320*480 480*800  540*960 720*1280 1080*1920 2k屏 4k屏iphpne：  640*960 640*1136 750*1334 1242*2208
 
 移动端开发分类
-原生app（native app）
-混合app（Hybrid app）
-web应用（webApp）
+原生 app（native app）
+混合 app（Hybrid app）
+web 应用（webApp）
 
-原生app（native app）
 
- 原生app
               ...
             </p>
           <!--noindex-->
           
             <div class="post-button text-center">
               <a class="btn" href="/2018/移动web/移动web/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    <div>
-      
-    </div>
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://cuilongjin.top/2018/tool/less/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="稻草人">
-      <meta itemprop="description" content="A doc for web">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="稻草人">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/tool/less/" class="post-title-link" itemprop="url">LESS</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-12-11 18:00:00" itemprop="dateCreated datePublished" datetime="2018-12-11T18:00:00+08:00">2018-12-11</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-12-09 18:44:00" itemprop="dateModified" datetime="2018-12-09T18:44:00+08:00">2018-12-09</time>
-              </span>
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工具/" itemprop="url" rel="index"><span itemprop="name">工具</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2018/tool/less/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/tool/less/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2018/tool/less/" class="post-meta-item leancloud_visitors" data-flag-title="LESS">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>
-              LESSLess 简介
- Less 是一门 CSS 预处理语言（预先处理）,它扩展了 CSS 语言，增加了变量、Mixin、函数等特性
- 浏览器不直接识别 less 文件，浏览器只识别 css 文件，所以我们写了 less 文件之后，我们需要预先把 less 文件转换成css文件。
-
-本质上，LESS 包含一套自定义的语法及一个解析器，用户根据这些语法定义自己的样式规则，这些规则最终会通过解析器，编译生成对应的 CSS 文件。LESS 并没有裁剪 CSS 原有的特性，更不是用来取代 CSS 的，而是在现有 CSS 语法的基础上，为 CSS 加入程序式语言的特性。
-less仅仅是写css的另一种方式，写出来的less文件浏览器也不识别，所以啊，我们写完了less文件，还需要通过less解析器解析成css，最终浏览器引入的还是css文件。
-学习网站：
-官网http://lesscss.org/中文网http://lesscss.cn/
-less 的编译
-如何把 less 文件变成 css 文件
-
-使用打包工具gulp
-webpack
-使用考拉
-koala 是一个前端预处理器语言（less/
-              ...
-            </p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2018/tool/less/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1740,6 +2222,227 @@ Bootstrap 中包含了丰富的 Web 组件，根据这些组件，可以快速�
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://cuilongjin.top/2018/tool/less/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="稻草人">
+      <meta itemprop="description" content="A doc for web">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="稻草人">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/tool/less/" class="post-title-link" itemprop="url">LESS 基本是引用</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-11 18:00:00" itemprop="dateCreated datePublished" datetime="2018-12-11T18:00:00+08:00">2018-12-11</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-12-09 18:44:00" itemprop="dateModified" datetime="2018-12-09T18:44:00+08:00">2018-12-09</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工具/" itemprop="url" rel="index"><span itemprop="name">工具</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2018/tool/less/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/tool/less/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2018/tool/less/" class="post-meta-item leancloud_visitors" data-flag-title="LESS 基本是引用">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>
+              LESSLess 简介
+Less  是一门 CSS 预处理语言（预先处理）,它扩展了 CSS 语言，增加了变量、Mixin、函数等特性
+浏览器不直接识别 less 文件，浏览器只识别 css 文件，所以我们写了 less 文件之后，我们需要预先把 less 文件转换成 css 文件。
+
+本质上，LESS 包含一套自定义的语法及一个解析器，用户根据这些语法定义自己的样式规则，这些规则最终会通过解析器，编译生成对应的 CSS 文件。LESS 并没有裁剪 CSS 原有的特性，更不是用来取代 CSS 的，而是在现有 CSS 语法的基础上，为 CSS 加入程序式语言的特性。
+less 仅仅是写 css 的另一种方式，写出来的 less 文件浏览器也不识别，所以啊，我们写完了 less 文件，还需要通过 less 解析器解析成 css，最终浏览器引入的还是 css 文件。
+学习网站：
+官网 http://lesscss.org/中文网 http://lesscss.cn/
+less 的编译
+如何把 less 文件变成 css 文件
+
+使用打包工具gulp
+webpack
+使用考拉
+koala 是一
+              ...
+            </p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/tool/less/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    <div>
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://cuilongjin.top/2018/other/技术栈/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1936,675 +2639,6 @@ angular + webpack + typescript + less + ionic
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://cuilongjin.top/2018/other/浏览器工作原理/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="稻草人">
-      <meta itemprop="description" content="A doc for web">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="稻草人">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/other/浏览器工作原理/" class="post-title-link" itemprop="url">浏览器的工作原理</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-11-30 19:15:00" itemprop="dateCreated datePublished" datetime="2018-11-30T19:15:00+08:00">2018-11-30</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-12-03 15:58:00" itemprop="dateModified" datetime="2018-12-03T15:58:00+08:00">2018-12-03</time>
-              </span>
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/other/" itemprop="url" rel="index"><span itemprop="name">other</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2018/other/浏览器工作原理/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/other/浏览器工作原理/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2018/other/浏览器工作原理/" class="post-meta-item leancloud_visitors" data-flag-title="浏览器的工作原理">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>
-              浏览器的工作原理浏览器的组成
-
-用户界面－ 包括地址栏、后退/前进按钮、书签目录等，也就是你所看到的除了用来显示你所请求页面的主窗口之外的其他部分
-浏览器引擎－ 用来查询及操作渲染引擎的接口
-渲染引擎（浏览器内核）－ 用来显示请求的内容，例如，如果请求内容为html，它负责解析html及css，并将解析后的结果显示出来
-网络－ 用来完成网络调用，例如http请求，它具有平台无关的接口，可以在不同平台上工作
-UI 后端－ 用来绘制类似组合选择框及对话框等基本组件，具有不特定于某个平台的通用接口，底层使用操作系统的用户接口
-JS解释器－ 用来解释执行JS代码
-数据存储－ 属于持久层，浏览器需要在硬盘中保存类似cookie的各种数据，HTML5定义了Storage技术，这是一种轻量级完整的客户端存储技术
-
-主流的渲染引擎
-浏览器的渲染引擎也叫排版引擎，或者是浏览器内核
-
-主流的 渲染引擎 有
-
-Chrome浏览器: Blink引擎（WebKit的一个分支）。
-Safari浏览器: WebKit引擎，windows版本2008年3月18日推出正式版，但苹果已于2012年7月25日停止开发Win
-              ...
-            </p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2018/other/浏览器工作原理/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    <div>
-      
-    </div>
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://cuilongjin.top/2018/html与css/html5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="稻草人">
-      <meta itemprop="description" content="A doc for web">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="稻草人">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/html与css/html5/" class="post-title-link" itemprop="url">HTML5 基本概念</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-11-23 18:00:00" itemprop="dateCreated datePublished" datetime="2018-11-23T18:00:00+08:00">2018-11-23</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-03-05 17:39:00" itemprop="dateModified" datetime="2019-03-05T17:39:00+08:00">2019-03-05</time>
-              </span>
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/html-css/" itemprop="url" rel="index"><span itemprop="name">html&css</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2018/html与css/html5/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/html与css/html5/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2018/html与css/html5/" class="post-meta-item leancloud_visitors" data-flag-title="HTML5 基本概念">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>
-              HTML5 基本概念什么是HTML5？
-HTML5并不仅仅是作为 HTML 标记语言的一个最新版本， 更重要的是它制定了 web 应用开发的一系列标准，成为第一个将 web 作为应用开发平台的 HTML 语言。
-
-HTML5 定义了一系列新元素，如 新语义标签、多媒体标  签等，可以帮助开发者开发更加丰富的应用，同时有令人眼花缭乱的 css3，还提供了一些 Javascript API，如地理定位、重力感应、硬件访问等，可以在浏览器内实现类原生应用，制作 webApp，甚至结合 Canvas 我们可开发网页游戏。
-我们日常讨论的 H5 其实指的是一个泛称，它是由HTML5+CSS3+javascript 等技术组合而成的一个应用开发平台
-
-HTML5 的历史
-1. WHATWG: Web Hypertext Application Technology Working。 WHATWG成立的原因是W3C意图放弃HTML，而力图发展XML技术。2. HTML5 的第一份正式草案已于2008年1月22日公布。3. 2014年10月29日，万维网联盟宣布，经过接近8年的艰苦努力，该标准规范终于
-              ...
-            </p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2018/html与css/html5/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    <div>
-      
-    </div>
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://cuilongjin.top/2018/jquery/fullpage/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="稻草人">
-      <meta itemprop="description" content="A doc for web">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="稻草人">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/jquery/fullpage/" class="post-title-link" itemprop="url">fullpage 全屏网站插件</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-11-23 18:00:00" itemprop="dateCreated datePublished" datetime="2018-11-23T18:00:00+08:00">2018-11-23</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-04-29 11:17:00" itemprop="dateModified" datetime="2019-04-29T11:17:00+08:00">2019-04-29</time>
-              </span>
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/框架/" itemprop="url" rel="index"><span itemprop="name">框架</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/框架/jquery/" itemprop="url" rel="index"><span itemprop="name">jquery</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/插件/" itemprop="url" rel="index"><span itemprop="name">插件</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2018/jquery/fullpage/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/jquery/fullpage/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2018/jquery/fullpage/" class="post-meta-item leancloud_visitors" data-flag-title="fullpage 全屏网站插件">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>
-              fullpagefullPage.js 是一个基于 jQuery 的插件，它能够很方便、很轻松的制作出全屏网站
-参考文档 http://www.dowebok.com/77.html
-下载地址 https://github.com/alvarotrigo/fullPage.js
-基本使用
-引入jQuery文件，因为fullpage是jquery插件
-引入fullpage的js文件
-页面结构
-编写js代码
-
-&lt;!-- 页面结构 --&gt;&lt;div id="box"&gt;  &lt;!-- 每一个class为section的div都是一屏,section这个类是固定的 --&gt;  &lt;div class="section"&gt;我是内容1&lt;/div&gt;  &lt;div class="section"&gt;我是内容2&lt;/div&gt;  &lt;div class="section"&gt;我是内容3&lt;/div&gt;  &lt;div class="section"&gt;我是内容4&lt;/div&gt;&lt;/div&gt;
-
-//
-              ...
-            </p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2018/jquery/fullpage/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    <div>
-      
-    </div>
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2653,7 +2687,7 @@ HTML5 的历史
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">51</span>
+                    <span class="site-state-item-count">54</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

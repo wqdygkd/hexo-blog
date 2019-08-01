@@ -220,6 +220,41 @@
 
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
+    
+  
+    <css-doodle>
+	:doodle {
+		@grid: 1x3 / 100vmax;
+    position: absolute;
+    top: 0; left: 0;
+    z-index: 0;
+	}
+
+	@size: 100% 150%;
+	position: absolute;
+
+	background: @m(100, (
+		linear-gradient(transparent, @p(
+      #FFFDE1@repeat(2, @p([0-9a-f])),
+      #FB3569@repeat(2, @p([0-9a-f]))
+    ))
+		@r(0%, 100%) @r(0%, 100%) /
+		@r(1px) @r(23vmin)
+		no-repeat
+	));
+
+	will-change: transform;
+	animation: f 20s linear calc(-20s / @size() * @i()) infinite;
+	@keyframes f {
+		from { transform: translateY(-100%) }
+		to { transform: translateY(100%) }
+	}
+</css-doodle>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/css-doodle/0.6.1/css-doodle.min.js"></script>
+
+  
+
+
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
@@ -298,6 +333,22 @@
     
 
     <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-收藏">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/collect/" rel="section"><i class="menu-item-icon fa fa-fw fa-bookmark"></i> <br>收藏</a>
 
   </li>
         
@@ -534,7 +585,7 @@
 <li>如果<strong>属性值相同</strong>，则按照书写顺序，<strong>后来居上</strong>；</li>
 <li><strong>数字后面无单位</strong>。</li>
 <li>只应用于<strong>相对定位</strong>、<strong>绝对定位</strong>和<strong>固定定位</strong>的元素，其他<strong>标准流</strong>、<strong>浮动</strong>和<strong>静态定位</strong>无效。</li>
-<li><strong>层叠水平仅在直接父级层叠上下文中进行比较，即层叠上下文A中的子元素的层叠水平不会和另一个层叠上下文中的子元素进行比较</strong></li>
+<li><strong>层叠水平仅在直接父级层叠上下文中进行比较，即层叠上下文 A 中的子元素的层叠水平不会和另一个层叠上下文中的子元素进行比较</strong></li>
 </ol>
 <p><strong>层叠上下文（stacking context）</strong>：创建层叠上下文的元素自己会成为一个<code>参考对象</code>。</p>
 <p><strong>层叠水平（stacking level）</strong></p>
@@ -543,18 +594,18 @@
 <p><strong>满足下面规则的元素将会构造出一个 Stacking Context 结构：</strong></p>
 <ul>
 <li><code>html</code> 根元素默认会创建层叠上下文</li>
-<li><code>position</code>不为<code>static</code>且<code>z-index</code>不是auto的元素</li>
-<li><code>display</code>为<code>flex</code>且<code>z-index</code>不是auto的元素</li>
-<li><code>opacity</code>不等于1</li>
-<li><code>transform</code>不等于none</li>
+<li><code>position</code>不为<code>static</code>且<code>z-index</code>不是 auto 的元素</li>
+<li><code>display</code>为<code>flex</code>且<code>z-index</code>不是 auto 的元素</li>
+<li><code>opacity</code>不等于 1</li>
+<li><code>transform</code>不等于 none</li>
 </ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"me"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"you"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">    <span class="selector-class">.me</span> &#123;</span></span><br><span class="line"><span class="undefined">       width: 100px;</span></span><br><span class="line"><span class="undefined">       height: 100px;</span></span><br><span class="line"><span class="undefined">	&#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.you</span> &#123;</span></span><br><span class="line"><span class="undefined">        width: 100px;</span></span><br><span class="line"><span class="undefined">        height: 100px;</span></span><br><span class="line"><span class="undefined">        left: 50px;</span></span><br><span class="line"><span class="undefined">        position: relative;</span></span><br><span class="line"><span class="undefined">        z-index: -1;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"me"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"you"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">  .me &#123;</span></span><br><span class="line"><span class="undefined">    width: 100px;</span></span><br><span class="line"><span class="undefined">    height: 100px;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined">  .you &#123;</span></span><br><span class="line"><span class="undefined">    width: 100px;</span></span><br><span class="line"><span class="undefined">    height: 100px;</span></span><br><span class="line"><span class="undefined">    left: 50px;</span></span><br><span class="line"><span class="undefined">    position: relative;</span></span><br><span class="line"><span class="undefined">    z-index: -1;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>you在这里和me做比较，比较开始，首先you寻找参考对象，上一层me是吗？显然不是，因为me没有触发上面任一条件创建层叠上下文，所以继续往上寻找，找到html。对于me，也直接往上找到html，所以这个例子里me和you是在以html为参考对象进行比较，<strong>换句话说就是在html创建的层叠上下文环境中进行比较</strong>！然后按照七阶图，负值index在block元素之下！所以me在you之上。</p>
-<p>然后我们修改下me，加个<code>z-index:0;</code> 按照之前的思路演算一遍，you的参考对象变成me了！而me仍然是html，然后me和html再做比较，me参考对象是html，html的参考对象是html，OK，在同一上下文了，me明显高于html，所以you高于me。</p>
+<p>you 在这里和 me 做比较，比较开始，首先 you 寻找参考对象，上一层 me 是吗？显然不是，因为 me 没有触发上面任一条件创建层叠上下文，所以继续往上寻找，找到 html。对于 me，也直接往上找到 html，所以这个例子里 me 和 you 是在以 html 为参考对象进行比较，<strong>换句话说就是在 html 创建的层叠上下文环境中进行比较</strong>！然后按照七阶图，负值 index 在 block 元素之下！所以 me 在 you 之上。</p>
+<p>然后我们修改下 me，加个<code>z-index:0;</code> 按照之前的思路演算一遍，you 的参考对象变成 me 了！而 me 仍然是 html，然后 me 和 html 再做比较，me 参考对象是 html，html 的参考对象是 html，OK，在同一上下文了，me 明显高于 html，所以 you 高于 me。</p>
 <p>参考链接</p>
 <p><a href="http://www.cnblogs.com/bfgis/p/5440956.html" target="_blank" rel="noopener"> 北风吹雪：不起眼的 z-index 却能牵扯出这么大的学问</a></p>
-<p><a href="https://www.zhangxinxu.com/wordpress/2016/01/understand-css-stacking-context-order-z-index/" target="_blank" rel="noopener">张鑫旭:深入理解CSS中的层叠上下文和层叠顺序</a></p>
+<p><a href="https://www.zhangxinxu.com/wordpress/2016/01/understand-css-stacking-context-order-z-index/" target="_blank" rel="noopener">张鑫旭:深入理解 CSS 中的层叠上下文和层叠顺序</a></p>
 
       
     </div>
@@ -687,7 +738,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">51</span>
+                    <span class="site-state-item-count">54</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

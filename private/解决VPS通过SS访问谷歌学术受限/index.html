@@ -116,18 +116,18 @@
   </script>
 
 
-  <meta name="description" content="在网上搜索后发现有可能有以下原因： 1.你的VPS被人用来做爬虫爬Google，IP被封。2.你的IPv4网段有人做爬虫，网段被封。3.你的IPv6网段有人做爬虫，网段被封。 IPv6 网段被封 强制你的VPS用IPv4来访问，具体方法在/etc/sysctl.conf后追加 # disable ipv6net.ipv6.conf.all.disable_ipv6=1net.ipv6.conf.d">
+  <meta name="description" content="在网上搜索后发现有可能有以下原因： 1.你的 VPS 被人用来做爬虫爬 Google，IP 被封 2.你的 IPv4 网段有人做爬虫，网段被封 3.你的 IPv6 网段有人做爬虫，网段被封 IPv6 网段被封 强制你的 VPS 用 IPv4 来访问，具体方法在 /etc/sysctl.conf 后追加 # disable ipv6net.ipv6.conf.all.disable_ipv6=1ne">
 <meta name="keywords" content="web">
 <meta property="og:type" content="website">
 <meta property="og:title" content="【技术贴】解决VPS通过SS访问谷歌学术受限">
 <meta property="og:url" content="https://cuilongjin.top/private/解决VPS通过SS访问谷歌学术受限/index.html">
 <meta property="og:site_name" content="稻草人">
-<meta property="og:description" content="在网上搜索后发现有可能有以下原因： 1.你的VPS被人用来做爬虫爬Google，IP被封。2.你的IPv4网段有人做爬虫，网段被封。3.你的IPv6网段有人做爬虫，网段被封。 IPv6 网段被封 强制你的VPS用IPv4来访问，具体方法在/etc/sysctl.conf后追加 # disable ipv6net.ipv6.conf.all.disable_ipv6=1net.ipv6.conf.d">
+<meta property="og:description" content="在网上搜索后发现有可能有以下原因： 1.你的 VPS 被人用来做爬虫爬 Google，IP 被封 2.你的 IPv4 网段有人做爬虫，网段被封 3.你的 IPv6 网段有人做爬虫，网段被封 IPv6 网段被封 强制你的 VPS 用 IPv4 来访问，具体方法在 /etc/sysctl.conf 后追加 # disable ipv6net.ipv6.conf.all.disable_ipv6=1ne">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-13T07:08:16.476Z">
+<meta property="og:updated_time" content="2019-07-31T14:35:32.252Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【技术贴】解决VPS通过SS访问谷歌学术受限">
-<meta name="twitter:description" content="在网上搜索后发现有可能有以下原因： 1.你的VPS被人用来做爬虫爬Google，IP被封。2.你的IPv4网段有人做爬虫，网段被封。3.你的IPv6网段有人做爬虫，网段被封。 IPv6 网段被封 强制你的VPS用IPv4来访问，具体方法在/etc/sysctl.conf后追加 # disable ipv6net.ipv6.conf.all.disable_ipv6=1net.ipv6.conf.d">
+<meta name="twitter:description" content="在网上搜索后发现有可能有以下原因： 1.你的 VPS 被人用来做爬虫爬 Google，IP 被封 2.你的 IPv4 网段有人做爬虫，网段被封 3.你的 IPv6 网段有人做爬虫，网段被封 IPv6 网段被封 强制你的 VPS 用 IPv4 来访问，具体方法在 /etc/sysctl.conf 后追加 # disable ipv6net.ipv6.conf.all.disable_ipv6=1ne">
 
 
 
@@ -218,6 +218,41 @@
 
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
+    
+  
+    <css-doodle>
+	:doodle {
+		@grid: 1x3 / 100vmax;
+    position: absolute;
+    top: 0; left: 0;
+    z-index: 0;
+	}
+
+	@size: 100% 150%;
+	position: absolute;
+
+	background: @m(100, (
+		linear-gradient(transparent, @p(
+      #FFFDE1@repeat(2, @p([0-9a-f])),
+      #FB3569@repeat(2, @p([0-9a-f]))
+    ))
+		@r(0%, 100%) @r(0%, 100%) /
+		@r(1px) @r(23vmin)
+		no-repeat
+	));
+
+	will-change: transform;
+	animation: f 20s linear calc(-20s / @size() * @i()) infinite;
+	@keyframes f {
+		from { transform: translateY(-100%) }
+		to { transform: translateY(100%) }
+	}
+</css-doodle>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/css-doodle/0.6.1/css-doodle.min.js"></script>
+
+  
+
+
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
@@ -296,6 +331,22 @@
     
 
     <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-收藏">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/collect/" rel="section"><i class="menu-item-icon fa fa-fw fa-bookmark"></i> <br>收藏</a>
 
   </li>
         
@@ -386,6 +437,9 @@
       
       
     
+      
+      
+    
     
 
   
@@ -451,16 +505,18 @@
         
         
           <p>在网上搜索后发现有可能有以下原因：</p>
-<p>1.你的VPS被人用来做爬虫爬Google，IP被封。<br>2.你的IPv4网段有人做爬虫，网段被封。<br>3.你的IPv6网段有人做爬虫，网段被封。</p>
+<p>1.你的 VPS 被人用来做爬虫爬 Google，IP 被封</p>
+<p>2.你的 IPv4 网段有人做爬虫，网段被封</p>
+<p>3.你的 IPv6 网段有人做爬虫，网段被封</p>
 <p>IPv6 网段被封</p>
-<p>强制你的VPS用IPv4来访问，具体方法在<code>/etc/sysctl.conf</code>后追加</p>
+<p>强制你的 VPS 用 IPv4 来访问，具体方法在 <code>/etc/sysctl.conf</code> 后追加</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># disable ipv6</span><br><span class="line">net.ipv6.conf.all.disable_ipv6=1</span><br><span class="line">net.ipv6.conf.default.disable_ipv6=1</span><br><span class="line">net.ipv6.conf.lo.disable_ipv6=1</span><br></pre></td></tr></table></figure>
 
 <p>IPv4 网段被封</p>
-<p>强制VPS使用IPv6访问，确认打开VPS上的IPv6功能，更改VPS的hosts中指定Google Schoolar的IPv6地址，编辑<code>/etc/hosts</code>后追加：</p>
+<p>强制 VPS 使用 IPv6 访问，确认打开 VPS 上的 IPv6 功能，更改 VPS 的 hosts 中指定 Google Schoolar 的 IPv6 地址，编辑<code>/etc/hosts</code>后追加：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">## Scholar</span><br><span class="line">## type &apos;host google.com&apos; to get the correct ipv6 address or</span><br><span class="line">## visit https://github.com/lennylxx/ipv6-hosts</span><br><span class="line">2404:6800:4004:81a::200e scholar.google.cn</span><br><span class="line">2404:6800:4004:81a::200e scholar.google.com.hk</span><br><span class="line">2404:6800:4004:81a::200e scholar.google.com</span><br><span class="line">2404:6800:4004:81a::200e scholar.l.google.com</span><br></pre></td></tr></table></figure>
 
-<p>更改配置后，重启SS</p>
+<p>更改配置后，重启 SS</p>
 
         
       </div>
@@ -553,7 +609,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">51</span>
+                    <span class="site-state-item-count">54</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

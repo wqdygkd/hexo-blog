@@ -116,18 +116,18 @@
   </script>
 
 
-  <meta name="description" content="移动端(Safari)浏览网页时对数字不启用电话功能 标准的电话号码格式是：  &amp;lt;a href=&quot;tel:+86-123-456-7890&quot;&amp;gt;1234567890&amp;lt;/a&amp;gt;   有时候不是电话号码的数字会被浏览器自动解析为如上电话号码格式，导致样式和布局改变  忽略页面中的数字识别为电话号码, 只要把这个默认行为关闭就行   &amp;lt;meta name=&quot;format-det">
+  <meta name="description" content="安装： npm install -g @vue/cli  创建一个项目： vue create my-project# ORvue ui  如果你仍然需要使用旧版本的 vue init 功能，你可以全局安装一个桥接工具： npm install -g @vue/cli-init# `vue init` 的运行效果将会跟 `vue-cli@2.x` 相同vue init webpack my-pro">
 <meta name="keywords" content="web">
 <meta property="og:type" content="article">
-<meta property="og:title" content="移动端(Safari)浏览网页时对数字不启用电话功能">
-<meta property="og:url" content="https://cuilongjin.top/2019/移动web/移动端(Safari)浏览网页时对数字不启用电话功能/index.html">
+<meta property="og:title" content="vue-cli3 配置通用模板及配置详解">
+<meta property="og:url" content="https://cuilongjin.top/2019/vue/vue-cli3配置通用模板及配置详解/index.html">
 <meta property="og:site_name" content="稻草人">
-<meta property="og:description" content="移动端(Safari)浏览网页时对数字不启用电话功能 标准的电话号码格式是：  &amp;lt;a href=&quot;tel:+86-123-456-7890&quot;&amp;gt;1234567890&amp;lt;/a&amp;gt;   有时候不是电话号码的数字会被浏览器自动解析为如上电话号码格式，导致样式和布局改变  忽略页面中的数字识别为电话号码, 只要把这个默认行为关闭就行   &amp;lt;meta name=&quot;format-det">
+<meta property="og:description" content="安装： npm install -g @vue/cli  创建一个项目： vue create my-project# ORvue ui  如果你仍然需要使用旧版本的 vue init 功能，你可以全局安装一个桥接工具： npm install -g @vue/cli-init# `vue init` 的运行效果将会跟 `vue-cli@2.x` 相同vue init webpack my-pro">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-09T13:14:28.412Z">
+<meta property="og:updated_time" content="2019-08-01T12:05:11.536Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="移动端(Safari)浏览网页时对数字不启用电话功能">
-<meta name="twitter:description" content="移动端(Safari)浏览网页时对数字不启用电话功能 标准的电话号码格式是：  &amp;lt;a href=&quot;tel:+86-123-456-7890&quot;&amp;gt;1234567890&amp;lt;/a&amp;gt;   有时候不是电话号码的数字会被浏览器自动解析为如上电话号码格式，导致样式和布局改变  忽略页面中的数字识别为电话号码, 只要把这个默认行为关闭就行   &amp;lt;meta name=&quot;format-det">
+<meta name="twitter:title" content="vue-cli3 配置通用模板及配置详解">
+<meta name="twitter:description" content="安装： npm install -g @vue/cli  创建一个项目： vue create my-project# ORvue ui  如果你仍然需要使用旧版本的 vue init 功能，你可以全局安装一个桥接工具： npm install -g @vue/cli-init# `vue init` 的运行效果将会跟 `vue-cli@2.x` 相同vue init webpack my-pro">
 
 
 
@@ -137,7 +137,7 @@
 
   
   
-  <link rel="canonical" href="https://cuilongjin.top/2019/移动web/移动端(Safari)浏览网页时对数字不启用电话功能/">
+  <link rel="canonical" href="https://cuilongjin.top/2019/vue/vue-cli3配置通用模板及配置详解/">
 
 
 
@@ -147,7 +147,7 @@
   };
 </script>
 
-  <title>移动端(Safari)浏览网页时对数字不启用电话功能 | 稻草人</title>
+  <title>vue-cli3 配置通用模板及配置详解 | 稻草人</title>
   
 
 
@@ -218,6 +218,41 @@
 
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
+    
+  
+    <css-doodle>
+	:doodle {
+		@grid: 1x3 / 100vmax;
+    position: absolute;
+    top: 0; left: 0;
+    z-index: 0;
+	}
+
+	@size: 100% 150%;
+	position: absolute;
+
+	background: @m(100, (
+		linear-gradient(transparent, @p(
+      #FFFDE1@repeat(2, @p([0-9a-f])),
+      #FB3569@repeat(2, @p([0-9a-f]))
+    ))
+		@r(0%, 100%) @r(0%, 100%) /
+		@r(1px) @r(23vmin)
+		no-repeat
+	));
+
+	will-change: transform;
+	animation: f 20s linear calc(-20s / @size() * @i()) infinite;
+	@keyframes f {
+		from { transform: translateY(-100%) }
+		to { transform: translateY(100%) }
+	}
+</css-doodle>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/css-doodle/0.6.1/css-doodle.min.js"></script>
+
+  
+
+
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
@@ -296,6 +331,22 @@
     
 
     <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-收藏">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/collect/" rel="section"><i class="menu-item-icon fa fa-fw fa-bookmark"></i> <br>收藏</a>
 
   </li>
         
@@ -392,7 +443,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://cuilongjin.top/2019/移动web/移动端(Safari)浏览网页时对数字不启用电话功能/">
+    <link itemprop="mainEntityOfPage" href="https://cuilongjin.top/2019/vue/vue-cli3配置通用模板及配置详解/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="稻草人">
@@ -409,7 +460,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">移动端(Safari)浏览网页时对数字不启用电话功能<a href="https://github.com/cuilongjin/cuilongjin.github.io/tree/dev/source/_posts/移动web/移动端(Safari)浏览网页时对数字不启用电话功能.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+          <h2 class="post-title" itemprop="name headline">vue-cli3 配置通用模板及配置详解<a href="https://github.com/cuilongjin/cuilongjin.github.io/tree/dev/source/_posts/vue/vue-cli3配置通用模板及配置详解.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
 
               
             
@@ -435,13 +486,23 @@
                 
               
 
-              <time title="创建时间：2019-07-09 14:51:00 / 修改时间：21:14:28" itemprop="dateCreated datePublished" datetime="2019-07-09T14:51:00+08:00">2019-07-09</time>
+              <time title="创建时间：2019-07-22 00:00:00" itemprop="dateCreated datePublished" datetime="2019-07-22T00:00:00+08:00">2019-07-22</time>
             </span>
           
 
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-01 20:05:11" itemprop="dateModified" datetime="2019-08-01T20:05:11+08:00">2019-08-01</time>
+              </span>
             
           
 
@@ -454,7 +515,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/移动web/" itemprop="url" rel="index"><span itemprop="name">移动web</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a></span>
 
                 
                 
@@ -472,8 +533,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/移动web/移动端(Safari)浏览网页时对数字不启用电话功能/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/移动web/移动端(Safari)浏览网页时对数字不启用电话功能/" itemprop="commentCount"></span>
+                <a href="/2019/vue/vue-cli3配置通用模板及配置详解/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/vue/vue-cli3配置通用模板及配置详解/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -481,7 +542,7 @@
 
           
           
-            <span id="/2019/移动web/移动端(Safari)浏览网页时对数字不启用电话功能/" class="post-meta-item leancloud_visitors" data-flag-title="移动端(Safari)浏览网页时对数字不启用电话功能">
+            <span id="/2019/vue/vue-cli3配置通用模板及配置详解/" class="post-meta-item leancloud_visitors" data-flag-title="vue-cli3 配置通用模板及配置详解">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -514,24 +575,104 @@
       
 
       
-        <h2 id="移动端-Safari-浏览网页时对数字不启用电话功能"><a href="#移动端-Safari-浏览网页时对数字不启用电话功能" class="headerlink" title="移动端(Safari)浏览网页时对数字不启用电话功能"></a>移动端(Safari)浏览网页时对数字不启用电话功能</h2><ul>
-<li>标准的电话号码格式是：</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"tel:+86-123-456-7890"</span>&gt;</span>1234567890<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+        <p>安装：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g @vue/cli</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li><p>有时候不是电话号码的数字会被浏览器自动解析为如上电话号码格式，导致样式和布局改变</p>
-</li>
-<li><p>忽略页面中的数字识别为电话号码, 只要把这个默认行为关闭就行</p>
-</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"format-detection"</span> <span class="attr">content</span>=<span class="string">"telephone=no"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>创建一个项目：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vue create my-project</span><br><span class="line"><span class="comment"># OR</span></span><br><span class="line">vue ui</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>这个关闭不会影响真正电话号码的识别</li>
-</ul>
-<p>说明：Meta 标签中的 format-detection 属性及含义<br>format-detection 中文的意思是 “格式检测”，它是用来检测 html 里的一些格式的</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 禁止了把数字转化为拨号链接 默认为 yes --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"format-detection"</span> <span class="attr">content</span>=<span class="string">"telephone=no"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 禁止作为邮箱地址 默认为 yes --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"format-detection"</span> <span class="attr">content</span>=<span class="string">"email=no"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 禁止跳转至地图 默认为 yes --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"format-detection"</span> <span class="attr">content</span>=<span class="string">"adress=no"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"format-detection"</span> <span class="attr">content</span>=<span class="string">"telephone=no,email=no,adress=no"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>如果你仍然需要使用旧版本的 <code>vue init</code> 功能，你可以全局安装一个桥接工具：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g @vue/cli-init</span><br><span class="line"><span class="comment"># `vue init` 的运行效果将会跟 `vue-cli@2.x` 相同</span></span><br><span class="line">vue init webpack my-project</span><br></pre></td></tr></table></figure>
+
+<h3 id="在现有的项目中安装插件"><a href="#在现有的项目中安装插件" class="headerlink" title="在现有的项目中安装插件"></a>在现有的项目中安装插件</h3><p>每个 CLI 插件都会包含一个 (用来创建文件的) 生成器和一个 (用来调整 webpack 核心配置和注入命令的) 运行时插件。当你使用 <code>vue create</code> 来创建一个新项目的时候，有些插件会根据你选择的特性被预安装好。如果你想在一个已经被创建好的项目中安装一个插件，可以使用 <code>vue add</code> 命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vue add @vue/eslint</span><br></pre></td></tr></table></figure>
+
+<p>提示</p>
+<p><code>vue add</code> 的设计意图是为了安装和调用 Vue CLI 插件。对于普通的 npm 包而言，这不意味有一个替代（命令）。对于这些普通的 npm 包，你仍然需要（根据所选的 npm 包）使用包管理器。</p>
+<h2 id="vue-config-js-配置"><a href="#vue-config-js-配置" class="headerlink" title="vue.config.js 配置"></a>vue.config.js 配置</h2><p><a href="https://cli.vuejs.org/zh/config" target="_blank" rel="noopener">官网配置参考</a></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// vue.config.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// 选项...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="publicPath"><a href="#publicPath" class="headerlink" title="publicPath"></a>publicPath</h3><p>基本路径</p>
+<p>vue-cli3.3 以下版本使用 baseUrl</p>
+<p>vue-cli3.3+ 使用 publicPath</p>
+<p>默认 ‘/‘</p>
+<p>‘./‘ 或为空(‘’) 所有的资源都会被链接为相对路径，这样打出来的包可以被部署在任意路径, 当使用 pages 选项构建多页面应用时,应当避免使用相对路径</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">publicPath: <span class="string">'./'</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="outputDir"><a href="#outputDir" class="headerlink" title="outputDir"></a>outputDir</h3><p>默认 ‘dist’</p>
+<p>当运行 vue-cli-service build 时生成的生产环境构建文件的目录</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">outputDir: <span class="string">'dist'</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="assetsDir"><a href="#assetsDir" class="headerlink" title="assetsDir"></a>assetsDir</h3><p>默认 ‘’</p>
+<p>放置生成的静态资源 (js、css、img、fonts) 的 (相对于 outputDir 的) 目录</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">assetsDir: <span class="string">'static'</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="indexPath"><a href="#indexPath" class="headerlink" title="indexPath"></a>indexPath</h3><p>指定生成的 <code>index.html</code> 的输出路径 (相对于 <code>outputDir</code>)。也可以是一个绝对路径</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">indexPath: <span class="string">'index.html'</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="filenameHashing"><a href="#filenameHashing" class="headerlink" title="filenameHashing"></a>filenameHashing</h3><p>默认 true</p>
+<p>默认情况下，生成的静态资源在它们的文件名中包含了 hash 以便更好的控制缓存。然而，这也要求 index 的 HTML 是被 Vue CLI 自动生成的。如果你无法使用 Vue CLI 生成的 index HTML，你可以通过将这个选项设为 false 来关闭文件名哈希</p>
+<h3 id="pages"><a href="#pages" class="headerlink" title="pages"></a>pages</h3><p>默认 undefined</p>
+<p>是否以多页模式构建应用程序</p>
+<p>每个 ‘page’ 应该有一个对应的 JavaScript 入口文件。其值应该是一个对象，对象的 key 是入口的名字，value 是 一个指定了 entry, template, filename, title 和 chunks 的对象 (除了 entry 之外都是可选的) 或一个指定其 entry 的字符串</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.export = &#123;</span><br><span class="line">  pages: &#123;</span><br><span class="line">    index: &#123;</span><br><span class="line">      <span class="comment">// page 的入口</span></span><br><span class="line">      entry: <span class="string">'src/pages/index/main.js'</span>,</span><br><span class="line">      <span class="comment">// 模板来源</span></span><br><span class="line">      template: <span class="string">'public/index.html'</span>,</span><br><span class="line">      <span class="comment">// 在 dist/index.html 的输出</span></span><br><span class="line">      filename: <span class="string">'index.html'</span>,</span><br><span class="line">      <span class="comment">// template 中的 title 标签需要是 &lt;title&gt;&lt;%= htmlWebpackPlugin.options.title %&gt;&lt;/title&gt;</span></span><br><span class="line">      title: <span class="string">'Index Page'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    pageA: &#123;</span><br><span class="line">      entry: <span class="string">'src/pages/pageA/main.js'</span>,</span><br><span class="line">      template: <span class="string">'public/index.html'</span>,</span><br><span class="line">      filename: <span class="string">'pageA.html'</span></span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 当使用只有入口的字符串格式时, 模板会被推导为 `public/pageB.html`</span></span><br><span class="line">    <span class="comment">// 并且如果找不到的话，就回退到 `public/index.html`, 输出文件名会被推导为 `pageB.html`</span></span><br><span class="line">    pageB: <span class="string">'src/pages/pageB/main.js'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="lintOnSave"><a href="#lintOnSave" class="headerlink" title="lintOnSave"></a>lintOnSave</h3><p>默认 true</p>
+<p>是否在保存的时候检查，如果为 true ，build 时会启用 eslint-loader 进行代码检查，可以使用如下配置禁用</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">lintOnSave: process.env.NODE_ENV !== <span class="string">'production'</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="runtimeCompiler"><a href="#runtimeCompiler" class="headerlink" title="runtimeCompiler"></a>runtimeCompiler</h3><p>默认 false</p>
+<p>是否使用包含运行时编译器的 Vue 构建版本</p>
+<p>使用 template 语法需要开启，但是这会让你的应用额外增加 10kb 左右，使用渲染函数不需要开启</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">runtimeCompiler: <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="productionSourceMap"><a href="#productionSourceMap" class="headerlink" title="productionSourceMap"></a>productionSourceMap</h3><p>默认 true</p>
+<p>生产环境是否生成 sourceMap 文件，一般情况不建议打开</p>
+<p>map 文件的作用在于：项目打包后，代码都是经过压缩加密的，如果运行时报错，输出的错误信息无法准确得知是哪里的代码报错。有了 map 就可以像未加密的代码一样，准确的输出是哪一行哪一列有错</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">productionSourceMap: <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="chainWebpack"><a href="#chainWebpack" class="headerlink" title="chainWebpack"></a>chainWebpack</h3><p>对内部的 webpack 配置进行更细粒度的修改</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> chainWebpack = <span class="function"><span class="params">config</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 删除预加载模块的 prefetch，降低带宽压力</span></span><br><span class="line">  <span class="comment">// https://cli.vuejs.org/zh/guide/html-and-static-assets.html#prefetch</span></span><br><span class="line">  <span class="comment">// 移除 prefetch 插件</span></span><br><span class="line">  config.plugins.delete(<span class="string">'prefetch'</span>)</span><br><span class="line">  <span class="comment">// 移除 preload 插件</span></span><br><span class="line">  config.plugins.delete(<span class="string">'preload'</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// config.plugin('html').tap(args =&gt; &#123;</span></span><br><span class="line">  <span class="comment">//   args[0].minify = false</span></span><br><span class="line">  <span class="comment">//   return args</span></span><br><span class="line">  <span class="comment">// &#125;)</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 修改静态资源打包方式，下例为超过10k才用文件导入的方式，否则为base64.默认为4k</span></span><br><span class="line">  config.module</span><br><span class="line">    .rule(<span class="string">'images'</span>)</span><br><span class="line">    .use(<span class="string">'url-loader'</span>)</span><br><span class="line">    .loader(<span class="string">'url-loader'</span>)</span><br><span class="line">    .tap(<span class="function"><span class="params">options</span> =&gt;</span> <span class="built_in">Object</span>.assign(options, &#123; <span class="attr">limit</span>: <span class="number">10240</span> &#125;))</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.export = &#123;</span><br><span class="line">  chainWebpack</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://cli.vuejs.org/zh/guide/html-and-static-assets.html#preload" target="_blank" rel="noopener">https://cli.vuejs.org/zh/guide/html-and-static-assets.html#preload</a></p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Preloading_content" target="_blank" rel="noopener"><code>&lt;link rel=&quot;preload&quot;&gt;</code></a>是一种 resource hint，用来指定页面加载后很快会被用到的资源，所以在页面加载的过程中，我们希望在浏览器开始主体渲染之前尽早 preload。</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ" target="_blank" rel="noopener"><code>&lt;link rel=&quot;prefetch&quot;&gt;</code></a> 是一种 resource hint，用来告诉浏览器在页面加载完成后，利用空闲时间提前获取用户未来可能会访问的内容。</p>
+<h3 id="configureWebpack"><a href="#configureWebpack" class="headerlink" title="configureWebpack"></a>configureWebpack</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// webpack 自定义配置</span></span><br><span class="line"><span class="comment">// https://cli.vuejs.org/zh/guide/webpack.html</span></span><br><span class="line"><span class="keyword">const</span> configureWebpack = <span class="function"><span class="params">config</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 生产 and 测试环境</span></span><br><span class="line">  <span class="keyword">let</span> pluginsPro = [</span><br><span class="line">    <span class="keyword">new</span> CompressionPlugin(&#123;</span><br><span class="line">      <span class="comment">// 文件开启 Gzip，也可以通过服务端(如：nginx)(https://github.com/webpack-contrib/compression-webpack-plugin)</span></span><br><span class="line">      filename: <span class="string">'[path].gz[query]'</span>,</span><br><span class="line">      algorithm: <span class="string">'gzip'</span>,</span><br><span class="line">      test: <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'\\.('</span> + [<span class="string">'js'</span>, <span class="string">'css'</span>].join(<span class="string">'|'</span>) + <span class="string">')$'</span>),</span><br><span class="line">      threshold: <span class="number">8192</span>,</span><br><span class="line">      minRatio: <span class="number">0.8</span></span><br><span class="line">    &#125;),</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Webpack 包文件分析器(https://github.com/webpack-contrib/webpack-bundle-analyzer)</span></span><br><span class="line">    <span class="keyword">new</span> BundleAnalyzerPlugin(),</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 打包时删除 debugger 和 console</span></span><br><span class="line">    <span class="keyword">new</span> UglifyJsPlugin(&#123;</span><br><span class="line">      uglifyOptions: &#123;</span><br><span class="line">        compress: &#123;</span><br><span class="line">          drop_debugger: <span class="literal">true</span>,</span><br><span class="line">          drop_console: <span class="literal">true</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      sourceMap: <span class="literal">true</span>,</span><br><span class="line">      parallel: <span class="literal">true</span></span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">  <span class="comment">// 开发环境</span></span><br><span class="line">  <span class="keyword">let</span> pluginsDev = [</span><br><span class="line">    <span class="comment">//  移动端模拟开发者工具 (https://github.com/diamont1001/vconsole-webpack-plugin  https://github.com/Tencent/vConsole)</span></span><br><span class="line">    <span class="comment">// new vConsolePlugin(&#123;</span></span><br><span class="line">    <span class="comment">//   filter: [], // 需要过滤的入口文件</span></span><br><span class="line">    <span class="comment">//   enable: true // 发布代码前记得改回 false</span></span><br><span class="line">    <span class="comment">// &#125;)</span></span><br><span class="line">  ]</span><br><span class="line">  <span class="keyword">if</span> (process.env.NODE_ENV === <span class="string">'production'</span>) &#123;</span><br><span class="line">    <span class="comment">// 为生产环境修改配置...process.env.NODE_ENV !== 'development'</span></span><br><span class="line">    config.plugins = [...config.plugins, ...pluginsPro]</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 为开发环境修改配置...</span></span><br><span class="line">    config.plugins = [...config.plugins, ...pluginsDev]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.export = &#123;</span><br><span class="line">  configureWebpack</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="环境变量与分环境打包"><a href="#环境变量与分环境打包" class="headerlink" title="环境变量与分环境打包"></a>环境变量与分环境打包</h3><p><a href="https://cli.vuejs.org/zh/guide/cli-service.html#vue-cli-service-build" target="_blank" rel="noopener">vue-cli-service-build</a><br>vue-cli-service build –mode 指定环境模式(默认值：production)</p>
+<p>npm run build 默认模式为 production ，命令执行时会把 process.env.NODE_ENV(环境变量) 设置为 ‘production’<br>npm run serve 时会把 process.env.NODE_ENV 设置为 ‘development’</p>
+<p>所以可以根据 process.env.NODE_ENV 简单的区分出本地和线上环境</p>
+<p>但是线上环境也可能分多种，比如测试环境和预发布环境等</p>
+<p><strong>配置 vue-cli3 区分不同的线上环境</strong></p>
+<p>在项目根目录创建下列文件来制定环境变量</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.env                # 在所有的环境中被载入</span><br><span class="line">.env.local          # 在所有的环境中被载入，但会被 git 忽略</span><br><span class="line">.env.[mode]         # 只在指定的模式中被载入</span><br><span class="line">.env.[mode].local   # 只在指定的模式中被载入，但会被 git 忽略</span><br></pre></td></tr></table></figure>
+
+<p><code>.env.test</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">/* VUE_APP_CURRENTMODE 当前环境变量 */</span><br><span class="line">VUE_APP_CURRENTMODE = &apos;t&apos; // 表明开发环境模式信息</span><br><span class="line">NODE_ENV = &apos;development&apos; // 使用开发环境（因为默认开启 devtool，便于调试）</span><br><span class="line">// VUE_APP_BASEURL=&apos;&apos; // 测试服务器地址</span><br><span class="line">VUE_APP_ENV = &apos;test 环境&apos;</span><br></pre></td></tr></table></figure>
+
+<p>在 package.json 中添加</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">"scripts": &#123;</span><br><span class="line">  "test": "vue-cli-service build --mode t",</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>修改 baseUrl.js 文件通过环境变量改变 baseUrl</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (process.env.VUE_APP_CURRENTMODE === <span class="string">'t'</span>) &#123;</span><br><span class="line">  <span class="comment">// 测试环境</span></span><br><span class="line">  baseUrl = <span class="string">''</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="comment">// 正式环境</span></span><br><span class="line">  baseUrl = <span class="string">''</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当需要为测试环境进行打包的时候 , 只需要运行下面指令进行打包</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm run <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+
+<p>但是将打包环境设置为 NODE_ENV = ‘development’ 导致打包出来的 js 文件只有 index.js 文件并且在根目录下, 并不是我们想要的</p>
+<p>所以我们可以这样配置</p>
+<p>.env.test</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">VUE_APP_CURRENTMODE = &apos;t&apos;</span><br><span class="line">NODE_ENV = &apos;production&apos;</span><br><span class="line">VUE_APP_ENV = &apos;test 环境&apos;</span><br></pre></td></tr></table></figure>
+
+<p>main.js 配置</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> isDebugMode = process.env.VUE_APP_CURRENTMODE === <span class="string">'t'</span></span><br><span class="line">Vue.config.debug = isDebugMode</span><br><span class="line">Vue.config.devtools = isDebugMode</span><br><span class="line">Vue.config.productionTip = isDebugMode</span><br></pre></td></tr></table></figure>
+
+<h3 id="vue-公共路径提取"><a href="#vue-公共路径提取" class="headerlink" title="vue 公共路径提取"></a>vue 公共路径提取</h3><p>vue 项目中公共路径在打包之后一旦遇到整体的路径更改就需要再次打包。我们可以将公共路径提取出来，修改公共路径后不需要重新打包就能生效</p>
+<p>在 public 文件夹下创建 config.js 文件，并配置</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> serverConfig = &#123;</span><br><span class="line">  baseUrl: <span class="string">''</span> <span class="comment">// 配置 url</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在 index.html 中引入该文件，之后在开发时就可以通过 <code>serverConfig.baseUrl</code> 使用变量</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vue add router</span><br><span class="line">vue add vuex</span><br></pre></td></tr></table></figure>
 
 
       
@@ -569,8 +710,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/tool/npm/" rel="next" title="npm 使用">
-                <i class="fa fa-chevron-left"></i> npm 使用
+              <a href="/2019/tool/less-mixin混合/" rel="next" title="less 使用 - mixin 混合">
+                <i class="fa fa-chevron-left"></i> less 使用 - mixin 混合
               </a>
             
           </div>
@@ -579,8 +720,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/other/js 中编码（encode）和解码（decode）的三种方法/" rel="prev" title="js 中编码（encode）和解码（decode）的三种方法">
-                js 中编码（encode）和解码（decode）的三种方法 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/移动web/移动端兼容性问题/" rel="prev" title="移动端兼容性问题总结">
+                移动端兼容性问题总结 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -656,7 +797,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">51</span>
+                    <span class="site-state-item-count">54</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -834,7 +975,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#移动端-Safari-浏览网页时对数字不启用电话功能"><span class="nav-text">移动端(Safari)浏览网页时对数字不启用电话功能</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#在现有的项目中安装插件"><span class="nav-text">在现有的项目中安装插件</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#vue-config-js-配置"><span class="nav-text">vue.config.js 配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#publicPath"><span class="nav-text">publicPath</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#outputDir"><span class="nav-text">outputDir</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#assetsDir"><span class="nav-text">assetsDir</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#indexPath"><span class="nav-text">indexPath</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#filenameHashing"><span class="nav-text">filenameHashing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pages"><span class="nav-text">pages</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lintOnSave"><span class="nav-text">lintOnSave</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#runtimeCompiler"><span class="nav-text">runtimeCompiler</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#productionSourceMap"><span class="nav-text">productionSourceMap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#chainWebpack"><span class="nav-text">chainWebpack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#configureWebpack"><span class="nav-text">configureWebpack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环境变量与分环境打包"><span class="nav-text">环境变量与分环境打包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue-公共路径提取"><span class="nav-text">vue 公共路径提取</span></a></li></ol></li></div>
             
 
           </div>

@@ -116,18 +116,18 @@
   </script>
 
 
-  <meta name="description" content="LESSLess 简介  Less 是一门 CSS 预处理语言（预先处理）,它扩展了 CSS 语言，增加了变量、Mixin、函数等特性  浏览器不直接识别 less 文件，浏览器只识别 css 文件，所以我们写了 less 文件之后，我们需要预先把 less 文件转换成css文件。  本质上，LESS 包含一套自定义的语法及一个解析器，用户根据这些语法定义自己的样式规则，这些规则最终会通过解析器，">
+  <meta name="description" content="LESSLess 简介 Less  是一门 CSS 预处理语言（预先处理）,它扩展了 CSS 语言，增加了变量、Mixin、函数等特性 浏览器不直接识别 less 文件，浏览器只识别 css 文件，所以我们写了 less 文件之后，我们需要预先把 less 文件转换成 css 文件。  本质上，LESS 包含一套自定义的语法及一个解析器，用户根据这些语法定义自己的样式规则，这些规则最终会通过解析器">
 <meta name="keywords" content="less">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LESS">
+<meta property="og:title" content="LESS 基本是引用">
 <meta property="og:url" content="https://cuilongjin.top/2018/tool/less/index.html">
 <meta property="og:site_name" content="稻草人">
-<meta property="og:description" content="LESSLess 简介  Less 是一门 CSS 预处理语言（预先处理）,它扩展了 CSS 语言，增加了变量、Mixin、函数等特性  浏览器不直接识别 less 文件，浏览器只识别 css 文件，所以我们写了 less 文件之后，我们需要预先把 less 文件转换成css文件。  本质上，LESS 包含一套自定义的语法及一个解析器，用户根据这些语法定义自己的样式规则，这些规则最终会通过解析器，">
+<meta property="og:description" content="LESSLess 简介 Less  是一门 CSS 预处理语言（预先处理）,它扩展了 CSS 语言，增加了变量、Mixin、函数等特性 浏览器不直接识别 less 文件，浏览器只识别 css 文件，所以我们写了 less 文件之后，我们需要预先把 less 文件转换成 css 文件。  本质上，LESS 包含一套自定义的语法及一个解析器，用户根据这些语法定义自己的样式规则，这些规则最终会通过解析器">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-12-09T10:44:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LESS">
-<meta name="twitter:description" content="LESSLess 简介  Less 是一门 CSS 预处理语言（预先处理）,它扩展了 CSS 语言，增加了变量、Mixin、函数等特性  浏览器不直接识别 less 文件，浏览器只识别 css 文件，所以我们写了 less 文件之后，我们需要预先把 less 文件转换成css文件。  本质上，LESS 包含一套自定义的语法及一个解析器，用户根据这些语法定义自己的样式规则，这些规则最终会通过解析器，">
+<meta name="twitter:title" content="LESS 基本是引用">
+<meta name="twitter:description" content="LESSLess 简介 Less  是一门 CSS 预处理语言（预先处理）,它扩展了 CSS 语言，增加了变量、Mixin、函数等特性 浏览器不直接识别 less 文件，浏览器只识别 css 文件，所以我们写了 less 文件之后，我们需要预先把 less 文件转换成 css 文件。  本质上，LESS 包含一套自定义的语法及一个解析器，用户根据这些语法定义自己的样式规则，这些规则最终会通过解析器">
 
 
 
@@ -147,7 +147,7 @@
   };
 </script>
 
-  <title>LESS | 稻草人</title>
+  <title>LESS 基本是引用 | 稻草人</title>
   
 
 
@@ -218,6 +218,41 @@
 
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
+    
+  
+    <css-doodle>
+	:doodle {
+		@grid: 1x3 / 100vmax;
+    position: absolute;
+    top: 0; left: 0;
+    z-index: 0;
+	}
+
+	@size: 100% 150%;
+	position: absolute;
+
+	background: @m(100, (
+		linear-gradient(transparent, @p(
+      #FFFDE1@repeat(2, @p([0-9a-f])),
+      #FB3569@repeat(2, @p([0-9a-f]))
+    ))
+		@r(0%, 100%) @r(0%, 100%) /
+		@r(1px) @r(23vmin)
+		no-repeat
+	));
+
+	will-change: transform;
+	animation: f 20s linear calc(-20s / @size() * @i()) infinite;
+	@keyframes f {
+		from { transform: translateY(-100%) }
+		to { transform: translateY(100%) }
+	}
+</css-doodle>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/css-doodle/0.6.1/css-doodle.min.js"></script>
+
+  
+
+
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
@@ -296,6 +331,22 @@
     
 
     <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-收藏">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/collect/" rel="section"><i class="menu-item-icon fa fa-fw fa-bookmark"></i> <br>收藏</a>
 
   </li>
         
@@ -409,7 +460,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">LESS<a href="https://github.com/cuilongjin/cuilongjin.github.io/tree/dev/source/_posts/tool/less.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+          <h2 class="post-title" itemprop="name headline">LESS 基本是引用<a href="https://github.com/cuilongjin/cuilongjin.github.io/tree/dev/source/_posts/tool/less.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
 
               
             
@@ -491,7 +542,7 @@
 
           
           
-            <span id="/2018/tool/less/" class="post-meta-item leancloud_visitors" data-flag-title="LESS">
+            <span id="/2018/tool/less/" class="post-meta-item leancloud_visitors" data-flag-title="LESS 基本是引用">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -525,20 +576,20 @@
 
       
         <h1 id="LESS"><a href="#LESS" class="headerlink" title="LESS"></a>LESS</h1><h2 id="Less-简介"><a href="#Less-简介" class="headerlink" title="Less 简介"></a>Less 简介</h2><blockquote>
-<p> <strong><em>Less</em> 是一门 CSS 预处理语言（预先处理）,它扩展了 CSS 语言，增加了变量、Mixin、函数等特性</strong></p>
-<p> 浏览器不直接识别 less 文件，浏览器只识别 css 文件，所以我们写了 less 文件之后，我们需要预先把 less 文件转换成css文件。</p>
+<p><strong><em>Less</em>  是一门 CSS 预处理语言（预先处理）,它扩展了 CSS 语言，增加了变量、Mixin、函数等特性</strong></p>
+<p>浏览器不直接识别 less 文件，浏览器只识别 css 文件，所以我们写了 less 文件之后，我们需要预先把 less 文件转换成 css 文件。</p>
 </blockquote>
 <p>本质上，LESS 包含一套自定义的语法及一个解析器，用户根据这些语法定义自己的样式规则，这些规则最终会通过解析器，编译生成对应的 CSS 文件。LESS 并没有裁剪 CSS 原有的特性，更不是用来取代 CSS 的，而是在现有 CSS 语法的基础上，为 CSS 加入程序式语言的特性。</p>
-<p><strong>less仅仅是写css的另一种方式，写出来的less文件浏览器也不识别，所以啊，我们写完了less文件，还需要通过less解析器解析成css，最终浏览器引入的还是css文件。</strong></p>
+<p><strong>less 仅仅是写 css 的另一种方式，写出来的 less 文件浏览器也不识别，所以啊，我们写完了 less 文件，还需要通过 less 解析器解析成 css，最终浏览器引入的还是 css 文件。</strong></p>
 <p>学习网站：</p>
-<p><a href="http://lesscss.org/" target="_blank" rel="noopener">官网http://lesscss.org/</a><br><a href="http://lesscss.cn/" target="_blank" rel="noopener">中文网http://lesscss.cn/</a></p>
+<p><a href="http://lesscss.org/" target="_blank" rel="noopener">官网 http://lesscss.org/</a><br><a href="http://lesscss.cn/" target="_blank" rel="noopener">中文网 http://lesscss.cn/</a></p>
 <h2 id="less-的编译"><a href="#less-的编译" class="headerlink" title="less 的编译"></a>less 的编译</h2><blockquote>
 <p>如何把 less 文件变成 css 文件</p>
 </blockquote>
 <h3 id="使用打包工具"><a href="#使用打包工具" class="headerlink" title="使用打包工具"></a>使用打包工具</h3><p><code>gulp</code></p>
 <p><code>webpack</code></p>
 <h3 id="使用考拉"><a href="#使用考拉" class="headerlink" title="使用考拉"></a>使用考拉</h3><blockquote>
-<p>koala 是一个前端预处理器语言（less/sass）图形编译工具，支持 Less、Sass、Compass、CoffeeScript，帮助web开发者更高效地使用它们进行开发。跨平台运行，完美兼容windows、linux、mac。</p>
+<p>koala 是一个前端预处理器语言（less/sass）图形编译工具，支持 Less、Sass、Compass、CoffeeScript，帮助 web 开发者更高效地使用它们进行开发。跨平台运行，完美兼容 windows、linux、mac。</p>
 </blockquote>
 <p><a href="http://koala-app.com/index-zh.html" target="_blank" rel="noopener">考拉官网</a></p>
 <p>使用步骤：</p>
@@ -546,7 +597,7 @@
 <li>把<code>less</code>文件夹拖进去</li>
 <li>会在当前目录生成一个<code>css</code>目录</li>
 </ol>
-<p>优点：不用node环境，不用less环境，koala内置了</p>
+<p>优点：不用 node 环境，不用 less 环境，koala 内置了</p>
 <h3 id="使用插件"><a href="#使用插件" class="headerlink" title="使用插件"></a>使用插件</h3><p>easy less</p>
 <h2 id="Less-语法"><a href="#Less-语法" class="headerlink" title="Less 语法"></a>Less 语法</h2><h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p><strong>注释</strong></p>
 <figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 这是CSS中的注释，因此会编译到css中 */</span></span><br><span class="line"><span class="comment">// 这是less的注释，css不能识别这个注释， 最后不会编译到css文件</span></span><br></pre></td></tr></table></figure>
@@ -558,7 +609,7 @@
 <figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义一个函数：不带参数</span></span><br><span class="line"><span class="selector-class">.btn</span>() &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 调用函数</span></span><br><span class="line"><span class="selector-class">.my_btn</span> &#123;</span><br><span class="line">  <span class="selector-class">.btn</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义一个函数：带参数</span></span><br><span class="line"><span class="selector-class">.btn_border</span>(<span class="variable">@width</span>) &#123;</span><br><span class="line">  <span class="attribute">border</span>: <span class="variable">@width</span> solid <span class="number">#000</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.my_btn</span> &#123;</span><br><span class="line">  <span class="comment">// 如果函数定义了参数，调用的时候必须传入参数，否则会报错</span></span><br><span class="line">  <span class="selector-class">.btn_border</span>(<span class="number">10px</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义一个函数：带参数默认值</span></span><br><span class="line"><span class="selector-class">.btn_border</span>(<span class="variable">@width</span>: <span class="number">1px</span>) &#123;</span><br><span class="line">  <span class="attribute">border</span>: <span class="variable">@width</span> solid <span class="number">#000</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.my_btn</span> &#123;</span><br><span class="line">  <span class="comment">// 因为有默认值，所以不会报错</span></span><br><span class="line">  <span class="selector-class">.btn_border</span>();</span><br><span class="line">  <span class="selector-class">.btn_border</span>(<span class="number">10px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>应用：定义兼容多浏览器的圆角</p>
-<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.border_radius</span>(<span class="variable">@value</span>: <span class="number">5px</span>) &#123;</span><br><span class="line">  <span class="attribute">-webkit-border-radius</span>:<span class="variable">@value</span>;</span><br><span class="line">  <span class="attribute">-moz-border-radius</span>:<span class="variable">@value</span>;</span><br><span class="line">  <span class="attribute">-ms-border-radius</span>:<span class="variable">@value</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>:<span class="variable">@value</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="selector-class">.border_radius</span>(<span class="number">10px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.border_radius</span>(<span class="variable">@value</span>: <span class="number">5px</span>) &#123;</span><br><span class="line">  <span class="attribute">-webkit-border-radius</span>: <span class="variable">@value</span>;</span><br><span class="line">  <span class="attribute">-moz-border-radius</span>: <span class="variable">@value</span>;</span><br><span class="line">  <span class="attribute">-ms-border-radius</span>: <span class="variable">@value</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="variable">@value</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="selector-class">.border_radius</span>(<span class="number">10px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h3><blockquote>
 <p>我们可以在一个选择器中嵌套另一个选择器来实现继承，这样很大程度减少了代码量，并且代码看起来更加的清晰。</p>
@@ -568,11 +619,11 @@
 </ul>
 <figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.father</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="comment">// 子代</span></span><br><span class="line">  <span class="selector-class">.son1</span> &#123;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 后代</span></span><br><span class="line">  &gt; <span class="selector-class">.son2</span> &#123;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 交集： &amp; 表示本身</span></span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-class">.now</span> &#123;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h3><figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 可以省略后缀名</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">"variable"</span>;</span><br><span class="line"><span class="keyword">@import</span> <span class="string">"maxin"</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h3><figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 可以省略后缀名</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">'variable'</span>;</span><br><span class="line"><span class="keyword">@import</span> <span class="string">'maxin'</span>;</span><br></pre></td></tr></table></figure>
 
-<p>模块化的思想，分模块进行管理这些less文件，最终只需要使用import将less引入到一起即可。</p>
+<p>模块化的思想，分模块进行管理这些 less 文件，最终只需要使用 import 将 less 引入到一起即可</p>
 <h3 id="函数（运算）"><a href="#函数（运算）" class="headerlink" title="函数（运算）"></a>函数（运算）</h3><blockquote>
-<p>在我们的 CSS 中充斥着大量的数值型的 value，less可以直接支持运算，也提供了一系列的函数提供给我们使用。</p>
+<p>在我们的 CSS 中充斥着大量的数值型的 value，less 可以直接支持运算，也提供了一系列的函数提供给我们使用。</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">li &#123;</span><br><span class="line">  float: left;</span><br><span class="line">  width: round(100%/6, 2);</span><br><span class="line">  height: 100px + 100px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -622,8 +673,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/bootstrap/bootstrap/" rel="next" title="bootstrap 框架">
-                <i class="fa fa-chevron-left"></i> bootstrap 框架
+              <a href="/2018/other/技术栈/" rel="next" title="技术栈">
+                <i class="fa fa-chevron-left"></i> 技术栈
               </a>
             
           </div>
@@ -632,8 +683,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/移动web/移动web/" rel="prev" title="移动 web">
-                移动 web <i class="fa fa-chevron-right"></i>
+              <a href="/2018/bootstrap/bootstrap/" rel="prev" title="bootstrap 框架">
+                bootstrap 框架 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -709,7 +760,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">51</span>
+                    <span class="site-state-item-count">54</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

@@ -124,7 +124,7 @@
 <meta property="og:site_name" content="稻草人">
 <meta property="og:description" content="1. ios 移动端页面对点击事件有 300ms 延时使用 fastclick 库 https://github.com/ftlabs/fastclick 使用 FastClick 的时候，在需要使用的层上，实例化它。我们使用 document.body 是因为希望所有的按钮和链接都获得快速点击 import FastClick from &apos;fastclick&apos;FastClick.attach(d">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-29T13:19:52.830Z">
+<meta property="og:updated_time" content="2019-07-31T16:00:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="移动端兼容性问题总结">
 <meta name="twitter:description" content="1. ios 移动端页面对点击事件有 300ms 延时使用 fastclick 库 https://github.com/ftlabs/fastclick 使用 FastClick 的时候，在需要使用的层上，实例化它。我们使用 document.body 是因为希望所有的按钮和链接都获得快速点击 import FastClick from &apos;fastclick&apos;FastClick.attach(d">
@@ -218,6 +218,41 @@
 
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
+    
+  
+    <css-doodle>
+	:doodle {
+		@grid: 1x3 / 100vmax;
+    position: absolute;
+    top: 0; left: 0;
+    z-index: 0;
+	}
+
+	@size: 100% 150%;
+	position: absolute;
+
+	background: @m(100, (
+		linear-gradient(transparent, @p(
+      #FFFDE1@repeat(2, @p([0-9a-f])),
+      #FB3569@repeat(2, @p([0-9a-f]))
+    ))
+		@r(0%, 100%) @r(0%, 100%) /
+		@r(1px) @r(23vmin)
+		no-repeat
+	));
+
+	will-change: transform;
+	animation: f 20s linear calc(-20s / @size() * @i()) infinite;
+	@keyframes f {
+		from { transform: translateY(-100%) }
+		to { transform: translateY(100%) }
+	}
+</css-doodle>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/css-doodle/0.6.1/css-doodle.min.js"></script>
+
+  
+
+
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
@@ -296,6 +331,22 @@
     
 
     <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-收藏">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/collect/" rel="section"><i class="menu-item-icon fa fa-fw fa-bookmark"></i> <br>收藏</a>
 
   </li>
         
@@ -450,7 +501,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-29 21:19:52" itemprop="dateModified" datetime="2019-07-29T21:19:52+08:00">2019-07-29</time>
+                <time title="修改时间：2019-08-01 00:00:00" itemprop="dateModified" datetime="2019-08-01T00:00:00+08:00">2019-08-01</time>
               </span>
             
           
@@ -513,10 +564,11 @@
 <p>使用 FastClick 的时候，在需要使用的层上，实例化它。我们使用 document.body 是因为希望所有的按钮和链接都获得快速点击</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> FastClick <span class="keyword">from</span> <span class="string">'fastclick'</span></span><br><span class="line">FastClick.attach(<span class="built_in">document</span>.body)</span><br></pre></td></tr></table></figure>
 
-<h3 id="2-ios-滚动卡顿"><a href="#2-ios-滚动卡顿" class="headerlink" title="2. ios 滚动卡顿"></a>2. ios 滚动卡顿</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  -webkit-overflow-scrolling: touch; // 当手指从触摸屏上移开，会保持一段时间的滚动</span><br><span class="line">  // -webkit-overflow-scrolling: auto; // 当手指从触摸屏上移开，滚动会立即停止</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-ios-滚动卡顿"><a href="#2-ios-滚动卡顿" class="headerlink" title="2. ios 滚动卡顿"></a>2. ios 滚动卡顿</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">-webkit-overflow-scrolling</span>: touch; <span class="comment">/* 当手指从触摸屏上移开，会保持一段时间的滚动 */</span></span><br><span class="line">  <span class="comment">/* -webkit-overflow-scrolling: auto; */</span> <span class="comment">/* 当手指从触摸屏上移开，滚动会立即停止 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="3-ios-1px-border-变宽"><a href="#3-ios-1px-border-变宽" class="headerlink" title="3. ios 1px border 变宽"></a>3. ios 1px border 变宽</h3><p>以 dpr=2 为例：<br>你拿到一张标准的基于 iphone6 的设计稿(750px)<br>你看到它设计的一个 border 宽度是 1px<br>你兴致勃勃地写下了 border: 1px solid #000;<br>然而 iphone6 实际渲染像素是 375px，那么设计需要 border 的其实是 border: 0.5px solid #000;<br>然后你的是 1px<br>不是 1px 变粗了，只是实际只是需要 0.5px 而已</p>
-<p><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot;&gt;</code> 意思是将物理设备的宽度设置给当前浏览器。</p>
+<h3 id="3-ios-1px-border-变宽"><a href="#3-ios-1px-border-变宽" class="headerlink" title="3. ios 1px border 变宽"></a>3. ios 1px border 变宽</h3><p>以 dpr = 2 为例：<br>你拿到一张标准的基于 iphone6 的设计稿(750px)<br>你看到它设计的一个 border 宽度是 1px<br>你兴致勃勃地写下了 border: 1px solid #000;<br>然而 iphone6 实际渲染像素是 375px，那么设计需要 border 的其实是 border: 0.5px solid #000;<br>然后你的是 1px<br>不是 1px 变粗了，只是实际只是需要 0.5px 而已</p>
+<p><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot;&gt;</code> 意思是将物理设备的宽度设置给当前浏览器</p>
+<p>在使用 table 标签设置 <code>border: 1px</code> 并使用 <code>border-collapse: collapse;</code> 合并边框后，发现 td 之间的边框宽度并不是 1px，而是比 1px 宽，大概为 1.5px</p>
 <h3 id="4-webapp-软键盘弹起时问题"><a href="#4-webapp-软键盘弹起时问题" class="headerlink" title="4. webapp 软键盘弹起时问题"></a>4. webapp 软键盘弹起时问题</h3><p>页面放大:</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"user-scalable=no"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
 
@@ -528,14 +580,14 @@
 <h3 id="8-ios-a-链接-input-type-”file”-等在点击时会出现灰色（touch-高亮）"><a href="#8-ios-a-链接-input-type-”file”-等在点击时会出现灰色（touch-高亮）" class="headerlink" title="8. ios a 链接 input type=”file” 等在点击时会出现灰色（touch 高亮）"></a>8. ios a 链接 input type=”file” 等在点击时会出现灰色（touch 高亮）</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">-webkit-tap-highlight-color</span>: <span class="selector-tag">transparent</span>;</span><br></pre></td></tr></table></figure>
 
 <h3 id="9-禁用浏览器自动调整字体大小"><a href="#9-禁用浏览器自动调整字体大小" class="headerlink" title="9. 禁用浏览器自动调整字体大小"></a>9. 禁用浏览器自动调整字体大小</h3><p>移动端浏览器切换橫向模式时会调整字体大小（字体变大），解决方式:</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  -webkit-text-size-adjust: none; // 或 100%</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="attribute">-webkit-text-size-adjust</span>: none; <span class="comment">/* 或 100% */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>谷歌浏览器已不支持这个属性了，不能通过该方式实现小于 12px 的字体，可使用缩放（transform:scale(0.8)）来实现小于 12px 的字体</p>
 </blockquote>
-<h3 id="10-appearance-属性"><a href="#10-appearance-属性" class="headerlink" title="10. appearance 属性"></a>10. appearance 属性</h3><p>normal|icon|window|button|menu|field;<br>所有主流浏览器都不支持 appearance 属性</p>
+<h3 id="10-appearance-属性"><a href="#10-appearance-属性" class="headerlink" title="10. appearance 属性"></a>10. appearance 属性</h3><p>normal|icon|window|button|menu|field<br>所有主流浏览器都不支持 appearance 属性</p>
 <p><code>-webkit-appearance: none;</code> 去除默认样式，使 ios 端和安卓端显示效果一样，但有一个问题，input 的 checkbox 和 radio 类型在安卓端可能无法正常显示</p>
-<h3 id="11-webkit-touch-callout-none"><a href="#11-webkit-touch-callout-none" class="headerlink" title="11. -webkit-touch-callout: none;"></a>11. -webkit-touch-callout: none;</h3><p>在 iOS 上，当你触摸并按住触摸的目标，比如一个链接，浏览器将显示链接有关的系统默认菜单。该属性可以禁用系统默认菜单。</p>
+<h3 id="11-webkit-touch-callout-none"><a href="#11-webkit-touch-callout-none" class="headerlink" title="11. -webkit-touch-callout: none;"></a>11. -webkit-touch-callout: none;</h3><p>在 iOS 上，当你触摸并按住触摸的目标，比如一个链接，浏览器将显示链接有关的系统默认菜单。该属性可以禁用系统默认菜单</p>
 
       
     </div>
@@ -572,8 +624,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/javascript/axios取消请求/" rel="next" title="axios 取消请求">
-                <i class="fa fa-chevron-left"></i> axios 取消请求
+              <a href="/2019/vue/vue-cli3配置通用模板及配置详解/" rel="next" title="vue-cli3 配置通用模板及配置详解">
+                <i class="fa fa-chevron-left"></i> vue-cli3 配置通用模板及配置详解
               </a>
             
           </div>
@@ -581,6 +633,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/javascript/addEventListener以及vue中的.passive修饰符/" rel="prev" title="addEventListener 以及 vue 中的 .passive 修饰符">
+                addEventListener 以及 vue 中的 .passive 修饰符 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -655,7 +711,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">51</span>
+                    <span class="site-state-item-count">54</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
