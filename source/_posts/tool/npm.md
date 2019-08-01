@@ -54,10 +54,21 @@ npm install <pkg> -D|--save-dev # 安装到 devDependencies
 npm install -g <pkg>
 
 # 更新包
-npm update
+npm outdated # 检查可以更新的模块
+npm update # 更新全部本地包
 # 更新全局安装的包
 npm update -g # 更新全部
 npm update -g| --global <pkg> # 更新指定包
+
+# 更新方式 1
+# 手动修改 package.json 中依赖包版本，之后执行
+npm install --force
+
+# 更新方式 2 使用第三方插件：
+npm install -g npm-check-updates
+ncu # 查看可更新包
+ncu -u # 更新 package.json
+npm install # 升级到最新版本
 
 # 删除本地包
 npm uninstall <pkg>

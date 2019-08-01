@@ -2,15 +2,14 @@
 title: CSS3 基础
 tags: [html&css, css3]
 categories:
-- [html&css]
+  - [html&css]
 date: 2018/11/23 18:00:00
 updated: 2019/04/29 11:16:00
 ---
 
-
 # CSS3
 
-如同人类的的进化一样，CSS3是CSS2的“进化”版本，在CSS2基础上，**增强** 或 **新增** 了许多特性， 弥补了CSS2的众多不足之处，使得Web开发变得更为高效和便捷。
+如同人类的的进化一样，CSS3 是 CSS2 的“进化”版本，在 CSS2 基础上，**增强**  或 **新增**  了许多特性， 弥补了 CSS2 的众多不足之处，使得 Web 开发变得更为高效和便捷。
 
 ## 现状
 
@@ -25,24 +24,20 @@ updated: 2019/04/29 11:16:00
 >
 > 目前已有很多私有前缀可以不写了，但为了兼容老版本的浏览器，可以仍沿用私有前缀和标准方法，逐渐过渡
 >
-> 一般来说，CSS3主要是为移动端而生的，因此我们在移动端没必要写太多的前缀，因为移动端的 ios 和 Android 的浏览器都是 webkit 内核
+> 一般来说，CSS3 主要是为移动端而生的，因此我们在移动端没必要写太多的前缀，因为移动端的 ios 和 Android 的浏览器都是 webkit 内核
 >
 > 谷歌、苹果浏览器：`-webkit-`
 > 火狐浏览器：`-moz-`
-> IE浏览器：`-ms-`
+> IE 浏览器：`-ms-`
 > 欧朋浏览器：`-o-`
 >
 > 一般工作中不用去加，会通过打包工具 webpack 自动添加
 
-
-
 ## 选择器
-
-
 
 ## 阴影
 
-* text-shadow: 文字阴影
+- text-shadow: 文字阴影
 
 ```
 语法：text-shadow：none | <shadow> [ , <shadow> ]*
@@ -52,9 +47,7 @@ text-shadow：水平偏移 垂直偏移 羽化大小 颜色
 可以设置多组阴影值，用逗号隔开
 ```
 
-
-
-* box-shadow: 边框阴影
+- box-shadow: 边框阴影
 
 ```
 语法：box-shadow：none | <shadow> [ , <shadow> ]*
@@ -66,8 +59,6 @@ box-shadow：水平偏移 垂直偏移 羽化大小 阴影外延 颜色
 inset：设置对象的阴影类型为内阴影。该值为空时，则对象的阴影类型为外阴影
 ```
 
-
-
 ## 背景
 
 background-size
@@ -75,8 +66,6 @@ background-size
 bakground-clip
 
 background-origin
-
-
 
 ## 渐变
 
@@ -103,8 +92,6 @@ background-image: linear-gradient(to right, red 20%, green 80%)
 background-image: linear-gradient(to right, red 20%, green 20%)
 ```
 
-
-
 ### 径向渐变
 
 > radial-gradient 指从一个中心点开始沿着四周产生渐变效果
@@ -123,8 +110,6 @@ background-image: radial-gradient(200px 80px at center, red, green);
 background-image: radial-gradient(200px at center, green 50%, red 50%);
 ```
 
-
-
 ## 盒子模型
 
 > CSS3 中可以通过 box-sizing 来指定盒模型，即可指定为 content-box、border-box，这样我们计算盒子大小的方式就发生了改变
@@ -133,8 +118,6 @@ background-image: radial-gradient(200px at center, green 50%, red 50%);
 
 - box-sizing: border-box 计算方式为 content = width – border - padding
 - box-sizing: content-box 计算方式为 content = width
-
-
 
 ## calc() 函数
 
@@ -145,11 +128,9 @@ background-image: radial-gradient(200px at center, green 50%, red 50%);
 - calc() 函数支持 `+` 、`-`、 `*` 、`/` 运算
 - calc() 函数使用标准的数学运算优先级规则
 
-
-
 ## 过渡
 
-* 过渡的属性
+- 过渡的属性
 
 如果两个状态发生改变，没有过渡，效果是瞬间变化的，如果加上了过渡，那么这个过程就会有动画的效果，整个状态变化的过程是由浏览器来完成的，我们只需要关注开始状态与结束状态即可
 
@@ -174,15 +155,13 @@ transition-timing-function: linear;
 > 1. 过渡必须要有两个状态的变化
 > 2. 过渡除了可以加到初始的状态，可以加到 hover 状态，但效果不一样，如果加到 hover 状态，回来就没有过渡了
 
-* 属性合写
+- 属性合写
 
 ```css
 /* 属性 时间 延时 速度 */
 /* 多个过渡用逗号隔开 */
 transition: width 1s 3s linear, border-radius 3s;
 ```
-
-
 
 ## 2D 转换
 
@@ -206,7 +185,7 @@ transform: scale(0.5); /* 让宽度和高度同时变化 */
 
 - scale 缩放时内部内容也会缩放
 
-- > 可以通过 transition-origin 设定缩放原点 （可以是数值或方位词top、left...)
+- > 可以通过 transition-origin 设定缩放原点 （可以是数值或方位词 top、left...)
 
 ### translate 平移
 
@@ -263,44 +242,37 @@ transform-origin: 40px 40px;
 ### 转换合写问题
 
 > transform 属性只能写一个，如果写了多个会覆盖，属性的值可以写多个， 用空格隔开即可
->
 
 ```css
 transform: translateX(800px) scale(1.5) rotate(360deg);
 ```
 
-* transform 属性可以连写，但是顺序对效果影响的，因为它会在第一个效果的基础上执行第二个效果，然后执行第三个效果（通常会把 rotate 放后面）
-* 如果对 transform 进行过度效果的时候，初始状态和结束状态要一一对应
+- transform 属性可以连写，但是顺序对效果影响的，因为它会在第一个效果的基础上执行第二个效果，然后执行第三个效果（通常会把 rotate 放后面）
+- 如果对 transform 进行过度效果的时候，初始状态和结束状态要一一对应
 
 【案例：盾牌打散与合并效果.html】
 
-
-
 ## 3D 转换
 
-思考：2D与3D的区别？
+思考：2D 与 3D 的区别？
 
 ### 坐标轴
 
-> 用 X、Y、Z 分别表示空间的3个维度，三条轴互相垂直。**注意+Y是向下的**
+> 用 X、Y、Z 分别表示空间的 3 个维度，三条轴互相垂直。**注意+Y 是向下的**
 
 ![img](CSS3/zbz.png)
-
-
 
 ### perspective 透视
 
 > 电脑显示屏是一个 2D 的平面，因为我们看不出来旋转的方向，通过 perspective 属性，可以定义 3D 元素距视图的距离，单位是 px。
 >
-> 说白了，设置了perspective属性后，就有了进大远小的效果了，在视觉上，让我们能看出来 3d 的效果。
+> 说白了，设置了 perspective 属性后，就有了进大远小的效果了，在视觉上，让我们能看出来 3d 的效果。
 >
 > 注意：当为元素定义 perspective 属性时，其子元素会获得透视效果，而不是元素本身。
 
 ```css
 perspective：500px;
 ```
-
-
 
 对于我们眼睛来说，离我们越近的房子，我们会感觉到这个房子越大，离我们越远的房子，就会感觉越小，其实房子的大小都是一样的，只是在视觉上的一种不同。
 
@@ -315,7 +287,7 @@ transform: rotateY(45deg); /* 让元素沿着Y轴转45度 */
 transform: rotateZ(45deg); /* 让元素沿着Z轴转45度 */
 ```
 
-【3D旋转.html】
+【3D 旋转.html】
 
 ### translate 平移
 
@@ -328,7 +300,7 @@ transform: translateY(45px);
 transform: translateZ(45px);
 ```
 
-【3D平移.html】
+【3D 平移.html】
 
 【立方体.html】
 
@@ -345,28 +317,22 @@ transform-style 与 perspective 区别
 
 - 透视：透视只是相当于设置了一个距离，辅助我们查看 3D 效果的工具
 - preserve-3d：给父盒子添加，让子元素保留 3D 的位置，说白了，只有设置了 preserve-3d，这个元素才能被称之为 3d 元素
-- 一个 3d 元素可以没有perspective，但是不能没有 transform-style
+- 一个 3d 元素可以没有 perspective，但是不能没有 transform-style
 
-
-
-【3D导航案例.html】
+【3D 导航案例.html】
 
 【切割轮播图案例】
 
-【3D相册案例】
-
-
+【3D 相册案例】
 
 ### 过渡结束事件
 
 ```javascript
 // 给最后一个ul添加过渡结束事件（节流阀）
 uls[uls.length - 1].addEventListener('transitionend', function() {
-	isCanAnimate = true
+  isCanAnimate = true
 })
 ```
-
-
 
 ## 动画
 
@@ -390,7 +356,7 @@ uls[uls.length - 1].addEventListener('transitionend', function() {
 
 ### animation
 
-animation 是一个复合属性，一共有8个参数
+animation 是一个复合属性，一共有 8 个参数
 
 ```
 animation-name: 动画名称，由@keyframes定义的
@@ -407,11 +373,9 @@ animation-play-state: 设置动画的状态。running：运动(默认) paused：
 
 <https://daneden.github.io/animate.css/>
 
-
-
 ## 字体图标
 
-我们经常把网页常用的一些小的图标，做成精灵图，然后通过 background-position 去调整位置，但是这个需要引入图片，并且图片大小改变之后会失真。在CSS3中可以使用字体图片，即使用图标跟使用文字一样
+我们经常把网页常用的一些小的图标，做成精灵图，然后通过 background-position 去调整位置，但是这个需要引入图片，并且图片大小改变之后会失真。在 CSS3 中可以使用字体图片，即使用图标跟使用文字一样
 
 优点：
 
@@ -425,27 +389,21 @@ animation-play-state: 设置动画的状态。running：运动(默认) paused：
 
 Font Awesome 使用 http://fontawesome.dashgame.com/
 
-
-
 ## 弹性布局(伸缩布局)
 
 > 布局：其实就是调整元素在水平和垂直方向上的布局方式
 
 CSS3 在布局方面做了非常大的改进，使得我们对块级元素的布局排列变得十分灵活，适应性非常强，其强大的伸缩性，在响应式开中可以发挥极大的作用。
 
-
-
-当给一个盒子设置了 display：flex 之后，这个盒子就有了 **主轴** 和 **侧轴**  的概念
+当给一个盒子设置了 display：flex 之后，这个盒子就有了 **主轴** 和 **侧轴** 的概念
 主轴：默认是水平方向向右，子元素在主轴上排列
 侧轴：与主轴垂直的轴称作侧轴，默认是垂直方向向下
 
 ![](CSS3/flex.png)
 
-
-
 ### 给容器设置的样式
 
-* flex-direction
+- flex-direction
 
 用来调整主轴的方向，默认是水平方向，可选值有：
 
@@ -456,7 +414,7 @@ row-reverse: 主轴方向为水平向左
 column-reverse: 主轴方向是竖直向上
 ```
 
-* justify-content
+- justify-content
 
 用来设置子元素在 **主轴方向的对齐方式** ，可选的值有：
 
@@ -468,7 +426,7 @@ space-between: 第一个贴左边，最后一个贴右边，其他盒子均分�
 space-around: 弹性盒子元素会平均地分布在行里（不会贴边）
 ```
 
-* align-items
+- align-items
 
 用于调整 **侧轴的对其方式** ，可选的值有：
 
@@ -479,7 +437,7 @@ center：元素在侧轴上居中对其
 stretch：元素的高度会被拉伸到最大（不能给死高度）
 ```
 
-* flex-wrap
+- flex-wrap
 
 控制 flex 容器是单行或者多行，默认不换行
 
@@ -488,7 +446,7 @@ nowrap：不换行（默认），会压缩子盒子的宽度
 wrap：当宽度不够的时候，会换行
 ```
 
-* align-content
+- align-content
 
 用来设置多行时侧轴的排列方式
 
@@ -504,17 +462,15 @@ stretch：拉伸，不设置高度的情况下
 align-items 与 align-content 的区别
 
 ```css
-align-items 调整的是侧轴的对其方式，不换行一般用 align-items
-align-content: 必须是多行才生效，如果单行，没有效果。换行了就用 align-content
+align-items调整的是侧轴的对其方式，不换行一般用align-items
+align-content: 必须是多行才生效，如果单行，没有效果。换行了就用 align-content;
 ```
-
-
 
 !> 上述属性都是给父盒子设置的，这些样式影响的是所有的子元素，接下来的几个属性是给子盒子设置的，用来单独设置子元素的样式
 
 ### 给子元素设置的样式
 
-* flex
+- flex
 
 用来设置子盒子如何分配主轴剩余空间
 
@@ -522,15 +478,15 @@ align-content: 必须是多行才生效，如果单行，没有效果。换行�
 flex: 1;
 ```
 
-* order
+- order
 
-定义项目的排列顺序。数值越小，排列越靠前，默认为0。
+定义项目的排列顺序。数值越小，排列越靠前，默认为 0。
 
 ```css
 order: 1;
 ```
 
-* align-self
+- align-self
 
 align-self 用于设置当前元素在侧轴的位置，是给子元素设置，优先级比 align-items 的优先级高
 
@@ -540,18 +496,16 @@ align-self 用于设置当前元素在侧轴的位置，是给子元素设置，
 
 阮一峰的博客[http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)
 
-【案例：6面神骰】
+【案例：6 面神骰】
 
 【案例：携程网】
 
-【案例：360浏览器】
-
-
+【案例：360 浏览器】
 
 # other
 
 微调元素
 
-* margin-top: - ;
-* transform：translateY();
-*  position: relative; top: - ;
+- margin-top: - ;
+- transform：translateY();
+- position: relative; top: - ;
