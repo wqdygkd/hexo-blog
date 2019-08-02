@@ -186,6 +186,9 @@ const chainWebpack = config => {
   //   return args
   // })
 
+  /* 配置绝对路径 */
+  config.resolve.alias.set('~', path.resolve('public'))
+
   // 修改静态资源打包方式，下例为超过10k才用文件导入的方式，否则为base64.默认为4k
   config.module
     .rule('images')

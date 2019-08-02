@@ -371,9 +371,12 @@ comments: false
 
 ### 工具软件
 
-- [Dash/Mac](https://kapeli.com/dash):an API Documentation Browser and Code Snippet Manager
+- [Dash/Mac](https://kapeli.com/dash): an API Documentation Browser and Code Snippet Manager
+
 - [Zeal/Win](https://zealdocs.org/)
 
-- [Xshell 5](https://www.netsarang.com/products/xsh_overview.html):Secure terminal emulator
+- [listen1](http://listen1.github.io/listen1/): 全平台音乐播放器，支持网易云音乐，虾米，QQ 音乐，酷狗音乐，酷我音乐网站的歌曲
 
-FiraCode  https://github.com/tonsky/FiraCode
+- [Xshell 5](https://www.netsarang.com/products/xsh_overview.html): Secure terminal emulator
+
+FiraCode https://github.com/tonsky/FiraCode
