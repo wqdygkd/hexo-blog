@@ -380,3 +380,7 @@ comments: false
 - [Xshell 5](https://www.netsarang.com/products/xsh_overview.html): Secure terminal emulator
 
 FiraCode https://github.com/tonsky/FiraCode
+
+匿名文件分享工具
+https://www.mirrored.to/
+https://www.upload.ee/

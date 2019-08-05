@@ -100,19 +100,44 @@ chmod +x superbench.sh
 ./superbench.sh
 ```
 
-# 一键加速 VPS 服务器
+# 加速
 
-【谷歌 BBR 加速教程】
+[锐速/BBR/魔改 BBR/KCPTUN 加速效果对比测试](https://ssr.tools/674)
+
+【原版 BBR】
 
 ```bash
 wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh
 chmod +x bbr.sh
 ./bbr.sh
+
+# 重启服务器
+
+# 验证是否安装成功
+sysctl net.ipv4.tcp_congestion_control
+# 得到如下结果表示安装成功
+net.ipv4.tcp_congestion_control = bbr
 ```
 
-把上面整个代码复制后粘贴进去，不动的时候按回车，然后耐心等待，最后重启 vps 服务器即可。
+【魔改 BBR】
 
-最后输入 y 重启服务器
+只有 centos 和 debain 版
+
+```bash
+# centos 版
+wget --no-check-certificate https://raw.githubusercontent.com/tcp-nanqinlang/general/master/General/CentOS/bash/tcp_nanqinlang-1.3.2.sh
+bash tcp_nanqinlang-1.3.2.sh
+
+# debain 版
+wget --no-check-certificate https://github.com/tcp-nanqinlang/general/releases/download/3.4.2.1/tcp_nanqinlang-fool-1.3.0.sh
+bash tcp_nanqinlang-fool-1.3.0.sh
+
+# 选择 1 安装内核，重启
+
+# 运行 选择 2 安装并开启算法
+bash tcp_nanqinlang-1.3.2.sh
+# 选择 2 安装并开启算法
+```
 
 # 常见问题参考解决方法：
 

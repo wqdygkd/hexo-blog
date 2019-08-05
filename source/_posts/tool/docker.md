@@ -287,5 +287,9 @@ service sshd restartchkconfig sshd on
 如果无法执行，可试着执行：
 
 ```
-systemctl start sshd.servicesystemctl enable sshd.service
+systemctl start sshd.service systemctl enable sshd.service
+
+service sshd restart
 ```
+
+docker-compose
