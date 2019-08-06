@@ -125,7 +125,7 @@
 <meta property="og:description" content="Apache 安装centos# yum install httpd  （centos之下，Apache的名字叫httpd，和Apache的主程序 httpd.exe 同名）  打开并测试 Apache 先确保，云服务器的 80 端口，是允许外网访问的。  开启 Apache 服务   service httpd start# 查看状态service httpd status   测试 Apach">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
-<meta property="og:updated_time" content="2019-07-31T14:38:03.457Z">
+<meta property="og:updated_time" content="2019-08-05T13:33:15.645Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【技术贴】配置 web 服务器">
 <meta name="twitter:description" content="Apache 安装centos# yum install httpd  （centos之下，Apache的名字叫httpd，和Apache的主程序 httpd.exe 同名）  打开并测试 Apache 先确保，云服务器的 80 端口，是允许外网访问的。  开启 Apache 服务   service httpd start# 查看状态service httpd status   测试 Apach">
@@ -221,39 +221,6 @@
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     
-  
-    <css-doodle>
-	:doodle {
-		@grid: 1x3 / 100vmax;
-    position: absolute;
-    top: 0; left: 0;
-    z-index: 0;
-	}
-
-	@size: 100% 150%;
-	position: absolute;
-
-	background: @m(100, (
-		linear-gradient(transparent, @p(
-      #FFFDE1@repeat(2, @p([0-9a-f])),
-      #FB3569@repeat(2, @p([0-9a-f]))
-    ))
-		@r(0%, 100%) @r(0%, 100%) /
-		@r(1px) @r(23vmin)
-		no-repeat
-	));
-
-	will-change: transform;
-	animation: f 20s linear calc(-20s / @size() * @i()) infinite;
-	@keyframes f {
-		from { transform: translateY(-100%) }
-		to { transform: translateY(100%) }
-	}
-</css-doodle>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/css-doodle/0.6.1/css-doodle.min.js"></script>
-
-  
-
 
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -622,6 +589,8 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">/usr/share/nginx/html/index.html</span><br></pre></td></tr></table></figure>
 
 <h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>你可以修改在 <strong>/etc/nginx/</strong> 目录中的文件来更改配置 <strong>./etc/nginx/nginx.conf</strong> 是主配置文件</p>
+<h1 id="SSH-工具连接谷歌云"><a href="#SSH-工具连接谷歌云" class="headerlink" title="SSH 工具连接谷歌云"></a>SSH 工具连接谷歌云</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 切换到 root 角色</span></span><br><span class="line">sudo -i</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改 SSH 配置文件 /etc/ssh/sshd_config</span></span><br><span class="line">vi /etc/ssh/sshd_config</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改</span></span><br><span class="line">PermitRootLogin yes <span class="comment"># 开启root用户访问</span></span><br><span class="line">PasswordAuthentication yes <span class="comment"># 开启密码登陆</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 给root用户设置密码</span></span><br><span class="line">passwd root</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启SSH服务使修改生效</span></span><br><span class="line">service sshd restart</span><br></pre></td></tr></table></figure>
+
 
         
       </div>
@@ -723,7 +692,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">54</span>
+                    <span class="site-state-item-count">55</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -901,7 +870,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Apache-安装"><span class="nav-text">Apache 安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#centos"><span class="nav-text">centos</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#打开并测试-Apache"><span class="nav-text">打开并测试 Apache</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改-Apache-的配置文件"><span class="nav-text">修改 Apache 的配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装证书"><span class="nav-text">安装证书</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Nginx-的安装与配置"><span class="nav-text">Nginx 的安装与配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CentOS-下安装："><span class="nav-text">CentOS 下安装：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ubuntu-下安装"><span class="nav-text">ubuntu 下安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#arch-下安装-nginx"><span class="nav-text">arch 下安装 nginx</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#要-Nginx-服务开机时启动-运行以下命令"><span class="nav-text">要 Nginx 服务开机时启动,运行以下命令:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置"><span class="nav-text">配置</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Apache-安装"><span class="nav-text">Apache 安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#centos"><span class="nav-text">centos</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#打开并测试-Apache"><span class="nav-text">打开并测试 Apache</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改-Apache-的配置文件"><span class="nav-text">修改 Apache 的配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装证书"><span class="nav-text">安装证书</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Nginx-的安装与配置"><span class="nav-text">Nginx 的安装与配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CentOS-下安装："><span class="nav-text">CentOS 下安装：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ubuntu-下安装"><span class="nav-text">ubuntu 下安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#arch-下安装-nginx"><span class="nav-text">arch 下安装 nginx</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#要-Nginx-服务开机时启动-运行以下命令"><span class="nav-text">要 Nginx 服务开机时启动,运行以下命令:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置"><span class="nav-text">配置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SSH-工具连接谷歌云"><span class="nav-text">SSH 工具连接谷歌云</span></a></li></ol></div>
             
 
           </div>
@@ -1077,7 +1046,9 @@
   
   
 
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/valine/1.3.9/Valine.min.js"></script>
 
 <script>
   var GUEST = ['nick', 'mail', 'link'];

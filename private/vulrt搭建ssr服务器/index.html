@@ -124,7 +124,7 @@
 <meta property="og:site_name" content="稻草人">
 <meta property="og:description" content="购买 VPS 服务器vultr 注册地址：https://www.vultr.com/ 注册并邮件激活账号，充值后即可购买服务器。充值方式是 paypal（首选）或支付宝，使用 paypal 有银行卡（包括信用卡）即可。paypal 注册地址：https://www.paypal.com  vultr 实际上是折算成小时来计费的，比如服务器是 2.5 美元 1 个月，那么每小时收费为 2.5/30">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-31T14:35:18.536Z">
+<meta property="og:updated_time" content="2019-08-05T13:32:56.554Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【技术贴】vultr 搭建ss服务器">
 <meta name="twitter:description" content="购买 VPS 服务器vultr 注册地址：https://www.vultr.com/ 注册并邮件激活账号，充值后即可购买服务器。充值方式是 paypal（首选）或支付宝，使用 paypal 有银行卡（包括信用卡）即可。paypal 注册地址：https://www.paypal.com  vultr 实际上是折算成小时来计费的，比如服务器是 2.5 美元 1 个月，那么每小时收费为 2.5/30">
@@ -219,39 +219,6 @@
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     
-  
-    <css-doodle>
-	:doodle {
-		@grid: 1x3 / 100vmax;
-    position: absolute;
-    top: 0; left: 0;
-    z-index: 0;
-	}
-
-	@size: 100% 150%;
-	position: absolute;
-
-	background: @m(100, (
-		linear-gradient(transparent, @p(
-      #FFFDE1@repeat(2, @p([0-9a-f])),
-      #FB3569@repeat(2, @p([0-9a-f]))
-    ))
-		@r(0%, 100%) @r(0%, 100%) /
-		@r(1px) @r(23vmin)
-		no-repeat
-	));
-
-	will-change: transform;
-	animation: f 20s linear calc(-20s / @size() * @i()) infinite;
-	@keyframes f {
-		from { transform: translateY(-100%) }
-		to { transform: translateY(100%) }
-	}
-</css-doodle>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/css-doodle/0.6.1/css-doodle.min.js"></script>
-
-  
-
 
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -547,11 +514,14 @@
 <p>#测速脚本官方地址</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://raw.githubusercontent.com/oooldking/script/master/superbench.sh</span><br><span class="line">chmod +x superbench.sh</span><br><span class="line">./superbench.sh</span><br></pre></td></tr></table></figure>
 
-<h1 id="一键加速-VPS-服务器"><a href="#一键加速-VPS-服务器" class="headerlink" title="一键加速 VPS 服务器"></a>一键加速 VPS 服务器</h1><p>【谷歌 BBR 加速教程】</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh</span><br><span class="line">chmod +x bbr.sh</span><br><span class="line">./bbr.sh</span><br></pre></td></tr></table></figure>
+<h1 id="加速"><a href="#加速" class="headerlink" title="加速"></a>加速</h1><p><a href="https://ssr.tools/674" target="_blank" rel="noopener">锐速/BBR/魔改 BBR/KCPTUN 加速效果对比测试</a></p>
+<p>【原版 BBR】</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh</span><br><span class="line">chmod +x bbr.sh</span><br><span class="line">./bbr.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启服务器</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证是否安装成功</span></span><br><span class="line">sysctl net.ipv4.tcp_congestion_control</span><br><span class="line"><span class="comment"># 得到如下结果表示安装成功</span></span><br><span class="line">net.ipv4.tcp_congestion_control = bbr</span><br></pre></td></tr></table></figure>
 
-<p>把上面整个代码复制后粘贴进去，不动的时候按回车，然后耐心等待，最后重启 vps 服务器即可。</p>
-<p>最后输入 y 重启服务器</p>
+<p>【魔改 BBR】</p>
+<p>只有 centos 和 debain 版</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># centos 版</span></span><br><span class="line">wget --no-check-certificate https://raw.githubusercontent.com/tcp-nanqinlang/general/master/General/CentOS/bash/tcp_nanqinlang-1.3.2.sh</span><br><span class="line">bash tcp_nanqinlang-1.3.2.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># debain 版</span></span><br><span class="line">wget --no-check-certificate https://github.com/tcp-nanqinlang/general/releases/download/3.4.2.1/tcp_nanqinlang-fool-1.3.0.sh</span><br><span class="line">bash tcp_nanqinlang-fool-1.3.0.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 选择 1 安装内核，重启</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行 选择 2 安装并开启算法</span></span><br><span class="line">bash tcp_nanqinlang-1.3.2.sh</span><br><span class="line"><span class="comment"># 选择 2 安装并开启算法</span></span><br></pre></td></tr></table></figure>
+
 <h1 id="常见问题参考解决方法："><a href="#常见问题参考解决方法：" class="headerlink" title="常见问题参考解决方法："></a>常见问题参考解决方法：</h1><p>1、用了一段时间发现 ssr 账号用不了了</p>
 <p>首先 ping 一下自己的 ip，看看能不能 ping 的通，ping 不通那么就是 ip 被墙了，ip 被墙时，xshell 也会连接不上服务器，遇到这种情况重新部署一个新的服务器，新的服务器就是新的 ip。关于怎么 ping ip 的方法，可以自行网上搜索，或者用 xshell 软件连接服务器来判断，连不上即是被墙了。vultr 开通和删除服务器非常方便，新服务器即新 ip，大多数 vps 服务商都没有这样的服务，一般的 vps 服务商可能会提供免费更换 1 次 ip 的服务。</p>
 <p>2、刚搭建好的 ssr 账号，ip 能 ping 通，但是还是用不了</p>
@@ -672,7 +642,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">54</span>
+                    <span class="site-state-item-count">55</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -850,7 +820,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#购买-VPS-服务器"><span class="nav-text">购买 VPS 服务器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开通服务器"><span class="nav-text">开通服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#服务器选择"><span class="nav-text">服务器选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取-vps-系统密码"><span class="nav-text">获取 vps 系统密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删掉服务器"><span class="nav-text">删掉服务器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#部署-VPS-服务器"><span class="nav-text">部署 VPS 服务器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一键加速-VPS-服务器"><span class="nav-text">一键加速 VPS 服务器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常见问题参考解决方法："><span class="nav-text">常见问题参考解决方法：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#客户端下载"><span class="nav-text">客户端下载</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#购买-VPS-服务器"><span class="nav-text">购买 VPS 服务器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开通服务器"><span class="nav-text">开通服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#服务器选择"><span class="nav-text">服务器选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取-vps-系统密码"><span class="nav-text">获取 vps 系统密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删掉服务器"><span class="nav-text">删掉服务器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#部署-VPS-服务器"><span class="nav-text">部署 VPS 服务器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#加速"><span class="nav-text">加速</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常见问题参考解决方法："><span class="nav-text">常见问题参考解决方法：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#客户端下载"><span class="nav-text">客户端下载</span></a></li></ol></div>
             
 
           </div>
@@ -1026,7 +996,9 @@
   
   
 
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/valine/1.3.9/Valine.min.js"></script>
 
 <script>
   var GUEST = ['nick', 'mail', 'link'];
