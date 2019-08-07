@@ -360,3 +360,22 @@ const serverConfig = {
 vue add router
 vue add vuex
 ```
+
+### 配置 externals
+
+如果我们想引用一个包，但是又不想让 webpack 打包，并且又不影响我们在程序中以 CMD、AMD 或者 window/global 全局等方式进行使用，那就可以通过配置 externals 将包抽离出来。这个功能主要是用在创建一个库的时候用的，但是也可以在我们项目开发中充分使用。
+
+```html
+<!-- script 标签引入vue  element-ui -->
+<script src="cdn/vue.js"></script>
+<script src="cdn/element-ui.js"></script>
+```
+
+```js
+configureWebpack: config => {
+  config.externals = {
+    vue: 'Vue', // key 为库名称，value 为库在你项目中使用的关键字
+    'element-ui': 'ELEMENT'
+  }
+}
+```

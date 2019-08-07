@@ -37,7 +37,7 @@ chainWebpack: config => {
 }
 ```
 
-- ## svue-cli 打包时删除 console、deugger、注释
+- ## vue-cli 打包时删除 console、deugger、注释
 
 vue-cli2：
 

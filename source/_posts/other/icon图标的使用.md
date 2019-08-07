@@ -99,14 +99,14 @@ config.module
 // src/icons 文件夹下的 svg 使用 svg-sprite-loader
 config.module
   .rule('svg-sprite-loader')
+  .include.add(path.resolve(__dirname, 'src/icons'))
+  .end()
   .test(/\.svg$/)
   .use('svg-sprite')
   .loader('svg-sprite-loader')
   .options({
     symbolId: 'icon-[name]'
   })
-  .end()
-  .include.add(path.resolve(__dirname, 'src/icons'))
   .end()
 ```
 
@@ -170,3 +170,27 @@ requireComponent.keys().forEach(filename => {
 ### 优化 svg
 
 删除无用信息 [svgo](https://github.com/svg/svgo)
+阿里云导出的 svg 是带有默认的 fill 的，导致图标不能继承父级元素的颜色,可以通过删除默认 fill 解决
+
+安装
+
+```bash
+npm i svgo svgo-loader -D
+```
+
+```js
+config.module
+  .rule('svg-sprite-loader')
+  .include.add(path.resolve(__dirname, 'src/icons'))
+  .use('svgo-loader')
+  .loader('svgo-loader')
+  .tap(options => {
+    options = {
+      plugins: [
+        { removeXMLNS: true }, // 删除xmlns属性（对于内联svg，默认情况下禁用）
+        { convertStyleToAttrs: true } // 将css样式转换为svg元素属性
+      ]
+    }
+    return options
+  })
+```
