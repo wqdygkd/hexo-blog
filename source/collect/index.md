@@ -20,6 +20,39 @@ comments: false
     </a>
   </div>
 
+  <!-- vue Cookbook -->
+  <div class="card">
+    <a href="https://cn.vuejs.org/v2/cookbook/" target="_blank">
+      <img src="/index/vue.png" />
+      <div class="desc">
+        <div class="name">vue Cookbook</div>
+        <div class="info">为开发者提供了一些示例，涵盖常见的或有趣的用例</div>
+      </div>
+    </a>
+  </div>
+
+  <!-- Vue Test Utils -->
+  <div class="card">
+    <a href="https://vue-test-utils.vuejs.org/zh/" target="_blank">
+      <img src="/index/vue.png" />
+      <div class="desc">
+        <div class="name">Vue Test Utils</div>
+        <div class="info">Vue.js 官方的单元测试实用工具库</div>
+      </div>
+    </a>
+  </div>
+
+  <!-- Vue Loader -->
+  <div class="card">
+    <a href="https://vue-loader-v14.vuejs.org/zh-cn/" target="_blank">
+      <img src="/index/vue.png" />
+      <div class="desc">
+        <div class="name">Vue Loader</div>
+        <div class="info"></div>
+      </div>
+    </a>
+  </div>
+
   <!-- element -->
   <div class="card">
     <a href="https://element.eleme.cn" target="_blank">
@@ -141,6 +174,17 @@ comments: false
 
 <div class="collect">
 
+  <!-- mdn -->
+  <div class="card">
+    <a href="https://developer.mozilla.org/zh-CN/docs/Learn" target="_blank">
+      <img src="/index/mozilla.png" />
+      <div class="desc">
+        <div class="name">MDN</div>
+        <div class="info">学习 Web 开发的最佳实践</div>
+      </div>
+    </a>
+  </div>
+
   <!-- D2 Daily -->
   <div class="card">
     <a href="https://daily.fairyever.com/" target="_blank">
@@ -179,17 +223,6 @@ comments: false
 ### 工具
 
 <div class="collect">
-
-  <!-- mdn -->
-  <div class="card">
-    <a href="https://developer.mozilla.org/zh-CN/docs/Learn" target="_blank">
-      <img src="/index/mozilla.png" />
-      <div class="desc">
-        <div class="name">MDN</div>
-        <div class="info">学习 Web 开发的最佳实践</div>
-      </div>
-    </a>
-  </div>
 
   <!-- caniuse -->
   <div class="card">
@@ -381,6 +414,6 @@ comments: false
 
 FiraCode https://github.com/tonsky/FiraCode
 
-匿名文件分享工具
+文件匿名分享工具
 https://www.mirrored.to/
 https://www.upload.ee/

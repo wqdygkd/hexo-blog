@@ -1,5 +1,5 @@
 ---
-title: icon 图标的使用
+title: icon 图标在 vue 项目中的使用
 date: 2019/08/01
 updated: 2019/08/02
 categories:
@@ -163,6 +163,12 @@ requireComponent.keys().forEach(filename => {
     componentConfig.default || componentConfig
   )
 })
+```
+
+```js
+const requireAll = requireContext => requireContext.keys().map(requireContext)
+const req = require.context('@/icons', false)
+requireAll(req)
 ```
 
 之后直接将图标放入 `@/icons` 文件夹下就可以直接使用了，删改图标同理
