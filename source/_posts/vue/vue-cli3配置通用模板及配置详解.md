@@ -379,3 +379,40 @@ configureWebpack: config => {
   }
 }
 ```
+
+### 修改本地 host 通过域名访问项目
+
+配置 host
+
+```
+# host
+127.0.0.1 abc.baidu.com
+```
+
+```js
+devServer: {
+  host: 'abc.baidu.com'
+}
+```
+
+npm run serve 启动服务后可以通过 abc.baidu.com 访问
+
+如果访问不了，可能需要清理 dns 缓存
+
+清空电脑的 DNS 缓存：cmd 运行 ipconfig /flushdns
+
+清理浏览器中的 dns 缓存：浏览器打开 chrome://net-internals/#dns
+
+如果 host 为 127.0.0.1 或 localhost，需要配置 disableHostCheck: true
+
+```js
+devServer: {
+  host: 'localhost',
+  disableHostCheck: true
+}
+```
+
+新版的 webpack-dev-server 出于安全考虑，默认检查 hostname
+disableHostCheck: true 目的是解决通过域名访问时出现 Invalid Host header
+
+经测试 依然会出现 Invalid Host header，导致项目不能正常访问
