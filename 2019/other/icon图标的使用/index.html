@@ -119,14 +119,14 @@
   <meta name="description" content="参考链接：https://juejin.im/post/59bb864b5188257e7a427c09 使用 iconfont阿里开源图库 https://www.iconfont.cn/ 下载代码到本地（也可以使用在线链接）打开 demo_index.html 使用说明，有三种使用方式 unicode font-class symbolunicode 方式： &amp;#x33; 这样，不直观，语意不">
 <meta name="keywords" content="web">
 <meta property="og:type" content="article">
-<meta property="og:title" content="icon 图标的使用">
+<meta property="og:title" content="icon 图标在 vue 项目中的使用">
 <meta property="og:url" content="https://cuilongjin.top/2019/other/icon图标的使用/index.html">
 <meta property="og:site_name" content="稻草人">
 <meta property="og:description" content="参考链接：https://juejin.im/post/59bb864b5188257e7a427c09 使用 iconfont阿里开源图库 https://www.iconfont.cn/ 下载代码到本地（也可以使用在线链接）打开 demo_index.html 使用说明，有三种使用方式 unicode font-class symbolunicode 方式： &amp;#x33; 这样，不直观，语意不">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-08-01T16:00:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="icon 图标的使用">
+<meta name="twitter:title" content="icon 图标在 vue 项目中的使用">
 <meta name="twitter:description" content="参考链接：https://juejin.im/post/59bb864b5188257e7a427c09 使用 iconfont阿里开源图库 https://www.iconfont.cn/ 下载代码到本地（也可以使用在线链接）打开 demo_index.html 使用说明，有三种使用方式 unicode font-class symbolunicode 方式： &amp;#x33; 这样，不直观，语意不">
 
 
@@ -147,7 +147,7 @@
   };
 </script>
 
-  <title>icon 图标的使用 | 稻草人</title>
+  <title>icon 图标在 vue 项目中的使用 | 稻草人</title>
   
 
 
@@ -427,7 +427,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">icon 图标的使用<a href="https://github.com/cuilongjin/cuilongjin.github.io/tree/dev/source/_posts/other/icon图标的使用.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+          <h2 class="post-title" itemprop="name headline">icon 图标在 vue 项目中的使用<a href="https://github.com/cuilongjin/cuilongjin.github.io/tree/dev/source/_posts/other/icon图标的使用.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
 
               
             
@@ -509,7 +509,7 @@
 
           
           
-            <span id="/2019/other/icon图标的使用/" class="post-meta-item leancloud_visitors" data-flag-title="icon 图标的使用">
+            <span id="/2019/other/icon图标的使用/" class="post-meta-item leancloud_visitors" data-flag-title="icon 图标在 vue 项目中的使用">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -568,7 +568,7 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  chainWebpack: <span class="function"><span class="params">config</span> =&gt;</span> &#123;</span><br><span class="line">    config.module.rule(<span class="string">'svg'</span>).uses.clear()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>或者添加忽略，然后加上自定义的 svg rule，最后的配置如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 使用 svg-sprite-loader 处理 svg */</span></span><br><span class="line"><span class="comment">// 默认规则忽略 src/icons 文件夹</span></span><br><span class="line">config.module</span><br><span class="line">  .rule(<span class="string">'svg'</span>)</span><br><span class="line">  .exclude.add(path.resolve(__dirname, <span class="string">'src/icons'</span>))</span><br><span class="line">  .end()</span><br><span class="line"></span><br><span class="line"><span class="comment">// src/icons 文件夹下的 svg 使用 svg-sprite-loader</span></span><br><span class="line">config.module</span><br><span class="line">  .rule(<span class="string">'svg-sprite-loader'</span>)</span><br><span class="line">  .test(<span class="regexp">/\.svg$/</span>)</span><br><span class="line">  .use(<span class="string">'svg-sprite'</span>)</span><br><span class="line">  .loader(<span class="string">'svg-sprite-loader'</span>)</span><br><span class="line">  .options(&#123;</span><br><span class="line">    symbolId: <span class="string">'icon-[name]'</span></span><br><span class="line">  &#125;)</span><br><span class="line">  .end()</span><br><span class="line">  .include.add(path.resolve(__dirname, <span class="string">'src/icons'</span>))</span><br><span class="line">  .end()</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 使用 svg-sprite-loader 处理 svg */</span></span><br><span class="line"><span class="comment">// 默认规则忽略 src/icons 文件夹</span></span><br><span class="line">config.module</span><br><span class="line">  .rule(<span class="string">'svg'</span>)</span><br><span class="line">  .exclude.add(path.resolve(__dirname, <span class="string">'src/icons'</span>))</span><br><span class="line">  .end()</span><br><span class="line"></span><br><span class="line"><span class="comment">// src/icons 文件夹下的 svg 使用 svg-sprite-loader</span></span><br><span class="line">config.module</span><br><span class="line">  .rule(<span class="string">'svg-sprite-loader'</span>)</span><br><span class="line">  .include.add(path.resolve(__dirname, <span class="string">'src/icons'</span>))</span><br><span class="line">  .end()</span><br><span class="line">  .test(<span class="regexp">/\.svg$/</span>)</span><br><span class="line">  .use(<span class="string">'svg-sprite'</span>)</span><br><span class="line">  .loader(<span class="string">'svg-sprite-loader'</span>)</span><br><span class="line">  .options(&#123;</span><br><span class="line">    symbolId: <span class="string">'icon-[name]'</span></span><br><span class="line">  &#125;)</span><br><span class="line">  .end()</span><br></pre></td></tr></table></figure>
 
 <p>之后可以通过如下方式使用</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'@/icons/qq.svg'</span></span><br></pre></td></tr></table></figure>
@@ -583,8 +583,15 @@
 <p>自动引入 @/icons 下面所有的图标</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 基础组件的自动化全局注册</span></span><br><span class="line"><span class="keyword">const</span> requireComponent = <span class="built_in">require</span>.context(<span class="string">'../../components'</span>, <span class="literal">false</span>)</span><br><span class="line"><span class="comment">// console.log(requireComponent.keys())</span></span><br><span class="line">requireComponent.keys().forEach(<span class="function"><span class="params">filename</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> componentConfig = requireComponent(filename)</span><br><span class="line">  <span class="comment">// console.log(componentConfig)</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> componentName = filename</span><br><span class="line">    .split(<span class="string">'/'</span>)</span><br><span class="line">    .pop()</span><br><span class="line">    .replace(<span class="regexp">/\.\w+$/</span>, <span class="string">''</span>)</span><br><span class="line">  <span class="comment">// console.log(componentName)</span></span><br><span class="line"></span><br><span class="line">  Vue.component(</span><br><span class="line">    componentName,</span><br><span class="line">    <span class="comment">// 如果这个组件选项是通过 `export default` 导出的，</span></span><br><span class="line">    <span class="comment">// 那么就会优先使用 `.default`，</span></span><br><span class="line">    <span class="comment">// 否则回退到使用模块的根。</span></span><br><span class="line">    componentConfig.default || componentConfig</span><br><span class="line">  )</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> requireAll = <span class="function"><span class="params">requireContext</span> =&gt;</span> requireContext.keys().map(requireContext)</span><br><span class="line"><span class="keyword">const</span> req = <span class="built_in">require</span>.context(<span class="string">'@/icons'</span>, <span class="literal">false</span>)</span><br><span class="line">requireAll(req)</span><br></pre></td></tr></table></figure>
+
 <p>之后直接将图标放入 <code>@/icons</code> 文件夹下就可以直接使用了，删改图标同理</p>
-<h3 id="优化-svg"><a href="#优化-svg" class="headerlink" title="优化 svg"></a>优化 svg</h3><p>删除无用信息 <a href="https://github.com/svg/svgo" target="_blank" rel="noopener">svgo</a></p>
+<h3 id="优化-svg"><a href="#优化-svg" class="headerlink" title="优化 svg"></a>优化 svg</h3><p>删除无用信息 <a href="https://github.com/svg/svgo" target="_blank" rel="noopener">svgo</a><br>阿里云导出的 svg 是带有默认的 fill 的，导致图标不能继承父级元素的颜色,可以通过删除默认 fill 解决</p>
+<p>安装</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm i svgo svgo-loader -D</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">config.module</span><br><span class="line">  .rule(<span class="string">'svg-sprite-loader'</span>)</span><br><span class="line">  .include.add(path.resolve(__dirname, <span class="string">'src/icons'</span>))</span><br><span class="line">  .use(<span class="string">'svgo-loader'</span>)</span><br><span class="line">  .loader(<span class="string">'svgo-loader'</span>)</span><br><span class="line">  .tap(<span class="function"><span class="params">options</span> =&gt;</span> &#123;</span><br><span class="line">    options = &#123;</span><br><span class="line">      plugins: [</span><br><span class="line">        &#123; <span class="attr">removeXMLNS</span>: <span class="literal">true</span> &#125;, <span class="comment">// 删除xmlns属性（对于内联svg，默认情况下禁用）</span></span><br><span class="line">        &#123; <span class="attr">convertStyleToAttrs</span>: <span class="literal">true</span> &#125; <span class="comment">// 将css样式转换为svg元素属性</span></span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> options</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+
 
       
     </div>

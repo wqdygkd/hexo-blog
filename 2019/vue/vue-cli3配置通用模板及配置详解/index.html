@@ -124,7 +124,7 @@
 <meta property="og:site_name" content="稻草人">
 <meta property="og:description" content="安装： npm install -g @vue/cli  创建一个项目： vue create my-project# ORvue ui  如果你仍然需要使用旧版本的 vue init 功能，你可以全局安装一个桥接工具： npm install -g @vue/cli-init# `vue init` 的运行效果将会跟 `vue-cli@2.x` 相同vue init webpack my-pro">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-03T07:32:38.283Z">
+<meta property="og:updated_time" content="2019-08-13T12:03:02.764Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue-cli3 配置通用模板及配置详解">
 <meta name="twitter:description" content="安装： npm install -g @vue/cli  创建一个项目： vue create my-project# ORvue ui  如果你仍然需要使用旧版本的 vue init 功能，你可以全局安装一个桥接工具： npm install -g @vue/cli-init# `vue init` 的运行效果将会跟 `vue-cli@2.x` 相同vue init webpack my-pro">
@@ -468,7 +468,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-03 15:32:38" itemprop="dateModified" datetime="2019-08-03T15:32:38+08:00">2019-08-03</time>
+                <time title="修改时间：2019-08-13 20:03:02" itemprop="dateModified" datetime="2019-08-13T20:03:02+08:00">2019-08-13</time>
               </span>
             
           
@@ -641,6 +641,25 @@
 <p>在 index.html 中引入该文件，之后在开发时就可以通过 <code>serverConfig.baseUrl</code> 使用变量</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vue add router</span><br><span class="line">vue add vuex</span><br></pre></td></tr></table></figure>
 
+<h3 id="配置-externals"><a href="#配置-externals" class="headerlink" title="配置 externals"></a>配置 externals</h3><p>如果我们想引用一个包，但是又不想让 webpack 打包，并且又不影响我们在程序中以 CMD、AMD 或者 window/global 全局等方式进行使用，那就可以通过配置 externals 将包抽离出来。这个功能主要是用在创建一个库的时候用的，但是也可以在我们项目开发中充分使用。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- script 标签引入vue  element-ui --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"cdn/vue.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"cdn/element-ui.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">configureWebpack: <span class="function"><span class="params">config</span> =&gt;</span> &#123;</span><br><span class="line">  config.externals = &#123;</span><br><span class="line">    vue: <span class="string">'Vue'</span>, <span class="comment">// key 为库名称，value 为库在你项目中使用的关键字</span></span><br><span class="line">    <span class="string">'element-ui'</span>: <span class="string">'ELEMENT'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改本地-host-通过域名访问项目"><a href="#修改本地-host-通过域名访问项目" class="headerlink" title="修改本地 host 通过域名访问项目"></a>修改本地 host 通过域名访问项目</h3><p>配置 host</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># host</span><br><span class="line">127.0.0.1 abc.baidu.com</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">devServer: &#123;</span><br><span class="line">  host: <span class="string">'abc.baidu.com'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>npm run serve 启动服务后可以通过 abc.baidu.com 访问</p>
+<p>如果访问不了，可能需要清理 dns 缓存</p>
+<p>清空电脑的 DNS 缓存：cmd 运行 ipconfig /flushdns</p>
+<p>清理浏览器中的 dns 缓存：浏览器打开 chrome://net-internals/#dns</p>
+<p>如果 host 为 127.0.0.1 或 localhost，需要配置 disableHostCheck: true</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">devServer: &#123;</span><br><span class="line">  host: <span class="string">'localhost'</span>,</span><br><span class="line">  disableHostCheck: <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>新版的 webpack-dev-server 出于安全考虑，默认检查 hostname<br>disableHostCheck: true 目的是解决通过域名访问时出现 Invalid Host header</p>
+<p>经测试 依然会出现 Invalid Host header，导致项目不能正常访问</p>
 
       
     </div>
@@ -942,7 +961,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#在现有的项目中安装插件"><span class="nav-text">在现有的项目中安装插件</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#vue-config-js-配置"><span class="nav-text">vue.config.js 配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#publicPath"><span class="nav-text">publicPath</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#outputDir"><span class="nav-text">outputDir</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#assetsDir"><span class="nav-text">assetsDir</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#indexPath"><span class="nav-text">indexPath</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#filenameHashing"><span class="nav-text">filenameHashing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pages"><span class="nav-text">pages</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lintOnSave"><span class="nav-text">lintOnSave</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#runtimeCompiler"><span class="nav-text">runtimeCompiler</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#productionSourceMap"><span class="nav-text">productionSourceMap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#chainWebpack"><span class="nav-text">chainWebpack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#configureWebpack"><span class="nav-text">configureWebpack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环境变量与分环境打包"><span class="nav-text">环境变量与分环境打包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue-公共路径提取"><span class="nav-text">vue 公共路径提取</span></a></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#在现有的项目中安装插件"><span class="nav-text">在现有的项目中安装插件</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#vue-config-js-配置"><span class="nav-text">vue.config.js 配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#publicPath"><span class="nav-text">publicPath</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#outputDir"><span class="nav-text">outputDir</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#assetsDir"><span class="nav-text">assetsDir</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#indexPath"><span class="nav-text">indexPath</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#filenameHashing"><span class="nav-text">filenameHashing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pages"><span class="nav-text">pages</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lintOnSave"><span class="nav-text">lintOnSave</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#runtimeCompiler"><span class="nav-text">runtimeCompiler</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#productionSourceMap"><span class="nav-text">productionSourceMap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#chainWebpack"><span class="nav-text">chainWebpack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#configureWebpack"><span class="nav-text">configureWebpack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环境变量与分环境打包"><span class="nav-text">环境变量与分环境打包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue-公共路径提取"><span class="nav-text">vue 公共路径提取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置-externals"><span class="nav-text">配置 externals</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改本地-host-通过域名访问项目"><span class="nav-text">修改本地 host 通过域名访问项目</span></a></li></ol></li></div>
             
 
           </div>
