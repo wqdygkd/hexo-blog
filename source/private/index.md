@@ -5,11 +5,12 @@ password: 123456
 ---
 
 - [IOS 下载旧版本应用](IOS下载旧版本应用)
-- [SS/SSR 客户端](SS与SSR)
+- [SS/SSR 客户端](SS与SSR/SSR)
 - [如何注册美区 PayPal 并绑定美区 Apple ID，以及风控的解决方案](注册美区PayPal并绑定美区AppleID)
 - [Vulrt 搭建 ssr 服务器](vulrt搭建ssr服务器)
 - [配置 web 服务器](配置web服务器)
 - [解决 VPS 通过 SS 访问谷歌学术受限](解决VPS通过SS访问谷歌学术受限)
+- [临时邮箱手机号](临时邮箱手机号)
 
 ## 工具
 

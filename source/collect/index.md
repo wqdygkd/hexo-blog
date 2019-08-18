@@ -12,7 +12,7 @@ comments: false
   <!-- vue -->
   <div class="card">
     <a href="https://cn.vuejs.org/" target="_blank">
-      <img src="/index/vue.png" />
+      <img src="index/vue.png" />
       <div class="desc">
         <div class="name">Vue.js</div>
         <div class="info">渐进式 JavaScript 框架</div>
@@ -127,7 +127,7 @@ comments: false
   <!-- WePY -->
   <div class="card">
     <a href="https://wepyjs.github.io/wepy-docs/" target="_blank">
-      <img src="/image/wepy.png" />
+      <img src="/index/wepy.png" />
       <div class="desc">
         <div class="name">WePY</div>
         <div class="info">小程序组件化开发框架</div>
@@ -138,7 +138,7 @@ comments: false
   <!-- mpvue -->
   <div class="card">
     <a href="http://mpvue.com/" target="_blank">
-      <img src="/image/mpvue.ico" />
+      <img src="/index/mpvue.ico" />
       <div class="desc">
         <div class="name">mpvue</div>
         <div class="info">一个使用 Vue.js 开发小程序的前端框架</div>
@@ -149,7 +149,7 @@ comments: false
   <!-- Taro -->
   <div class="card">
     <a href="https://taro.jd.com/" target="_blank">
-      <img src="/image/taro.ico" />
+      <img src="/index/taro.ico" />
       <div class="desc">
         <div class="name">Taro</div>
         <div class="info">一套遵循 React 语法规范的多端开发解决方案</div>
@@ -160,7 +160,7 @@ comments: false
   <!-- MPX -->
   <div class="card">
     <a href="https://didi.github.io/mpx/" target="_blank">
-      <img src="/image/mpx.ico" />
+      <img src="/index/mpx.ico" />
       <div class="desc">
         <div class="name">MPX</div>
         <div class="info">一款致力于提高小程序开发体验的增强型小程序框架</div>
@@ -188,7 +188,7 @@ comments: false
   <!-- D2 Daily -->
   <div class="card">
     <a href="https://daily.fairyever.com/" target="_blank">
-      <img src="/image/d2.png" />
+      <img src="/index/d2.png" />
       <div class="desc">
         <div class="name">D2 Daily</div>
         <div class="info">D2日报</div>
@@ -199,7 +199,7 @@ comments: false
   <!-- segmentfault -->
   <div class="card">
     <a href="https://segmentfault.com/" target="_blank">
-      <img src="/image/segmentfault.png" />
+      <img src="/index/segmentfault.png" />
       <div class="desc">
         <div class="name">思否</div>
         <div class="info">学习技能、解决问题</div>
@@ -210,7 +210,7 @@ comments: false
   <!-- 掘金 -->
   <div class="card">
     <a href="https://juejin.im/" target="_blank">
-      <img src="/image/juejin.png" />
+      <img src="/index/juejin.png" />
       <div class="desc">
         <div class="name">掘金</div>
         <div class="info">一个帮助开发者成长的社区</div>
@@ -220,7 +220,7 @@ comments: false
 
 </div>
 
-### 工具
+### 开发工具
 
 <div class="collect">
 
@@ -277,7 +277,7 @@ comments: false
   <!-- Visual Studio Code -->
   <div class="card">
     <a href="https://code.visualstudio.com/" target="_blank">
-      <img src="/image/vscode.png" />
+      <img src="/index/vscode.png" />
       <div class="desc">
         <div class="name">Visual Studio Code</div>
         <div class="info">Code editing. Redefined.</div>
@@ -288,7 +288,7 @@ comments: false
   <!-- Sublime Text -->
   <div class="card">
     <a href="https://www.sublimetext.com/" target="_blank">
-      <img src="/image/sublimetext.ico" />
+      <img src="/index/sublimetext.ico" />
       <div class="desc">
         <div class="name">Sublime Text</div>
         <div class="info">A sophisticated text editor for code, markup and prose</div>
@@ -299,7 +299,7 @@ comments: false
   <!-- atom -->
   <div class="card">
     <a href="https://atom.io/" target="_blank">
-      <img src="/image/atom.ico" />
+      <img src="/index/atom.ico" />
       <div class="desc">
         <div class="name">Atom</div>
         <div class="info">A hackable text editor for the 21st Century</div>
@@ -310,7 +310,7 @@ comments: false
   <!-- codesandbox -->
   <div class="card">
     <a href="https://codesandbox.io" target="_blank">
-      <img src="/image/codesandbox.ico" />
+      <img src="/index/codesandbox.ico" />
       <div class="desc">
         <div class="name">CodeSandbox</div>
         <div class="info">The online code editor for Web</div>
@@ -321,7 +321,7 @@ comments: false
   <!-- jsfiddle -->
   <div class="card">
     <a href="https://jsfiddle.net/" target="_blank">
-      <img src="/image/jsfiddle.png" />
+      <img src="/index/jsfiddle.png" />
       <div class="desc">
         <div class="name">Jsfiddle</div>
         <div class="info">just your humble code playground</div>
@@ -332,7 +332,7 @@ comments: false
   <!-- codepen -->
   <div class="card">
     <a href="https://codepen.io/" target="_blank">
-      <img src="/image/codepen.ico" />
+      <img src="/index/codepen.ico" />
       <div class="desc">
         <div class="name">ConePen</div>
         <div class="info">Online Code Editor and Front and End Web Developer Community</div>
@@ -343,7 +343,7 @@ comments: false
   <!-- jsrun -->
   <div class="card">
     <a href="https://jsrun.pro/" target="_blank">
-      <img src="/image/jsrun.ico" />
+      <img src="/index/jsrun.ico" />
       <div class="desc">
         <div class="name">jsrun</div>
         <div class="info">HTML/JS/CSS在线编辑器</div>
@@ -360,7 +360,7 @@ comments: false
   <!-- Hexo -->
   <div class="card">
     <a href="https://hexo.io/zh-cn/" target="_blank">
-      <img src="/image/hexo.png" />
+      <img src="/index/hexo.png" />
       <div class="desc">
         <div class="name">Hexo</div>
         <div class="info">快速、简洁且高效的博客框架</div>
@@ -371,7 +371,7 @@ comments: false
   <!-- docsify -->
   <div class="card">
     <a href="https://docsify.js.org/#/" target="_blank">
-      <img src="/image/docsify.ico" />
+      <img src="/index/docsify.ico" />
       <div class="desc">
         <div class="name">docsify</div>
         <div class="info">一个神奇的文档网站生成工具</div>
@@ -383,37 +383,40 @@ comments: false
 
 ### 博客收藏
 
-- [心谭博客](https://xin-tan.com/)
+[心谭博客](https://xin-tan.com/)
 
-### 未分类
+### 客户端工具
 
-<div class="collect">
+[Dash](https://kapeli.com/dash/)(Mac): 一个 API 文档浏览器和代码片段管理器
 
- <!-- animate -->
-  <div class="card">
-    <a href="https://daneden.github.io/animate.css/" target="_blank">
-      <img src="" />
-      <div class="desc">
-        <div class="name">Animate</div>
-        <div class="info">Just-add-water CSS animations</div>
-      </div>
-    </a>
-  </div>
+[Zeal](https://zealdocs.org/)(Win): 离线文档浏览器
 
-</div>
+[listen1](http://listen1.github.io/listen1/): 全平台音乐播放器，支持网易云音乐，虾米，QQ 音乐，酷狗音乐，酷我音乐网站的歌曲
 
-### 工具软件
+[Xshell 5](https://www.netsarang.com/products/xsh_overview.html): 终端工具
 
-- [Dash/Mac](https://kapeli.com/dash): an API Documentation Browser and Code Snippet Manager
+[WinSCP](https://winscp.net/eng/docs/lang:chs): Windows 环境下使用的 SSH 的开源图形化 SFTP 客户端
 
-- [Zeal/Win](https://zealdocs.org/)
+### 图像放大工具
 
-- [listen1](http://listen1.github.io/listen1/): 全平台音乐播放器，支持网易云音乐，虾米，QQ 音乐，酷狗音乐，酷我音乐网站的歌曲
+[waifu2x](https://github.com/nagadomi/waifu2x) （开源） 在线使用 -> http://waifu2x.udp.jp/ 、 https://waifu2x.booru.pics/
 
-- [Xshell 5](https://www.netsarang.com/products/xsh_overview.html): Secure terminal emulator
+[waifu2x-caffe](https://github.com/lltcggie/waifu2x-caffe/releases)（开源） 基于 waifu2x （Windows 客户端版）
 
-FiraCode https://github.com/tonsky/FiraCode
+[bigjpg](http://bigjpg.com/) 基于 waifu2x
 
-文件匿名分享工具
-https://www.mirrored.to/
-https://www.upload.ee/
+photozoom
+
+Gigapixel
+
+### 在线工具
+
+[MikuTools](https://tools.imiku.me): 在线工具集合
+
+文件匿名在线分享工具 https://www.mirrored.to/ https://www.upload.ee/
+
+### 其他
+
+[FiraCode 字体](https://github.com/tonsky/FiraCode)
+
+[Animate](https://daneden.github.io/animate.css/): css 动画库
