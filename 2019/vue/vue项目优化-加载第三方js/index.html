@@ -116,18 +116,18 @@
   </script>
 
 
-  <meta name="description" content="缓存  pageAList -&amp;gt; pageADetail -&amp;gt; pageAList，缓存 pageAList，同时如果 pageAList 发生变化需要更新  其他页面 -&amp;gt; pageAList，pageAList 不缓存   router 配置 routes: [  &amp;#123;    path: &apos;/home&apos;,    name: &apos;home&apos;,    component:">
+  <meta name="description" content="vue 项目加载第 3 方 js 优化 这里的第 3 方组件大多不能通过 npm 或其他模块安装的组件(地图 sdk)，所以不能直接用 vue 里的异步组件  在 index.html 里引入的第三方组件，有很多在首屏上根本用不到，严重拖慢的网页的加载速度造成长时间的白屏 可以根据需要动态插入 js 定义插入 js 到 document 的方法 //! loadjs.jsconst loadjsA">
 <meta name="keywords" content="web">
 <meta property="og:type" content="article">
-<meta property="og:title" content="keep-alive 实现页面缓存">
-<meta property="og:url" content="https://cuilongjin.top/2019/vue/keep-alive/index.html">
+<meta property="og:title" content="vue 项目加载第 3 方 js 优化">
+<meta property="og:url" content="https://cuilongjin.top/2019/vue/vue项目优化-加载第三方js/index.html">
 <meta property="og:site_name" content="稻草人">
-<meta property="og:description" content="缓存  pageAList -&amp;gt; pageADetail -&amp;gt; pageAList，缓存 pageAList，同时如果 pageAList 发生变化需要更新  其他页面 -&amp;gt; pageAList，pageAList 不缓存   router 配置 routes: [  &amp;#123;    path: &apos;/home&apos;,    name: &apos;home&apos;,    component:">
+<meta property="og:description" content="vue 项目加载第 3 方 js 优化 这里的第 3 方组件大多不能通过 npm 或其他模块安装的组件(地图 sdk)，所以不能直接用 vue 里的异步组件  在 index.html 里引入的第三方组件，有很多在首屏上根本用不到，严重拖慢的网页的加载速度造成长时间的白屏 可以根据需要动态插入 js 定义插入 js 到 document 的方法 //! loadjs.jsconst loadjsA">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-15T16:00:00.000Z">
+<meta property="og:updated_time" content="2019-08-25T13:49:34.608Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="keep-alive 实现页面缓存">
-<meta name="twitter:description" content="缓存  pageAList -&amp;gt; pageADetail -&amp;gt; pageAList，缓存 pageAList，同时如果 pageAList 发生变化需要更新  其他页面 -&amp;gt; pageAList，pageAList 不缓存   router 配置 routes: [  &amp;#123;    path: &apos;/home&apos;,    name: &apos;home&apos;,    component:">
+<meta name="twitter:title" content="vue 项目加载第 3 方 js 优化">
+<meta name="twitter:description" content="vue 项目加载第 3 方 js 优化 这里的第 3 方组件大多不能通过 npm 或其他模块安装的组件(地图 sdk)，所以不能直接用 vue 里的异步组件  在 index.html 里引入的第三方组件，有很多在首屏上根本用不到，严重拖慢的网页的加载速度造成长时间的白屏 可以根据需要动态插入 js 定义插入 js 到 document 的方法 //! loadjs.jsconst loadjsA">
 
 
 
@@ -137,7 +137,7 @@
 
   
   
-  <link rel="canonical" href="https://cuilongjin.top/2019/vue/keep-alive/">
+  <link rel="canonical" href="https://cuilongjin.top/2019/vue/vue项目优化-加载第三方js/">
 
 
 
@@ -147,7 +147,7 @@
   };
 </script>
 
-  <title>keep-alive 实现页面缓存 | 稻草人</title>
+  <title>vue 项目加载第 3 方 js 优化 | 稻草人</title>
   
 
 
@@ -410,7 +410,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://cuilongjin.top/2019/vue/keep-alive/">
+    <link itemprop="mainEntityOfPage" href="https://cuilongjin.top/2019/vue/vue项目优化-加载第三方js/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="稻草人">
@@ -427,7 +427,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">keep-alive 实现页面缓存<a href="https://github.com/cuilongjin/cuilongjin.github.io/tree/dev/source/_posts/vue/keep-alive.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+          <h2 class="post-title" itemprop="name headline">vue 项目加载第 3 方 js 优化<a href="https://github.com/cuilongjin/cuilongjin.github.io/tree/dev/source/_posts/vue/vue项目优化-加载第三方js.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
 
               
             
@@ -453,7 +453,7 @@
                 
               
 
-              <time title="创建时间：2019-07-15 00:00:00" itemprop="dateCreated datePublished" datetime="2019-07-15T00:00:00+08:00">2019-07-15</time>
+              <time title="创建时间：2019-08-06 00:00:00" itemprop="dateCreated datePublished" datetime="2019-08-06T00:00:00+08:00">2019-08-06</time>
             </span>
           
 
@@ -468,7 +468,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-16 00:00:00" itemprop="dateModified" datetime="2019-07-16T00:00:00+08:00">2019-07-16</time>
+                <time title="修改时间：2019-08-25 21:49:34" itemprop="dateModified" datetime="2019-08-25T21:49:34+08:00">2019-08-25</time>
               </span>
             
           
@@ -500,8 +500,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/vue/keep-alive/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/vue/keep-alive/" itemprop="commentCount"></span>
+                <a href="/2019/vue/vue项目优化-加载第三方js/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/vue/vue项目优化-加载第三方js/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -509,7 +509,7 @@
 
           
           
-            <span id="/2019/vue/keep-alive/" class="post-meta-item leancloud_visitors" data-flag-title="keep-alive 实现页面缓存">
+            <span id="/2019/vue/vue项目优化-加载第三方js/" class="post-meta-item leancloud_visitors" data-flag-title="vue 项目加载第 3 方 js 优化">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -542,43 +542,17 @@
       
 
       
-        <p>缓存</p>
-<ul>
-<li><p>pageAList -&gt; pageADetail -&gt; pageAList，缓存 pageAList，同时如果 pageAList 发生变化需要更新</p>
-</li>
-<li><p>其他页面 -&gt; pageAList，pageAList 不缓存</p>
-</li>
-</ul>
-<p>router 配置</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">routes: [</span><br><span class="line">  &#123;</span><br><span class="line">    path: <span class="string">'/home'</span>,</span><br><span class="line">    name: <span class="string">'home'</span>,</span><br><span class="line">    component: Home,</span><br><span class="line">    children: [</span><br><span class="line">      &#123;</span><br><span class="line">        path: <span class="string">'/pageAList'</span>,</span><br><span class="line">        name: <span class="string">'pageAList'</span>,</span><br><span class="line">        component: pageAList</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        path: <span class="string">'/pageADetail'</span>,</span><br><span class="line">        name: <span class="string">'pageADetail'</span>,</span><br><span class="line">        component: pageADetail</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br></pre></td></tr></table></figure>
+        <h3 id="vue-项目加载第-3-方-js-优化"><a href="#vue-项目加载第-3-方-js-优化" class="headerlink" title="vue 项目加载第 3 方 js 优化"></a>vue 项目加载第 3 方 js 优化</h3><blockquote>
+<p>这里的第 3 方组件大多不能通过 npm 或其他模块安装的组件(地图 sdk)，所以不能直接用 vue 里的异步组件</p>
+</blockquote>
+<p>在 index.html 里引入的第三方组件，有很多在首屏上根本用不到，严重拖慢的网页的加载速度造成长时间的白屏</p>
+<p>可以根据需要动态插入 js</p>
+<p>定义插入 js 到 document 的方法</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//! loadjs.js</span></span><br><span class="line"><span class="keyword">const</span> loadjsAsync = <span class="function"><span class="keyword">function</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> scriptHasLoad = <span class="built_in">document</span>.querySelector(<span class="string">'script[src="'</span> + url + <span class="string">'"]'</span>)</span><br><span class="line">    <span class="keyword">if</span> (scriptHasLoad) &#123;</span><br><span class="line">      resolve()</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> script = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>)</span><br><span class="line">    script.src = url</span><br><span class="line">    <span class="built_in">document</span>.body.appendChild(script)</span><br><span class="line">    script.onload = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      resolve()</span><br><span class="line">    &#125;</span><br><span class="line">    script.onerror = <span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">      reject(err)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> loadjsAsync</span><br></pre></td></tr></table></figure>
 
-<p>vuex 配置 store.js</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">  state: &#123;</span><br><span class="line">    includeComponents: [] <span class="comment">// 需要缓存的组件</span></span><br><span class="line">  &#125;,</span><br><span class="line">  mutations: &#123;</span><br><span class="line">    addIncludeComponent(state, includeComponent) &#123;</span><br><span class="line">      <span class="comment">// includeComponent 可能是组件 name 字符串或者数组</span></span><br><span class="line">      <span class="keyword">let</span> includeComponents = state.includeComponents</span><br><span class="line">      <span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(includeComponent)) &#123;</span><br><span class="line">        state.includeComponents = [...new <span class="built_in">Set</span>([...includeComponents, ...includeComponent])]</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        state.includeComponents = [...new <span class="built_in">Set</span>([...includeComponents, includeComponent])]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    removeIncludeComponent(state, includeComponent) &#123;</span><br><span class="line">      <span class="keyword">let</span> includeComponents = state.includeComponents</span><br><span class="line">      <span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(includeComponent)) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; includeComponent.length; i++) &#123;</span><br><span class="line">          <span class="keyword">let</span> index = includeComponents.findIndex(<span class="function"><span class="params">v</span> =&gt;</span> v === includeComponent[i])</span><br><span class="line">          <span class="keyword">if</span> (index &gt; <span class="number">-1</span>) &#123;</span><br><span class="line">            includeComponents.splice(index, <span class="number">1</span>)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, len = includeComponents.length; i &lt; len; i++) &#123;</span><br><span class="line">          <span class="keyword">if</span> (includeComponents[i] === includeComponent) &#123;</span><br><span class="line">            includeComponents.splice(i, <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      state.includeComponents = includeComponents</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>使用</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 引入加载js方法</span></span><br><span class="line"><span class="keyword">import</span> loadjsAsync <span class="keyword">from</span> <span class="string">'../assets/js/loadjs'</span></span><br><span class="line"></span><br><span class="line">beforeCreate () &#123;</span><br><span class="line">  <span class="comment">// 引入第三方 js</span></span><br><span class="line">  loadjsAsync(<span class="string">'static/ueditor/ueditor.all.min.js'</span>).then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.editor = UE.delEditor(<span class="string">'editor'</span>)</span><br><span class="line">    <span class="keyword">this</span>.editor = UE.getEditor(<span class="string">'editor'</span>, <span class="keyword">this</span>.config)</span><br><span class="line">  &#125;).catch(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>home.vue</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- keep-alive 包裹 router-view --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">keep-alive</span> <span class="attr">:include</span>=<span class="string">"includeComponents"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">router-view</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="undefined">    computed: &#123;</span></span><br><span class="line"><span class="undefined">      includeComponents() &#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">return</span> <span class="keyword">this</span>.$store.state.includeComponents</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>pageAList.vue</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  name: <span class="string">'pageAList'</span>,</span><br><span class="line">  beforeRouteLeave(to, <span class="keyword">from</span>, next) &#123;</span><br><span class="line">    <span class="keyword">let</span> reg = <span class="regexp">/pageADetail/</span></span><br><span class="line">    <span class="keyword">if</span> (reg.test(to.name)) &#123;</span><br><span class="line">      <span class="keyword">this</span>.$store.commit(<span class="string">'addIncludeComponent'</span>, <span class="string">'pageADetail'</span>)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">this</span>.$store.commit(<span class="string">'removeIncludeComponent'</span>, <span class="string">'pageADetail'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    next()</span><br><span class="line">  &#125;,</span><br><span class="line">  activated() &#123;</span><br><span class="line">    <span class="keyword">this</span>.getList()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>pageADetail.vue</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  name: <span class="string">'pageADetail'</span>,</span><br><span class="line">  beforeRouteLeave(to, <span class="keyword">from</span>, next) &#123;</span><br><span class="line">    <span class="keyword">let</span> reg = <span class="regexp">/pageA/</span></span><br><span class="line">    <span class="keyword">if</span> (reg.test(to.name)) &#123;</span><br><span class="line">      <span class="keyword">this</span>.$store.commit(<span class="string">'addIncludeComponent'</span>, <span class="string">'pageAList'</span>)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">this</span>.$store.commit(<span class="string">'removeIncludeComponent'</span>, <span class="string">'pageAList'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    next()</span><br><span class="line">  &#125;,</span><br><span class="line">  activated() &#123;</span><br><span class="line">    <span class="keyword">this</span>.getList()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>总结</p>
-<ul>
-<li>进入 pageAList，离开当前组件的时候有两种情况：<ul>
-<li>跳转进去 pageADetail，在 pageAList 的 beforeRouteLeave 钩子里面缓存 pageAList</li>
-<li>跳转到非 pageADetail 的页面，在 pageAList 的 beforeRouteLeave 钩子里面清除 pageAList 的缓存</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>从 pageADetail 离开的时候，也有两种情况：<ul>
-<li>回到 pageAList，在 pageADetail 的 beforeRouteLeave 钩子里面缓存 pageAList，所以从 pageAList-pageADetail-pageAList 的时候，pageAList 可以被缓存，还是之前的页码状态</li>
-<li>进入其他路由，在 pageADetail 的 beforeRouteLeave 钩子里面清除 pageAList 的缓存</li>
-</ul>
-</li>
-</ul>
 
       
     </div>
@@ -615,8 +589,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/vue/vue-cli常用配置/" rel="next" title="vue-cli 常用配置">
-                <i class="fa fa-chevron-left"></i> vue-cli 常用配置
+              <a href="/2019/other/icon图标的使用/" rel="next" title="icon 图标在 vue 项目中的使用">
+                <i class="fa fa-chevron-left"></i> icon 图标在 vue 项目中的使用
               </a>
             
           </div>
@@ -625,8 +599,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/vue/多页模式/" rel="prev" title="vue-cli3 多页模式">
-                vue-cli3 多页模式 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/vue/vue异步组件/" rel="prev" title="vue 异步组件">
+                vue 异步组件 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -675,8 +649,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -860,6 +843,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#vue-项目加载第-3-方-js-优化"><span class="nav-text">vue 项目加载第 3 方 js 优化</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       

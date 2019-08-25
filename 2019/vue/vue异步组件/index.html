@@ -116,18 +116,18 @@
   </script>
 
 
-  <meta name="description" content="缓存  pageAList -&amp;gt; pageADetail -&amp;gt; pageAList，缓存 pageAList，同时如果 pageAList 发生变化需要更新  其他页面 -&amp;gt; pageAList，pageAList 不缓存   router 配置 routes: [  &amp;#123;    path: &apos;/home&apos;,    name: &apos;home&apos;,    component:">
+  <meta name="description" content="使用 CDN 资源,减小服务器带宽压力 路由懒加载 将一些静态 js css 放到其他地方（如 OSS），减小服务器压力 按需加载三方资源，如 iview,建议按需引入 iview 中的组件 使用 nginx 开启 gzip 减小网络传输的流量大小 若首屏为登录页，可以做成多入口，登录页单独分离为一个入口 使用 uglifyjs-webpack-plugin 插件代替 webpack 自带 Ug">
 <meta name="keywords" content="web">
 <meta property="og:type" content="article">
-<meta property="og:title" content="keep-alive 实现页面缓存">
-<meta property="og:url" content="https://cuilongjin.top/2019/vue/keep-alive/index.html">
+<meta property="og:title" content="vue 异步组件">
+<meta property="og:url" content="https://cuilongjin.top/2019/vue/vue异步组件/index.html">
 <meta property="og:site_name" content="稻草人">
-<meta property="og:description" content="缓存  pageAList -&amp;gt; pageADetail -&amp;gt; pageAList，缓存 pageAList，同时如果 pageAList 发生变化需要更新  其他页面 -&amp;gt; pageAList，pageAList 不缓存   router 配置 routes: [  &amp;#123;    path: &apos;/home&apos;,    name: &apos;home&apos;,    component:">
+<meta property="og:description" content="使用 CDN 资源,减小服务器带宽压力 路由懒加载 将一些静态 js css 放到其他地方（如 OSS），减小服务器压力 按需加载三方资源，如 iview,建议按需引入 iview 中的组件 使用 nginx 开启 gzip 减小网络传输的流量大小 若首屏为登录页，可以做成多入口，登录页单独分离为一个入口 使用 uglifyjs-webpack-plugin 插件代替 webpack 自带 Ug">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-15T16:00:00.000Z">
+<meta property="og:updated_time" content="2019-08-25T13:49:26.152Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="keep-alive 实现页面缓存">
-<meta name="twitter:description" content="缓存  pageAList -&amp;gt; pageADetail -&amp;gt; pageAList，缓存 pageAList，同时如果 pageAList 发生变化需要更新  其他页面 -&amp;gt; pageAList，pageAList 不缓存   router 配置 routes: [  &amp;#123;    path: &apos;/home&apos;,    name: &apos;home&apos;,    component:">
+<meta name="twitter:title" content="vue 异步组件">
+<meta name="twitter:description" content="使用 CDN 资源,减小服务器带宽压力 路由懒加载 将一些静态 js css 放到其他地方（如 OSS），减小服务器压力 按需加载三方资源，如 iview,建议按需引入 iview 中的组件 使用 nginx 开启 gzip 减小网络传输的流量大小 若首屏为登录页，可以做成多入口，登录页单独分离为一个入口 使用 uglifyjs-webpack-plugin 插件代替 webpack 自带 Ug">
 
 
 
@@ -137,7 +137,7 @@
 
   
   
-  <link rel="canonical" href="https://cuilongjin.top/2019/vue/keep-alive/">
+  <link rel="canonical" href="https://cuilongjin.top/2019/vue/vue异步组件/">
 
 
 
@@ -147,7 +147,7 @@
   };
 </script>
 
-  <title>keep-alive 实现页面缓存 | 稻草人</title>
+  <title>vue 异步组件 | 稻草人</title>
   
 
 
@@ -410,7 +410,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://cuilongjin.top/2019/vue/keep-alive/">
+    <link itemprop="mainEntityOfPage" href="https://cuilongjin.top/2019/vue/vue异步组件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="稻草人">
@@ -427,7 +427,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">keep-alive 实现页面缓存<a href="https://github.com/cuilongjin/cuilongjin.github.io/tree/dev/source/_posts/vue/keep-alive.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+          <h2 class="post-title" itemprop="name headline">vue 异步组件<a href="https://github.com/cuilongjin/cuilongjin.github.io/tree/dev/source/_posts/vue/vue异步组件.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
 
               
             
@@ -453,7 +453,7 @@
                 
               
 
-              <time title="创建时间：2019-07-15 00:00:00" itemprop="dateCreated datePublished" datetime="2019-07-15T00:00:00+08:00">2019-07-15</time>
+              <time title="创建时间：2019-08-06 00:00:00" itemprop="dateCreated datePublished" datetime="2019-08-06T00:00:00+08:00">2019-08-06</time>
             </span>
           
 
@@ -468,7 +468,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-16 00:00:00" itemprop="dateModified" datetime="2019-07-16T00:00:00+08:00">2019-07-16</time>
+                <time title="修改时间：2019-08-25 21:49:26" itemprop="dateModified" datetime="2019-08-25T21:49:26+08:00">2019-08-25</time>
               </span>
             
           
@@ -500,8 +500,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/vue/keep-alive/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/vue/keep-alive/" itemprop="commentCount"></span>
+                <a href="/2019/vue/vue异步组件/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/vue/vue异步组件/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -509,7 +509,7 @@
 
           
           
-            <span id="/2019/vue/keep-alive/" class="post-meta-item leancloud_visitors" data-flag-title="keep-alive 实现页面缓存">
+            <span id="/2019/vue/vue异步组件/" class="post-meta-item leancloud_visitors" data-flag-title="vue 异步组件">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -542,43 +542,28 @@
       
 
       
-        <p>缓存</p>
-<ul>
-<li><p>pageAList -&gt; pageADetail -&gt; pageAList，缓存 pageAList，同时如果 pageAList 发生变化需要更新</p>
-</li>
-<li><p>其他页面 -&gt; pageAList，pageAList 不缓存</p>
-</li>
-</ul>
-<p>router 配置</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">routes: [</span><br><span class="line">  &#123;</span><br><span class="line">    path: <span class="string">'/home'</span>,</span><br><span class="line">    name: <span class="string">'home'</span>,</span><br><span class="line">    component: Home,</span><br><span class="line">    children: [</span><br><span class="line">      &#123;</span><br><span class="line">        path: <span class="string">'/pageAList'</span>,</span><br><span class="line">        name: <span class="string">'pageAList'</span>,</span><br><span class="line">        component: pageAList</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        path: <span class="string">'/pageADetail'</span>,</span><br><span class="line">        name: <span class="string">'pageADetail'</span>,</span><br><span class="line">        component: pageADetail</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br></pre></td></tr></table></figure>
+        <ol>
+<li>使用 CDN 资源,减小服务器带宽压力</li>
+<li>路由懒加载</li>
+<li>将一些静态 js css 放到其他地方（如 OSS），减小服务器压力</li>
+<li>按需加载三方资源，如 iview,建议按需引入 iview 中的组件</li>
+<li>使用 nginx 开启 gzip 减小网络传输的流量大小</li>
+<li>若首屏为登录页，可以做成多入口，登录页单独分离为一个入口</li>
+<li>使用 uglifyjs-webpack-plugin 插件代替 webpack 自带 UglifyJsPlugin 插件</li>
+</ol>
+<h3 id="异步组件"><a href="#异步组件" class="headerlink" title="异步组件"></a>异步组件</h3><p><a href="https://cn.vuejs.org/v2/guide/components-dynamic-async.html#异步组件" target="_blank" rel="noopener">官方文档-异步组件</a></p>
+<p>同步方式引入</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Login <span class="keyword">from</span> <span class="string">'./views/Login'</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</span><br><span class="line">  routes: [</span><br><span class="line">    &#123;</span><br><span class="line">      path: <span class="string">'/'</span>,</span><br><span class="line">      name: <span class="string">'login'</span>,</span><br><span class="line">      component: Login</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<p>vuex 配置 store.js</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">  state: &#123;</span><br><span class="line">    includeComponents: [] <span class="comment">// 需要缓存的组件</span></span><br><span class="line">  &#125;,</span><br><span class="line">  mutations: &#123;</span><br><span class="line">    addIncludeComponent(state, includeComponent) &#123;</span><br><span class="line">      <span class="comment">// includeComponent 可能是组件 name 字符串或者数组</span></span><br><span class="line">      <span class="keyword">let</span> includeComponents = state.includeComponents</span><br><span class="line">      <span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(includeComponent)) &#123;</span><br><span class="line">        state.includeComponents = [...new <span class="built_in">Set</span>([...includeComponents, ...includeComponent])]</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        state.includeComponents = [...new <span class="built_in">Set</span>([...includeComponents, includeComponent])]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    removeIncludeComponent(state, includeComponent) &#123;</span><br><span class="line">      <span class="keyword">let</span> includeComponents = state.includeComponents</span><br><span class="line">      <span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(includeComponent)) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; includeComponent.length; i++) &#123;</span><br><span class="line">          <span class="keyword">let</span> index = includeComponents.findIndex(<span class="function"><span class="params">v</span> =&gt;</span> v === includeComponent[i])</span><br><span class="line">          <span class="keyword">if</span> (index &gt; <span class="number">-1</span>) &#123;</span><br><span class="line">            includeComponents.splice(index, <span class="number">1</span>)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, len = includeComponents.length; i &lt; len; i++) &#123;</span><br><span class="line">          <span class="keyword">if</span> (includeComponents[i] === includeComponent) &#123;</span><br><span class="line">            includeComponents.splice(i, <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      state.includeComponents = includeComponents</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>异步方式引入</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> Login = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">'./views/Login'</span>)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</span><br><span class="line">  routes: [</span><br><span class="line">    &#123;</span><br><span class="line">      path: <span class="string">'/'</span>,</span><br><span class="line">      name: <span class="string">'login'</span>,</span><br><span class="line">      component: Login</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<p>home.vue</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- keep-alive 包裹 router-view --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">keep-alive</span> <span class="attr">:include</span>=<span class="string">"includeComponents"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">router-view</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="undefined">    computed: &#123;</span></span><br><span class="line"><span class="undefined">      includeComponents() &#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">return</span> <span class="keyword">this</span>.$store.state.includeComponents</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>必须使用 Vue Router 2.4.0+ 版本</p>
+<p>异步方式引入的组件在需要的时候才从服务器加载，且会把结果缓存起来供未来重渲染，组件本身不需要做任何修改可以直接引用</p>
+<p>利用此特性，我们便能做很多针对前端的优化<br>比如：针对大型项目，将页面核心功能打包成一个核心模块，通过框架优先加载。其他的一些周边功能打包后，通过服务器异步加载，从而解决业务需求越来越多导致的系统难维护、访问慢问题</p>
+<p>也可以引入一个对象来处理异步组件的加载状态</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> Login = <span class="function"><span class="params">()</span> =&gt;</span> (&#123;</span><br><span class="line">  <span class="comment">// 需要加载的组件</span></span><br><span class="line">  component: <span class="keyword">import</span>(<span class="string">'./views/Login'</span>),</span><br><span class="line">  <span class="comment">// 异步组件加载时使用的组件</span></span><br><span class="line">  loading: LoadingComponent,</span><br><span class="line">  <span class="comment">// 加载失败时使用的组件(如果提供了超时时间且组件加载也超时了， 则使用该组件)</span></span><br><span class="line">  error: ErrorComponent,</span><br><span class="line">  <span class="comment">// 展示加载时组件的延时时间。默认值是 200 (毫秒)</span></span><br><span class="line">  delay: <span class="number">200</span>,</span><br><span class="line">  <span class="comment">// 超时时间,默认值是：`Infinity`</span></span><br><span class="line">  timeout: <span class="number">3000</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<p>pageAList.vue</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  name: <span class="string">'pageAList'</span>,</span><br><span class="line">  beforeRouteLeave(to, <span class="keyword">from</span>, next) &#123;</span><br><span class="line">    <span class="keyword">let</span> reg = <span class="regexp">/pageADetail/</span></span><br><span class="line">    <span class="keyword">if</span> (reg.test(to.name)) &#123;</span><br><span class="line">      <span class="keyword">this</span>.$store.commit(<span class="string">'addIncludeComponent'</span>, <span class="string">'pageADetail'</span>)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">this</span>.$store.commit(<span class="string">'removeIncludeComponent'</span>, <span class="string">'pageADetail'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    next()</span><br><span class="line">  &#125;,</span><br><span class="line">  activated() &#123;</span><br><span class="line">    <span class="keyword">this</span>.getList()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>pageADetail.vue</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  name: <span class="string">'pageADetail'</span>,</span><br><span class="line">  beforeRouteLeave(to, <span class="keyword">from</span>, next) &#123;</span><br><span class="line">    <span class="keyword">let</span> reg = <span class="regexp">/pageA/</span></span><br><span class="line">    <span class="keyword">if</span> (reg.test(to.name)) &#123;</span><br><span class="line">      <span class="keyword">this</span>.$store.commit(<span class="string">'addIncludeComponent'</span>, <span class="string">'pageAList'</span>)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">this</span>.$store.commit(<span class="string">'removeIncludeComponent'</span>, <span class="string">'pageAList'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    next()</span><br><span class="line">  &#125;,</span><br><span class="line">  activated() &#123;</span><br><span class="line">    <span class="keyword">this</span>.getList()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>总结</p>
-<ul>
-<li>进入 pageAList，离开当前组件的时候有两种情况：<ul>
-<li>跳转进去 pageADetail，在 pageAList 的 beforeRouteLeave 钩子里面缓存 pageAList</li>
-<li>跳转到非 pageADetail 的页面，在 pageAList 的 beforeRouteLeave 钩子里面清除 pageAList 的缓存</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>从 pageADetail 离开的时候，也有两种情况：<ul>
-<li>回到 pageAList，在 pageADetail 的 beforeRouteLeave 钩子里面缓存 pageAList，所以从 pageAList-pageADetail-pageAList 的时候，pageAList 可以被缓存，还是之前的页码状态</li>
-<li>进入其他路由，在 pageADetail 的 beforeRouteLeave 钩子里面清除 pageAList 的缓存</li>
-</ul>
-</li>
-</ul>
 
       
     </div>
@@ -615,8 +600,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/vue/vue-cli常用配置/" rel="next" title="vue-cli 常用配置">
-                <i class="fa fa-chevron-left"></i> vue-cli 常用配置
+              <a href="/2019/vue/vue项目优化-加载第三方js/" rel="next" title="vue 项目加载第 3 方 js 优化">
+                <i class="fa fa-chevron-left"></i> vue 项目加载第 3 方 js 优化
               </a>
             
           </div>
@@ -625,8 +610,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/vue/多页模式/" rel="prev" title="vue-cli3 多页模式">
-                vue-cli3 多页模式 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/tool/ChromeDeveloperTools使用技巧/" rel="prev" title="Chrome Developer Tools 使用技巧">
+                Chrome Developer Tools 使用技巧 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -675,8 +660,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -860,6 +854,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#异步组件"><span class="nav-text">异步组件</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
