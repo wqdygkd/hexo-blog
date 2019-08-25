@@ -168,6 +168,17 @@ comments: false
     </a>
   </div>
 
+  <!-- Vant Weapp -->
+  <div class="card">
+    <a href="https://github.com/youzan/vant-weapp" target="_blank">
+      <img src="/index/" />
+      <div class="desc">
+        <div class="name">Vant Weapp</div>
+        <div class="info">Vant Weapp 是移动端 Vue 组件库 Vant 的小程序版本</div>
+      </div>
+    </a>
+  </div>
+
 </div>
 
 ### 社区
@@ -397,6 +408,8 @@ comments: false
 
 [WinSCP](https://winscp.net/eng/docs/lang:chs): Windows 环境下使用的 SSH 的开源图形化 SFTP 客户端
 
+[卡硬工具箱](http://www.kbtool.cn/) 硬件检测、管理、性能测试工具，软件集合熟知的各个配件的检测工具；超频工具；拷机测试工具
+
 ### 图像放大工具
 
 [waifu2x](https://github.com/nagadomi/waifu2x) （开源） 在线使用 -> http://waifu2x.udp.jp/ 、 https://waifu2x.booru.pics/
@@ -420,3 +433,22 @@ Gigapixel
 [FiraCode 字体](https://github.com/tonsky/FiraCode)
 
 [Animate](https://daneden.github.io/animate.css/): css 动画库
+
+### 下载工具
+
+[motris](https://motrix.app/) 支持 HTTP/FTP/BitTorrent/Magnet/BaiduNetDisk etc. [github 地址](https://github.com/agalwood/Motrix)
+
+[xdown](https://xdown.org/) 免费无广告的 idm / torrent 合成体， 支持 youtube 下载视频,音频 支持 FTP/HTTP/HTTPS/HTTP2/Magnet 协议下载
+
+[百度云链接转 aria2](https://labs.nazo.moe/netdisk.html)
+
+### linux
+
+netdata linux 系统性能监测工具
+
+```
+# apt-get install -y zlib1g-dev gcc make git autoconf autogen automake pkg-config uuid-dev 【ubuntu】
+# yum install -y  libuuid-devel zlib-devel gcc make git autoconf autogen automake 【centos】
+```
+
+grafana
