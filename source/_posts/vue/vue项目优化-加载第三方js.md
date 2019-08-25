@@ -1,5 +1,7 @@
 ---
 title: vue 项目加载第 3 方 js 优化
+categories:
+  - [vue]
 date: 2019/08/06
 ---
 

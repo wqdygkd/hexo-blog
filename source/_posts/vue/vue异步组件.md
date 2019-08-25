@@ -1,5 +1,7 @@
 ---
-title: 异步组件
+title: vue 异步组件
+categories:
+  - [vue]
 date: 2019/08/06
 ---
 
