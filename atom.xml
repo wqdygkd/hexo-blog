@@ -40,6 +40,29 @@
   </entry>
   
   <entry>
+    <title>vue 项目加载第 3 方 js 优化</title>
+    <link href="https://cuilongjin.top/2019/vue/vue%E9%A1%B9%E7%9B%AE%E4%BC%98%E5%8C%96-%E5%8A%A0%E8%BD%BD%E7%AC%AC%E4%B8%89%E6%96%B9js/"/>
+    <id>https://cuilongjin.top/2019/vue/vue项目优化-加载第三方js/</id>
+    <published>2019-08-05T16:00:00.000Z</published>
+    <updated>2019-08-25T13:49:34.608Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="vue-项目加载第-3-方-js-优化"><a href="#vue-项目加载第-3-方-js-优化" class="headerlink" title="vue 项目加载第 3 方 js 优化"></a>vue 项目加载第 3 方 js 优化</h3><blockquote><p>这里的第 3 方组件大多不能通过 npm 或其他模块安装的组件(地图 sdk)，所以不能直接用 vue 里的异步组件</p></blockquote><p>在 index.html 里引入的第三方组件，有很多在首屏上根本用不到，严重拖慢的网页的加载速度造成长时间的白屏</p><p>可以根据需要动态插入 js</p><p>定义插入 js 到 document 的方法</p><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//! loadjs.js</span></span><br><span class="line"><span class="keyword">const</span> loadjsAsync = <span class="function"><span class="keyword">function</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> scriptHasLoad = <span class="built_in">document</span>.querySelector(<span class="string">'script[src="'</span> + url + <span class="string">'"]'</span>)</span><br><span class="line">    <span class="keyword">if</span> (scriptHasLoad) &#123;</span><br><span class="line">      resolve()</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> script = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>)</span><br><span class="line">    script.src = url</span><br><span class="line">    <span class="built_in">document</span>.body.appendChild(script)</span><br><span class="line">    script.onload = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      resolve()</span><br><span class="line">    &#125;</span><br><span class="line">    script.onerror = <span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">      reject(err)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> loadjsAsync</span><br></pre></td></tr></table></figure><p>使用</p><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 引入加载js方法</span></span><br><span class="line"><span class="keyword">import</span> loadjsAsync <span class="keyword">from</span> <span class="string">'../assets/js/loadjs'</span></span><br><span class="line"></span><br><span class="line">beforeCreate () &#123;</span><br><span class="line">  <span class="comment">// 引入第三方 js</span></span><br><span class="line">  loadjsAsync(<span class="string">'static/ueditor/ueditor.all.min.js'</span>).then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.editor = UE.delEditor(<span class="string">'editor'</span>)</span><br><span class="line">    <span class="keyword">this</span>.editor = UE.getEditor(<span class="string">'editor'</span>, <span class="keyword">this</span>.config)</span><br><span class="line">  &#125;).catch(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;vue-项目加载第-3-方-js-优化&quot;&gt;&lt;a href=&quot;#vue-项目加载第-3-方-js-优化&quot; class=&quot;headerlink&quot; title=&quot;vue 项目加载第 3 方 js 优化&quot;&gt;&lt;/a&gt;vue 项目加载第 3 方 js 优化&lt;/h3&gt;&lt;bloc
+      
+    
+    </summary>
+    
+      <category term="vue" scheme="https://cuilongjin.top/categories/vue/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>vue 异步组件</title>
     <link href="https://cuilongjin.top/2019/vue/vue%E5%BC%82%E6%AD%A5%E7%BB%84%E4%BB%B6/"/>
     <id>https://cuilongjin.top/2019/vue/vue异步组件/</id>
@@ -58,29 +81,6 @@
 &lt;li&gt;将一些静态 js css 放到其他地方（如 OSS），减小服务器压力&lt;/li&gt;
 &lt;li&gt;按需加载三方资源，如 iview,建议按需引入 iview 中的组件&lt;/li&gt;
 &lt;li
-      
-    
-    </summary>
-    
-      <category term="vue" scheme="https://cuilongjin.top/categories/vue/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>vue 项目加载第 3 方 js 优化</title>
-    <link href="https://cuilongjin.top/2019/vue/vue%E9%A1%B9%E7%9B%AE%E4%BC%98%E5%8C%96-%E5%8A%A0%E8%BD%BD%E7%AC%AC%E4%B8%89%E6%96%B9js/"/>
-    <id>https://cuilongjin.top/2019/vue/vue项目优化-加载第三方js/</id>
-    <published>2019-08-05T16:00:00.000Z</published>
-    <updated>2019-08-25T13:49:34.608Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="vue-项目加载第-3-方-js-优化"><a href="#vue-项目加载第-3-方-js-优化" class="headerlink" title="vue 项目加载第 3 方 js 优化"></a>vue 项目加载第 3 方 js 优化</h3><blockquote><p>这里的第 3 方组件大多不能通过 npm 或其他模块安装的组件(地图 sdk)，所以不能直接用 vue 里的异步组件</p></blockquote><p>在 index.html 里引入的第三方组件，有很多在首屏上根本用不到，严重拖慢的网页的加载速度造成长时间的白屏</p><p>可以根据需要动态插入 js</p><p>定义插入 js 到 document 的方法</p><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//! loadjs.js</span></span><br><span class="line"><span class="keyword">const</span> loadjsAsync = <span class="function"><span class="keyword">function</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> scriptHasLoad = <span class="built_in">document</span>.querySelector(<span class="string">'script[src="'</span> + url + <span class="string">'"]'</span>)</span><br><span class="line">    <span class="keyword">if</span> (scriptHasLoad) &#123;</span><br><span class="line">      resolve()</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> script = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>)</span><br><span class="line">    script.src = url</span><br><span class="line">    <span class="built_in">document</span>.body.appendChild(script)</span><br><span class="line">    script.onload = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      resolve()</span><br><span class="line">    &#125;</span><br><span class="line">    script.onerror = <span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">      reject(err)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> loadjsAsync</span><br></pre></td></tr></table></figure><p>使用</p><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 引入加载js方法</span></span><br><span class="line"><span class="keyword">import</span> loadjsAsync <span class="keyword">from</span> <span class="string">'../assets/js/loadjs'</span></span><br><span class="line"></span><br><span class="line">beforeCreate () &#123;</span><br><span class="line">  <span class="comment">// 引入第三方 js</span></span><br><span class="line">  loadjsAsync(<span class="string">'static/ueditor/ueditor.all.min.js'</span>).then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.editor = UE.delEditor(<span class="string">'editor'</span>)</span><br><span class="line">    <span class="keyword">this</span>.editor = UE.getEditor(<span class="string">'editor'</span>, <span class="keyword">this</span>.config)</span><br><span class="line">  &#125;).catch(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;vue-项目加载第-3-方-js-优化&quot;&gt;&lt;a href=&quot;#vue-项目加载第-3-方-js-优化&quot; class=&quot;headerlink&quot; title=&quot;vue 项目加载第 3 方 js 优化&quot;&gt;&lt;/a&gt;vue 项目加载第 3 方 js 优化&lt;/h3&gt;&lt;bloc
       
     
     </summary>
@@ -307,30 +307,6 @@
   </entry>
   
   <entry>
-    <title>vue-cli 常用配置</title>
-    <link href="https://cuilongjin.top/2019/vue/vue-cli%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE/"/>
-    <id>https://cuilongjin.top/2019/vue/vue-cli常用配置/</id>
-    <published>2019-07-10T16:00:00.000Z</published>
-    <updated>2019-07-11T16:00:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<ul><li><h2 id="vue-cli-webpack-打包后-index-html-引入文件没有引号"><a href="#vue-cli-webpack-打包后-index-html-引入文件没有引号" class="headerlink" title="vue-cli webpack 打包后 index.html 引入文件没有引号"></a>vue-cli webpack 打包后 index.html 引入文件没有引号</h2></li></ul><p>解决办法：</p><p>vue-cli2：</p><p>在 webpack.prod.conf.js 中修改：</p><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">plugins: [</span><br><span class="line">  <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">    minify: &#123;</span><br><span class="line">      removeAttributeQuotes: <span class="literal">false</span> <span class="comment">// 如果该方法没有用那就把整个 minify 去掉</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">]</span><br></pre></td></tr></table></figure><p>vue-cli3:</p><p>在 vue.config.js 中添加：</p><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">chainWebpack: <span class="function"><span class="params">config</span> =&gt;</span> &#123;</span><br><span class="line">  config.plugin(<span class="string">'html'</span>).tap(<span class="function"><span class="params">args</span> =&gt;</span> &#123;</span><br><span class="line">    args[<span class="number">0</span>].minify = <span class="literal">false</span></span><br><span class="line">    <span class="keyword">return</span> args</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li><h2 id="vue-cli-打包时删除-console、deugger、注释"><a href="#vue-cli-打包时删除-console、deugger、注释" class="headerlink" title="vue-cli 打包时删除 console、deugger、注释"></a>vue-cli 打包时删除 console、deugger、注释</h2></li></ul><p>vue-cli2：</p><p>在 webpack.prod.conf.js 中添加：</p><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">plugins: [</span><br><span class="line">  <span class="keyword">new</span> UglifyJsPlugin(&#123;</span><br><span class="line">    uglifyOptions: &#123;</span><br><span class="line">      compress: &#123;</span><br><span class="line">        drop_debugger: <span class="literal">true</span>,</span><br><span class="line">        drop_console: <span class="literal">true</span></span><br><span class="line">      &#125;,</span><br><span class="line">      output: &#123;</span><br><span class="line">        comment: <span class="literal">false</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">]</span><br></pre></td></tr></table></figure><p>vue-cli3：</p><p>安装 uglifyjs-webpack-plugin</p><p>在 vue.config.js 中添加：</p><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> UglifyJsPlugin = <span class="built_in">require</span>(<span class="string">'uglifyjs-webpack-plugin'</span>)</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  configureWebpack: <span class="function"><span class="params">config</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">new</span> UglifyJsPlugin(&#123;</span><br><span class="line">      uglifyOptions: &#123;</span><br><span class="line">        compress: &#123;</span><br><span class="line">          drop_debugger: <span class="literal">true</span>,</span><br><span class="line">          drop_console: <span class="literal">true</span></span><br><span class="line">        &#125;,</span><br><span class="line">        output: &#123;</span><br><span class="line">          comment: <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      parallel: <span class="literal">true</span>,</span><br><span class="line">      cache: <span class="literal">true</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ul&gt;
-&lt;li&gt;&lt;h2 id=&quot;vue-cli-webpack-打包后-index-html-引入文件没有引号&quot;&gt;&lt;a href=&quot;#vue-cli-webpack-打包后-index-html-引入文件没有引号&quot; class=&quot;headerlink&quot; title=&quot;vue-c
-      
-    
-    </summary>
-    
-      <category term="vue" scheme="https://cuilongjin.top/categories/vue/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>vue-cli3.0 内存溢出 JavaScript heap out of memory</title>
     <link href="https://cuilongjin.top/2019/vue/vue-cli3%20%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E8%A7%A3%E5%86%B3/"/>
     <id>https://cuilongjin.top/2019/vue/vue-cli3 内存溢出解决/</id>
@@ -345,6 +321,30 @@
       
         &lt;p&gt;错误内容：&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;--- JS stacktrace ---&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;sp
+      
+    
+    </summary>
+    
+      <category term="vue" scheme="https://cuilongjin.top/categories/vue/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>vue-cli 常用配置</title>
+    <link href="https://cuilongjin.top/2019/vue/vue-cli%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE/"/>
+    <id>https://cuilongjin.top/2019/vue/vue-cli常用配置/</id>
+    <published>2019-07-10T16:00:00.000Z</published>
+    <updated>2019-07-11T16:00:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li><h2 id="vue-cli-webpack-打包后-index-html-引入文件没有引号"><a href="#vue-cli-webpack-打包后-index-html-引入文件没有引号" class="headerlink" title="vue-cli webpack 打包后 index.html 引入文件没有引号"></a>vue-cli webpack 打包后 index.html 引入文件没有引号</h2></li></ul><p>解决办法：</p><p>vue-cli2：</p><p>在 webpack.prod.conf.js 中修改：</p><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">plugins: [</span><br><span class="line">  <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">    minify: &#123;</span><br><span class="line">      removeAttributeQuotes: <span class="literal">false</span> <span class="comment">// 如果该方法没有用那就把整个 minify 去掉</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">]</span><br></pre></td></tr></table></figure><p>vue-cli3:</p><p>在 vue.config.js 中添加：</p><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">chainWebpack: <span class="function"><span class="params">config</span> =&gt;</span> &#123;</span><br><span class="line">  config.plugin(<span class="string">'html'</span>).tap(<span class="function"><span class="params">args</span> =&gt;</span> &#123;</span><br><span class="line">    args[<span class="number">0</span>].minify = <span class="literal">false</span></span><br><span class="line">    <span class="keyword">return</span> args</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li><h2 id="vue-cli-打包时删除-console、deugger、注释"><a href="#vue-cli-打包时删除-console、deugger、注释" class="headerlink" title="vue-cli 打包时删除 console、deugger、注释"></a>vue-cli 打包时删除 console、deugger、注释</h2></li></ul><p>vue-cli2：</p><p>在 webpack.prod.conf.js 中添加：</p><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">plugins: [</span><br><span class="line">  <span class="keyword">new</span> UglifyJsPlugin(&#123;</span><br><span class="line">    uglifyOptions: &#123;</span><br><span class="line">      compress: &#123;</span><br><span class="line">        drop_debugger: <span class="literal">true</span>,</span><br><span class="line">        drop_console: <span class="literal">true</span></span><br><span class="line">      &#125;,</span><br><span class="line">      output: &#123;</span><br><span class="line">        comment: <span class="literal">false</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">]</span><br></pre></td></tr></table></figure><p>vue-cli3：</p><p>安装 uglifyjs-webpack-plugin</p><p>在 vue.config.js 中添加：</p><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> UglifyJsPlugin = <span class="built_in">require</span>(<span class="string">'uglifyjs-webpack-plugin'</span>)</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  configureWebpack: <span class="function"><span class="params">config</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">new</span> UglifyJsPlugin(&#123;</span><br><span class="line">      uglifyOptions: &#123;</span><br><span class="line">        compress: &#123;</span><br><span class="line">          drop_debugger: <span class="literal">true</span>,</span><br><span class="line">          drop_console: <span class="literal">true</span></span><br><span class="line">        &#125;,</span><br><span class="line">        output: &#123;</span><br><span class="line">          comment: <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      parallel: <span class="literal">true</span>,</span><br><span class="line">      cache: <span class="literal">true</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;&lt;h2 id=&quot;vue-cli-webpack-打包后-index-html-引入文件没有引号&quot;&gt;&lt;a href=&quot;#vue-cli-webpack-打包后-index-html-引入文件没有引号&quot; class=&quot;headerlink&quot; title=&quot;vue-c
       
     
     </summary>
