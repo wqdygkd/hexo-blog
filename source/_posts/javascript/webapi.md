@@ -1424,7 +1424,7 @@ arr[i].addEventListener('click', function () {
 
 ![offset](webapi/offset.png)
 
-### scroll 系列 (掌握1个)
+### scroll 系列
 
 > scroll 系列是用来获取**盒子内容的大小和位置**
 >
@@ -1451,6 +1451,8 @@ arr[i].addEventListener('click', function () {
 
 
 **scrollX 与 scrollY**
+
+* 只读属性
 
 * scrollY：文档在垂直方向已滚动的像素值
   pageYOffset 属性是 scrollY 属性的别名
