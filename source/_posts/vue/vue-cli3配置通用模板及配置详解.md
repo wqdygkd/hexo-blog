@@ -375,10 +375,15 @@ vue add vuex
 configureWebpack: config => {
   config.externals = {
     vue: 'Vue', // key 为库名称，value 为库在你项目中使用的关键字
-    'element-ui': 'ELEMENT'
+    'element-ui': 'ELEMENT',
+    'vue-router': 'VueRouter',
+    axios: 'axios',
+    i18n: 'i18n'
   }
 }
 ```
+
+修改配置后还是提示 Element 未定义，是因为 Element 依赖 Vue，vue.js 需要在 element-ui 之前引入，所以 vue.js 也要改为 cnd 的引入方式
 
 ### 修改本地 host 通过域名访问项目
 
