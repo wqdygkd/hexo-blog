@@ -2,7 +2,7 @@
 title: git 版本控制系统
 tags: git
 categories:
-- [工具]
+  - [工具]
 date: 2018/09/12 13:30:00
 updated: 2019/06/10 18:29:00
 ---
@@ -13,15 +13,11 @@ updated: 2019/06/10 18:29:00
 
 在开发过程中，经常需要对一个文件进行修改甚至删除，但是我们又希望能够保存这个文件的历史记录，如果通过备份，那么管理起来会非常的复杂
 
-
-
 ## 什么是版本控制系统
 
 > 版本控制系统（Version Control System）:是一种记录一个或若干文件内容变化，以便将来查阅特定版本修订情况的系统。
 
 版本控制系统不仅可以应用于软件源代码的文本文件，而且可以对任何类型的文件进行版本控制。
-
-
 
 ## 版本控制系统的分类
 
@@ -34,8 +30,6 @@ updated: 2019/06/10 18:29:00
 本地版本控制系统就是在一台机器上，记录版本的不同变化，保证内容不会丢失
 
 1. 如果多人开发，每个人都在不同的系统和电脑上开发，没办法协同工作。
-
-
 
 ### 集中式版本控制系統
 
@@ -58,10 +52,6 @@ updated: 2019/06/10 18:29:00
 3. 不需要网络就可以进行工作。
 4. 当连接网络时，用户可以选择将自己的服务器与代码仓库进行同步。
 
-
-
-
-
 # Git
 
 ---
@@ -70,22 +60,20 @@ updated: 2019/06/10 18:29:00
 
 ## Git 核心概念
 
-* **`WorkSpace`**：
-工作区，即从仓库中checkout出来的，需要通过Git进行版本控制的目录和文件，可以简单的理解为在电脑里真实看到的文件；
+- **`WorkSpace`**：
+  工作区，即从仓库中 checkout 出来的，需要通过 Git 进行版本控制的目录和文件，可以简单的理解为在电脑里真实看到的文件
 
-* **`Stage(Index)`**：
-暂存区，或者叫做待提交更新区；在提交进入Repository之前，可以把所有的更新放在暂存区, 用 `git add` 的文件都在这里；
+- **`Stage(Index)`**：
+  暂存区，或者叫做待提交更新区；在提交进入 Repository 之前，可以把所有的更新放在暂存区, 用 `git add` 的文件都在这里
 
-* **`Repository(Remote/Local)`**：
-仓库，一个存放在远端／本地的版本库，用 `git commit` 提交的文件就到Local Repository,用 `git push` 提交的文件就到Remote Repository；
+- **`Repository(Remote/Local)`**：
+  仓库，一个存放在远端／本地的版本库，用 `git commit` 提交的文件就到 Local Repository,用 `git push` 提交的文件就到 Remote Repository
 
-* **`.git`**：存放Git管理信息的目录，初始化仓库的时候会自动创建。
+- **`.git`**：存放 Git 管理信息的目录，初始化仓库的时候会自动创建
 
->![](git/git.jpg)
+> ![](git/git.jpg)
 
->![](git/github-flows.png)
-
-
+> ![](git/github-flows.png)
 
 ## Git 初始设置
 
@@ -104,7 +92,7 @@ git config --list
 git config --unset -- user.name
 ```
 
-全局设置会在` ~/.gitconfig`中以如下形式输出设置文件，可以直接编辑这个文件来修改设置
+全局设置会在 `~/.gitconfig` 中以如下形式输出设置文件，可以直接编辑这个文件来修改设置
 
 ```bash
 [user]
@@ -112,17 +100,13 @@ name = your_name
 email = your_email@example.com
 ```
 
-每个仓库的 Git 配置文件都放在 ` .git/config` 文件中，可以直接修改此文件
+每个仓库的 Git 配置文件都放在 `.git/config` 文件中，可以直接修改此文件
 `$ cat .git/config` 查看配置文件
-
-
 
 ```bash
 # 解决中文变成数字加百分号，也可以在设置中将编码修改为 utf-8
 git config --global core.quotepath false
 ```
-
-
 
 ### 设置 SSH Key
 
@@ -185,6 +169,7 @@ Hi cuilongjin! You've successfully authenticated, but GitHub does not provide sh
 ```
 
 ### 提高命令输出的可读性
+
 将 `color.ui` 设置为 `auto` 可以让命令的输出拥有更高的可读性
 
 ```bash
@@ -200,8 +185,6 @@ ui = true
 
 这样一来，各种命令的输出就会变得更容易分辨。
 
-
-
 ### 文件名大小写问题
 
 git 默认对文件名大小写不敏感
@@ -213,15 +196,9 @@ git config core.ignorecase false
 # 或者先删除文件在添加进去
 ```
 
-
-
-
-
 ### 设置头像
 
 通过 Gravatar 服务
-
-
 
 ### 配置别名
 
@@ -238,13 +215,9 @@ git config --global alias.last 'log -1'
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 ```
 
-
-
 ### 搭建 Git 服务器
 
-[搭建Git服务器](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137583770360579bc4b458f044ce7afed3df579123eca000)
-
-
+[搭建 Git 服务器](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137583770360579bc4b458f044ce7afed3df579123eca000)
 
 ### 配置多用户
 
@@ -282,8 +255,6 @@ Host mygithub 这样定义的话，命令如下
 
 执行 `ssh -T git@github`、`ssh -T git@gitlab` 测试是否成功
 
-
-
 配置局部 git 用户名和邮箱，如果没有局部配置，默认用全局配置
 
 ```bash
@@ -299,8 +270,6 @@ name = Your name
 email = your_email@gmail.com
 ```
 
-
-
 ## Git 基本操作
 
 ### git init
@@ -311,11 +280,11 @@ cd project
 git init
 ```
 
-如果初始化成功，执行了 `git init` 命令的目录下就会生成 `.git`  目录。这个 `.git` 目录里存储着管理当前目录内容所需的仓库数据。
+如果初始化成功，执行了 `git init` 命令的目录下就会生成 `.git` 目录。这个 `.git` 目录里存储着管理当前目录内容所需的仓库数据
+
 > `mkdir project` 命令创建 project 空文件夹
-* `pwd` 命令用于显示当前目录
 
-
+- `pwd` 命令用于显示当前目录
 
 ### git add
 
@@ -337,8 +306,6 @@ git add -A
 git add --all
 ```
 
-
-
 ### git commit
 
 ```bash
@@ -354,11 +321,9 @@ git commit --amend -m '提交说明'
 
 -m 参数后的 `'First commit'` 称作提交信息，是对这个提交的概述,如果想要记述得更加详细，请不加 `-m` ，直接执行 `git commit` 命令，执行后编辑器就会启动。
 在编辑器中记述提交信息的格式如下:
-​	第一行：用一行文字简述提交的更改内容
-​	第二行：空行
-​	第三行以后：记述更改的原因和详细内容
-
-
+​ 第一行：用一行文字简述提交的更改内容
+​ 第二行：空行
+​ 第三行以后：记述更改的原因和详细内容
 
 ### git status
 
@@ -372,8 +337,6 @@ git stauts -s (short)
 ```
 
 `git status` 命令可以让我们时刻掌握仓库当前的状态，但不能看到具体修改了什么内容，需要用 `git diff` 这个命令来查看具体修改内容。
-
-
 
 ### git diff
 
@@ -396,11 +359,7 @@ git diff --cached
 git diff c265262 de4845b
 ```
 
-
-
->HEAD 是指向当前分支中最新一次提交的指针
-
-
+> HEAD 是指向当前分支中最新一次提交的指针
 
 ### git log
 
@@ -409,7 +368,7 @@ git diff c265262 de4845b
 git log
 commit 9f129bae19b2c82fb4e98cde5890e52a6c546922
 Author: cuilongjin <cuilongjin@gmail.com>
-Date:   Sun Oct 8 22:08:39 2017 +0900
+Date: Sun Oct 8 22:08:39 2017 +0900
     First commit
 
 # 只显示提交信息的第一行
@@ -424,9 +383,10 @@ git log -p 文件名
 
 # 显示所有曾经提交的版本（包括被删除的）
 git reflog
+
+# 图表形式显示
+git log --graph --pretty='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an %ae>%Creset'
 ```
-
-
 
 ### git reset
 
@@ -439,15 +399,14 @@ git reset -h		'查看帮助'
 --keep 				'reset HEAD but keep local changes'
 ```
 
->1. `HEAD` 表示当前版本，上一个版本就是 `HEAD^` ，上上一个版本就是 `HEAD^^` ，当然往上100个版本写100个^比较容易数不过来，所以写成 `HEAD~100` 。
->2. 使用 `commit_id` 回退 , `git reflog` 用来记录你的每一次命令和 `commit_id`
+> 1.  `HEAD` 表示当前版本，上一个版本就是 `HEAD^` ，上上一个版本就是 `HEAD^^` ，当然往上 100 个版本写 100 个^比较容易数不过来，所以写成 `HEAD~100`
+> 2.  使用 `commit_id` 回退 , `git reflog` 用来记录你的每一次命令和 `commit_id`
+
 ```bash
 git reset --soft HEAD^
 git reset --hard commit_id
 git reset HEAD [file]
 ```
-
-
 
 ### git checkout --file
 
@@ -464,8 +423,6 @@ git checkout -- README.md
 2. 一种是 README.md 已经添加到暂存区后，又作了修改，现在撤销修改就回到添加到暂存区后的状态
 
 总之，就是让这个文件回到最近一次 git commit 或 git add 时的状态，可用于**撤销文件修改或恢复误删文件**
-
-
 
 ### git remote
 
@@ -495,8 +452,6 @@ git remote rm origin
 git remote rename <原远程库名> <新远程库名>
 ```
 
-
-
 ### git pull
 
 ```bash
@@ -510,14 +465,12 @@ git pull origin next 等同于 git fetch origin && git merge origin/next
 # 加上参数 -p 就会在本地删除远程已经删除的分支
 $ git pull -p
 # 等同于下面的命令
-$ git fetch --prune origin 
+$ git fetch --prune origin
 $ git fetch -p
 
 # 合并 pull 两个不同的项目出现 fatal: refusing to merge unrelated histories
 git pull origin master ----allow-unrelated-histories
 ```
-
-
 
 ### git push
 
@@ -536,14 +489,10 @@ $ git push origin --delete master
 git push origin --force --all
 ```
 
-
-
->remote: error: GH007: Your push would publish a private email address.
-解决方法——http://github.com/settings/emails 把Keep my email address private这一项去掉勾选即可。
+> remote: error: GH007: Your push would publish a private email address.
+> 解决方法——http://github.com/settings/emails 把 Keep my email address private 这一项去掉勾选即可。
 
 如果推送失败，则因为远程分支比你的本地更新，需要先用 `git pull` 拉取远程的新提交
-
-
 
 ### git clone
 
@@ -566,17 +515,11 @@ git checkout -b dev origin/dev
 git branch --set-upstream dev origin/dev
 ```
 
-
-
 克隆指定分支
 
 ```bash
 # git clone -b|--branch 分支名或tag名 仓库地址
 ```
-
-
-
-
 
 ### git fetch
 
@@ -588,13 +531,11 @@ git fetch <远程仓库>
 git fetch <远程仓库> <分支名>
 ```
 
-
-
 git fetch 和 git pull 区别
 
-* git pull 获取远程仓库的更新，并且与本地的分支进行合并
+- git pull 获取远程仓库的更新，并且与本地的分支进行合并
 
-* git fetch 所取回的更新，在本地主机上要用 "远程仓库/分支名" 的形式读取，即不会与本地分支合并
+- git fetch 所取回的更新，在本地主机上要用 "远程仓库/分支名" 的形式读取，即不会与本地分支合并
 
 ### git 忽视文件
 
@@ -606,11 +547,9 @@ git fetch 和 git pull 区别
 - 忽略编译生成的中间文件、可执行文件等，也就是如果一个文件是通过另一个文件自动生成的，那自动生成的文件就没必要放进版本库，比如 Java 编译产生的 .class 文件
 - 忽略你自己的带有敏感信息的配置文件，比如存放口令的配置文件
 
+在仓库的根目录创建一个 `.gitignore` 的文件，文件名是固定的
 
-
-在仓库的根目录创建一个`.gitignore`的文件，文件名是固定的
-
-将不需要被 git 管理的文件路径添加到`.gitignore`中，把 `.gitignore` 也提交到 Git，Git 就会自动忽略这些文件
+将不需要被 git 管理的文件路径添加到 `.gitignore` 中，把 `.gitignore` 也提交到 Git，Git 就会自动忽略这些文件
 
 ```txt
 # 忽视 index.txt 文件
@@ -634,8 +573,6 @@ css
 
 GitHub 已经为我们准备了各种配置文件 [https://github.com/github/gitignore](https://github.com/github/gitignore)
 
-
-
 强制添加被 .gitignore 忽略的文件
 
 ```bash
@@ -646,8 +583,6 @@ git add -f <file>
 git check-ignore -v <file>
 .gitignore:x:xxx.xx    xxxxxx
 ```
-
-
 
 ### git branch
 
@@ -663,13 +598,12 @@ git branch
 
 `*`（星号）表示当前所在的分支
 
-* git checkout -b 创建、切换分支
+- git checkout -b 创建、切换分支
 
 ```bash
 # 以 branch 为基础创建名为 feature-A 的分支
 git checkout -b feature-A <branch>
 ```
-
 
 连续执行下面两条命令也能收到同样效果
 
@@ -684,7 +618,7 @@ git checkout feature-A
 git checkout -
 ```
 
-* git branch -d 删除分支
+- git branch -d 删除分支
 
 ```bash
 # 删除本地 feature-A 分支
@@ -698,7 +632,7 @@ git push origin :feature-A
 或 git push origin --delete feature-A
 ```
 
-* git branch -m 重命名分支
+- git branch -m 重命名分支
 
 ```bash
 # 重命名本地分支
@@ -707,8 +641,6 @@ git branch -m old_branch new_branch
 # 重命名远程分支
 # 重命名本地分支 -> 删除远程分支 -> 推送到远程分支
 ```
-
-
 
 ### git merge
 
@@ -721,8 +653,6 @@ git merge [--squash] [--no-ff] -m "描述" feature-A
 --squash # 只是将<branch>中的修改内容迁移过来，而不保留其中的commit历史
 --no-ff # 创建合并提交，为了在历史记录中明确记录下本次分支合并
 ```
-
-
 
 ### git stash
 
@@ -749,17 +679,15 @@ git stash pop
 
 恢复指定的 stash，用命令：`git stash apply stash@{0}`
 
-[廖雪峰Git教程创建与合并分支](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/001375840038939c291467cc7c747b1810aab2fb8863508000)
+[廖雪峰 Git 教程创建与合并分支](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/001375840038939c291467cc7c747b1810aab2fb8863508000)
 
-[廖雪峰Git教程分支管理策略](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/0013758410364457b9e3d821f4244beb0fd69c61a185ae0000)
+[廖雪峰 Git 教程分支管理策略](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/0013758410364457b9e3d821f4244beb0fd69c61a185ae0000)
 
-[廖雪峰Git教程Bug分支](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137602359178794d966923e5c4134bc8bf98dfb03aea3000)
-
-
+[廖雪峰 Git 教程 Bug 分支](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137602359178794d966923e5c4134bc8bf98dfb03aea3000)
 
 ### git tag
 
-* 创建标签
+- 创建标签
 
 ```bash
 # 首先切换到需要打标签的分支上
@@ -776,7 +704,7 @@ git tag -a v1.0 -m "version1.0 released" <commit id>
 git tag -s v1.0 -m "signed version1.0 released" <commit id>
 ```
 
-* 查看标签
+- 查看标签
 
 ```bash
 # 查看所有标签
@@ -793,7 +721,7 @@ Author:xxx
 Date:xxx
 ```
 
-* 推送标签到远程
+- 推送标签到远程
 
 ```bash
 # 推送 v1.0 标签到远程
@@ -803,7 +731,7 @@ git push origin v1.0
 git push origin --tags
 ```
 
-* 删除标签
+- 删除标签
 
 ```bash
 # 删除本地标签 v1.0
@@ -812,8 +740,6 @@ git tag -d v1.0
 git push origin :refs/tags/v1.0
 或 git push origin --delete tag v1.0
 ```
-
-
 
 ## git 修改提交历史
 
@@ -828,33 +754,31 @@ git commit --amend
 ```
 git rebase -i HEAD~3 修改最近三次提交
 git rebase -i --root 修改所有提交
+
+git rebase -i  [startpoint]  [endpoint] 指定了一个编辑区间（不包含[startpoint]），如果不指定[endpoint]，则该区间的终点默认是当前分支 HEAD 所指向的 commit
 ```
 
 Commands
 
-**p**, pick = use commit: 直接使用commit 不做任何修改，其中p 是pick的缩写，以下雷同；
+**p**, pick = use commit: 直接使用 commit 不做任何修改，其中 p 是 pick 的缩写，以下雷同
 
-**r**, reword = use commit, but edit the commit message: 使用commit，但是会更改commit 信息；
+**r**, reword = use commit, but edit the commit message: 使用 commit，修改 commit 提交注释
 
-**e**, edit = use commit, but stop for amending :使用commit，但是遇到此命令时会停止合并；
+**e**, edit = use commit, but stop for amending :使用 commit，但是遇到此命令时会停止合并，可以修改提交信息
 
-**s**, squash = use commit, but meld into previous commit: 使用commit,但是会合并到前一个commit中；
+**s**, squash = use commit, but meld into previous commit: 使用 commit，但是会合并到前一个 commit 中，默认保留所有的 commit 注释，并变为可以修改状态
 
-**f**, fixup = like "squash", but discard this commit's log message：和squash类似，但是会抛弃commit的log信息
+**f**, fixup = like "squash", but discard this commit's log message：和 squash 类似，但是会抛弃 commit 的 log 信息
 
-**x**, exec = run command (the rest of the line) using shell：使用shell运行命令
+**x**, exec = run command (the rest of the line) using shell：使用 shell 运行命令
 
-**d**, drop = remove commit：丢弃commit
-
-
+**d**, drop = remove commit：丢弃 commit，（并删除该提交所做的修改）
 
 <https://www.jianshu.com/p/67f20d19605a>
 
-
-
 ## other
 
-### git add .` 的时候遇到 `warning: LF will be replaced by CRLF in ......`
+### git add .`的时候遇到`warning: LF will be replaced by CRLF in ......`
 
 ```bash
 git config core.autocrlf
@@ -868,8 +792,6 @@ git config --global core.autocrlf false
 # LF(line feed)：表示句尾只使用换行(Unix Style)
 # CR：表示只使用回车
 ```
-
-
 
 ### Git 永久删除文件(包括历史记录)
 
@@ -896,17 +818,13 @@ git gc --aggressive --prune=now
 
 重新[绑定](https://git-scm.com/book/en/Git-Branching-Rebasing)，而不是合并创建的旧（受污染）存储库历史记录中的任何分支
 
-
-
-* git 修改已提交的某一次的邮箱和用户信息
+- git 修改已提交的某一次的邮箱和用户信息
 
 ```bash
 git filter-branch -f --env-filter \
 "GIT_AUTHOR_NAME='Newname'; GIT_AUTHOR_EMAIL='newemail'; \
 GIT_COMMITTER_NAME='committed-name'; GIT_COMMITTER_EMAIL='committed-email';" HEAD
 ```
-
-
 
 ### fork 的项目( A )与原项目 (B) 保持同步
 
@@ -923,8 +841,6 @@ git merge updated
 # 也可以直接合并远程分支
 git merge update/master
 ```
-
-
 
 ### 远程分支删除以后，本地显示仍然存在的解决办法
 
@@ -943,4 +859,3 @@ git remote prune origin
 或者
 git fetch -p
 ```
-
