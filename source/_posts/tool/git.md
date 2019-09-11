@@ -762,7 +762,7 @@ Commands
 
 **p**, pick = use commit: 直接使用 commit 不做任何修改，其中 p 是 pick 的缩写，以下雷同
 
-**r**, reword = use commit, but edit the commit message: 使用 commit，修改 commit 提交注释
+**r**, reword = use commit, but edit the commit message: 使用 commit，修改 commit 注释
 
 **e**, edit = use commit, but stop for amending :使用 commit，但是遇到此命令时会停止合并，可以修改提交信息
 
