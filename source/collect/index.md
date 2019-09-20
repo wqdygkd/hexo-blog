@@ -409,6 +409,7 @@ comments: false
 [WinSCP](https://winscp.net/eng/docs/lang:chs): Windows 环境下使用的 SSH 的开源图形化 SFTP 客户端
 
 [卡硬工具箱](http://www.kbtool.cn/) 硬件检测、管理、性能测试工具，软件集合熟知的各个配件的检测工具；超频工具；拷机测试工具
+[卡硬工具箱资源共享区](http://www.kbtool.cn/ziyuan.html)
 
 ### 图像放大工具
 

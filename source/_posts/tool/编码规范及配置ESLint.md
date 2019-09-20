@@ -79,8 +79,10 @@ $ npm install babel-eslint vue-eslint-parser -g
     "arrow-parens": 0
   }
 }
+
 {
   "extends": ["standard", "plugin:vue/essential"],
+  // "extends": ["standard", "plugin:vue/recommended"],
   "plugins": ["html"],
   "parser": "vue-eslint-parser",
   "parserOptions": {
@@ -96,7 +98,12 @@ $ npm install babel-eslint vue-eslint-parser -g
     "no-new": 0,
     "no-undef": 0,
     "no-unused-vars": 1,
-    "space-before-function-paren": [2, "always"]
+    "space-before-function-paren": [2, "always"],
+    "eqeqeq": 0,
+    "handle-callback-err": 0,
+    "no-useless-escape": 0,
+    "new-cap": 0,
+    "vue/name-property-casing": 0 // vue
   }
 }
 ```
