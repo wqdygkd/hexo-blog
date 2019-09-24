@@ -965,14 +965,14 @@ name 表单的名字， 这样，后台可以通过这个 name 属性找到这�
 
 #### HTML5 新的表单属性
 
-HTML5 的 form 和 input 标签添加了几个新属性.
+HTML5 的 form 和 input 标签添加了几个新属性
 
 form 新属性：
 `autocomplete` `novalidate`
 
 input 新属性：
 `autocomplete`
-`autofocus`
+`autofocus` 在页面加载后设置或返回文本域是否自动获取焦点
 `form`
 `ormaction`
 `formenctype`
@@ -987,7 +987,7 @@ input 新属性：
 `placeholder`
 `required`
 `step`
-
+`readOnly` 设置或返回文本域是否应是只读的
 ### H5 新增标签：六大结构标签
 
 ```html
