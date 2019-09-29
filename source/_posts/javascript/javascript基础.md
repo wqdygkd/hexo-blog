@@ -2071,7 +2071,7 @@ var newArr = arr.find(function(item, index) {
 
 ```js
 // 语法
-var newArr = arr.find(function(item, index) {
+var newArr = arr.findIndex(function(item, index) {
   // 参数同 map
   // 使用 return 操作输出，会循环数组每一项，当遍历循环到判断到一个为 true 则跳出循环，输出当前数组元素的下标
   return item > 2 // return 后是判断条件

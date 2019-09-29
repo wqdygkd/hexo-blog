@@ -13,6 +13,8 @@ https://juejin.im/post/59bb864b5188257e7a427c09
 
 阿里开源图库 https://www.iconfont.cn/
 
+使用方法 https://www.iconfont.cn/help/detail?spm=a313x.7781069.1998910419.d8d11a391&helptype=code
+
 下载代码到本地（也可以使用在线链接）打开 demo_index.html 使用说明，有三种使用方式 unicode font-class symbol
 unicode 方式： <span class="iconfont">&#x33;</span> 这样，不直观，语意不明确，不支持多色图标
 font-class 方式： <span class="iconfont icon-xxx"></span> 使用 class 定义，有语意，需要注意命名空间的问题，也是不支持多色图标
@@ -199,4 +201,12 @@ config.module
     }
     return options
   })
+```
+
+也可以在图标管理中 我的项目 批量操作 批量去色 将默认颜色去除， 之后可以通过 css 自定义颜色
+
+```css
+svg {
+  fill: red;
+}
 ```
