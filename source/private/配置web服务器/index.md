@@ -373,23 +373,3 @@ pacman -S nginx
 ### 配置
 
 你可以修改在 **/etc/nginx/** 目录中的文件来更改配置 **./etc/nginx/nginx.conf** 是主配置文件
-
-# SSH 工具连接谷歌云
-
-```bash
-# 切换到 root 角色
-sudo -i
-
-# 修改 SSH 配置文件 /etc/ssh/sshd_config
-vi /etc/ssh/sshd_config
-
-# 修改
-PermitRootLogin yes # 开启root用户访问
-PasswordAuthentication yes # 开启密码登陆
-
-# 给root用户设置密码
-passwd root
-
-# 重启SSH服务使修改生效
-service sshd restart
-```

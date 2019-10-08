@@ -57,10 +57,11 @@ beforeCreate () {
 ```
 
 动态导入
-动态导入返回请求模块的模块名称空间对象的promise 。因此，可以配合使用async/await。
+动态导入返回请求模块的模块名称空间对象的 promise 。因此，可以配合使用 async/await。
+
 ```js
-element.addEventListener('click', async() => {
-  const module = await import(`./api-scripts/button-click.js`);
-  module.clickEvent();
+element.addEventListener('click', async () => {
+  const module = await import(`./api-scripts/button-click.js`)
+  module.clickEvent()
 })
 ```

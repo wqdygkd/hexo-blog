@@ -4,7 +4,7 @@ tags: linux
 categories:
   - [linux]
 date: 2018/09/12 13:30:00
-updated: 2018/12/21 13:37:00
+updated: 2019/10/08
 ---
 
 [宝塔面板](https://www.bt.cn/)
@@ -171,7 +171,7 @@ $ mv readme.txt demo.txt
 # 将readme.txt文件名修改为demo.txt
 ```
 
-  `-i` ：覆盖文件前提示 y 覆盖 n 不覆盖
+`-i` ：覆盖文件前提示 y 覆盖 n 不覆盖
 
 #### 查看文件内容
 
@@ -329,7 +329,7 @@ $ ssh [-p port] user@remote
 
 ```shell
 # 从远程服务器拷贝文件
-$ scp user@remote ip:文件名或路径 文件名或路径
+$ scp user@remoteip:文件名或路径 文件名或路径
 # -r 复制目录
 # -P 指定端口是要用大写的 P
 
@@ -375,6 +375,26 @@ Host vultr
 ```
 
 直接使用 `ssh vultr` 即可实现登陆，`scp` 同样适用
+
+#### 修改 ssh 配置允许自定义工具连接服务器
+
+```bash
+# 切换到 root 角色
+sudo -i
+
+# 修改 SSH 配置文件 /etc/ssh/sshd_config
+vi /etc/ssh/sshd_config
+
+# 修改
+PermitRootLogin yes # 开启root用户访问
+PasswordAuthentication yes # 开启密码登陆
+
+# 给root用户设置密码
+passwd root
+
+# 重启SSH服务使修改生效
+service sshd restart
+```
 
 ### 用户和权限的相关命令
 
@@ -469,7 +489,7 @@ chmod 高级用法
 
 `passwd 用户名`：设置用户密码
 
-​如果是普通用户，直接用 passwd 可以修改自己的账户密码
+​ 如果是普通用户，直接用 passwd 可以修改自己的账户密码
 
 `userdel -r 用户名`：删除用户
 
@@ -477,7 +497,7 @@ chmod 高级用法
 
 `cat /etc/passwd | grep 用户名`：确认用户信息
 
-​新建用户后，用户信息保存在 `/etc/passwd` 文件中
+​ 新建用户后，用户信息保存在 `/etc/passwd` 文件中
 
 > 创建用户/删除用户/修改其他用户密码 的命令都需要通过 `sudo` 执行
 >
@@ -723,13 +743,117 @@ tar -jxvf 打包文件.tar.bz2 -C 目标路径
 
 `apt` : `Advanced Packaging Tool` ，linux 下安装包管理工具，可以方便的安装/卸载/更新软件包
 
-```
+```shell
 # 安装软件
 sudo apt install 软件包
 # 卸载软件
 sudo apt remove 如软件名
 # 更新已安装的包
 sudo apt upgrade
+```
+
+### 防火墙管理
+
+CentOS7 默认的防火墙不是 iptables,而是 firewalle
+
+```bash
+# 添加规则
+firewall-cmd --add-port=16343/tcp
+firewall-cmd --zone=public --add-port=16343/tcp --permanent （--permanent 永久生效，没有此参数重启后失效）
+# 重新载入
+firewall-cmd --reload
+# 查看
+firewall-cmd --zone=public --query-port=80/tcp
+# 删除
+firewall-cmd --zone=public --remove-port=80/tcp --permanent
+
+# 开启防火墙
+systemctl start firewalld.service
+# 关闭防火墙
+systemctl stop firewalld.service
+# 列出端口信息
+firewall-cmd --list-ports
+```
+
+使用 iptables
+
+```bash
+# 先检查是否安装了iptables
+service iptables status
+# 安装iptables
+yum install -y iptables
+# 升级iptables
+yum update iptables
+# 安装iptables-services
+yum install iptables-services
+# 停止firewalld服务
+systemctl stop firewalld
+# 禁用firewalld服务
+systemctl mask firewalld
+
+#注册iptables服务
+systemctl enable iptables.service
+# 开启 iptables 防火墙
+systemctl start iptables.service
+# 重启iptables防火墙
+systemctl restart iptables.service
+# 关闭 iptables 防火墙
+systemctl stop iptables.service
+# 查看 iptables 防火墙状态
+systemctl status iptables.service
+
+# 查看iptables现有规则
+iptables -L -n
+# 允许所有
+iptables -P INPUT ACCEPT
+# 清空所有默认规则
+iptables -F
+# 清空所有自定义规则
+iptables -X
+# 所有计数器归0
+iptables -Z
+# 允许来自于lo接口的数据包(本地访问)
+iptables -A INPUT -i lo -j ACCEPT
+# 开放22端口
+iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+# 开放21端口(FTP)
+iptables -A INPUT -p tcp --dport 21 -j ACCEPT
+# 开放80端口(HTTP)
+iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+# 开放443端口(HTTPS)
+iptables -A INPUT -p tcp --dport 443 -j ACCEPT
+# 允许ping
+iptables -A INPUT -p icmp --icmp-type 8 -j ACCEPT
+# 允许接受本机请求之后的返回数据 RELATED,是为FTP设置的
+iptables -A INPUT -m state --state  RELATED,ESTABLISHED -j ACCEPT
+# 其他入站一律丢弃
+iptables -P INPUT DROP
+# 所有出站一律绿灯
+iptables -P OUTPUT ACCEPT
+# 所有转发一律丢弃
+iptables -P FORWARD DROP
+#保存上述规则
+service iptables save
+```
+
+```bash
+#!/bin/sh
+iptables -P INPUT ACCEPT
+iptables -F
+iptables -X
+iptables -Z
+iptables -A INPUT -i lo -j ACCEPT
+iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+iptables -A INPUT -p tcp --dport 21 -j ACCEPT
+iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+iptables -A INPUT -p tcp --dport 443 -j ACCEPT
+iptables -A INPUT -p icmp --icmp-type 8 -j ACCEPT
+iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+iptables -P INPUT DROP
+iptables -P OUTPUT ACCEPT
+iptables -P FORWARD DROP
+service iptables save
+systemctl restart iptables.service
 ```
 
 neofetch

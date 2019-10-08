@@ -161,3 +161,6 @@ date: 2019-06-30
   <li><a href="https://github.com/SukkaW/Koolshare-Clash">KoolClash</a></li>
   <li><a href="https://github.com/shadowsocks/openwrt-shadowsocks">OpenWRT-Shadowsocks</a></li>
 </ul>
+
+苹果软件在线安装
+https://iosipa.ml
