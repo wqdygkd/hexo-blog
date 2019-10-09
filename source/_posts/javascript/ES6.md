@@ -2,11 +2,10 @@
 title: ES6（ECMAScript）
 tags: es6
 categories:
-- [js]
+  - [js]
 date: 2018/12/29 18:00:00
-updated: 2019/07/08
+updated: 2019/10/09
 ---
-
 
 # ES6（ECMAScript）
 
@@ -47,16 +46,18 @@ let a = 10
 let a = 1 // SyntaxError: Identifier 'a' has already been declared
 ```
 
-- <span class="red">不绑定全局作用域</span>
+- <span class="red">使用 let 声明的全局变量，不会成为 window 的属性</span>
 
 ```javascript
 var c = 1
 console.log(window.c) // 1
+console.log(c) // 1
 let c = 1
 console.log(window.c) // undefined
+console.log(c) // 1
 ```
 
-* <span class="error">存在变量提升</span>
+- <span class="error">存在变量提升</span>
 
 ```javascript
 let a = 1
@@ -68,34 +69,32 @@ let a = 1
 // 但运行发现 a = 2 报错：Uncaught ReferenceError: Cannot access 'a' before initialization
 ```
 
+总结 1：
 
+- let 声明会提升到块顶部
+- 从块顶部到该变量的初始化语句，这块区域叫做 TDZ（临时死区）
+- 如果你在 TDZ 内使用该变量，JS 就会报错
 
-总结1：
+总结 2：
 
-* let 声明会提升到块顶部
-* 从块顶部到该变量的初始化语句，这块区域叫做 TDZ（临时死区）
-* 如果你在 TDZ 内使用该变量，JS 就会报错
-
-总结2：
-
-* let 的「创建」过程被提升了，但是初始化没有提升
-* var 的「创建」和「初始化」都被提升了
-* function 的「创建」「初始化」和「赋值」都被提升了
+- let 的「创建」过程被提升了，但是初始化没有提升
+- var 的「创建」和「初始化」都被提升了
+- function 的「创建」「初始化」和「赋值」都被提升了
 
 所谓暂时死区，就是不能在初始化之前，使用变量
 
-总结3：
+总结 3：
 
 ```js
-a = 1; let a; // Uncaught ReferenceError: Cannot access 'a' before initialization
+(a = 1; let a) // （括号去掉） // Uncaught ReferenceError: Cannot access 'a' before initialization
 a // Uncaught ReferenceError: Cannot access 'a' before initialization
 ```
 
 如果 let x 的初始化过程失败了，那么
 
-* x 变量就将永远处于 created 状态
-* 你无法再次对 x 进行初始化（初始化只有一次机会，而那次机会你失败了）
-* 由于 x 无法被初始化，所以 x 永远处在暂时死区
+- x 变量就将永远处于 created 状态
+- 你无法再次对 x 进行初始化（初始化只有一次机会，而那次机会你失败了）
+- 由于 x 无法被初始化，所以 x 永远处在暂时死区
 
 ### const 的使用
 
@@ -118,7 +117,7 @@ const num
 - 如果 const 声明了一个对象，仅仅保证地址不变，可以修改对象的属性
 
 ```js
-const obj = {name: 'zs'}
+const obj = { name: 'zs' }
 obj.age = 18 // 正确
 obj = {} // TypeError: Assignment to constant variable
 ```
@@ -128,8 +127,6 @@ obj = {} // TypeError: Assignment to constant variable
 只能在当前代码块中使用
 不能重复声明
 不绑定全局作用域
-
-
 
 ## 模板字符串(模板字面量)
 
@@ -151,8 +148,6 @@ let str = `
 `
 ```
 
-
-
 ## 箭头函数
 
 ES6 标准新增了一种新的函数：Arrow Function（箭头函数）
@@ -162,7 +157,7 @@ ES6 标准新增了一种新的函数：Arrow Function（箭头函数）
 ### 基本使用
 
 ```js
-let fn = function (x, y) {
+let fn = function(x, y) {
   console.log(x + y)
 }
 
@@ -178,7 +173,7 @@ let fn = (x, y) => {
 - 如果没有参数列表，使用()表示参数列表
 
 ```js
-let sum = function () {
+let sum = function() {
   console.log('哈哈')
 }
 // 等同于：
@@ -190,7 +185,7 @@ let sum = () => {
 - 如果只有一个参数，可以省略()
 
 ```js
-let sum = function (n1) {
+let sum = function(n1) {
   console.log('哈哈')
 }
 
@@ -203,7 +198,7 @@ let sum = n1 => {
 - 如果有多个参数，需要使用 () 把参数列表括起来
 
 ```js
-let sum = function (n1, n2) {
+let sum = function(n1, n2) {
   console.log('哈哈')
 }
 
@@ -233,7 +228,7 @@ console.log(a.prototype) // undefined
   箭头函数没有自己的 arguments 对象，箭头函数可以访问外围函数的 arguments 对象
 
 ```javascript
-function a () {
+function a() {
   return () => arguments
 }
 console.log(a(1, 2)()) // [Arguments] { '0': 1, '1': 2 }
@@ -244,8 +239,6 @@ let a = (a, b, ...Args) => console.log(Args)
 a(1, 2, 3, 4, 5) // [3, 4, 5]
 console.log(a.length) // 2
 ```
-
-
 
 - Rest 参数和 arguments 对象的区别：
 
@@ -259,14 +252,12 @@ arguments 对象不是真正的数组，而 rest 参数是数组实例，可以�
 
 arguments 对象拥有一些自己额外的功能
 
-
-
 ### 返回值详解
 
 - 如果箭头函数的代码块部分多于一条语句，就要使用大括号将它们括起来
 
 ```js
-let sum = function (n1) {
+let sum = function(n1) {
   console.log('哈哈')
   return n1
 }
@@ -286,8 +277,6 @@ let fn = function(n1, n2) {
 
 let fn = (n1, n2) => n1 + n2
 ```
-
-
 
 ### 箭头函数的注意点
 
@@ -310,8 +299,6 @@ let obj = {
 obj.sayHi()
 ```
 
-
-
 ## 对象简化语法
 
 ```javascript
@@ -329,8 +316,6 @@ let cal = {
   }
 }
 ```
-
-
 
 ### 属性名表达式
 
@@ -357,13 +342,13 @@ ES5 中通过 构造函数 + 原型 的方式来实现面向对象
 
 ```javascript
 // 构造函数
-function Person () {
+function Person() {
   this.name = 'jack'
   this.age = 18
 }
 
 // 在原型中添加实例方法
-Person.prototype.say = function () {
+Person.prototype.say = function() {
   console.log(this.name, this.age)
 }
 
@@ -373,15 +358,9 @@ const p = new Person()
 p.say()
 ```
 
-
-
 ES6 中出现了 class 关键字，用来实现面向对象。
 
 class 仅仅是一个语法结构（语法糖），本质上还是通过构造函数+原型的方式来实现继承的
-
-
-
-
 
 ```javascript
 // 基本使用
@@ -389,13 +368,13 @@ class 仅仅是一个语法结构（语法糖），本质上还是通过构造�
 class Person {
   // 类的构造函数
   // constructor 固定名称
-  constructor (name, age) {
+  constructor(name, age) {
     this.name = name
     this.age = age
   }
 
   // 添加实例方法
-  say () {
+  say() {
     console.log(this.name, this.age)
   }
 }
@@ -406,27 +385,25 @@ console.log(p)
 p.say()
 ```
 
-
-
-继承：要实现至少需要两个class（子类 和 父类），子类继承自父类，继承后，子类就可以使用父类中的属性或方法
+继承：要实现至少需要两个 class（子类 和 父类），子类继承自父类，继承后，子类就可以使用父类中的属性或方法
 
 ```javascript
 // 继承
 
 // 父类
 class Person {
-  constructor (name, age) {
+  constructor(name, age) {
     this.name = name
   }
 
-  say () {
+  say() {
     console.log('父类中的 say 方法')
   }
 }
 
 // 子类
 class Chinese extends Person {
-  constructor () {
+  constructor() {
     // 子类中使用 constructor 必须手动调用 super
     // super 表示父类的构造函数
     // 先调用 super() 在使用 this
@@ -442,19 +419,20 @@ console.log(c)
 c.say() // 父类中的方法
 ```
 
-
-
 ## 解构赋值
 
 ES6 允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构（Destructuring）
 
 ```js
 // 1. 对象解构
-var { a, b} = { a: 10, b: 20 }
+var { a, b } = { a: 10, b: 20 }
+
+// 同
+;({ a, b } = { a: 10, b: 20 }) // 使用没有声明的赋值，数组解构类似
 console.log(a, b) // 10 20
 
 // 提取变量并赋值
-var { a: p, b: q} = { a: 10, b: 20 }
+var { a: p, b: q } = { a: 10, b: 20 }
 console.log(p, q) // 10 20
 
 // 将剩余数组赋值给一个变量
@@ -467,7 +445,7 @@ var { a = 1, b = 1 } = { a: 10 }
 console.log(a, b) // 10 1
 
 // 赋值并提供默认值
-var {a:aa = 10, b:bb = 1} = {a: 10}
+var { a: aa = 10, b: bb = 1 } = { a: 10 }
 console.log(aa, bb) // 10 1
 
 // 2. 数组解构
@@ -483,12 +461,9 @@ console.log(a, b, rest) // 1 2 [3, 4]
 var [c = 2, d = 2] = [10]
 console.log(c, d) // 10 2
 
-
-
 // 忽略某些值
 var [a = 2, , b = 2] = [10, 20, 30]
 console.log(a, b) // 10 30
-
 
 // 3. 函数参数的解构赋值
 function foo({ x }) {
@@ -506,7 +481,7 @@ foo()
 // 交换变量
 var a = 1
 var b = 3
-[a, b] = [b, a]
+;[a, b] = [b, a]
 console.log(a) // 3
 console.log(b) // 1
 
@@ -516,9 +491,7 @@ var [a, b, c, d] = str
 console.log(a, b, c, d) // l o v e
 ```
 
-
-
-## 数组扩展运算符
+## 扩展运算符
 
 扩展运算符（spread）是三个点（...）。作用：将一个数组转为用逗号分隔的参数序列
 
@@ -537,7 +510,6 @@ var arr = [1, 2, 3]
 var arr1 = [...arr]
 console.log(arr === arr1) // false, 说明arr1和arr指向不同数组
 
-
 // 把一个数组插入另一个数组字面量
 var arr2 = [...arr, 4, 5, 6]
 console.log(arr2) // [1, 2, 3, 4, 5, 6]
@@ -546,9 +518,26 @@ console.log(arr2) // [1, 2, 3, 4, 5, 6]
 var str = 'love'
 var arr3 = [...str]
 console.log(arr3) // [ 'l', 'o', 'v', 'e' ]
-
 ```
 
+对象展开
 
+```js
+let defaults = { food: 'spicy', price: '$$', ambiance: 'noisy' }
+let search = { ...defaults, food: 'rich' } // { food: "rich", price: "$$", ambiance: "noisy" } 后面的属性会覆盖前面的属性
+```
+
+对象展开仅包含对象自身的可枚举属性。 大体上是说当你展开一个对象实例时，你会丢失其方法
+
+```js
+class C {
+  p = 12
+  m() {}
+}
+let c = new C()
+let clone = { ...c }
+clone.p // ok
+clone.m() // error!
+```
 
 ## ES6 模块化

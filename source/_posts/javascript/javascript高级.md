@@ -4,7 +4,7 @@ tags: javascript
 categories:
   - [js]
 date: 2018/10/18 16:19:00
-updated: 2019/02/28 19:27:00
+updated: 2019/10/09
 ---
 
 # JavaScript 高级
@@ -811,6 +811,21 @@ var obj = {
   }
 }
 obj.method(fn, 10, 5)
+
+// 5.
+let len = 10
+function fn() {
+  console.log(this.len)
+}
+fn() // window ==> undefined
+let Person = {
+  len: 5,
+  say: function() {
+    fn() // window ==> undefined
+    arguments[0]() // arguments ==> undefined
+  }
+}
+Person.say(fn)
 ```
 
 #### 方法借用模式
@@ -1234,8 +1249,8 @@ d = 5
 
 // 7.
 console.log(e)
-console.log(f) // 报错
-var e = f = 10
+console.log(f) // 报错 f is not defined
+var e = (f = 10)
 console.log(f) // 10
 
 // 8.
@@ -1544,14 +1559,14 @@ console.log(reg.test('def')) // false
 - `[]` 在正则表达式中表示 **单个** 字符的位置，[] 里面写这个位置可以出现的字符。
 
 ```javascript
-/[abc]/ // 匹配 a,b,c 任意一个字符
+;/[abc]/ // 匹配 a,b,c 任意一个字符
 ```
 
 - `[^]` 在中扩号中的 `^` 表示非的意思。
 
 ```javascript
 // ^ 在方括号表达式开头中使用，此时它表示不接受该字符集合
-/[^abc]/ // 匹配除了a，b，c以外的其他字符
+;/[^abc]/ // 匹配除了a，b，c以外的其他字符
 ```
 
 - `[a-z]` `[1-9]`表示范围
@@ -1572,9 +1587,9 @@ console.log(reg.test('def')) // false
 - `$` 匹配输入字符串的结尾位置
 
 ```javascript
-/^chuan/ // 以chuan开头
-/chuan$/ // 以chuan结尾
-/^chuan$/ // 精确匹配 chuan
+;/^chuan/ // 以chuan开头
+;/chuan$ / // 以chuan结尾
+;/^chuan$/ // 精确匹配 chuan
 
 //精确匹配chuan,表示必须是这个
 console.log(/^chuan$/.test('chuanchuan')) // fasle

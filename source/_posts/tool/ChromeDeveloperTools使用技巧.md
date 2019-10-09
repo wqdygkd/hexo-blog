@@ -3,7 +3,7 @@ title: Chrome Developer Tools 使用技巧
 categories:
   - [工具]
 date: 2019/08/25
-updated: 2019/08/25
+updated: 2019/10/09
 ---
 
 ### console.log()
@@ -116,6 +116,12 @@ getEventListeners($('selector')).eventName[0].listener
 // 将显示与 id 为 btn 的元素的单击事件关联的侦听器
 getEventListeners($('btn')).click[0].listener
 ```
+
+或
+
+控制台 => Element => EventListeners
+
+https://segmentfault.com/q/1010000002892890
 
 ### 监控事件
 
