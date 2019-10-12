@@ -171,6 +171,41 @@ vuter
 }
 ```
 
+### 配置 eslint 校验 typescript
+
+```bash
+npm install eslint typescript @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-config-alloy -g
+```
+
+https://github.com/AlloyTeam/eslint-config-alloy/
+
+```json
+{
+  "extends": ["standard", "alloy", "alloy/typescript", "plugin:vue/essential"],
+  "plugins": ["html", "typescript"],
+  // "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "parser": "@typescript-eslint/parser",
+    // "parser": "babel-eslint",
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "commonjs": true
+  },
+  "rules": {
+    "no-new": 0,
+    "no-undef": 0,
+    "no-unused-vars": 1,
+    "no-var": [0, "always"],
+    "space-before-function-paren": [2, "always"],
+    "typescript/class-name-casing": 2
+  }
+}
+```
+
 ## ESLint 规则列表
 
 `.eslintrc.json` 规则值：
