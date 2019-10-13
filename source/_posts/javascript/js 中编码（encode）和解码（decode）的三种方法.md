@@ -1,9 +1,9 @@
 ---
 title: js 中编码（encode）和解码（decode）的三种方法
 categories:
-  - [other]
-date: 2019/07/09 16:42
-updated: 2019/07/09 17:06
+  - [js]
+date: 2019/07/09
+updated: 2019/10/13
 ---
 
 ### js 中编码（encode）和解码（decode）的三种方法

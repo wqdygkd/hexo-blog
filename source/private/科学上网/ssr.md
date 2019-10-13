@@ -1,6 +1,6 @@
 ---
 title: 【技术贴】vultr 搭建ss服务器
-date: 2019-07-09
+updated: 2019-07-09
 ---
 
 # 购买 VPS 服务器

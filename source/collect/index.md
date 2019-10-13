@@ -231,7 +231,7 @@ comments: false
 
 </div>
 
-### 开发工具
+### 开发
 
 <div class="collect">
 
@@ -280,6 +280,10 @@ comments: false
   </div>
 
 </div>
+
+Dash https://kapeli.com/dash/ (Mac): 一个 API 文档浏览器和代码片段管理器
+
+Zeal https://zealdocs.org/ (Win): 离线文档浏览器
 
 ### IDE/编辑器/在线编辑器
 
@@ -364,7 +368,7 @@ comments: false
 
 </div>
 
-### 博客工具
+### 博客
 
 <div class="collect">
 
@@ -392,27 +396,19 @@ comments: false
 
 </div>
 
-### 博客收藏
+心谭博客 https://xin-tan.com/
 
-[心谭博客](https://xin-tan.com/)
+多平台一键文章博客发布工具 openwriter, artipub
 
-### 客户端工具
-
-[Dash](https://kapeli.com/dash/)(Mac): 一个 API 文档浏览器和代码片段管理器
-
-[Zeal](https://zealdocs.org/)(Win): 离线文档浏览器
-
-[listen1](http://listen1.github.io/listen1/): 全平台音乐播放器，支持网易云音乐，虾米，QQ 音乐，酷狗音乐，酷我音乐网站的歌曲
+### 终端
 
 [Xshell 5](https://www.netsarang.com/products/xsh_overview.html): 终端工具
 
 [WinSCP](https://winscp.net/eng/docs/lang:chs): Windows 环境下使用的 SSH 的开源图形化 SFTP 客户端
 
-[卡硬工具箱](http://www.kbtool.cn/) 硬件检测、管理、性能测试工具，软件集合熟知的各个配件的检测工具；超频工具；拷机测试工具
-[卡硬工具箱资源共享区](http://www.kbtool.cn/ziyuan.html)
+### 图像
 
-### 图像放大工具
-
+**图像放大**
 [waifu2x](https://github.com/nagadomi/waifu2x) （开源） 在线使用 -> http://waifu2x.udp.jp/ 、 https://waifu2x.booru.pics/
 
 [waifu2x-caffe](https://github.com/lltcggie/waifu2x-caffe/releases)（开源） 基于 waifu2x （Windows 客户端版）
@@ -423,33 +419,49 @@ photozoom
 
 Gigapixel
 
-### 在线工具
+**图片去背景** https://www.remove.bg/
 
-[MikuTools](https://tools.imiku.me): 在线工具集合
+**开源图片管理工具** https://github.com/Molunerfinn/PicGo/releases
 
-文件匿名在线分享工具 https://www.mirrored.to/ https://www.upload.ee/
+**免费图床** https://hao.su/pic.html、https://www.superbed.cn/、https://sm.ms/
 
-### 其他
+### 音乐
 
-[FiraCode 字体](https://github.com/tonsky/FiraCode)
+[listen1](http://listen1.github.io/listen1/): 全平台音乐播放器，支持网易云音乐，虾米，QQ 音乐，酷狗音乐，酷我音乐网站的歌曲
 
-[Animate](https://daneden.github.io/animate.css/): css 动画库
+[music-get](https://github.com/winterssy/music-get) 音乐下载工具
 
-### 下载工具
+### 下载
 
 [motris](https://motrix.app/) 支持 HTTP/FTP/BitTorrent/Magnet/BaiduNetDisk etc. [github 地址](https://github.com/agalwood/Motrix)
 
 [xdown](https://xdown.org/) 免费无广告的 idm / torrent 合成体， 支持 youtube 下载视频,音频 支持 FTP/HTTP/HTTPS/HTTP2/Magnet 协议下载
 
+[pandownload](https://pandownload.com/) 百度网盘第三方下载客户端(会被限速)
+
+[pandownload 网页版](https://www.baiduwp.com/) 百度网盘资源下载网页版(搭配 aria2) 每日有次数限制
+
 [百度云链接转 aria2](https://labs.nazo.moe/netdisk.html)
 
-### linux
+### ASMR
 
-netdata linux 系统性能监测工具
+http://qiangweijun.cf
 
-```
-# apt-get install -y zlib1g-dev gcc make git autoconf autogen automake pkg-config uuid-dev 【ubuntu】
-# yum install -y  libuuid-devel zlib-devel gcc make git autoconf autogen automake 【centos】
-```
+### 联机
 
-grafana
+Hamachi
+
+### 其他
+
+[MikuTools](https://tools.imiku.me): 在线工具集合
+
+文件匿名在线分享工具 https://www.mirrored.to/ https://www.upload.ee/
+
+[FiraCode 字体](https://github.com/tonsky/FiraCode)
+
+[Animate](https://daneden.github.io/animate.css/): css 动画库
+
+[卡硬工具箱](http://www.kbtool.cn/) 硬件检测、管理、性能测试工具，软件集合熟知的各个配件的检测工具；超频工具；拷机测试工具
+[卡硬工具箱资源共享区](http://www.kbtool.cn/ziyuan.html)
+
+[IPIP](https://www.ipip.net/ip.html) ip 地址查询

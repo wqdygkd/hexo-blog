@@ -5,10 +5,22 @@ type: 'about'
 comments: false
 ---
 
-```
+### 技术栈：
+
+ajax + jquery + art-template：较原始的开发方式
+
+vue + vuex + vue-router + webpack + less + weex + nuxt(ssr)
+
+react + react-router + redux + webpack + less + react-native
+
+angular + webpack + typescript + less + ionic
+
+#### 小程序
+
+<!-- ```
 祝愿我们在抵达路的末端时，都不会后悔
 Zhùyuàn wǒmen zài dǐdá lù de mòduān shí, dōu bù huì hòuhuǐ
-```
+``` -->
 
 标记
 

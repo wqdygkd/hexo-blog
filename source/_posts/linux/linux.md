@@ -1,13 +1,26 @@
 ---
-title: linux
+title: linux 使用
 tags: linux
 categories:
   - [linux]
-date: 2018/09/12 13:30:00
-updated: 2019/10/08
+date: 2018/09/12
+updated: 2019/10/13
 ---
 
 [宝塔面板](https://www.bt.cn/)
+
+neofetch
+
+screenfetch
+
+netdata linux 系统性能监测工具
+
+```
+# apt-get install -y zlib1g-dev gcc make git autoconf autogen automake pkg-config uuid-dev 【ubuntu】
+# yum install -y  libuuid-devel zlib-devel gcc make git autoconf autogen automake 【centos】
+```
+
+grafana
 
 ### linux 目录表
 
@@ -855,10 +868,6 @@ iptables -P FORWARD DROP
 service iptables save
 systemctl restart iptables.service
 ```
-
-neofetch
-
-screenfetch
 
 sudo -i 为了频繁的执行某些只有超级用户才能执行的权限，而不用每次输入密码，可以使用该命令。提示输入密码时该密码为当前账户的密码。没有时间限制。执行该命令后提示符变为“#”而不是“\$”。想退回普通账户时可以执行“exit”或“logout” 。
 su 切换到某某用户模式，提示输入密码时该密码为切换后账户的密码，用法为“su 账户名称”。如果后面不加账户时系统默认为 root 账户，密码也为超级账户的密码。没有时间限制。

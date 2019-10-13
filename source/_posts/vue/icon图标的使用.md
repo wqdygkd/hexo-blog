@@ -1,9 +1,9 @@
 ---
 title: icon 图标在 vue 项目中的使用
 date: 2019/08/01
-updated: 2019/08/02
+updated: 2019/10/13
 categories:
-  - [工具]
+  - [vue]
 ---
 
 参考链接：https://juejin.im/post/59bb864b5188257e7a427c09

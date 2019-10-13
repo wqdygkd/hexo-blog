@@ -3,17 +3,17 @@ title: 【学习贴】SS/SSR 客户端
 date: 2019-06-30
 ---
 
-[原文](https://congcong0806.github.io/2018/04/20/SS/)
+https://congcong0806.github.io/2018/04/20/SS/
 
-仅仅拥有客户端并不能 FQ，还需要在客户端中添加可用的 ss 节点，客户端并不提供节点
+仅仅拥有客户端并不能 FQ，还需要在客户端中添加可用的节点，客户端并不提供节点
 [购买 VPS 搭建节点]()
 [免费 VPN]()
 
 ## 推荐客户端
 
-- iOS: Surge 3,Quantumult,Shadowrocket
-- Android: ClashA
-- macOS: Surge for Mac,ClashX
+- iOS: Shadowrocket
+- Android: shadowsocks(ss),
+- macOS: Surge for Mac,ClashX,ShadowsocksX-NG(ss),
 - Windows: Clash for Windows
 - Linux: Clash
 
@@ -162,5 +162,4 @@ date: 2019-06-30
   <li><a href="https://github.com/shadowsocks/openwrt-shadowsocks">OpenWRT-Shadowsocks</a></li>
 </ul>
 
-苹果软件在线安装
-https://iosipa.ml
+ios 在线安装 https://iosipa.ml

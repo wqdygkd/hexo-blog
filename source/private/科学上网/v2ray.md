@@ -3,6 +3,11 @@ title: 【学习贴】v2ray
 date: 2019-10-08
 ---
 
+mac https://github.com/yanue/V2rayU
+win https://github.com/2dust/v2rayN https://github.com/v2ray/v2ray-core
+iOS: Shadowrocket
+Android: Kitsunebi
+
 ### 脚本 1
 
 ```bash
