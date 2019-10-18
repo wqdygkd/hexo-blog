@@ -225,7 +225,7 @@ const configureWebpack = config => {
     }),
 
     // Webpack 包文件分析器(https://github.com/webpack-contrib/webpack-bundle-analyzer)
-    new BundleAnalyzerPlugin(),
+    // new BundleAnalyzerPlugin(),
 
     // 打包时删除 debugger 和 console
     new UglifyJsPlugin({
@@ -421,3 +421,27 @@ devServer: {
 disableHostCheck: true 目的是解决通过域名访问时出现 Invalid Host header
 
 经测试 依然会出现 Invalid Host header，导致项目不能正常访问
+
+### 计算打包时间
+
+打包时间统计插件 https://github.com/stephencookdev/speed-measure-webpack-plugin
+http://localhost:8085
+
+```js
+const SpeedMeasurePlugin = require('speed-measure-webpack-plugin')
+
+const smp = new SpeedMeasurePlugin()
+
+configureWebpack: smp.wrap({
+  plugins: [new parallelUglifyJsPlugin({})]
+})
+```
+
+打包进度条插件 https://github.com/clessg/progress-bar-webpack-plugin
+
+```js
+var ProgressBarPlugin = require('progress-bar-webpack-plugin')
+configureWebpack: config => {
+  config.plugins = [new ProgressBarPlugin({})]
+}
+```

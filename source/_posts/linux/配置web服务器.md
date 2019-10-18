@@ -104,9 +104,9 @@ yum install -y openssl openssl-devel
 
 # 官网下载 nginx https://nginx.org/
 yum install wget
-wget -c https://nginx.org/download/nginx-1.17.1.tar.gz
+wget -c https://nginx.org/download/nginx-1.17.4.tar.gz
 # 解压
-tar -zxvf nginx-1.17.1.tar.gz
+tar -zxvf nginx-1.17.4.tar.gz
 cd nginx-1.17.1
 
 # 配置

@@ -465,3 +465,9 @@ Hamachi
 [卡硬工具箱资源共享区](http://www.kbtool.cn/ziyuan.html)
 
 [IPIP](https://www.ipip.net/ip.html) ip 地址查询
+
+github 开源项目集锦
+
+小书匠 https://github.com/suziwen/markdownxiaoshujiang markdown 写作工具
+
+图床工具 https://github.com/Molunerfinn/PicGo
