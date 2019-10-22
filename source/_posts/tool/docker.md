@@ -4,7 +4,7 @@ tags: docker
 categories:
   - [工具]
 date: 2019/06/18 19:52
-updated: 2019/07/09 12:00
+updated: 2019/10/21
 ---
 
 ## 安装 dcoker
@@ -111,6 +111,43 @@ $ wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Cento
 $ yum install epel-release   # 阿里云上的 epel 源
 $ yum makecache
 $ yum install container-selinux
+```
+
+```bash
+# Job for docker.service failed because the control process exited with error code. See "systemctl status docker.service" and "journalctl -xe" for details.
+
+删除 docker
+yum remove docker \
+           docker-client \
+           docker-client-latest \
+           docker-common \
+           docker-latest \
+           docker-latest-logrotate \
+           docker-logrotate \
+           docker-selinux \
+           docker-engine-selinux \
+           docker-engine
+rm -rf /etc/systemd/system/docker.service.d
+rm -rf /var/lib/docker
+rm -rf /var/run/docker
+
+重新安装
+# 查看内核版本 <Docker 要求 CentOS 系统的内核版本高于 3.10>
+uname -r
+# 把 yum 包更新到最新
+sudo yum update
+# 安装需要的软件包
+sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+# 设置 yum 源
+sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+# 查看仓库中docker版本 
+yum list docker-ce --showduplicates | sort -r
+# 安装 docker
+sudo yum install docker-ce
+# 启动Docker,设置开机启动,停止Docker
+sudo systemctl start docker
+sudo systemctl enable docker
+sudo systemctl stop docker   
 ```
 
 ## 使用 docker
