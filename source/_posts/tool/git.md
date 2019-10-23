@@ -751,11 +751,15 @@ git commit --amend
 
 修改多条 commit
 
-```
+```bash
 git rebase -i HEAD~3 修改最近三次提交
 git rebase -i --root 修改所有提交
 
 git rebase -i  [startpoint]  [endpoint] 指定了一个编辑区间（不包含[startpoint]），如果不指定[endpoint]，则该区间的终点默认是当前分支 HEAD 所指向的 commit
+
+# edit 模式下
+git commit --amend --author="author <email>" # 修改提交人信息
+git commit --amend  --date="commit_time" # 修改时间 时间格式 Sat, 24 Dec 2016 18:12:09 +0800
 ```
 
 Commands
