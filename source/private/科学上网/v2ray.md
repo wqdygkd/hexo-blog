@@ -39,6 +39,9 @@ v2ray uninstall 卸载 V2Ray
 
 ### 脚本 2
 
+官方脚本 https://v2ray.com/chapter_00/install.html
+在线配置生成 https://intmainreturn0.com/v2ray-config-gen/#
+
 https://yuan.ga/v2ray-build-guide-for-novices/
 
 ```bash
