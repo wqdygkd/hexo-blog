@@ -1,8 +1,9 @@
 ---
-title: 常用 js 汇总
+title: 常用 js 代码段汇总
 categories:
   - [js]
 date: 2019/07/22
+updated: 2019/10/24
 ---
 
 判断一个变量是字符串
@@ -161,31 +162,5 @@ function entities(s) {
 ```js
 function distinct(arr) {
   return arr.filter((v, i, array) => array.indexOf(v) === i)
-}
-```
-
-Object.create(null) 和 {} 区别
-
-Object.create(null) 没有继承任何原型方法，也就是说它的原型链没有上一层
-
-```js
-console.log(Object.create({}).toString) // function toString() { [native code] }
-console.log(Object.create(null).toString) // undefined
-```
-
-```js
-// Object.create() 的定义
-Object.create(proto, [propertiesObject])
-// proto:新创建对象的原型对象
-// propertiesObject:可选。要添加到新对象的可枚举（新添加的属性是其自身的属性，而不是其原型链上的属性）的属性。
-```
-
-Object.create() 方法的内部实现简单来说是这样的：
-
-```js
-Object.create = function(o) {
-  var F = function() {}
-  F.prototype = o
-  return new F()
 }
 ```

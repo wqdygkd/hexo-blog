@@ -134,19 +134,19 @@ var student = {
 
 1. 使用临时变量 **(必须掌握)**
 
-   ```js
-   var temp = a
-   a = b
-   b = temp
-   ```
+```js
+var temp = a
+a = b
+b = temp
+```
 
 2. 不使用临时变量
 
-   ```js
-   a = a + b
-   b = a - b
-   a = a - b
-   ```
+```js
+a = a + b
+b = a - b
+a = a - b
+```
 
 # 基本数据类型
 
@@ -361,32 +361,32 @@ typeof cat // object
 
 1. 调用 `toString()` 方法 （显式转换）
 
-   ```js
-   var a = 1
-   var result = a.toString()
-   console.log(typeof result) // string
-   console.log(typeof a) // number
-   ```
+```js
+var a = 1
+var result = a.toString()
+console.log(typeof result) // string
+console.log(typeof a) // number
+```
 
-   null 、undefined 没有 toString() 方法
+null 、undefined 没有 toString() 方法
 
 2. 调用 `String()` 构造函数（显式转换）
 
-   ```js
-   var str1 = String(a)
-   console.log(typeof str1) // string
-   ```
+```js
+var str1 = String(a)
+console.log(typeof str1) // string
+```
 
 3. 直接和字符串做加法运算(推荐方法) （隐式因式转换）
 
-   ```js
-   // 任意数据类型的变量和字符串做加法运算结果都是字符串
-   var str2 = a + ''
-   console.log(typeof str2) // string
+```js
+// 任意数据类型的变量和字符串做加法运算结果都是字符串
+var str2 = a + ''
+console.log(typeof str2) // string
 
-   var b = true
-   console.log(typeof (b + '')) // string
-   ```
+var b = true
+console.log(typeof (b + '')) // string
+```
 
 ## 转换成数值
 
@@ -1480,7 +1480,7 @@ typeof {} // 'object'
 object instanceof constructor
 ```
 
-用来检测 `constructor.prototype`是否存在于参数 `object` 的原型链中
+用来检测 `constructor.prototype` 是否存在于参数 `object` 的原型链中
 
 不能用于类型识别
 

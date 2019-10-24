@@ -1862,15 +1862,16 @@ text-overflow:
 ```css
 /* 强制一行内显示文本 */
 white-space: nowrap;
+/* 超出的部分隐藏 */
+overflow: hidden;
+/* 文字用省略号替代超出的部分 */
+text-overflow: ellipsis;
 
 /* 强制最多三行显示文本 */
 display: -webkit-box;
 -webkit-box-orient: vertical;
 -webkit-line-clamp: 3;
-
-/* 超出的部分隐藏 */
 overflow: hidden;
-/* 文字用省略号替代超出的部分 */
 text-overflow: ellipsis;
 ```
 
