@@ -423,7 +423,9 @@ Gigapixel
 
 **开源图片管理工具** https://github.com/Molunerfinn/PicGo/releases
 
-**免费图床** https://hao.su/pic.html、https://www.superbed.cn/、https://sm.ms/
+**免费图床** https://hao.su/pic.html、 https://www.superbed.cn/、 https://sm.ms/
+
+配图神器 Zoommy
 
 ### 音乐
 
@@ -442,6 +444,10 @@ Gigapixel
 [pandownload 网页版](https://www.baiduwp.com/) 百度网盘资源下载网页版(搭配 aria2) 每日有次数限制
 
 [百度云链接转 aria2](https://labs.nazo.moe/netdisk.html)
+
+[百度网盘直链下载助手](https://www.baiduyun.wiki/)
+
+[ENFI 下载器](http://enfi.cloud/)
 
 ### ASMR
 
