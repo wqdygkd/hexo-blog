@@ -268,7 +268,7 @@ $ iptables -t nat -A  DOCKER -p tcp --dport 5001 -j DNAT --to-destination 45.77.
 
 ### docker 容器使用问题
 
-Centos7 docker 容器报 docker Failed to get D-Bus connection 错误
+#### Centos7 docker 容器报 docker Failed to get D-Bus connection 错误
 
 ```bash
 $ systemctl start nginx
@@ -284,7 +284,7 @@ docker run -it -d --name ubuntu_test -p 8088:80 ubuntu
 $ docker run --privileged -ti --name test1  centos /usr/sbin/init
 ```
 
-ssh 链接 docker 容器
+#### ssh 链接 docker 容器
 
 进入容器
 
@@ -327,6 +327,19 @@ service sshd restartchkconfig sshd on
 systemctl start sshd.service systemctl enable sshd.service
 
 service sshd restart
+```
+
+#### 运行 docker exec -it 容器 /bin/bash 出现如下错误
+
+```
+OCI runtime exec failed: exec failed: container_linux.go:346: starting container process caused "exec: \"/bin/bash\": stat /bin/bash: no such file or directory": unknown
+```
+
+解决方式：尝试使用如下命令
+
+```bash
+sudo docker exec -it 容器 /bin/sh
+sudo docker exec -it 容器 bash
 ```
 
 docker-compose
