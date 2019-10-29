@@ -698,7 +698,7 @@ eval('var num = 10; console.log(num)') // 10
 
 ### 函数的四种调用模式
 
-分析 this 的指向问题
+分析 this 指向问题
 
 1. 任何函数都有属于自己的 this
 2. this 是动态的，this 在函数声明的时候是确定不了的，只有当函数被调用了才能够确定 this 的指向，this 的指向和函数在哪被调用没有关系
@@ -826,6 +826,29 @@ let Person = {
   }
 }
 Person.say(fn)
+
+// 6.
+var obj = {
+  bar: function() {
+    var x = (() => this)
+    return x
+  }
+}
+
+// 作为obj对象的一个方法来调用bar，把它的this绑定到obj。
+// 将返回的函数的引用赋值给fn。
+var fn = obj.bar()
+
+// 直接调用fn而不设置this，
+// 通常(即不使用箭头函数的情况)默认为全局对象
+// 若在严格模式则为undefined
+console.log(fn() === obj) // true
+
+// 但是注意，如果你只是引用obj的方法，
+// 而没有调用它
+var fn2 = obj.bar
+// 那么调用箭头函数后，this指向window，因为它从 bar 继承了this。
+console.log(fn2()() == window) // true
 ```
 
 #### 方法借用模式
@@ -1357,6 +1380,18 @@ function outer() {
     console.log(num)
   }
 }
+
+// 并不一定是有返回函数才算是产生了闭包
+
+var f3
+function f1() {
+  var a = 2
+  f3 = function() {
+    console.log(a)
+  }
+}
+f1()
+f3() // 2
 ```
 
 ### 闭包的应用

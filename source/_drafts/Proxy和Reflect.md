@@ -1,5 +1,5 @@
 ---
-title: Proxy 和 Reflect
+title: 【es6】Proxy 和 Reflect
 date: 2019/10/25
 categories:
   - ['js']
@@ -138,9 +138,10 @@ var proxy = new Proxy(obj, {
 Reflect 对象一共有 13 个静态方法
 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Reflect)上详细使用方法
 
+```js
 Reflect.apply(target, thisArg, args)
 
-一般来说，如果要绑定一个函数的 this 对象，可以这样写 fn.apply(obj, args)，但是如果函数定义了自己的 apply 方法，就只能写成 Function.prototype.apply.call(fn, obj, args)
+// 一般来说，如果要绑定一个函数的 this 对象，可以这样写 fn.apply(obj, args)，但是如果函数定义了自己的 apply 方法，就只能写成 Function.prototype.apply.call(fn, obj, args)
 
 Reflect.construct(target, args)
 Reflect.get(target, name, receiver)
@@ -154,6 +155,7 @@ Reflect.preventExtensions(target)
 Reflect.getOwnPropertyDescriptor(target, name)
 Reflect.getPrototypeOf(target)
 Reflect.setPrototypeOf(target, prototype)
+```
 
 ```js
 var person = new Proxy(

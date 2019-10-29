@@ -1,12 +1,11 @@
 ---
-title: Promise
+title: 【es6]Promise
 tags: promise
 categories:
-- [js]
+  - [js]
 date: 2019/01/08 18:00:00
-updated: 2019/02/23 17:55:00
+updated: 2019/10/28
 ---
-
 
 # Promise
 
@@ -15,8 +14,6 @@ updated: 2019/02/23 17:55:00
 - [ES6 - Promise](http://es6.ruanyifeng.com/#docs/promise)
 - JS 是通过回调函数来实现异步编程的，当异步操作多了以后，就会产生回调嵌套回调的问题，这就是`回调地狱`
 - Promise 方式：将异步操作以同步操作的方式表达出来，避免了层层嵌套的回调函数
-
-
 
 ## 封装一个 Promise
 
@@ -46,7 +43,7 @@ fs.readFile('./a', (err, data) => {
 // 封装
 // Promise 是一个构造函数
 // 通过 new 创建 Promise 的实例对象
-function readFile (path) {
+function readFile(path) {
   // 实例化 Promise
   const p = new Promise((resolve, reject) => {
     // resolve 表示成功，异步操作成功调用
@@ -66,29 +63,25 @@ function readFile (path) {
 // 使用
 readFile('a')
   .then(res => {
-  console.log(res)
-  return readFile('a')
-})
+    console.log(res)
+    return readFile('a')
+  })
   .then(res => {
-  console.log(res)
-  return readFile('b')
-})
+    console.log(res)
+    return readFile('b')
+  })
   .then(res => {
-  console.log(res)
-})
+    console.log(res)
+  })
 ```
-
-
 
 ## promise 的三个状态
 
-* pending : 等待  (等待成功或者失败去调用)
+- pending : 等待 (等待成功或者失败去调用)
 
-* resolved : 成功调用
+- resolved : 成功调用
 
-* rejected : 失败调用
-
-
+- rejected : 失败调用
 
 ## then 和 catch
 
@@ -119,46 +112,34 @@ p.then(
 )
 ```
 
-
-
 ## all 和 race
 
 ```js
 // 等待所有请求完成，才会执行后续代码
-const p = Promise.all([
-  axios('/a'),
-  axios('/b')
-])
+const p = Promise.all([axios('/a'), axios('/b')])
 
-p.then((res) => {
+p.then(res => {
   // res 是 all() 方法中所有异步操作的结果
   console.log(res)
 })
 
 // 只要有一个请求完成，就会继续执行后续代码
-const p = Promise.race([
-  axios('/a'),
-  axios('/b')
-])
+const p = Promise.race([axios('/a'), axios('/b')])
 
-p.then((res) => {
+p.then(res => {
   // res 是 race() 方法中先完成的异步操作的结果
   console.log(res)
 })
 ```
 
-
-
 ## async 和 await
 
-* 异步编程终极方案
+- 异步编程终极方案
 
-- async / await 用同步编写代码的方式 处理异步操作的一个方案
-- async：修饰 (修饰一个内部有异步操作的函数)    格式 :  async + 函数 (里面有异步操作的函数)
-- await : 等待 (等上一个异步操作完成啊 , 修饰 一个结果是promise的)异步操作    格式 : await + 异步操作(结果promise对象)
-- async 和 await 是成对出现的，await 只能在 async 函数中使用
-
-
+* async / await 用同步编写代码的方式 处理异步操作的一个方案
+* async：修饰 (修饰一个内部有异步操作的函数) 格式 : async + 函数 (里面有异步操作的函数)
+* await : 等待 (等上一个异步操作完成啊 , 修饰 一个结果是 promise 的)异步操作 格式 : await + 异步操作(结果 promise 对象)
+* async 和 await 是成对出现的，await 只能在 async 函数中使用
 
 ```js
 // 第一步封装
@@ -202,13 +183,9 @@ async function fn() {
 fn()
 ```
 
-
-
-
-
 ```javascript
 // 延时函数
-function sleep (a, b) {
+function sleep(a, b) {
   const p = new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(b)
@@ -217,7 +194,7 @@ function sleep (a, b) {
   return p
 }
 
-async function fn () {
+async function fn() {
   const res1 = await sleep(1000, 'a')
   console.log(res1)
   const res2 = await sleep(5000, 'b')
@@ -229,16 +206,16 @@ async function fn () {
 
 sleep(1000, 'a')
   .then(res => {
-  console.log(res)
-  return sleep(5000, 'b')
-})
+    console.log(res)
+    return sleep(5000, 'b')
+  })
   .then(res => {
-  console.log(res)
-  return sleep(3000, 'c')
-})
+    console.log(res)
+    return sleep(3000, 'c')
+  })
   .then(res => {
-  console.log(res)
-})
+    console.log(res)
+  })
 
 const p1 = Promise.all([sleep(1000, 'a'), sleep(5000, 'b')])
 p1.then(res => {
@@ -250,4 +227,3 @@ p2.then(res => {
   console.log(res)
 })
 ```
-
