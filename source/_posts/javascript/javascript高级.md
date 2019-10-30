@@ -830,7 +830,7 @@ Person.say(fn)
 // 6.
 var obj = {
   bar: function() {
-    var x = (() => this)
+    var x = () => this
     return x
   }
 }
@@ -962,7 +962,7 @@ call 和 apply 的使用场景：
 
 ##### bind 方法
 
-**bind() **方法创建一个新的函数、可以绑定新的函数的`this`指向
+**bind()** 方法创建一个新的函数、可以绑定新的函数的 `this` 指向
 
 ```javascript
 // 返回值：新的函数(不会被调用)
@@ -978,10 +978,16 @@ console.log(newFn)
 newFn() // this ==> [1,2,3]
 ```
 
-#### 几种特殊的 this 指向
+#### 特殊的 this 指向
 
 - 定时器中的 this 指向了 window，因为定时器的 function 最终是由 window 来调用的
 - 事件中的 this 指向的是当前的元素，在事件触发的时候，浏览器让当前元素调用了 function
+
+```
+call apply bind 第一个参数表示要绑定的 this
+不传，传 null，或者 undefined ，this 均指向 window
+但在严格模式下，不传指向 undefined，传 null 指向 null，传 undefined 指向 undefined
+```
 
 ### 函数也是对象
 
