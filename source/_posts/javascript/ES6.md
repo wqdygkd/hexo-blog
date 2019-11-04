@@ -358,13 +358,17 @@ const p = new Person()
 p.say()
 ```
 
-ES6 中出现了 class 关键字，用来实现面向对象。
+ES6 中出现了 class 关键字，用来实现面向对象
+
+class 声明不允许再次声明已经存在的类，否则将会抛出一个类型错误
+class 声明不可以提升
 
 class 仅仅是一个语法结构（语法糖），本质上还是通过构造函数+原型的方式来实现继承的
 
 ```javascript
 // 基本使用
 // 创建 Person 类
+// 类表达式 let Person = class {}
 class Person {
   // 类的构造函数
   // constructor 固定名称
@@ -383,6 +387,29 @@ class Person {
 const p = new Person('tom', 18)
 console.log(p)
 p.say()
+```
+
+static 关键字用来定义一个类的静态方法。调用静态方法不需要实例化该类，但不能通过一个类实例调用静态方法
+
+```js
+class Point {
+  constructor(x, y) {
+    this.x = x
+    this.y = y
+  }
+
+  static distance(a, b) {
+    const dx = a.x - b.x
+    const dy = a.y - b.y
+
+    return Math.hypot(dx, dy)
+  }
+}
+
+const p1 = new Point(5, 5)
+const p2 = new Point(10, 10)
+
+console.log(Point.distance(p1, p2))
 ```
 
 继承：要实现至少需要两个 class（子类 和 父类），子类继承自父类，继承后，子类就可以使用父类中的属性或方法
@@ -435,7 +462,7 @@ console.log(a, b) // 10 20
 var { a: p, b: q } = { a: 10, b: 20 }
 console.log(p, q) // 10 20
 
-// 将剩余数组赋值给一个变量
+// 将剩余属性赋值给一个变量
 var { a, b, ...rest } = { a: 10, b: 20, c: 30, d: 40 }
 // ;({ a, b, ...rest } = { a: 10, b: 20, c: 30, d: 40 })
 console.log(a, b, rest) // 10 20 {c: 30, d: 40}

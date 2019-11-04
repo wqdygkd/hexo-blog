@@ -6,7 +6,8 @@ date: 2019/07/22
 updated: 2019/10/24
 ---
 
-判断一个变量是字符串
+### 判断一个变量是字符串
+
 类型识别
 
 ```js
@@ -14,7 +15,7 @@ Object.prototype.toString.call('str') // '[object String]'
 typeof 'str' // 'string'
 ```
 
-getRawType：获取数据类型，返回结果为 Number、String、Object、Array 等
+### getRawType：获取数据类型，返回结果为 Number、String、Object、Array 等
 
 ```js
 function getRawType(value) {
@@ -22,7 +23,7 @@ function getRawType(value) {
 }
 ```
 
-isObject：判断数据是不是引用类型的数据 (例如： arrays, functions, objects, regexes, new Number(0),以及 new String(''))
+### isObject：判断数据是不是引用类型的数据 (例如： arrays, functions, objects, regexes, new Number(0),以及 new String(''))
 
 ```js
 function isObject(value) {
@@ -31,7 +32,7 @@ function isObject(value) {
 }
 ```
 
-isPlainObject：判断数据是不是 Object 类型的数据
+### isPlainObject：判断数据是不是 Object 类型的数据
 
 ```js
 function isPlainObject(obj) {
@@ -39,7 +40,7 @@ function isPlainObject(obj) {
 }
 ```
 
-isArray：判断数据是不是数组类型的数据
+### isArray：判断数据是不是数组类型的数据
 
 ```js
 function isArray(arr) {
@@ -47,13 +48,13 @@ function isArray(arr) {
 }
 ```
 
-将 isArray 挂载到 Array 上
+### 将 isArray 挂载到 Array 上
 
 ```js
 Array.isArray = Array.isArray || isArray
 ```
 
-isRegExp：判断数据是不是正则对象
+### isRegExp：判断数据是不是正则对象
 
 ```js
 function isRegExp(value) {
@@ -61,7 +62,7 @@ function isRegExp(value) {
 }
 ```
 
-isDate：判断数据是不是时间对象
+### isDate：判断数据是不是时间对象
 
 ```js
 function isDate(value) {
@@ -69,11 +70,12 @@ function isDate(value) {
 }
 ```
 
-进制转换
+### 进制转换
+
 parseInt(str,radix) // 任意进制转换为 10 进制整数值
 与 Number.toString(radix) 返回表示该数字的指定进制形式的字符串
 
-常用正则
+### 常用正则
 
 ```js
 // 匹配邮箱
@@ -101,7 +103,7 @@ let reg = /\d+\.\d+\.\d+\.\d+/;
 let reg = /^[\u4e00-\u9fa5]*$/
 ```
 
-检测平台（设备）类型
+### 检测平台（设备）类型
 
 ```js
 isWechat = /micromessenger/i.test(navigator.userAgent)
@@ -111,20 +113,42 @@ isIOS = /(iphone|ipod|ipad|ios)/i.test(navigator.userAgent)
 isAndroid = /android/i.test(navigator.userAgent)
 ```
 
-时间格式化
+### 格式化
 
 ```js
-// 时间格式化
+/**
+ * 时间格式化
+ * @param {date} timeStamp 要格式化的时间对象
+ * @return {string} 2019年10月31日 16:22
+ */
+
 function format_date(timeStamp) {
   let date = new Date(timeStamp)
   return date.getFullYear() + '年' + prefix_zero(date.getMonth() + 1) + '月' + prefix_zero(date.getDate()) + '日 ' + prefix_zero(date.getHours()) + ':' + prefix_zero(date.getMinutes())
 }
+```
 
-// 数字格式化
+```js
+/**
+ * 数字格式化
+ * @param {number} num 要格式化的数值
+ * @return {string} 把小于10的数值前面加上0
+ */
 function prefix_zero(num) {
   return num >= 10 ? num : '0' + num
 }
-// 倒计时时间格式化
+```
+
+```js
+/**
+ * 倒计时时间格式化
+ * @param {date} timeStamp 要格式化的时间对象
+ * @return {string}
+ * 若时间大于1天 返回 n天n小时n分钟
+ * 若时间小于1天，大于1小时 返回 n小时n分钟n秒
+ * 若时间小于1小时，大于1分钟 返回 n分钟n秒
+ * 若时间小于1分钟 返回 n秒
+ */
 function format_time(timeStamp) {
   let day = Math.floor(timeStamp / (24 * 3600 * 1000))
   let leave1 = timeStamp % (24 * 3600 * 1000)
@@ -141,7 +165,19 @@ function format_time(timeStamp) {
 }
 ```
 
-敏感符号转义
+```js
+/**
+ * 明天的字符串格式时间
+ * @return {string} 返回当前时间 + 1天
+ */
+const tomorrow = () => {
+  let t = new Date()
+  t.setDate(t.getDate() + 1)
+  return t.toLocalString()
+}
+```
+
+### 敏感符号转义
 
 ```js
 function entities(s) {
@@ -157,7 +193,7 @@ function entities(s) {
 }
 ```
 
-数组去重
+### 数组去重
 
 ```js
 function distinct(arr) {
