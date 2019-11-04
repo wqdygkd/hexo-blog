@@ -1,6 +1,8 @@
 ---
 title: google 浏览器使用技巧
 date: 2019-10-09
+categories:
+  - [工具]
 ---
 
 ### google 浏览器插件离线安装方法
