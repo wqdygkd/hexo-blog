@@ -8,14 +8,14 @@ subtitle: ''
 description: ''
 keywords:
 author: cuilongjin
-language: en
+language: zh-CN
 timezone: ''
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://example.com/child' and root as '/child/'
-url: http://example.com
+url: https://eqdy.top
 root: /
-permalink: :year/:month/:day/:title/
+permalink: :id.html
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
@@ -25,7 +25,7 @@ pretty_urls:
 source_dir: source
 public_dir: public
 tag_dir: tags
-archive_dir: archives
+archive_dir: /
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
@@ -46,7 +46,7 @@ relative_link: false
 future: true
 highlight:
   enable: true
-  line_number: true
+  line_number: false
   auto_detect: false
   tab_replace: ''
   wrap: true
@@ -62,7 +62,7 @@ prismjs:
 # per_page: Posts displayed per page. (0 = disable pagination)
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
-  path: ''
+  path: 'archives'
   per_page: 10
   order_by: -date
 
@@ -104,3 +104,16 @@ theme: next
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ''
+
+# 归档页面
+archive_generator:
+  per_page: 1000
+  yearly: true
+  # monthly: true
+
+# Local Search
+search:
+  path: search.xml
+  field: post
+  content: true
+  format: html

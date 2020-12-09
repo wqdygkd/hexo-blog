@@ -14,21 +14,21 @@ cache:
   enable: true
 
 # Remove unnecessary files after hexo generate.
-minify: false
+minify: true
 
 # Define custom file paths.
 # Create your custom files in site directory `source/_data` and uncomment needed files below.
 custom_file_path:
-  #head: source/_data/head.njk
+  head: source/_data/head.njk
   #header: source/_data/header.njk
-  #sidebar: source/_data/sidebar.njk
+  sidebar: source/_data/sidebar.njk
   #postMeta: source/_data/post-meta.njk
   #postBodyEnd: source/_data/post-body-end.njk
   #footer: source/_data/footer.njk
   #bodyEnd: source/_data/body-end.njk
-  #variable: source/_data/variables.styl
+  variable: source/_data/variables.styl
   #mixin: source/_data/mixins.styl
-  #style: source/_data/styles.styl
+  style: source/_data/styles.styl
 
 
 # ---------------------------------------------------------------
@@ -36,9 +36,9 @@ custom_file_path:
 # ---------------------------------------------------------------
 
 # Schemes
-scheme: Muse
-#scheme: Mist
-#scheme: Pisces
+# scheme: Muse
+# scheme: Mist
+scheme: Pisces
 #scheme: Gemini
 
 # Dark Mode
@@ -50,15 +50,15 @@ darkmode: false
 # ---------------------------------------------------------------
 
 favicon:
-  small: /images/favicon-16x16-next.png
-  medium: /images/favicon-32x32-next.png
-  apple_touch_icon: /images/apple-touch-icon-next.png
-  safari_pinned_tab: /images/logo.svg
+  small: /images/favicon-logo.png
+  medium: /images/favicon-logo.png
+  apple_touch_icon: /images/favicon-logo.png
+  safari_pinned_tab: /images/favicon-logo.png
   #android_manifest: /images/manifest.json
   #ms_browserconfig: /images/browserconfig.xml
 
 # Custom Logo (Warning: Do not support scheme Mist)
-custom_logo: #/uploads/custom-logo.jpg
+custom_logo: #/images/favicon-logo.png
 
 # Creative Commons 4.0 International License.
 # See: https://creativecommons.org/share-your-work/licensing-types-examples
@@ -67,9 +67,9 @@ custom_logo: #/uploads/custom-logo.jpg
 # CC licenses are available in 39 languages, you can find the specific and correct abbreviation you need on https://creativecommons.org
 creative_commons:
   license: by-nc-sa
-  sidebar: false
-  post: false
-  language:
+  sidebar: true
+  post: true
+  language: deed.zh
 
 
 # ---------------------------------------------------------------
@@ -81,13 +81,13 @@ creative_commons:
 # Value before `||` delimiter is the target link, value after `||` delimiter is the name of Font Awesome icon.
 # External url should start with http:// or https://
 menu:
-  #home: / || fa fa-home
-  #about: /about/ || fa fa-user
+  home: / || fa fa-home
+  about: /about/ || fa fa-user
   #tags: /tags/ || fa fa-tags
   #categories: /categories/ || fa fa-th
-  #archives: /archives/ || fa fa-archive
+  # archives: /archives/ || fa fa-archive
   #schedule: /schedule/ || fa fa-calendar
-  #sitemap: /sitemap.xml || fa fa-sitemap
+  sitemap: /sitemap.xml || fa fa-sitemap
   #commonweal: /404/ || fa fa-heartbeat
 
 # Enable / Disable menu icons / item badges.
@@ -126,9 +126,9 @@ sidebar:
 # Sidebar Avatar
 avatar:
   # Replace the default image and set the url here.
-  url: #/images/avatar.gif
+  url: /images/avatar.png
   # If true, the avatar will be dispalyed in circle.
-  rounded: false
+  rounded: true
   # If true, the avatar will be rotated with the cursor.
   rotated: false
 
@@ -140,7 +140,7 @@ site_state: true
 # Key is the link label showing to end users.
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
-  #GitHub: https://github.com/yourname || fab fa-github
+  GitHub: https://github.com/cuilongjin || fab fa-github
   #E-Mail: mailto:yourname@gmail.com || fa fa-envelope
   #Weibo: https://weibo.com/yourname || fab fa-weibo
   #Google: https://plus.google.com/yourname || fab fa-google
@@ -154,7 +154,7 @@ social:
 social_icons:
   enable: true
   icons_only: false
-  transition: false
+  transition: true
 
 # Blog rolls
 links_settings:
@@ -171,7 +171,7 @@ links:
 toc:
   enable: true
   # Automatically add list number to toc.
-  number: true
+  number: false
   # If true, all words will placed on next lines if header width longer then sidebar width.
   wrap: false
   # If true, all level of TOC in a post will be displayed, rather than the activated part of it.
@@ -199,14 +199,14 @@ language_switcher: false
 
 footer:
   # Specify the date when the site was setup. If not defined, current year will be used.
-  #since: 2015
+  since: 2015
 
   # Icon between year and copyright info.
   icon:
     # Icon name in Font Awesome. See: https://fontawesome.com/icons
     name: fa fa-heart
     # If you want to animate the icon, set it to true.
-    animated: false
+    animated: true
     # Change the color of icon, using Hex Code.
     color: "#ff0000"
 
@@ -214,7 +214,7 @@ footer:
   copyright:
 
   # Powered by Hexo & NexT
-  powered: true
+  powered: false
 
   # Beian ICP and gongan information for Chinese users. See: https://beian.miit.gov.cn, http://www.beian.gov.cn
   beian:
@@ -278,12 +278,12 @@ follow_me:
   #Twitter: https://twitter.com/username || fab fa-twitter
   #Telegram: https://t.me/channel_name || fab fa-telegram
   #WeChat: /images/wechat_channel.jpg || fab fa-weixin
-  #RSS: /atom.xml || fa fa-rss
+  # RSS: /atom.xml || fa fa-rss
 
 # Related popular posts
 # Dependencies: https://github.com/tea3/hexo-related-popular-posts
 related_posts:
-  enable: false
+  enable: true
   title: # Custom header, leave empty to use the default one
   display_in_home: false
   params:
@@ -302,7 +302,7 @@ post_edit:
 
 # Show previous post and next post in post footer if exists
 # Available values: left | right | false
-post_navigation: left
+post_navigation: false
 
 
 # ---------------------------------------------------------------
@@ -360,16 +360,16 @@ codeblock:
     dark: prism-dark
   # Add copy button on codeblock
   copy_button:
-    enable: false
+    enable: true
     # Available values: default | flat | mac
-    style:
+    style: flat
 
 back2top:
   enable: true
   # Back to top in sidebar.
-  sidebar: false
+  sidebar: true
   # Scroll percent label in b2t button.
-  scrollpercent: false
+  scrollpercent: true
 
 # Reading progress bar
 reading_progress:
@@ -464,11 +464,11 @@ exturl: false
 
 # Google Webmaster tools verification.
 # See: https://www.google.com/webmasters
-google_site_verification:
+google_site_verification: 4ub2lNf2WEkusifo-b7xbJIm2G5xxYUczDoWOFGp-NM
 
 # Bing Webmaster tools verification.
 # See: https://www.bing.com/webmaster
-bing_site_verification:
+bing_site_verification: C2030D8E2452D4B39AED09488E55F2DF
 
 # Yandex Webmaster tools verification.
 # See: https://webmaster.yandex.ru
@@ -479,7 +479,7 @@ yandex_site_verification:
 baidu_site_verification:
 
 # Enable baidu push so that the blog will push the url to baidu automatically which is very helpful for SEO.
-baidu_push: false
+baidu_push: true
 
 
 # ---------------------------------------------------------------
@@ -509,7 +509,7 @@ math:
 
 # Easily enable fast Ajax navigation on your website.
 # For more information: https://github.com/next-theme/pjax
-pjax: false
+pjax: true
 
 # FancyBox is a tool that offers a nice and elegant way to add zooming functionality for images.
 # For more information: https://fancyapps.com/fancybox
@@ -605,9 +605,9 @@ changyan:
 # Valine
 # For more information: https://valine.js.org, https://github.com/xCss/Valine
 valine:
-  enable: false
-  appId: # Your leancloud application appid
-  appKey: # Your leancloud application appkey
+  enable: true
+  appId: i2ouGvmHTW7EhnCLQOBXVrub-gzGzoHsz # Your leancloud application appid
+  appKey: AybRqrp4wjRmuVSiflCxLBrO # Your leancloud application appkey
   serverURLs: # When the custom domain name is enabled, fill it in here
   placeholder: Just go go # Comment box placeholder
   avatar: mm # Gravatar style
@@ -616,7 +616,7 @@ valine:
   lang: # Language, available values: en, zh-cn
   visitor: false # Article reading statistic
   comment_count: true # If false, comment count will only be displayed in post page, not in home page
-  recordIP: false # Whether to record the commenter IP
+  recordIP: true # Whether to record the commenter IP
   enableQQ: false # Whether to enable the Nickname box to automatically get QQ Nickname and QQ Avatar
   requiredFields: [] # Set required fields: [nick] | [nick, mail]
 
@@ -670,10 +670,10 @@ google_analytics:
   only_pageview: false
 
 # Baidu Analytics
-baidu_analytics: # <app_id>
+baidu_analytics: 4cf9aa5b4589576262198ad166b18a05 # <app_id>
 
 # Growingio Analytics
-growingio_analytics: # <project_id>
+growingio_analytics: UA-112496567-1 # <project_id>
 
 # CNZZ count
 cnzz_siteid:
@@ -683,9 +683,9 @@ cnzz_siteid:
 # AppID and AppKey are recommended to be the same as valine's for counter compatibility.
 # Warning: Do not enable both `valine.visitor` and `leancloud_visitors`.
 leancloud_visitors:
-  enable: false
-  app_id: # <your app id>
-  app_key: # <your app key>
+  enable: true
+  app_id: i2ouGvmHTW7EhnCLQOBXVrub-gzGzoHsz # <your app id>
+  app_key: AybRqrp4wjRmuVSiflCxLBrO # <your app key>
   # Required for apps from CN region
   server_url: # <your server url>
   # Dependencies: https://github.com/theme-next/hexo-leancloud-counter-security
@@ -705,12 +705,12 @@ firestore:
 # Show Views / Visitors of the website / page with busuanzi.
 # Get more information on http://ibruce.info/2015/04/04/busuanzi
 busuanzi_count:
-  enable: false
+  enable: true
   total_visitors: true
   total_visitors_icon: fa fa-user
   total_views: true
   total_views_icon: fa fa-eye
-  post_views: true
+  post_views: false
   post_views_icon: far fa-eye
 
 
@@ -729,7 +729,7 @@ algolia_search:
 # Local Search
 # Dependencies: https://github.com/next-theme/hexo-generator-searchdb
 local_search:
-  enable: false
+  enable: true
   # If auto, trigger search by changing input.
   # If manual, trigger search by pressing enter key or search button.
   trigger: auto
@@ -738,7 +738,7 @@ local_search:
   # Unescape html strings to the readable one.
   unescape: false
   # Preload the search data when the page loads.
-  preload: false
+  preload: true
 
 # Swiftype Search API Key
 swiftype_key:
@@ -813,7 +813,7 @@ mermaid:
 # Use Animate.css to animate everything.
 # For more information: https://animate.style
 motion:
-  enable: true
+  enable: false
   async: false
   transition:
     # All available transition variants: https://theme-next.js.org/animate/
@@ -827,7 +827,7 @@ motion:
 # Progress bar in the top during page loading.
 # For more information: https://github.com/rstacruz/nprogress
 nprogress:
-  enable: false
+  enable: true
   spinner: true
 
 # Canvas ribbon
