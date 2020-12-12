@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-logo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-logo.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-logo.png">
+  <link rel="mask-icon" href="/images/favicon-logo.png" color="#222">
+  <meta name="google-site-verification" content="4ub2lNf2WEkusifo-b7xbJIm2G5xxYUczDoWOFGp-NM">
+  <meta name="msvalidate.01" content="C2030D8E2452D4B39AED09488E55F2DF">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
+  <script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"wqdy.top","root":"/","scheme":"Pisces","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
+  </script>
+
+  <meta name="description" content="1. ios 移动端页面对点击事件有 300ms 延时使用 fastclick 库 https:&#x2F;&#x2F;github.com&#x2F;ftlabs&#x2F;fastclick 使用 FastClick 的时候，在需要使用的层上，实例化它。我们使用 document.body 是因为希望所有的按钮和链接都获得快速点击 import FastClick from &amp;#x27;fastclick&amp;#x27;FastClic">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动端兼容性问题总结">
+<meta property="og:url" content="https://wqdy.top/387.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1. ios 移动端页面对点击事件有 300ms 延时使用 fastclick 库 https:&#x2F;&#x2F;github.com&#x2F;ftlabs&#x2F;fastclick 使用 FastClick 的时候，在需要使用的层上，实例化它。我们使用 document.body 是因为希望所有的按钮和链接都获得快速点击 import FastClick from &amp;#x27;fastclick&amp;#x27;FastClic">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-07-23T22:04:28.000Z">
+<meta property="article:modified_time" content="2020-12-12T01:53:13.018Z">
+<meta property="article:author" content="cuilongjin">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://wqdy.top/387.html">
+
+
+<script data-pjax class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+<!-- google 分析 -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-9068539038073295",
+        enable_page_level_ads: true
+    });
+</script>
+
+<script>
+  let a = '🍏 🍎 🍐 🍊 🍋 🍌 🍉 🍇 🍓 🍈 🍒 🍑 🍍 🥭 🥥 🥝 🍅 🍆 🥑 🥦 🥒 🥬 🌶 🌽 🥕 🥔 🍠 🥐 🍞 🥖 🥨 🥯 🧀 🥚 🍳 🥞 🥓 🥩 🍗 🍖 🌭 🍔 🍟 🍕 🥪 🥙 🌮 🌯 🥗 🥘 🥫 🍝 🍜 🍲 🍛 🍣 🍱 🥟 🍤 🍙 🍚 🍘 🍥 🥮 🥠 🍢 🍡 🍧 🍨 🍦 🥧 🍰 🎂 🍮 🍭 🍬 🍫 🍿 🧂 🍩 🍪 🌰 🥜 🍯 🥛 🍼 ☕️ 🍵 🥤 🍶 🍺 🍻 🥂 🍷 🥃 🍸 🍹 🍾 🥄 🍴 🍽 🥣 🥡 🥢 🌵 🎄 🌲 🌳 🌴 🌱 🌿 ☘️ 🍀 🎍 🎋 🍃 🍂 🍁 🍄 🌾 💐 🌷 🌹 🥀 🌺 🌸 🌼 🌻 😀 😁 😂 🤣 😃 😄 😅 😆 😉 😊 😋 😎 😍 😘 🥰 😗 😙 😚 ☺️ 🙂 🤗 🤩 🤔 🤨 😐 😑 😶 🙄 😏 😣 😥 😮 🤐 😯 😪 😫 😴 😌 😛 😜 😝 🤤 😒 😓 😔 😕 🙃 🤑 😲 ☹️ 🙁 😖 😞 😟 😤 😢 😭 😦 😧 😨 😩 🤯 😬 😰 😱 🥵 🥶 😳 🤪 😵 😡 😠 🤬 😷 🤒 🤕 🤢 🤮 🤧 😇 🤠 🤡 🥳 🥴 🥺 🤥 🤫 🤭 🧐 🤓 😈 👿 👹 👺 💀 👻 👽 🤖 💩 😺 😸 😹 😻 😼 😽 🙀 😿 😾'
+  document.addEventListener('visibilitychange', function() {
+    if (document.visibilityState == 'hidden') {
+      normal_title = document.title
+      document.title = a.split(' ')[parseInt(Math.random() * 235)]
+    } else document.title = normal_title
+  })
+</script>
+
+
+  <title>移动端兼容性问题总结 | Hexo</title>
+  
+
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?4cf9aa5b4589576262198ad166b18a05";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  <script data-pjax>
+    !function(e,t,n,g,i){e[i]=e[i]||function(){(e[i].q=e[i].q||[]).push(arguments)},n=t.createElement("script"),tag=t.getElementsByTagName("script")[0],n.async=1,n.src=('https:'==document.location.protocol?'https://':'http://')+g,tag.parentNode.insertBefore(n,tag)}(window,document,"script","assets.growingio.com/2.1/gio.js","gio");
+    gio('init', 'UA-112496567-1', {});
+    gio('send');
+  </script>
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Hexo</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">62</span></a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-ios-%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%A1%B5%E9%9D%A2%E5%AF%B9%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6%E6%9C%89-300ms-%E5%BB%B6%E6%97%B6"><span class="nav-text">1. ios 移动端页面对点击事件有 300ms 延时</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-ios-%E6%BB%9A%E5%8A%A8%E5%8D%A1%E9%A1%BF"><span class="nav-text">2. ios 滚动卡顿</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-ios-1px-border-%E5%8F%98%E5%AE%BD"><span class="nav-text">3. ios 1px border 变宽</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-webapp-%E8%BD%AF%E9%94%AE%E7%9B%98%E5%BC%B9%E8%B5%B7%E6%97%B6%E9%97%AE%E9%A2%98"><span class="nav-text">4. webapp 软键盘弹起时问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E6%89%8B%E6%9C%BA%E7%AB%AF%E9%A1%B5%E9%9D%A2%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E5%85%BC%E5%AE%B9%E6%80%A7%E9%97%AE%E9%A2%98"><span class="nav-text">5. 手机端页面文件上传兼容性问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%92%8C-PC-%E7%AB%AF%E4%B8%AD%E7%9A%84-hover-%E5%A4%84%E7%90%86-%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%82%B9%E5%87%BB%E6%97%B6%E4%BC%9A%E6%9C%89-pc-%E7%AB%AF-hover-%E6%95%88%E6%9E%9C"><span class="nav-text">6. 移动端和 PC 端中的 hover 处理 移动端点击时会有 pc 端 hover 效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-%E7%A7%BB%E5%8A%A8%E7%AB%AF-touch-%E6%97%B6%EF%BC%8C%E4%BC%9A%E8%A7%A6%E5%8F%91-pc-%E7%AB%AF%E7%9A%84-mouseenter-mouseleave-%E4%BA%8B%E4%BB%B6"><span class="nav-text">7. 移动端 touch 时，会触发 pc 端的 mouseenter mouseleave 事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-ios-a-%E9%93%BE%E6%8E%A5-input-type-%E2%80%9Dfile%E2%80%9D-%E7%AD%89%E5%9C%A8%E7%82%B9%E5%87%BB%E6%97%B6%E4%BC%9A%E5%87%BA%E7%8E%B0%E7%81%B0%E8%89%B2%EF%BC%88touch-%E9%AB%98%E4%BA%AE%EF%BC%89"><span class="nav-text">8. ios a 链接 input type&#x3D;”file” 等在点击时会出现灰色（touch 高亮）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-%E7%A6%81%E7%94%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E8%87%AA%E5%8A%A8%E8%B0%83%E6%95%B4%E5%AD%97%E4%BD%93%E5%A4%A7%E5%B0%8F"><span class="nav-text">9. 禁用浏览器自动调整字体大小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-appearance-%E5%B1%9E%E6%80%A7"><span class="nav-text">10. appearance 属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-%E7%A6%81%E6%AD%A2%E9%95%BF%E6%8C%89"><span class="nav-text">11. 禁止长按</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-%E7%82%B9%E5%87%BB%E7%A9%BF%E9%80%8F"><span class="nav-text">12. 点击穿透</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-%E7%A7%BB%E5%8A%A8%E7%AB%AF-video-%E6%92%AD%E6%94%BE%E6%97%B6%E4%B8%8D%E5%BC%B9%E5%87%BA%E9%A1%B5%E9%9D%A2%E5%B1%82"><span class="nav-text">13. 移动端 video 播放时不弹出页面层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-vue-%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%9B%91%E5%90%AC-scroll"><span class="nav-text">14. vue 移动端监听 scroll</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-vue-%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%88%97%E8%A1%A8%E4%BF%9D%E5%AD%98%E6%BB%9A%E5%8A%A8%E4%BD%8D%E7%BD%AE"><span class="nav-text">15. vue 移动端列表保存滚动位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%8E%BB%E9%99%A4-type-%E4%B8%BA-number-%E7%9A%84%E7%AE%AD%E5%A4%B4"><span class="nav-text">16. 移动端去除 type 为 number 的箭头</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17-%E8%AE%BE%E7%BD%AE%E7%8A%B6%E6%80%81%E6%A0%8F%E7%9A%84%E8%83%8C%E6%99%AF%E9%A2%9C%E8%89%B2%EF%BC%88IOS%EF%BC%89"><span class="nav-text">17. 设置状态栏的背景颜色（IOS）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#18-%E5%BC%B9%E5%87%BA%E6%95%B0%E5%AD%97%E9%94%AE%E7%9B%98"><span class="nav-text">18. 弹出数字键盘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%93%E5%BC%80%E5%8E%9F%E7%94%9F%E5%BA%94%E7%94%A8"><span class="nav-text">打开原生应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3-IOS%E4%B8%8B-active-%E4%BC%AA%E7%B1%BB%E5%A4%B1%E6%95%88"><span class="nav-text">解决 IOS下 active 伪类失效</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#better-scroll-%E8%A7%A3%E5%86%B3%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%BB%9A%E5%8A%A8%E9%97%AE%E9%A2%98"><span class="nav-text">better-scroll 解决移动端滚动问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iphone-X-%E9%80%82%E9%85%8D-%E5%AE%89%E5%85%A8%E5%8C%BA%E5%9F%9F-safe-area"><span class="nav-text">iphone X 适配 - 安全区域(safe area)</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="cuilongjin"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">cuilongjin</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">62</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/cuilongjin" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;cuilongjin" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </section>
+        <div class="back-to-top animated">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/387.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="cuilongjin">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          移动端兼容性问题总结
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-07-23 22:04:28" itemprop="dateCreated datePublished" datetime="2019-07-23T22:04:28+00:00">2019-07-23</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-12 01:53:13" itemprop="dateModified" datetime="2020-12-12T01:53:13+00:00">2020-12-12</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/387.html" class="post-meta-item leancloud_visitors" data-flag-title="移动端兼容性问题总结" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/387.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/387.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="1-ios-移动端页面对点击事件有-300ms-延时"><a href="#1-ios-移动端页面对点击事件有-300ms-延时" class="headerlink" title="1. ios 移动端页面对点击事件有 300ms 延时"></a>1. ios 移动端页面对点击事件有 300ms 延时</h3><p>使用 fastclick 库 <a target="_blank" rel="noopener" href="https://github.com/ftlabs/fastclick">https://github.com/ftlabs/fastclick</a></p>
+<p>使用 FastClick 的时候，在需要使用的层上，实例化它。我们使用 document.body 是因为希望所有的按钮和链接都获得快速点击</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> FastClick <span class="keyword">from</span> <span class="string">&#x27;fastclick&#x27;</span></span><br><span class="line">FastClick.attach(<span class="built_in">document</span>.body)</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-ios-滚动卡顿"><a href="#2-ios-滚动卡顿" class="headerlink" title="2. ios 滚动卡顿"></a>2. ios 滚动卡顿</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">-webkit-overflow-scrolling</span>: touch; <span class="comment">/* 当手指从触摸屏上移开，会保持一段时间的滚动 */</span></span><br><span class="line">  <span class="comment">/* -webkit-overflow-scrolling: auto; */</span> <span class="comment">/* 当手指从触摸屏上移开，滚动会立即停止 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-ios-1px-border-变宽"><a href="#3-ios-1px-border-变宽" class="headerlink" title="3. ios 1px border 变宽"></a>3. ios 1px border 变宽</h3><p>以 dpr = 2 为例：<br>你拿到一张标准的基于 iphone6 的设计稿(750px)<br>你看到它设计的一个 border 宽度是 1px<br>你兴致勃勃地写下了 border: 1px solid #000;<br>然而 iphone6 实际渲染像素是 375px，那么设计需要 border 的其实是 border: 0.5px solid #000;<br>然后你的是 1px<br>不是 1px 变粗了，只是实际只是需要 0.5px 而已</p>
+<p><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot;&gt;</code> 意思是将物理设备的宽度设置给当前浏览器</p>
+<p>在使用 table 标签设置 <code>border: 1px</code> 并使用 <code>border-collapse: collapse;</code> 合并边框后，发现 td 之间的边框宽度并不是 1px，而是比 1px 宽，大概为 1.5px</p>
+<h3 id="4-webapp-软键盘弹起时问题"><a href="#4-webapp-软键盘弹起时问题" class="headerlink" title="4. webapp 软键盘弹起时问题"></a>4. webapp 软键盘弹起时问题</h3><p>其他参考链接 <a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000010693229">https://segmentfault.com/a/1190000010693229</a><br><a target="_blank" rel="noopener" href="https://github.com/ioing/IOING">https://github.com/ioing/IOING</a></p>
+<p>页面放大:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;user-scalable=no&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>输入框被遮挡，看不见输入的内容: <code>document.activeElement.scrollIntoView()</code></p>
+<p>页面自动上移，但收回软键盘时页面没有恢复原样少了一截</p>
+<p>fixed 定位效果失效: <code>ios 弹出软键盘的时候, webview 的高度没有变化导致超出屏幕范围，并且不会触发 resize 事件</code></p>
+<p><strong>scrollIntoView 与 scrollIntoViewIfNeeded</strong></p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollIntoView">Element.scrollIntoView(option)</a> 方法让当前的元素滚动到浏览器窗口的可视区域内<br>option 如果为 true，元素的顶端将和其所在滚动区的可视区域的顶端对齐， 默认<br>option 如果为 false，元素的底端将和其所在滚动区的可视区域的底端对齐</p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollIntoViewIfNeeded">element.scrollIntoViewIfNeeded()</a> 用来将不在浏览器窗口的可见区域内的元素滚动到浏览器窗口的可见区域。 如果该元素已经在浏览器窗口的可见区域内，则不会发生滚动</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> scrollHeight = <span class="built_in">document</span>.documentElement.scrollTop || <span class="built_in">document</span>.body.scrollTop || <span class="number">0</span></span><br><span class="line"><span class="keyword">var</span> clientHeight = <span class="built_in">document</span>.documentElement.clientHeight || <span class="built_in">document</span>.body.clientHeight</span><br><span class="line"><span class="keyword">var</span> innerHeight = <span class="built_in">window</span>.innerHeight</span><br><span class="line"><span class="comment">// 键盘弹起时 scrollHeight innerHeight 发生变化</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> @<span class="attr">focus</span>=<span class="string">&quot;input(1)&quot;</span> @<span class="attr">blur</span>=<span class="string">&quot;input(2)&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">input (num) &#123;</span><br><span class="line">  <span class="keyword">var</span> u = navigator.userAgent</span><br><span class="line">  <span class="keyword">if</span> (u.indexOf(<span class="string">&#x27;Android&#x27;</span>) &gt; -<span class="number">1</span> || u.indexOf(<span class="string">&#x27;Linux&#x27;</span>) &gt; -<span class="number">1</span>) &#123;</span><br><span class="line">    <span class="comment">// 安卓手机通过 resize 事件监听键盘事件，因为部分手机手动关闭键盘时并不会失焦</span></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (u.indexOf(<span class="string">&#x27;iPhone&#x27;</span>) &gt; -<span class="number">1</span>) &#123;</span><br><span class="line">    <span class="comment">// 苹果手机</span></span><br><span class="line">    <span class="keyword">if</span> (num === <span class="number">1</span>) &#123;</span><br><span class="line">      <span class="comment">// 键盘弹起</span></span><br><span class="line">      <span class="built_in">document</span>.activeElement.scrollIntoView()</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">// 键盘隐藏</span></span><br><span class="line">      <span class="keyword">var</span> scrollHeight = <span class="built_in">document</span>.documentElement.scrollTop || <span class="built_in">document</span>.body.scrollTop || <span class="number">0</span></span><br><span class="line">      <span class="comment">// window.scrollTo(0, Math.max(scrollHeight - 1, 0))</span></span><br><span class="line">      <span class="built_in">window</span>.scrollTo(<span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>附：安卓手机监听 resize</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">data () &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    originalHeight: <span class="built_in">document</span>.documentElement.clientHeight || <span class="built_in">document</span>.body.clientHeight,</span><br><span class="line">    resizeHeight: <span class="built_in">document</span>.documentElement.clientHeight || <span class="built_in">document</span>.body.clientHeight</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br><span class="line">watch: &#123;</span><br><span class="line">  resizeHeight (val) &#123;</span><br><span class="line">    <span class="keyword">var</span> u = navigator.userAgent</span><br><span class="line">    <span class="keyword">if</span> (u.indexOf(<span class="string">&#x27;Android&#x27;</span>) &gt; -<span class="number">1</span> || u.indexOf(<span class="string">&#x27;Linux&#x27;</span>) &gt; -<span class="number">1</span>) &#123;</span><br><span class="line">      <span class="comment">// var detail = document.querySelector(&#x27;.detail&#x27;)</span></span><br><span class="line">      <span class="keyword">if</span> (<span class="built_in">this</span>.resizeHeight - <span class="number">0</span> &lt; <span class="built_in">this</span>.originalHeight - <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">// detail.style.paddingBottom = &#x27;260px&#x27;</span></span><br><span class="line">        <span class="built_in">document</span>.activeElement.scrollIntoView(&#123; <span class="attr">behavior</span>: <span class="string">&#x27;auto&#x27;</span>, <span class="attr">block</span>: <span class="string">&#x27;start&#x27;</span> &#125;)</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// detail.style.paddingBottom = &#x27;0&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br><span class="line">mounted () &#123;</span><br><span class="line">  <span class="keyword">const</span> that = <span class="built_in">this</span></span><br><span class="line">  <span class="built_in">window</span>.onresize = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> (<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">window</span>.resizeHeight = <span class="built_in">document</span>.documentElement.clientHeight || <span class="built_in">document</span>.body.clientHeight</span><br><span class="line">      that.resizeHeight = <span class="built_in">window</span>.resizeHeight</span><br><span class="line">    &#125;)()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-手机端页面文件上传兼容性问题"><a href="#5-手机端页面文件上传兼容性问题" class="headerlink" title="5. 手机端页面文件上传兼容性问题"></a>5. 手机端页面文件上传兼容性问题</h3><h3 id="6-移动端和-PC-端中的-hover-处理-移动端点击时会有-pc-端-hover-效果"><a href="#6-移动端和-PC-端中的-hover-处理-移动端点击时会有-pc-端-hover-效果" class="headerlink" title="6. 移动端和 PC 端中的 hover 处理 移动端点击时会有 pc 端 hover 效果"></a>6. 移动端和 PC 端中的 hover 处理 移动端点击时会有 pc 端 hover 效果</h3><p>百度一下给出的方式是注册 touchstart 事件</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">document</span>.body.addEventListener(<span class="string">&#x27;touchstart&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>但经过测试并没有解决该问题</p>
+<h3 id="7-移动端-touch-时，会触发-pc-端的-mouseenter-mouseleave-事件"><a href="#7-移动端-touch-时，会触发-pc-端的-mouseenter-mouseleave-事件" class="headerlink" title="7. 移动端 touch 时，会触发 pc 端的 mouseenter mouseleave 事件"></a>7. 移动端 touch 时，会触发 pc 端的 mouseenter mouseleave 事件</h3><p>在事件中通过判断屏幕宽度解决</p>
+<h3 id="8-ios-a-链接-input-type-”file”-等在点击时会出现灰色（touch-高亮）"><a href="#8-ios-a-链接-input-type-”file”-等在点击时会出现灰色（touch-高亮）" class="headerlink" title="8. ios a 链接 input type=”file” 等在点击时会出现灰色（touch 高亮）"></a>8. ios a 链接 input type=”file” 等在点击时会出现灰色（touch 高亮）</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">-webkit-tap-highlight-color</span>: <span class="selector-tag">transparent</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="9-禁用浏览器自动调整字体大小"><a href="#9-禁用浏览器自动调整字体大小" class="headerlink" title="9. 禁用浏览器自动调整字体大小"></a>9. 禁用浏览器自动调整字体大小</h3><p>移动端浏览器切换橫向模式时会调整字体大小（字体变大），解决方式:</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="attribute">-webkit-text-size-adjust</span>: none; <span class="comment">/* 或 100% */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>谷歌浏览器已不支持这个属性了，不能通过该方式实现小于 12px 的字体，可使用缩放（transform:scale(0.8)）来实现小于 12px 的字体</p>
+</blockquote>
+<h3 id="10-appearance-属性"><a href="#10-appearance-属性" class="headerlink" title="10. appearance 属性"></a>10. appearance 属性</h3><p>normal|icon|window|button|menu|field<br>所有主流浏览器都不支持 appearance 属性</p>
+<p><code>-webkit-appearance: none;</code> 去除默认样式，使 ios 端和安卓端显示效果一样，但有一个问题，input 的 checkbox 和 radio 类型在安卓端可能无法正常显示</p>
+<h3 id="11-禁止长按"><a href="#11-禁止长按" class="headerlink" title="11. 禁止长按"></a>11. 禁止长按</h3><p>在 iOS 上，当你触摸并按住触摸的目标，比如长按一个链接，浏览器将显示链接有关的系统默认菜单，<br>长按图像弹出选项存储或者拷贝图像，长按文字弹出选择文字菜单</p>
+<p>可通过如下方式禁止这些行为</p>
+<p>禁止长按图片保存</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">img</span> &#123;</span><br><span class="line">  <span class="attribute">-webkit-touch-callout</span>: none;</span><br><span class="line">  pointer-events: none; // 像微信浏览器还是无法禁止，加上这行样式即可</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>禁用长按复制</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">user-select</span>: <span class="selector-tag">none</span>;</span><br></pre></td></tr></table></figure>
+
+<p>禁止长按呼出菜单</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">-webkit-touch-callout</span>: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="12-点击穿透"><a href="#12-点击穿透" class="headerlink" title="12. 点击穿透"></a>12. 点击穿透</h3><p>假如页面上有两个元素 A 和 B。B 元素在 A 元素之上。我们在 B 元素的 touchstart 事件上注册了一个回调函数，该回调函数的作用是隐藏 B 元素。我们发现，当我们点击 B 元素，B 元素被隐藏了，随后，A 元素触发了 click 事件。<br>这是因为在移动端浏览器，事件执行的顺序是 touchstart &gt; touchend &gt; click。而 click 事件有 300ms 的延迟，当 touchstart 事件把 B 元素隐藏之后，隔了 300ms，浏览器触发了 click 事件，但是此时 B 元素不见了，所以该事件被派发到了 A 元素身上。如果 A 元素是一个链接，那此时页面就会意外地跳转。<br>跨页面点击穿透问题 点击页内按钮跳转至新页，然后发现新页面中对应位置元素的 click 事件被触发了</p>
+<h3 id="13-移动端-video-播放时不弹出页面层"><a href="#13-移动端-video-播放时不弹出页面层" class="headerlink" title="13. 移动端 video 播放时不弹出页面层"></a>13. 移动端 video 播放时不弹出页面层</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">x5-playsinline</span>=<span class="string">&quot;&quot;</span> <span class="attr">playsinline</span>=<span class="string">&quot;&quot;</span> <span class="attr">webkit-playsinline</span>=<span class="string">&quot;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="14-vue-移动端监听-scroll"><a href="#14-vue-移动端监听-scroll" class="headerlink" title="14. vue 移动端监听 scroll"></a>14. vue 移动端监听 scroll</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">mounted () &#123;</span><br><span class="line">  <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.list&#x27;</span>).addEventListener(<span class="string">&#x27;scroll&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.scroll = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.list&#x27;</span>).scrollTop</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="15-vue-移动端列表保存滚动位置"><a href="#15-vue-移动端列表保存滚动位置" class="headerlink" title="15. vue 移动端列表保存滚动位置"></a>15. vue 移动端列表保存滚动位置</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">beforeRouteEnter (to, <span class="keyword">from</span>, next) &#123;</span><br><span class="line">  next(<span class="function">(<span class="params">vm</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// console.log(vm.$route.meta.scrollTop)</span></span><br><span class="line">    <span class="keyword">if</span> (vm.$route.meta.scrollTop) &#123;</span><br><span class="line">      <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.list&#x27;</span>).scrollTop = vm.$route.meta.scrollTop</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">beforeRouteLeave (to, <span class="keyword">from</span>, next) &#123;</span><br><span class="line">  <span class="keyword">if</span> (to.name === <span class="string">&#x27;invite&#x27;</span>) &#123;</span><br><span class="line">    <span class="built_in">this</span>.$store.commit(<span class="string">&#x27;removeIncludeComponent&#x27;</span>, <span class="string">&#x27;staff&#x27;</span>)</span><br><span class="line">    <span class="comment">// next()</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (to.name === <span class="string">&#x27;staffDetail&#x27;</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> top = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.list&#x27;</span>).scrollTop</span><br><span class="line">    <span class="built_in">console</span>.log(top)</span><br><span class="line">    <span class="built_in">this</span>.$route.meta.scrollTop = top</span><br><span class="line">  &#125;</span><br><span class="line">  next()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="16-移动端去除-type-为-number-的箭头"><a href="#16-移动端去除-type-为-number-的箭头" class="headerlink" title="16. 移动端去除 type 为 number 的箭头"></a>16. 移动端去除 type 为 number 的箭头</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">input</span><span class="selector-pseudo">::-webkit-outer-spin-button</span>,</span><br><span class="line"><span class="selector-tag">input</span><span class="selector-pseudo">::-webkit-inner-spin-button</span> &#123;</span><br><span class="line">  <span class="attribute">-webkit-appearance</span>: none <span class="meta">!important</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="17-设置状态栏的背景颜色（IOS）"><a href="#17-设置状态栏的背景颜色（IOS）" class="headerlink" title="17. 设置状态栏的背景颜色（IOS）"></a>17. 设置状态栏的背景颜色（IOS）</h3><p>设置状态栏的背景颜色，只有在”apple-mobile-web-app-capable” content=”yes”时生效</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;apple-mobile-web-app-status-bar-style&quot;</span> <span class="attr">content</span>=<span class="string">&quot;black-translucent&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>content 参数：</p>
+<p>default ：状态栏背景是白色。<br>black ：状态栏背景是黑色。<br>black-translucent ：状态栏背景是半透明。 如果设置为 default 或 black ,网页内容从状态栏底部开始。<br>如果设置为 black-translucent ,网页内容充满整个屏幕，顶部会被状态栏遮挡。</p>
+<h3 id="18-弹出数字键盘"><a href="#18-弹出数字键盘" class="headerlink" title="18. 弹出数字键盘"></a>18. 弹出数字键盘</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 有&quot;#&quot; &quot;*&quot;符号输入 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;tel&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 纯数字 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">pattern</span>=<span class="string">&quot;\d*&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="打开原生应用"><a href="#打开原生应用" class="headerlink" title="打开原生应用"></a>打开原生应用</h3><p>某些浏览器会禁用此协议，比如微信内部浏览器（除非开了白名单）</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;weixin://&quot;</span>&gt;</span>打开微信<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;alipays://&quot;</span>&gt;</span>打开支付宝<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;alipays://platformapi/startapp?saId=10000007&quot;</span>&gt;</span>打开支付宝的扫一扫功能<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;alipays://platformapi/startapp?appId=60000002&quot;</span>&gt;</span>打开支付宝的蚂蚁森林<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="解决-IOS下-active-伪类失效"><a href="#解决-IOS下-active-伪类失效" class="headerlink" title="解决 IOS下 active 伪类失效"></a>解决 IOS下 active 伪类失效</h3><p>给 body 注册一个空事件即可</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">ontouchstart</span>&gt;</span><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>最简单的 rem 实现</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width:</span> <span class="number">640px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">html</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="built_in">calc</span>(<span class="number">640px</span> / <span class="number">3.75</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width:</span> <span class="number">320px</span>) <span class="keyword">and</span> (<span class="attribute">max-width:</span> <span class="number">640px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">html</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="built_in">calc</span>(<span class="number">100vw</span> / <span class="number">3.75</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="better-scroll-解决移动端滚动问题"><a href="#better-scroll-解决移动端滚动问题" class="headerlink" title="better-scroll 解决移动端滚动问题"></a>better-scroll 解决移动端滚动问题</h3><p><a target="_blank" rel="noopener" href="https://github.com/ustbhuangyi/better-scroll/">https://github.com/ustbhuangyi/better-scroll/</a></p>
+<h3 id="iphone-X-适配-安全区域-safe-area"><a href="#iphone-X-适配-安全区域-safe-area" class="headerlink" title="iphone X 适配 - 安全区域(safe area)"></a>iphone X 适配 - 安全区域(safe area)</h3><p>参考：<a target="_blank" rel="noopener" href="https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/adaptivity-and-layout/">https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/adaptivity-and-layout/</a></p>
+<p>在 iOS 11 中采用了 <code>viewport-fit</code> 的 meta 标签作为适配方案</p>
+<p><code>viewport-fit</code> 取值</p>
+<p>auto 默认：页面内容显示在 safe area 内<br>cover 页面内容充满屏幕，可以通过添加边距保证网页主要内容处于 safe area 中不被裁剪</p>
+<p>iOS 11 的 webview 引入了 <code>constant</code>、<code>env</code> 来处理 <code>viewport-fit=cover</code> 属性，以及一组四个预定义的常量：<code>safe-area-inset-left</code>, <code>safe-area-inset-right</code>, <code>safe-area-inset-top</code> 和 <code>safe-area-inset-bottom</code>，分别表示 safe area 和可视窗口 viewport 顶部，右边，左边，底部的间距，可以用于设置 margin 和 padding 或者绝对定位时 left 和 top，这四个常量只有在 <code>viewport-fit=cover</code> 时有效</p>
+<p>建议使用 <code>viewport-fit=cover</code> 因为会使用 auto 会造成屏幕四周出现白边</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*  top 为 0 的 fixed 定位的 heade */</span></span><br><span class="line"><span class="selector-tag">header</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: fixed;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">  <span class="comment">/* Status bar height on iOS 10 */</span></span><br><span class="line">  <span class="attribute">padding-top</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="comment">/* Status bar height on iOS 11.0 */</span></span><br><span class="line">  <span class="attribute">padding-top</span>: <span class="built_in">constant</span>(safe-area-inset-top);</span><br><span class="line">  <span class="comment">/* Status bar height on iOS 11+ */</span></span><br><span class="line">  <span class="attribute">padding-top</span>: <span class="built_in">env</span>(safe-area-inset-top);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  padding-top: constant(safe-area-inset-top); // 为导航栏+状态栏的高度 88px</span><br><span class="line">  <span class="selector-tag">padding-left</span>: <span class="selector-tag">constant</span>(<span class="selector-tag">safe-area-inset-left</span>); // 如果未竖屏时为0</span><br><span class="line">  <span class="selector-tag">padding-right</span>: <span class="selector-tag">constant</span>(<span class="selector-tag">safe-area-inset-right</span>); // 如果未竖屏时为0</span><br><span class="line">  <span class="selector-tag">padding-bottom</span>: <span class="selector-tag">constant</span>(<span class="selector-tag">safe-area-inset-bottom</span>); // 为底下圆弧的高度 34<span class="selector-tag">px</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+      
+
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>cuilongjin
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://wqdy.top/387.html" title="移动端兼容性问题总结">https://wqdy.top/387.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+      
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 2015 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">cuilongjin</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '.page-configurations',
+    '.main-inner',
+    '.post-toc-wrap',
+    '.languages',
+    '.pjax'
+  ],
+  analytics: false,
+  cacheBust: false,
+  scrollRestoration: false,
+  scrollTo: !CONFIG.bookmark.enable
+});
+
+document.addEventListener('pjax:success', () => {
+  pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  const hasTOC = document.querySelector('.post-toc');
+  document.querySelector('.sidebar-inner').classList.toggle('sidebar-nav-active', hasTOC);
+  document.querySelector(hasTOC ? '.sidebar-nav-toc' : '.sidebar-nav-overview').click();
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  
+  <script data-pjax>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+    NProgress.configure({
+      showSpinner: true
+    });
+    NProgress.start();
+    document.addEventListener('readystatechange', () => {
+      if (document.readyState === 'interactive') {
+        NProgress.inc(0.8);
+      }
+      if (document.readyState === 'complete') {
+        NProgress.done();
+      }
+    });
+    document.addEventListener('pjax:send', () => {
+      NProgress.start();
+    });
+    document.addEventListener('pjax:success', () => {
+      NProgress.done();
+    });
+  </script>
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+<script data-pjax>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      const visitors = document.querySelector('.leancloud_visitors');
+      const url = decodeURI(visitors.id);
+      const title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            const counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      const visitors = document.querySelectorAll('.leancloud_visitors');
+      const entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            const target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    const { app_id, app_key, server_url } = {"enable":true,"app_id":"i2ouGvmHTW7EhnCLQOBXVrub-gzGzoHsz","app_key":"AybRqrp4wjRmuVSiflCxLBrO","server_url":null,"security":true};
+    function fetchData(api_server) {
+      const Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    const api_server = app_id.slice(-9) === '-MdYXbMMI' ? `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com` : server_url;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+    <div class="pjax">
+  
+
+  
+
+<script>
+NexT.utils.loadComments('#valine-comments', () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    new Valine(Object.assign({"enable":true,"appId":"i2ouGvmHTW7EhnCLQOBXVrub-gzGzoHsz","appKey":"AybRqrp4wjRmuVSiflCxLBrO","serverURLs":null,"placeholder":"Just go go","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":false,"comment_count":true,"recordIP":true,"enableQQ":false,"requiredFields":[]}, {
+      el: '#valine-comments',
+      path: "/387.html",
+      serverURLs: "https://i2ougvmh.api.lncldglobal.com"
+    }));
+  }, window.Valine);
+});
+</script>
+
+    </div>
+</body>
+</html>

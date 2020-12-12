@@ -1,53 +1,127 @@
 /* global NexT, CONFIG */
 
-$(document).ready(function() {
+NexT.boot = {};
 
-  $(document).trigger('bootstrap:before');
+NexT.boot.registerEvents = function() {
 
-  /**
-   * Register JS handlers by condition option.
-   * Need to add config option in Front-End at 'layout/_partials/head.swig' file.
-   */
-  CONFIG.fastclick && NexT.utils.isMobile() && window.FastClick.attach(document.body);
-  CONFIG.lazyload && NexT.utils.lazyLoadPostsImages();
-
-  NexT.utils.registerESCKeyEvent();
-
-  CONFIG.back2top && NexT.utils.registerBackToTop();
+  NexT.utils.registerScrollPercent();
+  NexT.utils.registerCanIUseTag();
 
   // Mobile top menu bar.
-  $('.site-nav-toggle button').on('click', function() {
-    var $siteNav = $('.site-nav');
-    var ON_CLASS_NAME = 'site-nav-on';
-    var isSiteNavOn = $siteNav.hasClass(ON_CLASS_NAME);
-    var animateAction = isSiteNavOn ? 'slideUp' : 'slideDown';
-    var animateCallback = isSiteNavOn ? 'removeClass' : 'addClass';
+  document.querySelector('.site-nav-toggle .toggle').addEventListener('click', event => {
+    event.currentTarget.classList.toggle('toggle-close');
+    const siteNav = document.querySelector('.site-nav');
+    if (!siteNav) return;
+    const animateAction = document.body.classList.contains('site-nav-on');
+    const height = NexT.utils.getComputedStyle(siteNav);
+    siteNav.style.height = animateAction ? height : 0;
+    const toggle = () => document.body.classList.toggle('site-nav-on');
+    const begin = () => {
+      siteNav.style.overflow = 'hidden';
+    };
+    const complete = () => {
+      siteNav.style.overflow = '';
+      siteNav.style.height = '';
+    };
+    window.anime(Object.assign({
+      targets : siteNav,
+      duration: 200,
+      height  : animateAction ? [height, 0] : [0, height],
+      easing  : 'linear'
+    }, animateAction ? {
+      begin,
+      complete: () => {
+        complete();
+        toggle();
+      }
+    } : {
+      begin: () => {
+        begin();
+        toggle();
+      },
+      complete
+    }));
+  });
 
-    $siteNav.stop()[animateAction]('fast', function() {
-      $siteNav[animateCallback](ON_CLASS_NAME);
+  const duration = 200;
+  document.querySelectorAll('.sidebar-nav li').forEach((element, index) => {
+    element.addEventListener('click', () => {
+      if (element.matches('.sidebar-toc-active .sidebar-nav-toc, .sidebar-overview-active .sidebar-nav-overview')) return;
+      const sidebar = document.querySelector('.sidebar-inner');
+      const panel = document.querySelectorAll('.sidebar-panel');
+      const activeClassName = ['sidebar-toc-active', 'sidebar-overview-active'];
+
+      window.anime({
+        duration,
+        targets   : panel[1 - index],
+        easing    : 'linear',
+        opacity   : 0,
+        translateY: [0, -20],
+        complete  : () => {
+          // Prevent adding TOC to Overview if Overview was selected when close & open sidebar.
+          sidebar.classList.replace(activeClassName[1 - index], activeClassName[index]);
+          window.anime({
+            duration,
+            targets   : panel[index],
+            easing    : 'linear',
+            opacity   : [0, 1],
+            translateY: [-20, 0]
+          });
+        }
+      });
     });
   });
 
+  window.addEventListener('resize', NexT.utils.initSidebarDimension);
+
+  window.addEventListener('hashchange', () => {
+    const tHash = location.hash;
+    if (tHash !== '' && !tHash.match(/%\S{2}/)) {
+      const target = document.querySelector(`.tabs ul.nav-tabs li a[href="${tHash}"]`);
+      target && target.click();
+    }
+  });
+};
+
+NexT.boot.refresh = function() {
+
   /**
    * Register JS handlers by condition option.
-   * Need to add config option in Front-End at 'layout/_partials/head.swig' file.
+   * Need to add config option in Front-End at 'scripts/helpers/next-config.js' file.
    */
+  CONFIG.prism && window.Prism.highlightAll();
   CONFIG.fancybox && NexT.utils.wrapImageWithFancyBox();
-  CONFIG.tabs && NexT.utils.registerTabsTag();
+  CONFIG.mediumzoom && window.mediumZoom('.post-body :not(a) > img, .post-body > img', {
+    background: 'var(--content-bg-color)'
+  });
+  CONFIG.lazyload && window.lozad('.post-body img').observe();
+  CONFIG.pangu && window.pangu.spacingPage();
 
-  NexT.utils.embeddedVideoTransformer();
+  CONFIG.exturl && NexT.utils.registerExtURL();
+  NexT.utils.registerCopyCode();
+  NexT.utils.registerTabsTag();
+  NexT.utils.registerActiveMenuItem();
+  NexT.utils.registerLangSelect();
+  NexT.utils.registerSidebarTOC();
+  NexT.utils.wrapTableWithBox();
+  NexT.utils.registerVideoIframe();
+};
 
-  // Define Motion Sequence.
-  NexT.motion.integrator
-    .add(NexT.motion.middleWares.logo)
-    .add(NexT.motion.middleWares.menu)
-    .add(NexT.motion.middleWares.postList)
-    .add(NexT.motion.middleWares.sidebar);
+NexT.boot.motion = function() {
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .add(NexT.motion.middleWares.header)
+      .add(NexT.motion.middleWares.postList)
+      .add(NexT.motion.middleWares.sidebar)
+      .add(NexT.motion.middleWares.footer)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+};
 
-  $(document).trigger('motion:before');
-
-  // Bootstrap Motion.
-  CONFIG.motion.enable && NexT.motion.integrator.bootstrap();
-
-  $(document).trigger('bootstrap:after');
+document.addEventListener('DOMContentLoaded', () => {
+  NexT.boot.registerEvents();
+  NexT.boot.refresh();
+  NexT.boot.motion();
 });
