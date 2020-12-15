@@ -25,16 +25,20 @@
     var CONFIG = {"hostname":"wqdy.top","root":"/","scheme":"Pisces","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://wqdy.top/tags/seo/index.html">
+  <meta name="description" content="当我们使用npm包时，需要修改部分源码做自定义功能，但是直接修改node_modules里面的文件，重新安装包后做的修改就没有了。一般常用办法有两个：  将代码下载到本地，修改后手动引入 fork别人的代码到自己仓库，修改后，从自己仓库安装  但是这样做比较麻烦，而且更新不方便。我们可以使用 patch-package 来管理修改 以 hexo-theme-next 为例  修改 node_mod">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用 patch-package 来科学修改 node_modules 里的文件">
+<meta property="og:url" content="https://wqdy.top/2001.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="当我们使用npm包时，需要修改部分源码做自定义功能，但是直接修改node_modules里面的文件，重新安装包后做的修改就没有了。一般常用办法有两个：  将代码下载到本地，修改后手动引入 fork别人的代码到自己仓库，修改后，从自己仓库安装  但是这样做比较麻烦，而且更新不方便。我们可以使用 patch-package 来管理修改 以 hexo-theme-next 为例  修改 node_mod">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-12-15T00:00:00.000Z">
+<meta property="article:modified_time" content="2020-12-15T16:32:56.865Z">
 <meta property="article:author" content="cuilongjin">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://wqdy.top/tags/seo/">
+<link rel="canonical" href="https://wqdy.top/2001.html">
 
 
 <script data-pjax class="page-configurations">
@@ -42,7 +46,7 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
@@ -67,7 +71,7 @@
 </script>
 
 
-  <title>标签: seo | Hexo</title>
+  <title>使用 patch-package 来科学修改 node_modules 里的文件 | Hexo</title>
   
 
 
@@ -290,68 +294,151 @@
 </noscript>
 
 
-    <div class="main-inner tag posts-collapse">
+    <div class="main-inner post posts-expand">
       
 
       
 
   
-  
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h2 class="collection-header">seo
-          <small>标签</small>
-        </h2>
-      </div>
 
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/2001.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="cuilongjin">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          使用 patch-package 来科学修改 node_modules 里的文件
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
-    </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2020-01-10T00:00:29+00:00"
-              content="2020-01-10">
-          01-10
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/411.html" itemprop="url">
-            <span itemprop="name">SEO工具之Xenu-网站死链接检测</span>
-          </a>
-      </div>
+      <time title="创建时间：2020-12-15 00:00:00 / 修改时间：16:32:56" itemprop="dateCreated datePublished" datetime="2020-12-15T00:00:00+00:00">2020-12-15</time>
+    </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/wordpress/" itemprop="url" rel="index"><span itemprop="name">wordpress</span></a>
+          <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
         </span>
     </span>
 
+  
+    <span id="/2001.html" class="post-meta-item leancloud_visitors" data-flag-title="使用 patch-package 来科学修改 node_modules 里的文件" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2001.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2001.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
 
-      
-    </header>
-  </article>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>当我们使用npm包时，需要修改部分源码做自定义功能，但是直接修改node_modules里面的文件，重新安装包后做的修改就没有了。一般常用办法有两个：</p>
+<ol>
+<li>将代码下载到本地，修改后手动引入</li>
+<li>fork别人的代码到自己仓库，修改后，从自己仓库安装</li>
+</ol>
+<p>但是这样做比较麻烦，而且更新不方便。我们可以使用 patch-package 来管理修改</p>
+<p>以 hexo-theme-next 为例</p>
+<ol>
+<li><p>修改 node_modules 里面的代码</p>
+</li>
+<li><p>安装patch-package：<code>npm i patch-package --save-dev</code></p>
+</li>
+<li><p>执行命令：<code>npx patch-package hexo-theme-next</code></p>
+</li>
+</ol>
+<p>第一次使用 patch-package 会在项目根目录生成 patches 文件夹，里面有修改过的文件 diff 记录</p>
+<p>当这个包被重新安装后，可以使用如下方式让修改生效</p>
+<p>方式一：执行命令：<code>git apply --ignore-whitespace patches/hexo-theme-next+8.0.1.patch</code></p>
+<p>方式二：在 package.json，新增命令 postinstall:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">+  &quot;postinstall&quot;: &quot;patch-package&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>执行：<code>npm run postinstall</code></p>
+<p>该命令也会在每次 npm install 时自动执行</p>
 
     </div>
-  </div>
-  
-  
-  
 
-  
+    
+    
+    
+      
+
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>cuilongjin
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://wqdy.top/2001.html" title="使用 patch-package 来科学修改 node_modules 里的文件">https://wqdy.top/2001.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
 
 
 
       
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -610,7 +697,7 @@ NexT.utils.loadComments('#valine-comments', () => {
   NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
     new Valine(Object.assign({"enable":true,"appId":"i2ouGvmHTW7EhnCLQOBXVrub-gzGzoHsz","appKey":"AybRqrp4wjRmuVSiflCxLBrO","serverURLs":null,"placeholder":"Just go go","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":false,"comment_count":true,"recordIP":true,"enableQQ":false,"requiredFields":[]}, {
       el: '#valine-comments',
-      path: "/tags/seo/",
+      path: "/2001.html",
       serverURLs: "https://i2ougvmh.api.lncldglobal.com"
     }));
   }, window.Valine);

@@ -22,7 +22,7 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"wqdy.top","root":"/","scheme":"Pisces","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
+    var CONFIG = {"hostname":"wqdy.top","root":"/","scheme":"Pisces","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
   </script>
 
   <meta property="og:type" content="website">
@@ -172,7 +172,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">62</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
 
   </li>
         <li class="menu-item menu-item-sitemap">
@@ -302,6 +302,124 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/2001.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="cuilongjin">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2001.html" class="post-title-link" itemprop="url">使用 patch-package 来科学修改 node_modules 里的文件</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-12-15 00:00:00 / 修改时间：16:32:56" itemprop="dateCreated datePublished" datetime="2020-12-15T00:00:00+00:00">2020-12-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2001.html" class="post-meta-item leancloud_visitors" data-flag-title="使用 patch-package 来科学修改 node_modules 里的文件" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2001.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2001.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>当我们使用npm包时，需要修改部分源码做自定义功能，但是直接修改node_modules里面的文件，重新安装包后做的修改就没有了。一般常用办法有两个：</p>
+<ol>
+<li>将代码下载到本地，修改后手动引入</li>
+<li>fork别人的代码到自己仓库，修改后，从自己仓库安装</li>
+</ol>
+<p>但是这样做比较麻烦，而且更新不方便。我们可以使用 patch-package 来管理修改</p>
+<p>以 hexo-theme-next 为例</p>
+<ol>
+<li><p>修改 node_modules 里面的代码</p>
+</li>
+<li><p>安装patch-package：<code>npm i patch-package --save-dev</code></p>
+</li>
+<li><p>执行命令：<code>npx patch-package hexo-theme-next</code></p>
+</li>
+</ol>
+<p>第一次使用 patch-package 会在项目根目录生成 patches 文件夹，里面有修改过的文件 diff 记录</p>
+<p>当这个包被重新安装后，可以使用如下方式让修改生效</p>
+<p>方式一：执行命令：<code>git apply --ignore-whitespace patches/hexo-theme-next+8.0.1.patch</code></p>
+<p>方式二：在 package.json，新增命令 postinstall:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">+  &quot;postinstall&quot;: &quot;patch-package&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>执行：<code>npm run postinstall</code></p>
+<p>该命令也会在每次 npm install 时自动执行</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://wqdy.top/2000.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -334,7 +452,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-12 01:53:13" itemprop="dateModified" datetime="2020-12-12T01:53:13+00:00">2020-12-12</time>
+        <time title="修改时间：2020-12-15 16:32:56" itemprop="dateModified" datetime="2020-12-15T16:32:56+00:00">2020-12-15</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -443,7 +561,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-12 01:53:13" itemprop="dateModified" datetime="2020-12-12T01:53:13+00:00">2020-12-12</time>
+        <time title="修改时间：2020-12-15 16:32:56" itemprop="dateModified" datetime="2020-12-15T16:32:56+00:00">2020-12-15</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -560,7 +678,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-12 01:53:13" itemprop="dateModified" datetime="2020-12-12T01:53:13+00:00">2020-12-12</time>
+        <time title="修改时间：2020-12-15 16:32:56" itemprop="dateModified" datetime="2020-12-15T16:32:56+00:00">2020-12-15</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -694,7 +812,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-12 01:53:13" itemprop="dateModified" datetime="2020-12-12T01:53:13+00:00">2020-12-12</time>
+        <time title="修改时间：2020-12-15 16:32:56" itemprop="dateModified" datetime="2020-12-15T16:32:56+00:00">2020-12-15</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -800,7 +918,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-12 01:53:13" itemprop="dateModified" datetime="2020-12-12T01:53:13+00:00">2020-12-12</time>
+        <time title="修改时间：2020-12-15 16:32:56" itemprop="dateModified" datetime="2020-12-15T16:32:56+00:00">2020-12-15</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -907,7 +1025,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-12 01:53:13" itemprop="dateModified" datetime="2020-12-12T01:53:13+00:00">2020-12-12</time>
+        <time title="修改时间：2020-12-15 16:32:56" itemprop="dateModified" datetime="2020-12-15T16:32:56+00:00">2020-12-15</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1029,7 +1147,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-12 01:53:13" itemprop="dateModified" datetime="2020-12-12T01:53:13+00:00">2020-12-12</time>
+        <time title="修改时间：2020-12-15 16:32:56" itemprop="dateModified" datetime="2020-12-15T16:32:56+00:00">2020-12-15</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1136,7 +1254,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-12 01:53:13" itemprop="dateModified" datetime="2020-12-12T01:53:13+00:00">2020-12-12</time>
+        <time title="修改时间：2020-12-15 16:32:56" itemprop="dateModified" datetime="2020-12-15T16:32:56+00:00">2020-12-15</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1257,7 +1375,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-12 01:53:13" itemprop="dateModified" datetime="2020-12-12T01:53:13+00:00">2020-12-12</time>
+        <time title="修改时间：2020-12-15 16:32:56" itemprop="dateModified" datetime="2020-12-15T16:32:56+00:00">2020-12-15</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1306,125 +1424,6 @@
 <p>github地址 <a target="_blank" rel="noopener" href="https://github.com/rlv-dan/Snap2HTML">https://github.com/rlv-dan/Snap2HTML</a></p>
 <p>官网地址 <a target="_blank" rel="noopener" href="https://www.rlvision.com/snap2html/about.php">https://www.rlvision.com/snap2html/about.php</a></p>
 <p>百度云链接: <a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1XVvgMX4TKTOZSvEay8xvnQ">https://pan.baidu.com/s/1XVvgMX4TKTOZSvEay8xvnQ</a> 提取码: pbi3</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1853.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="cuilongjin">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/1853.html" class="post-title-link" itemprop="url">UsbEAm Hosts Editor [多平台 hosts 修改] V3.50</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-07-05 18:04:08" itemprop="dateCreated datePublished" datetime="2020-07-05T18:04:08+00:00">2020-07-05</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-12 01:53:13" itemprop="dateModified" datetime="2020-12-12T01:53:13+00:00">2020-12-12</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%BD%AF%E4%BB%B6/" itemprop="url" rel="index"><span itemprop="name">软件</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/1853.html" class="post-meta-item leancloud_visitors" data-flag-title="UsbEAm Hosts Editor [多平台 hosts 修改] V3.50" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/1853.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/1853.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>UsbEAm Hosts Editor 是一款能够提升 origin、steam、uplay 等游戏平台下载速度的工具，同时也可以有效的解决一些游戏或者平台出现的各种网络错误，帮玩家能够顺利的登录平台，顺利进行游戏。</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/07/2020-07-05_17-24-25.png"></p>
-<p>UsbEAm Hosts Editor 还可以为 github 加速，提高网页浏览的速度和代码下载的速度</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/07/2020-07-05_17-24-49.png"></p>
-<p>使用方法：</p>
-<ul>
-<li><p>点击左下角的游戏手柄（或者点击鼠标右键），弹出菜单</p>
-</li>
-<li><p>在弹出的菜单上选择要检测的项目。里面包含了多个流行的游戏平台，每个平台还有下载、浏览等子菜单</p>
-</li>
-<li><p>接着会出现一大堆 IP，先别急着去用，先点击 <code>检测延迟</code>，然后选择延迟最低的地址，点击应用选中即可</p>
-</li>
-<li><p>也可以点击 <code>编辑Hosts</code>，手工对 Hosts 进行编辑</p>
-</li>
-</ul>
-<p>如果某些安全软件弹出阻止情况，请忽略放过，不然无法修改</p>
-<p>软件下载</p>
-<p>百度云：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1CYNEbqxkH-8vzdxWDOOE2g">https://pan.baidu.com/s/1CYNEbqxkH-8vzdxWDOOE2g</a> 提取码：p1ee</p>
 
       
     </div>
