@@ -1,0 +1,21 @@
+diff --git a/node_modules/hexo-theme-next/layout/_macro/post-collapse.njk b/node_modules/hexo-theme-next/layout/_macro/post-collapse.njk
+index 4c39119..bdbd652 100644
+--- a/node_modules/hexo-theme-next/layout/_macro/post-collapse.njk
++++ b/node_modules/hexo-theme-next/layout/_macro/post-collapse.njk
+@@ -33,6 +33,16 @@
+         {%- endif %}
+       </div>
+ 
++      {# 添加tag #}
++      {%- if post.tags and post.tags.length and theme.menu.tags %}
++        <span class="post-meta-tags">
++          {%- for tag in post.tags.toArray() %}
++              <a href="{{ url_for(tag.path) }}" itemprop="url" rel="index"><span itemprop="name">{{ tag.name }}</span></a>
++          {%- endfor %}
++        </span>
++      {%- endif %}
++
++
+       {{ post_gallery(post.photos) }}
+     </header>
+   </article>
