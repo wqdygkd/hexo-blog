@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.2.0">
+
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-logo.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-logo.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-logo.png">
@@ -16,16 +18,15 @@
 
 
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.0/css/all.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
   <script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"wqdy.top","root":"/","scheme":"Pisces","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
+    var CONFIG = {"hostname":"wqdy.top","root":"/","images":"/images","scheme":"Pisces","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
   </script>
-
-  <meta name="description" content="Apache 安装centos# yum install httpd  （centos之下，Apache的名字叫httpd，和Apache的主程序 httpd.exe 同名）  打开并测试 Apache 先确保，云服务器的 80 端口，是允许外网访问的。  开启 Apache 服务   service httpd start# 查看状态service httpd status   测试 Apach">
+<meta name="description" content="Apache 安装centos# yum install httpd  （centos之下，Apache的名字叫httpd，和Apache的主程序 httpd.exe 同名）  打开并测试 Apache 先确保，云服务器的 80 端口，是允许外网访问的。  开启 Apache 服务   service httpd start# 查看状态service httpd status   测试 Apach">
 <meta property="og:type" content="article">
 <meta property="og:title" content="配置 web 服务器">
 <meta property="og:url" content="https://wqdy.top/415.html">
@@ -33,7 +34,7 @@
 <meta property="og:description" content="Apache 安装centos# yum install httpd  （centos之下，Apache的名字叫httpd，和Apache的主程序 httpd.exe 同名）  打开并测试 Apache 先确保，云服务器的 80 端口，是允许外网访问的。  开启 Apache 服务   service httpd start# 查看状态service httpd status   测试 Apach">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-07-09T22:24:43.000Z">
-<meta property="article:modified_time" content="2020-12-15T16:32:56.865Z">
+<meta property="article:modified_time" content="2020-12-16T16:18:50.104Z">
 <meta property="article:author" content="cuilongjin">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
@@ -71,10 +72,8 @@
   })
 </script>
 
-
-  <title>配置 web 服务器 | Hexo</title>
+<title>配置 web 服务器 | Hexo</title>
   
-
 
   <script data-pjax>
     var _hmt = _hmt || [];
@@ -86,13 +85,11 @@
     })();
   </script>
 
-
   <script data-pjax>
     !function(e,t,n,g,i){e[i]=e[i]||function(){(e[i].q=e[i].q||[]).push(arguments)},n=t.createElement("script"),tag=t.getElementsByTagName("script")[0],n.async=1,n.src=('https:'==document.location.protocol?'https://':'http://')+g,tag.parentNode.insertBefore(n,tag)}(window,document,"script","assets.growingio.com/2.1/gio.js","gio");
     gio('init', 'UA-112496567-1', {});
     gio('send');
   </script>
-
 
   <noscript>
   <style>
@@ -195,8 +192,7 @@
 
 
   <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
+    <div class="popup search-popup"><div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
@@ -239,14 +235,15 @@
         </li>
       </ul>
 
-      <!--noindex-->
-      <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Apache-%E5%AE%89%E8%A3%85"><span class="nav-text">Apache 安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#centos"><span class="nav-text">centos</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%93%E5%BC%80%E5%B9%B6%E6%B5%8B%E8%AF%95-Apache"><span class="nav-text">打开并测试 Apache</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9-Apache-%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-text">修改 Apache 的配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E8%AF%81%E4%B9%A6"><span class="nav-text">安装证书</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Nginx-%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="nav-text">Nginx 的安装与配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CentOS-%E4%B8%8B%E5%AE%89%E8%A3%85%EF%BC%9A"><span class="nav-text">CentOS 下安装：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ubuntu-%E4%B8%8B%E5%AE%89%E8%A3%85"><span class="nav-text">ubuntu 下安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#arch-%E4%B8%8B%E5%AE%89%E8%A3%85-nginx"><span class="nav-text">arch 下安装 nginx</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A6%81-Nginx-%E6%9C%8D%E5%8A%A1%E5%BC%80%E6%9C%BA%E6%97%B6%E5%90%AF%E5%8A%A8-%E8%BF%90%E8%A1%8C%E4%BB%A5%E4%B8%8B%E5%91%BD%E4%BB%A4"><span class="nav-text">要 Nginx 服务开机时启动,运行以下命令:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-text">配置</span></a></li></ol></li></ol></li></ol></div>
-      </section>
-      <!--/noindex-->
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Apache-%E5%AE%89%E8%A3%85"><span class="nav-text">Apache 安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#centos"><span class="nav-text">centos</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%93%E5%BC%80%E5%B9%B6%E6%B5%8B%E8%AF%95-Apache"><span class="nav-text">打开并测试 Apache</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9-Apache-%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-text">修改 Apache 的配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E8%AF%81%E4%B9%A6"><span class="nav-text">安装证书</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Nginx-%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="nav-text">Nginx 的安装与配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CentOS-%E4%B8%8B%E5%AE%89%E8%A3%85%EF%BC%9A"><span class="nav-text">CentOS 下安装：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ubuntu-%E4%B8%8B%E5%AE%89%E8%A3%85"><span class="nav-text">ubuntu 下安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#arch-%E4%B8%8B%E5%AE%89%E8%A3%85-nginx"><span class="nav-text">arch 下安装 nginx</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A6%81-Nginx-%E6%9C%8D%E5%8A%A1%E5%BC%80%E6%9C%BA%E6%97%B6%E5%90%AF%E5%8A%A8-%E8%BF%90%E8%A1%8C%E4%BB%A5%E4%B8%8B%E5%91%BD%E4%BB%A4"><span class="nav-text">要 Nginx 服务开机时启动,运行以下命令:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-text">配置</span></a></li></ol></li></ol></li></ol></div>
+        </section>
+        <!--/noindex-->
 
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="cuilongjin"
       src="/images/avatar.png">
   <p class="site-author-name" itemprop="name">cuilongjin</p>
@@ -277,7 +274,8 @@
 
 
 
-      </section>
+        </section>
+      </div>
         <div class="back-to-top animated">
           <i class="fa fa-arrow-up"></i>
           <span>0%</span>
@@ -297,9 +295,7 @@
 
 
     <div class="main-inner post posts-expand">
-      
 
-      
 
   
 
@@ -340,7 +336,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-15 16:32:56" itemprop="dateModified" datetime="2020-12-15T16:32:56+00:00">2020-12-15</time>
+        <time title="修改时间：2020-12-16 16:18:50" itemprop="dateModified" datetime="2020-12-16T16:18:50+00:00">2020-12-16</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -360,20 +356,6 @@
       <span class="post-meta-item-text">阅读次数：</span>
       <span class="leancloud-visitors-count"></span>
     </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/415.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/415.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 </div>
 
         </div>
@@ -543,6 +525,18 @@
 
         
 
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/408.html" rel="prev" title="js 中编码（encode）和解码（decode）的三种方法">
+                  <i class="fa fa-chevron-left"></i> js 中编码（encode）和解码（decode）的三种方法
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/383.html" rel="next" title="Window.history 对象">
+                  Window.history 对象 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
     </footer>
   </article>
 </div>
@@ -552,8 +546,6 @@
 
 
 
-      
-    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -576,18 +568,14 @@
     });
   }
 </script>
-
-    </div>
+</div>
   </main>
 
   <footer class="footer">
     <div class="footer-inner">
-      
 
-      
 
 <div class="copyright">
-  
   &copy; 2015 – 
   <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
@@ -618,10 +606,10 @@
   </footer>
 
   
-  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
-  <script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script>
 var pjax = new Pjax({
   selectors: [
     'head title',
@@ -667,18 +655,7 @@ document.addEventListener('pjax:success', () => {
     })();
   </script>
 
-
-
-
-  <script src="/js/local-search.js"></script>
-
-
-
-
-
-
-
-
+<script src="/js/local-search.js"></script>
 
 
 
@@ -705,12 +682,8 @@ document.addEventListener('pjax:success', () => {
     });
   </script>
 
-
   
   <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
 
 
 
@@ -801,23 +774,8 @@ document.addEventListener('pjax:success', () => {
   })();
 </script>
 
-
     <div class="pjax">
-  
 
-  
-
-<script>
-NexT.utils.loadComments('#valine-comments', () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
-    new Valine(Object.assign({"enable":true,"appId":"i2ouGvmHTW7EhnCLQOBXVrub-gzGzoHsz","appKey":"AybRqrp4wjRmuVSiflCxLBrO","serverURLs":null,"placeholder":"Just go go","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":false,"comment_count":true,"recordIP":true,"enableQQ":false,"requiredFields":[]}, {
-      el: '#valine-comments',
-      path: "/415.html",
-      serverURLs: "https://i2ougvmh.api.lncldglobal.com"
-    }));
-  }, window.Valine);
-});
-</script>
 
     </div>
 </body>
