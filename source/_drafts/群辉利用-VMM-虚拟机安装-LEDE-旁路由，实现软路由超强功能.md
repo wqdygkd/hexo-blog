@@ -4,6 +4,7 @@ tags: []
 id: '1957'
 categories:
   - - uncategorized
+date: 2020-08-16
 ---
 
 我的设备 DS218+(单网口)
@@ -24,18 +25,23 @@ categories:
 
 点击 `虚拟机 => 新增右侧小三角 => 导入 => 从硬盘映像导入 =>选择刚才的存储空间=> 配置虚拟机规格`
 
-相关文章 [http://wp.naspro.cc/?p=1567](http://wp.naspro.cc/?p=1567) [https://www.luyouwang.net/1577.html](https://www.luyouwang.net/1577.html)
 
-无法联网解决 [https://www.cnblogs.com/vastiny/p/3900204.html](https://www.cnblogs.com/vastiny/p/3900204.html)
+相关文章
+http://wp.naspro.cc/?p=1567
+https://www.luyouwang.net/1577.html
 
-科学上网插件 [https://github.com/hq450/fancyss\_history\_package/tree/master/fancyss\_X64](https://github.com/hq450/fancyss_history_package/tree/master/fancyss_X64)
+无法联网解决 https://www.cnblogs.com/vastiny/p/3900204.html
 
-广告过滤插件 AdGuardHome [https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.103.3](https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.103.3)
+科学上网插件
+https://github.com/hq450/fancyss_history_package/tree/master/fancyss_X64
 
-广告过滤 koolproxyR [https://github.com/user1121114685/koolproxyR](https://github.com/user1121114685/koolproxyR)
+广告过滤插件 AdGuardHome
+https://github.com/AdguardTeam/AdGuardHome/releases/tag/v0.103.3
+
+广告过滤 koolproxyR
+https://github.com/user1121114685/koolproxyR
 
 如果提示检测到离线安装包名有非法关键词，开启路由器的SSH功能，登录并输入以下命令后，再进行离线安装。
-
 ```
 sed -i 's/\tdetect_package/\t# detect_package/g' /koolshare/scripts/ks_tar_install.sh
 ```

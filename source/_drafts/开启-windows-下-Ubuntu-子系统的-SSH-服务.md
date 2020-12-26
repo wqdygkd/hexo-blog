@@ -7,6 +7,7 @@ tags:
 id: '1503'
 categories:
   - - 教程
+date: 2020-05-25
 ---
 
 ```bash
@@ -32,7 +33,7 @@ service ssh status
 
 其他问题
 
-1.  Could not load host key
+1. Could not load host key
 
 ```
 Could not load host key: /etc/ssh/ssh_host_rsa_key
@@ -47,7 +48,7 @@ apt remove openssh-server
 apt install openssh-server
 ```
 
-2.  提示 sshd error: could not load host key
+2. 提示 sshd error: could not load host key
 
 需要重新生成 key
 
@@ -55,6 +56,6 @@ apt install openssh-server
 dpkg-reconfigure openssh-server
 ```
 
-3.  局域网内的其他终端无法连接
+3. 局域网内的其他终端无法连接
 
 // 不要忘了，还要配置防火墙开启端口才能被其他 PC 访问

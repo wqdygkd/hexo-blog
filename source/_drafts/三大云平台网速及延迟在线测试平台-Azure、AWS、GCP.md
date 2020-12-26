@@ -4,6 +4,7 @@ tags: []
 id: '704'
 categories:
   - - uncategorized
+date: 2020-03-02
 ---
 
 https://blog.vircloud.net/operations/cloud-nettest.html

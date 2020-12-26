@@ -4,6 +4,7 @@ tags: []
 id: '1962'
 categories:
   - - uncategorized
+date: 2020-09-05
 ---
 
 [https://zelikk.blogspot.com/2019/01/gcp-image.html](https://zelikk.blogspot.com/2019/01/gcp-image.html)

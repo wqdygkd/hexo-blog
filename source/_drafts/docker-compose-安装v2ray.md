@@ -6,7 +6,10 @@ tags:
 id: '1890'
 categories:
   - - 教程
+date: 2020-07-13
 ---
+
+
 
 安装 docker-compose
 
@@ -22,7 +25,6 @@ sudo chmod +x /usr/local/bin/docker-compose
 命令
 
 以下命令需要在 docker-compose.yml 所在目录下执行。
-
 ```
 部署 v2ray: docker-compose up -d
 启动 v2ray: docker-compose start v2ray
@@ -31,13 +33,12 @@ sudo chmod +x /usr/local/bin/docker-compose
 删除 v2ray: docker stop v2ray && docker rm v2ray
 更新 v2ray: docker-compose pull && docker-compose up -d
 
+
 main: failed to create server > v2ray.com/core/app/log: failed to initialize access logger > open /var/log/v2ray/access.log: no such file or directory
 ```
-
 创建配置文件
 
 创建一个名为 `docker-compose.yml` 的配置文件，输入如下内容。
-
 ```yml
 version: '3'
 services:
@@ -54,12 +55,11 @@ services:
       #- /etc/v2ray/v2ray.crt:/etc/v2ray/v2ray.crt
       #- /etc/v2ray/v2ray.key:/etc/v2ray/v2ray.key
 ```
-
 请将`./v2ray` 替换为你创建的文件夹，或将该文件夹放置在 `docker-compose.yml` 同一目录下。
 
 配置文件生成
 
-[https://veekxt.com/utils/v2ray\_gen](https://veekxt.com/utils/v2ray_gen)
+https://veekxt.com/utils/v2ray_gen
 
 `config.json`
 

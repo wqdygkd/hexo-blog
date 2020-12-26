@@ -26,7 +26,8 @@ chromedriver_cdnurl=http://npm.taobao.org/mirrors/chromedriver
 淘宝 npm 镜像 https://npm.taobao.org/
 
 [npm 官网](https://npmjs.com)
-[npm 中文文档](https://www.npmjs.com.cn/)
+[npm 文档](https://docs.npmjs.com/)
+[npm 中文文档](https://www.npmjs.cn/)
 
 ### npm 基本命令
 

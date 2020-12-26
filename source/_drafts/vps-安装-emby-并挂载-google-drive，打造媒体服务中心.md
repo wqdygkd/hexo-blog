@@ -6,6 +6,7 @@ tags:
 id: '1582'
 categories:
   - - uncategorized
+date: 2020-05-27
 ---
 
 vps 安装 emby/jellyfin 并挂载 google drive，打造媒体服务中心
@@ -65,11 +66,12 @@ services:
 docker pull emby/embyserver:latest
 ```
 
+
 ### 安装 jellyfin
 
-[https://github.com/jellyfin/jellyfin](https://github.com/jellyfin/jellyfin)
+https://github.com/jellyfin/jellyfin
 
-[https://jellyfin.org/docs/general/administration/installing.html](https://jellyfin.org/docs/general/administration/installing.html)
+https://jellyfin.org/docs/general/administration/installing.html
 
 ```bash
 docker pull jellyfin/jellyfin
@@ -87,4 +89,15 @@ docker run -d \
  jellyfin/jellyfin
 ```
 
-docker run -d \\ --volume jellyfin-config:/config \\ --volume jellyfin-cache:/cache \\ --volume /home/gdrive:/media \\ --user 1000:1000 \\ --net=host \\ --restart=unless-stopped \\ jellyfin/jellyfin
+```
+docker run -d \
+ --volume jellyfin-config:/config \
+ --volume jellyfin-cache:/cache \
+ --volume /home/gdrive:/media \
+ --user 1000:1000 \
+ --net=host \
+ --restart=unless-stopped \
+ jellyfin/jellyfin
+
+```
+

@@ -4,6 +4,7 @@ tags: []
 id: '748'
 categories:
   - - web前端
+date: 2020-03-04
 ---
 
 ### vue2.0 响应式数据原理
@@ -48,7 +49,7 @@ function defineReactive(target, key, value) {
 
 // 观测数据
 function observer(target) {
-  if (typeof target !== 'object'  target === null) return target
+  if (typeof target !== 'object' || target === null) return target
   // 重新定义属性
 
   // 拦截数组，重写数组的方法
@@ -98,7 +99,10 @@ obj1.b.push(4)
 
 **vue 2.0 使用 defineProperty 的问题**
 
-默认会对所有属性递归 defineProperty 无法监听数组的变化 对象新增的属性无法监听 对象不存在的属性无法监听
+默认会对所有属性递归
+defineProperty 无法监听数组的变化
+对象新增的属性无法监听
+对象不存在的属性无法监听
 
 **vue 3.0 响应式数据原理**
 
@@ -158,7 +162,7 @@ proxy = reactive(obj)
 proxy = reactive(proxy)
 ```
 
-**2\. 解决被重复代理的问题（需要对原代理对象 obj 和 已代理的对象 proxy 进行屏蔽）**
+**2. 解决被重复代理的问题（需要对原代理对象 obj 和 已代理的对象 proxy 进行屏蔽）**
 
 ```js
 let toProxy = new WeakMap() // 弱引用映射表  原对象:代理过得对象
@@ -219,7 +223,7 @@ proxy1.push(4)
 // length 4
 ```
 
-**3\. 屏蔽无效的修改**
+**3. 屏蔽无效的修改**
 
 ```js
 let toProxy = new WeakMap() // 弱引用映射表  原对象:代理过得对象
