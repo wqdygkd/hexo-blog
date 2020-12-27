@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.2.0">
+<meta name="generator" content="Hexo 5.3.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-logo.png">
@@ -246,7 +246,7 @@
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
@@ -298,6 +298,187 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/450.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="cuilongjin">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/450.html" class="post-title-link" itemprop="url">网站配置SSL后无法访问解决办法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-02-04 14:04:31" itemprop="dateCreated datePublished" datetime="2020-02-04T14:04:31+00:00">2020-02-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/wordpress/" itemprop="url" rel="index"><span itemprop="name">wordpress</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/450.html" class="post-meta-item leancloud_visitors" data-flag-title="网站配置SSL后无法访问解决办法" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ol>
+<li><p>开放 443 端口</p>
+</li>
+<li><p>域名证书有效且配置正确</p>
+</li>
+<li><p>ssl配置问题</p>
+</li>
+</ol>
+<p>正确启用HTTP/2支持，正确配置ssl_protocols和ssl_ciphers</p>
+<p>启用HTTP2并非只在 listen 443 ssl 配置中加入http2就行了，它主要需要两个地方的设置支持：ssl_protocols 和 ssl_ciphers 。</p>
+<p>修改如下配置以向后兼容</p>
+<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">listen 443 ssl http2;</span><br><span class="line"><span class="deletion">- ssl_protocols TLSv1.1 TLSv1.2 TLSv1.3;</span></span><br><span class="line"><span class="addition">+ ssl_protocols TLSv1 TLSv1.1 TLSv1.2 TLSv1.3;</span></span><br><span class="line">ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;</span><br></pre></td></tr></table></figure>
+<p>在线 http2 检测</p>
+<p><a target="_blank" rel="noopener" href="https://www.rosehosting.com/network-tools/http2-support.html">https://www.rosehosting.com/network-tools/http2-support.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://myssl.com/http2_check.html">https://myssl.com/http2_check.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.ssllabs.com/ssltest/analyze.html">https://www.ssllabs.com/ssltest/analyze.html</a></p>
+<p><img src="/wp-content/uploads/2020/03/HTTP2-test.png"><br><img src="/wp-content/uploads/2020/03/HTTP2-test-1.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1002.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="cuilongjin">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/1002.html" class="post-title-link" itemprop="url">vue-awesome-swiper 设置 loop：true不会自动滚动的问题</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-01-20 13:11:58" itemprop="dateCreated datePublished" datetime="2020-01-20T13:11:58+00:00">2020-01-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/1002.html" class="post-meta-item leancloud_visitors" data-flag-title="vue-awesome-swiper 设置 loop：true不会自动滚动的问题" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>vue-awesome-swiper: 基于 Swiper4、适用于 Vue 的轮播组件，支持服务端渲染和单页应用</p>
+<p>github地址：<a target="_blank" rel="noopener" href="https://github.com/surmon-china/vue-awesome-swiper">https://github.com/surmon-china/vue-awesome-swiper</a></p>
+<p>官网：<a target="_blank" rel="noopener" href="https://github.surmon.me/vue-awesome-swiper/">https://github.surmon.me/vue-awesome-swiper/</a></p>
+<p>问题：</p>
+<p>设置loop：true， autoplay：2000 不会自动滚动</p>
+<p>解决<br>在 swiper 上添加 <code>v-if=&quot;swiperSlides.length&gt;0&quot;</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;swiper v-<span class="keyword">if</span>=<span class="string">&quot;swiperSlides.length&gt;0&quot;</span> :options=<span class="string">&quot;swiperOption&quot;</span> ref=<span class="string">&quot;mySwiper&quot;</span>&gt;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://wqdy.top/1145.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -324,13 +505,6 @@
 
       <time title="创建时间：2020-01-20 00:00:21" itemprop="dateCreated datePublished" datetime="2020-01-20T00:00:21+00:00">2020-01-20</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-19 09:49:50" itemprop="dateModified" datetime="2020-12-19T09:49:50+00:00">2020-12-19</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -359,7 +533,6 @@
     
     <div class="post-body" itemprop="articleBody">
           <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">monthOptions: &#123;</span><br><span class="line">  color: [<span class="string">&#x27;#FFD058&#x27;</span>], <span class="comment">// 设置柱的颜色 会被 series itemStyle color 覆盖</span></span><br><span class="line">  xAxis: [</span><br><span class="line">    &#123;</span><br><span class="line">      data: [<span class="string">&#x27;报备组数&#x27;</span>, <span class="string">&#x27;来访组数&#x27;</span>, <span class="string">&#x27;大定套数&#x27;</span>, <span class="string">&#x27;草签套数&#x27;</span>, <span class="string">&#x27;正签套数&#x27;</span>], <span class="comment">// x轴</span></span><br><span class="line">      axisLabel: &#123;</span><br><span class="line">        inside: <span class="literal">false</span>, <span class="comment">// 在外部显示</span></span><br><span class="line">        textStyle: &#123; <span class="comment">// 设置样式</span></span><br><span class="line">          color: <span class="string">&#x27;rgba(255,255,255,0.5)&#x27;</span>,</span><br><span class="line">          fontSize: <span class="number">15</span>,</span><br><span class="line">          fontFamily: <span class="string">&#x27;PingFang-SC-Regular,PingFang-SC&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      axisTick: &#123; <span class="attr">show</span>: <span class="literal">false</span> &#125;, <span class="comment">// x轴线上的分割点</span></span><br><span class="line">      axisLine: &#123; <span class="attr">show</span>: <span class="literal">false</span> &#125;<span class="comment">// x轴线</span></span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  yAxis: &#123;</span><br><span class="line">    axisLine: &#123; <span class="attr">show</span>: <span class="literal">false</span> &#125;,</span><br><span class="line">    axisTick: &#123; <span class="attr">show</span>: <span class="literal">false</span> &#125;,</span><br><span class="line">    axisLabel: &#123;</span><br><span class="line">      formatter: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="string">&#x27;&#x27;</span> &#125; <span class="comment">// 去掉y轴显示数字</span></span><br><span class="line">    &#125;,</span><br><span class="line">    splitLine: &#123; <span class="attr">show</span>: <span class="literal">false</span> &#125; <span class="comment">// 水平线</span></span><br><span class="line">  &#125;,</span><br><span class="line">  grid: &#123; <span class="comment">// 间距</span></span><br><span class="line">    left: <span class="string">&#x27;10%&#x27;</span>,</span><br><span class="line">    right: <span class="string">&#x27;10%&#x27;</span>,</span><br><span class="line">    bottom: <span class="string">&#x27;15%&#x27;</span>,</span><br><span class="line">    top: <span class="string">&#x27;15%&#x27;</span>,</span><br><span class="line">    containLabel: <span class="literal">true</span></span><br><span class="line">  &#125;,</span><br><span class="line">  series: [</span><br><span class="line">    &#123; <span class="comment">// 用于显示阴影</span></span><br><span class="line">      type: <span class="string">&#x27;bar&#x27;</span>,</span><br><span class="line">      itemStyle: &#123;</span><br><span class="line">        color: <span class="string">&#x27;rgba(255,255,255,0.08)&#x27;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      barGap: <span class="string">&#x27;-100%&#x27;</span>,</span><br><span class="line">      <span class="comment">// barCategoryGap: &#x27;25%&#x27;,</span></span><br><span class="line">      barWidth: <span class="string">&#x27;15%&#x27;</span>,</span><br><span class="line">      data: [<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>]</span><br><span class="line">      <span class="comment">// animation: false</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123; <span class="comment">// 正常数据</span></span><br><span class="line">      name: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">      type: <span class="string">&#x27;bar&#x27;</span>,</span><br><span class="line">      barWidth: <span class="string">&#x27;15%&#x27;</span>,</span><br><span class="line">      data: [],</span><br><span class="line">      itemStyle: &#123; <span class="comment">// 上方显示数值</span></span><br><span class="line">        normal: &#123;</span><br><span class="line">          label: &#123;</span><br><span class="line">            formatter: <span class="function"><span class="keyword">function</span> (<span class="params">val</span>) </span>&#123;</span><br><span class="line">              <span class="keyword">return</span> formate(val.value)</span><br><span class="line">            &#125;,</span><br><span class="line">            show: <span class="literal">true</span>, <span class="comment">// 开启显示</span></span><br><span class="line">            position: <span class="string">&#x27;top&#x27;</span>, <span class="comment">// 在上方显示</span></span><br><span class="line">            textStyle: &#123; <span class="comment">// 数值样式</span></span><br><span class="line">              color: <span class="string">&#x27;#FFD058&#x27;</span>,</span><br><span class="line">              fontSize: <span class="number">15</span>,</span><br><span class="line">              fontFamily: <span class="string">&#x27;PingFang-SC-Regular,PingFang-SC&#x27;</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  animationDuration: <span class="number">2000</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
       
     </div>
 
@@ -411,13 +584,6 @@
 
       <time title="创建时间：2020-01-19 17:05:05" itemprop="dateCreated datePublished" datetime="2020-01-19T17:05:05+00:00">2020-01-19</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-19 09:49:50" itemprop="dateModified" datetime="2020-12-19T09:49:50+00:00">2020-12-19</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -448,10 +614,8 @@
           <h2 id="服务器端"><a href="#服务器端" class="headerlink" title="服务器端"></a>服务器端</h2><p><a target="_blank" rel="noopener" href="https://github.com/tj/n">n</a><br><a target="_blank" rel="noopener" href="https://github.com/nvm-sh/nvm">nvm</a><br><a target="_blank" rel="noopener" href="https://github.com/nodesource/distributions">NodeSource</a></p>
 <p>安装 n</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g n</span><br></pre></td></tr></table></figure>
-
 <p>使用 n 管理 nodejs 版本</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">n --latest               <span class="comment"># Output the latest node version available</span></span><br><span class="line">n --lts                  <span class="comment">#  Output the latest LTS node version available</span></span><br><span class="line">n ls                     <span class="comment"># Output downloaded versions</span></span><br><span class="line">n ls-remote [version]    <span class="comment"># Output matching versions available for download</span></span><br><span class="line">n uninstall              <span class="comment"># Remove the installed node and npm</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装最新版</span></span><br><span class="line">n latest</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装长期支持版本</span></span><br><span class="line">n lts</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装指定版本</span></span><br><span class="line">n 12.4.1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换nodejs版本</span></span><br><span class="line">n</span><br><span class="line"><span class="comment"># 上下键选择已安装的版本，回车切换</span></span><br><span class="line">ο node/13.6.0</span><br><span class="line">  node/10.4.1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看当前版本 node -v</span></span><br><span class="line">node -v</span><br></pre></td></tr></table></figure>
-
 <h2 id="windows-端"><a href="#windows-端" class="headerlink" title="windows 端"></a>windows 端</h2><p><a target="_blank" rel="noopener" href="https://github.com/coreybutler/nvm-windows">nvm-windows</a></p>
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>注意：1. 需要卸载已经安装的 nodejs 版本，并删除残留的 nodejs 程序目录（例如：”C:\Program Files\nodejs”）<br>2. 删除 npm 全局安装的包（”C:\Users&lt;user&gt;\AppData\Roaming\npm”</p>
 <ul>
@@ -528,13 +692,6 @@
 
       <time title="创建时间：2020-01-13 17:42:46" itemprop="dateCreated datePublished" datetime="2020-01-13T17:42:46+00:00">2020-01-13</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-19 09:49:50" itemprop="dateModified" datetime="2020-12-19T09:49:50+00:00">2020-12-19</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -567,23 +724,19 @@
 <p>打开 fiddler 选择右边的 <code>FiddlerScript</code> 选项卡, 或者从菜单 - <code>Rules(规则)</code> - <code>Customize Rules(自定义规则)</code> 打开</p>
 <p>点击 <code>Go to(转到)</code> - 选择 <code>OnBeforeResponse</code> 添加如下代码</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">OnBeforeResponse</span>(<span class="params">oSession: Session</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  <span class="comment">// 判断如果是百度或是请求url中包含 baidu.com 的响应就在head前面添加一个 js 弹窗</span></span><br><span class="line">  <span class="keyword">if</span> (oSession.HostnameIs(<span class="string">&#x27;www.baidu.com&#x27;</span>) || oSession.uriContains(<span class="string">&#x27;baidu.com&#x27;</span>) &amp;&amp; oSession.oResponse.headers.ExistsAndContains(<span class="string">&#x27;Content-Type&#x27;</span>,<span class="string">&#x27;text/html&#x27;</span>))&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 解码响应内容</span></span><br><span class="line">        oSession.utilDecodeResponse()</span><br><span class="line">        <span class="comment">// 替换内容</span></span><br><span class="line">        oSession.utilReplaceInResponse(<span class="string">&#x27;&lt;/head&gt;&#x27;</span>,<span class="string">&#x27;&lt;script&gt;alert(&#x27;</span>哈哈<span class="string">&#x27;);&lt;/script&gt;&lt;/head&gt;&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>如果要替换的内容比较多或比较复杂，可以使用正则替换，替换方式如下</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 解码响应内容</span></span><br><span class="line">oSession.utilDecodeResponse()</span><br><span class="line"><span class="keyword">var</span> oBody = System.Text.Encoding.UTF8.GetString(oSession.responseBodyBytes)</span><br><span class="line"><span class="comment">// 使用正则进行替换</span></span><br><span class="line"><span class="keyword">var</span> oRegEx = <span class="regexp">/&lt;\/head&gt;/gi</span></span><br><span class="line">oBody = oBody.replace(oRegEx, <span class="string">&#x27;&lt;script&gt;alert(1);&lt;/script&gt;&lt;/head&gt;&#x27;</span>)</span><br><span class="line"><span class="comment">//设置新的响应内容</span></span><br><span class="line">oSession.utilSetResponseBody(oBody)</span><br></pre></td></tr></table></figure>
-
 <p>最后点击左上角的 <code>Save Script(保存)</code> 即可</p>
 <h2 id="线上请求映射到本地开发环境"><a href="#线上请求映射到本地开发环境" class="headerlink" title="线上请求映射到本地开发环境"></a>线上请求映射到本地开发环境</h2><ol>
 <li>指定一个本地文件来代替线上请求的文件，编辑 FiddlerScript 添加如下代码</li>
 </ol>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">OnBeforeResponse</span>(<span class="params">oSession: Session</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 如果请求url中包含nav.js 就用 D:/nav.js 来响应</span></span><br><span class="line">  <span class="keyword">if</span> (oSession.uriContains(<span class="string">&#x27;nav.js&#x27;</span>)) &#123;</span><br><span class="line">    oSession[<span class="string">&#x27;x-replywithfile&#x27;</span>] =<span class="string">&#x27;D:/nav.js&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>除了编辑 FiddlerScript，也可以选择在右侧打开 <code>AutoResponder(自动回复器)</code> 选项卡 ，添加规则并<code>启用规则</code>，效果相同</p>
 <ol start="2">
 <li>本地目录响应</li>
 </ol>
 <p>原理同响应单个文件，只是封装了方法批量替换</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">OnBeforeResponse</span>(<span class="params">oSession: Session</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (m_Hide304s &amp;&amp; oSession.responseCode == <span class="number">304</span>) &#123;</span><br><span class="line">      oSession[<span class="string">&#x27;ui-hide&#x27;</span>] = <span class="string">&#x27;true&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> domain:<span class="built_in">String</span>=<span class="string">&#x27;http://online.com/static/&#x27;</span></span><br><span class="line">  <span class="comment">// 本地目录 注意使用 &#x27;/&#x27; 代替 &#x27;\&#x27;</span></span><br><span class="line">  <span class="keyword">var</span> folder:<span class="built_in">String</span>=<span class="string">&#x27;D:/static/&#x27;</span></span><br><span class="line">  AutoResponseFolder(oSession, domain, folder)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">AutoResponseFolder</span> (<span class="params">oSession: Session, domain:<span class="built_in">String</span>, folder:<span class="built_in">String</span></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 获取当前对话的完整URL</span></span><br><span class="line">  <span class="keyword">var</span> fullUrl:<span class="built_in">String</span> = oSession.fullUrl</span><br><span class="line">  <span class="keyword">if</span> (fullUrl.StartsWith(domain)) &#123;</span><br><span class="line">    <span class="keyword">var</span> localPath:<span class="built_in">String</span> = fullUrl.replace(domain, folder)</span><br><span class="line">    <span class="comment">// 设置延迟</span></span><br><span class="line">    <span class="comment">// oSession[&#x27;response-trickle-delay&#x27;] = 1000</span></span><br><span class="line">    oSession[<span class="string">&#x27;x-replywithfile&#x27;</span>] = localPath</span><br><span class="line">    <span class="comment">// FiddlerObject.log(localPath)</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <ol start="3">
 <li>替换整个线上环境为本地开发环境</li>
 </ol>
@@ -645,13 +798,6 @@
 
       <time title="创建时间：2020-01-10 00:00:29" itemprop="dateCreated datePublished" datetime="2020-01-10T00:00:29+00:00">2020-01-10</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-19 09:49:50" itemprop="dateModified" datetime="2020-12-19T09:49:50+00:00">2020-12-19</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -734,13 +880,6 @@
 
       <time title="创建时间：2020-01-02 11:16:18" itemprop="dateCreated datePublished" datetime="2020-01-02T11:16:18+00:00">2020-01-02</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-19 09:49:50" itemprop="dateModified" datetime="2020-12-19T09:49:50+00:00">2020-12-19</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -769,8 +908,7 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>假设旧域名是a.com，新域名为b.com，修改数据库 sql 如下</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> wp_options <span class="keyword">SET</span> option_value = <span class="keyword">REPLACE</span>(option_value, <span class="string">&#x27;http://a.com&#x27;</span>, <span class="string">&#x27;http://b.com&#x27;</span>) <span class="keyword">WHERE</span> option_name = <span class="string">&#x27;home&#x27;</span> <span class="keyword">OR</span> option_name = <span class="string">&#x27;siteurl&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">UPDATE</span> wp_posts <span class="keyword">SET</span> post_content = <span class="keyword">REPLACE</span> (post_content, <span class="string">&#x27;http://a.com&#x27;</span>, <span class="string">&#x27;http://b.com&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">UPDATE</span> wp_postmeta <span class="keyword">SET</span> meta_value = <span class="keyword">REPLACE</span> (meta_value, <span class="string">&#x27;http://a.com&#x27;</span>,<span class="string">&#x27;http://b.com&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">UPDATE</span> wp_comments <span class="keyword">SET</span> comment_content = <span class="keyword">REPLACE</span> (comment_content, <span class="string">&#x27;http://a.com&#x27;</span>, <span class="string">&#x27;http://b.com&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">UPDATE</span> wp_comments <span class="keyword">SET</span> comment_author_url = <span class="keyword">REPLACE</span> (comment_author_url, <span class="string">&#x27;http://a.com&#x27;</span>, <span class="string">&#x27;http://b.com&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">UPDATE</span> wp_posts <span class="keyword">SET</span> guid = <span class="keyword">REPLACE</span> (guid, <span class="string">&#x27;http://a.com&#x27;</span>, <span class="string">&#x27;http://b.com&#x27;</span>) <span class="keyword">WHERE</span> post_type = <span class="string">&#x27;attachment&#x27;</span>;</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> wp_options <span class="keyword">SET</span> option_value <span class="operator">=</span> REPLACE(option_value, <span class="string">&#x27;http://a.com&#x27;</span>, <span class="string">&#x27;http://b.com&#x27;</span>) <span class="keyword">WHERE</span> option_name <span class="operator">=</span> <span class="string">&#x27;home&#x27;</span> <span class="keyword">OR</span> option_name <span class="operator">=</span> <span class="string">&#x27;siteurl&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">UPDATE</span> wp_posts <span class="keyword">SET</span> post_content <span class="operator">=</span> REPLACE (post_content, <span class="string">&#x27;http://a.com&#x27;</span>, <span class="string">&#x27;http://b.com&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">UPDATE</span> wp_postmeta <span class="keyword">SET</span> meta_value <span class="operator">=</span> REPLACE (meta_value, <span class="string">&#x27;http://a.com&#x27;</span>,<span class="string">&#x27;http://b.com&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">UPDATE</span> wp_comments <span class="keyword">SET</span> comment_content <span class="operator">=</span> REPLACE (comment_content, <span class="string">&#x27;http://a.com&#x27;</span>, <span class="string">&#x27;http://b.com&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">UPDATE</span> wp_comments <span class="keyword">SET</span> comment_author_url <span class="operator">=</span> REPLACE (comment_author_url, <span class="string">&#x27;http://a.com&#x27;</span>, <span class="string">&#x27;http://b.com&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">UPDATE</span> wp_posts <span class="keyword">SET</span> guid <span class="operator">=</span> REPLACE (guid, <span class="string">&#x27;http://a.com&#x27;</span>, <span class="string">&#x27;http://b.com&#x27;</span>) <span class="keyword">WHERE</span> post_type <span class="operator">=</span> <span class="string">&#x27;attachment&#x27;</span>;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -822,13 +960,6 @@
 
       <time title="创建时间：2019-12-27 18:25:44" itemprop="dateCreated datePublished" datetime="2019-12-27T18:25:44+00:00">2019-12-27</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-19 09:49:50" itemprop="dateModified" datetime="2020-12-19T09:49:50+00:00">2020-12-19</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -858,17 +989,14 @@
     <div class="post-body" itemprop="articleBody">
           <p>axios/index.js 部分配置如下</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// axios/index.js</span></span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span></span><br><span class="line"><span class="keyword">const</span> Axios = axios.create(&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
 <p>原因：</p>
 <p>axios 实例没有 all 这个方法，all 是 axios 的静态方法</p>
 <p>所以解决方式就是将该方法手动挂载到 Axios 实例上即可</p>
 <p>在 <code>axios/index.js</code> 添加如下配置</p>
 <figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">// axios/index.js</span><br><span class="line">import axios from &#x27;axios&#x27;</span><br><span class="line">const Axios = axios.create(&#123;</span><br><span class="line">  // ...</span><br><span class="line">&#125;)</span><br><span class="line"><span class="addition">+ Axios.all = axios.all</span></span><br><span class="line"><span class="addition">+ Axios.spread = axios.spread</span></span><br></pre></td></tr></table></figure>
 
-
 <p>附 axios 并发多个请求方式：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">request1</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> axios.get(<span class="string">&#x27;/user/12345&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">request2</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> axios.get(<span class="string">&#x27;/user/12345/permissions&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">axios.all([request1(), request2()])</span><br><span class="line">  .then(axios.spread(<span class="function">(<span class="params">res1, res2</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 两个请求现在都执行完成</span></span><br><span class="line">    <span class="comment">// acct、perms 分别为两个请求的结果</span></span><br><span class="line">  &#125;))</span><br></pre></td></tr></table></figure>
-
       
     </div>
 
@@ -920,13 +1048,6 @@
 
       <time title="创建时间：2019-12-22 14:56:22" itemprop="dateCreated datePublished" datetime="2019-12-22T14:56:22+00:00">2019-12-22</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-19 09:49:50" itemprop="dateModified" datetime="2020-12-19T09:49:50+00:00">2020-12-19</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -1016,13 +1137,6 @@
 
       <time title="创建时间：2019-12-17 11:16:27" itemprop="dateCreated datePublished" datetime="2019-12-17T11:16:27+00:00">2019-12-17</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-19 09:49:50" itemprop="dateModified" datetime="2020-12-19T09:49:50+00:00">2020-12-19</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -1053,14 +1167,10 @@
           <h3 id="html2canvas"><a href="#html2canvas" class="headerlink" title="html2canvas"></a>html2canvas</h3><p><a target="_blank" rel="noopener" href="https://github.com/niklasvh/html2canvas">html2canvas</a></p>
 <p>基本使用</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install html2canvas</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> html2canvas <span class="keyword">from</span> <span class="string">&#x27;html2canvas&#x27;</span></span><br></pre></td></tr></table></figure>
-
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 语法</span></span><br><span class="line"><span class="comment">// html2canvas(element, options)</span></span><br><span class="line"></span><br><span class="line">html2canvas(<span class="built_in">document</span>.body).then(<span class="function"><span class="keyword">function</span>(<span class="params">canvas</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// document.body.appendChild(canvas)</span></span><br><span class="line">  <span class="keyword">let</span> dataURL = canvas.toDataURL(<span class="string">&#x27;image/png&#x27;</span>) <span class="comment">// dataURL 为 base64 图片</span></span><br><span class="line">  <span class="comment">// var img = new Image()</span></span><br><span class="line">  <span class="comment">// img.src = dataURL</span></span><br><span class="line">  <span class="comment">// document.body.appendChild(img)</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
 <p>常用配置使用示例</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> options = &#123;</span><br><span class="line">  dpi: <span class="number">192</span>,</span><br><span class="line">  scale: <span class="number">2</span>, <span class="comment">// 放大</span></span><br><span class="line">  <span class="comment">// logging: true, //日志开关，便于查看html2canvas的内部执行流程</span></span><br><span class="line">  useCORS: <span class="literal">true</span> <span class="comment">// 开启跨域配置, (跨域图片，转换的时候会将跨域图片识别为空白,因此需要开启此选项)</span></span><br><span class="line">&#125;</span><br><span class="line">html2canvas(<span class="built_in">document</span>.querySelector(<span class="string">&#x27;#app&#x27;</span>), options).then(<span class="function"><span class="params">canvas</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">document</span>.body.appendChild(canvas)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
 <p>html2canvas 生成图片模糊问题</p>
 <ol>
 <li>html2canvas 第二个参数配置 <code>scale</code> 和 <code>dpi</code>, <a target="_blank" rel="noopener" href="https://github.com/niklasvh/html2canvas/pull/1087">参考</a></li>
@@ -1069,236 +1179,10 @@
 <h3 id="dom-to-image"><a href="#dom-to-image" class="headerlink" title="dom-to-image"></a>dom-to-image</h3><p><a target="_blank" rel="noopener" href="https://github.com/tsayen/dom-to-image">dom-to-image</a></p>
 <p>基本使用</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install dom-to-image</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* in ES 6 */</span></span><br><span class="line"><span class="keyword">import</span> domtoimage <span class="keyword">from</span> <span class="string">&#x27;dom-to-image&#x27;</span></span><br><span class="line"><span class="comment">/* in ES 5 */</span></span><br><span class="line"><span class="keyword">var</span> domtoimage = <span class="built_in">require</span>(<span class="string">&#x27;dom-to-image&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> node = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;my-node&#x27;</span>)</span><br><span class="line"></span><br><span class="line">domtoimage</span><br><span class="line">  .toPng(node)</span><br><span class="line">  .then(<span class="function"><span class="keyword">function</span>(<span class="params">dataUrl</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> img = <span class="keyword">new</span> Image()</span><br><span class="line">    img.src = dataUrl</span><br><span class="line">    <span class="built_in">document</span>.body.appendChild(img)</span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(<span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.error(<span class="string">&#x27;oops, something went wrong!&#x27;</span>, error)</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
-
 <p>将 base64 转换成 file 对象用于上传到服务器</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">b64ToFile</span>(<span class="params">dataurl</span>)</span>  &#123;</span><br><span class="line">  <span class="keyword">let</span> arr = dataurl.split(<span class="string">&#x27;,&#x27;</span>)</span><br><span class="line">  <span class="keyword">let</span> mime = arr[<span class="number">0</span>].match(<span class="regexp">/:(.*?);/</span>)[<span class="number">1</span>]</span><br><span class="line">  <span class="keyword">let</span> bstr = atob(arr[<span class="number">1</span>])</span><br><span class="line">  <span class="keyword">let</span> n = bstr.length</span><br><span class="line">  <span class="keyword">let</span> u8arr = <span class="keyword">new</span> <span class="built_in">Uint8Array</span>(n)</span><br><span class="line">  <span class="keyword">while</span> (n--) &#123;</span><br><span class="line">      u8arr[n] = bstr.charCodeAt(n)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> file =  <span class="keyword">new</span> File([u8arr], <span class="string">&#x27;filename.png&#x27;</span>, &#123;<span class="attr">type</span>:mime&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/338.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="cuilongjin">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/338.html" class="post-title-link" itemprop="url">dux 主题自定义代码高亮-使用 highlight.js</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-12-14 12:02:12" itemprop="dateCreated datePublished" datetime="2019-12-14T12:02:12+00:00">2019-12-14</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-19 09:49:50" itemprop="dateModified" datetime="2020-12-19T09:49:50+00:00">2020-12-19</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/wordpress/" itemprop="url" rel="index"><span itemprop="name">wordpress</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/338.html" class="post-meta-item leancloud_visitors" data-flag-title="dux 主题自定义代码高亮-使用 highlight.js" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p>dux 主题默认使用 <a target="_blank" rel="noopener" href="https://github.com/google/code-prettify">Google Code Prettify</a> 实现代码高亮</p>
-</blockquote>
-<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>在 <a target="_blank" rel="noopener" href="https://highlightjs.org/">highlight 官网</a>下载 js 和 css 文件</p>
-<p>可以使用官网提供的 <a target="_blank" rel="noopener" href="https://highlightjs.org/download/">CDN 链接</a>，也可以根据需要定制自己需要的语言</p>
-<p>选择自己喜欢的<a target="_blank" rel="noopener" href="https://highlightjs.org/static/demo/">主题</a>，在<a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/%7D">这里</a>进行下载</p>
-<p>将 <code>highlight.main.js</code> 文件放到主题的 <code>/js/libs/</code> 文件夹中</p>
-<h3 id="编辑主题文件"><a href="#编辑主题文件" class="headerlink" title="编辑主题文件"></a>编辑主题文件</h3><p>编辑 <code>/js/loader.js</code> 文件，将 <code>highlight.min.js</code> 引入</p>
-<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">tbquire.config(&#123;</span><br><span class="line">  baseUrl: jsui.uri + &#x27;/js&#x27;,</span><br><span class="line">  urlArgs: &#x27;ver=&#x27; + jsui.ver,</span><br><span class="line">  paths: &#123;</span><br><span class="line">    &#x27;swiper&#x27;        : &#x27;libs/swiper.min&#x27;,</span><br><span class="line">    &#x27;jquery.cookie&#x27; : &#x27;libs/jquery.cookie.min&#x27;,</span><br><span class="line">    &#x27;jsrender&#x27;      : &#x27;libs/jsrender.min&#x27;,</span><br><span class="line">    &#x27;router&#x27;        : &#x27;libs/router.min&#x27;,</span><br><span class="line">    &#x27;lazyload&#x27;      : &#x27;libs/lazyload.min&#x27;,</span><br><span class="line">    &#x27;prettyprint&#x27;   : &#x27;libs/prettyprint&#x27;,</span><br><span class="line"><span class="addition">+   &#x27;highlight&#x27;     : &#x27;libs/highlight.min&#x27;,</span></span><br><span class="line">    &#x27;ias&#x27;           : &#x27;libs/ias.min&#x27;,</span><br><span class="line">    &#x27;main&#x27;          : &#x27;main&#x27;,</span><br><span class="line">    &#x27;comment&#x27;       : &#x27;comment&#x27;,</span><br><span class="line">    &#x27;user&#x27;          : &#x27;user&#x27;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>编辑 <code>/js/main.js</code> 注释掉 prettyprint 部分</p>
-<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">/*</span><br><span class="line"> * prettyprint</span><br><span class="line"> * <span class="comment">====================================================</span></span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line"><span class="deletion">-$(&#x27;pre&#x27;).each(function()&#123;</span></span><br><span class="line"><span class="deletion">-    if( !$(this).attr(&#x27;style&#x27;) ) $(this).addClass(&#x27;prettyprint&#x27;)</span></span><br><span class="line"><span class="deletion">-&#125;)</span></span><br><span class="line"></span><br><span class="line"><span class="deletion">-if( $(&#x27;.prettyprint&#x27;).length )&#123;</span></span><br><span class="line"><span class="deletion">-    tbquire([&#x27;prettyprint&#x27;], function(prettyprint) &#123;</span></span><br><span class="line"><span class="deletion">-        prettyPrint()</span></span><br><span class="line"><span class="deletion">-    &#125;)</span></span><br><span class="line"><span class="deletion">-&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="addition">+/*</span></span><br><span class="line"><span class="addition">+ * highlight</span></span><br><span class="line"><span class="addition">+ * ====================================================</span></span><br><span class="line"><span class="addition">+*/</span></span><br><span class="line"><span class="addition">+</span></span><br><span class="line"><span class="addition">+$(&#x27;pre code&#x27;).forEach((block) =&gt; &#123;</span></span><br><span class="line"><span class="addition">+  tbquire([&#x27;highlight&#x27;], function() &#123;</span></span><br><span class="line"><span class="addition">+    hljs.highlightBlock(block)</span></span><br><span class="line"><span class="addition">+&#125;)</span></span><br></pre></td></tr></table></figure>
-
-<p>此时 highlight 脚本已经生效，接下来就是应用 highlight 样式</p>
-<h3 id="应用-highlight-样式"><a href="#应用-highlight-样式" class="headerlink" title="应用 highlight 样式"></a>应用 highlight 样式</h3><p>你可以选择将下载好的 css 文件打开，将样式拷贝到 /libs/css/main.css 文件中</p>
-<p>也可以在 <code>wordpress后台-外观-自定义-添加额外css</code> 中为主题定义样式</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/249.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="cuilongjin">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/249.html" class="post-title-link" itemprop="url">Date对象使用及常用的时间格式化代码块--获取本周,本月,本季度,本年,上月,上周,上季度,去年等</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-12-10 16:16:04" itemprop="dateCreated datePublished" datetime="2019-12-10T16:16:04+00:00">2019-12-10</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-19 09:49:50" itemprop="dateModified" datetime="2020-12-19T09:49:50+00:00">2020-12-19</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/249.html" class="post-meta-item leancloud_visitors" data-flag-title="Date对象使用及常用的时间格式化代码块--获取本周,本月,本季度,本年,上月,上周,上季度,去年等" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="Date-对象"><a href="#Date-对象" class="headerlink" title="Date 对象"></a>Date 对象</h2><h2 id="整理一些时间格式化的方法"><a href="#整理一些时间格式化的方法" class="headerlink" title="整理一些时间格式化的方法"></a>整理一些时间格式化的方法</h2><p>1.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 时间格式化</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;date&#125;</span> </span>timeStamp 要格式化的时间对象</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;string&#125;</span> </span>2019年10月31日 16:22</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">format_date</span>(<span class="params">timeStamp</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>(timeStamp)</span><br><span class="line">  <span class="keyword">return</span> date.getFullYear() + <span class="string">&#x27;年&#x27;</span> + prefix_zero(date.getMonth() + <span class="number">1</span>) + <span class="string">&#x27;月&#x27;</span> + prefix_zero(date.getDate()) + <span class="string">&#x27;日 &#x27;</span> + prefix_zero(date.getHours()) + <span class="string">&#x27;:&#x27;</span> + prefix_zero(date.getMinutes())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 数字格式化</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> </span>num 要格式化的数值</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;string&#125;</span> </span>把小于10的数值前面加上0</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">prefix_zero</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> num &gt;= <span class="number">10</span> ? num : <span class="string">&#x27;0&#x27;</span> + num</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>2.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 昨天的字符串格式时间</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;string&#125;</span> </span>返回当前时间 - 1天</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getYesterday</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line">  d.setDate(d.getDate() - <span class="number">1</span>)</span><br><span class="line">  <span class="keyword">return</span> d.toLocaleString()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>3.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 明天的字符串格式时间</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;string&#125;</span> </span>返回当前时间 + 1天</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> getTomorrow = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line">  d.setDate(d.getDate() + <span class="number">1</span>)</span><br><span class="line">  <span class="keyword">return</span> d.toLocalString()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>4.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获得本周的开始日期</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> </span>start 不传默认一周以周日开始 1 表示以周一开始</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;date&#125;</span> </span>timeStamp 时间戳</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getWeekDate</span>(<span class="params">start = <span class="number">0</span></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">&#x27;2019-12-15&#x27;</span>)</span><br><span class="line">  <span class="keyword">let</span> D = d.getDate()</span><br><span class="line">  <span class="keyword">if</span> (start == <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> d.setDate(D - d.getDay())</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> W = d.getDay() || <span class="number">6</span></span><br><span class="line">    <span class="keyword">return</span> d.setDate(D - W + <span class="number">1</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>5.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获得最近一周时间段</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;date[]&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getLastWeek</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line">  <span class="keyword">let</span> D = d.getDate()</span><br><span class="line">  d.setDate(D - <span class="number">7</span>)</span><br><span class="line">  <span class="keyword">return</span> [d, <span class="keyword">new</span> <span class="built_in">Date</span>()]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>6.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获得某月的天数</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> </span>year 年</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> </span>month 月 从 0 开始</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span> </span>某月的天数, 不传参数为当月天数</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getMonthDays</span>(<span class="params">year, month</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line">  year = year || d.getFullYear()</span><br><span class="line">  month = month || d.getMonth()</span><br><span class="line">  <span class="keyword">var</span> monthStart = <span class="keyword">new</span> <span class="built_in">Date</span>(year, month, <span class="number">1</span>)</span><br><span class="line">  <span class="keyword">var</span> monthEnd = <span class="keyword">new</span> <span class="built_in">Date</span>(year, month + <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">  <span class="keyword">var</span> days = (monthEnd - monthStart) / (<span class="number">1000</span> * <span class="number">60</span> * <span class="number">60</span> * <span class="number">24</span>)</span><br><span class="line">  <span class="keyword">return</span> days</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>7.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获得本月的开始或结束日期</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> </span>isEnd 不传默认本周的开端日期 1 本周的结束日期</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;date&#125;</span> </span>timeStamp 时间戳</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getMonthDate</span>(<span class="params">isEnd = <span class="number">0</span></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line">  d.setDate(<span class="number">1</span>)</span><br><span class="line">  <span class="keyword">if</span> (isEnd) &#123;</span><br><span class="line">    d.setDate(d.getDate() + getMonthDays() - <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> d</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> d</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>8.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 倒计时时间格式化</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;date&#125;</span> </span>timeStamp 要格式化的时间对象</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;string&#125;</span></span></span></span><br><span class="line"><span class="comment"> * 若时间大于1天 返回 n天n小时n分钟</span></span><br><span class="line"><span class="comment"> * 若时间小于1天，大于1小时 返回 n小时n分钟n秒</span></span><br><span class="line"><span class="comment"> * 若时间小于1小时，大于1分钟 返回 n分钟n秒</span></span><br><span class="line"><span class="comment"> * 若时间小于1分钟 返回 n秒</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">format_time</span>(<span class="params">timeStamp</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> day = <span class="built_in">Math</span>.floor(timeStamp / (<span class="number">24</span> * <span class="number">3600</span> * <span class="number">1000</span>))</span><br><span class="line">  <span class="keyword">let</span> leave1 = timeStamp % (<span class="number">24</span> * <span class="number">3600</span> * <span class="number">1000</span>)</span><br><span class="line">  <span class="keyword">let</span> hours = <span class="built_in">Math</span>.floor(leave1 / (<span class="number">3600</span> * <span class="number">1000</span>))</span><br><span class="line">  <span class="keyword">let</span> leave2 = leave1 % (<span class="number">3600</span> * <span class="number">1000</span>)</span><br><span class="line">  <span class="keyword">let</span> minutes = <span class="built_in">Math</span>.floor(leave2 / (<span class="number">60</span> * <span class="number">1000</span>))</span><br><span class="line">  <span class="keyword">let</span> leave3 = leave2 % (<span class="number">60</span> * <span class="number">1000</span>)</span><br><span class="line">  <span class="keyword">let</span> seconds = <span class="built_in">Math</span>.floor(leave3 / <span class="number">1000</span>)</span><br><span class="line">  <span class="keyword">if</span> (day) <span class="keyword">return</span> day + <span class="string">&#x27;天&#x27;</span> + hours + <span class="string">&#x27;小时&#x27;</span> + minutes + <span class="string">&#x27;分&#x27;</span></span><br><span class="line">  <span class="keyword">if</span> (hours) <span class="keyword">return</span> hours + <span class="string">&#x27;小时&#x27;</span> + minutes + <span class="string">&#x27;分&#x27;</span> + seconds + <span class="string">&#x27;秒&#x27;</span></span><br><span class="line">  <span class="keyword">if</span> (minutes) <span class="keyword">return</span> minutes + <span class="string">&#x27;分&#x27;</span> + seconds + <span class="string">&#x27;秒&#x27;</span></span><br><span class="line">  <span class="keyword">if</span> (seconds) <span class="keyword">return</span> seconds + <span class="string">&#x27;秒&#x27;</span></span><br><span class="line">  <span class="keyword">return</span> <span class="string">&#x27;时间到！&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="dayjs-库"><a href="#dayjs-库" class="headerlink" title="dayjs 库"></a>dayjs 库</h2><p>轻量的处理时间和日期的 JavaScript 库</p>
-<p>参考文档 <a target="_blank" rel="noopener" href="https://github.com/iamkun/dayjs/blob/dev/docs/zh-cn/README.zh-CN.md">github 中文文档</a></p>
-<p>在本页面打开控制台即可体验 dayjs 的 api</p>
-<script src="https://unpkg.com/dayjs"></script>
-
-<p>使用 dayjs 获取本周,上周,本月,上月,本季度,上季度,本年,去年时间</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// let date = dayjs(&#x27;2020-01-16&#x27;)</span></span><br><span class="line"><span class="keyword">let</span> date = dayjs()</span><br><span class="line"><span class="keyword">let</span> day = date.day() <span class="comment">// 1 星期</span></span><br><span class="line"><span class="keyword">let</span> currentWeekStart</span><br><span class="line"><span class="keyword">let</span> currentWeekEnd</span><br><span class="line"></span><br><span class="line"><span class="comment">// 本周</span></span><br><span class="line"><span class="keyword">if</span> (day &gt; <span class="number">0</span>) &#123;</span><br><span class="line">  currentWeekStart = date.startOf(<span class="string">&#x27;week&#x27;</span>).add(<span class="number">1</span>, <span class="string">&#x27;day&#x27;</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  currentWeekStart = date.startOf(<span class="string">&#x27;week&#x27;</span>).subtract(<span class="number">6</span>, <span class="string">&#x27;day&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line">currentWeekEnd = currentWeekStart.add(<span class="number">6</span>, <span class="string">&#x27;day&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 上周</span></span><br><span class="line"><span class="keyword">let</span> lastWeekStart = currentWeekStart.subtract(<span class="number">7</span>, <span class="string">&#x27;day&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> lastWeekEnd = currentWeekStart.subtract(<span class="number">1</span>, <span class="string">&#x27;day&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 本月 上月</span></span><br><span class="line"><span class="keyword">let</span> currentMonthStart = date.date(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">let</span> lastMonthStart = date.subtract(<span class="number">1</span>, <span class="string">&#x27;month&#x27;</span>).date(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">let</span> nextMonthStart = date.add(<span class="number">1</span>, <span class="string">&#x27;month&#x27;</span>).date(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">let</span> currentMonthEnd = nextMonthStart.subtract(<span class="number">1</span>, <span class="string">&#x27;day&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> lastMonthEnd = currentMonthStart.subtract(<span class="number">1</span>, <span class="string">&#x27;day&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 本季度,上季度</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 本年 去年</span></span><br><span class="line"><span class="keyword">let</span> currentYearStart = date.month(<span class="number">0</span>).date(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">let</span> currentYearEnd = date.month(<span class="number">11</span>).date(<span class="number">31</span>)</span><br><span class="line"><span class="keyword">let</span> lastYear = date.subtract(<span class="number">1</span>, <span class="string">&#x27;year&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> lastYearStart = date.subtract(<span class="number">1</span>, <span class="string">&#x27;year&#x27;</span>).month(<span class="number">0</span>).date(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">let</span> lastYearEnd = lastYearStart.month(<span class="number">11</span>).date(<span class="number">31</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> computedDate = &#123;</span><br><span class="line">  currentWeekStart: currentWeekStart.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  currentWeekEnd: currentWeekEnd.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  lastWeekStart: lastWeekStart.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  lastWeekEnd: lastWeekEnd.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  currentMonthStart: currentMonthStart.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  currentMonthEnd: currentMonthEnd.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  lastMonthStart: lastMonthStart.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  lastMonthEnd: lastMonthEnd.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  currentYearStart: currentYearStart.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  currentYearEnd: currentYearEnd.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  lastYearStart: lastYearStart.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  lastYearEnd: lastYearEnd.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(computedDate)</span><br></pre></td></tr></table></figure>
-
       
     </div>
 
@@ -1317,7 +1201,7 @@
 
 
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/page/6/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/archives/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/14/">14</a><a class="extend next" rel="next" href="/archives/page/8/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/archives/page/6/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/archives/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/15/">15</a><a class="extend next" rel="next" href="/archives/page/8/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 

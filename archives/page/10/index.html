@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.2.0">
+<meta name="generator" content="Hexo 5.3.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-logo.png">
@@ -246,7 +246,7 @@
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
@@ -298,6 +298,309 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/382.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="cuilongjin">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/382.html" class="post-title-link" itemprop="url">前端常用js代码段汇总</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-07-22 13:20:47" itemprop="dateCreated datePublished" datetime="2019-07-22T13:20:47+00:00">2019-07-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/382.html" class="post-meta-item leancloud_visitors" data-flag-title="前端常用js代码段汇总" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="类型识别"><a href="#类型识别" class="headerlink" title="类型识别"></a>类型识别</h2><h3 id="获取数据类型，返回结果为-Number、String、Object、Array-等"><a href="#获取数据类型，返回结果为-Number、String、Object、Array-等" class="headerlink" title="获取数据类型，返回结果为 Number、String、Object、Array 等"></a>获取数据类型，返回结果为 Number、String、Object、Array 等</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 返回数据类型</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getRawType</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(value).slice(<span class="number">8</span>, -<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 正则 =&gt; RegExp</span></span><br><span class="line"><span class="comment">// 时间对象 =&gt; Date</span></span><br><span class="line"><span class="comment">// 字符串 =&gt; String</span></span><br><span class="line"><span class="comment">// 对象 =&gt; Object</span></span><br><span class="line"><span class="comment">// 数组 =&gt; Array</span></span><br></pre></td></tr></table></figure>
+<h3 id="判断变量是不是字符串类型"><a href="#判断变量是不是字符串类型" class="headerlink" title="判断变量是不是字符串类型"></a>判断变量是不是字符串类型</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="string">&#x27;str&#x27;</span>) <span class="comment">// &#x27;[object String]&#x27;</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="string">&#x27;str&#x27;</span> <span class="comment">// &#x27;string&#x27;</span></span><br></pre></td></tr></table></figure>
+<h3 id="判断变量是不是引用类型"><a href="#判断变量是不是引用类型" class="headerlink" title="判断变量是不是引用类型"></a>判断变量是不是引用类型</h3><p>例如： arrays, functions, objects, regexes, new Number(0),以及 new String(‘’)</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isObject</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> type = <span class="keyword">typeof</span> value</span><br><span class="line">  <span class="keyword">return</span> value != <span class="literal">null</span> &amp;&amp; (type == <span class="string">&#x27;object&#x27;</span> || type == <span class="string">&#x27;function&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="判断变量是不是-Object-类型的数据"><a href="#判断变量是不是-Object-类型的数据" class="headerlink" title="判断变量是不是 Object 类型的数据"></a>判断变量是不是 Object 类型的数据</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isPlainObject</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(value) === <span class="string">&#x27;[object Object]&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="判断变量是不是数组类型"><a href="#判断变量是不是数组类型" class="headerlink" title="判断变量是不是数组类型"></a>判断变量是不是数组类型</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isArray</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(arr) === <span class="string">&#x27;[object Array]&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isArray</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Array</span>.isArray(arr)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="将-isArray-挂载到-Array-上"><a href="#将-isArray-挂载到-Array-上" class="headerlink" title="将 isArray 挂载到 Array 上"></a>将 isArray 挂载到 Array 上</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Array</span>.isArray = <span class="built_in">Array</span>.isArray || isArray</span><br></pre></td></tr></table></figure>
+<h2 id="格式转换"><a href="#格式转换" class="headerlink" title="格式转换"></a>格式转换</h2><h3 id="数字格式化：小于-10-的数值前面加上-0"><a href="#数字格式化：小于-10-的数值前面加上-0" class="headerlink" title="数字格式化：小于 10 的数值前面加上 0"></a>数字格式化：小于 10 的数值前面加上 0</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> </span>num 要格式化的数值</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;string&#125;</span> </span>把小于10的数值前面加上0</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">prefix_zero</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> num &gt;= <span class="number">10</span> ? num : <span class="string">&#x27;0&#x27;</span> + num</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="价格格式化-1234567-gt-1-234-567-00"><a href="#价格格式化-1234567-gt-1-234-567-00" class="headerlink" title="价格格式化 (1234567 =&gt; 1,234,567.00)"></a>价格格式化 (1234567 =&gt; 1,234,567.00)</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> </span>price 价格</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@returns <span class="type">&#123;string&#125;</span> </span>1234567 =&gt; 1,234,567.00</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">formatPrice</span>(<span class="params">price</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> price !== <span class="string">&#x27;number&#x27;</span>) <span class="keyword">return</span> price</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">String</span>(<span class="built_in">Number</span>(price).toFixed(<span class="number">2</span>)).replace(<span class="regexp">/\B(?=(\d&#123;3&#125;)+(?!\d))/g</span>, <span class="string">&#x27;,&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// \b 匹配单词边界</span></span><br><span class="line"><span class="comment">// \B 匹配非单词边界</span></span><br></pre></td></tr></table></figure>
+<p>其他方式</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">123456789</span> <span class="comment">// a 为number类型</span></span><br><span class="line">a.toLocaleString(<span class="string">&#x27;en-US&#x27;</span>) <span class="comment">// &#x27;123,456,789&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> b = <span class="number">123456789</span> <span class="comment">// b 可为number类型或string类型</span></span><br><span class="line"><span class="built_in">Intl</span>.NumberFormat().format(b) <span class="comment">//&#x27;123,456,789&#x27;</span></span><br></pre></td></tr></table></figure>
+<h3 id="手机号格式化：隐藏中间四位数字"><a href="#手机号格式化：隐藏中间四位数字" class="headerlink" title="手机号格式化：隐藏中间四位数字"></a>手机号格式化：隐藏中间四位数字</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> </span>mobile 手机号</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@returns <span class="type">&#123;string&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">formatMobile</span>(<span class="params">mobile</span>) </span>&#123;</span><br><span class="line">  mobile = <span class="built_in">String</span>(mobile)</span><br><span class="line">  <span class="keyword">if</span> (!<span class="regexp">/\d&#123;11&#125;/</span>.test(mobile)) &#123;</span><br><span class="line">    <span class="keyword">return</span> mobile</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> mobile.replace(<span class="regexp">/(\d&#123;3&#125;)\d&#123;4&#125;(\d&#123;4&#125;)/</span>, <span class="string">&#x27;$1****$2&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="进制转换"><a href="#进制转换" class="headerlink" title="进制转换"></a>进制转换</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">parseInt</span>(str, radix) <span class="comment">// 任意进制转换为 10 进制整数值</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Number</span>.toString(radix) <span class="comment">//返回表示该数字的指定进制形式的字符串</span></span><br></pre></td></tr></table></figure>
+<h2 id="常用正则"><a href="#常用正则" class="headerlink" title="常用正则"></a>常用正则</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 任意正负数字</span></span><br><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/(^[\-0-9][0-9]*(.[0-9]+)?)$/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 匹配邮箱</span></span><br><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]&#123;2,4&#125;)$/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 匹配手机号</span></span><br><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/^1[0-9]&#123;10&#125;$/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 匹配8-16位数字和字母密码的正则表达式</span></span><br><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]&#123;8,16&#125;$/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 匹配国内电话号码 0510-4305211</span></span><br><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/\d&#123;3&#125;-\d&#123;8&#125;|\d&#123;4&#125;-\d&#123;7&#125;/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 匹配身份证号码</span></span><br><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/(^\d&#123;15&#125;$)|(^\d&#123;18&#125;$)|(^\d&#123;17&#125;(\d|X|x)$)/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 匹配腾讯QQ号</span></span><br><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/[1-9][0-9]&#123;4,&#125;/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 匹配ip地址</span></span><br><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/\d+\.\d+\.\d+\.\d+/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 匹配中文</span></span><br><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/^[\u4e00-\u9fa5]*$/</span></span><br></pre></td></tr></table></figure>
+<h2 id="检测平台（设备）类型"><a href="#检测平台（设备）类型" class="headerlink" title="检测平台（设备）类型"></a>检测平台（设备）类型</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">isWechat = <span class="regexp">/micromessenger/i</span>.test(navigator.userAgent)</span><br><span class="line">isWeibo = <span class="regexp">/weibo/i</span>.test(navigator.userAgent)</span><br><span class="line">isQQ = <span class="regexp">/qq/i</span>.test(navigator.userAgent)</span><br><span class="line">isIOS = <span class="regexp">/(iphone|ipod|ipad|ios)/i</span>.test(navigator.userAgent)</span><br><span class="line">isAndroid = <span class="regexp">/android/i</span>.test(navigator.userAgent)</span><br></pre></td></tr></table></figure>
+<h2 id="敏感符号转义"><a href="#敏感符号转义" class="headerlink" title="敏感符号转义"></a>敏感符号转义</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">entities</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> e = &#123;</span><br><span class="line">    <span class="string">&#x27;&quot;&#x27;</span>: <span class="string">&#x27;&quot;&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;&amp;&#x27;</span>: <span class="string">&#x27;&amp;&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;&lt;&#x27;</span>: <span class="string">&#x27;&lt;&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;&gt;&#x27;</span>: <span class="string">&#x27;&gt;&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> s.replace(<span class="regexp">/[&quot;&lt;&gt;&amp;]/g</span>, <span class="function">(<span class="params">m</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> e[m]</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">distinct</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> arr.filter(<span class="function">(<span class="params">v, i, array</span>) =&gt;</span> array.indexOf(v) === i)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 对象数组去重</span></span><br><span class="line"><span class="comment">// arr: 目标数组</span></span><br><span class="line"><span class="comment">// id: 唯一属性</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">distinct</span>(<span class="params">arr, id</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> object = &#123;&#125;</span><br><span class="line">  <span class="keyword">let</span> objres = arr.reduce(<span class="function">(<span class="params">item, next</span>) =&gt;</span> &#123;</span><br><span class="line">    object[next[id]] ? <span class="string">&#x27;&#x27;</span> : (object[next[id]] = <span class="literal">true</span> &amp;&amp; item.push(next))</span><br><span class="line">    <span class="keyword">return</span> item</span><br><span class="line">  &#125;, [])</span><br><span class="line">  <span class="keyword">return</span> objres</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="数组顺序上移下移"><a href="#数组顺序上移下移" class="headerlink" title="数组顺序上移下移"></a>数组顺序上移下移</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 对象数组顺序上移下移</span></span><br><span class="line"><span class="comment">// arr: 目标数组</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 上移</span></span><br><span class="line">arr[index] = arr.splice(index - <span class="number">1</span>, <span class="number">1</span>, arr[index])[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 下移</span></span><br><span class="line">arr[index] = arr.splice(index + <span class="number">1</span>, <span class="number">1</span>, arr[index])[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+<h2 id="快速创建-a-标签"><a href="#快速创建-a-标签" class="headerlink" title="快速创建 a 标签"></a>快速创建 a 标签</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="string">&#x27;超链接&#x27;</span>.link(<span class="string">&#x27;https://wqdy.top&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// &lt;a href=&quot;https://wqdy.top&quot;&gt;超链接&lt;/a&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="正则进阶："><a href="#正则进阶：" class="headerlink" title="正则进阶："></a>正则进阶：</h2><p>捕获括号：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">匹配 &#39;wqdy&#39; 并且记住匹配项</span><br><span class="line">&#x2F;(wqdy)&#x2F;</span><br></pre></td></tr></table></figure>
+<p>非捕获括号：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">匹配 &#39;wqdy&#39; 但是不记住匹配项</span><br><span class="line">&#x2F;(?:wqdy)&#x2F;</span><br></pre></td></tr></table></figure>
+<p>先行断言：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">匹配&#39;wqdy&#39;仅仅当&#39;wqdy&#39;后面跟着&#39;top&#39;</span><br><span class="line">&#x2F;wqdy(?&#x3D;top)&#x2F;</span><br></pre></td></tr></table></figure>
+<p>后行断言：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">匹配&#39;top&#39;仅仅当&#39;top&#39;前面是&#39;wqdy&#39;</span><br><span class="line">&#x2F;(?&lt;&#x3D;wqdy)top&#x2F;</span><br></pre></td></tr></table></figure>
+<p>正向否定查找：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">匹配&#39;wqdy&#39;仅仅当&#39;wqdy&#39;后面不跟着&#39;gkd&#39;</span><br><span class="line">&#x2F;wqdy(?!gkd)&#x2F;</span><br></pre></td></tr></table></figure>
+<h2 id="判断是否有滚动条"><a href="#判断是否有滚动条" class="headerlink" title="判断是否有滚动条"></a>判断是否有滚动条</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isScroll</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">window</span>.innerWidth - $(<span class="built_in">document</span>).width() !== <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/424.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="cuilongjin">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/424.html" class="post-title-link" itemprop="url">less 使用 - mixin 混合</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-07-21 22:30:10" itemprop="dateCreated datePublished" datetime="2019-07-21T22:30:10+00:00">2019-07-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/424.html" class="post-meta-item leancloud_visitors" data-flag-title="less 使用 - mixin 混合" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="mixin-混合"><a href="#mixin-混合" class="headerlink" title="mixin 混合"></a>mixin 混合</h3><p>可以在 mixin 中使用类选择器和 id 选择器</p>
+<p>.bgc 定义了一个属性集，在任何需要使用 .bgc 属性集的选择器中，只需像下面这样调用：(小括号是可选的)</p>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.bgc</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#f00</span>;</span><br><span class="line">  <span class="selector-class">.bgc</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编译后的 CSS 代码为：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.bgc</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#f00</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>总结：mixin 其实就是一种嵌套，简单的讲，mixin 就是规则级别的复用</p>
+<p>mixin 的定义也会被原封不动的输出到编译生成的 CSS 代码中</p>
+<p>如果希望编译生成的 CSS 代码中不包含 mixin 的定义，在定义 mixin 时，只需在 class、id 的后面添加一对小括号即可。如：</p>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.bgc</span>() &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="selector-class">.bgc</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编译后的 CSS 代码为：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>mixin 可以包含选择器</p>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.hover</span>() &#123;</span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="selector-class">.hover</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编译后的 CSS 代码为：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="命令空间-Namespaces"><a href="#命令空间-Namespaces" class="headerlink" title="命令空间 Namespaces"></a>命令空间 Namespaces</h3><p>如果想要在一个更复杂的选择器中混合属性，可以堆叠多个 id 或类</p>
+<p>可以将 mixin 置于 id 选择器之下，这样可以确保它不会和另一个库冲突</p>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-id">#bgc</span> &#123;</span><br><span class="line">  <span class="selector-class">.inner</span>() &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="selector-id">#bgc</span><span class="selector-class">.inner</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="important-关键字"><a href="#important-关键字" class="headerlink" title="!important 关键字"></a>!important 关键字</h3><p>在 mixin 后使用 !important 关键字，将会标记调用所有继承的属性为!important</p>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.bgc</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="selector-class">.bgc</span> !important;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 编译后 css 为</span></span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#ccc</span> <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>带参数的 Mixin</p>
+<p>mixin 还可以接受参数，这些参数在混合时传递给选择器块</p>
+<p>从上面的代码可以看出：mixin 其实就是一种嵌套，简单的讲，mixin 就是规则级别的复用。除了类选择器外，你也可以使用 id 选择器来定义 mixin。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/399.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="cuilongjin">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/399.html" class="post-title-link" itemprop="url">高阶函数与柯里化</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-07-17 22:14:13" itemprop="dateCreated datePublished" datetime="2019-07-17T22:14:13+00:00">2019-07-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/399.html" class="post-meta-item leancloud_visitors" data-flag-title="高阶函数与柯里化" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h2><p>高阶函数定义：将函数作为参数或者返回值是函数的函数<br>常见的 sort、reduce 等函数就是高阶函数</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">b</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a + b</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> sum = add(<span class="number">1</span>)(<span class="number">2</span>) <span class="comment">// 3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// es6写法</span></span><br><span class="line"><span class="keyword">let</span> add = <span class="function">(<span class="params">a</span>) =&gt;</span> <span class="function">(<span class="params">b</span>) =&gt;</span> a + b</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等价于</span></span><br><span class="line"><span class="keyword">let</span> add = <span class="function">(<span class="params">a, b</span>) =&gt;</span> a + b</span><br></pre></td></tr></table></figure>
+<h2 id="柯里化"><a href="#柯里化" class="headerlink" title="柯里化"></a>柯里化</h2><p>wiki 的柯里化定义: 把接受多个参数的函数变换成接受一个单一参数的函数，并且返回（接受余下的参数而且返回结果的）新函数的技术</p>
+<p>柯里化后，将第一个参数变量存在函数里面了(闭包)，然后本来需要 n 个参数的函数变成只需要剩下的（n - 1 个）参数就可以调用</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 形如</span></span><br><span class="line">;<span class="function">(<span class="params">a</span>) =&gt;</span> <span class="function">(<span class="params">b</span>) =&gt;</span> <span class="function">(<span class="params">c</span>) =&gt;</span> &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> add = <span class="function">(<span class="params">a</span>) =&gt;</span> <span class="function">(<span class="params">b</span>) =&gt;</span> a + b</span><br><span class="line"><span class="keyword">let</span> add1 = add(<span class="number">1</span>) <span class="comment">// a = 1; b =&gt; a + b</span></span><br><span class="line">add1(<span class="number">2</span>) <span class="comment">// 1 + 2 = 3</span></span><br></pre></td></tr></table></figure>
+<p>add1 函数等价于有了 a 这个闭包变量的 b = a + b</p>
+<p>add 函数按照 wiki 的定义可以理解成只柯里化了一次，n 个连续箭头组成的函数实际上就是柯里化了 n - 1 次<br>前 n - 1 次调用，其实是提前将参数传递进去，并没有调用最内层函数体，最后一次调用才会调用最内层函数体，并返回最内层函数体的返回值</p>
+<p>所以多个连续箭头函数就是多次柯里化的 es6 写法</p>
+<p><strong>应用：</strong></p>
+<p>函数懒执行<br>函数式编程</p>
+<p><strong>柯里化函数使用场景：</strong></p>
+<p>减少重复传递不变的参数</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">discount</span>(<span class="params">price, discount</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> price * discount</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 每次都要重复传入 discount 参数，可以将这个函数柯里化</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">discount</span>(<span class="params">price, discount</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">price</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> price * discount</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> tenPercentDiscount = discount(<span class="number">0.9</span>) <span class="comment">// 9折</span></span><br><span class="line"><span class="keyword">const</span> twentyPercentDiscount = discount(<span class="number">0.8</span>) <span class="comment">// 8折</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 现在每次计算价格只需要：</span></span><br><span class="line">tenPercentDiscount(<span class="number">500</span>) <span class="comment">// 500 * 0.9</span></span><br><span class="line">twentyPercentDiscount(<span class="number">1000</span>) <span class="comment">// 1000 * 0.8</span></span><br></pre></td></tr></table></figure>
+<h2 id="柯里化实现"><a href="#柯里化实现" class="headerlink" title="柯里化实现"></a>柯里化实现</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">curry</span>(<span class="params">func</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">curried</span>(<span class="params">...args</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (args.length &gt;= func.length) &#123;</span><br><span class="line">      <span class="keyword">return</span> func.apply(<span class="built_in">this</span>, args)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">...args2</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> curried.apply(<span class="built_in">this</span>, args.concat(args2))</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a, b, c</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a + b + c</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> curriedSum = curry(sum)</span><br><span class="line"><span class="built_in">console</span>.log(curriedSum(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)) <span class="comment">// 6</span></span><br><span class="line"><span class="built_in">console</span>.log(curriedSum(<span class="number">1</span>)(<span class="number">2</span>, <span class="number">3</span>)) <span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
+<h2 id="偏函数"><a href="#偏函数" class="headerlink" title="偏函数"></a>偏函数</h2>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://wqdy.top/417.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -324,13 +627,6 @@
 
       <time title="创建时间：2019-07-12 22:25:53" itemprop="dateCreated datePublished" datetime="2019-07-12T22:25:53+00:00">2019-07-12</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-19 09:49:50" itemprop="dateModified" datetime="2020-12-19T09:49:50+00:00">2020-12-19</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -360,15 +656,11 @@
     <div class="post-body" itemprop="articleBody">
           <h2 id="快速删除-node-modules-文件夹"><a href="#快速删除-node-modules-文件夹" class="headerlink" title="快速删除 node_modules 文件夹"></a>快速删除 node_modules 文件夹</h2><p>系统命令</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># cmd</span></span><br><span class="line"><span class="comment"># /q 直接删除，不需要二次确认</span></span><br><span class="line"><span class="comment"># /s 允许删除非空目录</span></span><br><span class="line">rd /q/s node_modules</span><br><span class="line"></span><br><span class="line"><span class="comment"># powershell</span></span><br><span class="line">rmdir -r -Force node_modules</span><br><span class="line"><span class="comment"># 或</span></span><br><span class="line">rm -r -Force node_modules</span><br></pre></td></tr></table></figure>
-
 <p>使用 npm 包</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm i rimraf -g</span><br><span class="line">rimraf node_modules</span><br><span class="line"></span><br><span class="line">npm i -g dlf</span><br><span class="line">dlf node_modules</span><br></pre></td></tr></table></figure>
-
 <h2 id="一次执行多条命令"><a href="#一次执行多条命令" class="headerlink" title="一次执行多条命令"></a>一次执行多条命令</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># cmd 使用 &amp;&amp; 连接多个命令</span></span><br><span class="line"><span class="built_in">cd</span> vue &amp;&amp; npm i</span><br><span class="line"><span class="comment"># powershell 使用 | 连接多条命令</span></span><br><span class="line"><span class="built_in">cd</span> vue | npm i</span><br></pre></td></tr></table></figure>
 
-
 <h2 id="删除一个文件夹内字节小于-10kb-的文件"><a href="#删除一个文件夹内字节小于-10kb-的文件" class="headerlink" title="删除一个文件夹内字节小于 10kb 的文件"></a>删除一个文件夹内字节小于 10kb 的文件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 输出所有大小小于10k的文件</span></span><br><span class="line"><span class="comment"># find ./ -size -10k &gt; NoNeedSite.txt</span></span><br><span class="line">find ./ -size -10k -<span class="built_in">exec</span> rm &#123;&#125; \</span><br></pre></td></tr></table></figure>
-
       
     </div>
 
@@ -420,13 +712,6 @@
 
       <time title="创建时间：2019-07-12 13:38:26" itemprop="dateCreated datePublished" datetime="2019-07-12T13:38:26+00:00">2019-07-12</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-19 09:49:50" itemprop="dateModified" datetime="2020-12-19T09:49:50+00:00">2020-12-19</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -462,19 +747,15 @@
 </blockquote>
 <p>在 history 中跳转</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">window</span>.history.back() <span class="comment">// 向后跳转 相当于点击浏览器回退按钮</span></span><br><span class="line"><span class="built_in">window</span>.history.forward() <span class="comment">// 向前跳转 相当于点击了前进按钮</span></span><br><span class="line"><span class="built_in">window</span>.history.go(-<span class="number">1</span>) <span class="comment">// 跳转 历史中的某一特定页面(go(-1) 等同于调用 back())</span></span><br></pre></td></tr></table></figure>
-
 <p>可以通过查看长度属性的值来确定的历史堆栈中页面的数量</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">window</span>.history.length</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">history.pushState(stateObject, title, url)</span><br></pre></td></tr></table></figure>
-
 <p>状态对象（stateObject）–stateObject 是一个 JavaScript 对象，通过 pushState 方法可以将 stateObject 内容传递到新页面中。</p>
 <p>标题（title）–几乎没有浏览器支持该参数，但是传一个空字符串会比较安全。</p>
 <p>地址（url）–新的历史记录条目的地址（可选，不指定的话则为文档当前 URL）；浏览器在调用 pushState()方法后不会加载该地址；传入的 URL 与当前 URL 应该是同源的，否则，pushState()会抛出异常。</p>
 <p>history.pushState()主要是在不刷新浏览器的情况下，创建新的浏览记录并插入浏览记录队列中</p>
 <p>假设在 <a target="_blank" rel="noopener" href="http://mozilla.org/foo.html">http://mozilla.org/foo.html</a> 中执行了以下 JavaScript 代码:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> stateObj = &#123;</span><br><span class="line">  foo: <span class="string">&#x27;bar&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">history.pushState(stateObj, <span class="string">&#x27;page 2&#x27;</span>, <span class="string">&#x27;bar.html&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
 <p>这将使浏览器地址栏显示为 <a target="_blank" rel="noopener" href="http://mozilla.org/bar.html%EF%BC%8C%E4%BD%86%E5%B9%B6%E4%B8%8D%E4%BC%9A%E5%AF%BC%E8%87%B4%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8A%A0%E8%BD%BD">http://mozilla.org/bar.html，但并不会导致浏览器加载</a> bar.html ，甚至不会检查 bar.html 是否存在</p>
 <p>history.replaceState() 的使用与 history.pushState() 非常相似，区别在于 replaceState() 是修改了当前的历史记录项而不是新建一个</p>
 
@@ -529,13 +810,6 @@
 
       <time title="创建时间：2019-07-09 22:24:43" itemprop="dateCreated datePublished" datetime="2019-07-09T22:24:43+00:00">2019-07-09</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-19 09:49:50" itemprop="dateModified" datetime="2020-12-19T09:49:50+00:00">2020-12-19</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -564,7 +838,6 @@
     
     <div class="post-body" itemprop="articleBody">
           <h1 id="Apache-安装"><a href="#Apache-安装" class="headerlink" title="Apache 安装"></a>Apache 安装</h1><h2 id="centos"><a href="#centos" class="headerlink" title="centos"></a>centos</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># yum install httpd  （centos之下，Apache的名字叫httpd，和Apache的主程序 httpd.exe 同名）</span></span><br></pre></td></tr></table></figure>
-
 <h3 id="打开并测试-Apache"><a href="#打开并测试-Apache" class="headerlink" title="打开并测试 Apache"></a>打开并测试 Apache</h3><ul>
 <li><p>先确保，云服务器的 80 端口，是允许外网访问的。</p>
 </li>
@@ -572,7 +845,6 @@
 </li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">service httpd start</span><br><span class="line"><span class="comment"># 查看状态</span></span><br><span class="line">service httpd status</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>测试 Apache 是否正常运行</li>
 </ul>
@@ -588,42 +860,31 @@
 <li>安装 ssl 模块</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># yum install mod_ssl -y</span><br></pre></td></tr></table></figure>
-
 <p>Ps：安装完成后，会在/etc/httpd/conf.d/下生成一个 ssl.conf 配置文件。</p>
 <p>建一个目录用来放 ssl 证书文件</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># mkdir &#x2F;etc&#x2F;httpd&#x2F;ssl&#x2F;</span><br></pre></td></tr></table></figure>
-
 <p>编辑 ssl 配置文件</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># vim &#x2F;etc&#x2F;httpd&#x2F;conf.d&#x2F;ssl.conf</span><br></pre></td></tr></table></figure>
-
 <p>修改以下几行，去掉前面的“#”注释；</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;VirtualHost&gt;</span><br><span class="line">#网页文件路径</span><br><span class="line">DocumentRoot &quot;&#x2F;var&#x2F;www&#x2F;html&quot;</span><br><span class="line">#改为自己的域名</span><br><span class="line">ServerName cuilongjin.top:80</span><br><span class="line">#启用SSL功能</span><br><span class="line">SSLEngine on</span><br><span class="line">#填写证书文件路径</span><br><span class="line">SSLCertificateFile   &#x2F;etc&#x2F;httpd&#x2F;ssl&#x2F;cert-1541656252121_cuilongjin.top.key</span><br><span class="line">#填写私钥文件路径</span><br><span class="line">SSLCertificateKeyFile   &#x2F;etc&#x2F;httpd&#x2F;ssl&#x2F;cert-1541656252121_cuilongjin.top.key</span><br><span class="line">#填写证书链文件路径</span><br><span class="line">SSLCertificateChainFile   &#x2F;etc&#x2F;httpd&#x2F;ssl&#x2F;cert-1541656252121_cuilongjin.top_chain.crt</span><br><span class="line">&lt;&#x2F;VirtualHost&gt;</span><br></pre></td></tr></table></figure>
-
 <p>重启服务器</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># service httpd restart</span><br></pre></td></tr></table></figure>
-
 <h1 id="Nginx-的安装与配置"><a href="#Nginx-的安装与配置" class="headerlink" title="Nginx 的安装与配置"></a>Nginx 的安装与配置</h1><h2 id="CentOS-下安装："><a href="#CentOS-下安装：" class="headerlink" title="CentOS 下安装："></a><strong>CentOS</strong> 下安装：</h2><p>通过安装包安装</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装所需环境</span></span><br><span class="line">yum install gcc-c++</span><br><span class="line">yum install -y pcre pcre-devel</span><br><span class="line">yum install -y zlib zlib-devel</span><br><span class="line">yum install -y openssl openssl-devel</span><br><span class="line"></span><br><span class="line"><span class="comment"># 官网下载 nginx https://nginx.org/</span></span><br><span class="line">yum install wget</span><br><span class="line">wget -c https://nginx.org/download/nginx-1.17.4.tar.gz</span><br><span class="line"><span class="comment"># 解压</span></span><br><span class="line">tar -zxvf nginx-1.17.4.tar.gz</span><br><span class="line"><span class="built_in">cd</span> nginx-1.17.1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置</span></span><br><span class="line">./configure</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编译安装</span></span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查找安装路径：</span></span><br><span class="line">whereis nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动、停止 重启 nginx</span></span><br><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/nginx/sbin/</span><br><span class="line">./nginx <span class="comment"># 启动</span></span><br><span class="line">./nginx -s stop <span class="comment"># 此方式相当于先查出nginx进程id再使用kill命令强制杀掉进程</span></span><br><span class="line">./nginx -s quit <span class="comment"># 此方式停止步骤是待nginx进程处理任务完毕进行停止</span></span><br><span class="line">./nginx -s quit &amp;&amp; ./nginx <span class="comment"># 重启 nginx</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 重新加载配置文件</span></span><br><span class="line"><span class="comment"># 配置文件 nginx.conf 修改后，要想让配置生效需要重启 nginx，使用 -s reload 不用先停止 nginx 再启动即可将配置信息在 nginx 中生效，如下：</span></span><br><span class="line">./nginx -s reload</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查询 nginx 进程</span></span><br><span class="line">ps aux|grep nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 开机自启动</span></span><br><span class="line">在 rc.local 增加启动代码</span><br><span class="line">vi /etc/rc.local</span><br><span class="line"><span class="comment"># 增加一行 /usr/local/nginx/sbin/nginx</span></span><br><span class="line"><span class="comment"># 设置执行权限</span></span><br><span class="line">chmod 755 rc.local</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加 nginx 为系统服务</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
 <p>centos 下，yum 源不提供 nginx 的安装，可以通过切换 yum 源的方法获取安装</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum -y install nginx</span><br></pre></td></tr></table></figure>
-
 <p>主站点目录/usr/share/nginx/html</p>
 <p><strong>配置 Nginx：</strong></p>
 <p>Nginx 的配置文件默认位置为：<code>/etc/nginx/nginx.conf</code></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen       80; #监听80端口，接收http请求</span><br><span class="line">  server_name  localhost; #就是网站地址</span><br><span class="line">  root         &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html; # 准备存放代码工程的路径</span><br><span class="line">  #路由到网站根目录www.example.com时候的处理</span><br><span class="line">  location &#x2F; &#123;</span><br><span class="line">    index index.php index.html index.htm;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  #当请求网站下php文件的时候，反向代理到php-fpm</span><br><span class="line">  location ~ \.php$ &#123;</span><br><span class="line">    include fastcgi.conf; #加载nginx的fastcgi模块</span><br><span class="line">    fastcgi_intercept_errors on;</span><br><span class="line">    fastcgi_pass   127.0.0.1:9000; #nginx fastcgi进程监听的IP地址和端口</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>自定义 Nginx 站点配置文件存放目录</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;etc&#x2F;nginx&#x2F;conf.d&#x2F;</span><br></pre></td></tr></table></figure>
-
 <p>默认站点目录/usr/share/nginx/html</p>
 <p>安装 php</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install php php-fpm</span><br></pre></td></tr></table></figure>
-
 <p>配置 php.ini</p>
 <p>/etc/php.ini</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cgi.fix_pathinfo&#x3D;1</span><br></pre></td></tr></table></figure>
-
 <p>配置 php-fpm</p>
 <p>/etc/php-fpm.d/<a target="_blank" rel="noopener" href="http://www.conf/">www.conf</a></p>
 <p>user = nginx</p>
@@ -639,12 +900,9 @@
 <p>ps -ef | grep nginx</p>
 <p>nginx 配置</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#</span><br><span class="line"># HTTPS server configuration</span><br><span class="line">#</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">  listen       443 ssl http2 default_server;</span><br><span class="line">  listen       [::]:443 ssl;</span><br><span class="line">  server_name  _;</span><br><span class="line">  root         &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html;</span><br><span class="line"></span><br><span class="line">  ssl_certificate ssl&#x2F;cuilongjin.top.pem;</span><br><span class="line">  ssl_certificate_key ssl&#x2F;cuilongjin.top.key;</span><br><span class="line">  ssl_session_cache shared:SSL:1m;</span><br><span class="line">  ssl_session_timeout  10m;</span><br><span class="line">  ssl_ciphers HIGH:!aNULL:!MD5;</span><br><span class="line">  ssl_prefer_server_ciphers on;</span><br><span class="line"></span><br><span class="line">  # Load configuration files for the default server block.</span><br><span class="line">  include &#x2F;etc&#x2F;nginx&#x2F;default.d&#x2F;*.conf;</span><br><span class="line"></span><br><span class="line">  location &#x2F; &#123;</span><br><span class="line">  &#125;</span><br><span class="line">    location ~ \.php$ &#123;</span><br><span class="line">      root html;</span><br><span class="line">      fastcgi_pass 127.0.0.1:9000;</span><br><span class="line">      fastcgi_index index.php;</span><br><span class="line">      fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;</span><br><span class="line">      include fastcgi_params;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  error_page 404 &#x2F;404.html;</span><br><span class="line">    location &#x3D; &#x2F;40x.html &#123;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  error_page 500 502 503 504 &#x2F;50x.html;</span><br><span class="line">    location &#x3D; &#x2F;50x.html &#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#</span><br><span class="line"># The default server</span><br><span class="line">#</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">  listen       80 default_server;</span><br><span class="line">  listen       [::]:80 default_server;</span><br><span class="line">  server_name  _;</span><br><span class="line">  root         &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html;</span><br><span class="line"></span><br><span class="line">  # Load configuration files for the default server block.</span><br><span class="line">  include &#x2F;etc&#x2F;nginx&#x2F;default.d&#x2F;*.conf;</span><br><span class="line"></span><br><span class="line">  location &#x2F; &#123;</span><br><span class="line">  &#125;</span><br><span class="line">  location ~ \.php$ &#123;</span><br><span class="line">    root html;</span><br><span class="line">    fastcgi_pass 127.0.0.1:9000;</span><br><span class="line">    fastcgi_index index.php;</span><br><span class="line">    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;</span><br><span class="line">    include fastcgi_params;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  error_page 404 &#x2F;404.html;</span><br><span class="line">    location &#x3D; &#x2F;40x.html &#123;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  error_page 500 502 503 504 &#x2F;50x.html;</span><br><span class="line">    location &#x3D; &#x2F;50x.html &#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h2 id="ubuntu-下安装"><a href="#ubuntu-下安装" class="headerlink" title="ubuntu 下安装"></a>ubuntu 下安装</h2><p>安装 nginx</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install nginx</span><br></pre></td></tr></table></figure>
-
 <p>Ubuntu 安装之后的文件结构大致为：</p>
 <ul>
 <li>所有的配置文件都在/etc/nginx 下，并且每个虚拟主机已经安排在了/etc/nginx/sites-available 下</li>
@@ -656,27 +914,19 @@
 </ul>
 <p>安装 php</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get install php</span><br></pre></td></tr></table></figure>
-
 <p>配置 php.ini /etc/php/7.2/cli/</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cgi.fix_pathinfo&#x3D;1</span><br></pre></td></tr></table></figure>
-
 <p>配置 php-fpm</p>
 <p>启动 nginx</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/etc/init.d/nginx restart</span><br><span class="line">/etc/init.d/nginx stop</span><br><span class="line">/etc/init.d/nginx start</span><br></pre></td></tr></table></figure>
-
 <p>删除 nginx</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get --purge remove nginx</span><br><span class="line"><span class="comment"># –-purge 包括配置文件</span></span><br></pre></td></tr></table></figure>
-
 <h2 id="arch-下安装-nginx"><a href="#arch-下安装-nginx" class="headerlink" title="arch 下安装 nginx"></a>arch 下安装 nginx</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pacman -S nginx</span><br></pre></td></tr></table></figure>
-
 <p>启动 Nginx 服务,运行以下命令:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># systemctl start nginx</span><br></pre></td></tr></table></figure>
-
 <h3 id="要-Nginx-服务开机时启动-运行以下命令"><a href="#要-Nginx-服务开机时启动-运行以下命令" class="headerlink" title="要 Nginx 服务开机时启动,运行以下命令:"></a>要 Nginx 服务开机时启动,运行以下命令:</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># systemctl enable nginx</span><br></pre></td></tr></table></figure>
-
 <p>默认页面是:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html&#x2F;index.html</span><br></pre></td></tr></table></figure>
-
 <h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>你可以修改在 <strong>/etc/nginx/</strong> 目录中的文件来更改配置 <strong>./etc/nginx/nginx.conf</strong> 是主配置文件</p>
 
       
@@ -730,13 +980,6 @@
 
       <time title="创建时间：2019-07-09 22:20:44" itemprop="dateCreated datePublished" datetime="2019-07-09T22:20:44+00:00">2019-07-09</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-19 09:49:50" itemprop="dateModified" datetime="2020-12-19T09:49:50+00:00">2020-12-19</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -836,13 +1079,6 @@
 
       <time title="创建时间：2019-07-09 22:05:00" itemprop="dateCreated datePublished" datetime="2019-07-09T22:05:00+00:00">2019-07-09</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-19 09:49:50" itemprop="dateModified" datetime="2020-12-19T09:49:50+00:00">2020-12-19</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -874,7 +1110,6 @@
 <li>标准的电话号码格式是：</li>
 </ul>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;tel:+86-123-456-7890&quot;</span>&gt;</span>1234567890<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><p>有时候不是电话号码的数字会被浏览器自动解析为如上电话号码格式，导致样式和布局改变</p>
 </li>
@@ -882,13 +1117,11 @@
 </li>
 </ul>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;format-detection&quot;</span> <span class="attr">content</span>=<span class="string">&quot;telephone=no&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>这个关闭不会影响真正电话号码的识别</li>
 </ul>
 <p>说明：Meta 标签中的 format-detection 属性及含义<br>format-detection 中文的意思是 “格式检测”，它是用来检测 html 里的一些格式的</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 禁止了把数字转化为拨号链接 默认为 yes --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;format-detection&quot;</span> <span class="attr">content</span>=<span class="string">&quot;telephone=no&quot;</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 禁止作为邮箱地址 默认为 yes --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;format-detection&quot;</span> <span class="attr">content</span>=<span class="string">&quot;email=no&quot;</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 禁止跳转至地图 默认为 yes --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;format-detection&quot;</span> <span class="attr">content</span>=<span class="string">&quot;adress=no&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;format-detection&quot;</span> <span class="attr">content</span>=<span class="string">&quot;telephone=no,email=no,adress=no&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-
       
     </div>
 
@@ -940,13 +1173,6 @@
 
       <time title="创建时间：2019-07-09 00:00:09" itemprop="dateCreated datePublished" datetime="2019-07-09T00:00:09+00:00">2019-07-09</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-19 09:49:50" itemprop="dateModified" datetime="2020-12-19T09:49:50+00:00">2020-12-19</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -981,11 +1207,9 @@
 <p>IPv6 网段被封</p>
 <p>强制你的 VPS 用 IPv4 来访问，具体方法在 <code>/etc/sysctl.conf</code> 后追加</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># disable ipv6</span><br><span class="line">net.ipv6.conf.all.disable_ipv6&#x3D;1</span><br><span class="line">net.ipv6.conf.default.disable_ipv6&#x3D;1</span><br><span class="line">net.ipv6.conf.lo.disable_ipv6&#x3D;1</span><br></pre></td></tr></table></figure>
-
 <p>IPv4 网段被封</p>
 <p>强制 VPS 使用 IPv6 访问，确认打开 VPS 上的 IPv6 功能，更改 VPS 的 hosts 中指定 Google Schoolar 的 IPv6 地址，编辑<code>/etc/hosts</code>后追加：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">## Scholar</span><br><span class="line">## type &#39;host google.com&#39; to get the correct ipv6 address or</span><br><span class="line">## visit https:&#x2F;&#x2F;github.com&#x2F;lennylxx&#x2F;ipv6-hosts</span><br><span class="line">2404:6800:4004:81a::200e scholar.google.cn</span><br><span class="line">2404:6800:4004:81a::200e scholar.google.com.hk</span><br><span class="line">2404:6800:4004:81a::200e scholar.google.com</span><br><span class="line">2404:6800:4004:81a::200e scholar.l.google.com</span><br></pre></td></tr></table></figure>
-
 <p>更改配置后，重启 SS</p>
 
       
@@ -1039,13 +1263,6 @@
 
       <time title="创建时间：2019-07-09 00:00:08" itemprop="dateCreated datePublished" datetime="2019-07-09T00:00:08+00:00">2019-07-09</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-19 09:49:50" itemprop="dateModified" datetime="2020-12-19T09:49:50+00:00">2020-12-19</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -1079,10 +1296,8 @@
 <p><strong>Mac：</strong><br>默认有 SSH 命令<br>ssh root@IP<br>输入用户名和密码,用户名为 root<br>login as: root<br>root@IP’s password:</p>
 <h3 id="安装服务"><a href="#安装服务" class="headerlink" title="安装服务"></a>安装服务</h3><p>CentOS/Debian/Ubuntu ShadowsocksR 单/多端口 一键管理脚本<br><a target="_blank" rel="noopener" href="https://doub.io/ss-jc42/">https://doub.io/ss-jc42/</a></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum -y install wget</span><br><span class="line"></span><br><span class="line">wget -N --no-check-certificate https://softs.fun/Bash/ssr.sh &amp;&amp; chmod +x ssr.sh &amp;&amp; bash ssr.sh</span><br></pre></td></tr></table></figure>
-
 <p>备用脚本：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum -y install wget</span><br><span class="line"></span><br><span class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssr.sh &amp;&amp; chmod +x ssr.sh &amp;&amp; bash ssr.sh</span><br></pre></td></tr></table></figure>
-
 <p>复制上面的代码到 VPS 服务器里，按回车键，脚本会自动安装，以后只需要运行 <code>bash ssr.sh</code> 这个快捷命令就可以出现下图的界面进行设置。</p>
 <ol>
 <li>安装 SSR 服务端</li>
@@ -1093,27 +1308,20 @@
 </ol>
 <p>ShadowsocksR MudbJSON 模式多用户一键脚本 支持流量限制<br><a target="_blank" rel="noopener" href="https://doub.io/ss-jc60/">https://doub.io/ss-jc60/</a></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget -N --no-check-certificate https://softs.fun/Bash/ssrmu.sh &amp;&amp; chmod +x ssrmu.sh &amp;&amp; bash ssrmu.sh</span><br></pre></td></tr></table></figure>
-
 <p>备用下载地址</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssrmu.sh &amp;&amp; chmod +x ssrmu.sh &amp;&amp; bash ssrmu.sh</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash ssrmu.sh</span><br></pre></td></tr></table></figure>
-
 <h2 id="测速脚本官方地址"><a href="#测速脚本官方地址" class="headerlink" title="测速脚本官方地址"></a>测速脚本官方地址</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://raw.githubusercontent.com/oooldking/script/master/superbench.sh</span><br><span class="line">chmod +x superbench.sh</span><br><span class="line">./superbench.sh</span><br></pre></td></tr></table></figure>
-
 <h2 id="加速"><a href="#加速" class="headerlink" title="加速"></a>加速</h2><p><a target="_blank" rel="noopener" href="https://ssr.tools/674">锐速/BBR/魔改 BBR/KCPTUN 加速效果对比测试</a></p>
 <p>【原版 BBR】</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh</span><br><span class="line">chmod +x bbr.sh</span><br><span class="line">./bbr.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启服务器</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证是否安装成功</span></span><br><span class="line">sysctl net.ipv4.tcp_congestion_control</span><br><span class="line"><span class="comment"># 得到如下结果表示安装成功</span></span><br><span class="line">net.ipv4.tcp_congestion_control = bbr</span><br></pre></td></tr></table></figure>
-
 <p>【魔改 BBR】</p>
 <p>只有 centos 和 debain 版</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># centos 版</span></span><br><span class="line">wget --no-check-certificate https://raw.githubusercontent.com/tcp-nanqinlang/general/master/General/CentOS/bash/tcp_nanqinlang-1.3.2.sh</span><br><span class="line">bash tcp_nanqinlang-1.3.2.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># debain 版</span></span><br><span class="line">wget --no-check-certificate https://github.com/tcp-nanqinlang/general/releases/download/3.4.2.1/tcp_nanqinlang-fool-1.3.0.sh</span><br><span class="line">bash tcp_nanqinlang-fool-1.3.0.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 选择 1 安装内核，重启</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行 选择 2 安装并开启算法</span></span><br><span class="line">bash tcp_nanqinlang-1.3.2.sh</span><br><span class="line"><span class="comment"># 选择 2 安装并开启算法</span></span><br></pre></td></tr></table></figure>
-
 <p>【BBRPlus（BBR v2.0）】</p>
 <p>Github 项目地址：<a target="_blank" rel="noopener" href="https://github.com/cx9208/bbrplus">https://github.com/cx9208/bbrplus</a></p>
 <p>一键脚本（仅CentOS）</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum -y install wget &amp;&amp; wget <span class="string">&quot;https://github.com/cx9208/bbrplus/raw/master/ok_bbrplus_centos.sh&quot;</span> &amp;&amp; chmod +x ok_bbrplus_centos.sh &amp;&amp; ./ok_bbrplus_centos.sh</span><br></pre></td></tr></table></figure>
-
 <p>等待安装完成，重启，重启之后，按照以下步骤检查是否成功：</p>
 <p>执行 uname -r，显示 4.14.129-bbrplus 则切换内核成功</p>
 <p>执行 lsmod | grep bbr，显示有 bbrplus 则开启成功</p>
@@ -1135,319 +1343,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/427.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="cuilongjin">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/427.html" class="post-title-link" itemprop="url">npm 包管理工具的使用</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-07-03 22:32:09" itemprop="dateCreated datePublished" datetime="2019-07-03T22:32:09+00:00">2019-07-03</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-19 09:49:50" itemprop="dateModified" datetime="2020-12-19T09:49:50+00:00">2020-12-19</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/427.html" class="post-meta-item leancloud_visitors" data-flag-title="npm 包管理工具的使用" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="解决某些-npm-包无法下载的问题"><a href="#解决某些-npm-包无法下载的问题" class="headerlink" title="解决某些 npm 包无法下载的问题"></a>解决某些 npm 包无法下载的问题</h3><p>如 electron sass</p>
-<p>修改 <code>~/.npmrc</code>，或当前项目下的<code>.npmrc</code> 文件（如果没有可以新建）增加如下内容</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">registry&#x3D;https:&#x2F;&#x2F;registry.npm.taobao.org</span><br><span class="line">sass_binary_site&#x3D;https:&#x2F;&#x2F;npm.taobao.org&#x2F;mirrors&#x2F;node-sass&#x2F;</span><br><span class="line">phantomjs_cdnurl&#x3D;http:&#x2F;&#x2F;npm.taobao.org&#x2F;mirrors&#x2F;phantomjs</span><br><span class="line">electron_mirror&#x3D;http:&#x2F;&#x2F;npm.taobao.org&#x2F;mirrors&#x2F;electron&#x2F;</span><br><span class="line">chromedriver_cdnurl&#x3D;http:&#x2F;&#x2F;npm.taobao.org&#x2F;mirrors&#x2F;chromedriver</span><br></pre></td></tr></table></figure>
-
-<p>淘宝 npm 镜像 <a target="_blank" rel="noopener" href="https://npm.taobao.org/">https://npm.taobao.org/</a></p>
-<p><a target="_blank" rel="noopener" href="https://npmjs.com/">npm 官网</a><br><a target="_blank" rel="noopener" href="https://www.npmjs.com.cn/">npm 中文文档</a></p>
-<h3 id="npm-基本命令"><a href="#npm-基本命令" class="headerlink" title="npm 基本命令"></a>npm 基本命令</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 更新 npm</span></span><br><span class="line">npm -v|--version</span><br><span class="line">npm install npm@latest -g</span><br><span class="line"></span><br><span class="line"><span class="comment"># nvm : npm Version Manager</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 搜索包</span></span><br><span class="line">npm search &lt;pkg&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装包</span></span><br><span class="line">npm install [&lt;@scope&gt;/]&lt;pkg&gt; <span class="comment"># [&lt;@scope&gt;/] 安装限定范围的包</span></span><br><span class="line">npm install [&lt;@scope&gt;/]&lt;pkg&gt;@&lt;tag&gt;</span><br><span class="line">npm install [&lt;@scope&gt;/]&lt;pkg&gt;@&lt;version&gt;</span><br><span class="line">npm install [&lt;@scope&gt;/]&lt;pkg&gt;@&lt;version range&gt;</span><br><span class="line">npm install &lt;folder&gt;</span><br><span class="line">npm install &lt;tarball file&gt;  <span class="comment"># .tar, .tar.gz, or .tgz</span></span><br><span class="line">npm install &lt;tarball url&gt;</span><br><span class="line">npm install &lt;github usename&gt;/&lt;guthub project&gt;</span><br><span class="line">npm install &lt;git:// url&gt;</span><br><span class="line"></span><br><span class="line">npm install &lt;pkg&gt; -S|--save <span class="comment"># 安装到 dependencies</span></span><br><span class="line">npm install &lt;pkg&gt; -D|--save-dev <span class="comment"># 安装到 devDependencies</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装全局包</span></span><br><span class="line">npm install -g &lt;pkg&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新包</span></span><br><span class="line">npm outdated <span class="comment"># 检查可以更新的模块</span></span><br><span class="line">npm update <span class="comment"># 更新全部本地包</span></span><br><span class="line"><span class="comment"># 更新全局安装的包</span></span><br><span class="line">npm update -g <span class="comment"># 更新全部</span></span><br><span class="line">npm update -g| --global &lt;pkg&gt; <span class="comment"># 更新指定包</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新方式 1</span></span><br><span class="line"><span class="comment"># 手动修改 package.json 中依赖包版本，之后执行</span></span><br><span class="line">npm install --force</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新方式 2 使用第三方插件：</span></span><br><span class="line">npm install -g npm-check-updates</span><br><span class="line">ncu <span class="comment"># 查看可更新包</span></span><br><span class="line">ncu -u <span class="comment"># 更新 package.json</span></span><br><span class="line">npm install <span class="comment"># 升级到最新版本</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除本地包</span></span><br><span class="line">npm uninstall &lt;pkg&gt;</span><br><span class="line">npm uninstall --save &lt;pkg&gt; <span class="comment"># 从 `package.json` 文件中删除依赖</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载全局安装的包</span></span><br><span class="line">npm uninstall -g &lt;pkg&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开官网</span></span><br><span class="line">npm docs|home [&lt;pkg&gt;]</span><br><span class="line"><span class="comment"># 打开源码仓库页面</span></span><br><span class="line">npm repo [&lt;pkg&gt;]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化一个项目，创建一个 package.json 文件，项目名不能为中文</span></span><br><span class="line">npm init</span><br><span class="line"><span class="comment"># 创建默认 package.json 文件 快速的初始化一个项目，会使用文件夹名称作为项目名</span></span><br><span class="line">npm init --yes or -y</span><br></pre></td></tr></table></figure>
-
-<p>简写</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install  可简写成 npm i</span><br><span class="line"></span><br><span class="line">npm uninstall 可简写成 npm uni</span><br></pre></td></tr></table></figure>
-
-<h3 id="npm-修改源"><a href="#npm-修改源" class="headerlink" title="npm 修改源"></a>npm 修改源</h3><p><strong>修改全局配置</strong></p>
-<ul>
-<li>进入~/.npmrc 增加 <code>registry=https://registry.npm.taobao.org</code></li>
-<li>通过命令 <code>npm config set registry http://registry.cnpmjs.org</code></li>
-</ul>
-<p><strong>修改当前项目的 npm 源</strong></p>
-<p>在 <code>package.json</code> 同级目录下创建 <code>.npmrc</code> 文件，增加 <code>registry=https://registry.npm.taobao.org</code></p>
-<p><strong>临时使用指定源下载</strong> <code>npm install jquery --registry=https://registry.npm.taobao.org</code></p>
-<p><strong>使用 nrm 管理源</strong></p>
-<h3 id="npm-配置文件"><a href="#npm-配置文件" class="headerlink" title="npm 配置文件"></a>npm 配置文件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># .npmrc 配置文件位置（~/.npmrc）</span></span><br><span class="line">npm config list</span><br><span class="line"></span><br><span class="line"><span class="comment"># npm 缓存目录，默认 C:\Users\&lt;username&gt;\AppData\Roaming\npm-cache</span></span><br><span class="line">npm config get cache</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除 npm 缓存：注意：如果网速慢的话，会导致下载失败。 再重新下载之前，建议使用该命令，清除刚才下载的缓存，否则有可能一直无法下载成功</span></span><br><span class="line">npm cache clean --force | -f</span><br><span class="line"></span><br><span class="line"><span class="comment"># npm 全局 node 包位置：  默认在 C:\Users\用户名\AppData\Roaming\npm目录下</span></span><br><span class="line">npm config get prefix</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">npm root -g</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改 npm 全局文件位置及缓存文件位置</span></span><br><span class="line">npm config <span class="built_in">set</span> prefix <span class="string">&quot;&lt;new_path&gt;&quot;</span></span><br><span class="line">npm config <span class="built_in">set</span> cache <span class="string">&quot;&lt;new_path&gt;&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="版本号"><a href="#版本号" class="headerlink" title="版本号"></a>版本号</h3><p>使用 NPM 下载和发布代码时都会接触到版本号。NPM 使用语义版本号来管理代码</p>
-<p>语义版本号分为 X.Y.Z 三位，分别代表主版本号、次版本号和补丁版本号。当代码变更时，版本号按以下原则更新。</p>
-<ul>
-<li>如果只是修复 bug，需要更新 Z 位</li>
-<li>如果是新增了功能，但是向下兼容，需要更新 Y 位</li>
-<li>如果有大变动，向下不兼容，需要更新 X 位</li>
-</ul>
-<h3 id="nrm-使用"><a href="#nrm-使用" class="headerlink" title="nrm 使用"></a>nrm 使用</h3><p>nrm：npm registry manager（npm 仓库地址管理工具）</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看配置列表，带 `*` 号即为当前使用的配置</span></span><br><span class="line">nrm ls</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换源</span></span><br><span class="line">nrm use 源的别名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加源</span></span><br><span class="line">nrm add 别名 地址</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测速</span></span><br><span class="line">nrm <span class="built_in">test</span> 别名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除源</span></span><br><span class="line">nrm del 别名</span><br></pre></td></tr></table></figure>
-
-<h3 id="查看项目安装了那些包"><a href="#查看项目安装了那些包" class="headerlink" title="查看项目安装了那些包"></a>查看项目安装了那些包</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm list --depth=0 [--dev | --production]</span><br><span class="line">npm list --depth=0</span><br></pre></td></tr></table></figure>
-
-<p>–depth 表示深度，我们使用的模块会有依赖，深度为零的时候，不会显示依赖模块</p>
-<h3 id="查看全局安装的包"><a href="#查看全局安装的包" class="headerlink" title="查看全局安装的包"></a>查看全局安装的包</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm list --depth=0 --global</span><br></pre></td></tr></table></figure>
-
-<h3 id="package-json-文件"><a href="#package-json-文件" class="headerlink" title="package.json 文件"></a>package.json 文件</h3><p>package.json 文件，包（项目）描述文件，用来管理组织一个包（项目），它是一个纯 JSON 格式的</p>
-<ul>
-<li>作用：描述当前项目（包）的信息，描述当前包（项目）的依赖项</li>
-<li>如何生成：<code>npm init</code>或者<code>npm init -y</code></li>
-<li>作用<ul>
-<li>作为一个标准的包，必须要有<code>package.json</code>文件进行描述</li>
-<li>一个项目的 node_modules 目录通常都会很大，不用拷贝 node_modules 目录，可以通过 package.json 文件配合<code>npm install</code> 直接安装项目所有的依赖项</li>
-</ul>
-</li>
-<li>描述内容</li>
-</ul>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;myproject&quot;</span>, <span class="comment">// 描述了包的名字，不能有中文</span></span><br><span class="line">  <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;1.0.0&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;description&quot;</span>: <span class="string">&quot;&quot;</span>, <span class="comment">// 包的描述信息</span></span><br><span class="line">  <span class="attr">&quot;main&quot;</span>: <span class="string">&quot;index.js&quot;</span>, <span class="comment">// 入口文件</span></span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">    <span class="comment">// 配置一些脚本</span></span><br><span class="line">    <span class="attr">&quot;test&quot;</span>: <span class="string">&quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">&quot;keywords&quot;</span>: [], <span class="comment">// 关键字（方便搜索）</span></span><br><span class="line">  <span class="attr">&quot;author&quot;</span>: <span class="string">&quot;&quot;</span>, <span class="comment">// 作者信息</span></span><br><span class="line">  <span class="attr">&quot;license&quot;</span>: <span class="string">&quot;ISC&quot;</span>, <span class="comment">// 许可证，开源协议</span></span><br><span class="line">  <span class="attr">&quot;dependencies&quot;</span>: &#123;</span><br><span class="line">    <span class="comment">// 项目依赖</span></span><br><span class="line">    <span class="attr">&quot;bootstrap&quot;</span>: <span class="string">&quot;^3.3.7&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;jquery&quot;</span>: <span class="string">&quot;^3.3.1&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>注意：一个合法的 package.json，必须要有 name 和 version 两个属性</strong></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/236.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="cuilongjin">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/236.html" class="post-title-link" itemprop="url">telegram ss ip 名单</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-06-30 00:00:49" itemprop="dateCreated datePublished" datetime="2019-06-30T00:00:49+00:00">2019-06-30</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-19 09:49:50" itemprop="dateModified" datetime="2020-12-19T09:49:50+00:00">2020-12-19</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/236.html" class="post-meta-item leancloud_visitors" data-flag-title="telegram ss ip 名单" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">91.108.56.0&#x2F;22</span><br><span class="line">91.108.4.0&#x2F;22</span><br><span class="line">109.239.140.0&#x2F;24</span><br><span class="line">149.154.160.0&#x2F;20</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/234.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="cuilongjin">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/234.html" class="post-title-link" itemprop="url">如何注册美区 PayPal 并绑定美区 Apple ID，以及风控的解决方案</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-06-30 00:00:40" itemprop="dateCreated datePublished" datetime="2019-06-30T00:00:40+00:00">2019-06-30</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-19 09:49:50" itemprop="dateModified" datetime="2020-12-19T09:49:50+00:00">2020-12-19</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/234.html" class="post-meta-item leancloud_visitors" data-flag-title="如何注册美区 PayPal 并绑定美区 Apple ID，以及风控的解决方案" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><a target="_blank" rel="noopener" href="http://jolson.xyz/2018/11/22/reg-us-pp/">原文</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/page/9/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/archives/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/14/">14</a><a class="extend next" rel="next" href="/archives/page/11/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/archives/page/9/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/archives/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/15/">15</a><a class="extend next" rel="next" href="/archives/page/11/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 

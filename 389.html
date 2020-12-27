@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.2.0">
+<meta name="generator" content="Hexo 5.3.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-logo.png">
@@ -34,7 +34,7 @@
 <meta property="og:description" content="移动 web 基础移动端开发现状 移动 web 开发指的是需要适配移动设备的网页开发 移动 web 开发与 pc 端 web 开发没有本质的区别，使用的还是 HTML&#x2F;CSS&#x2F;JavaScript 的技术 移动 web 开发与 pc 端 web 开发的区别是什么？  移动端的浏览器与 pc 端不同 谷歌浏览器 苹果浏览器、 UC浏览器 QQ浏览器 欧朋浏览器 百度手机浏览器  360安全浏览器">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2018-12-11T22:05:45.000Z">
-<meta property="article:modified_time" content="2020-12-19T09:49:50.989Z">
+<meta property="article:modified_time" content="2020-12-27T15:17:12.206Z">
 <meta property="article:author" content="cuilongjin">
 <meta name="twitter:card" content="summary">
 
@@ -251,7 +251,7 @@
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
@@ -330,13 +330,6 @@
 
       <time title="创建时间：2018-12-11 22:05:45" itemprop="dateCreated datePublished" datetime="2018-12-11T22:05:45+00:00">2018-12-11</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-19 09:49:50" itemprop="dateModified" datetime="2020-12-19T09:49:50+00:00">2020-12-19</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -371,10 +364,8 @@
 </ul>
 <p>移动端的浏览器与 pc 端不同</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">谷歌浏览器 苹果浏览器、 UC浏览器 QQ浏览器 欧朋浏览器 百度手机浏览器  360安全浏览器  搜狗浏览器  猎豹浏览器等</span><br><span class="line">国内的手机浏览器都是根据webkit内核修改过来的，国内没有自主研发的内核，国内的操作系统也是基于Android系统修改的。</span><br><span class="line"></span><br><span class="line">因此在移动端，css3 属性只需要加 webkit 前缀即可</span><br></pre></td></tr></table></figure>
-
 <p>移动端设备尺寸不一样(尺寸非常多，碎片化很严重)</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">Android： <span class="number">320</span>*<span class="number">480</span> <span class="number">480</span>*<span class="number">800</span>  <span class="number">540</span>*<span class="number">960</span> <span class="number">720</span>*<span class="number">1280</span> <span class="number">1080</span>*<span class="number">1920</span> 2k屏 4k屏</span><br><span class="line">iphpne：  <span class="number">640</span>*<span class="number">960</span> <span class="number">640</span>*<span class="number">1136</span> <span class="number">750</span>*<span class="number">1334</span> <span class="number">1242</span>*<span class="number">2208</span></span><br></pre></td></tr></table></figure>
-
 <h2 id="移动端开发分类"><a href="#移动端开发分类" class="headerlink" title="移动端开发分类"></a>移动端开发分类</h2><ul>
 <li>原生 app（native app）</li>
 <li>混合 app（Hybrid app）</li>
@@ -455,7 +446,6 @@
 <p>对于那些像素密度高的屏幕，操作系统将多个设备像素划分为一个逻辑像素。屏幕的像素密度越高，就需要更多的设备像素来显示一个设备独立像素。至于将多少设备像素划分为一个逻辑像素，这由操作系统决定</p>
 <p>获取设备的像素比</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">window</span>.devicePixelRatio <span class="comment">// 物理像素 与 css 像素的比值 DPR</span></span><br></pre></td></tr></table></figure>
-
 <p>通过 <code>screen.width/height</code>得到的屏幕宽度和高度就是逻辑分辨率（单位：设备独立像素）</p>
 <h2 id="css-像素与缩放"><a href="#css-像素与缩放" class="headerlink" title="css 像素与缩放"></a>css 像素与缩放</h2><p>在缩放比例为 100% 的情况下，一个 css 像素大小等于一个设备独立像素</p>
 <p>缩放页面的时候，元素的 css 像素数量不会改变，改变的只是每个 css 像素的大小</p>
@@ -470,10 +460,8 @@
 <p>设备像素比 devicePixelRatio：即像素的压缩比例</p>
 <p><strong>结论 ：在移动端为了在高清屏手机上显示得更加细腻，通常会使用更大的图片，比如 2 倍图或者 3 倍图</strong></p>
 <h2 id="视口-viewport"><a href="#视口-viewport" class="headerlink" title="视口 viewport"></a>视口 viewport</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">问题：一个电脑上的网站，在手机端访问，效果是什么样的？</span><br><span class="line"></span><br><span class="line">iPhone5 的设备宽度只有 320px，一张宽度为 640px 的图片在手机端访问，显示的效果是什么？</span><br><span class="line"></span><br><span class="line">1. 在手机端，html的 大小都是 980px，为什么？</span><br><span class="line">这主要是历史原因导致的，因为在移动设备刚流行的时候，网站大多都是pc端的，pc端的页面宽度一般都比较大，移动设备的宽度比较小，如果pc端页面直接在移动端显示的话，页面就会错乱。为了解决这个问题，移动端html的大小直接就定死成了980px（因为早起的pc端网站版心就是980px居多）</span><br><span class="line"></span><br><span class="line">2. 视口</span><br><span class="line">在 pc 端，html 的大小默认是继承了浏览器的宽度，即浏览器多宽，html 的大小就是多宽，但是在移动端，多出来了一个视口的概念（乔布斯）,视口说白了就是介于浏览器与 html 之间的一个东西，视口的宽度默认定死了 980px，因此 html 的宽度默认就是 980px，视口的特点是能够根据设备的宽度进行缩放</span><br><span class="line"></span><br><span class="line">3. 视口设置</span><br><span class="line">对于现在的移动端页面来说，视口默认为 980px 肯定不合适，因为设备宽度不够的话，视口会进行缩放，导致页面展示效果不好看</span><br></pre></td></tr></table></figure>
-
 <p><strong>视口参数设置</strong></p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// width 设置视口的宽度</span></span><br><span class="line"><span class="comment">// width=device-width   设置视口宽度为设备的宽度（常用）</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// initial-scale 设置初始缩放比例</span></span><br><span class="line"><span class="comment">// initial-scale=1.0  表示不缩放</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// user-scalable 设置是否允许用户缩放</span></span><br><span class="line"><span class="comment">// user-scalable=no  不允许用户缩放</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// maximum-scale  设置允许的最大缩放比例</span></span><br><span class="line"><span class="comment">// maximum-scale=1.0  可以不设置，因为都禁止用户缩放了</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// minimum-scale 设置允许最小缩放比</span></span><br><span class="line"><span class="comment">// minimum-scale=1.0  不设置，因为都禁用用户缩放了</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 标准写法：</span></span><br><span class="line"><span class="comment">// 快捷键：  meta:vp + tab键</span></span><br><span class="line">&lt;meta name=<span class="string">&quot;viewport&quot;</span> content=<span class="string">&quot;width=device-width, user-scalable=no, initial-scale=1.0&quot;</span>&gt;</span><br></pre></td></tr></table></figure>
-
 <h2 id="移动端调试问题"><a href="#移动端调试问题" class="headerlink" title="移动端调试问题"></a>移动端调试问题</h2><ol>
 <li>模拟器调试</li>
 <li>真机调试：使用手机进行访问。</li>
@@ -500,7 +488,6 @@
 <p><strong>最后一天会学习 rem 布局，配合 less 非常的方便，并且能够实现完全的自适应，包括字体以及图标等</strong></p>
 <p>经典的流式布局</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. 左侧固定，右侧自适应</span><br><span class="line">2. 右侧固定，左侧自适应</span><br><span class="line">3. 两侧固定，中间自适应（圣杯布局，双飞翼布局）</span><br><span class="line">4. 等分布局</span><br></pre></td></tr></table></figure>
-
 <h1 id="touch-事件"><a href="#touch-事件" class="headerlink" title="touch 事件"></a>touch 事件</h1><p>移动端新增了 4 个与手指触摸相关的事件</p>
 <ul>
 <li><code>touchstart</code>: 手指放到屏幕上时触发</li>
@@ -510,10 +497,8 @@
 </ul>
 <p>每个触摸事件被触发后，会生成一个 event 对象，event 对象中<code>changedTouches</code>会记录手指滑动的信息</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">e.touches <span class="comment">// 当前屏幕上的手指</span></span><br><span class="line">e.targetTouches <span class="comment">// 当前dom元素上的手指。</span></span><br><span class="line">e.changedTouches <span class="comment">// 触摸时发生改变的手指(重点)(如手指离开屏幕)</span></span><br></pre></td></tr></table></figure>
-
 <p>这些列表里的每次触摸由 touch 对象组成，touch 对象里包含着触摸信息，主要属性如下</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// e.changedTouches[0].clientX</span></span><br><span class="line">clientX / clientY <span class="comment">// 触摸点相对浏览器窗口的位置</span></span><br><span class="line">pageX / pageY <span class="comment">// 触摸点相对于页面的位置</span></span><br></pre></td></tr></table></figure>
-
 <p>!&gt; 使用 jquery 注册 touch 类事件时，获取手指使用 <code>e.originalEvent.touchs[0]</code> ，因为 jq 对事件对象进行了封装</p>
 <p>【案例：jdm-滑动轮播图】</p>
 <p>【案例：jdm-区域滚动】</p>
@@ -527,7 +512,6 @@
 <li>子盒子大小一定要超过父盒子的大小</li>
 </ol>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 使用：box为父盒子</span></span><br><span class="line"><span class="keyword">var</span> box = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.box&#x27;</span>)</span><br><span class="line"><span class="keyword">new</span> IScroll(box, &#123;</span><br><span class="line">  scrollX: <span class="literal">false</span>, <span class="comment">// 横向滚动</span></span><br><span class="line">  scrollY: <span class="literal">true</span> <span class="comment">// 纵向滚动</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
 <h1 id="zepto-框架"><a href="#zepto-框架" class="headerlink" title="zepto 框架"></a>zepto 框架</h1><blockquote>
 <p><strong>Zepto</strong>是一个轻量级的<strong>针对现代高级浏览器的 JavaScript 库， **它与 jquery</strong>有着类似的 api**。 如果你会用 jquery，那么你也会用 zepto</p>
 </blockquote>
@@ -540,9 +524,7 @@
 </ul>
 <h2 id="zepto-的基本使用"><a href="#zepto-的基本使用" class="headerlink" title="zepto 的基本使用"></a>zepto 的基本使用</h2><p>zepto 的使用与 jquery 基本一致，zepto 是分模块的，需要某个功能，就需要引入某个 zepto 的文件</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;zepto/zepto.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;zepto/event.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;zepto/fx.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  $(<span class="string">&#x27;.box&#x27;</span>).addClass(<span class="string">&#x27;demo&#x27;</span>)</span><br><span class="line"></span><br><span class="line">  $(<span class="string">&#x27;button&#x27;</span>).on(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="string">&#x27;.box&#x27;</span>).animate(&#123; <span class="attr">width</span>: <span class="number">500</span> &#125;, <span class="number">1000</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
 <h2 id="zepto-的定制"><a href="#zepto-的定制" class="headerlink" title="zepto 的定制"></a>zepto 的定制</h2><p>安装 Nodejs 环境</p>
 <p>1、下载 zepto.js</p>
 <p>2、解压缩</p>
@@ -553,7 +535,6 @@
 <p>8、查看目录 dist 即构建好的 zepto.js</p>
 <h2 id="zepto-手势事件"><a href="#zepto-手势事件" class="headerlink" title="zepto 手势事件"></a>zepto 手势事件</h2><p>zepto 中根据<code>touchstart touchmove touchend</code>封装了一些常用的手势事件，这些事件都是基于 touchstart touchmove touchend 封装</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">tap <span class="comment">// 轻触事件,用于替代移动端的click事件，因为click事件在老版本中会有300ms的延迟</span></span><br><span class="line">swipe <span class="comment">//手指滑动时触发</span></span><br><span class="line">swipeLeft <span class="comment">//左滑</span></span><br><span class="line">swipeRight <span class="comment">//右滑</span></span><br><span class="line">swipeUp <span class="comment">//上滑</span></span><br><span class="line">swipeDown <span class="comment">//下滑</span></span><br></pre></td></tr></table></figure>
-
 <h1 id="响应式"><a href="#响应式" class="headerlink" title="响应式"></a>响应式</h1><h2 id="什么是响应式布局"><a href="#什么是响应式布局" class="headerlink" title="什么是响应式布局"></a>什么是响应式布局</h2><blockquote>
 <p>响应式布局（respond layout）是 Ethan Marcotte 在 2010 年 5 月份提出的一个概念，简而言之，就是<strong>一个网站能够兼容多个终端（手机、平板、pc 电脑、手表）</strong> ——而不是为每个终端做一个特定的版本。这个概念是为解决移动互联网浏览而诞生的</p>
 </blockquote>
@@ -636,17 +617,14 @@
 </tbody></table>
 <h2 id="媒体查询的使用"><a href="#媒体查询的使用" class="headerlink" title="媒体查询的使用"></a>媒体查询的使用</h2><p>需求：</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">  大屏设备(&gt;1200px)   版心：1170px   背景色：红色</span></span><br><span class="line"><span class="comment">  中屏设备(992-1200)  版心：970px    背景色：蓝色</span></span><br><span class="line"><span class="comment">  小屏设备(768-992)   版心：750px    背景色：黄色</span></span><br><span class="line"><span class="comment">  超小屏设备(&lt;768px)  版心：100%     背景色：绿色</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br></pre></td></tr></table></figure>
-
 <p>响应式开发的原理：使用媒体查询实现不同终端的布局和样式的切换</p>
 <p>媒体查询语法：</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 查询屏幕 */</span></span><br><span class="line"><span class="comment">/* screen 和第一个 and 可以省略 */</span></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> 条件 &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 条件的写法 */</span></span><br><span class="line"><span class="comment">/* min-width: 只要屏幕宽度超过这个值的设备样式就能生效 */</span></span><br><span class="line"><span class="comment">/* max-width: 只要屏幕宽度小于这个值的设备样式就能生效 */</span></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width:</span> <span class="number">1200px</span>) &#123;</span><br><span class="line">  <span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">1170px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: red;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width:</span> <span class="number">992px</span>) <span class="keyword">and</span> (<span class="attribute">max-width:</span> <span class="number">1200px</span>) &#123;</span><br><span class="line">  <span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">970px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: blue;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width:</span> <span class="number">768px</span>) <span class="keyword">and</span> (<span class="attribute">max-width:</span> <span class="number">992px</span>) &#123;</span><br><span class="line">  <span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">750px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: yellow;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">max-width:</span> <span class="number">768px</span>) &#123;</span><br><span class="line">  <span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: green;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h1 id="bootstrap-框架"><a href="#bootstrap-框架" class="headerlink" title="bootstrap 框架"></a>bootstrap 框架</h1><p><strong>【项目：微金所】</strong></p>
 <h1 id="REM"><a href="#REM" class="headerlink" title="REM"></a>REM</h1><h2 id="rem-是什么？"><a href="#rem-是什么？" class="headerlink" title="rem 是什么？"></a>rem 是什么？</h2><p><code>rem</code>（font size of the root element）是指相对于<code>根元素</code>的字体大小的单位。它就是一个相对单位。</p>
 <p><code>em</code>（font size of the element）是指相对于 <code>当前元素的字体大小</code> 的单位。它也是一个相对单位。</p>
 <p>它们之间其实很相似，只不过计算的规则一个是依赖根元素，一个是当前元素计算。</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">16px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-class">.em</span> &#123;</span><br><span class="line">  <span class="comment">/* em 的计算方式参照的当前元素的 font-size，如果不设置，默认继承自父盒子 */</span></span><br><span class="line">  <span class="attribute">width</span>: <span class="number">2em</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">2em</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* rem 的计算方式参照的是 html 的 font-size */</span></span><br><span class="line"><span class="selector-tag">div</span><span class="selector-class">.rem</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">2rem</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">2rem</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h2 id="为什么要用-rem？"><a href="#为什么要用-rem？" class="headerlink" title="为什么要用 rem？"></a>为什么要用 rem？</h2><blockquote>
 <p>rem 的主要目的就是解决用于不同屏幕的适配问题。rem 能够等比例的适配所有的屏幕。</p>
 </blockquote>
@@ -659,12 +637,10 @@
 <h2 id="rem-布局"><a href="#rem-布局" class="headerlink" title="rem 布局"></a>rem 布局</h2><p>因为 rem 的基准点是根元素 html 的字体大小，因此我们只需要设置不同屏幕的 html 的 font-size 大小不一样就可以达到不同屏幕的适配了。</p>
 <h3 id="rem-配合媒体查询"><a href="#rem-配合媒体查询" class="headerlink" title="rem 配合媒体查询"></a>rem 配合媒体查询</h3><p>使用 rem 配合媒体查询可以适配多个终端</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line">@media(min-width: 320px) &#123;</span><br><span class="line">  <span class="selector-tag">html</span> &#123;</span><br><span class="line">    <span class="comment">/* 基准值 / 设计图的大小  = 某个屏幕的font-size / 屏幕的宽度 */</span></span><br><span class="line">    <span class="comment">/* 100/750 = x/370 */</span></span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">50px</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
 <p>优点：使用媒体查询适配，速度快。</p>
 <p>缺点：适配多个终端时，需要添加响应的代码。</p>
 <h3 id="rem-配合-javascript"><a href="#rem-配合-javascript" class="headerlink" title="rem 配合 javascript"></a>rem 配合 javascript</h3><p>通过 javascript 获取可视区的宽度，计算 font-size 的值，也可以适配多个终端</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 根据屏幕的大小动态设置 html的 font-size</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">responsive</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> uiWidth = <span class="number">750</span> <span class="comment">// 设计图宽度</span></span><br><span class="line">  <span class="keyword">var</span> base = <span class="number">100</span> <span class="comment">// 设计图中1rem的大小</span></span><br><span class="line">  <span class="comment">// 当前屏幕的大小</span></span><br><span class="line">  <span class="keyword">var</span> pageWidth = <span class="built_in">window</span>.innerWidth</span><br><span class="line">  <span class="keyword">if</span>(pageWidth &gt;= <span class="number">750</span>) &#123;</span><br><span class="line">    pageWidth = <span class="number">750</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(pageWidth &lt;= <span class="number">320</span>) &#123;</span><br><span class="line">    pageWidth = <span class="number">320</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 说白了就是把一个屏幕分成了 7.5 rem</span></span><br><span class="line">  <span class="built_in">document</span>.documentElement.style.fontSize = (base / uiWidth * pageWidth).toFixed(<span class="number">2</span>) + ’px‘</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>优点：直接适配所有的终端</p>
 <p>缺点：必须在页面加载之前设置 html 的 font-size 值，不然会出现文字大小调动的情况。</p>
 <h3 id="rem-配合-flexible-插件"><a href="#rem-配合-flexible-插件" class="headerlink" title="rem 配合 flexible 插件"></a>rem 配合 flexible 插件</h3><ul>
@@ -685,7 +661,6 @@
 </blockquote>
 <p><a target="_blank" rel="noopener" href="http://www.swiper.com.cn/">swiper 中文网</a></p>
 <h1 id="other"><a href="#other" class="headerlink" title="other"></a>other</h1><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="comment">/* 取消链接高亮, 移动端特有的样式  */</span></span><br><span class="line">  <span class="attribute">-webkit-tap-highlight-color</span>: <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
     </div>
 
     

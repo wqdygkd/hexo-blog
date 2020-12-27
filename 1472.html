@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.2.0">
+<meta name="generator" content="Hexo 5.3.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-logo.png">
@@ -48,7 +48,7 @@
 <meta property="og:image" content="https://wqdy.top/wp-content/uploads/2020/05/2020-05-23_18-07-30.png">
 <meta property="og:image" content="https://wqdy.top/wp-content/uploads/2020/05/2020-05-23_18-11-54.png">
 <meta property="article:published_time" content="2020-05-23T19:00:56.000Z">
-<meta property="article:modified_time" content="2020-12-19T09:49:50.981Z">
+<meta property="article:modified_time" content="2020-12-27T15:17:12.198Z">
 <meta property="article:author" content="cuilongjin">
 <meta property="article:tag" content="Google Drive">
 <meta property="article:tag" content="AutoRclone">
@@ -269,7 +269,7 @@
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
@@ -348,13 +348,6 @@
 
       <time title="创建时间：2020-05-23 19:00:56" itemprop="dateCreated datePublished" datetime="2020-05-23T19:00:56+00:00">2020-05-23</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-19 09:49:50" itemprop="dateModified" datetime="2020-12-19T09:49:50+00:00">2020-12-19</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -386,7 +379,6 @@
 <p>如果没有团队盘，可以参考<a href="https://wqdy.top/1207.html">这里</a>自助申请</p>
 <p>本文以 ubuntu 为例，当然直接在本地 Windows 上也是可以的</p>
 <h3 id="安装-Python3"><a href="#安装-Python3" class="headerlink" title="安装 Python3"></a>安装 Python3</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt-get install git python3 python3-pip -y</span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p>若出现如下问题</p>
 <p>Command “python setup.py egg_info” failed with error code 1 in /tmp/pip-build-bx50pf21/progress/<br>You are using pip version 8.1.1, however version 20.1.1 is available.<br>You should consider upgrading via the ‘pip install –upgrade pip’ command.</p>
@@ -394,7 +386,6 @@
 <p><code>pip3 install --upgrade pip</code></p>
 </blockquote>
 <h3 id="安装-AutoRclone"><a href="#安装-AutoRclone" class="headerlink" title="安装 AutoRclone"></a>安装 AutoRclone</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/xyou365/AutoRclone &amp;&amp; <span class="built_in">cd</span> AutoRclone &amp;&amp; pip3 install -r requirements.txt</span><br></pre></td></tr></table></figure>
-
 <h3 id="生成-Service-Accounts"><a href="#生成-Service-Accounts" class="headerlink" title="生成 Service Accounts"></a>生成 Service Accounts</h3><p>打开链接：<a target="_blank" rel="noopener" href="https://developers.google.com/drive/api/v3/quickstart/python">https://developers.google.com/drive/api/v3/quickstart/python</a></p>
 <p>登陆 google 账号，点击 <code>Enable the Drive API</code>，在弹出的页面中勾选 yes ，点击 NEXT，</p>
 <p>稍等片刻，继续点击 CREATE，出现如下页面表示成功</p>
@@ -402,20 +393,16 @@
 <p>点击 <code>DOWNLOAD CLIENT CONFIGUTATION</code> 按钮，下载 <code>credentials.json</code> 文件，然后将下载的 <code>credentials.json</code> 放到 AutoRclone 目录下</p>
 <p>如果你用的是 Xshell 可以使用 rz 来上传文件</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt install lrzsz -y</span><br><span class="line">rz <span class="comment"># 回车会打开窗口，选择文件上传即可</span></span><br><span class="line">rz 文件 <span class="comment"># 下载文件</span></span><br></pre></td></tr></table></figure>
-
 <p>之后分三种情况</p>
 <p>1、之前没有创建过项目</p>
 <p>直接运行：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3 gen_sa_accounts.py --quick-setup 5</span><br></pre></td></tr></table></figure>
-
 <p>以上命令含义：创建 6 个项目（项目0到项目5），开启相关的服务，创建 600 个 service accounts，将 600 个 service accounts 的授权文件下载到 accounts 文件夹下面</p>
 <p>2、已有 N 个项目，需要创建新的</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3 gen_sa_accounts.py --quick-setup 2 --new-only</span><br></pre></td></tr></table></figure>
-
 <p>以上命令含义：额外创建 2 个项目（项目 N+1 到项目 N+2），开启相关的服务，创建 200 个 service accounts（2 个项目，每个项目 100 个），将 200 个 service accounts 的授权文件下载到 accounts 文件夹下面</p>
 <p>3、使用已有项目，不创建新的</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3 gen_sa_accounts.py --quick-setup -1</span><br></pre></td></tr></table></figure>
-
 <p>注意以上命令会覆盖掉已有的 service accounts</p>
 <p>我这里是第一种情况，运行 <code>python3 gen_sa_accounts.py --quick-setup 1</code>，创建两个项目</p>
 <blockquote>
@@ -448,13 +435,12 @@
 <p>如果是 GSuite Admin 账号，可以使用如下方式直接添加进群组</p>
 <ol>
 <li>将生成的json文件保存到 credentials 文件夹中</li>
-<li>在管理控制台中为您的组织创建组。创建群组后，您将拥有一个例如的地址<a href="mailto:&#115;&#97;&#x40;&#121;&#111;&#117;&#x72;&#100;&#111;&#x6d;&#97;&#105;&#110;&#46;&#99;&#111;&#x6d;">&#115;&#97;&#x40;&#121;&#111;&#117;&#x72;&#100;&#111;&#x6d;&#97;&#105;&#110;&#46;&#99;&#111;&#x6d;</a></li>
+<li>在管理控制台中为您的组织创建组。创建群组后，您将拥有一个例如的地址<a href="mailto:&#x73;&#x61;&#64;&#x79;&#111;&#x75;&#114;&#100;&#x6f;&#109;&#x61;&#x69;&#x6e;&#46;&#x63;&#x6f;&#x6d;">&#x73;&#x61;&#64;&#x79;&#111;&#x75;&#114;&#100;&#x6f;&#109;&#x61;&#x69;&#x6e;&#46;&#x63;&#x6f;&#x6d;</a></li>
 <li>运行 <code>python3 add_to_google_group.py -g sa@yourdomain.com</code></li>
 </ol>
 </blockquote>
 <p>对于普通账号，生成 Service Accounts 后，直接运行以下命令：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cat ~/AutoRclone/accounts/*.json | grep <span class="string">&quot;client_email&quot;</span> | awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span>| tr -d <span class="string">&#x27;,&quot;&#x27;</span> | sed <span class="string">&#x27;N;N;N;N;N;N;N;N;N;/^$/d;G&#x27;</span> &gt; ~/email.txt</span><br></pre></td></tr></table></figure>
-
 <p>运行后，会自动提取 Service Accounts 邮箱账户，并保存到 ~/email.txt 文件中，同时还很贴心地每 10 个邮箱账户就隔开一行，方便复制。</p>
 <h4 id="添加到-Google-Group"><a href="#添加到-Google-Group" class="headerlink" title="添加到 Google Group"></a>添加到 Google Group</h4><p>将 email.txt 文件下载到本地</p>
 <p>回到 Group 页面，右上角 管理成员：</p>
@@ -469,7 +455,6 @@
 <p>添加完成后，基本就完成所有设置了</p>
 <h3 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h3><p>首先将 service accounts 加入到目标 Team Drive</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/AutoRclone</span><br><span class="line"><span class="comment"># 将以下 SharedTeamDriveDstID 替换为你团队盘 ID</span></span><br><span class="line">python3 add_to_team_drive.py -d SharedTeamDriveDstID</span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p>查看团队盘 ID：</p>
 <p>打开你的团队盘，查看浏览器上的链接，比如：</p>
@@ -484,7 +469,6 @@
 <li>Linux 环境</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl https://rclone.org/install.sh | sudo bash</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>Windows 环境</li>
 </ul>
@@ -492,23 +476,19 @@
 <p>如若将共享链接（<a target="_blank" rel="noopener" href="https://drive.google.com/drive/u/2/folders/10zOvIf8yBmIuZgBfC3rcDKWHIlODZjXF%EF%BC%89%E9%87%8C%E7%9A%84%E6%96%87%E4%BB%B6%E4%BF%9D%E5%AD%98%E5%88%B0%E8%87%AA%E5%B7%B1%E7%9A%84">https://drive.google.com/drive/u/2/folders/10zOvIf8yBmIuZgBfC3rcDKWHIlODZjXF）里的文件保存到自己的</a> Team Drive 中的 myfolder 文件夹中</p>
 <p>则命令为</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3 rclone_sa_magic.py -s 10zOvIf8yBmIuZgBfC3rcDKWHIlODZjXF -d 0AICYh4X7BkjVUk9PVA -dp myfolder -b 1 -e 600</span><br></pre></td></tr></table></figure>
-
 <p>详细的使用命令可以看这里：<a target="_blank" rel="noopener" href="https://github.com/xyou365/AutoRclone#step-5-start-your-task">https://github.com/xyou365/AutoRclone#step-5-start-your-task</a></p>
 <h4 id="配合-Gclone-使用"><a href="#配合-Gclone-使用" class="headerlink" title="配合 Gclone 使用"></a>配合 Gclone 使用</h4><p>gclone 其实就是 rclone 的加强版，为 Google Drive 操作增加自动切换账户和命令行根目录 id 操作支持，其他功能与原版 rclone 相同</p>
 <h5 id="安装-gclone"><a href="#安装-gclone" class="headerlink" title="安装 gclone"></a>安装 gclone</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash &lt;(wget -qO- https://git.io/gclone.sh)</span><br></pre></td></tr></table></figure>
-
 <p>你可以选择将 gclone 重命名为 rclone，方便使用：cp /usr/bin/gclone /usr/bin/rclone</p>
 <p>以下内容都是以没有重命名为例，如果你进行了重命名，将以下命令中出现的 gclone 改为 rclone</p>
 <h5 id="配置-gclone"><a href="#配置-gclone" class="headerlink" title="配置 gclone"></a>配置 gclone</h5><p>首先需要先记下 /root/AutoRclone/accounts/ 中的其中一个文件：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ls /root/AutoRclone/accounts</span><br></pre></td></tr></table></figure>
-
 <p>回车后会显示很多 .json 后缀的文件名，复制其中一个文件名，记下文件路径，比如：</p>
 <p><code>/root/AutoRclone/accounts/0120894537c1c99c605fe240141af661b44d0c22.json</code></p>
 <p>然后进行 gclone 的配置</p>
 <p>gclone 在使用上跟 rclone 是一致的，配置过程也几乎一样，可以参考 <a target="_blank" rel="noopener" href="https://rclone.org/drive/">https://rclone.org/drive/</a></p>
 <p>运行以下命令进行配置：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gclone config</span><br></pre></td></tr></table></figure>
-
 <p>配置过程中，需要注意的是，当出现 service_account_file 选项时，填入以上记下的 .json 文件</p>
 <p>当出现 service_account_file_path 时，填入 /root/AutoRclone/accounts/</p>
 <p>记住配置的 name：gdrive</p>
@@ -516,7 +496,6 @@
 <h5 id="使用-gclone-复制文件"><a href="#使用-gclone-复制文件" class="headerlink" title="使用 gclone 复制文件"></a>使用 gclone 复制文件</h5><p>作者 Github 提供的文档：<a target="_blank" rel="noopener" href="https://github.com/donwa/gclone/blob/master/README_zh.md">https://github.com/donwa/gclone/blob/master/README_zh.md</a></p>
 <p>复制共享链接文件到团队盘</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gclone copy gdrive:&#123;目录id&#125; gdrive:&#123;目录id&#125; --drive-server-side-across-configs -v</span><br></pre></td></tr></table></figure>
-
 <p>以上命令中:</p>
 <p>gdrive 是你配置 gclone 时设置的 name</p>
 <p>目录 id 是共享链接中链接中的最后部分，比如：<a target="_blank" rel="noopener" href="https://drive.google.com/drive/u/2/folders/1gVAP22Ug5fz0pSe4THZV10078UbNaTob%EF%BC%8C1gVAP22Ug5fz0pSe4THZV10078UbNaTob">https://drive.google.com/drive/u/2/folders/1gVAP22Ug5fz0pSe4THZV10078UbNaTob，1gVAP22Ug5fz0pSe4THZV10078UbNaTob</a> 就是目录 id</p>
@@ -528,13 +507,10 @@
 </blockquote>
 <p>命令使用示例：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gclone copy gdrive:&#123;18SukoSc0ni0nyU779w82eoo_deLKfbZR&#125; gdrive:&#123;1j4z3UH1thdNB8dOhTUgb0uRHxQaDYL1T&#125; --drive-server-side-across-configs -v</span><br></pre></td></tr></table></figure>
-
 <p>目标位置除了使用 id 外，也可以直接使用目录，比如：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gclone copy gdrive:&#123;18SukoSc0ni0nyU779w82eoo_deLKfbZR&#125; gdrive:movie/电影合集 --drive-server-side-across-configs -v</span><br></pre></td></tr></table></figure>
-
 <p>传输本地文件到团队盘</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gclone copy /root/Downloads/xxx gdrive:movie/电影合集 -v</span><br></pre></td></tr></table></figure>
-
 <h3 id="常见报错"><a href="#常见报错" class="headerlink" title="常见报错"></a>常见报错</h3><ul>
 <li>报错 <code>Failed to copy: failed to make directory: googleapi: Error 404: File not found: 1n-Ya6sagIrGskenJIzWcmKE1ATjxeqYx., notFound</code></li>
 </ul>
@@ -545,7 +521,6 @@
 <p>团队盘有限制 40w 文件/文件夹，回收站中的文件也计算在 40w 之内，可以新增团队盘，或删除小文件并删除回收站</p>
 <p>谷歌云端硬盘 API 不公开清空回收站的方法，但它有一个删除方法可以永久删除文件，而不经过回收站</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;developers.google.com&#x2F;drive&#x2F;v2&#x2F;reference&#x2F;files&#x2F;delete</span><br></pre></td></tr></table></figure>
-
     </div>
 
     

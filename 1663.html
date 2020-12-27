@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.2.0">
+<meta name="generator" content="Hexo 5.3.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-logo.png">
@@ -36,7 +36,7 @@
 <meta property="og:image" content="https://wqdy.top/wp-content/uploads/2020/06/HTML%E8%BF%90%E8%A1%8C%E5%8E%9F%E7%90%86.png">
 <meta property="og:image" content="https://wqdy.top/wp-content/uploads/2020/06/PHP%E8%BF%90%E8%A1%8C%E5%8E%9F%E7%90%86.png">
 <meta property="article:published_time" content="2018-10-25T14:42:21.000Z">
-<meta property="article:modified_time" content="2020-12-19T09:49:50.993Z">
+<meta property="article:modified_time" content="2020-12-27T15:17:12.206Z">
 <meta property="article:author" content="cuilongjin">
 <meta property="article:tag" content="php">
 <meta name="twitter:card" content="summary">
@@ -255,7 +255,7 @@
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
@@ -334,13 +334,6 @@
 
       <time title="创建时间：2018-10-25 14:42:21" itemprop="dateCreated datePublished" datetime="2018-10-25T14:42:21+00:00">2018-10-25</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-19 09:49:50" itemprop="dateModified" datetime="2020-12-19T09:49:50+00:00">2020-12-19</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -426,10 +419,8 @@
 <li>相比 CS 架构，性能相对较差，没有那么流畅和稳定</li>
 </ul>
 <h2 id="php-基本语法结构"><a href="#php-基本语法结构" class="headerlink" title="php 基本语法结构"></a>php 基本语法结构</h2><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 避免使用中文目录和中文文件名</span></span><br><span class="line"><span class="comment">// 文件以.php后缀结尾，所有程序包含在<span class="meta">&lt;?php</span> 这里是代码 <span class="meta">?&gt;</span></span></span><br><span class="line"><span class="comment">// php页面无法直接打开需要运行在服务器环境当中</span></span><br><span class="line"><span class="comment">// 末尾必须加分号，不然就报错了（最后一行可以不加分号）</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">  <span class="keyword">echo</span> <span class="string">&quot;hello world&quot;</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
 <p>输出中文乱码问题：如果使用 echo 输出中文，可能会乱码</p>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">  <span class="comment">// 解决中文乱码的问题</span></span><br><span class="line">  header(<span class="string">&quot;content-Type:text/html;charset=utf-8&quot;</span>); <span class="comment">// 返回HTML文档文本并设置编码集</span></span><br><span class="line">  <span class="keyword">echo</span> <span class="string">&quot;hello world&quot;</span>;</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">&quot;&lt;br/&gt;&quot;</span>;</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">&quot;大家好，我是一名摄影工作者&quot;</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
 <h2 id="PHP-运行原理"><a href="#PHP-运行原理" class="headerlink" title="PHP 运行原理"></a>PHP 运行原理</h2><h3 id="HTML-运行原理"><a href="#HTML-运行原理" class="headerlink" title="HTML 运行原理"></a>HTML 运行原理</h3><p><img src="https://wqdy.top/wp-content/uploads/2020/06/HTML%E8%BF%90%E8%A1%8C%E5%8E%9F%E7%90%86.png"></p>
 <ol>
 <li>在浏览器的 URL 地址栏中输入 <a target="_blank" rel="noopener" href="http://www.baidu.com/index.html">www.baidu.com/index.html</a> 地址，点回车。请求就发送给百度服务器。</li>
@@ -457,17 +448,13 @@
 <h3 id="变量操作"><a href="#变量操作" class="headerlink" title="变量操作"></a>变量操作</h3><p><strong>声明变量</strong></p>
 <p>声明变量的时候也一定要同时赋值,否则变量无法声明成功</p>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 变量在声明的时候一定要同时赋值,否则变量无法声明成功</span></span><br><span class="line"><span class="variable">$name</span> = <span class="string">&quot;呵呵&quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$name</span>;</span><br></pre></td></tr></table></figure>
-
 <p><strong>删除变量 unset()</strong></p>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">unset</span>(<span class="variable">$name</span>); <span class="comment">// 销毁指定的变量</span></span><br></pre></td></tr></table></figure>
-
 <p><strong>判断变量是否设置值 isset()</strong></p>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">isset</span>(<span class="variable">$name</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="keyword">isset</span>(<span class="variable">$name</span>); <span class="comment">// 用 echo 打印，如果为 true 会打印出 1 ， 如果为 false 打印空</span></span><br><span class="line">var_dump(<span class="keyword">isset</span>(<span class="variable">$name</span>)); <span class="comment">// 会打印出 bool(true)/bool(false)</span></span><br></pre></td></tr></table></figure>
-
 <p>变量未设置或者设置为 null，返回 false（认为变量没有设置），其余情况全部为 true。一般用来判断变量是否设置，因为变量未设置，无法直接使用。(变量先赋值，在使用！）</p>
 <p><strong>判断变量是否为空 empty()</strong></p>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line">var_dump(<span class="keyword">empty</span>(<span class="variable">$name</span>)); <span class="comment">// 为空打印出 bool(true)，不为空则打印 bool(false)</span></span><br></pre></td></tr></table></figure>
-
 <p>PHP 中认为变量的值为：<code>&quot;&quot;</code>、<code>0</code>、<code>&quot;0&quot;</code>、<code>null</code>、<code>false</code>、<code>[]</code> 时，变量虽然赋值了，但是无实际的意义，为空。</p>
 <h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><blockquote>
 <p>php 数据类型: 8 种数据类型</p>
@@ -476,32 +463,23 @@
 <p>特殊的类型:resource(资源) null</p>
 </blockquote>
 <h3 id="简单数据类型"><a href="#简单数据类型" class="headerlink" title="简单数据类型"></a>简单数据类型</h3><h4 id="输出语句"><a href="#输出语句" class="headerlink" title="输出语句"></a>输出语句</h4><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">//1. echo 输出简单数据类型</span></span><br><span class="line"><span class="comment">//2. print_r 输出数据结构，一般用于输出复杂类型。</span></span><br><span class="line">print_r(<span class="variable">$arr</span>); <span class="comment">// print_r 是一个函数，不要忘记小括号</span></span><br><span class="line"><span class="comment">//3. var_dump 输出完整的数据结构，包括类型，一般用于精准调试</span></span><br><span class="line">var_dump(<span class="variable">$arr</span>);</span><br></pre></td></tr></table></figure>
-
 <h4 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h4><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$str</span> = <span class="string">&quot;php是世界上是最好的语言&quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$str</span>;</span><br></pre></td></tr></table></figure>
-
 <p><strong>字符串连接符</strong></p>
 <p>php 中，<code>+</code> 号只有算数的功能，并不能拼串，拼串使用 <code>.</code></p>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$name</span> = <span class="string">&quot;大象&quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;大家好，我是&quot;</span> . <span class="variable">$name</span> . <span class="string">&quot;，今年18岁&quot;</span>;</span><br></pre></td></tr></table></figure>
-
 <p><strong>php 中的单引号与双引号</strong></p>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">//1. 字符串的定义可以使用单引号，也可以使用双引号</span></span><br><span class="line"><span class="comment">//2. 双引号可以解析变量</span></span><br><span class="line"><span class="comment">//3. 单引号的性能会高于双引号（了解）</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$name</span> = <span class="string">&quot;大象&quot;</span>;</span><br><span class="line"><span class="variable">$desc</span> = <span class="string">&#x27;很帅&#x27;</span>;</span><br><span class="line"><span class="variable">$str</span> = <span class="string">&#x27;$name 很帅&#x27;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$str</span>; <span class="comment">// $name 很帅</span></span><br><span class="line"><span class="variable">$str</span> = <span class="string">&quot;<span class="subst">$name</span> 很帅&quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$str</span>; <span class="comment">// 大象 很帅</span></span><br></pre></td></tr></table></figure>
-
 <h4 id="整数"><a href="#整数" class="headerlink" title="整数"></a>整数</h4><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$num</span> = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$num</span>;</span><br></pre></td></tr></table></figure>
-
 <h4 id="浮点型"><a href="#浮点型" class="headerlink" title="浮点型"></a>浮点型</h4><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$float</span> = <span class="number">11.11</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$float</span>;</span><br></pre></td></tr></table></figure>
-
 <h4 id="布尔类型"><a href="#布尔类型" class="headerlink" title="布尔类型"></a>布尔类型</h4><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$flag</span> = <span class="literal">true</span>;</span><br><span class="line"><span class="comment">// 当布尔类型值为true时，输出1</span></span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$flag</span>;</span><br><span class="line"><span class="variable">$flag</span> = <span class="literal">false</span>;</span><br><span class="line"><span class="comment">// 当布尔类型为false时，输出空字符串</span></span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$flag</span>;</span><br></pre></td></tr></table></figure>
-
 <h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><blockquote>
 <p>在 php 中，数组分为两种，<strong>索引数组</strong> 和 <strong>关联数组</strong></p>
 <p>计算数组长度的方法：count(数组名)；</p>
 </blockquote>
 <p><strong>索引数组（类似与 JS 中的数组）</strong></p>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$arr</span> = <span class="keyword">array</span>(<span class="string">&quot;张飞&quot;</span>,<span class="string">&quot;赵云&quot;</span>,<span class="string">&quot;马超&quot;</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$arr</span>; <span class="comment">// Array // echo 只能打印基本数据类型</span></span><br><span class="line"><span class="comment">// 使用 print_r() 打印</span></span><br><span class="line">print_r(<span class="variable">$arr</span>); <span class="comment">// Array ([0] =&gt; 张飞 [1] =&gt; 赵云 [2] =&gt; 马超)</span></span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$arr</span>[<span class="number">0</span>]; <span class="comment">// 张飞</span></span><br></pre></td></tr></table></figure>
-
 <p><strong>关联数组（类似与 JS 中的对象）</strong></p>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 属性名必须用引号引起来</span></span><br><span class="line"><span class="variable">$arr</span> = <span class="keyword">array</span>(<span class="string">&quot;name&quot;</span>=&gt;<span class="string">&quot;zhangsan&quot;</span>, <span class="string">&quot;age&quot;</span>=&gt;<span class="number">18</span>);</span><br><span class="line">print_r(<span class="variable">$arr</span>); <span class="comment">// Array ( [name] =&gt; zhangsan [age] =&gt; 18 )</span></span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$arr</span>[<span class="string">&quot;name&quot;</span>];</span><br></pre></td></tr></table></figure>
-
 <p><strong>二维数组与多维数组</strong></p>
 <p>数组中的每个元素又是一个数组<br>二维数组的存取元素，需要两次访问，依次确定行和列 <code>$arr[x][y]</code>;</p>
 <blockquote>
@@ -511,25 +489,19 @@
 <p>在 php 以及其他高级语言中，都有类的概念，表示一类对象，跟 js 中构造函数类似。</p>
 </blockquote>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">//定义一个类（类似js的构造函数）</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="variable">$name</span> = <span class="string">&quot;小明&quot;</span>;</span><br><span class="line">  <span class="keyword">private</span> <span class="variable">$sex</span> = <span class="string">&quot;男&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$zs</span> = <span class="keyword">new</span> Person;</span><br><span class="line">print_r(<span class="variable">$zs</span>);</span><br><span class="line"><span class="comment">//打印对象的结构信息 Person Object ([name] =&gt; 小明[sex:Person:private] =&gt; 男 )</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$zs</span>-&gt;name; <span class="comment">// 对象中取值用 -&gt;</span></span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$zs</span>-&gt;sex; <span class="comment">// 私有属性，无法获取</span></span><br></pre></td></tr></table></figure>
-
 <h2 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h2><h3 id="分支结构-if-switch"><a href="#分支结构-if-switch" class="headerlink" title="分支结构(if/switch)"></a>分支结构(if/switch)</h3><p>基本上来说，所有语言的 if..else 语法都是一样</p>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$age</span> = <span class="number">17</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$age</span> &gt;= <span class="number">18</span>) &#123;</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">&quot;终于可以抽烟喝酒烫头了&quot;</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">&quot;哎......&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//===================</span></span><br><span class="line"><span class="keyword">switch</span>(变量)&#123;</span><br><span class="line">	<span class="keyword">case</span> 值<span class="number">1</span>:</span><br><span class="line">		程序块<span class="number">1</span>；</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">case</span> 值<span class="number">2</span>:</span><br><span class="line">		程序块<span class="number">2</span>；</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	...</span><br><span class="line">	<span class="keyword">default</span>:</span><br><span class="line">		程序块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h3 id="循环结构-while-for-do…while"><a href="#循环结构-while-for-do…while" class="headerlink" title="循环结构(while / for / do…while)"></a>循环结构(while / for / do…while)</h3><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span>(判断表达式)&#123;</span><br><span class="line">	程序块;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(赋值表达式; 判断表达式; 步进表达式)&#123;</span><br><span class="line">	程序块;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">do</span>&#123;</span><br><span class="line">	程序块</span><br><span class="line">&#125; <span class="keyword">while</span>(判断表达式)</span><br></pre></td></tr></table></figure>
-
 <p><strong>遍历索引数组</strong></p>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$arr</span> = <span class="keyword">array</span>(<span class="string">&quot;张三&quot;</span>, <span class="string">&quot;李四&quot;</span>, <span class="string">&quot;王五&quot;</span>, <span class="string">&quot;赵六&quot;</span>, <span class="string">&quot;田七&quot;</span>, <span class="string">&quot;王八&quot;</span>);</span><br><span class="line"><span class="comment">// 获取数组的长度： count($arr)</span></span><br><span class="line"><span class="keyword">for</span>(<span class="variable">$i</span> = <span class="number">0</span>; <span class="variable">$i</span> &lt; count(<span class="variable">$arr</span>); <span class="variable">$i</span>++) &#123;</span><br><span class="line">  <span class="keyword">echo</span> <span class="variable">$arr</span>[<span class="variable">$i</span>];</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h3 id="foreach-语句结构"><a href="#foreach-语句结构" class="headerlink" title="foreach 语句结构"></a>foreach 语句结构</h3><blockquote>
 <p>用来遍历数组(关联数组和索引数组均可)。</p>
 </blockquote>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">foreach</span>(<span class="variable">$arr</span> <span class="keyword">as</span> <span class="variable">$key</span> =&gt; <span class="variable">$value</span>)&#123;</span><br><span class="line">	程序体</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$arr</span> <span class="keyword">as</span> <span class="variable">$value</span>)&#123;</span><br><span class="line">	程序体</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p><code>$arr</code> : 要遍历的数组</p>
 <p><code>$key</code>: 键，可以是任意变量名</p>
 <p><code>$value</code>: 值，可以是任意变量名</p>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">//遍历关联数组</span></span><br><span class="line"><span class="variable">$arr</span> = <span class="keyword">array</span>(</span><br><span class="line">  <span class="string">&quot;name&quot;</span>=&gt;<span class="string">&quot;zs&quot;</span>,</span><br><span class="line">  <span class="string">&quot;age&quot;</span>=&gt;<span class="number">18</span>,</span><br><span class="line">  <span class="string">&quot;sex&quot;</span>=&gt;<span class="number">20</span></span><br><span class="line">);</span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$arr</span> <span class="keyword">as</span> <span class="variable">$k</span> =&gt; <span class="variable">$v</span>) &#123;</span><br><span class="line">  <span class="keyword">echo</span> <span class="variable">$k</span> . <span class="string">&quot;=&quot;</span> . <span class="variable">$v</span> . <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><blockquote>
 <p>注意，在 php 中函数不能重复声明</p>
 </blockquote>
@@ -539,18 +511,15 @@
 <li>函数的形参可以设置默认值</li>
 </ol>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    header(<span class="string">&quot;content-Type:text/html;charset=utf-8&quot;</span>);</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">sayHello</span> (<span class="params"><span class="variable">$name</span>=<span class="string">&quot;周杰伦&quot;</span></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;大家好，我是<span class="subst">$name</span>&quot;</span>;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line">        [<span class="keyword">return</span> 返回值;]</span><br><span class="line">    &#125;</span><br><span class="line">    sayHello(); <span class="comment">// 不传参数，会使用默认值</span></span><br><span class="line">    sayHello(<span class="string">&quot;大象&quot;</span>); <span class="comment">// 传参数，默认值不生效</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
 <ol>
 <li>在 php 中函数不能重复声明</li>
 <li>函数体内的变量只在函数体内有效</li>
 <li>函数体外的变量只在函数体外有效</li>
 </ol>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="variable">$age</span> = <span class="number">18</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    	<span class="variable">$name</span> = <span class="string">&#x27;大象&#x27;</span>;</span><br><span class="line">    	<span class="keyword">echo</span> <span class="variable">$name</span>;  <span class="comment">// 有效</span></span><br><span class="line">    	<span class="keyword">echo</span> <span class="variable">$age</span>;  <span class="comment">// 无效</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">fn</span>(<span class="params"></span>)</span>;</span><br><span class="line">	<span class="keyword">echo</span> <span class="variable">$name</span>;  <span class="comment">// 无效</span></span><br><span class="line">  <span class="keyword">echo</span> <span class="variable">$age</span>; <span class="comment">// 有效</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
 <h2 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h2><p>保存不会发生改变的数据(如：3.1415， 路径等)时，最好使用常量。</p>
 <p>常量的使用方法：</p>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line">define(常量名, 常量值, [是否区分大小写]);</span><br><span class="line"><span class="comment">// 默认 false 区分大小写， true 不区分大小写</span></span><br><span class="line">define(<span class="string">&quot;PI&quot;</span>, <span class="number">3.1415</span>, <span class="literal">true</span>);</span><br><span class="line"><span class="keyword">echo</span> PI;</span><br><span class="line"><span class="keyword">echo</span> pi;</span><br></pre></td></tr></table></figure>
-
 <p><strong>注意:</strong> 一般在实际工作中，常量都用大写，<strong>常量不能被重新赋值</strong></p>
 <h2 id="PHP-内置函数"><a href="#PHP-内置函数" class="headerlink" title="PHP 内置函数"></a>PHP 内置函数</h2><h3 id="数学函数"><a href="#数学函数" class="headerlink" title="数学函数"></a>数学函数</h3><ul>
 <li>max(),min() 分别返回一组数的最大值及最小值；</li>
@@ -568,10 +537,8 @@
 </li>
 </ul>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$time</span> = time(); <span class="comment">// 获取时间戳</span></span><br><span class="line"><span class="keyword">echo</span> date(<span class="string">&#x27;Y-m-d H:i:s&#x27;</span>,<span class="variable">$time</span>); <span class="comment">// 格式化时间戳</span></span><br><span class="line"><span class="comment">// Y, m, d, H, i, s 分别代表 年 月 日 时 分 秒</span></span><br></pre></td></tr></table></figure>
-
 <p>默认时区会不太正确, 我们在东八区, 比 0 时区会多八小时</p>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line">路径: D:\phpStudy\php\php<span class="number">-5.4</span><span class="number">.45</span></span><br><span class="line">在php.ini里加上找到date.timezone项，设置date.timezone = <span class="string">&quot;PRC&quot;</span>，重启环境就ok了。</span><br><span class="line">PRC: 中华人民共和国</span><br></pre></td></tr></table></figure>
-
 <h3 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a>字符串函数</h3><ul>
 <li><code>str_replace(查找的值，替换的值，执行替换操作的字符)</code> 字符串替换（会把符合的值全部替换）</li>
 <li><code>trim(字符串);</code> 去除首尾空白字符</li>
@@ -583,10 +550,8 @@
 </ul>
 <h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p><strong>查找数组中是否含有指定内容</strong></p>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// in_array(查找的内容, 数组)   如果查找到返回 true ，查找不到返回 false</span></span><br><span class="line">result = in_array(<span class="variable">$uname</span>, <span class="variable">$arr</span>);</span><br><span class="line"><span class="comment">// 可用来判断用户名是否已存在数据库中</span></span><br></pre></td></tr></table></figure>
-
 <p><strong>从数组中随机获取数据</strong></p>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// array_rand(被操作的数据, 数据长度) 返回一个随机的下标</span></span><br><span class="line"><span class="variable">$arr</span> = array_rand(<span class="variable">$results</span>, <span class="number">2</span>); <span class="comment">// 返回一个数组，随机两个下标</span></span><br><span class="line"><span class="variable">$index</span> = array_rand(<span class="variable">$results</span>, <span class="number">1</span>); <span class="comment">// 返回一个随机的下标</span></span><br><span class="line"><span class="variable">$results</span>[<span class="variable">$index</span>]; <span class="comment">// 用来随机获取数组中的一项</span></span><br></pre></td></tr></table></figure>
-
 <h2 id="页面动态渲染"><a href="#页面动态渲染" class="headerlink" title="页面动态渲染"></a>页面动态渲染</h2><ul>
 <li><p>PHP 本身支持与 HTML 混编</p>
 </li>
@@ -598,11 +563,9 @@
 </li>
 </ul>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">  header(<span class="string">&#x27;content-type:text/html;charset=utf-8&#x27;</span>);</span><br><span class="line">  <span class="keyword">echo</span> <span class="number">2</span>+<span class="number">3</span>;</span><br><span class="line">  <span class="comment">// php的引擎 只会执行php代码块中代码，代码块外面的代码会被忽略最后 服务器会将php执行的结果和代码块外面的内容一起返回给浏览器，由浏览器进行解析</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"><span class="comment">// 在php语法结构外面， 可以写 html ，会直接在浏览器中渲染</span></span><br><span class="line">&lt;a href=<span class="string">&quot;http://www.baidu.com&quot;</span>&gt;百度一下&lt;/a&gt;</span><br></pre></td></tr></table></figure>
-
 <h2 id="include-文件引入"><a href="#include-文件引入" class="headerlink" title="include 文件引入"></a>include 文件引入</h2><p><strong>介绍</strong>：不同的页面中有相同的代码部分，可以将其分离为单个文件。需要调用时，<strong>include 引入对应的文件即可调用</strong>。提高代码的复用率。类似于 js 中 script 标签导入, 可以用于函数复用</p>
 <p><strong>语法</strong></p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 可以是html、php或其他类型的页面</span></span><br><span class="line">include | include_once   <span class="string">&quot;文件的路径&quot;</span></span><br></pre></td></tr></table></figure>
-
 <p><strong>include 与 include_once 区别</strong></p>
 <ul>
 <li>include 可以重复引入文件</li>
@@ -617,12 +580,10 @@
 </li>
 <li><p><code>file_put_contents(path,$str)</code>   将一个字符串写入到一个文件中。(只能存储字符串)</p>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line">file_put_contents(<span class="keyword">string</span> <span class="variable">$file</span>, <span class="keyword">string</span> <span class="variable">$data</span>[, constants flag]);</span><br><span class="line">参数<span class="number">1</span>: 文件路径</span><br><span class="line">参数<span class="number">2</span>: 要写入文件的字符串</span><br><span class="line">参数<span class="number">3</span>: 可选参数，默认不写，新内容覆盖原文件中的内容；FILE_APPEND 是向文件中追加内容</span><br><span class="line">返回值: 写入文件的字符串长度(不用记)</span><br></pre></td></tr></table></figure>
-
+<p>使用 <code>file_put_contents</code> 存储数组的时候，会丢失数据</p>
 </li>
 </ul>
-<p>使用 <code>file_put_contents</code> 存储数组的时候，会丢失数据</p>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$arr</span> = [<span class="string">&#x27;zs&#x27;</span>, <span class="string">&#x27;ls&#x27;</span>, <span class="string">&#x27;ww&#x27;</span>];</span><br><span class="line"><span class="variable">$arr1</span> = [<span class="string">&#x27;name&#x27;</span>=&gt;<span class="string">&#x27;zs&#x27;</span>, <span class="string">&#x27;age&#x27;</span>=&gt;<span class="number">18</span>];</span><br><span class="line">file_put_contents(<span class="string">&quot;02-test.txt&quot;</span>, <span class="variable">$arr</span>); <span class="comment">// zslsww</span></span><br><span class="line">file_put_contents(<span class="string">&quot;02-test.txt&quot;</span>, <span class="variable">$arr1</span>); <span class="comment">// zs18</span></span><br></pre></td></tr></table></figure>
-
 <p>把一个数组，转成一个 json 格式的字符串</p>
 <ul>
 <li><code>json_encode($data)</code> 将 PHP 数组转成 JSON 格式字符串。</li>
@@ -638,7 +599,6 @@
 <li>想要提交表单，不能使用 <code>input:button</code> 必须使用 <code>input:submit</code></li>
 </ol>
 <h3 id="php-获取表单数据"><a href="#php-获取表单数据" class="headerlink" title="php 获取表单数据"></a>php 获取表单数据</h3><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// $_GET 是 PHP 系统提供的一个超全局变量，是一个数组，里面存放了表单通过 get 方式提交的数据</span></span><br><span class="line"><span class="comment">// $_POST 是 PHP 系统提供的一个超全局变量，是一个数组，里面存放了表单通过 post 方式提交的数据</span></span><br></pre></td></tr></table></figure>
-
 <p><strong>get 与 post 的区别</strong></p>
 <ul>
 <li><code>get</code> 方式<br>数据会拼接在 url 地址的后面 (?username=pp&amp;password=123456)<br>地址栏有长度限制，因此 get 方式提交数据大小不会超过 4k</li>
@@ -658,7 +618,6 @@
 <li>文件上传时，通过 <code>$_FILES</code> 才能获取到，这是一个二维数组。</li>
 </ul>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">Array</span></span><br><span class="line">(</span><br><span class="line">  [photo] =&gt; <span class="keyword">Array</span></span><br><span class="line">    (</span><br><span class="line">      [name] =&gt; <span class="number">001.</span>jpg   <span class="comment">// 文件名字</span></span><br><span class="line">      [type] =&gt; image/jpeg  <span class="comment">// 文件类型</span></span><br><span class="line">      <span class="comment">// 上传图片保存的位置</span></span><br><span class="line">      [tmp_name] =&gt; C:\Users\Jepson\AppData\Local\Temp\phpF2A0.tmp</span><br><span class="line">      [<span class="built_in">error</span>] =&gt; <span class="number">0</span>     <span class="comment">// 上传错误码, 错误码为 0 表示没有错误</span></span><br><span class="line">      [size] =&gt; <span class="number">6000</span>   <span class="comment">// 文件大小, 单位字节, 大小 6kb 左右</span></span><br><span class="line">    )</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><p>上传文件时，文件会临时保存在服务器上，如果文件最终没有保存，那么临时文件会被删除，保证服务器安全。</p>
 </li>
@@ -670,14 +629,12 @@
 </li>
 </ul>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 保存图片的完整代码</span></span><br><span class="line"><span class="comment">// 思路:</span></span><br><span class="line"><span class="comment">// 1. 在文件上传成功的情况下, 进行图片的保存   error == 0</span></span><br><span class="line"><span class="comment">// 2. 获取临时文件路径</span></span><br><span class="line"><span class="comment">// 3. 随机生成新的文件名, 注意文件中后缀名是不能改变的</span></span><br><span class="line"><span class="comment">// 4. 根据新的文件名, 转移临时文件</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$file</span> = <span class="variable">$_FILES</span>[<span class="string">&#x27;photo&#x27;</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 判断上传是否成功</span></span><br><span class="line"><span class="keyword">if</span> ( <span class="variable">$file</span>[<span class="string">&#x27;error&#x27;</span>] == <span class="number">0</span> ) &#123; <span class="comment">// 上传成功</span></span><br><span class="line">  <span class="comment">// 1. 获取临时文件路径</span></span><br><span class="line">  <span class="variable">$ftemp</span> = <span class="variable">$file</span>[<span class="string">&#x27;tmp_name&#x27;</span>];</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 2. 随机生成新的文件名, 后缀不能随便起, 要获取一下</span></span><br><span class="line">  <span class="variable">$name</span> = <span class="variable">$file</span>[<span class="string">&#x27;name&#x27;</span>];</span><br><span class="line">  <span class="variable">$text</span> = strrchr(<span class="variable">$name</span>, <span class="string">&#x27;.&#x27;</span>);</span><br><span class="line">  <span class="comment">// 为了防止重复, 生成随机的文件名以当前时间秒数+随机数组成</span></span><br><span class="line">  <span class="variable">$newName</span> = time().rand(<span class="number">10000</span>,<span class="number">99990</span>).<span class="variable">$text</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 3. 进行转存</span></span><br><span class="line">  move_uploaded_file(<span class="variable">$ftemp</span>, <span class="string">&quot;./upload/<span class="subst">$newName</span>&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h2 id="学生信息管理系统-1-0"><a href="#学生信息管理系统-1-0" class="headerlink" title="学生信息管理系统 1.0"></a>学生信息管理系统 1.0</h2><h3 id="基本功能"><a href="#基本功能" class="headerlink" title="基本功能"></a>基本功能</h3><ul>
 <li>学生添加功能</li>
 <li>展示学生信息功能</li>
 <li>删除学生信息</li>
 </ul>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// array_splice(数组, 开始的下标, 截取长度) 将匹配到的数据截取掉，会改变原来的数组</span></span><br><span class="line">array_splice(<span class="variable">$arr</span>, <span class="variable">$_GET</span>[<span class="string">&quot;index&quot;</span>], <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加内容到数组：将 $stuArr 添加到数组 $arr 中</span></span><br><span class="line"><span class="variable">$arr</span>[] = <span class="variable">$stuArr</span>;</span><br></pre></td></tr></table></figure>
-
 <h2 id="Mysql-数据库"><a href="#Mysql-数据库" class="headerlink" title="Mysql 数据库"></a>Mysql 数据库</h2><h3 id="数据库概念"><a href="#数据库概念" class="headerlink" title="数据库概念"></a>数据库概念</h3><p>专门用来存储、管理数据的仓库 英文：Database, DB。</p>
 <h3 id="数据库的分类"><a href="#数据库的分类" class="headerlink" title="数据库的分类"></a>数据库的分类</h3><ul>
 <li><p>关系型数据库: 基于表，表与表之间可以存在关系，可以进行多表查询的存储方式，适合较为复杂的存储</p>
@@ -733,10 +690,9 @@
 <li><p>非关系型数据库: 基于键值对的存储方式，数据之间没有耦合性，特点执行效率高</p>
 <p>如：mongodb</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 类似对象的键值对形式</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;username&quot;</span>: <span class="string">&quot;gblw&quot;</span>,</span><br><span class="line">    <span class="string">&quot;password&quot;</span>: <span class="number">123456</span>,</span><br><span class="line">    <span class="string">&quot;uid&quot;</span>: <span class="number">007</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
+<h3 id="MySQL-数据库软件"><a href="#MySQL-数据库软件" class="headerlink" title="MySQL 数据库软件"></a>MySQL 数据库软件</h3></li>
 </ul>
-<h3 id="MySQL-数据库软件"><a href="#MySQL-数据库软件" class="headerlink" title="MySQL 数据库软件"></a>MySQL 数据库软件</h3><blockquote>
+<blockquote>
 <p>MySQL 数据库软件中可以有多个数据库,每一个数据库中可以有多个表</p>
 </blockquote>
 <h4 id="可视化工具-navicat"><a href="#可视化工具-navicat" class="headerlink" title="可视化工具 navicat"></a>可视化工具 navicat</h4><blockquote>
@@ -801,49 +757,38 @@
 <h3 id="基本用法：增删改查"><a href="#基本用法：增删改查" class="headerlink" title="基本用法：增删改查"></a>基本用法：增删改查</h3><ol>
 <li>插入数据 <code>insert</code></li>
 </ol>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- insert into 表名 (字段列表) values (值列表)</span></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> book (<span class="keyword">name</span>, age, sex) <span class="keyword">values</span> (<span class="string">&#x27;zs&#x27;</span>,<span class="string">&#x27;18&#x27;</span>,<span class="string">&#x27;m&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- insert into 表名 (字段列表) values (值列表)</span></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> book (name, age, sex) <span class="keyword">values</span> (<span class="string">&#x27;zs&#x27;</span>,<span class="string">&#x27;18&#x27;</span>,<span class="string">&#x27;m&#x27;</span>);</span><br></pre></td></tr></table></figure>
 <ol>
 <li>修改数据 <code>update</code></li>
 </ol>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- update 表名 set 字段名称1=值1,字段名称2=值2,... where 条件</span></span><br><span class="line"><span class="comment">-- 如果不加条件会修改表中所有对应的字段</span></span><br><span class="line"><span class="keyword">update</span> book <span class="keyword">set</span> <span class="keyword">name</span>=<span class="string">&#x27;ls&#x27;</span>, age=<span class="string">&#x27;30&#x27;</span> <span class="keyword">where</span> <span class="keyword">id</span>=<span class="number">10</span>;</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- update 表名 set 字段名称1=值1,字段名称2=值2,... where 条件</span></span><br><span class="line"><span class="comment">-- 如果不加条件会修改表中所有对应的字段</span></span><br><span class="line"><span class="keyword">update</span> book <span class="keyword">set</span> name<span class="operator">=</span><span class="string">&#x27;ls&#x27;</span>, age<span class="operator">=</span><span class="string">&#x27;30&#x27;</span> <span class="keyword">where</span> id<span class="operator">=</span><span class="number">10</span>;</span><br></pre></td></tr></table></figure>
 <ol>
 <li>删除数据 <code>delete</code></li>
 </ol>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- delete from 表名 where 条件</span></span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> book <span class="comment">-- 会删除所有数据</span></span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> book <span class="keyword">where</span> <span class="keyword">id</span>=<span class="number">10</span>;</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- delete from 表名 where 条件</span></span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> book <span class="comment">-- 会删除所有数据</span></span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> book <span class="keyword">where</span> id<span class="operator">=</span><span class="number">10</span>;</span><br></pre></td></tr></table></figure>
 <ol>
 <li>查询数据 select</li>
 </ol>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- select 字段列表 from 表名</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">name</span>, age <span class="keyword">from</span> book <span class="comment">-- 只查询表中 name 和 author 的信息</span></span><br><span class="line"><span class="comment">-- select * from 表名 where 条件  * 表示所有字段</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> book <span class="keyword">where</span> <span class="keyword">id</span> = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> book <span class="keyword">where</span> <span class="keyword">name</span>=<span class="string">&#x27;zs&#x27;</span> <span class="keyword">and</span> age=<span class="number">20</span>;</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- select 字段列表 from 表名</span></span><br><span class="line"><span class="keyword">select</span> name, age <span class="keyword">from</span> book <span class="comment">-- 只查询表中 name 和 author 的信息</span></span><br><span class="line"><span class="comment">-- select * from 表名 where 条件  * 表示所有字段</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> book <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">2</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> book <span class="keyword">where</span> name<span class="operator">=</span><span class="string">&#x27;zs&#x27;</span> <span class="keyword">and</span> age<span class="operator">=</span><span class="number">20</span>;</span><br></pre></td></tr></table></figure>
 <h3 id="高级用法"><a href="#高级用法" class="headerlink" title="高级用法"></a>高级用法</h3><ul>
 <li><p><code>where</code> 条件</p>
 <p>查询时，不添加 where 条件, 返回数据表所有行。需要添加限定条件，只返回需要的行。</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- select  字段列表 from  表名 where 条件；</span></span><br><span class="line"><span class="comment">-- 条件 : =, &gt;, &lt;, &gt;=, &lt;=, and, or</span></span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- select  字段列表 from  表名 where 条件；</span></span><br><span class="line"><span class="comment">-- 条件 : =, &gt;, &lt;, &gt;=, &lt;=, and, or</span></span><br></pre></td></tr></table></figure></li>
 <li><p><code>like</code> 模糊匹配  % 通配符</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 查找姓张的人</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> 表名 <span class="keyword">where</span> <span class="keyword">name</span> <span class="keyword">like</span> <span class="string">&#x27;张%&#x27;</span>;​</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 查找姓张的人</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> 表名 <span class="keyword">where</span> name <span class="keyword">like</span> <span class="string">&#x27;张%&#x27;</span>;​</span><br></pre></td></tr></table></figure></li>
 <li><p><code>in</code> 语法：一次查询多个符合条件的数据</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- select * from 表名 where 字段 in (value1,value2,value3);</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> stu <span class="keyword">where</span> <span class="keyword">name</span> <span class="keyword">in</span> (<span class="string">&#x27;zs&#x27;</span>, <span class="string">&#x27;ls&#x27;</span>, <span class="string">&#x27;ww&#x27;</span>); <span class="comment">-- 查找name值为zs, ls, ww 的数据</span></span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- select * from 表名 where 字段 in (value1,value2,value3);</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> stu <span class="keyword">where</span> name <span class="keyword">in</span> (<span class="string">&#x27;zs&#x27;</span>, <span class="string">&#x27;ls&#x27;</span>, <span class="string">&#x27;ww&#x27;</span>); <span class="comment">-- 查找name值为zs, ls, ww 的数据</span></span><br></pre></td></tr></table></figure></li>
 <li><p><code>count()</code> 获取返回数据的总条数</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 查询满足条件数据的总条数</span></span><br><span class="line"><span class="comment">-- select count(*) from 表名 where 条件</span></span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 查询满足条件数据的总条数</span></span><br><span class="line"><span class="comment">-- select count(*) from 表名 where 条件</span></span><br></pre></td></tr></table></figure></li>
 <li><p><code>order</code> 排序</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- select * from 表名 order by  字段名称;   	  	默认升序</span></span><br><span class="line"><span class="comment">-- select * from 表名 order by  age;  -- 按照年龄来排序</span></span><br><span class="line"><span class="comment">-- select * from 表名 order by 字段名称 desc;      desc 表示降序</span></span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- select * from 表名 order by  字段名称;   	  	默认升序</span></span><br><span class="line"><span class="comment">-- select * from 表名 order by  age;  -- 按照年龄来排序</span></span><br><span class="line"><span class="comment">-- select * from 表名 order by 字段名称 desc;      desc 表示降序</span></span><br></pre></td></tr></table></figure></li>
 <li><p><code>limit</code> 对结果集进行截取 一般用于取数据的前几条</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- select *  from  表名  limit 截取的起始索引，截取的长度</span></span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- select *  from  表名  limit 截取的起始索引，截取的长度</span></span><br></pre></td></tr></table></figure></li>
 <li><p>联合查询（多个表联合查询）</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> 字段列表 <span class="keyword">from</span> 表A <span class="keyword">join</span> 表B <span class="keyword">on</span> 表A.字段=表B.字段 <span class="keyword">where</span> 条件</span><br><span class="line"><span class="keyword">join</span> 将表A和表B联合起来</span><br><span class="line"><span class="keyword">on</span> 根据什么字段把表A和表B联合起来</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> *  <span class="keyword">from</span>  teacher  <span class="keyword">join</span> <span class="keyword">class</span>  <span class="keyword">on</span> class.id=teacher.classid;  <span class="comment">-- 老师表和班级表联合查询</span></span><br><span class="line"><span class="keyword">select</span> teacher.*, class.classname  <span class="keyword">from</span>  teacher  <span class="keyword">join</span> <span class="keyword">class</span>  <span class="keyword">on</span> class.id=teacher.classid;   <span class="comment">-- 老师表和班级表联合查询,但只显示老师表的全部内容和班级表的名称</span></span><br><span class="line"><span class="comment">-- 注意: 多表联合查询时,字段要写明是那个表的字段 如  表.字段名</span></span><br></pre></td></tr></table></figure>
-
-</li>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> 字段列表 <span class="keyword">from</span> 表A <span class="keyword">join</span> 表B <span class="keyword">on</span> 表A.字段<span class="operator">=</span>表B.字段 <span class="keyword">where</span> 条件</span><br><span class="line"><span class="keyword">join</span> 将表A和表B联合起来</span><br><span class="line"><span class="keyword">on</span> 根据什么字段把表A和表B联合起来</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span>  <span class="keyword">from</span>  teacher  <span class="keyword">join</span> class  <span class="keyword">on</span> class.id<span class="operator">=</span>teacher.classid;  <span class="comment">-- 老师表和班级表联合查询</span></span><br><span class="line"><span class="keyword">select</span> teacher.<span class="operator">*</span>, class.classname  <span class="keyword">from</span>  teacher  <span class="keyword">join</span> class  <span class="keyword">on</span> class.id<span class="operator">=</span>teacher.classid;   <span class="comment">-- 老师表和班级表联合查询,但只显示老师表的全部内容和班级表的名称</span></span><br><span class="line"><span class="comment">-- 注意: 多表联合查询时,字段要写明是那个表的字段 如  表.字段名</span></span><br></pre></td></tr></table></figure>
+<h2 id="PHP-操作数据库"><a href="#PHP-操作数据库" class="headerlink" title="PHP 操作数据库"></a>PHP 操作数据库</h2></li>
 </ul>
-<h2 id="PHP-操作数据库"><a href="#PHP-操作数据库" class="headerlink" title="PHP 操作数据库"></a>PHP 操作数据库</h2><h3 id="连接数据库基本步骤"><a href="#连接数据库基本步骤" class="headerlink" title="连接数据库基本步骤"></a>连接数据库基本步骤</h3><ol>
+<h3 id="连接数据库基本步骤"><a href="#连接数据库基本步骤" class="headerlink" title="连接数据库基本步骤"></a>连接数据库基本步骤</h3><ol>
 <li>连接数据库</li>
 <li>准备 sql 语句</li>
 <li>执行 sql 语句</li>
@@ -869,12 +814,10 @@
 <li>修改数据库的数据时, 使用变量拼接 SQL 语句=，字段的值为字符串类型时，需要在变量的两侧使用单、双引号包裹。可以将所有的字段外面都使用双引号包含。</li>
 </ul>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 连接数据库</span></span><br><span class="line"><span class="comment">// mysqli_connect(ip地址, 用户名, 密码, 数据库的名称, 端口号);</span></span><br><span class="line"><span class="comment">// 执行结果</span></span><br><span class="line"><span class="comment">//    1. 连接成功, 返回一个数据库连接对象</span></span><br><span class="line"><span class="comment">//    2. 连接失败, 返回 false</span></span><br><span class="line"><span class="comment">// @ 表示错误抑制符, 可以抑制错误的输出</span></span><br><span class="line"><span class="variable">$link</span> = @ mysqli_connect(<span class="string">&#x27;127.0.0.1&#x27;</span>, <span class="string">&#x27;root&#x27;</span>, <span class="string">&#x27;root&#x27;</span>, <span class="string">&#x27;study&#x27;</span>, <span class="number">3306</span>);</span><br><span class="line"><span class="comment">// var_dump($link);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果数据库连接失败</span></span><br><span class="line"><span class="keyword">if</span> ( !<span class="variable">$link</span> ) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;数据库连接失败&quot;</span>；</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 程序结束, die 方法, 终止当前程序执行, 输出一段语句</span></span><br><span class="line">	<span class="keyword">die</span>(<span class="string">&quot;数据库连接失败&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;数据库连接成功&lt;br&gt;&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 准备 sql 语句: 删除一条数据</span></span><br><span class="line"><span class="variable">$sql</span> = <span class="string">&quot;delete from stu where id = 14&quot;</span>;</span><br><span class="line"><span class="variable">$name</span> = <span class="string">&quot;gblw&quot;</span>;</span><br><span class="line"><span class="variable">$age</span> = <span class="number">31</span>;</span><br><span class="line"><span class="variable">$sq2</span> = <span class="string">&quot;insert into stu (name, age) values (&#x27;<span class="subst">$name</span>&#x27;, <span class="subst">$age</span>)&quot;</span>;</span><br><span class="line"><span class="comment">// sql 语句一般用双引号包裹</span></span><br><span class="line"><span class="comment">// 如果语句中含有拼接的变量，需要用单引号包裹</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 让数据库执行 sql 语句, 并分析结果</span></span><br><span class="line"><span class="comment">// mysqli_query(数据库连接对象, 要执行的sql语句)</span></span><br><span class="line"><span class="comment">// 非查询语句：执行成功返回 true, 执行失败返回 false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. 根据结果不同做逻辑判断</span></span><br><span class="line"><span class="keyword">if</span> ( mysqli_query( <span class="variable">$link</span>, <span class="variable">$sql</span> ) ) &#123;</span><br><span class="line">    <span class="comment">// 如果删除的数据不存在，也会返回 true，</span></span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;删除成功&quot;</span>;</span><br><span class="line">&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// sql 语句错误，才会返回 false</span></span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;删除失败&quot;</span>;</span><br><span class="line">    <span class="comment">// mysqli_error 可以查看错误消息</span></span><br><span class="line">    <span class="keyword">echo</span> mysqli_error(<span class="variable">$link</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 查询语句： 成功返回结果集, 失败返回 false</span></span><br><span class="line"><span class="comment">// 数据查询不到也会返回结果集，只是数据条数为 0，sql 语句有错误才会返回 false</span></span><br><span class="line"><span class="variable">$res2</span> = mysqli_query( <span class="variable">$link</span>, <span class="variable">$sq2</span> );</span><br><span class="line"><span class="comment">// $res2 是返回的结果集,是一个对象，表面上看没有我们要的数据,如果我们想要数据,需要调用mysqli_fetch_assoc($res2)去获取</span></span><br><span class="line"><span class="comment">// 结果集中 field_count 表示字段数，num_rows 表示查询到的数据条数</span></span><br><span class="line"><span class="comment">// 注意: mysqli_fetch_assoc($res2)执行一次,只会从结果集中拿一条数据出来(执行几次就拿出几条数据)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. 根据结果不同做逻辑判断</span></span><br><span class="line"><span class="keyword">if</span> ( !<span class="variable">$res</span> ) &#123;</span><br><span class="line">    <span class="keyword">echo</span> mysqli_error( <span class="variable">$link</span> );</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">&#x27;数据库查询失败&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// mysqli_fetch_assoc 查询成功, 从结果集中取数据, 以关联数组的形式返回</span></span><br><span class="line"><span class="comment">// 一次只取一条数据, 如果没取到, 返回 null</span></span><br><span class="line"><span class="variable">$arr</span> = [];</span><br><span class="line"><span class="keyword">while</span>( <span class="variable">$row</span> = mysqli_fetch_assoc( <span class="variable">$res</span> ) ) &#123;</span><br><span class="line">    <span class="comment">// 将值推到数组中</span></span><br><span class="line">    <span class="variable">$arr</span>[] = <span class="variable">$row</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 也可以采用 for 循环遍历</span></span><br><span class="line"><span class="comment">// mysqli_num_rows($res) 方法返回获取到的数据条数 ，</span></span><br><span class="line"><span class="keyword">for</span>(<span class="variable">$i</span> = <span class="number">0</span>; <span class="variable">$i</span> &lt; mysqli_num_rows(<span class="variable">$res</span>); <span class="variable">$i</span>++)&#123;</span><br><span class="line">    <span class="comment">// echo $i;</span></span><br><span class="line">    <span class="variable">$arr</span>[] =  mysqli_fetch_assoc(<span class="variable">$res</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// echo &#x27;&lt;pre&gt;&#x27;;</span></span><br><span class="line"><span class="comment">// print_r($arr);</span></span><br><span class="line"><span class="comment">// echo &#x27;&lt;/pre&gt;&#x27;;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 5. 关闭数据库连接 (挂电话)</span></span><br><span class="line">mysqli_close( <span class="variable">$link</span> );</span><br></pre></td></tr></table></figure>
-
 <h3 id="数据库工具函数的封装"><a href="#数据库工具函数的封装" class="headerlink" title="数据库工具函数的封装"></a>数据库工具函数的封装</h3><blockquote>
 <p>为了提高代码的复用性，把数据增删改的操作封装成一个方法</p>
 </blockquote>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义常量</span></span><br><span class="line">define( <span class="string">&#x27;HOST&#x27;</span>, <span class="string">&#x27;127.0.0.1&#x27;</span> );</span><br><span class="line">define( <span class="string">&#x27;UNAME&#x27;</span>, <span class="string">&#x27;root&#x27;</span> );</span><br><span class="line">define( <span class="string">&#x27;PWD&#x27;</span>, <span class="string">&#x27;root&#x27;</span> );</span><br><span class="line">define( <span class="string">&#x27;DB&#x27;</span>, <span class="string">&#x27;test02&#x27;</span> );</span><br><span class="line">define( <span class="string">&#x27;PORT&#x27;</span>, <span class="number">3306</span> );</span><br><span class="line"></span><br><span class="line"><span class="comment">// 非查询语句封装</span></span><br><span class="line"><span class="comment">// 封装一个执行非查询语句的方法, 提高代码的复用性</span></span><br><span class="line"><span class="comment">// 参数: $sql 要执行的 sql 语句</span></span><br><span class="line"><span class="comment">// 返回值: true / false</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">my_exec</span>(<span class="params"> <span class="variable">$sql</span> </span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 1. 连接数据库</span></span><br><span class="line">  <span class="variable">$link</span> = @ mysqli_connect( HOST, UNAME, PWD, DB, PORT);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>( !<span class="variable">$link</span> ) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&#x27;数据库连接失败&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 2. 准备 sql 语句, 就是传递过来的 $sql</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 3. 执行 sql 语句, 分析结果</span></span><br><span class="line">  <span class="keyword">if</span> ( mysqli_query( <span class="variable">$link</span>, <span class="variable">$sql</span> ) ) &#123;</span><br><span class="line">    <span class="comment">// 执行成功</span></span><br><span class="line">    mysqli_close( <span class="variable">$link</span> ); <span class="comment">// 关闭数据库</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 执行失败</span></span><br><span class="line">    mysqli_close( <span class="variable">$link</span> ); <span class="comment">// 关闭数据库</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 查询语句的封装</span></span><br><span class="line"><span class="comment">// 参数: $sql 要执行的 sql 语句</span></span><br><span class="line"><span class="comment">// 返回值:</span></span><br><span class="line"><span class="comment">//    (1) 成功, 返回数据(二维数组)</span></span><br><span class="line"><span class="comment">//    (2) 失败, 返回 false</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">my_query</span>(<span class="params"> <span class="variable">$sql</span> </span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 1. 建立连接</span></span><br><span class="line">  <span class="variable">$link</span> = @ mysqli_connect( HOST, UNAME, PWD, DB, PORT );</span><br><span class="line">  <span class="keyword">if</span> ( !<span class="variable">$link</span> ) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;数据库连接失败&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 2. 准备 sql 语句 $sql</span></span><br><span class="line">  <span class="comment">// 3. 执行 sql 语句, 分析结果</span></span><br><span class="line">  <span class="variable">$res</span> = mysqli_query( <span class="variable">$link</span>, <span class="variable">$sql</span> );  <span class="comment">// 结果集 或者 false</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> ( !<span class="variable">$res</span> ) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;获取数据失败&lt;br&gt;&quot;</span>;</span><br><span class="line">    <span class="keyword">echo</span> mysqli_error(<span class="variable">$link</span>);</span><br><span class="line">    mysqli_close( <span class="variable">$link</span> );</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 得到结果集, 将结果集的所有内容取出到数组中</span></span><br><span class="line">  <span class="variable">$arr</span> = [];</span><br><span class="line">  <span class="keyword">while</span> ( <span class="variable">$row</span> = mysqli_fetch_assoc(<span class="variable">$res</span>) ) &#123;</span><br><span class="line">    <span class="variable">$arr</span>[] = <span class="variable">$row</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  mysqli_close( <span class="variable">$link</span> );</span><br><span class="line">  <span class="keyword">return</span> <span class="variable">$arr</span>; <span class="comment">// 返回结果数组</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h2 id="学生管理系统-2-0"><a href="#学生管理系统-2-0" class="headerlink" title="学生管理系统 2.0"></a>学生管理系统 2.0</h2><h3 id="基本功能-1"><a href="#基本功能-1" class="headerlink" title="基本功能"></a>基本功能</h3><ul>
 <li>添加学生功能</li>
 <li>展示学生列表功能</li>
@@ -920,7 +863,6 @@
 <li>更新完成后跳转到列表页</li>
 </ol>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">隐藏域表单：和其他表单标签一样，只是看不到而已</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;hidden&quot;</span> <span class="attr">name</span>=<span class="string">&quot;id&quot;</span> <span class="attr">value</span>=<span class="string">&quot;&lt;?php echo $data[&#x27;id&#x27;] ?&gt;&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-
     </div>
 
     

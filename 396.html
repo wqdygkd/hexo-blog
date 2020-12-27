@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.2.0">
+<meta name="generator" content="Hexo 5.3.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-logo.png">
@@ -34,7 +34,7 @@
 <meta property="og:description" content="原生 js 中 for 语句 循环 、遍历数组  可使用 continue 跳出当前循环， break 跳出整个循环 &#x2F;&#x2F; 语法：&#x2F;&#x2F; 1. for循环使用分号分隔&#x2F;&#x2F; 2. for循环有2个分号，两个分号不能少for (初始化语句; 判断语句; 自增语句) &amp;#123;  &#x2F;&#x2F; 循环体&amp;#125;&#x2F;&#x2F; 普通循环for (var i &#x3D; 1; i &lt;&#x3D; 5; i++) &amp;#123;  con">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2018-11-04T22:11:35.000Z">
-<meta property="article:modified_time" content="2020-12-19T09:49:50.989Z">
+<meta property="article:modified_time" content="2020-12-27T15:17:12.202Z">
 <meta property="article:author" content="cuilongjin">
 <meta property="article:tag" content="js">
 <meta property="article:tag" content="遍历">
@@ -253,7 +253,7 @@
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
@@ -332,13 +332,6 @@
 
       <time title="创建时间：2018-11-04 22:11:35" itemprop="dateCreated datePublished" datetime="2018-11-04T22:11:35+00:00">2018-11-04</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-19 09:49:50" itemprop="dateModified" datetime="2020-12-19T09:49:50+00:00">2020-12-19</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -371,22 +364,18 @@
 </blockquote>
 <p><span class='red'>可使用 continue 跳出当前循环， break 跳出整个循环</span></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 语法：</span></span><br><span class="line"><span class="comment">// 1. for循环使用分号分隔</span></span><br><span class="line"><span class="comment">// 2. for循环有2个分号，两个分号不能少</span></span><br><span class="line"><span class="keyword">for</span> (初始化语句; 判断语句; 自增语句) &#123;</span><br><span class="line">  <span class="comment">// 循环体</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 普通循环</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt;= <span class="number">5</span>; i++) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(i)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 遍历数组</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(arr[i])</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 遍历函数的参数(arguments)</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="built_in">arguments</span>.length; i++) &#123;&#125;</span><br></pre></td></tr></table></figure>
-
 <h1 id="原生-js-中数组的-forEach-方法"><a href="#原生-js-中数组的-forEach-方法" class="headerlink" title="原生 js 中数组的 forEach 方法"></a>原生 js 中数组的 forEach 方法</h1><blockquote>
 <p>遍历数组</p>
 </blockquote>
 <p><span class="red">不能用 break continue 语句跳出整个循环</span><br><span class="red">可使用 return 语句跳出当前循环</span></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 语法</span></span><br><span class="line"><span class="comment">// array.forEach (function(item, index, arr), thisArg)</span></span><br><span class="line"><span class="comment">// item 必需。数组中正在处理的当前元素</span></span><br><span class="line"><span class="comment">// index 可选。数组中正在处理的当前元素的索引</span></span><br><span class="line"><span class="comment">// arr 可选。forEach()方法正在操作的数组，就是当前数组</span></span><br><span class="line"><span class="comment">// thisArg 可选。当执行回调函数时用作this的值</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="string">&#x27;zs&#x27;</span>, <span class="string">&#x27;ls&#x27;</span>, <span class="string">&#x27;ww&#x27;</span>]</span><br><span class="line">arr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item, index, arr</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(item)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 返回值: undefined</span></span><br><span class="line"><span class="comment">// 不支持 return 操作输出，return 只用于控制循环是否跳出当前循环</span></span><br></pre></td></tr></table></figure>
-
 <h1 id="原生-js-中-for…in-语句"><a href="#原生-js-中-for…in-语句" class="headerlink" title="原生 js 中 for…in 语句"></a>原生 js 中 for…in 语句</h1><blockquote>
 <p>遍历对象</p>
 </blockquote>
 <p>支持 <code>break</code>, <code>continue</code> 跳出循环</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 语法：</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> obj) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(key) <span class="comment">// 键</span></span><br><span class="line">  <span class="built_in">console</span>.log(obj[key]) <span class="comment">// 值</span></span><br><span class="line">  <span class="built_in">console</span>.log(key + <span class="string">&#x27;==&#x27;</span> + obj[key])</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// in 操作符：判断对象能否访问到该属性（不管这个属性是自己提供的，还是从原型上继承来的），如果可以访问到， 都会返回 true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// console.log(&#x27;name&#x27; in obj) 返回布尔值</span></span><br><span class="line"><span class="keyword">if</span> (<span class="string">&#x27;name&#x27;</span> <span class="keyword">in</span> obj) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;是&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>如果使用 for in 遍历数组，会产生一些问题</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>]</span><br><span class="line">a.name = <span class="string">&#x27;d&#x27;</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> index <span class="keyword">in</span> arr) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(index) <span class="comment">// &#x27;0&#x27;, &#x27;1&#x27;, &#x27;2&#x27;, &#x27;name&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <ol>
 <li>数组的索引值 index 是 String 类型</li>
 <li>会将 expando 属性也遍历出来</li>
@@ -395,7 +384,6 @@
 <p><span class="red">for-in 语法是被设计来遍历普通的“键值对”对象的，不适合用在数组上</span></p>
 <h1 id="es6-for…of-方法"><a href="#es6-for…of-方法" class="headerlink" title="es6 for…of 方法"></a>es6 for…of 方法</h1><p>遍历类数组集合(Array, Map, Set, String, Arguments)</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">const</span> item <span class="keyword">of</span> arr) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(item)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>支持 <code>break</code>, <code>continue</code> 和 <code>throw</code></p>
 <h1 id="for…of-与-for…in-的区别"><a href="#for…of-与-for…in-的区别" class="headerlink" title="for…of 与 for…in 的区别"></a>for…of 与 for…in 的区别</h1><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/for...of">参考 MDN</a></p>
 <p>无论是 for…in 还是 for…of 语句都是迭代一些东西。它们之间的主要区别在于它们的迭代方式。</p>
@@ -405,14 +393,11 @@
 <p>遍历 jQuery 对象集合，为每个匹配的元素执行一个函数</p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 语法：</span></span><br><span class="line">$(selector).each(<span class="function"><span class="keyword">function</span>(<span class="params">index, element</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// index 表示当前元素在所有匹配元素中的索引号</span></span><br><span class="line">  <span class="comment">// element 表示当前元素 dom 对象</span></span><br><span class="line">  <span class="comment">// this 在函数内部，this指向了element</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">$(<span class="string">&#x27;li&#x27;</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params">index, ele</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// $(ele).css(&quot;backgroundColor&quot;, arr[index])</span></span><br><span class="line">  $(<span class="built_in">this</span>).css(<span class="string">&#x27;backgroundColor&#x27;</span>, arr[index])</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
 <h1 id="php-中-foreach-语句"><a href="#php-中-foreach-语句" class="headerlink" title="php 中 foreach 语句"></a>php 中 foreach 语句</h1><blockquote>
 <p>用来遍历数组(关联数组和索引数组均可)。</p>
 </blockquote>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 语法</span></span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$arr</span> <span class="keyword">as</span> <span class="variable">$key</span> =&gt; <span class="variable">$value</span>) &#123;</span><br><span class="line">  <span class="comment">// $arr: 要遍历的数组</span></span><br><span class="line">  <span class="comment">// $key: 键，可以是任意变量名</span></span><br><span class="line">  <span class="comment">// $value: 值，可以是任意变量名</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$arr</span> <span class="keyword">as</span> <span class="variable">$value</span>) &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 遍历关联数组</span></span><br><span class="line"><span class="variable">$arr</span> = <span class="keyword">array</span>(</span><br><span class="line">  <span class="string">&quot;name&quot;</span>=&gt;<span class="string">&quot;zs&quot;</span>,</span><br><span class="line">  <span class="string">&quot;age&quot;</span>=&gt;<span class="number">18</span>,</span><br><span class="line">  <span class="string">&quot;sex&quot;</span>=&gt;<span class="number">20</span></span><br><span class="line">);</span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$arr</span> <span class="keyword">as</span> <span class="variable">$k</span> =&gt; <span class="variable">$v</span>) &#123;</span><br><span class="line">  <span class="keyword">echo</span> <span class="variable">$k</span> . <span class="string">&quot;=&quot;</span> . <span class="variable">$v</span> . <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
     </div>
 
     

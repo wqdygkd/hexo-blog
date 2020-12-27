@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.2.0">
+<meta name="generator" content="Hexo 5.3.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-logo.png">
@@ -246,7 +246,7 @@
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
@@ -298,6 +298,176 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1065.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="cuilongjin">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/1065.html" class="post-title-link" itemprop="url">微信小程序中相关 api 使用 promise</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-03-26 14:43:36" itemprop="dateCreated datePublished" datetime="2020-03-26T14:43:36+00:00">2020-03-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/1065.html" class="post-meta-item leancloud_visitors" data-flag-title="微信小程序中相关 api 使用 promise" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>微信小程序的 API 都是回调函数，一不小心就是回调地狱。我们可以用 Promise 封装下</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> Promisify = <span class="function"><span class="params">f</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">arg = &#123;&#125;</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">      arg.success = <span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        resolve(res)</span><br><span class="line">      &#125;</span><br><span class="line">      arg.fail = <span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        reject(res)</span><br><span class="line">      &#125;</span><br><span class="line">      f(arg)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用</span></span><br><span class="line"><span class="keyword">const</span> Request = Promisify(wx.request)</span><br><span class="line"><span class="keyword">const</span> Login = Promisify(wx.login)</span><br><span class="line">Login().then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (res.code) &#123;</span><br><span class="line">    Request(&#123; <span class="attr">url</span>: <span class="string">&#x27;text.php&#x27;</span> &#125;).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(res)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>相关问题</p>
+<p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/community/develop/doc/00064cc26bc058a6a848f238351c00">wx.request 经 Promise 封装后，如何拿到requestTask</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1060.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="cuilongjin">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/1060.html" class="post-title-link" itemprop="url">在微信小程序中使用 iconfont</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-03-25 17:34:41" itemprop="dateCreated datePublished" datetime="2020-03-25T17:34:41+00:00">2020-03-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/1060.html" class="post-meta-item leancloud_visitors" data-flag-title="在微信小程序中使用 iconfont" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在 <a target="_blank" rel="noopener" href="https://www.iconfont.cn/">iconfont</a> 选择好需要使用的图标，将代码下载，解压后找到 iconfont.css 修改名称为 iocnfont.wxss 放到项目中即可</p>
+<p>使用: Font class 方式</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">icon</span> <span class="attr">class</span>=<span class="string">&quot;iconfont icon-xxx&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">icon</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>将无效的字体引用删除，只保留 base64 引用</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@font-face</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="string">&#x27;iconfont&#x27;</span>;</span><br><span class="line">  <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">&#x27;data:application/x-font-woff2;charset=utf-8;base64,...&#x27;</span>) <span class="built_in">format</span>(<span class="string">&#x27;woff2&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Font class 方式不支持使用彩色图标，且 symbol 方式也无法使用，因为 iconfont.js 中含有操作 dom 的代码，会报错 Cannot read property ‘getElementsByTagName’ of undefined</p>
+<p>如果想引入彩色图标</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/iconfont-cli/mini-program-iconfont-cli">https://github.com/iconfont-cli/mini-program-iconfont-cli</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://wqdy.top/1041.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -324,13 +494,6 @@
 
       <time title="创建时间：2020-03-24 16:21:57" itemprop="dateCreated datePublished" datetime="2020-03-24T16:21:57+00:00">2020-03-24</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-19 09:49:50" itemprop="dateModified" datetime="2020-12-19T09:49:50+00:00">2020-12-19</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -360,12 +523,10 @@
     <div class="post-body" itemprop="articleBody">
           <p>官方文档：<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/devtools/npm.html">https://developers.weixin.qq.com/miniprogram/dev/devtools/npm.html</a></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 初始化</span></span><br><span class="line">npm init</span><br><span class="line"><span class="comment"># 安装包</span></span><br><span class="line">npm install [package]</span><br></pre></td></tr></table></figure>
-
 <p>打开开发者工具，在本地设置中，勾选使用 npm 模块，<br>安装完之后 点击开发者工具中的菜单栏：工具 –&gt; 构建 npm</p>
 <p>会额外生成一个<code>miniprogram_npm</code> 目录 是开发者工具构建 npm 时生成的，可以理解为小程序版的 npm 包。</p>
 <p>在需要的地方引入，以 regenerator 为例</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 引入 regenerator-runtime</span></span><br><span class="line"><span class="keyword">const</span> regeneratorRuntime = <span class="built_in">require</span>(<span class="string">&#x27;regenerator-runtime&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
       
     </div>
 
@@ -417,13 +578,6 @@
 
       <time title="创建时间：2020-03-24 15:47:04" itemprop="dateCreated datePublished" datetime="2020-03-24T15:47:04+00:00">2020-03-24</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-19 09:49:50" itemprop="dateModified" datetime="2020-12-19T09:49:50+00:00">2020-12-19</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -463,13 +617,10 @@
 <p>可以直接使用老版本来解决这个问题，或者修改源码，把 Function 改回去</p>
 <p>直接使用老版本</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install regenerator@0.13.1</span><br></pre></td></tr></table></figure>
-
 <p>如果使用了 npm 模块，之后在需要使用 async 语法的 js 中直接引入即可</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> regeneratorRuntime = <span class="built_in">require</span>(<span class="string">&#x27;regenerator-runtime&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
 <p>如果没有使用 npm 模块，不能直接 require 包名，需要将包提取出来，并引入完整路径</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> regeneratorRuntime = <span class="built_in">require</span>(<span class="string">&#x27;../../libs/regenerator-runtime&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
 <p>参考：<a href="https://wqdy.top/1041.html">微信小程序中使用 npm 包</a></p>
 
       
@@ -523,13 +674,6 @@
 
       <time title="创建时间：2020-03-18 15:22:24" itemprop="dateCreated datePublished" datetime="2020-03-18T15:22:24+00:00">2020-03-18</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-19 09:49:50" itemprop="dateModified" datetime="2020-12-19T09:49:50+00:00">2020-12-19</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -620,13 +764,6 @@
 
       <time title="创建时间：2020-03-18 10:57:43" itemprop="dateCreated datePublished" datetime="2020-03-18T10:57:43+00:00">2020-03-18</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-19 09:49:50" itemprop="dateModified" datetime="2020-12-19T09:49:50+00:00">2020-12-19</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -659,23 +796,17 @@
 </blockquote>
 <p>基础代码(使用 Canvas 2D 接口)</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Component(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    ctx: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">    image: <span class="string">&#x27;&#x27;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    onLoad: <span class="function"><span class="keyword">function</span>(<span class="params">options</span>) </span>&#123;&#125;,</span><br><span class="line">    onReady: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">const</span> query = wx.createSelectorQuery()</span><br><span class="line">      query</span><br><span class="line">        .select(<span class="string">&#x27;#sign&#x27;</span>)</span><br><span class="line">        .fields(&#123; <span class="attr">node</span>: <span class="literal">true</span>, <span class="attr">size</span>: <span class="literal">true</span> &#125;)</span><br><span class="line">        .exec(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(res)</span><br><span class="line">          <span class="keyword">const</span> canvas = res[<span class="number">0</span>].node</span><br><span class="line">          <span class="keyword">const</span> ctx = canvas.getContext(<span class="string">&#x27;2d&#x27;</span>)</span><br><span class="line">          <span class="built_in">console</span>.log(ctx)</span><br><span class="line"></span><br><span class="line">          <span class="keyword">const</span> dpr = wx.getSystemInfoSync().pixelRatio</span><br><span class="line">          canvas.width = res[<span class="number">0</span>].width * dpr</span><br><span class="line">          canvas.height = res[<span class="number">0</span>].height * dpr</span><br><span class="line">          ctx.scale(dpr, dpr)</span><br><span class="line"></span><br><span class="line">          ctx.lineWidth = <span class="number">4</span> <span class="comment">//线条的宽度</span></span><br><span class="line">          ctx.strokeStyle = <span class="string">&#x27;#333&#x27;</span> <span class="comment">//线条的颜色</span></span><br><span class="line">          ctx.lineCap = <span class="string">&#x27;round&#x27;</span> <span class="comment">//定义线条开头和结尾处的形状</span></span><br><span class="line">          ctx.lineJoin = <span class="string">&#x27;bevel&#x27;</span> <span class="comment">// 线条与线条之间的连接方式，该属性有三个属性值：miter（默认值，尖角），bevel（衔接），round（圆角）。</span></span><br><span class="line">          <span class="built_in">this</span>.setData(&#123;</span><br><span class="line">            ctx: ctx</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
 <p>实现手写效果</p>
 <p>使用 catchtouchmove 绑定，默认会阻止页面跟着滑动</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">type</span>=<span class="string">&quot;2d&quot;</span> <span class="attr">id</span>=<span class="string">&quot;sign&quot;</span> <span class="attr">bindtouchstart</span>=<span class="string">&quot;bindtouchstartHandler&quot;</span> <span class="attr">catchtouchmove</span>=<span class="string">&quot;catchtouchmoveHandler&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">bindtouchstartHandler</span>(<span class="params">e</span>)</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (e.type != <span class="string">&#x27;touchstart&#x27;</span>) <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  <span class="keyword">let</span> ctx = <span class="built_in">this</span>.data.ctx</span><br><span class="line">  <span class="comment">//开始本次绘画</span></span><br><span class="line">  ctx.beginPath()</span><br><span class="line">  <span class="comment">//画笔起始点</span></span><br><span class="line">  ctx.moveTo(e.touches[<span class="number">0</span>].x, e.touches[<span class="number">0</span>].y)</span><br><span class="line">&#125;,</span><br><span class="line"><span class="function"><span class="title">catchtouchmoveHandler</span>(<span class="params">e</span>)</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> left = e.currentTarget.offsetLeft</span><br><span class="line">  <span class="keyword">let</span> top = e.currentTarget.offsetTop</span><br><span class="line">  <span class="keyword">let</span> pageX = e.touches[<span class="number">0</span>].pageX</span><br><span class="line">  <span class="keyword">let</span> pageY = e.touches[<span class="number">0</span>].pageY</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> ctx = <span class="built_in">this</span>.data.ctx</span><br><span class="line">  <span class="comment">//根据鼠标路径绘画</span></span><br><span class="line">  ctx.lineTo(pageX - left, pageY - top)</span><br><span class="line">  <span class="comment">//立即渲染</span></span><br><span class="line">  ctx.stroke()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>使用 <code>bindtouchmove</code>，需要单独处理页面跟着滚动的问题</p>
 <p>给 canvas 绑定 bindtouchmove=”touchmoveHandler” 然后绑定空的 catchtouchmove 事件<code>catchtouchmove=&quot;preventTouchmove&quot;</code> 或者直接 <code>catchtouchmove=&quot;ture&quot;</code></p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">type</span>=<span class="string">&quot;2d&quot;</span> <span class="attr">id</span>=<span class="string">&quot;sign&quot;</span> <span class="attr">bindtouchstart</span>=<span class="string">&quot;bindtouchstartHandler&quot;</span> <span class="attr">bindtouchmove</span>=<span class="string">&quot;bindtouchmoveHandler&quot;</span> <span class="attr">catchtouchmove</span>=<span class="string">&quot;preventTouchmove&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">bindtouchstartHandler</span>(<span class="params">e</span>)</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (e.type != <span class="string">&#x27;touchstart&#x27;</span>) <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  <span class="keyword">let</span> ctx = <span class="built_in">this</span>.data.ctx</span><br><span class="line">  <span class="comment">//开始本次绘画</span></span><br><span class="line">  ctx.beginPath()</span><br><span class="line">  <span class="comment">//画笔起始点</span></span><br><span class="line">  ctx.moveTo(e.touches[<span class="number">0</span>].x, e.touches[<span class="number">0</span>].y)</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line"><span class="comment">// bind绑定的事件</span></span><br><span class="line">bindtouchmoveHandler (e) &#123;</span><br><span class="line">  <span class="keyword">let</span> ctx = <span class="built_in">this</span>.data.ctx</span><br><span class="line">  <span class="comment">//根据鼠标路径绘画</span></span><br><span class="line">  ctx.lineTo(e.touches[<span class="number">0</span>].x, e.touches[<span class="number">0</span>].y)</span><br><span class="line">  <span class="comment">//立即渲染</span></span><br><span class="line">  ctx.stroke()</span><br><span class="line">&#125;,</span><br><span class="line">preventTouchmove () &#123;&#125;</span><br></pre></td></tr></table></figure>
-
 <p>保存到相册</p>
 <p>wx.canvasToTempFilePath(Object object, Object this)<br><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/api/canvas/wx.canvasToTempFilePath.html">https://developers.weixin.qq.com/miniprogram/dev/api/canvas/wx.canvasToTempFilePath.html</a></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="comment">// 把当前画布指定区域的内容导出生成指定大小的图片。 canvas2d不需要使用draw方法</span></span><br><span class="line"><span class="function"><span class="title">canvasToTempFilePath</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> query = wx.createSelectorQuery()</span><br><span class="line">    query</span><br><span class="line">      .select(<span class="string">&#x27;#sign&#x27;</span>)</span><br><span class="line">      .fields(&#123; <span class="attr">node</span>: <span class="literal">true</span>, <span class="attr">size</span>: <span class="literal">true</span> &#125;)</span><br><span class="line">      .exec(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// console.log(res)</span></span><br><span class="line">        <span class="keyword">const</span> canvas = res[<span class="number">0</span>].node</span><br><span class="line">        wx.canvasToTempFilePath(&#123;</span><br><span class="line">          x: <span class="number">0</span>,</span><br><span class="line">          y: <span class="number">0</span>,</span><br><span class="line">          fileType: <span class="string">&#x27;jpg&#x27;</span>,</span><br><span class="line">          canvas: canvas,</span><br><span class="line">          <span class="function"><span class="title">success</span>(<span class="params">res</span>)</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(res.tempFilePath) <span class="comment">// 文件临时地址 可以保存到相册或上传</span></span><br><span class="line">            resolve(res.tempFilePath)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line"><span class="comment">// 保存本地</span></span><br><span class="line"><span class="function"><span class="title">saveToAlbum</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">  <span class="built_in">this</span>.canvasToTempFilePath().then(<span class="function"><span class="params">file</span> =&gt;</span> &#123;</span><br><span class="line">    wx.getSetting(&#123;</span><br><span class="line">      <span class="function"><span class="title">success</span>(<span class="params">res</span>)</span> &#123;</span><br><span class="line">        <span class="comment">// 如果没有则获取授权</span></span><br><span class="line">        <span class="keyword">if</span> (!res.authSetting[<span class="string">&#x27;scope.writePhotosAlbum&#x27;</span>]) &#123;</span><br><span class="line">          wx.authorize(&#123;</span><br><span class="line">            scope: <span class="string">&#x27;scope.writePhotosAlbum&#x27;</span>,</span><br><span class="line">            <span class="function"><span class="title">success</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">              wx.saveImageToPhotosAlbum(&#123;</span><br><span class="line">                filePath: file,</span><br><span class="line">                <span class="function"><span class="title">success</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">                  wx.showToast(&#123;</span><br><span class="line">                    title: <span class="string">&#x27;保存成功&#x27;</span></span><br><span class="line">                  &#125;)</span><br><span class="line">                &#125;,</span><br><span class="line">                <span class="function"><span class="title">fail</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">                  wx.showToast(&#123;</span><br><span class="line">                    title: <span class="string">&#x27;保存失败&#x27;</span>,</span><br><span class="line">                    icon: <span class="string">&#x27;none&#x27;</span></span><br><span class="line">                  &#125;)</span><br><span class="line">                &#125;</span><br><span class="line">              &#125;)</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="function"><span class="title">fail</span>(<span class="params"></span>)</span> &#123;&#125;</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="comment">// 有授权直接保存</span></span><br><span class="line">          wx.saveImageToPhotosAlbum(&#123;</span><br><span class="line">            filePath: file,</span><br><span class="line">            <span class="function"><span class="title">success</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">              wx.showToast(&#123;</span><br><span class="line">                title: <span class="string">&#x27;保存成功&#x27;</span></span><br><span class="line">              &#125;)</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="function"><span class="title">fail</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">              wx.showToast(&#123;</span><br><span class="line">                title: <span class="string">&#x27;保存失败&#x27;</span>,</span><br><span class="line">                icon: <span class="string">&#x27;none&#x27;</span></span><br><span class="line">              &#125;)</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
       
     </div>
 
@@ -727,13 +858,6 @@
 
       <time title="创建时间：2020-03-14 15:49:35" itemprop="dateCreated datePublished" datetime="2020-03-14T15:49:35+00:00">2020-03-14</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-19 09:49:50" itemprop="dateModified" datetime="2020-12-19T09:49:50+00:00">2020-12-19</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -816,13 +940,6 @@
 
       <time title="创建时间：2020-03-09 17:13:21" itemprop="dateCreated datePublished" datetime="2020-03-09T17:13:21+00:00">2020-03-09</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-19 09:49:50" itemprop="dateModified" datetime="2020-12-19T09:49:50+00:00">2020-12-19</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -853,7 +970,6 @@
           <h2 id="修改-host-方式"><a href="#修改-host-方式" class="headerlink" title="修改 host 方式"></a>修改 host 方式</h2><p>访问 <a target="_blank" rel="noopener" href="http://tool.chinaz.com/dns">http://tool.chinaz.com/dns</a> 或 <a target="_blank" rel="noopener" href="https://www.ipaddress.com/">https://www.ipaddress.com/</a></p>
 <p>查询以下三个链接的 DNS 解析地址</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">github.com</span><br><span class="line">assets-cdn.github.com</span><br><span class="line">github.global.ssl.fastly.net</span><br></pre></td></tr></table></figure>
-
 <p>找到 TTL 值最小的 IP，修改系统 Hosts 文件</p>
 <p>之后刷新系统 DNS 缓存</p>
 <p>Windows+X 打开系统命令行（管理员身份）或 powershell</p>
@@ -864,11 +980,9 @@
 <h2 id="使用-GitHubDesktop-客户端"><a href="#使用-GitHubDesktop-客户端" class="headerlink" title="使用 GitHubDesktop 客户端"></a>使用 GitHubDesktop 客户端</h2><h2 id="使用代理"><a href="#使用代理" class="headerlink" title="使用代理"></a>使用代理</h2><p>仅仅开代理是不行的，需要单独配置</p>
 <p>如果使用 HTTPS 协议克隆需要如下配置</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 设置代理</span></span><br><span class="line">git config --global http.proxy socks5://127.0.0.1:1080</span><br><span class="line">git config --global https.proxy socks5://127.0.0.1:1080</span><br><span class="line"></span><br><span class="line"><span class="comment">#取消代理</span></span><br><span class="line">git config --global --<span class="built_in">unset</span> http.proxy</span><br><span class="line">git config --global --<span class="built_in">unset</span> https.proxy</span><br></pre></td></tr></table></figure>
-
 <p>使用 SSH 协议克隆需要如下配置</p>
 <p>修改.ssh/config</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">Hostname github.com</span><br><span class="line">ProxyCommand connect -S 127.0.0.1:1080 %h %p</span><br></pre></td></tr></table></figure>
-
 <p>1080 端口换成你本地代理客户端的 socks 端口</p>
 
       
@@ -922,13 +1036,6 @@
 
       <time title="创建时间：2020-03-06 00:10:51" itemprop="dateCreated datePublished" datetime="2020-03-06T00:10:51+00:00">2020-03-06</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-19 09:49:50" itemprop="dateModified" datetime="2020-12-19T09:49:50+00:00">2020-12-19</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -960,10 +1067,8 @@
 <p>举个例子: a.html 和 b.html 两个页面</p>
 <p>a.html</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;b.html&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span>&gt;</span>da<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 <p>b.html</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"><span class="built_in">window</span>.opener.location.href =<span class="string">&quot;http://wqdy.top&quot;</span></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 <p>其中在 <code>a.html</code> 中有个超链接，点击后在新标签页打开 <code>b.html</code>页面，但是发现原 <code>a.html</code> 页面已经变成了其他页面。原因是使用 <code>target=_blank</code> 打开新的窗口时，赋予了新的窗口一些权限可以操作原窗口，其中 <code>window.location</code> 就是一个。</p>
 <p><img src="https://wqdy.top/wp-content/uploads/2020/03/window.opener.png" alt="window.opener对象"></p>
 <p>为了防止 <code>window.opener</code> 被滥用，提高网站的安全性，在使用 <code>targrt=_blank</code> 时需要加上 <code>rel=noopener</code>，同时为了兼容也可以加上 <code>rel=noreferrer</code>。</p>
@@ -1019,13 +1124,6 @@
 
       <time title="创建时间：2020-03-04 23:51:54" itemprop="dateCreated datePublished" datetime="2020-03-04T23:51:54+00:00">2020-03-04</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-19 09:49:50" itemprop="dateModified" datetime="2020-12-19T09:49:50+00:00">2020-12-19</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -1072,7 +1170,6 @@
 </ul>
 <h2 id="小程序项目结构"><a href="#小程序项目结构" class="headerlink" title="小程序项目结构"></a>小程序项目结构</h2><p><strong><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/framework/structure.html">代码构成</a></strong></p>
 <figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">pages/ ---------------- 页面（组件），所有页面都应该放到这个目录中</span><br><span class="line">  index/  ------------- index页面文件夹</span><br><span class="line">    index.js ---------- index页面的逻辑代码</span><br><span class="line">    index.wxml -------- index页面的HTML结构</span><br><span class="line">    index.wxss -------- index页面的CSS样式</span><br><span class="line">    index.json -------- 页面配置（可选）</span><br><span class="line">utils/ ---------------- 公共工具（函数）</span><br><span class="line">app.js ---------------- 入口文件</span><br><span class="line">app.json -------------- 全局配置（包括了小程序的所有页面路径、界面表现、网络超时时间、底部 tab 等）</span><br><span class="line">app.wxss -------------- 全局样式（CSS）</span><br><span class="line">project.config.json --- 开发工具配置（例如ES6转ES5、界面颜色、编译配置等）</span><br></pre></td></tr></table></figure>
-
 <p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/framework/config.html">配置</a></p>
 <p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/reference/configuration/app.html">全局配置</a>: <code>app.json</code> 文件用来对微信小程序进行全局配置，决定页面文件的路径、窗口表现、设置网络超时时间、设置多 tab 等</p>
 <p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/reference/configuration/page.html">页面配置</a> 配置本页面的窗口表现 ， 同全局配置中的 window 项配置，如果页面中的配置与全局配置冲突，是以页面配置为准</p>
@@ -1104,24 +1201,17 @@
 </li>
 </ul>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Page(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    msg: <span class="string">&#x27;hello&#x27;</span>,</span><br><span class="line">    isCheck: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">text</span>&gt;</span>&#123;&#123; msg &#125;&#125;<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">value</span>=<span class="string">&quot;&#123;&#123; msg &#125;&#125;&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">checkbox</span> <span class="attr">checked</span>=<span class="string">&quot;&#123;&#123;isCheck&#125;&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">checkbox</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 <p>绑定数据的具体类型(Booleal)</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 绑定的是字符串 false,转换成布尔值是 true， checkbox 是选中状态 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">checkbox</span> <span class="attr">checked</span>=<span class="string">&quot;false&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">checkbox</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 绑定的是布尔值 false, checkbox 是未选中状态 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">checkbox</span> <span class="attr">checked</span>=<span class="string">&quot;&#123;&#123;false&#125;&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">checkbox</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 绑定的是字符串 false, checkbox 是选中状态 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">checkbox</span> <span class="attr">checked</span>=<span class="string">&quot;&#123;&#123;&#x27;false&#x27;&#125;&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">checkbox</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 <h3 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Page(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    flag: <span class="number">0</span>,</span><br><span class="line">    a: <span class="number">1</span>,</span><br><span class="line">    b: <span class="number">2</span>,</span><br><span class="line">    c: <span class="number">4</span>,</span><br><span class="line">    d: <span class="number">8</span>,</span><br><span class="line">    length: <span class="number">3</span>,</span><br><span class="line">    name: <span class="string">&#x27;zs&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 三元运算 --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- hidden --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">hidden</span>=<span class="string">&quot;&#123;&#123;flag === 0 ? true : false&#125;&#125;&quot;</span>&gt;</span>hidden<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 算数运算 --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 13 + 4 + d --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span>&gt;</span>&#123;&#123; 10 + a + b&#125;&#125; + &#123;&#123;c&#125;&#125; + d<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- checkbox是未选中状态 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">checkbox</span> <span class="attr">checked</span>=<span class="string">&quot;&#123;&#123;a &gt; b&#125;&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">checkbox</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- checkbox是选中状态 --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 花括号与引号间有空格，被解析成字符串 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">checkbox</span> <span class="attr">checked</span>=<span class="string">&quot; &#123;&#123;a &gt; b&#125;&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">checkbox</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 逻辑判断 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">wx:if</span>=<span class="string">&quot;&#123;&#123;length &gt; 5&#125;&#125;&quot;</span>&gt;</span>逻辑判断<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 字符串运算 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span>&gt;</span>&#123;&#123; &#x27;name:&#x27; + name &#125;&#125;<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- name:zs --&gt;</span></span><br></pre></td></tr></table></figure>
-
 <p><strong>注意： 花括号与引号间不要有空格，否则被解析成字符串</strong></p>
 <h3 id="条件渲染"><a href="#条件渲染" class="headerlink" title="条件渲染"></a>条件渲染</h3><p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/reference/wxml/conditional.html">https://developers.weixin.qq.com/miniprogram/dev/reference/wxml/conditional.html</a></p>
 <p><strong>wx:if</strong></p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">wx:if</span>=<span class="string">&quot;&#123;&#123; isLoading &#125;&#125;&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">text</span>&gt;</span>数据加载中...<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">wx:else</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">text</span>&gt;</span>搞定啦~<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 隐藏多个元素，不改变 wxml的层级结构 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">block</span> <span class="attr">wx:if</span>=<span class="string">&quot;&#123;&#123; isLoading &#125;&#125;&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">text</span>&gt;</span>小明<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">text</span>&gt;</span>小红<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">block</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 <p><strong>hidden</strong></p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">hidden</span>=<span class="string">&quot;&#123;&#123; isLoading &#125;&#125;&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">text</span>&gt;</span>搞定啦~<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 
 <h3 id="列表渲染"><a href="#列表渲染" class="headerlink" title="列表渲染"></a>列表渲染</h3><p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/reference/wxml/list.html">https://developers.weixin.qq.com/miniprogram/dev/reference/wxml/list.html</a></p>
 <ul>
@@ -1131,29 +1221,22 @@
 <li>注意：<strong>遍历时，需要添加 <code>wx:key</code> 属性，来提高渲染性能</strong> (<code>wx:key</code> 的值不需要添加 <code>item.</code>)，如 <code>wx:key=&quot;id&quot;</code>，如果 item 本身是一个唯一的字符串或者数字，可以使用保留关键字 <code>*this</code>(代表在 for 循环中的 item 本身) 作为 key 值</li>
 </ul>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">wx:for</span>=<span class="string">&quot;&#123;&#123; list &#125;&#125;&quot;</span> <span class="attr">wx:for-index</span>=<span class="string">&quot;i&quot;</span> <span class="attr">wx:for-item</span>=<span class="string">&quot;v&quot;</span> <span class="attr">wx:key</span>=<span class="string">&quot;id&quot;</span>&gt;</span></span><br><span class="line">  &#123;&#123;i&#125;&#125;: &#123;&#123;v.message&#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 <p>注意：1. 也可以用来渲染一个对象，index 表示 key，item 表示 value。2. 可以用一个 block 标签包裹，将循环写在 block 标签上，且 block 标签并不会渲染到 dom 中</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">block</span> <span class="attr">wx:for</span>=<span class="string">&quot;&#123;&#123;[1, 2, 3]&#125;&#125;&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span>&gt;</span>&#123;&#123;index&#125;&#125;:<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span>&gt;</span>&#123;&#123;item&#125;&#125;<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">block</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 <h2 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h2><p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/reference/wxml/template.html">https://developers.weixin.qq.com/miniprogram/dev/reference/wxml/template.html</a></p>
 <h3 id="定义模板"><a href="#定义模板" class="headerlink" title="定义模板"></a>定义模板</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- name 属性作为模板的名字 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">name</span>=<span class="string">&quot;msgItem&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">text</span>&gt;</span>&#123;&#123;index&#125;&#125;: &#123;&#123;msg&#125;&#125;<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 <p>可以将模板写在单独的一个 wxml 文件中，并通过 import 导入使用</p>
 <h3 id="使用模板"><a href="#使用模板" class="headerlink" title="使用模板"></a>使用模板</h3><p>使用 is 属性，声明需要的使用的模板，然后将模板所需要的 data 传入</p>
 <p>注意：is 属性可以使用 Mustache 语法，来动态决定具体需要渲染哪个模板</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">is</span>=<span class="string">&quot;msgItem&quot;</span> <span class="attr">data</span>=<span class="string">&quot;&#123;&#123;...item&#125;&#125;&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Page(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    item: &#123;</span><br><span class="line">      index: <span class="number">0</span>,</span><br><span class="line">      msg: <span class="string">&#x27;this is a template&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-
 <h3 id="模板的作用域"><a href="#模板的作用域" class="headerlink" title="模板的作用域"></a>模板的作用域</h3><p>模板拥有自己的作用域，只能使用 data 传入的数据以及模板定义文件中定义的 <code>&lt;wxs /&gt;</code> 模块</p>
 <h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/reference/wxml/import.html">https://developers.weixin.qq.com/miniprogram/dev/reference/wxml/import.html</a></p>
 <h3 id="import"><a href="#import" class="headerlink" title="import"></a>import</h3><p><code>import</code>可以在该文件中使用目标文件定义的<code>template</code>，如：</p>
 <p>在 item.wxml 中定义了一个叫<code>item</code>的<code>template</code>：</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- item.wxml --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">name</span>=<span class="string">&quot;item&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">text</span>&gt;</span>&#123;&#123;text&#125;&#125;<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 <p>在 index.wxml 中引用了 item.wxml，就可以使用<code>item</code>模板：</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">import</span> <span class="attr">src</span>=<span class="string">&quot;item.wxml&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">is</span>=<span class="string">&quot;item&quot;</span> <span class="attr">data</span>=<span class="string">&quot;&#123;&#123;text: &#x27;forbar&#x27;&#125;&#125;&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-
 <p>import 有作用域的概念，即只会 import 目标文件中定义的 template，而不会 import 目标文件 import 的 template。</p>
 <h3 id="include"><a href="#include" class="headerlink" title="include"></a>include</h3><p><code>include</code> 可以将目标文件<strong>除了</strong> <code>&lt;template/&gt;</code> <code>&lt;wxs/&gt;</code> 外的整个代码引入，相当于是拷贝到 <code>include</code> 位置</p>
 <h2 id="WXSS"><a href="#WXSS" class="headerlink" title="WXSS"></a>WXSS</h2><p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxss.html">WXSS(WeiXin Style Sheets)</a>，用于描述 WXML 的组件样式</p>
@@ -1168,12 +1251,10 @@
 </ul>
 <p>WXSS 中的注释需要使用多行注释</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* */</span></span><br></pre></td></tr></table></figure>
-
 <p>全局样式、局部样式： app.wxss page.wxss</p>
 <p>动态样式：<br>style 接收动态的样式，在运行时会进行解析，请尽量避免将静态的样式写进 style 中，以免影响渲染速度。</p>
 <p>如果通过 wxss 使用背景图片，不能使用本地资源图片，可以使用网络图片，或者 base64；推荐使用<code>&lt;image/&gt;</code>标签来展示图片</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">style</span>=<span class="string">&quot;color:&#123;&#123;color&#125;&#125;;&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">&quot;&#123;&#123;myclass&#125;&#125;&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-
 <p>选择器</p>
 <p>目前支持的选择器有：<code>.class</code> <code>#id</code> <code>element</code> <code>::after</code> <code>::before</code></p>
 <h2 id="基本组件"><a href="#基本组件" class="headerlink" title="基本组件"></a>基本组件</h2><p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/component/">https://developers.weixin.qq.com/miniprogram/dev/component/</a></p>
@@ -1303,24 +1384,19 @@
 <p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/api/route/wx.navigateTo.html">wx.navigateTo</a> ，保留当前页面，跳转到应用内的某个页面。但是不能跳到 tabbar 页面。<br><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/api/route/wx.redirectTo.html">wx.redirectTo</a> 的功能，关闭当前页面，跳转到应用内的某个页面。但是不允许跳转到 tabbar 页面。<br><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/api/route/wx.switchTab.html">wx.switchTab</a> 的功能，跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面<br><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/api/route/wx.reLaunch.html">wx.reLaunch</a> 的功能，关闭所有页面，打开到应用内的某个页面<br><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/api/route/wx.navigateBack.html">wx.navigateBack</a> 的功能，关闭当前页面，返回上一页面或多级页面。可通过 <code>getCurrentPages</code> 获取当前的页面栈，决定需要返回几层。<br><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/reference/api/getCurrentPages.html">getCurrentPages</a></p>
 <p>url 可以使用绝对路径或相对路径，使用绝对路径时需要添加 <code>/</code></p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">navigator</span> <span class="attr">url</span>=<span class="string">&quot;/pages/index/index&quot;</span> <span class="attr">open-type</span>=<span class="string">&quot;navigate&quot;</span>&gt;</span>sdfsf<span class="tag">&lt;/<span class="name">navigator</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">navigator</span> <span class="attr">url</span>=<span class="string">&quot;./index/index&quot;</span> <span class="attr">open-type</span>=<span class="string">&quot;navigate&quot;</span>&gt;</span>sdfsf<span class="tag">&lt;/<span class="name">navigator</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 <h2 id="自定义组件"><a href="#自定义组件" class="headerlink" title="自定义组件"></a>自定义组件</h2><p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/">https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/</a><br><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/reference/api/Component.html">https://developers.weixin.qq.com/miniprogram/dev/reference/api/Component.html</a></p>
 <p>普通页面也可以使用 Component 构造器来创建，提供 <a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/observer.html">observers</a> 支持数据监听，类似 vue 中的 watch</p>
 <p>还可以扩展 <a target="_blank" rel="noopener" href="https://github.com/wechat-miniprogram/computed">conputed</a>，类似 vue 计算属性</p>
 <h2 id="数据操作"><a href="#数据操作" class="headerlink" title="数据操作"></a>数据操作</h2><p><strong>全局数据</strong></p>
 <p>app.js</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">App(&#123;</span><br><span class="line">  globalData: &#123;</span><br><span class="line">    url: <span class="string">&#x27;hhh&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
 <p>在 app.js 文件中，直接使用</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">this</span>.globalData.url <span class="comment">// 获取</span></span><br><span class="line"><span class="built_in">this</span>.globalData.url = <span class="string">&#x27;qqq&#x27;</span> <span class="comment">// 修改</span></span><br></pre></td></tr></table></figure>
-
 <p>在其他非 app.js 文件中使用</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> App = getApp()</span><br><span class="line"><span class="keyword">let</span> url = App.globalData.url <span class="comment">// 获取</span></span><br><span class="line">App.globalData.url = <span class="string">&#x27;hhh&#x27;</span> <span class="comment">// 修改</span></span><br><span class="line">App.globalData.name = <span class="string">&#x27;zs&#x27;</span> <span class="comment">// 添加</span></span><br></pre></td></tr></table></figure>
-
 <p><strong>页面内数据</strong></p>
 <p>获取数据</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">getMsg () &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.data.msg) <span class="comment">// 和 vue 中的不同</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>修改数据</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/debug/wxadoc/dev/framework/app-service/page.html">setData</a></li>
@@ -1332,15 +1408,12 @@
 </li>
 </ul>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">changeMsg () &#123;</span><br><span class="line">  <span class="built_in">this</span>.setData(&#123;</span><br><span class="line">    name: <span class="string">&quot;jack&quot;</span></span><br><span class="line">  &#125;, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 回调函数</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>注意：小程序中的数据不是双向绑定的，而是单向的！！！所以，无法直接修改 data 中的数据来将数据的变化显示在页面中，即通过 <code>this.data.msg = &#39;修改后的数据&#39;</code> 方式修改数据后，页面中不会显示该数据的变化</p>
 <ul>
 <li>文本框操作：</li>
 </ul>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">value</span>=<span class="string">&quot;&#123;&#123; input &#125;&#125;&quot;</span> <span class="attr">bindinput</span>=<span class="string">&quot;inputChangeHandle&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Page(&#123;</span><br><span class="line">  inputChangeHandle: <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.setData(&#123; <span class="attr">input</span>: e.detail.value &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
 <h2 id="事件处理"><a href="#事件处理" class="headerlink" title="事件处理"></a>事件处理</h2><p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxml/event.html">https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxml/event.html</a></p>
 <ul>
 <li>绑定事件：<code>bindtap</code>、<code>catchtap</code></li>
@@ -1355,13 +1428,10 @@
 </li>
 </ul>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">bindtap</span>=<span class="string">&quot;sayHi&quot;</span> <span class="attr">data-msg</span>=<span class="string">&quot;zs&quot;</span>&gt;</span>按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Page(&#123;</span><br><span class="line">  <span class="function"><span class="title">sayHi</span>(<span class="params">event</span>)</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(event)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;单击事件触发了&#x27;</span>, event.currentTarget.dataset.msg)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
 <h2 id="WXS"><a href="#WXS" class="headerlink" title="WXS"></a>WXS</h2><p>作用： 辅助构建页面结构的</p>
 <p>不支持 es6 语法</p>
 <figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">&lt;!-- 语法结构 --&gt;</span><br><span class="line">&lt;wxs module=&quot;tools&quot;&gt;</span><br><span class="line">  function fn (arg) &#123;</span><br><span class="line">    return arg + 10</span><br><span class="line">  &#125;</span><br><span class="line">  // 导出一个对象</span><br><span class="line">  module.exports = &#123; fn: fn &#125;</span><br><span class="line">&lt;/wxs&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 使用 --&gt;</span><br><span class="line">&lt;view&gt;使用wxs：&#123;&#123; tools.fn(8) &#125;&#125;&lt;/view&gt;</span><br></pre></td></tr></table></figure>
-
 <h2 id="UI-库"><a href="#UI-库" class="headerlink" title="UI 库"></a>UI 库</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://github.com/Tencent/weui-wxss">weui-wsxx</a></li>
 </ul>
@@ -1377,9 +1447,7 @@
 <p>无法在小程序中使用 XHR 对象，发送请求</p>
 <h2 id="api"><a href="#api" class="headerlink" title="api"></a>api</h2><h3 id="wx-previewImage-Object-object-全屏预览图片"><a href="#wx-previewImage-Object-object-全屏预览图片" class="headerlink" title="wx.previewImage(Object object) 全屏预览图片"></a>wx.previewImage(Object object) 全屏预览图片</h3><p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/api/media/image/wx.previewImage.html">https://developers.weixin.qq.com/miniprogram/dev/api/media/image/wx.previewImage.html</a></p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">image</span> <span class="attr">src</span>=<span class="string">&quot;&#123;&#123;tools.replace(src)&#125;&#125;&quot;</span> <span class="attr">bindtap</span>=<span class="string">&quot;previewImage&quot;</span> <span class="attr">data-current</span>=<span class="string">&quot;&#123;&#123; src &#125;&#125;&quot;</span> <span class="attr">data-urls</span>=<span class="string">&quot;&#123;&#123; item.images &#125;&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">image</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 图片预览</span></span><br><span class="line">previewImage (e) &#123;</span><br><span class="line">  <span class="comment">// 获取需要预览的图片链接</span></span><br><span class="line">  <span class="keyword">let</span> &#123;<span class="attr">dataset</span>: &#123; current, urls&#125;&#125; = e.currentTarget</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 将图片替换为大图</span></span><br><span class="line">  current = current.replace(<span class="string">&#x27;w.h&#x27;</span>, <span class="string">&#x27;1000.1000&#x27;</span>)</span><br><span class="line">  urls = urls.map(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> item.replace(<span class="string">&#x27;w.h&#x27;</span>, <span class="string">&#x27;1000.1000&#x27;</span>)</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 调用预览图片 API</span></span><br><span class="line">  wx.previewImage(&#123;</span><br><span class="line">    current, <span class="comment">// 当前显示图片的http链接</span></span><br><span class="line">    urls <span class="comment">// 需要预览的图片http链接列表</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h3 id="wx-saveImageToPhotosAlbum-保存图片到相册"><a href="#wx-saveImageToPhotosAlbum-保存图片到相册" class="headerlink" title="wx.saveImageToPhotosAlbum 保存图片到相册"></a>wx.saveImageToPhotosAlbum 保存图片到相册</h3><p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/api/media/image/wx.saveImageToPhotosAlbum.html">https://developers.weixin.qq.com/miniprogram/dev/api/media/image/wx.saveImageToPhotosAlbum.html</a></p>
 <h3 id="wx-pageScrollTo-Object-object"><a href="#wx-pageScrollTo-Object-object" class="headerlink" title="wx.pageScrollTo(Object object)"></a>wx.pageScrollTo(Object object)</h3><p>将页面滚动到目标位置</p>
 <h3 id="选择节点-wx-createSelectorQuery"><a href="#选择节点-wx-createSelectorQuery" class="headerlink" title="选择节点 wx.createSelectorQuery()"></a>选择节点 wx.createSelectorQuery()</h3><p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/api/wxml/wx.createSelectorQuery.html">https://developers.weixin.qq.com/miniprogram/dev/api/wxml/wx.createSelectorQuery.html</a></p>
@@ -1392,14 +1460,12 @@
 <p>监听用户滑动页面事件。</p>
 <p>Object 参数说明：<br>scrollTop Number 页面在垂直方向已滚动的距离（单位 px）</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">onPageScroll</span>(<span class="params">scroll</span>)</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(scroll.scrollTop)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h2 id="小程序中授权功能"><a href="#小程序中授权功能" class="headerlink" title="小程序中授权功能"></a>小程序中授权功能</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/community/develop/doc/000cea2305cc5047af5733de751008">打开小程序设置页（wx.openSetting）接口调整</a></li>
 <li><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/community/develop/doc/0002e69827c8d85bcd57c9d745b400">openSetting 的问题</a></li>
 <li><a target="_blank" rel="noopener" href="http://vanessa.b3log.org/weapp-wepy">wepy 爬坑记 - openSetting</a></li>
 </ul>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">wx.getSetting(&#123;</span><br><span class="line">  <span class="function"><span class="title">success</span>(<span class="params">res</span>)</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;success: &#x27;</span>, res)</span><br><span class="line">    <span class="comment">// 根据获取到的用户授权信息判断用户是否同意过授权</span></span><br><span class="line">    <span class="keyword">if</span> (res.authSetting[<span class="string">&#x27;scope.address&#x27;</span>] === <span class="literal">true</span>) &#123;</span><br><span class="line">      <span class="comment">// res.authSetting[&#x27;scope.address&#x27;] ===&gt; true</span></span><br><span class="line">      <span class="comment">// 已经授权，并且已经同意</span></span><br><span class="line">      <span class="comment">// 直接打开 收获地址 页面</span></span><br><span class="line">      wx.chooseAddress(&#123;</span><br><span class="line">        <span class="function"><span class="title">success</span>(<span class="params">res</span>)</span> &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">&#x27;是否确认同意授权：&#x27;</span>, res)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (res.authSetting[<span class="string">&#x27;scope.address&#x27;</span>] === <span class="literal">false</span>) &#123;</span><br><span class="line">      <span class="comment">// res.authSetting[&#x27;scope.address&#x27;] ===&gt; false</span></span><br><span class="line">      <span class="comment">// 已经授权，并切没有同意</span></span><br><span class="line">      <span class="comment">// 弹出确认框，引导用户去授权</span></span><br><span class="line">      wx.showModal(&#123;</span><br><span class="line">        title: <span class="string">&#x27;温馨提示&#x27;</span>,</span><br><span class="line">        content: <span class="string">&#x27;您需要授权后，才能使用收获地址功能，是否打开授权界面&#x27;</span>,</span><br><span class="line">        <span class="function"><span class="title">success</span>(<span class="params">res</span>)</span> &#123;</span><br><span class="line">          <span class="keyword">if</span> (res.confirm) &#123;</span><br><span class="line">            <span class="comment">// 点击确定按钮</span></span><br><span class="line">            wx.openSetting(&#123;</span><br><span class="line">              <span class="function"><span class="title">success</span>(<span class="params">res</span>)</span> &#123;</span><br><span class="line">                <span class="comment">// console.log(res)</span></span><br><span class="line">                <span class="comment">// 此处，可以通过 res.authSetting[&#x27;scope.address&#x27;] 来获取到用户</span></span><br><span class="line">                <span class="comment">// 是否同意授权</span></span><br><span class="line">                <span class="keyword">if</span> (res.authSetting[<span class="string">&#x27;scope.address&#x27;</span>]) &#123;</span><br><span class="line">                  <span class="comment">// 用户同意授权小程序使用通讯地址这个开发接口</span></span><br><span class="line">                  wx.chooseAddress(&#123;</span><br><span class="line">                    <span class="function"><span class="title">success</span>(<span class="params">res</span>)</span> &#123;</span><br><span class="line">                      <span class="built_in">console</span>.log(<span class="string">&#x27;是否确认同意授权：&#x27;</span>, res)</span><br><span class="line">                    &#125;</span><br><span class="line">                  &#125;)</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                  <span class="built_in">console</span>.log(<span class="string">&#x27;用户本次还是不同意小程序使用通讯地址&#x27;</span>)</span><br><span class="line">                &#125;</span><br><span class="line">              &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 点击取消按钮</span></span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">&#x27;取消&#x27;</span>)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">// res.authSetting[&#x27;scope.address&#x27;] ===&gt; undefined</span></span><br><span class="line">      <span class="comment">// 没有授权</span></span><br><span class="line">      <span class="comment">// 第一次点击按钮</span></span><br><span class="line">      wx.chooseAddress(&#123;</span><br><span class="line">        <span class="function"><span class="title">success</span>(<span class="params">res</span>)</span> &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">&#x27;是否确认同意授权：&#x27;</span>, res)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
 <h2 id="分包加载"><a href="#分包加载" class="headerlink" title="分包加载"></a>分包加载</h2><p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/framework/subpackages.html">https://developers.weixin.qq.com/miniprogram/dev/framework/subpackages.html</a></p>
 <h2 id="与-vue-的区别"><a href="#与-vue-的区别" class="headerlink" title="与 vue 的区别"></a>与 vue 的区别</h2><ul>
 <li><p>小程序中 插值表达式可以用在属性中</p>
@@ -1408,7 +1474,6 @@
 </li>
 </ul>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 以下不会再视图中输出内容，也不会报错 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span>&gt;</span>&#123;&#123;[1, 2].join(&#x27;-&#x27;)&#125;&#125;<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><p>小程序中的数据操作</p>
 <ul>
@@ -1420,7 +1485,6 @@
 </li>
 </ul>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- vue 中 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">xx</span> <span class="attr">:xx</span>=<span class="string">&quot;true&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">xx</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 小程序中 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">xx</span> <span class="attr">xx</span>=<span class="string">&quot;&#123;&#123;true&#125;&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">xx</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><p>小程序中绑定事件时，不能直接调用事件处理程序，所以传参需要通过自定义属性</p>
 </li>
@@ -1462,212 +1526,12 @@
 </li>
 </ul>
 <figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">任务中需要频繁处理的操作：</span><br><span class="line">1 清除已完成任务按钮 的展示和隐藏</span><br><span class="line">2 剩余任务（未完成任务）的展示和隐藏</span><br></pre></td></tr></table></figure>
-
 <h2 id="other"><a href="#other" class="headerlink" title="other"></a>other</h2><p>微信小程序 —— button 按钮去除 border 边框：使用 <code>button::after&#123; border: none; &#125;</code> 来去除边框</p>
 <p>button navogator 组件默认有点击态，可以添加 <code>hover-class=&quot;none&quot;</code> 去除</p>
 <p>getCurrentPages() 方法<br><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/reference/api/getCurrentPages.html">https://developers.weixin.qq.com/miniprogram/dev/reference/api/getCurrentPages.html</a></p>
 <p>获取当前页面栈。数组中第一个元素为首页，最后一个元素为当前页面。</p>
 <p>页面间数据传递</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> page = getCurrentPages()</span><br><span class="line"><span class="built_in">console</span>.log(page)</span><br><span class="line"><span class="keyword">let</span> prevPage = page[page.length - <span class="number">2</span>]</span><br><span class="line"><span class="comment">// 修改上个页面的数据</span></span><br><span class="line">prevPage.setData(&#123; <span class="attr">msg</span>: <span class="string">&#x27;hehehe&#x27;</span> &#125;, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  wx.navigateBack()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/691.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="cuilongjin">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/691.html" class="post-title-link" itemprop="url">常用软件及破解资源</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-03-02 01:47:15" itemprop="dateCreated datePublished" datetime="2020-03-02T01:47:15+00:00">2020-03-02</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-19 09:49:50" itemprop="dateModified" datetime="2020-12-19T09:49:50+00:00">2020-12-19</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%BD%AF%E4%BB%B6/" itemprop="url" rel="index"><span itemprop="name">软件</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/691.html" class="post-meta-item leancloud_visitors" data-flag-title="常用软件及破解资源" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <table>
-<thead>
-<tr>
-<th>名称</th>
-<th>平台</th>
-<th>版本</th>
-<th>说明</th>
-<th>破解版</th>
-<th>原版</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><a href="https://wqdy.top/366.html">Internet Download Manager</a></td>
-<td>Win</td>
-<td>6.35.18</td>
-<td>下载工具</td>
-<td><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1t7PI_ttHLHSdT3iHbcWuvg">百度云</a></td>
-<td>无</td>
-</tr>
-</tbody></table>
-<p>待整理添加</p>
-<p>ADSafe | Win | 5.1.921.1800 | 广告屏蔽工具 | <a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1FJainInXigwJXqGKShxrAw">百度云</a> | 无<br>Eagle | Win | 1.8.2 | 图片管理工具 | <a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1MLnDNKA3ZBiY-xuZCjMV_w">百度云</a> | 无<br>synergy | Win | 1.5.0-r2278 |  | <a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1QYsFCcmbRxypsvEYskZAug">百度云</a> | 无<br>WinScp | Win | 5.17.1 | Windows 环境下开源图形化 SFTP 客户端 | 无 | <a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1_x5p8ISh2-8NK2VDS9P6VA">百度云</a> <a target="_blank" rel="noopener" href="https://winscp.net/eng/docs/lang:chs">官网</a><br>Dism++ | Win | 10.1.1001.10 (2020-01-18) | 系统优化备份工具 | 无 | <a target="_blank" rel="noopener" href="http://www.chuyu.me/zh-Hans/index.html">官网</a></p>
-<p>Parallels Desktop</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/690.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="cuilongjin">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/690.html" class="post-title-link" itemprop="url">使用代码方式显示 WordPress 文章最后修改时间</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-03-01 17:19:48" itemprop="dateCreated datePublished" datetime="2020-03-01T17:19:48+00:00">2020-03-01</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-19 09:49:50" itemprop="dateModified" datetime="2020-12-19T09:49:50+00:00">2020-12-19</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/wordpress/" itemprop="url" rel="index"><span itemprop="name">wordpress</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/690.html" class="post-meta-item leancloud_visitors" data-flag-title="使用代码方式显示 WordPress 文章最后修改时间" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>对于偏技术性的文章，用户更在意文章的更新时间而非发表时间</p>
-<p>将如下代码添加到主题函数 function.php 文件中，如果你不会的话，推荐使用这个插件：<a href="https://wqdy.top/671.html">Code Snippets</a></p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">wp_last_updated_date</span>(<span class="params"> <span class="variable">$content</span> </span>) </span>&#123;</span><br><span class="line">  <span class="variable">$time</span> = get_the_time(<span class="string">&#x27;U&#x27;</span>);</span><br><span class="line">  <span class="variable">$modified_time</span> = get_the_modified_time(<span class="string">&#x27;U&#x27;</span>);</span><br><span class="line">  <span class="variable">$custom_content</span> = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  <span class="keyword">if</span> (<span class="variable">$modified_time</span> &gt;= <span class="variable">$time</span> + <span class="number">86400</span>) &#123;</span><br><span class="line">    <span class="variable">$updated_time</span> = get_the_modified_time(<span class="string">&#x27;Y-m-d H:i:s&#x27;</span>);</span><br><span class="line">    <span class="variable">$custom_content</span> .= <span class="string">&#x27;&lt;p class=&quot;last-updated&quot; style=&quot;color: #999;font-size: 12px;&quot;&gt;文章最后更新于&#x27;</span>. <span class="variable">$updated_time</span> .<span class="string">&#x27;，如果失效请留言&lt;/p&gt;&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="variable">$custom_content</span> .= <span class="variable">$content</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="variable">$custom_content</span>;</span><br><span class="line">&#125;</span><br><span class="line">add_filter( <span class="string">&#x27;the_content&#x27;</span>, <span class="string">&#x27;wp_last_updated_date&#x27;</span> );</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -1687,7 +1551,7 @@
 
 
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/archives/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/14/">14</a><a class="extend next" rel="next" href="/archives/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/archives/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/archives/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/15/">15</a><a class="extend next" rel="next" href="/archives/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 

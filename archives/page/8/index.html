@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.2.0">
+<meta name="generator" content="Hexo 5.3.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-logo.png">
@@ -246,7 +246,7 @@
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
@@ -298,6 +298,202 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/338.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="cuilongjin">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/338.html" class="post-title-link" itemprop="url">dux 主题自定义代码高亮-使用 highlight.js</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-12-14 12:02:12" itemprop="dateCreated datePublished" datetime="2019-12-14T12:02:12+00:00">2019-12-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/wordpress/" itemprop="url" rel="index"><span itemprop="name">wordpress</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/338.html" class="post-meta-item leancloud_visitors" data-flag-title="dux 主题自定义代码高亮-使用 highlight.js" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>dux 主题默认使用 <a target="_blank" rel="noopener" href="https://github.com/google/code-prettify">Google Code Prettify</a> 实现代码高亮</p>
+</blockquote>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>在 <a target="_blank" rel="noopener" href="https://highlightjs.org/">highlight 官网</a>下载 js 和 css 文件</p>
+<p>可以使用官网提供的 <a target="_blank" rel="noopener" href="https://highlightjs.org/download/">CDN 链接</a>，也可以根据需要定制自己需要的语言</p>
+<p>选择自己喜欢的<a target="_blank" rel="noopener" href="https://highlightjs.org/static/demo/">主题</a>，在<a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/%7D">这里</a>进行下载</p>
+<p>将 <code>highlight.main.js</code> 文件放到主题的 <code>/js/libs/</code> 文件夹中</p>
+<h3 id="编辑主题文件"><a href="#编辑主题文件" class="headerlink" title="编辑主题文件"></a>编辑主题文件</h3><p>编辑 <code>/js/loader.js</code> 文件，将 <code>highlight.min.js</code> 引入</p>
+<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">tbquire.config(&#123;</span><br><span class="line">  baseUrl: jsui.uri + &#x27;/js&#x27;,</span><br><span class="line">  urlArgs: &#x27;ver=&#x27; + jsui.ver,</span><br><span class="line">  paths: &#123;</span><br><span class="line">    &#x27;swiper&#x27;        : &#x27;libs/swiper.min&#x27;,</span><br><span class="line">    &#x27;jquery.cookie&#x27; : &#x27;libs/jquery.cookie.min&#x27;,</span><br><span class="line">    &#x27;jsrender&#x27;      : &#x27;libs/jsrender.min&#x27;,</span><br><span class="line">    &#x27;router&#x27;        : &#x27;libs/router.min&#x27;,</span><br><span class="line">    &#x27;lazyload&#x27;      : &#x27;libs/lazyload.min&#x27;,</span><br><span class="line">    &#x27;prettyprint&#x27;   : &#x27;libs/prettyprint&#x27;,</span><br><span class="line"><span class="addition">+   &#x27;highlight&#x27;     : &#x27;libs/highlight.min&#x27;,</span></span><br><span class="line">    &#x27;ias&#x27;           : &#x27;libs/ias.min&#x27;,</span><br><span class="line">    &#x27;main&#x27;          : &#x27;main&#x27;,</span><br><span class="line">    &#x27;comment&#x27;       : &#x27;comment&#x27;,</span><br><span class="line">    &#x27;user&#x27;          : &#x27;user&#x27;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>编辑 <code>/js/main.js</code> 注释掉 prettyprint 部分</p>
+<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">/*</span><br><span class="line"> * prettyprint</span><br><span class="line"> * <span class="comment">====================================================</span></span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line"><span class="deletion">-$(&#x27;pre&#x27;).each(function()&#123;</span></span><br><span class="line"><span class="deletion">-    if( !$(this).attr(&#x27;style&#x27;) ) $(this).addClass(&#x27;prettyprint&#x27;)</span></span><br><span class="line"><span class="deletion">-&#125;)</span></span><br><span class="line"></span><br><span class="line"><span class="deletion">-if( $(&#x27;.prettyprint&#x27;).length )&#123;</span></span><br><span class="line"><span class="deletion">-    tbquire([&#x27;prettyprint&#x27;], function(prettyprint) &#123;</span></span><br><span class="line"><span class="deletion">-        prettyPrint()</span></span><br><span class="line"><span class="deletion">-    &#125;)</span></span><br><span class="line"><span class="deletion">-&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="addition">+/*</span></span><br><span class="line"><span class="addition">+ * highlight</span></span><br><span class="line"><span class="addition">+ * ====================================================</span></span><br><span class="line"><span class="addition">+*/</span></span><br><span class="line"><span class="addition">+</span></span><br><span class="line"><span class="addition">+$(&#x27;pre code&#x27;).forEach((block) =&gt; &#123;</span></span><br><span class="line"><span class="addition">+  tbquire([&#x27;highlight&#x27;], function() &#123;</span></span><br><span class="line"><span class="addition">+    hljs.highlightBlock(block)</span></span><br><span class="line"><span class="addition">+&#125;)</span></span><br></pre></td></tr></table></figure>
+<p>此时 highlight 脚本已经生效，接下来就是应用 highlight 样式</p>
+<h3 id="应用-highlight-样式"><a href="#应用-highlight-样式" class="headerlink" title="应用 highlight 样式"></a>应用 highlight 样式</h3><p>你可以选择将下载好的 css 文件打开，将样式拷贝到 /libs/css/main.css 文件中</p>
+<p>也可以在 <code>wordpress后台-外观-自定义-添加额外css</code> 中为主题定义样式</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/249.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="cuilongjin">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/249.html" class="post-title-link" itemprop="url">Date对象使用及常用的时间格式化代码块--获取本周,本月,本季度,本年,上月,上周,上季度,去年等</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-12-10 16:16:04" itemprop="dateCreated datePublished" datetime="2019-12-10T16:16:04+00:00">2019-12-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/249.html" class="post-meta-item leancloud_visitors" data-flag-title="Date对象使用及常用的时间格式化代码块--获取本周,本月,本季度,本年,上月,上周,上季度,去年等" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Date-对象"><a href="#Date-对象" class="headerlink" title="Date 对象"></a>Date 对象</h2><h2 id="整理一些时间格式化的方法"><a href="#整理一些时间格式化的方法" class="headerlink" title="整理一些时间格式化的方法"></a>整理一些时间格式化的方法</h2><p>1.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 时间格式化</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;date&#125;</span> </span>timeStamp 要格式化的时间对象</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;string&#125;</span> </span>2019年10月31日 16:22</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">format_date</span>(<span class="params">timeStamp</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>(timeStamp)</span><br><span class="line">  <span class="keyword">return</span> date.getFullYear() + <span class="string">&#x27;年&#x27;</span> + prefix_zero(date.getMonth() + <span class="number">1</span>) + <span class="string">&#x27;月&#x27;</span> + prefix_zero(date.getDate()) + <span class="string">&#x27;日 &#x27;</span> + prefix_zero(date.getHours()) + <span class="string">&#x27;:&#x27;</span> + prefix_zero(date.getMinutes())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 数字格式化</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> </span>num 要格式化的数值</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;string&#125;</span> </span>把小于10的数值前面加上0</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">prefix_zero</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> num &gt;= <span class="number">10</span> ? num : <span class="string">&#x27;0&#x27;</span> + num</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 昨天的字符串格式时间</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;string&#125;</span> </span>返回当前时间 - 1天</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getYesterday</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line">  d.setDate(d.getDate() - <span class="number">1</span>)</span><br><span class="line">  <span class="keyword">return</span> d.toLocaleString()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 明天的字符串格式时间</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;string&#125;</span> </span>返回当前时间 + 1天</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> getTomorrow = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line">  d.setDate(d.getDate() + <span class="number">1</span>)</span><br><span class="line">  <span class="keyword">return</span> d.toLocalString()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>4.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获得本周的开始日期</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> </span>start 不传默认一周以周日开始 1 表示以周一开始</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;date&#125;</span> </span>timeStamp 时间戳</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getWeekDate</span>(<span class="params">start = <span class="number">0</span></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">&#x27;2019-12-15&#x27;</span>)</span><br><span class="line">  <span class="keyword">let</span> D = d.getDate()</span><br><span class="line">  <span class="keyword">if</span> (start == <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> d.setDate(D - d.getDay())</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> W = d.getDay() || <span class="number">6</span></span><br><span class="line">    <span class="keyword">return</span> d.setDate(D - W + <span class="number">1</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>5.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获得最近一周时间段</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;date[]&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getLastWeek</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line">  <span class="keyword">let</span> D = d.getDate()</span><br><span class="line">  d.setDate(D - <span class="number">7</span>)</span><br><span class="line">  <span class="keyword">return</span> [d, <span class="keyword">new</span> <span class="built_in">Date</span>()]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>6.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获得某月的天数</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> </span>year 年</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> </span>month 月 从 0 开始</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span> </span>某月的天数, 不传参数为当月天数</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getMonthDays</span>(<span class="params">year, month</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line">  year = year || d.getFullYear()</span><br><span class="line">  month = month || d.getMonth()</span><br><span class="line">  <span class="keyword">var</span> monthStart = <span class="keyword">new</span> <span class="built_in">Date</span>(year, month, <span class="number">1</span>)</span><br><span class="line">  <span class="keyword">var</span> monthEnd = <span class="keyword">new</span> <span class="built_in">Date</span>(year, month + <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">  <span class="keyword">var</span> days = (monthEnd - monthStart) / (<span class="number">1000</span> * <span class="number">60</span> * <span class="number">60</span> * <span class="number">24</span>)</span><br><span class="line">  <span class="keyword">return</span> days</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>7.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获得本月的开始或结束日期</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> </span>isEnd 不传默认本周的开端日期 1 本周的结束日期</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;date&#125;</span> </span>timeStamp 时间戳</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getMonthDate</span>(<span class="params">isEnd = <span class="number">0</span></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line">  d.setDate(<span class="number">1</span>)</span><br><span class="line">  <span class="keyword">if</span> (isEnd) &#123;</span><br><span class="line">    d.setDate(d.getDate() + getMonthDays() - <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> d</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> d</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>8.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 倒计时时间格式化</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;date&#125;</span> </span>timeStamp 要格式化的时间对象</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;string&#125;</span></span></span></span><br><span class="line"><span class="comment"> * 若时间大于1天 返回 n天n小时n分钟</span></span><br><span class="line"><span class="comment"> * 若时间小于1天，大于1小时 返回 n小时n分钟n秒</span></span><br><span class="line"><span class="comment"> * 若时间小于1小时，大于1分钟 返回 n分钟n秒</span></span><br><span class="line"><span class="comment"> * 若时间小于1分钟 返回 n秒</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">format_time</span>(<span class="params">timeStamp</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> day = <span class="built_in">Math</span>.floor(timeStamp / (<span class="number">24</span> * <span class="number">3600</span> * <span class="number">1000</span>))</span><br><span class="line">  <span class="keyword">let</span> leave1 = timeStamp % (<span class="number">24</span> * <span class="number">3600</span> * <span class="number">1000</span>)</span><br><span class="line">  <span class="keyword">let</span> hours = <span class="built_in">Math</span>.floor(leave1 / (<span class="number">3600</span> * <span class="number">1000</span>))</span><br><span class="line">  <span class="keyword">let</span> leave2 = leave1 % (<span class="number">3600</span> * <span class="number">1000</span>)</span><br><span class="line">  <span class="keyword">let</span> minutes = <span class="built_in">Math</span>.floor(leave2 / (<span class="number">60</span> * <span class="number">1000</span>))</span><br><span class="line">  <span class="keyword">let</span> leave3 = leave2 % (<span class="number">60</span> * <span class="number">1000</span>)</span><br><span class="line">  <span class="keyword">let</span> seconds = <span class="built_in">Math</span>.floor(leave3 / <span class="number">1000</span>)</span><br><span class="line">  <span class="keyword">if</span> (day) <span class="keyword">return</span> day + <span class="string">&#x27;天&#x27;</span> + hours + <span class="string">&#x27;小时&#x27;</span> + minutes + <span class="string">&#x27;分&#x27;</span></span><br><span class="line">  <span class="keyword">if</span> (hours) <span class="keyword">return</span> hours + <span class="string">&#x27;小时&#x27;</span> + minutes + <span class="string">&#x27;分&#x27;</span> + seconds + <span class="string">&#x27;秒&#x27;</span></span><br><span class="line">  <span class="keyword">if</span> (minutes) <span class="keyword">return</span> minutes + <span class="string">&#x27;分&#x27;</span> + seconds + <span class="string">&#x27;秒&#x27;</span></span><br><span class="line">  <span class="keyword">if</span> (seconds) <span class="keyword">return</span> seconds + <span class="string">&#x27;秒&#x27;</span></span><br><span class="line">  <span class="keyword">return</span> <span class="string">&#x27;时间到！&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="dayjs-库"><a href="#dayjs-库" class="headerlink" title="dayjs 库"></a>dayjs 库</h2><p>轻量的处理时间和日期的 JavaScript 库</p>
+<p>参考文档 <a target="_blank" rel="noopener" href="https://github.com/iamkun/dayjs/blob/dev/docs/zh-cn/README.zh-CN.md">github 中文文档</a></p>
+<p>在本页面打开控制台即可体验 dayjs 的 api</p>
+<script src="https://unpkg.com/dayjs"></script>
+
+<p>使用 dayjs 获取本周,上周,本月,上月,本季度,上季度,本年,去年时间</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// let date = dayjs(&#x27;2020-01-16&#x27;)</span></span><br><span class="line"><span class="keyword">let</span> date = dayjs()</span><br><span class="line"><span class="keyword">let</span> day = date.day() <span class="comment">// 1 星期</span></span><br><span class="line"><span class="keyword">let</span> currentWeekStart</span><br><span class="line"><span class="keyword">let</span> currentWeekEnd</span><br><span class="line"></span><br><span class="line"><span class="comment">// 本周</span></span><br><span class="line"><span class="keyword">if</span> (day &gt; <span class="number">0</span>) &#123;</span><br><span class="line">  currentWeekStart = date.startOf(<span class="string">&#x27;week&#x27;</span>).add(<span class="number">1</span>, <span class="string">&#x27;day&#x27;</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  currentWeekStart = date.startOf(<span class="string">&#x27;week&#x27;</span>).subtract(<span class="number">6</span>, <span class="string">&#x27;day&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line">currentWeekEnd = currentWeekStart.add(<span class="number">6</span>, <span class="string">&#x27;day&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 上周</span></span><br><span class="line"><span class="keyword">let</span> lastWeekStart = currentWeekStart.subtract(<span class="number">7</span>, <span class="string">&#x27;day&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> lastWeekEnd = currentWeekStart.subtract(<span class="number">1</span>, <span class="string">&#x27;day&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 本月 上月</span></span><br><span class="line"><span class="keyword">let</span> currentMonthStart = date.date(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">let</span> lastMonthStart = date.subtract(<span class="number">1</span>, <span class="string">&#x27;month&#x27;</span>).date(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">let</span> nextMonthStart = date.add(<span class="number">1</span>, <span class="string">&#x27;month&#x27;</span>).date(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">let</span> currentMonthEnd = nextMonthStart.subtract(<span class="number">1</span>, <span class="string">&#x27;day&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> lastMonthEnd = currentMonthStart.subtract(<span class="number">1</span>, <span class="string">&#x27;day&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 本季度,上季度</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 本年 去年</span></span><br><span class="line"><span class="keyword">let</span> currentYearStart = date.month(<span class="number">0</span>).date(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">let</span> currentYearEnd = date.month(<span class="number">11</span>).date(<span class="number">31</span>)</span><br><span class="line"><span class="keyword">let</span> lastYear = date.subtract(<span class="number">1</span>, <span class="string">&#x27;year&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> lastYearStart = date.subtract(<span class="number">1</span>, <span class="string">&#x27;year&#x27;</span>).month(<span class="number">0</span>).date(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">let</span> lastYearEnd = lastYearStart.month(<span class="number">11</span>).date(<span class="number">31</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> computedDate = &#123;</span><br><span class="line">  currentWeekStart: currentWeekStart.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  currentWeekEnd: currentWeekEnd.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  lastWeekStart: lastWeekStart.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  lastWeekEnd: lastWeekEnd.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  currentMonthStart: currentMonthStart.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  currentMonthEnd: currentMonthEnd.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  lastMonthStart: lastMonthStart.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  lastMonthEnd: lastMonthEnd.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  currentYearStart: currentYearStart.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  currentYearEnd: currentYearEnd.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  lastYearStart: lastYearStart.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  lastYearEnd: lastYearEnd.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(computedDate)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://wqdy.top/1656.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -324,13 +520,6 @@
 
       <time title="创建时间：2019-11-01 14:36:34" itemprop="dateCreated datePublished" datetime="2019-11-01T14:36:34+00:00">2019-11-01</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-19 09:49:50" itemprop="dateModified" datetime="2020-12-19T09:49:50+00:00">2020-12-19</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -411,13 +600,6 @@
 
       <time title="创建时间：2019-10-28 22:12:33" itemprop="dateCreated datePublished" datetime="2019-10-28T22:12:33+00:00">2019-10-28</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-19 09:49:50" itemprop="dateModified" datetime="2020-12-19T09:49:50+00:00">2020-12-19</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -447,13 +629,10 @@
     <div class="post-body" itemprop="articleBody">
           <h2 id="主要区分-0-和-0、NaN-和-NaN-在不同情况下的相等性区别"><a href="#主要区分-0-和-0、NaN-和-NaN-在不同情况下的相等性区别" class="headerlink" title="主要区分 +0 和 -0、NaN 和 NaN 在不同情况下的相等性区别"></a>主要区分 <code>+0</code> 和 <code>-0</code>、<code>NaN</code> 和 <code>NaN</code> 在不同情况下的相等性区别</h2><p><code>==</code> <code>===</code></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(+<span class="number">0</span> === -<span class="number">0</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">NaN</span> == <span class="literal">NaN</span>) <span class="comment">// false NaN 不与任何值相等，包括自身</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">undefined</span> == <span class="literal">null</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">undefined</span> === <span class="literal">null</span>) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">NaN</span> === <span class="literal">NaN</span>) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.NaN === <span class="literal">NaN</span>) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-
 <p>Object.is() 方法判断两个值是否是相同的值。比较时不会做类型转换，这与 <code>==</code> <code>===</code> 运算符的判定方式都不一样</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Object</span>.is(+<span class="number">0</span>, -<span class="number">0</span>) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">Object</span>.is(<span class="number">0</span>, -<span class="number">0</span>) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">Object</span>.is(<span class="number">0</span>, +<span class="number">0</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Object</span>.is(-<span class="number">0</span>, -<span class="number">0</span>) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.is(<span class="literal">undefined</span>, <span class="literal">undefined</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Object</span>.is(<span class="literal">null</span>, <span class="literal">null</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Object</span>.is(<span class="built_in">Number</span>.NaN, <span class="built_in">Number</span>.NaN) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Object</span>.is(<span class="built_in">Number</span>.NaN, <span class="literal">NaN</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Object</span>.is(<span class="literal">NaN</span>, <span class="literal">NaN</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Object</span>.is(<span class="literal">NaN</span>, <span class="number">0</span> / <span class="number">0</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-
 <p>在 Set， Map 内部，两个 NaN 是相等, +0 和 -0 也是相等的</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = [<span class="literal">NaN</span>, <span class="literal">NaN</span>, <span class="literal">undefined</span>, <span class="literal">undefined</span>, +<span class="number">0</span>, -<span class="number">0</span>, &#123;&#125;, &#123;&#125;]</span><br><span class="line"><span class="keyword">let</span> b = <span class="keyword">new</span> <span class="built_in">Set</span>(a) <span class="comment">// &#123;NaN, undefined, 0, &#123;&#125;, &#123;&#125;&#125;</span></span><br></pre></td></tr></table></figure>
-
 <p>总结：</p>
 <ul>
 <li>比较运算符中 <code>+0</code> 和 <code>-0</code> 是相等的、<code>NaN</code> 和 <code>NaN</code>是不等的</li>
@@ -512,13 +691,6 @@
 
       <time title="创建时间：2019-10-28 14:38:43" itemprop="dateCreated datePublished" datetime="2019-10-28T14:38:43+00:00">2019-10-28</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-19 09:49:50" itemprop="dateModified" datetime="2020-12-19T09:49:50+00:00">2020-12-19</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -549,10 +721,8 @@
           <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/setTimeout">MDN</a>上关于 setTimeout 介绍</p>
 <p>语法</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> timeoutID = scope.setTimeout(<span class="function"><span class="keyword">function</span>[, <span class="title">delay</span>, <span class="title">param1</span>, <span class="title">param2</span>, ...])</span></span><br><span class="line"><span class="function">// <span class="title">delay</span> 可选 默认 0</span></span><br><span class="line"><span class="function">// <span class="title">param1</span>, ..., <span class="title">paramN</span> 可选 ，附加参数，一旦定时器到期，他会作为参数传递给 <span class="function"><span class="keyword">function</span></span></span></span><br><span class="line"><span class="function"><span class="function">// 返回值<span class="title">timeoutID</span>是一个正整数，表示定时器的编号</span></span></span><br></pre></td></tr></table></figure>
-
 <p>应用</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt;= <span class="number">5</span>; i++) &#123;</span><br><span class="line">  <span class="built_in">setTimeout</span>(</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">timer</span>(<span class="params">j</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(j)</span><br><span class="line">    &#125;,</span><br><span class="line">    i * <span class="number">1000</span>,</span><br><span class="line">    i</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 会立即返回一个 timeid</span></span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// 3</span></span><br><span class="line"><span class="comment">// 4</span></span><br><span class="line"><span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
-
       
     </div>
 
@@ -604,13 +774,6 @@
 
       <time title="创建时间：2019-10-25 00:00:30" itemprop="dateCreated datePublished" datetime="2019-10-25T00:00:30+00:00">2019-10-25</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-19 09:49:50" itemprop="dateModified" datetime="2020-12-19T09:49:50+00:00">2020-12-19</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -639,7 +802,6 @@
     
     <div class="post-body" itemprop="articleBody">
           <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://raw.github.com/sivel/speedtest-cli/master/speedtest.py</span><br><span class="line"><span class="comment"># 添加权限</span></span><br><span class="line">chmod a+rx speedtest.py</span><br><span class="line"><span class="comment"># 简单的使用方法</span></span><br><span class="line">python speedtest.py</span><br><span class="line"><span class="comment"># 生成一张图片，并分享给其他人</span></span><br><span class="line">python speedtest.py --share</span><br><span class="line"><span class="comment"># 在默认情况下，SpeedTest是选择离测试机最近的一个节点进行测试的，如果你想要自定义测试到某个地区的上传/下载速率，那首先列出目前可用的SpeedTest服务器：</span></span><br><span class="line">python speedtest.py --list</span><br><span class="line"><span class="comment"># 此时会列出所有的服务器（按照距离远近进行排列）</span></span><br><span class="line"><span class="comment"># 如果想一点一点的列出服务器，请输入：</span></span><br><span class="line">python speedtest.py --list|more</span><br><span class="line"><span class="comment"># 如果你想列出指定地区的测试节点，可以使用</span></span><br><span class="line">python speedtest.py --list | grep China</span><br><span class="line">python speedtest.py --server 22991</span><br><span class="line"><span class="comment"># 如果是要生成分享的图片，那就加上 share</span></span><br><span class="line">python speedtest.py --server 11599 --share</span><br></pre></td></tr></table></figure>
-
 
       
     </div>
@@ -692,13 +854,6 @@
 
       <time title="创建时间：2019-10-24 22:07:18" itemprop="dateCreated datePublished" datetime="2019-10-24T22:07:18+00:00">2019-10-24</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-19 09:49:50" itemprop="dateModified" datetime="2020-12-19T09:49:50+00:00">2020-12-19</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -728,7 +883,6 @@
     <div class="post-body" itemprop="articleBody">
           <h3 id="预解析"><a href="#预解析" class="headerlink" title="预解析"></a>预解析</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Optimizing_your_pages_for_speculative_parsing">https://developer.mozilla.org/zh-CN/docs/Web/HTML/Optimizing_your_pages_for_speculative_parsing</a></p>
 <h3 id="link-标签-ref-属性值-prefetch-preload-用于预加载"><a href="#link-标签-ref-属性值-prefetch-preload-用于预加载" class="headerlink" title="link 标签 ref 属性值 prefetch preload 用于预加载"></a>link 标签 ref 属性值 prefetch preload 用于预加载</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">ref</span>=<span class="string">&quot;preload&quot;</span> <span class="attr">href</span>=<span class="string">&quot;*.js&quot;</span> <span class="attr">as</span>=<span class="string">&quot;script&quot;</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- preload需要写上正确的as属性,如果不写或错误，等同于XHR请求，优先级非常低 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;preload&quot;</span> <span class="attr">href</span>=<span class="string">&quot;font.woff&quot;</span> <span class="attr">as</span>=<span class="string">&quot;font&quot;</span> <span class="attr">crossorigin</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 预加载字体你还必须设置crossorigin 属性 --&gt;</span></span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>preload 是用于预加载当前页的资源，浏览器会优先加载它们(加载后并不执行，在需要执行的时候再执行)</li>
 </ul>
@@ -796,13 +950,6 @@
 
       <time title="创建时间：2019-10-21 14:52:55" itemprop="dateCreated datePublished" datetime="2019-10-21T14:52:55+00:00">2019-10-21</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-19 09:49:50" itemprop="dateModified" datetime="2020-12-19T09:49:50+00:00">2020-12-19</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -902,13 +1049,6 @@
 
       <time title="创建时间：2019-10-11 22:16:07" itemprop="dateCreated datePublished" datetime="2019-10-11T22:16:07+00:00">2019-10-11</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-19 09:49:50" itemprop="dateModified" datetime="2020-12-19T09:49:50+00:00">2020-12-19</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -940,10 +1080,8 @@
 <p><a target="_blank" rel="noopener" href="https://github.com/axios/axios/issues/953">https://github.com/axios/axios/issues/953</a></p>
 <p>在控制台中也找不到 cookie</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(res.headers[<span class="string">&#x27;set-cookie&#x27;</span>]) <span class="comment">// undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">document</span>.cookie) <span class="comment">// &#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
-
 <p>解决方式：修改 axios 配置</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">axios.defaults.withCredentials = <span class="literal">true</span> <span class="comment">// 默认是 false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Axios.interceptors.request.use(</span></span><br><span class="line"><span class="comment">//   config =&gt; &#123;</span></span><br><span class="line"><span class="comment">//     config.withCredentials = true // 添加</span></span><br><span class="line"><span class="comment">//     return config</span></span><br><span class="line"><span class="comment">//   &#125;)</span></span><br><span class="line"></span><br><span class="line">axios.create(&#123;</span><br><span class="line">  withCredentials: <span class="literal">true</span> <span class="comment">// 表示跨域请求时是否需要使用凭证 默认 false</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
 <p>设置 <code>withCredentials = true</code> 会造成跨域，需要使用代理解决跨域问题</p>
 
       
@@ -997,13 +1135,6 @@
 
       <time title="创建时间：2019-10-09 15:29:05" itemprop="dateCreated datePublished" datetime="2019-10-09T15:29:05+00:00">2019-10-09</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-19 09:49:50" itemprop="dateModified" datetime="2020-12-19T09:49:50+00:00">2020-12-19</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -1055,292 +1186,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/226.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="cuilongjin">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/226.html" class="post-title-link" itemprop="url">v2ray 搭建配置教程</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-10-08 00:00:54" itemprop="dateCreated datePublished" datetime="2019-10-08T00:00:54+00:00">2019-10-08</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-19 09:49:50" itemprop="dateModified" datetime="2020-12-19T09:49:50+00:00">2020-12-19</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/226.html" class="post-meta-item leancloud_visitors" data-flag-title="v2ray 搭建配置教程" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>v2ray 用户手册</p>
-<p><a target="_blank" rel="noopener" href="https://www.v2ray.com/">https://www.v2ray.com</a><br><a target="_blank" rel="noopener" href="https://v2fly.org/">https://v2fly.org</a></p>
-<p>V2Ray 项目地址：<a target="_blank" rel="noopener" href="https://github.com/v2ray/v2ray-core">https://github.com/v2ray/v2ray-core</a></p>
-<p>V2Ray 白话文指南：<a target="_blank" rel="noopener" href="https://guide.v2fly.org/">https://guide.v2fly.org/</a></p>
-<p>v2ray 配置手册<br><a target="_blank" rel="noopener" href="https://github.com/v2fly/v2ray-step-by-step/tree/transifex/zh_CN">https://github.com/v2fly/v2ray-step-by-step/tree/transifex/zh_CN</a></p>
-<p>v2ray web面板<br><a target="_blank" rel="noopener" href="https://github.com/sprov065/v2-ui">https://github.com/sprov065/v2-ui</a></p>
-<p>Ss-Panel Ssr/V2ray 节点管理面板/用户管理系统</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Anankke/SSPanel-Uim">https://github.com/Anankke/SSPanel-Uim</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/sspanel-uim/Wiki">https://github.com/sspanel-uim/Wiki</a></p>
-<p>使用宝塔部署 SSPanel 魔改版 <a target="_blank" rel="noopener" href="https://blog.anank.ke/w/SSPanel_with_DROP_DATABASE_BT">https://blog.anank.ke/w/SSPanel_with_DROP_DATABASE_BT</a></p>
-<h3 id="一键脚本"><a href="#一键脚本" class="headerlink" title="一键脚本"></a>一键脚本</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash &lt;(curl -s -L https://git.io/v2ray.sh)</span><br></pre></td></tr></table></figure>
-
-<p>安装完成后，输入 v2ray 即可管理 V2Ray<br>快速管理</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">v2ray info 查看 V2Ray 配置信息</span><br><span class="line">v2ray config 修改 V2Ray 配置</span><br><span class="line">v2ray link 生成 V2Ray 配置文件链接</span><br><span class="line">v2ray infolink 生成 V2Ray 配置信息链接</span><br><span class="line">v2ray qr 生成 V2Ray 配置二维码链接</span><br><span class="line">v2ray ss 修改 Shadowsocks 配置</span><br><span class="line">v2ray ssinfo 查看 Shadowsocks 配置信息</span><br><span class="line">v2ray ssqr 生成 Shadowsocks 配置二维码链接</span><br><span class="line">v2ray status 查看 V2Ray 运行状态</span><br><span class="line">v2ray start 启动 V2Ray</span><br><span class="line">v2ray stop 停止 V2Ray</span><br><span class="line">v2ray restart 重启 V2Ray</span><br><span class="line">v2ray <span class="built_in">log</span> 查看 V2Ray 运行日志</span><br><span class="line">v2ray update 更新 V2Ray</span><br><span class="line">v2ray update.sh 更新 V2Ray 管理脚本</span><br><span class="line">v2ray uninstall 卸载 V2Ray</span><br></pre></td></tr></table></figure>
-
-<h3 id="官方脚本"><a href="#官方脚本" class="headerlink" title="官方脚本"></a>官方脚本</h3><p>官方脚本 <a target="_blank" rel="noopener" href="https://v2ray.com/chapter_00/install.html">https://v2ray.com/chapter_00/install.html</a></p>
-<p>在线配置生成 <a target="_blank" rel="noopener" href="https://intmainreturn0.com/v2ray-config-gen/#">https://intmainreturn0.com/v2ray-config-gen/#</a></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装</span></span><br><span class="line">bash &lt;(curl -L -s https://install.direct/go.sh)</span><br><span class="line"><span class="comment"># 记住</span></span><br><span class="line">PORT:</span><br><span class="line">UUID:</span><br><span class="line"><span class="comment"># 启动</span></span><br><span class="line">systemctl start v2ray</span><br><span class="line"><span class="comment"># 查看端口 Port</span></span><br><span class="line">cat /etc/v2ray/config.json | grep port</span><br><span class="line"><span class="comment"># 查看 id (UUID)</span></span><br><span class="line">cat /etc/v2ray/config.json | grep id</span><br></pre></td></tr></table></figure>
-
-<p>v2ray 配置好后无法连接解决办法</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 检查端口占用情况</span></span><br><span class="line">yum install net-tools</span><br><span class="line">netstat -apn | grep v2ray</span><br><span class="line"></span><br><span class="line"><span class="comment"># 发现v2ray并没有监听我们的公网IP，只监听了一个IPV6：</span></span><br><span class="line"><span class="comment"># tcp6       0      0 :::40682                :::*                    LISTEN      19553/v2ray</span></span><br><span class="line"><span class="comment"># unix  3      [ ]         STREAM     CONNECTED     80938    19553/v2ray</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改配置文件添加 listen 字段</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># v2ray默认配置文件在/etc/v2ray/conf.json</span></span><br><span class="line"><span class="string">&quot;inbound&quot;</span>: &#123;</span><br><span class="line">  <span class="string">&quot;listen&quot;</span>:<span class="string">&quot;12.34.56.78&quot;</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># v2ray测试配置文件是否正确</span></span><br><span class="line">/usr/bin/v2ray/v2ray --<span class="built_in">test</span> --config /etc/v2ray/config.json</span><br></pre></td></tr></table></figure>
-
-<h3 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h3><p>如果脚本不支持卸载，可使用以下方法手动卸载</p>
-<p>其中 systemd 和 sysv 二选一，取决于你的系统</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#停用并卸载服务(systemd)</span></span><br><span class="line">systemctl stop v2ray</span><br><span class="line">systemctl <span class="built_in">disable</span> v2ray</span><br><span class="line"></span><br><span class="line"><span class="comment">#停用并卸载服务(sysv)</span></span><br><span class="line">service v2ray stop</span><br><span class="line">update-rc.d -f v2ray remove</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除文件</span></span><br><span class="line"><span class="comment"># 配置文件</span></span><br><span class="line">rm -rf /etc/v2ray/*</span><br><span class="line"><span class="comment"># 程序</span></span><br><span class="line">rm -rf /usr/bin/v2ray/*</span><br><span class="line"><span class="comment"># 日志</span></span><br><span class="line">rm -rf /var/<span class="built_in">log</span>/v2ray/*</span><br><span class="line"><span class="comment"># systemd 启动项</span></span><br><span class="line">rm -rf /lib/systemd/system/v2ray.service</span><br><span class="line"><span class="comment"># sysv 启动项</span></span><br><span class="line">rm -rf /etc/init.d/v2ray</span><br></pre></td></tr></table></figure>
-
-<h3 id="V2Ray-使用-Nginx-实现-WebSocket-TLS-传输协议"><a href="#V2Ray-使用-Nginx-实现-WebSocket-TLS-传输协议" class="headerlink" title="V2Ray 使用 Nginx 实现 WebSocket + TLS 传输协议"></a>V2Ray 使用 Nginx 实现 WebSocket + TLS 传输协议</h3><p>参考：<a target="_blank" rel="noopener" href="https://guide.v2fly.org/advanced/wss_and_web.html">https://guide.v2fly.org/advanced/wss_and_web.html</a></p>
-<p>V2Ray 脚本可直接使用 Caddy 配置 WebSocket + TLS 传输协议，但是如果想在 vps 上同时使用 nginx 跑一个小博客，那么会导致 caddy 和 nginx 监听端口时发生冲突，这显然不是我们想要的。</p>
-<p>所以就要将 TLS 部分放到 nginx 程序里面去实现</p>
-<h4 id="首先使用官方脚本安装好服务端程序"><a href="#首先使用官方脚本安装好服务端程序" class="headerlink" title="首先使用官方脚本安装好服务端程序"></a>首先使用官方脚本安装好服务端程序</h4><h4 id="申请-SSL-证书"><a href="#申请-SSL-证书" class="headerlink" title="申请 SSL 证书"></a>申请 SSL 证书</h4><blockquote>
-<p>如果使用宝塔面板，可以通过面板一键生成 ssl 证书，快速配置 <code>nginx+ssl</code></p>
-</blockquote>
-<p>申请免费 SSL 证书参考<a href="https://wqdy.top/1909.html">这里</a></p>
-<h4 id="nginx-配置"><a href="#nginx-配置" class="headerlink" title="nginx 配置"></a>nginx 配置</h4><blockquote>
-<p>如果使用宝塔面板，可以通过面板一键生成 ssl 证书，快速配置 <code>nginx+ssl</code></p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen 443 ssl;</span><br><span class="line">  listen [::]:443 ssl;</span><br><span class="line">  server_name           aaa.com; # 域名</span><br><span class="line"></span><br><span class="line">  # 配置ssl</span><br><span class="line">  ssl_certificate       &#x2F;etc&#x2F;letsencrypt&#x2F;aaa.com.crt; # 证书</span><br><span class="line">  ssl_certificate_key   &#x2F;etc&#x2F;letsencrypt&#x2F;aaa.com.key; # 密钥</span><br><span class="line">  ssl_session_timeout 1d;</span><br><span class="line">  ssl_session_cache shared:MozSSL:10m;</span><br><span class="line">  ssl_session_tickets off;</span><br><span class="line">  ssl_protocols         TLSv1.2 TLSv1.3;</span><br><span class="line">  ssl_ciphers           ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384;</span><br><span class="line">  ssl_prefer_server_ciphers off;</span><br><span class="line">  #</span><br><span class="line"></span><br><span class="line">  location &#x2F;ray &#123; # 与 V2Ray 服务端配置中的 path 保持一致</span><br><span class="line">    if ($http_upgrade !&#x3D; &quot;websocket&quot;) &#123; # WebSocket协商失败时返回404</span><br><span class="line">      return 404;</span><br><span class="line">    &#125;</span><br><span class="line">    proxy_redirect off;</span><br><span class="line">    proxy_pass http:&#x2F;&#x2F;127.0.0.1:2333; # 假设 WebSocket 监听在环回地址的 2333 端口上</span><br><span class="line">    proxy_http_version 1.1;</span><br><span class="line">    proxy_set_header Upgrade $http_upgrade;</span><br><span class="line">    proxy_set_header Connection &quot;upgrade&quot;;</span><br><span class="line">    proxy_set_header Host $host;</span><br><span class="line">    # Show real IP in v2ray access.log</span><br><span class="line">    proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="v2ray-服务端配置"><a href="#v2ray-服务端配置" class="headerlink" title="v2ray 服务端配置"></a>v2ray 服务端配置</h4><p>/etc/v2ray/config.json</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;inbounds&quot;</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">&quot;port&quot;</span>: <span class="number">2333</span>, <span class="comment">// WebSocket 监听端口</span></span><br><span class="line">      <span class="attr">&quot;listen&quot;</span>: <span class="string">&quot;127.0.0.1&quot;</span>, <span class="comment">// 只监听 127.0.0.1，避免除本机外的机器探测到开放了 22445 端口</span></span><br><span class="line">      <span class="attr">&quot;protocol&quot;</span>: <span class="string">&quot;vmess&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;settings&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;clients&quot;</span>: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">&quot;id&quot;</span>: <span class="string">&quot;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;alterId&quot;</span>: <span class="number">32</span></span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">&quot;streamSettings&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;network&quot;</span>: <span class="string">&quot;ws&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;wsSettings&quot;</span>: &#123;</span><br><span class="line">          <span class="attr">&quot;path&quot;</span>: <span class="string">&quot;/ray&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">&quot;outbounds&quot;</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">&quot;protocol&quot;</span>: <span class="string">&quot;freedom&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;settings&quot;</span>: &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="客户端配置"><a href="#客户端配置" class="headerlink" title="客户端配置"></a>客户端配置</h4><figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;inbounds&quot;</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">&quot;port&quot;</span>: <span class="number">1080</span>,</span><br><span class="line">      <span class="attr">&quot;listen&quot;</span>: <span class="string">&quot;127.0.0.1&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;protocol&quot;</span>: <span class="string">&quot;socks&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;sniffing&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;enabled&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">&quot;destOverride&quot;</span>: [<span class="string">&quot;http&quot;</span>, <span class="string">&quot;tls&quot;</span>]</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">&quot;settings&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;auth&quot;</span>: <span class="string">&quot;noauth&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;udp&quot;</span>: <span class="literal">false</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">&quot;outbounds&quot;</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">&quot;protocol&quot;</span>: <span class="string">&quot;vmess&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;settings&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;vnext&quot;</span>: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">&quot;address&quot;</span>: <span class="string">&quot;aaa.com&quot;</span>, <span class="comment">// nginx server_name</span></span><br><span class="line">            <span class="attr">&quot;port&quot;</span>: <span class="number">443</span>,</span><br><span class="line">            <span class="attr">&quot;users&quot;</span>: [</span><br><span class="line">              &#123;</span><br><span class="line">                <span class="attr">&quot;id&quot;</span>: <span class="string">&quot;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx&quot;</span>, <span class="comment">// 同服务端配合</span></span><br><span class="line">                <span class="attr">&quot;alterId&quot;</span>: <span class="number">32</span> <span class="comment">// 同服务端配合</span></span><br><span class="line">              &#125;</span><br><span class="line">            ]</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">&quot;streamSettings&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;network&quot;</span>: <span class="string">&quot;ws&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;security&quot;</span>: <span class="string">&quot;tls&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;wsSettings&quot;</span>: &#123;</span><br><span class="line">          <span class="attr">&quot;path&quot;</span>: <span class="string">&quot;/ray&quot;</span> <span class="comment">// 与 V2Ray 服务端配置中的 path 保持一致</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="V2Ray-基于-Nginx-的-vmess-ws-tls-一键安装脚本"><a href="#V2Ray-基于-Nginx-的-vmess-ws-tls-一键安装脚本" class="headerlink" title="V2Ray 基于 Nginx 的 vmess+ws+tls 一键安装脚本"></a>V2Ray 基于 Nginx 的 vmess+ws+tls 一键安装脚本</h3><p><a target="_blank" rel="noopener" href="https://github.com/wulabing/V2Ray_ws-tls_bash_onekey">https://github.com/wulabing/V2Ray_ws-tls_bash_onekey</a></p>
-<h3 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h3><p>更多客户端可以参考<a href="https://wqdy.top/228.html">这里</a></p>
-<p>macOS</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/yanue/V2rayU">V2rayU</a><br><a target="_blank" rel="noopener" href="https://github.com/Cenmrev/V2RayX">V2RayX</a></p>
-<p>Windows</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/2dust/v2rayN">v2rayN</a></p>
-<p>Android</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/2dust/v2rayNG/releases">V2RayNG</a></p>
-<p>iOS</p>
-<p>Shadowrocket</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/406.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="cuilongjin">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/406.html" class="post-title-link" itemprop="url">input file 控件</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-09-27 22:18:32" itemprop="dateCreated datePublished" datetime="2019-09-27T22:18:32+00:00">2019-09-27</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-19 09:49:50" itemprop="dateModified" datetime="2020-12-19T09:49:50+00:00">2020-12-19</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/406.html" class="post-meta-item leancloud_visitors" data-flag-title="input file 控件" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="限制上传文件类型"><a href="#限制上传文件类型" class="headerlink" title="限制上传文件类型"></a>限制上传文件类型</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;File1&quot;</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">accept</span>=<span class="string">&quot;.xls,.doc,.txt,.pdf&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-
-<details>
-<summary>文件类型</summary>
-<pre>
-.3gpp audio/3gpp， video/3gpp 3GPP Audio/Video
-.ac3 audio/ac3 AC3 Audio
-.asf allpication/vnd.ms-asf Advanced Streaming Format
-.au audio/basic AU Audio
-.css text/css Cascading Style Sheets
-.csv text/csv Comma Separated Values
-.doc application/msword MS Word Document
-.dot application/msword MS Word Template
-.dtd application/xml-dtd Document Type Definition
-.dwg image/vnd.dwg AutoCAD Drawing Database
-.dxf image/vnd.dxf AutoCAD Drawing Interchange Format
-.gif image/gif Graphic Interchange Format
-.htm text/html HyperText Markup Language
-.html text/html HyperText Markup Language
-.jp2 image/jp2 JPEG-2000
-.jpe image/jpeg JPEG
-.jpeg image/jpeg JPEG
-.jpg image/jpeg JPEG
-.js text/javascript， application/javascript JavaScript
-.json application/json JavaScript Object Notation
-.mp2 audio/mpeg， video/mpeg MPEG Audio/Video Stream， Layer II
-.mp3 audio/mpeg MPEG Audio Stream， Layer III
-.mp4 audio/mp4， video/mp4 MPEG-4 Audio/Video
-.mpeg video/mpeg MPEG Video Stream， Layer II
-.mpg video/mpeg MPEG Video Stream， Layer II
-.mpp application/vnd.ms-project MS Project Project
-.ogg application/ogg， audio/ogg Ogg Vorbis
-.pdf application/pdf Portable Document Format
-.png image/png Portable Network Graphics
-.pot application/vnd.ms-powerpoint MS PowerPoint Template
-.pps application/vnd.ms-powerpoint MS PowerPoint Slideshow
-.ppt application/vnd.ms-powerpoint MS PowerPoint Presentation
-.rtf application/rtf， text/rtf Rich Text Format
-.svf image/vnd.svf Simple Vector Format
-.tif image/tiff Tagged Image Format File
-.tiff image/tiff Tagged Image Format File
-.txt text/plain Plain Text
-.wdb application/vnd.ms-works MS Works Database
-.wps application/vnd.ms-works Works Text Document
-.xhtml application/xhtml+xml Extensible HyperText Markup Language
-.xlc application/vnd.ms-excel MS Excel Chart
-.xlm application/vnd.ms-excel MS Excel Macro
-.xls application/vnd.ms-excel MS Excel Spreadsheet
-.xlt application/vnd.ms-excel MS Excel Template
-.xlw application/vnd.ms-excel MS Excel Workspace
-.xml text/xml， application/xml Extensible Markup Language
-.zip aplication/zip Compressed Archive
-</pre>
-</details>
-
-<h2 id="清空-value"><a href="#清空-value" class="headerlink" title="清空 value"></a>清空 value</h2><p>使用 input file 进行文件上传时，重复选择相同文件时，change 事件不再触发<br>解决方式：手动将 file 的 value 值设置为空</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">id</span>=<span class="string">&quot;file&quot;</span> <span class="attr">accept</span>=<span class="string">&quot;image/gif,image/jpeg&quot;</span> @<span class="attr">change</span>=<span class="string">&quot;uploadFile($event)&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$event.target.value = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="comment">// 或</span></span><br><span class="line"><span class="keyword">var</span> file = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;file&#x27;</span>)</span><br><span class="line">file.value = <span class="string">&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/page/7/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/archives/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/14/">14</a><a class="extend next" rel="next" href="/archives/page/9/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/archives/page/7/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/archives/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/15/">15</a><a class="extend next" rel="next" href="/archives/page/9/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
