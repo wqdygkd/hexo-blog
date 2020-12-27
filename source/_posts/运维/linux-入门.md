@@ -20,11 +20,6 @@ htop 系统状况监控
 
 nano linux下文本编辑器
 
-```bash
-# apt-get install -y zlib1g-dev gcc make git autoconf autogen automake pkg-config uuid-dev 【ubuntu】
-# yum install -y  libuuid-devel zlib-devel gcc make git autoconf autogen automake 【centos】
-```
-
 grafana
 
 ### linux 目录表
@@ -448,7 +443,7 @@ drwxrwxr-x 2
 
 硬链接数：表示有多少种方式可以访问到当前目录/文件，文件的硬链接数通常为 1，目录的硬链接数取决于该目录有多少个子目录。
 
-#### 修改文件/目录权限 `chomd`
+#### 修改文件/目录权限 `chmod`
 
 ```shell
 $ chmod +/-rwx 文件名|目录

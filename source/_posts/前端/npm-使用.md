@@ -55,6 +55,12 @@ npm install <git:// url>
 npm install <pkg> -S|--save # 安装到 dependencies
 npm install <pkg> -D|--save-dev # 安装到 devDependencies
 
+# --verbose 参数 显示安装的详细信息
+npm i --verbose
+
+# --production 参数 只会安装 dependencies 依赖，而忽略 devDependencies 依赖，用于生产环境
+npm i --production
+
 # 安装全局包
 npm install -g <pkg>
 
@@ -106,7 +112,7 @@ npm uninstall 可简写成 npm uni
 **修改全局配置**
 
 - 进入~/.npmrc 增加 `registry=https://registry.npm.taobao.org`
-- 通过命令 `npm config set registry http://registry.cnpmjs.org`
+- 通过命令 `npm config set registry https://registry.npm.taobao.org`
 
 
 **修改当前项目的 npm 源**

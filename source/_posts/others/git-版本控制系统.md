@@ -819,6 +819,31 @@ Commands
 
 <https://www.jianshu.com/p/67f20d19605a>
 
+
+## git-bisect
+
+git 有一个以二分法帮助定位问题的命令——bisect。
+
+```bash
+# 开始二分查找问题
+git bisect start
+# 标记当前有问题
+git bisect bad
+# 标记哪个 commit 或 tag 时是没问题的
+git bisect good v1.0.0
+
+# 此时 git 会 checkout 两个点之间的某个 commit，
+# 如果此时还是有问题：
+git bisect bad
+# 如果此时没有问题：
+git bisect good
+# 接着 git 会 checkout 下一个「有问题」和「没问题」之间的 commit
+
+# 直到定位到问题，git 会提示：xxxxxxx is first bad commit
+```
+
+参考：https://git-scm.com/book/zh/v2/Git-工具-使用-Git-调试
+
 ## other
 
 ### git add .`的时候遇到`warning: LF will be replaced by CRLF in ......`
