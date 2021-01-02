@@ -65,3 +65,11 @@ ProxyCommand connect -S 127.0.0.1:1080 %h %p
 ```
 
 1080 端口换成你本地代理客户端的 socks 端口
+
+## github.com.cnpmjs.org 镜像站
+
+```bash
+git clone https://github.com/vuejs/vue.git
+# 改为
+git clone https://github.com.cnpmjs.org/vuejs/vue.git
+```
