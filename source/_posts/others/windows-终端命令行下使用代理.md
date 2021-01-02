@@ -9,7 +9,7 @@ date: 2020-05-16 12:13:13
 
 20200822更新：只要启用了代理软件，或系统设置（windows设置-网络和Internet-代理-手动设置代理）中配置了代理，powershell 就会走代理，不在需要上面的方式设置，实际上上面的这个脚本也是在系统设置中配置了代理，因为我发现运行上面的脚本，我的系统代理中就多了如下代理
 
-![](https://wqdy.top/wp-content/uploads/2020/08/2020-08-16-13-09-36.png)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102203656.png)
 
 
 前提：在本地代理软件已经打开，并且开启了 http 代理（假设端口1080）
@@ -86,7 +86,7 @@ function Set-Proxy
 
 `curl -vv http://www.google.com`，用这条命令来验证，如果返回如下结果表示代理设置成功。
 
-![](https://wqdy.top/wp-content/uploads/2020/05/20-05-16_11-51-47.png)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102203731.png)
 
 参考链接
 

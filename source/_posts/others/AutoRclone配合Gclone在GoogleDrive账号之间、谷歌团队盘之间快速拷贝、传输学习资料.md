@@ -54,7 +54,7 @@ git clone https://github.com/xyou365/AutoRclone && cd AutoRclone && pip3 install
 
 稍等片刻，继续点击 CREATE，出现如下页面表示成功
 
-![](https://wqdy.top/wp-content/uploads/2020/05/2020-05-23_15-22-05.png)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102201708.png)
 
 点击 `DOWNLOAD CLIENT CONFIGUTATION` 按钮，下载 `credentials.json` 文件，然后将下载的 `credentials.json` 放到 AutoRclone 目录下
 
@@ -106,29 +106,29 @@ python3 gen_sa_accounts.py --quick-setup -1
 
 出现如下图
 
-![](https://wqdy.top/wp-content/uploads/2020/05/2020-05-23_16-31-01.png)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102201740.png)
 
 打开链接，并登陆你的 Google 账号（提示不安全，不用管，一路允许）
 
-![](https://wqdy.top/wp-content/uploads/2020/05/2020-05-23_16-43-56.png)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102201805.png)
 
-![](https://wqdy.top/wp-content/uploads/2020/05/2020-05-23_16-44-11.png)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102201823.png)
 
 得到授权代码
 
-![](https://wqdy.top/wp-content/uploads/2020/05/2020-05-23_16-44-20.png)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102201844.png)
 
 复制生成的 code 到终端，回车
 
-![](https://wqdy.top/wp-content/uploads/2020/05/2020-05-23_16-58-50.png)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102201900.png)
 
 如上图所示，显示`Press Enter to retry`, 原因是谷歌账号未开启 Service Usage API，复制提供的链接地址，到浏览器打开，开启 Service Usage API 服务
 
-![](https://wqdy.top/wp-content/uploads/2020/05/2020-05-23_16-43-45.png)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102201955.png)
 
 启用成功后回车，等待完成
 
-![](https://wqdy.top/wp-content/uploads/2020/05/2020-05-23_17-01-51.png)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202016.png)
 
 接着，你就会发现你的 AutoRclone 文件下面的 accounts 文件夹下会有很多的 json 文件。
 
@@ -144,7 +144,7 @@ python3 gen_sa_accounts.py --quick-setup -1
 
 打开链接：https://groups.google.com/ ，创建群组：
 
-![](https://wqdy.top/wp-content/uploads/2020/05/2020-05-23_17-18-07.png)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202037.png)
 
 #### 批量提取 Service Accounts
 
@@ -170,7 +170,7 @@ cat ~/AutoRclone/accounts/*.json | grep "client_email" | awk '{print $2}'| tr -d
 左侧 直接添加成员，将 Service Accounts 邮箱复制粘贴 10 个，点击 添加：
 (注意每次只能添加 10 个，每 24 小时只能添加 100 个)
 
-![](https://wqdy.top/wp-content/uploads/2020/05/2020-05-23_17-39-35.png)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202108.png)
 
 重复以上步骤，将 100 个邮箱添加进去
 
@@ -178,13 +178,13 @@ cat ~/AutoRclone/accounts/*.json | grep "client_email" | awk '{print $2}'| tr -d
 
 点击关于，找到群组邮箱：
 
-![](https://wqdy.top/wp-content/uploads/2020/05/2020-05-23_17-58-36.png)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202125.png)
 
-![](https://wqdy.top/wp-content/uploads/2020/05/2020-05-23_17-59-01.png)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202138.png)
 
 复制下来，添加到 Google Team Drive 成员中
 
-![](https://wqdy.top/wp-content/uploads/2020/05/2020-05-23_18-07-30.png)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202159.png)
 
 添加完成后，基本就完成所有设置了
 
@@ -208,7 +208,7 @@ python3 add_to_team_drive.py -d SharedTeamDriveDstID
 
 回车后，再次回车：
 
-![](https://wqdy.top/wp-content/uploads/2020/05/2020-05-23_18-11-54.png)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202221.png)
 
 #### 直接使用
 

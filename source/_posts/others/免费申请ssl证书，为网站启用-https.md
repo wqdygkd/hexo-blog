@@ -50,7 +50,7 @@ github：https://github.com/acmesh-official/acme.sh/wiki/%E8%AF%B4%E6%98%8E
 
 支持一键配置 `宝塔SSL`,`Let's Encrypt`免费证书
 
-![](https://wqdy.top/wp-content/uploads/2020/07/20200722173435.png)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102184437.png)
 
 ##
 

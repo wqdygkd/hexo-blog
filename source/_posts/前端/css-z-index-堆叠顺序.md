@@ -36,7 +36,7 @@ date: 2018-08-27 22:08:12
 - `opacity`不等于 1
 - `transform`不等于 none
 
-![](https://wqdy.top/wp-content/uploads/2020/06/z-index.png)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102204249.png)
 
 ```html
 <html>

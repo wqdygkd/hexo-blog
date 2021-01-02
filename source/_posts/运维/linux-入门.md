@@ -605,7 +605,7 @@ $ which useradd
 
 exit 示意图：
 
-![](https://wqdy.top/wp-content/uploads/2020/06/exit示意图.png)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102205719.png)
 
 #### 修改文件权限
 
@@ -683,7 +683,7 @@ PID 进程代号
 
 ##### 文件软硬链接示意图
 
-![](https://wqdy.top/wp-content/uploads/2020/06/文件软硬链接示意图.png)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102205748.png)
 
 - 在 linux 中**文件名**和**文件的数据**是分开存储的
 

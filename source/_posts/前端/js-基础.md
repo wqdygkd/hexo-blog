@@ -816,7 +816,7 @@ switch (变量) {
 
 ## while 循环
 
-![](https://wqdy.top/wp-content/uploads/2020/06/while.png)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102205019.png)
 
 基本语法 :
 
@@ -847,7 +847,7 @@ console.log(sum)
 
 > do..while 循环和 while 循环非常像，二者经常可以相互替代，但是 do..while 的特点是不管条件成不成立，都会执行一次。
 
-![](https://wqdy.top/wp-content/uploads/2020/06/dowhile.png)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102205045.png)
 
 基础语法 :
 
@@ -871,7 +871,7 @@ do {
 
 ## for 循环
 
-![](https://wqdy.top/wp-content/uploads/2020/06/for.png)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102205112.png)
 
 for 循环语法：
 
@@ -1298,11 +1298,11 @@ fn1()() // 呵呵
 6. 让所有的断点失效
 7. 自动根据错误断点
 
-![](https://wqdy.top/wp-content/uploads/2020/06/断点调试介绍.png)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102205131.png)
 
-![](https://wqdy.top/wp-content/uploads/2020/06/watch监听.png)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102205150.png)
 
-![](https://wqdy.top/wp-content/uploads/2020/06/调用栈.png)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102205206.png)
 
 ## 函数的重载
 

@@ -16,7 +16,7 @@ date: 2020-05-16 17:09:01
 
 使用 SSH 登录群晖系统，运行命令`ls /dev/dri`，若输出 card0、renderD128，则说明支持显卡硬解。
 
-![](https://wqdy.top/wp-content/uploads/2020/05/2020-05-16_17-00-15.png)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202420.png)
 
 2、给容器提权
 
@@ -33,6 +33,7 @@ Docker 中启动容器，打开 Jellyfin 网页端，依次进入控制台->播�
 #### 使用效果
 
 前后对比：
-![](https://wqdy.top/wp-content/uploads/2020/05/jellyfin-3.png)
+
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202439.png)
 
 可以看到 CPU 占用明显降低了，播放也不卡顿了，效果还是非常明显的。

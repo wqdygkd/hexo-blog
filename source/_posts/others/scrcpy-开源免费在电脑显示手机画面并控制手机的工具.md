@@ -39,9 +39,9 @@ Scrcpy-GUI 只是图形界面（它不包含 Scrcpy 本身），你需要先安�
 
 **Scrcpy_GUI 酷安@晨钟酱**
 
-![](https://wqdy.top/wp-content/uploads/2020/07/630380_33c98740_0398_4106@677x596.png)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102203423.png)
 
-![](https://wqdy.top/wp-content/uploads/2020/07/630380_27ce952b_0398_4108@685x503.png)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102203440.png)
 
 下载链接
 
@@ -51,7 +51,7 @@ https://www.coolapk.com/feed/15973938?shareKey=YWE5NWFkMTg1N2Y2NWU1ODFlOWQ~&shar
 
 **安卓投屏**
 
-![](https://wqdy.top/wp-content/uploads/2020/07/214430bbf2nbfvv3rv7vuv.png)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102203457.png)
 
 下载地址
 

@@ -8,7 +8,7 @@ categories:
 date: 2018-10-18 14:34:36
 ---
 
-![大纲](https://wqdy.top/wp-content/uploads/2020/06/dagang.png)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102204500.png)
 
 ## 面向对象编程
 
@@ -231,7 +231,7 @@ console.log(p.constructor == Person.prototype.constructor) // true
 
 原型：每一个构造函数都有一个属性`prototype`，函数的 prototype 属性值就是原型。通过构造函数创建出来的实例能够直接使用原型上的属性和方法
 
-![](https://wqdy.top/wp-content/uploads/2020/06/sanjiao.png)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102204519.png)
 
 原型三角关系：
 
@@ -273,7 +273,7 @@ var date = new Date()
 
 总结：Object.prototype 是原型链的尽头，Object.prototype 的原型是 null
 
-![](https://wqdy.top/wp-content/uploads/2020/06/proto.png)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102204539.png)
 
 ### 属性查找原则
 
@@ -1085,7 +1085,7 @@ function Person() {}
 console.dir(Function.prototype)
 ```
 
-![](https://wqdy.top/wp-content/uploads/2020/06/function.jpg)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102204558.jpeg)
 
 #### Function.prototype 成员
 
@@ -1113,10 +1113,10 @@ function getType(obj) {
 > 绘制完整版原型链的目的是辅助大家理解 js 中对象的继承关系
 
 图一
-![](https://wqdy.top/wp-content/uploads/2020/06/full.png)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102204647.png)
 
 图二
-![](https://wqdy.top/wp-content/uploads/2020/06/原型链.jpg)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102204701.jpeg)
 
 总结：
 

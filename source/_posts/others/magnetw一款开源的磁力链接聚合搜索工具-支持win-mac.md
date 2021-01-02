@@ -12,4 +12,4 @@ date: 2020-04-25 14:01:16
 
 欢迎 star
 
-![](https://wqdy.top/wp-content/uploads/2020/04/app.gif)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102203211.gif)

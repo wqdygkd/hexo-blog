@@ -130,7 +130,7 @@ Broswer/Server 架构，即浏览器/服务器架构。随着 Internet 的兴起
 
 ### HTML 运行原理
 
-![](https://wqdy.top/wp-content/uploads/2020/06/HTML运行原理.png)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102205640.png)
 
 1. 在浏览器的 URL 地址栏中输入 www.baidu.com/index.html 地址，点回车。请求就发送给百度服务器。
 2. 百度服务器找到 index.html 文件，并将文件的内容返回给浏览器
@@ -143,7 +143,7 @@ Broswer/Server 架构，即浏览器/服务器架构。随着 Internet 的兴起
 apache 不认识 php
 浏览器也不认识 php
 
-![](https://wqdy.top/wp-content/uploads/2020/06/PHP运行原理.png)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102205658.png)
 
 1.  在浏览器地址栏中输入 localhost/index.php ,点回车之后。将请求发送给 apache 服务器
 2.  服务器找到 index.php 文件之后，转发给 php 解释器

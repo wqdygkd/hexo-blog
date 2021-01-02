@@ -24,7 +24,7 @@ date: 2018-09-12 22:28:19
 
 ### 本地版本控制系统
 
-![](https://wqdy.top/wp-content/uploads/2020/06/git1.png)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202248.png)
 
 本地版本控制系统就是在一台机器上，记录版本的不同变化，保证内容不会丢失
 
@@ -32,7 +32,7 @@ date: 2018-09-12 22:28:19
 
 ### 集中式版本控制系統
 
-![](https://wqdy.top/wp-content/uploads/2020/06/git2.png)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202303.png)
 
 `svn` 是集中式的版本控制系统，集中式版本控制系统都有一个单一的集中管理的服务器（中央服务器），保存所有文件的修订版本，而协同工作的人们都通过客户端连到这台服务器，取出最新的文件或者提交更新。
 
@@ -42,7 +42,7 @@ date: 2018-09-12 22:28:19
 
 ### 分布式版本控制系统
 
-![](https://wqdy.top/wp-content/uploads/2020/06/git3.png)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202325.png)
 
 `git` 是分布式的版本控制系统。分布式版本控制系统的客户端并不只提取最新版本的文件快照，而是把代码仓库完整地镜像下来。这么一来，任何一处协同工作用的服务器发生故障，事后都可以用任何一个镜像出来的本地仓库恢复。因为每一次的提取操作，实际上都是一次对代码仓库的完整备份
 
@@ -70,9 +70,9 @@ date: 2018-09-12 22:28:19
 
 - **`.git`**：存放 Git 管理信息的目录，初始化仓库的时候会自动创建
 
-![](https://wqdy.top/wp-content/uploads/2020/06/git.jpg)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202341.jpeg)
 
-![](https://wqdy.top/wp-content/uploads/2020/06/github-flows.png)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202402.png)
 
 ## Git 初始设置
 
