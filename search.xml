@@ -17,7 +17,7 @@
 <h3 id="生成-Service-Accounts"><a href="#生成-Service-Accounts" class="headerlink" title="生成 Service Accounts"></a>生成 Service Accounts</h3><p>打开链接：<a href="https://developers.google.com/drive/api/v3/quickstart/python">https://developers.google.com/drive/api/v3/quickstart/python</a></p>
 <p>登陆 google 账号，点击 <code>Enable the Drive API</code>，在弹出的页面中勾选 yes ，点击 NEXT，</p>
 <p>稍等片刻，继续点击 CREATE，出现如下页面表示成功</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/05/2020-05-23_15-22-05.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102201708.png"></p>
 <p>点击 <code>DOWNLOAD CLIENT CONFIGUTATION</code> 按钮，下载 <code>credentials.json</code> 文件，然后将下载的 <code>credentials.json</code> 放到 AutoRclone 目录下</p>
 <p>如果你用的是 Xshell 可以使用 rz 来上传文件</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt install lrzsz -y</span><br><span class="line">rz <span class="comment"># 回车会打开窗口，选择文件上传即可</span></span><br><span class="line">rz 文件 <span class="comment"># 下载文件</span></span><br></pre></td></tr></table></figure>
@@ -40,30 +40,30 @@
 <p><code>sudo pip3 install requests</code></p>
 </blockquote>
 <p>出现如下图</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/05/2020-05-23_16-31-01.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102201740.png"></p>
 <p>打开链接，并登陆你的 Google 账号（提示不安全，不用管，一路允许）</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/05/2020-05-23_16-43-56.png"></p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/05/2020-05-23_16-44-11.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102201805.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102201823.png"></p>
 <p>得到授权代码</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/05/2020-05-23_16-44-20.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102201844.png"></p>
 <p>复制生成的 code 到终端，回车</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/05/2020-05-23_16-58-50.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102201900.png"></p>
 <p>如上图所示，显示<code>Press Enter to retry</code>, 原因是谷歌账号未开启 Service Usage API，复制提供的链接地址，到浏览器打开，开启 Service Usage API 服务</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/05/2020-05-23_16-43-45.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102201955.png"></p>
 <p>启用成功后回车，等待完成</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/05/2020-05-23_17-01-51.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202016.png"></p>
 <p>接着，你就会发现你的 AutoRclone 文件下面的 accounts 文件夹下会有很多的 json 文件。</p>
 <h3 id="将-service-accounts-加入-Google-Groups"><a href="#将-service-accounts-加入-Google-Groups" class="headerlink" title="将 service accounts 加入 Google Groups"></a>将 service accounts 加入 Google Groups</h3><blockquote>
 <p>可以直接将 service accounts 加入到Team Drive<br><code>python3 add_to_team_drive.py -d SharedTeamDriveSrcID</code><br>为了便于管理 service accounts，我们创建 Google Group，将 Google Group 邮箱添加到 Team Drive</p>
 </blockquote>
 <p>我们这一步需要将刚刚生成的数以百计的 Service Accounts 添加到 Google Group 中</p>
 <h4 id="创建-Google-Group"><a href="#创建-Google-Group" class="headerlink" title="创建 Google Group"></a>创建 Google Group</h4><p>打开链接：<a href="https://groups.google.com/">https://groups.google.com/</a> ，创建群组：</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/05/2020-05-23_17-18-07.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202037.png"></p>
 <h4 id="批量提取-Service-Accounts"><a href="#批量提取-Service-Accounts" class="headerlink" title="批量提取 Service Accounts"></a>批量提取 Service Accounts</h4><blockquote>
 <p>如果是 GSuite Admin 账号，可以使用如下方式直接添加进群组</p>
 <ol>
 <li>将生成的json文件保存到 credentials 文件夹中</li>
-<li>在管理控制台中为您的组织创建组。创建群组后，您将拥有一个例如的地址<a href="mailto:&#x73;&#x61;&#x40;&#121;&#x6f;&#117;&#x72;&#x64;&#111;&#x6d;&#97;&#x69;&#110;&#46;&#99;&#x6f;&#x6d;">&#x73;&#x61;&#x40;&#121;&#x6f;&#117;&#x72;&#x64;&#111;&#x6d;&#97;&#x69;&#110;&#46;&#99;&#x6f;&#x6d;</a></li>
+<li>在管理控制台中为您的组织创建组。创建群组后，您将拥有一个例如的地址<a href="mailto:&#115;&#x61;&#64;&#121;&#x6f;&#117;&#x72;&#100;&#x6f;&#109;&#x61;&#105;&#110;&#46;&#99;&#x6f;&#109;">&#115;&#x61;&#64;&#121;&#x6f;&#117;&#x72;&#100;&#x6f;&#109;&#x61;&#105;&#110;&#46;&#99;&#x6f;&#109;</a></li>
 <li>运行 <code>python3 add_to_google_group.py -g sa@yourdomain.com</code></li>
 </ol>
 </blockquote>
@@ -73,13 +73,13 @@
 <h4 id="添加到-Google-Group"><a href="#添加到-Google-Group" class="headerlink" title="添加到 Google Group"></a>添加到 Google Group</h4><p>将 email.txt 文件下载到本地</p>
 <p>回到 Group 页面，右上角 管理成员：</p>
 <p>左侧 直接添加成员，将 Service Accounts 邮箱复制粘贴 10 个，点击 添加：<br>(注意每次只能添加 10 个，每 24 小时只能添加 100 个)</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/05/2020-05-23_17-39-35.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202108.png"></p>
 <p>重复以上步骤，将 100 个邮箱添加进去</p>
 <h4 id="将-Google-Group-邮箱添加到-Team-Drive"><a href="#将-Google-Group-邮箱添加到-Team-Drive" class="headerlink" title="将 Google Group 邮箱添加到 Team Drive"></a>将 Google Group 邮箱添加到 Team Drive</h4><p>点击关于，找到群组邮箱：</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/05/2020-05-23_17-58-36.png"></p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/05/2020-05-23_17-59-01.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202125.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202138.png"></p>
 <p>复制下来，添加到 Google Team Drive 成员中</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/05/2020-05-23_18-07-30.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202159.png"></p>
 <p>添加完成后，基本就完成所有设置了</p>
 <h3 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h3><p>首先将 service accounts 加入到目标 Team Drive</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/AutoRclone</span><br><span class="line"><span class="comment"># 将以下 SharedTeamDriveDstID 替换为你团队盘 ID</span></span><br><span class="line">python3 add_to_team_drive.py -d SharedTeamDriveDstID</span><br></pre></td></tr></table></figure>
@@ -90,7 +90,7 @@
 <p>以上链接中，0AICYh4X7BkjVUk9PVA 就是 ID</p>
 </blockquote>
 <p>回车后，再次回车：</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/05/2020-05-23_18-11-54.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202221.png"></p>
 <h4 id="直接使用"><a href="#直接使用" class="headerlink" title="直接使用"></a>直接使用</h4><p>先安装 rclone</p>
 <p>rclone 安装教程可以参考 <a href="https://wqdy.top/1243.html">https://wqdy.top/1243.html</a></p>
 <ul>
@@ -234,7 +234,7 @@
 <p>修改.ssh/config</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">Hostname github.com</span><br><span class="line">ProxyCommand connect -S 127.0.0.1:1080 %h %p</span><br></pre></td></tr></table></figure>
 <p>1080 端口换成你本地代理客户端的 socks 端口</p>
-]]></content>
+<h2 id="github-com-cnpmjs-org-镜像站"><a href="#github-com-cnpmjs-org-镜像站" class="headerlink" title="github.com.cnpmjs.org 镜像站"></a>github.com.cnpmjs.org 镜像站</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/vuejs/vue.git</span><br><span class="line"><span class="comment"># 改为</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com.cnpmjs.org/vuejs/vue.git</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>web前端</category>
       </categories>
@@ -303,14 +303,15 @@
     <content><![CDATA[<p>之前使用群晖 Docker 折腾 Jellyfin，解决了个人音视频收藏的基本需求，但仍有不足，比如说视频播放的时候，CPU 占用会很高（软解吃 CPU），并且会卡顿。</p>
 <h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><p>1、查看系统是否支持显卡硬解转码</p>
 <p>使用 SSH 登录群晖系统，运行命令<code>ls /dev/dri</code>，若输出 card0、renderD128，则说明支持显卡硬解。</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/05/2020-05-16_17-00-15.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202420.png"></p>
 <p>2、给容器提权</p>
 <p>在群群 Docker 容器中找到 Jellyfin 的容器，编辑容器的常规设置，必须勾选使用高权限执行容器。</p>
 <p>3、添加环境</p>
 <p>在环境中添加两项，分别是 <code>PUID</code> 值填写为 <code>0</code> ，<code>PGID</code> 值填写为 <code>0</code></p>
 <p>4、启用 <code>VAAPI</code> 硬件加速</p>
 <p>Docker 中启动容器，打开 Jellyfin 网页端，依次进入控制台-&gt;播放，在硬件选项中选择 VAAPI 保存设置即可。</p>
-<h4 id="使用效果"><a href="#使用效果" class="headerlink" title="使用效果"></a>使用效果</h4><p>前后对比：<br><img src="https://wqdy.top/wp-content/uploads/2020/05/jellyfin-3.png"></p>
+<h4 id="使用效果"><a href="#使用效果" class="headerlink" title="使用效果"></a>使用效果</h4><p>前后对比：</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202439.png"></p>
 <p>可以看到 CPU 占用明显降低了，播放也不卡顿了，效果还是非常明显的。</p>
 ]]></content>
       <categories>
@@ -325,7 +326,7 @@
     <url>/1289.html</url>
     <content><![CDATA[<p>开源地址：<a href="https://github.com/xiandanin/magnetW">https://github.com/xiandanin/magnetW</a><br>下载地址：<a href="https://github.com/xiandanin/magnetW/releases">https://github.com/xiandanin/magnetW/releases</a></p>
 <p>欢迎 star</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/04/app.gif"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102203211.gif"></p>
 ]]></content>
       <categories>
         <category>软件</category>
@@ -402,18 +403,18 @@
     <url>/936.html</url>
     <content><![CDATA[<h2 id="HWIDGEN"><a href="#HWIDGEN" class="headerlink" title="HWIDGEN"></a>HWIDGEN</h2><p>是一款由国外 Nsane 论坛会员 s1ave77 制作的 Windows 10 数字权利激活工具，可以自动获取 Windows 10 数字许可证</p>
 <p><a href="https://support.microsoft.com/zh-cn/help/12440/windows-10-activate">数字许可证</a>（在 Windows 10 版本 1511 中称为数字授权）是 Windows 10 的一种激活方法，该方法不需要输入产品密钥。在同一台电脑上主要硬件（应该是 CPU 和主板）不变化的情况下，重新安装系统时无需再次输入密钥，系统会在自动连接到微软服务器进行激活。</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/06/2020-06-26_15-01-26.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102203303.png"></p>
 <h3 id="支持的-win10-版本："><a href="#支持的-win10-版本：" class="headerlink" title="支持的 win10 版本："></a>支持的 win10 版本：</h3><p>家庭版（HWID/KMS3）<br>家庭单语言版（HWID/KMS3）<br>专业版（HWID/KMS3）<br>专业教育版（HWID/KMS3）<br>专业工作站版（HWID/KMS3）<br>教育版（HWID/KMS3）<br>企业版（HWID/KMS3）<br>企业版 S 2015（HWID）<br>企业版 S 2016（HWID/KMS3）<br>企业版 S（KMS19™）</p>
 <h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h3><p><a href="https://www.aiowares.com/showthread.php?tid=246">https://www.aiowares.com/showthread.php?tid=246</a></p>
 <p>百度云：链接：<a href="https://pan.baidu.com/s/111rJZHaOFJrpOdOKXW5Vcw">https://pan.baidu.com/s/111rJZHaOFJrpOdOKXW5Vcw</a> 提取码：3o1c</p>
 <h2 id="W10-数字许可激活-C-版"><a href="#W10-数字许可激活-C-版" class="headerlink" title="W10 数字许可激活 C#版"></a>W10 数字许可激活 C#版</h2><p>是一款由吾爱破解论坛 angelkyo 编写的 Windows 10 数字权利激活工具，跟 HWIDGen 类似</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/06/39C98453-5B81-4f53-B267-61F34260FAD2.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102203321.png"></p>
 <h3 id="下载地址-1"><a href="#下载地址-1" class="headerlink" title="下载地址"></a>下载地址</h3><p><a href="https://www.52pojie.cn/thread-742884-1-1.html">https://www.52pojie.cn/thread-742884-1-1.html</a></p>
 <p>百度云：链接：<a href="https://pan.baidu.com/s/1OsoR_Zpu_BF7m0Plw8mUEA">https://pan.baidu.com/s/1OsoR_Zpu_BF7m0Plw8mUEA</a> 提取码：a1ru</p>
 <h2 id="离线-KMS-激活工具-HEU-KMS-Activator-v19-6-2-正式版"><a href="#离线-KMS-激活工具-HEU-KMS-Activator-v19-6-2-正式版" class="headerlink" title="离线 KMS 激活工具 HEU KMS Activator v19.6.2 正式版"></a>离线 KMS 激活工具 HEU KMS Activator v19.6.2 正式版</h2><p>一款简洁高效的 KMS 激活工具，适用于 Windows、Office 及 VL 版本，无需联网即可一键激活，离线全自动激活软件，</p>
 <p>KMS 服务是微软公司对 Windows 以及 Office 等的批量授权服务，可以利用 KMS 激活局域网中的产品。而这款工具是利用在系统内部搭建 KMS 服务器，因此无论是 Windows 还是 Office 都可轻易进行激活。</p>
 <h3 id="功能："><a href="#功能：" class="headerlink" title="功能："></a>功能：</h3><p>Heu KMS 几乎支持所有 Vl 批量授权版本<br>可以通过搭建内置的 KMS 服务器进行手动激活产品<br>支持对 Windows 系统以及 Office 办公软件备份激活信息</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/06/1FD9D914-1BE0-4b09-9327-E2A9E51B988D.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102203343.png"></p>
 <h3 id="下载地址-2"><a href="#下载地址-2" class="headerlink" title="下载地址"></a>下载地址</h3><p>百度云：链接：<a href="https://pan.baidu.com/s/1gAGqEHEMjUa4IDx4tYNXag">https://pan.baidu.com/s/1gAGqEHEMjUa4IDx4tYNXag</a> 提取码：vrfc</p>
 <h2 id="Microsoft-激活脚本（MAS）："><a href="#Microsoft-激活脚本（MAS）：" class="headerlink" title="Microsoft 激活脚本（MAS）："></a>Microsoft 激活脚本（MAS）：</h2><p>一组脚本，用于使用 HWID / KMS38 /在线 KMS 激活方法激活 Microsoft 产品，重点是开放源代码，较少的防病毒检测和用户友好性。<br>原贴地址（需要登录）：<a href="https://www.nsaneforums.com/topic/316668-microsoft-activation-scripts/">https://www.nsaneforums.com/topic/316668-microsoft-activation-scripts/</a></p>
 <h3 id="开源地址"><a href="#开源地址" class="headerlink" title="开源地址"></a>开源地址</h3><p><a href="https://gitlab.com/massgrave/microsoft-activation-scripts">https://gitlab.com/massgrave/microsoft-activation-scripts</a><br><a href="https://github.com/massgravel/Microsoft-Activation-Scripts">https://github.com/massgravel/Microsoft-Activation-Scripts</a></p>
@@ -446,13 +447,13 @@
 <p>使用文档： <a href="https://github.com/Tomotoes/scrcpy-gui/blob/master/README.zh_CN.md">https://github.com/Tomotoes/scrcpy-gui/blob/master/README.zh_CN.md</a></p>
 <p>Scrcpy-GUI 只是图形界面（它不包含 Scrcpy 本身），你需要先安装好 Scrcpy，之后就能使用 GUI 界面进行连接使用了</p>
 <p><strong>Scrcpy_GUI 酷安@晨钟酱</strong></p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/07/630380_33c98740_0398_4106@677x596.png"></p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/07/630380_27ce952b_0398_4108@685x503.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102203423.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102203440.png"></p>
 <p>下载链接</p>
 <p>百度云：<a href="https://pan.baidu.com/s/14f8ffCapvPrU2eMWwBWK0A">https://pan.baidu.com/s/14f8ffCapvPrU2eMWwBWK0A</a> 提取码：64l0</p>
 <p><a href="https://www.coolapk.com/feed/15973938?shareKey=YWE5NWFkMTg1N2Y2NWU1ODFlOWQ~&amp;shareUid=739982&amp;shareFrom=com.coolapk.market_10.0.1">https://www.coolapk.com/feed/15973938?shareKey=YWE5NWFkMTg1N2Y2NWU1ODFlOWQ~&amp;shareUid=739982&amp;shareFrom=com.coolapk.market_10.0.1</a></p>
 <p><strong>安卓投屏</strong></p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/07/214430bbf2nbfvv3rv7vuv.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102203457.png"></p>
 <p>下载地址</p>
 <p>蓝奏云：<a href="https://www.lanzous.com/b009vk8ze">https://www.lanzous.com/b009vk8ze</a> 密码:gu2t</p>
 <p>百度云：<a href="https://pan.baidu.com/s/1E41IIgyU1vvERkhxFh0eGg">https://pan.baidu.com/s/1E41IIgyU1vvERkhxFh0eGg</a> 提取码：zfqd</p>
@@ -469,8 +470,8 @@
     <title>Snap2HTML – 生成 html 文件列表</title>
     <url>/1857.html</url>
     <content><![CDATA[<p>Snap2HTML 可以帮你将硬盘下的文件整理成一个 html 格式的树状视图列表，类似于 Windows 资源管理器，带有文件大小、日期、数量等常用信息，右上角还提供了搜索功能，方便你去整理或查找，或者是向基友们分享一下你的收藏</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/07/D0884A86-A0E1-4d09-9249-3EEC423EF13C.png"></p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/07/BD33243A-8A88-44c8-9726-AF4025EAA7C9.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102203522.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102203541.png"></p>
 <p>github地址 <a href="https://github.com/rlv-dan/Snap2HTML">https://github.com/rlv-dan/Snap2HTML</a></p>
 <p>官网地址 <a href="https://www.rlvision.com/snap2html/about.php">https://www.rlvision.com/snap2html/about.php</a></p>
 <p>百度云链接: <a href="https://pan.baidu.com/s/1XVvgMX4TKTOZSvEay8xvnQ">https://pan.baidu.com/s/1XVvgMX4TKTOZSvEay8xvnQ</a> 提取码: pbi3</p>
@@ -627,9 +628,9 @@
     <title>UsbEAm Hosts Editor [多平台 hosts 修改] V3.50</title>
     <url>/1853.html</url>
     <content><![CDATA[<p>UsbEAm Hosts Editor 是一款能够提升 origin、steam、uplay 等游戏平台下载速度的工具，同时也可以有效的解决一些游戏或者平台出现的各种网络错误，帮玩家能够顺利的登录平台，顺利进行游戏。</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/07/2020-07-05_17-24-25.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102203606.png"></p>
 <p>UsbEAm Hosts Editor 还可以为 github 加速，提高网页浏览的速度和代码下载的速度</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/07/2020-07-05_17-24-49.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102203624.png"></p>
 <p>使用方法：</p>
 <ul>
 <li><p>点击左下角的游戏手柄（或者点击鼠标右键），弹出菜单</p>
@@ -706,6 +707,24 @@
       </categories>
   </entry>
   <entry>
+    <title>VMware Workstation Pro v16.1.0 虚拟机软件及永久许可证</title>
+    <url>/2015.html</url>
+    <content><![CDATA[<p>VMware Workstation</p>
+<p>官网下载地址</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">VMware Workstation Pro 16.1.0 Build 17198959</span><br><span class="line">https:&#x2F;&#x2F;download3.vmware.com&#x2F;software&#x2F;wkst&#x2F;file&#x2F;VMware-workstation-full-16.1.0-17198959.exe</span><br><span class="line"></span><br><span class="line">VMware Workstation Pro 16.0.0 Build 16894299</span><br><span class="line">https:&#x2F;&#x2F;download3.vmware.com&#x2F;software&#x2F;wkst&#x2F;file&#x2F;VMware-workstation-full-16.0.0-16894299.exe</span><br><span class="line"></span><br><span class="line">VMware Workstation Pro 15.0.0 Build 10134415</span><br><span class="line">https:&#x2F;&#x2F;download3.vmware.com&#x2F;software&#x2F;wkst&#x2F;file&#x2F;VMware-workstation-full-15.0.0-10134415.exe</span><br><span class="line"></span><br><span class="line">VMware Workstation Pro 14.1.3 Build 9474260</span><br><span class="line">https:&#x2F;&#x2F;download3.vmware.com&#x2F;software&#x2F;wkst&#x2F;file&#x2F;VMware-workstation-full-14.1.3-9474260.exe</span><br><span class="line"></span><br><span class="line">VMware Workstation Pro 12.5.9 Build 7535481</span><br><span class="line">https:&#x2F;&#x2F;download3.vmware.com&#x2F;software&#x2F;wkst&#x2F;file&#x2F;VMware-workstation-full-12.5.9-7535481.exe</span><br><span class="line"></span><br><span class="line">VMware Workstation 10.0.7 Build 2844087</span><br><span class="line">https:&#x2F;&#x2F;download3.vmware.com&#x2F;software&#x2F;wkst&#x2F;file&#x2F;VMware-workstation-full-10.0.7-2844087.exe</span><br></pre></td></tr></table></figure>
+<p>激活许可证</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">VMware Workstation Pro 16 激活许可证</span><br><span class="line">ZF3R0-FHED2-M80TY-8QYGC-NPKYF</span><br><span class="line">YF390-0HF8P-M81RQ-2DXQE-M2UT6</span><br><span class="line">ZF71R-DMX85-08DQY-8YMNC-PPHV8</span><br><span class="line"></span><br><span class="line">VMware Workstation Pro 15 激活许可证</span><br><span class="line">UY758-0RXEQ-M81WP-8ZM7Z-Y3HDA</span><br><span class="line">VF750-4MX5Q-488DQ-9WZE9-ZY2D6</span><br><span class="line">UU54R-FVD91-488PP-7NNGC-ZFAX6</span><br><span class="line">YC74H-FGF92-081VZ-R5QNG-P6RY4</span><br><span class="line">YC34H-6WWDK-085MQ-JYPNX-NZRA2</span><br><span class="line">FG78K-0UZ15-085TQ-TZQXV-XV0CD</span><br><span class="line">ZA11U-DVY97-M81LP-4MNEZ-X3AW0</span><br><span class="line">YU102-44D86-48D2Z-Z4Q5C-MFAWD</span><br><span class="line">FC7D0-D1YDL-M8DXZ-CYPZE-P2AY6</span><br><span class="line"></span><br><span class="line">VMware Workstation Pro 14 激活许可证</span><br><span class="line">FF31K-AHZD1-H8ETZ-8WWEZ-WUUVA</span><br><span class="line">CV7T2-6WY5Q-48EWP-ZXY7X-QGUWD</span><br><span class="line"></span><br><span class="line">VMware Workstation Pro 12 激活许可证</span><br><span class="line">5A02H-AU243-TZJ49-GTC7K-3C61N</span><br><span class="line">VF5XA-FNDDJ-085GZ-4NXZ9-N20E6</span><br><span class="line">UC5MR-8NE16-H81WY-R7QGV-QG2D8</span><br><span class="line">ZG1WH-ATY96-H80QP-X7PEX-Y30V4</span><br><span class="line">AA3E0-0VDE1-0893Z-KGZ59-QGAVF</span><br><span class="line">ZC3TK-63GE6-481JY-WWW5T-Z7ATA</span><br><span class="line"></span><br><span class="line">VMware Workstation Pro 10 激活许可证</span><br><span class="line">1Z0G9-67285-FZG78-ZL3Q2-234JG</span><br><span class="line">4C4EK-89KDL-5ZFP9-1LA5P-2A0J0</span><br><span class="line">HY086-4T01N-CZ3U0-CV0QM-13DNU</span><br></pre></td></tr></table></figure>
+<p>解锁安装 macos</p>
+<p>Auto-Unlocker 支持 Pro 16：<a href="https://github.com/paolo-projects/auto-unlocker/releases">https://github.com/paolo-projects/auto-unlocker/releases</a></p>
+<p>下载完成后，解压 Unlocker.zip 文件放置于 VMware 根目录，并选择以管理员身份运行 Unlocker.exe 文件</p>
+<p>可能需要关闭VMware的一切服务，包括正在运行的VMware</p>
+<p>下载地址：<br>链接：<a href="https://pan.baidu.com/s/1pyTC89kIVjIDAocMAZbP4Q">https://pan.baidu.com/s/1pyTC89kIVjIDAocMAZbP4Q</a><br>提取码：wqdy</p>
+]]></content>
+      <tags>
+        <tag>vmware</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>搭建ss服务器</title>
     <url>/224.html</url>
     <content><![CDATA[<h2 id="购买-VPS-服务器"><a href="#购买-VPS-服务器" class="headerlink" title="购买 VPS 服务器"></a>购买 VPS 服务器</h2><p>vultr 注册地址：<a href="https://www.vultr.com/">https://www.vultr.com/</a></p>
@@ -755,7 +774,7 @@
     <title>windows 终端命令行下使用代理</title>
     <url>/1404.html</url>
     <content><![CDATA[<p>20200822更新：只要启用了代理软件，或系统设置（windows设置-网络和Internet-代理-手动设置代理）中配置了代理，powershell 就会走代理，不在需要上面的方式设置，实际上上面的这个脚本也是在系统设置中配置了代理，因为我发现运行上面的脚本，我的系统代理中就多了如下代理</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/08/2020-08-16-13-09-36.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102203656.png"></p>
 <p>前提：在本地代理软件已经打开，并且开启了 http 代理（假设端口1080）</p>
 <p>注意</p>
 <ul>
@@ -778,7 +797,7 @@
 </ul>
 <p>验证方式</p>
 <p><code>curl -vv http://www.google.com</code>，用这条命令来验证，如果返回如下结果表示代理设置成功。</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/05/20-05-16_11-51-47.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102203731.png"></p>
 <p>参考链接</p>
 <p><a href="https://github.com/shadowsocks/shadowsocks-windows/issues/1489">https://github.com/shadowsocks/shadowsocks-windows/issues/1489</a><br><a href="https://gist.github.com/famousgarkin/c5138b1e13ac41920d22">https://gist.github.com/famousgarkin/c5138b1e13ac41920d22</a></p>
 ]]></content>
@@ -976,7 +995,7 @@
     <title>下载神器 Internet Download Manager 中文破解版</title>
     <url>/366.html</url>
     <content><![CDATA[<p><a href="http://www.internetdownloadmanager.com/">Internet Download Manager</a> (简称IDM)  是 Windows 平台老牌而功能强大的多线程下载工具，支持多媒体下载、自动捕获链接、自动识别文件名、静默下载、批量下载、计划下载任务、站点抓取、队列，支持IE, Opera, Firefox, Chrome等所有流行的浏览器，如果启用高级集成，则可以捕获和接管从任何程序的下载。</p>
-<p><img src="https://i.loli.net/2019/12/22/PJjQszUu2bL7SBK.jpg"></p>
+<p><img data-src="https://i.loli.net/2019/12/22/PJjQszUu2bL7SBK.jpg"></p>
 <p>破解版下载地址</p>
 <p>Internet Download Manager 6.35.18<br>百度云链接：<a href="https://pan.baidu.com/s/1wuStuzxT0aZxOYnMNi_DQA">https://pan.baidu.com/s/1wuStuzxT0aZxOYnMNi_DQA</a> 提取码：n454</p>
 <p>安装说明</p>
@@ -1022,6 +1041,51 @@
 ]]></content>
   </entry>
   <entry>
+    <title>使用 github 仓库作为图床，并用 jsDelivr 加速</title>
+    <url>/2007.html</url>
+    <content><![CDATA[<h2 id="github-JSDelivr"><a href="#github-JSDelivr" class="headerlink" title="github+JSDelivr"></a>github+JSDelivr</h2><ol>
+<li><p>创建一个仓库来存储需要存放的静态资源</p>
+</li>
+<li><p>使用JSDelivr加速加载Github资源</p>
+</li>
+</ol>
+<p>形式为 <code>https://cdn.jsdelivr.net/gh/&#123;Github用户名&#125;/&#123;Github仓库名&#125;@&#123;版本名&#125;/&#123;仓库下资源路径&#125;</code></p>
+<p>其中版本名可以是当前仓库的 Release 或分支名</p>
+<p>例如 github 链接为</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;github.com&#x2F;cuilongjin&#x2F;static&#x2F;blob&#x2F;main&#x2F;test.txt</span><br></pre></td></tr></table></figure>
+<p>则使用JSDelivr加速链接为</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;cuilongjin&#x2F;static@main&#x2F;test.txt</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>使用 picgo 进行图片上传</li>
+</ol>
+<blockquote>
+<p>picgo 一款图片上传的工具，目前支持SM.MS图床，七牛图床，腾讯云COS，阿里云OSS，Imgur，又拍云，GitHub等图床<br>github地址：<a href="https://github.com/Molunerfinn/PicGo">https://github.com/Molunerfinn/PicGo</a><br>配置手册：<a href="https://picgo.github.io/PicGo-Doc/zh/guide/">https://picgo.github.io/PicGo-Doc/zh/guide/</a><br>插件：<a href="https://github.com/PicGo/Awesome-PicGo">https://github.com/PicGo/Awesome-PicGo</a></p>
+</blockquote>
+<p>配置 github图床</p>
+<p>仓库名为第一步创建的仓库，分支名随意，我的为 main<br>token 获取地址: <a href="https://github.com/settings/tokens%EF%BC%8C%E7%82%B9%E5%87%BB">https://github.com/settings/tokens，点击</a> <code>Generate new token</code> ,复选框为你这个 token 的权限，勾选 <code>repo</code> 即可<br>存储路径为仓库目录，可以随意<br>自定义域名根据需要设置，这里我们设置为 jsdelivr 加速域名，形式为 <code>https://cdn.jsdelivr.net/gh/&#123;Github用户名&#125;/&#123;Github仓库名&#125;@&#123;版本名&#125;</code></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210101223210.png"></p>
+<h2 id="使用-npm-JSDelivr"><a href="#使用-npm-JSDelivr" class="headerlink" title="使用 npm+JSDelivr"></a>使用 npm+JSDelivr</h2><p>需要将当前仓库发布为npm包</p>
+<p>去 npm 官网注册个账号去,然后</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm login</span><br><span class="line">npm publish</span><br></pre></td></tr></table></figure>
+<p>如果你的包名为 <code>@your-name/your-package</code> 时需要 <code>--access public</code> 参数，原因是当包名以 <code>@your-name</code> 开头时，<code>npm publish</code> 会默认发布为私有包，但是 npm 的私有包需要付费</p>
+<p>请注意，如果你之前用过淘宝镜像，那么请先手动切回官方源 <code>npm config set registry https://registry.npmjs.org</code></p>
+<p>发布成功之后，可以通过以下方式访问文件</p>
+<p><code>https://cdn.jsdelivr.net/npm/(yourpackagename)@(version)/(file)</code></p>
+<blockquote>
+<p>其他一些镜像</p>
+<p>unpkg <a href="https://www.unpkg.com/">https://www.unpkg.com</a><br>知乎出品 <a href="https://unpkg.zhimg.com/">https://unpkg.zhimg.com/</a><br>百度 <a href="https://code.bdstatic.com/npm/">https://code.bdstatic.com/npm/</a><br>饿了么 <a href="https://shadow.elemecdn.com/npm/">https://shadow.elemecdn.com/npm/</a></p>
+</blockquote>
+<p>当文件有更新时，需要更新发布</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 删除指定的版本</span></span><br><span class="line">npm unpublish 包名@版本号</span><br><span class="line"><span class="comment"># 重新发布</span></span><br><span class="line">npm publish</span><br></pre></td></tr></table></figure>
+<p>配置 github action 自动发布</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">npm</span> <span class="string">Package</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">main</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">publish-npm:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Setup</span> <span class="string">Node</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/setup-node@v2.1.2</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">node-version:</span> <span class="string">&#x27;12.x&#x27;</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">run:</span> <span class="string">npm</span> <span class="string">unpublish</span> <span class="string">@cuilongjin/static@1.0.0</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">run:</span> <span class="string">npm</span> <span class="string">publish</span></span><br><span class="line">        <span class="attr">env:</span></span><br><span class="line">          <span class="attr">NODE_AUTH_TOKEN:</span> <span class="string">$&#123;&#123;secrets.npm_token&#125;&#125;</span></span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>github</tag>
+        <tag>图床</tag>
+        <tag>jsDelivr</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>免费申请SSL证书，为网站启用 HTTPS</title>
     <url>/1909.html</url>
     <content><![CDATA[<h2 id="Let’s-Encrypt"><a href="#Let’s-Encrypt" class="headerlink" title="Let’s Encrypt"></a>Let’s Encrypt</h2><p>官方网站：<a href="https://letsencrypt.org/">https://letsencrypt.org/</a></p>
@@ -1038,7 +1102,7 @@
 <h3 id="acme-sh"><a href="#acme-sh" class="headerlink" title="acme.sh"></a>acme.sh</h3><p>acme.sh 实现了 acme 协议, 可以从 letsencrypt 生成免费的证书</p>
 <p>github：<a href="https://github.com/acmesh-official/acme.sh/wiki/%E8%AF%B4%E6%98%8E">https://github.com/acmesh-official/acme.sh/wiki/%E8%AF%B4%E6%98%8E</a></p>
 <h3 id="宝塔面板"><a href="#宝塔面板" class="headerlink" title="宝塔面板"></a>宝塔面板</h3><p>支持一键配置 <code>宝塔SSL</code>,<code>Let&#39;s Encrypt</code>免费证书</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/07/20200722173435.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102184437.png"></p>
 <h2 id=""><a href="#" class="headerlink" title=""></a></h2><p>参考文章：</p>
 <p><a href="https://teddysun.com/527.html">https://teddysun.com/527.html</a></p>
 ]]></content>
@@ -1330,7 +1394,7 @@
 <p><a href="https://www.rosehosting.com/network-tools/http2-support.html">https://www.rosehosting.com/network-tools/http2-support.html</a></p>
 <p><a href="https://myssl.com/http2_check.html">https://myssl.com/http2_check.html</a></p>
 <p><a href="https://www.ssllabs.com/ssltest/analyze.html">https://www.ssllabs.com/ssltest/analyze.html</a></p>
-<p><img src="/wp-content/uploads/2020/03/HTTP2-test.png"><br><img src="/wp-content/uploads/2020/03/HTTP2-test-1.png"></p>
+<p><img data-src="/wp-content/uploads/2020/03/HTTP2-test.png"><br><img data-src="/wp-content/uploads/2020/03/HTTP2-test-1.png"></p>
 ]]></content>
       <categories>
         <category>wordpress</category>
@@ -1360,11 +1424,11 @@
 <li><p>点击高级设置，然后点击卷，添加文件夹，将 jellyfin 和 video 文件夹都添加上：将<code>video</code>文件夹装载到 <code>/media</code>下，将<code>docker/jellyfin</code> 装载到 <code>/config</code></p>
 </li>
 </ul>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/05/jellyfin-1.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102184514.png"></p>
 <ul>
 <li>点击端口设置，默认是 8096，设置一样的即可</li>
 </ul>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/05/jellyfin-2.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102184536.png"></p>
 <ul>
 <li>设置完成后，点击应用 -&gt; 点下一步 -&gt; 点击应用 -&gt;点击容器，可以看到 jellyfin 服务已经运行成功了！</li>
 </ul>
@@ -1425,24 +1489,24 @@
     <url>/1165.html</url>
     <content><![CDATA[<h2 id="安装docker插件-v2ray-映像"><a href="#安装docker插件-v2ray-映像" class="headerlink" title="安装docker插件 + v2ray 映像"></a>安装docker插件 + v2ray 映像</h2><p><strong>注意：X86 架构的 CPU 支持 docker，ARM 架构的 CPU 不支持 docker</strong></p>
 <p>在群辉套件中心搜索 <code>docker</code> 并安装</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/04/nas-docker-1.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102184610.png"></p>
 <p>打开 docker，搜索 v2ray，双击下载 <code>v2ray/official</code> 即可</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/04/nas-docker-2.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102200946.png"></p>
 <p>选择刚刚下载的映像，点击启动</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/04/nas-docker-3.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202910.png"></p>
 <p>输入容器名称，点击高级设置</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/04/nas-docker-4.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102201229.png"></p>
 <p>在高级设置中勾选启用自动重新启动和创建桌面快捷方式</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/04/nas-docker-5.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102201257.png"></p>
 <p>在卷中添加文件夹，装载路径为 <code>/etc</code>。需要提前在file station 中创建好 <code>docker/v2ray</code> 文件夹</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/04/nas-docker-6.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102201321.png"></p>
 <p>在网络中勾选 使用与 Docker Host 相同的网络</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/04/nas-docker-7.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102201343.png"></p>
 <p>其他默认，点击应用</p>
 <p>点击下一步</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/04/nas-docker-8.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102201404.png"></p>
 <p>将 <code>向导完成后运行此容器</code> 取消选中（因为还没有配置文件）。点击应用</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/04/nas-docker-9.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102201429.png"></p>
 <h2 id="v2ray-客户端配置文件"><a href="#v2ray-客户端配置文件" class="headerlink" title="v2ray 客户端配置文件"></a>v2ray 客户端配置文件</h2><p>可以用gui客户端中配置好服务器，直接导出客户端配置文件为 <code>config.json</code>，我使用的是 v2rayN</p>
 <p>编辑 config.json， 修改 listen 为 0.0.0.0, protocol 为 <code>http</code>，port 随意，也可以不改</p>
 <p>在 v2rayN 程序文件夹中 找到 geoip.dat geosite.dat 文件</p>
@@ -1451,10 +1515,10 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;inbounds&quot;: [</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;tag&quot;: &quot;proxy&quot;,</span><br><span class="line">      &quot;port&quot;: 10808,</span><br><span class="line">      &quot;listen&quot;: &quot;0.0.0.0&quot;,</span><br><span class="line">      &quot;protocol&quot;: &quot;http&quot;,</span><br><span class="line">      &quot;sniffing&quot;: &#123;</span><br><span class="line">        &quot;enabled&quot;: true,</span><br><span class="line">        &quot;destOverride&quot;: [</span><br><span class="line">          &quot;http&quot;,</span><br><span class="line">          &quot;tls&quot;</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;settings&quot;: &#123;</span><br><span class="line">        &quot;auth&quot;: &quot;noauth&quot;,</span><br><span class="line">        &quot;udp&quot;: true,</span><br><span class="line">        &quot;ip&quot;: null,</span><br><span class="line">        &quot;address&quot;: null,</span><br><span class="line">        &quot;clients&quot;: null</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;streamSettings&quot;: null</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>最后启动刚刚创建好的 docker 即可</p>
 <h3 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h3><p>到这了只是在群辉中安装了 v2ray 客户端，并配置了服务器，还需要手动连接代理，在群辉中，你需要在 控制面板-网络-常规-代理服务器 中添加代理</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/09/A44354EE-BCE3-40b5-B9D8-642D492954F6.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102201501.png"></p>
 <p>如果你的其他设备想要连接也需要相同的方式手动配置代理</p>
 <p>在 win10 设置中，如下图所示位置，代理方式只支持 http 代理（这就是为什么上步中要把protocol改为http）地址为你群规的ip，端口就是上步中设置的端口，配置完之后保存即可</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/08/2020-08-16-13-09-36.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102201524.png"></p>
 <p>手机中同理，在无线中配置代理</p>
 <p>如果你想实现只需连接家里无线就可以直接实现科学上网，你需要在路由器中做一些配置，可以参考下文【待整理】</p>
 ]]></content>
@@ -1938,7 +2002,7 @@
 <li><code>opacity</code>不等于 1</li>
 <li><code>transform</code>不等于 none</li>
 </ul>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/06/z-index.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102204249.png"></p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;me&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;you&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.me</span> &#123;</span></span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100px;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="css">  <span class="selector-class">.you</span> &#123;</span></span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100px;</span><br><span class="line">    left: 50px;</span><br><span class="line">    position: relative;</span><br><span class="line">    z-index: -1;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>you 在这里和 me 做比较，比较开始，首先 you 寻找参考对象，上一层 me 是吗？显然不是，因为 me 没有触发上面任一条件创建层叠上下文，所以继续往上寻找，找到 html。对于 me，也直接往上找到 html，所以这个例子里 me 和 you 是在以 html 为参考对象进行比较，<strong>换句话说就是在 html 创建的层叠上下文环境中进行比较</strong>！然后按照七阶图，负值 index 在 block 元素之下！所以 me 在 you 之上。</p>
 <p>然后我们修改下 me，加个<code>z-index:0;</code> 按照之前的思路演算一遍，you 的参考对象变成 me 了！而 me 仍然是 html，然后 me 和 html 再做比较，me 参考对象是 html，html 的参考对象是 html，OK，在同一上下文了，me 明显高于 html，所以 you 高于 me。</p>
@@ -2077,7 +2141,7 @@
 <h3 id="坐标轴"><a href="#坐标轴" class="headerlink" title="坐标轴"></a>坐标轴</h3><blockquote>
 <p>用 X、Y、Z 分别表示空间的 3 个维度，三条轴互相垂直。<strong>注意+Y 是向下的</strong></p>
 </blockquote>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/06/zbz.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102204311.png"></p>
 <h3 id="perspective-透视"><a href="#perspective-透视" class="headerlink" title="perspective 透视"></a>perspective 透视</h3><blockquote>
 <p>电脑显示屏是一个 2D 的平面，因为我们看不出来旋转的方向，通过 perspective 属性，可以定义 3D 元素距视图的距离，单位是 px。</p>
 <p>说白了，设置了 perspective 属性后，就有了进大远小的效果了，在视觉上，让我们能看出来 3d 的效果。</p>
@@ -2085,7 +2149,7 @@
 </blockquote>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">perspective</span>：500<span class="selector-tag">px</span>;</span><br></pre></td></tr></table></figure>
 <p>对于我们眼睛来说，离我们越近的房子，我们会感觉到这个房子越大，离我们越远的房子，就会感觉越小，其实房子的大小都是一样的，只是在视觉上的一种不同。</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/06/per3.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102204343.png"></p>
 <h3 id="rotate-旋转-1"><a href="#rotate-旋转-1" class="headerlink" title="rotate 旋转"></a>rotate 旋转</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">rotate</span>(45<span class="selector-tag">deg</span>); <span class="comment">/* 让元素在平面2D中旋转，相当于沿着Z轴旋转 */</span></span><br><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">rotateX</span>(45<span class="selector-tag">deg</span>); <span class="comment">/* 让元素沿着X轴转45度 */</span></span><br><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">rotateY</span>(45<span class="selector-tag">deg</span>); <span class="comment">/* 让元素沿着Y轴转45度 */</span></span><br><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">rotateZ</span>(45<span class="selector-tag">deg</span>); <span class="comment">/* 让元素沿着Z轴转45度 */</span></span><br></pre></td></tr></table></figure>
 <p>【3D 旋转.html】</p>
 <h3 id="translate-平移-1"><a href="#translate-平移-1" class="headerlink" title="translate 平移"></a>translate 平移</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 沿着X轴的正方向移动45px */</span></span><br><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">translateX</span>(45<span class="selector-tag">px</span>);</span><br><span class="line"><span class="comment">/* 沿着Y轴的正方向移动45px */</span></span><br><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">translateY</span>(45<span class="selector-tag">px</span>);</span><br><span class="line"><span class="comment">/* 沿着Z轴的正方向移动45px */</span></span><br><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">translateZ</span>(45<span class="selector-tag">px</span>);</span><br></pre></td></tr></table></figure>
@@ -2125,7 +2189,7 @@
 </blockquote>
 <p>CSS3 在布局方面做了非常大的改进，使得我们对块级元素的布局排列变得十分灵活，适应性非常强，其强大的伸缩性，在响应式开中可以发挥极大的作用。</p>
 <p>当给一个盒子设置了 display：flex 之后，这个盒子就有了 <strong>主轴</strong> 和 <strong>侧轴</strong> 的概念<br>主轴：默认是水平方向向右，子元素在主轴上排列<br>侧轴：与主轴垂直的轴称作侧轴，默认是垂直方向向下</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/06/flex.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102204407.png"></p>
 <h3 id="给容器设置的样式"><a href="#给容器设置的样式" class="headerlink" title="给容器设置的样式"></a>给容器设置的样式</h3><ul>
 <li>flex-direction</li>
 </ul>
@@ -2978,11 +3042,11 @@
     <url>/1730.html</url>
     <content><![CDATA[<h3 id="merge-images-合并图像"><a href="#merge-images-合并图像" class="headerlink" title="merge-images 合并图像"></a>merge-images 合并图像</h3><p>github 地址：<a href="https://github.com/lukechilds/merge-images">https://github.com/lukechilds/merge-images</a></p>
 <h3 id="Cropper-js-图片裁剪工具"><a href="#Cropper-js-图片裁剪工具" class="headerlink" title="Cropper.js 图片裁剪工具"></a>Cropper.js 图片裁剪工具</h3><p>github 地址：<a href="https://github.com/fengyuanchen/cropperjs">https://github.com/fengyuanchen/cropperjs</a><br>示例地址：<a href="https://fengyuanchen.github.io/cropperjs/">https://fengyuanchen.github.io/cropperjs/</a></p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/06/2020-06-17_15-26-45-.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102205245.png"></p>
 <h3 id="grade-js-根据图片的两种主要颜色生成背景渐变"><a href="#grade-js-根据图片的两种主要颜色生成背景渐变" class="headerlink" title="grade.js 根据图片的两种主要颜色生成背景渐变"></a>grade.js 根据图片的两种主要颜色生成背景渐变</h3><p>github 地址：<a href="https://github.com/benhowdle89/grade">https://github.com/benhowdle89/grade</a><br>示例地址：<a href="https://benhowdle89.github.io/grade/">https://benhowdle89.github.io/grade/</a></p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/06/2020-06-17_15-26-34-.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102205301.png"></p>
 <h3 id="Compressor-js-图像压缩"><a href="#Compressor-js-图像压缩" class="headerlink" title="Compressor.js 图像压缩"></a>Compressor.js 图像压缩</h3><p>github 地址：<a href="https://github.com/fengyuanchen/compressorjs">https://github.com/fengyuanchen/compressorjs</a><br>示例地址：<a href="https://fengyuanchen.github.io/compressorjs/">https://fengyuanchen.github.io/compressorjs/</a></p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/06/2020-06-17_15-50-02.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102205339.png"></p>
 ]]></content>
       <categories>
         <category>web前端</category>
@@ -3392,7 +3456,7 @@
     <url>/1782.html</url>
     <content><![CDATA[<h2 id="nuxt"><a href="#nuxt" class="headerlink" title="nuxt"></a>nuxt</h2><p>Nuxt.js 是一个基于 Vue.js 的通用应用框架。</p>
 <p>官网：<a href="https://nuxtjs.org/">https://nuxtjs.org/</a><br>中文：<a href="https://zh.nuxtjs.org/">https://zh.nuxtjs.org/</a> <a href="https://www.nuxtjs.cn/">https://www.nuxtjs.cn/</a></p>
-<h2 id="nuxt-渲染流程"><a href="#nuxt-渲染流程" class="headerlink" title="nuxt 渲染流程"></a>nuxt 渲染流程</h2><p>在任何 Vue 组件的生命周期内， 只有 beforeCreate 和 created 这两个方法会在 客户端和服务端被调用。其他生命周期函数仅在客户端被调用。<br><img src="https://wqdy.top/wp-content/uploads/2020/07/07061315.png"></p>
+<h2 id="nuxt-渲染流程"><a href="#nuxt-渲染流程" class="headerlink" title="nuxt 渲染流程"></a>nuxt 渲染流程</h2><p>在任何 Vue 组件的生命周期内， 只有 beforeCreate 和 created 这两个方法会在 客户端和服务端被调用。其他生命周期函数仅在客户端被调用。<br><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102205617.png"></p>
 <h3 id="asyncData-方法"><a href="#asyncData-方法" class="headerlink" title="asyncData 方法"></a>asyncData 方法</h3><p><a href="https://zh.nuxtjs.org/api/">https://zh.nuxtjs.org/api/</a></p>
 <p>用于在渲染组件之前异步获取数据，在服务端或路由更新之前被调用。在这个方法被调用的时候，第一个参数被设定为当前页面的上下文对象，你可以利用 asyncData 方法来获取数据并返回给当前组件。</p>
 <p>注意：由于 asyncData 方法是在组件 初始化 前被调用的，所以在方法内是没有办法通过 this 来引用组件的实例对象。<br>asyncData 只在首屏被执行，其它时候相当于 created 或 mounted 在客户端渲染页面。</p>
@@ -3834,7 +3898,7 @@
 <p>b.html</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"><span class="built_in">window</span>.opener.location.href =<span class="string">&quot;http://wqdy.top&quot;</span></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>其中在 <code>a.html</code> 中有个超链接，点击后在新标签页打开 <code>b.html</code>页面，但是发现原 <code>a.html</code> 页面已经变成了其他页面。原因是使用 <code>target=_blank</code> 打开新的窗口时，赋予了新的窗口一些权限可以操作原窗口，其中 <code>window.location</code> 就是一个。</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/03/window.opener.png" alt="window.opener对象"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102203759.png"></p>
 <p>为了防止 <code>window.opener</code> 被滥用，提高网站的安全性，在使用 <code>targrt=_blank</code> 时需要加上 <code>rel=noopener</code>，同时为了兼容也可以加上 <code>rel=noreferrer</code>。</p>
 ]]></content>
       <categories>
@@ -3869,9 +3933,9 @@
 <p>取值<br>contain 保持长宽比，以长边填充<br>cover 保持长宽比，以短边填充，多余的会被裁减掉<br>fill 完全填充，会拉伸<br>none 保持其原有的尺寸<br>scale-down 内容的尺寸与 none 或 contain 中的一个相同，取决于它们两个之间谁得到的对象尺寸会更小一些。</p>
 </blockquote>
 <h4 id="滚动条样式"><a href="#滚动条样式" class="headerlink" title="滚动条样式"></a>滚动条样式</h4><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-pseudo">::-webkit-scrollbar</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">8px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">8px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* -webkit-scrollbar-thumb 滚动条手柄 */</span></span><br><span class="line"><span class="selector-pseudo">::-webkit-scrollbar-thumb</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-pseudo">::-webkit-scrollbar-thumb</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* -webkit-scrollbar-track 滚动条轨道 */</span></span><br><span class="line"><span class="selector-pseudo">::-webkit-scrollbar-track</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*滚动条上半边或左半边*/</span></span><br><span class="line"><span class="selector-pseudo">::-webkit-scrollbar-track-piece</span><span class="selector-pseudo">:start</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* -webkit-scrollbar-button 滚动条的轨道的两端按钮 */</span></span><br><span class="line"><span class="comment">/*滚动条上边或左边按钮*/</span></span><br><span class="line"><span class="selector-pseudo">::-webkit-scrollbar-button</span><span class="selector-pseudo">:start</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* -webkit-scrollbar-corne 垂直滚动条和水平滚动条相交的地方 */</span></span><br><span class="line"><span class="selector-pseudo">::-webkit-scrollbar-corner</span> &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="卡券样式"><a href="#卡券样式" class="headerlink" title="卡券样式"></a>卡券样式</h4><p><img src="https://wqdy.top/wp-content/uploads/2020/06/2020-06-17_17-28-43.png"></p>
+<h4 id="卡券样式"><a href="#卡券样式" class="headerlink" title="卡券样式"></a>卡券样式</h4><p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102204135.png"></p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.coupon</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">radial-gradient</span>(circle at right bottom, transparent <span class="number">10px</span>, #ffffff <span class="number">0</span>) top right / <span class="number">50%</span> <span class="number">50%</span> no-repeat, <span class="built_in">radial-gradient</span>(circle at left bottom, transparent <span class="number">10px</span>, #ffffff <span class="number">0</span>) top left / <span class="number">50%</span> <span class="number">50%</span> no-repeat, <span class="built_in">radial-gradient</span>(circle at right top, transparent <span class="number">10px</span>, #ffffff <span class="number">0</span>) bottom right / <span class="number">50%</span> <span class="number">50%</span> no-repeat, <span class="built_in">radial-gradient</span>(circle at left top, transparent <span class="number">10px</span>, #ffffff <span class="number">0</span>) bottom left / <span class="number">50%</span> <span class="number">50%</span> no-repeat;</span><br><span class="line">  <span class="attribute">filter</span>: <span class="built_in">drop-shadow</span>(<span class="number">2px</span> <span class="number">2px</span> <span class="number">2px</span> rgba(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.2</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="阴影效果"><a href="#阴影效果" class="headerlink" title="阴影效果"></a>阴影效果</h4><p><img src="https://wqdy.top/wp-content/uploads/2020/06/2020-06-17_18-05-43.jpg"></p>
+<h4 id="阴影效果"><a href="#阴影效果" class="headerlink" title="阴影效果"></a>阴影效果</h4><p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102204206.jpeg"></p>
 <p>气泡阴影</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.tip</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">30px</span>;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">30px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="built_in">rgb</span>(<span class="number">245</span>, <span class="number">129</span>, <span class="number">127</span>);</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">4px</span>;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#fff</span>;</span><br><span class="line">  <span class="attribute">filter</span>: <span class="built_in">drop-shadow</span>(<span class="number">0px</span> <span class="number">2px</span> <span class="number">4px</span> rgba(<span class="number">245</span>, <span class="number">129</span>, <span class="number">127</span>, <span class="number">0.9</span>));</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.tip</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">border-style</span>: solid;</span><br><span class="line">  <span class="attribute">border-width</span>: <span class="number">0</span> <span class="number">10px</span> <span class="number">10px</span> <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">border-color</span>: transparent transparent <span class="number">#fff</span> transparent;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">top</span>: -<span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">margin</span>: auto;</span><br><span class="line">  <span class="attribute">z-index</span>: <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.tip</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">border-style</span>: solid;</span><br><span class="line">  <span class="attribute">border-width</span>: <span class="number">0</span> <span class="number">10px</span> <span class="number">10px</span> <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">border-color</span>: transparent transparent <span class="built_in">rgb</span>(<span class="number">245</span>, <span class="number">129</span>, <span class="number">127</span>) transparent;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">top</span>: -<span class="number">11px</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">margin</span>: auto;</span><br><span class="line">  <span class="attribute">z-index</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>三角形阴影</p>
@@ -3963,7 +4027,7 @@
 <blockquote>
 <p>微信小程序中原生支持 async await 语法，前提是需要关闭 ES6 转 ES5 后</p>
 </blockquote>
-<p>在开启 ES6 转 ES5 后 async 函数无法使用，可以使用 <a href="https://github.com/facebook/regenerator">regenerator</a> 包来解决。新版本的 regenerator 在小程序中无法使用，会报如下错误：<br><img src="/wp-content/uploads/2020/03/regenerator.png" alt="regenerator"></p>
+<p>在开启 ES6 转 ES5 后 async 函数无法使用，可以使用 <a href="https://github.com/facebook/regenerator">regenerator</a> 包来解决。新版本的 regenerator 在小程序中无法使用，会报如下错误：<br><img data-src="/wp-content/uploads/2020/03/regenerator.png" alt="regenerator"></p>
 <p>原因是 regenerator 包更新了 Function 函数，具体可参考：<br><a href="https://github.com/facebook/regenerator/pull/369">https://github.com/facebook/regenerator/pull/369</a><br><a href="https://github.com/facebook/regenerator/commit/063f14ef7f01bb29830e3f17e9ef151e7a5cb2f3">https://github.com/facebook/regenerator/commit/063f14ef7f01bb29830e3f17e9ef151e7a5cb2f3</a></p>
 <p>可以直接使用老版本来解决这个问题，或者修改源码，把 Function 改回去</p>
 <p>直接使用老版本</p>
@@ -4038,7 +4102,7 @@
   <entry>
     <title>浏览器的工作原理</title>
     <url>/400.html</url>
-    <content><![CDATA[<h2 id="浏览器的组成"><a href="#浏览器的组成" class="headerlink" title="浏览器的组成"></a>浏览器的组成</h2><p><img src="https://wqdy.top/wp-content/uploads/2020/06/How-browsers-work.png" alt="浏览器的组成"></p>
+    <content><![CDATA[<h2 id="浏览器的组成"><a href="#浏览器的组成" class="headerlink" title="浏览器的组成"></a>浏览器的组成</h2><p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102203825.png"></p>
 <ul>
 <li>用户界面－ 包括地址栏、后退/前进按钮、书签目录等，也就是你所看到的除了用来显示你所请求页面的主窗口之外的其他部分</li>
 <li>浏览器引擎－ 用来查询及操作渲染引擎的接口</li>
@@ -4075,11 +4139,11 @@
 <li><p>绘制渲染树，调用操作系统底层 API(UI Backend)进行绘图操作。</p>
 </li>
 </ol>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/06/flow.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102203846.png"></p>
 <p><strong>webkit 内核工作流程</strong></p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/06/webkitflow.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102203907.png"></p>
 <p><strong>gecko 内核工作流程</strong></p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/06/gecko.jpg"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102203924.jpeg"></p>
 <p>结论：浏览器能够解析 HTML 文件，并且显示到页面中。所以我们写的文件能够使用浏览器打开并且能够看到效果。</p>
 <h1 id="重绘与回流"><a href="#重绘与回流" class="headerlink" title="重绘与回流"></a>重绘与回流</h1><h2 id="重绘与回流-1"><a href="#重绘与回流-1" class="headerlink" title="重绘与回流"></a>重绘与回流</h2><p><code>回流(reflow)</code>: 又叫重排，当 render tree 中的一部分(或全部)因为元素的规模尺寸，布局，隐藏等改变而需要重新构建。</p>
 <p><code>重绘(repaint)</code>：当 render tree 中的一些元素需要更新属性，而这些属性只是影响元素的外观，风格，而不会影响布局的，比如 background-color。</p>
@@ -4701,19 +4765,19 @@
 </blockquote>
 <p>版本控制系统不仅可以应用于软件源代码的文本文件，而且可以对任何类型的文件进行版本控制。</p>
 <h2 id="版本控制系统的分类"><a href="#版本控制系统的分类" class="headerlink" title="版本控制系统的分类"></a>版本控制系统的分类</h2><p>参考文章：<a href="https://git-scm.com/book/zh/v1/%E8%B5%B7%E6%AD%A5-%E5%85%B3%E4%BA%8E%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6">关于版本控制的介绍</a></p>
-<h3 id="本地版本控制系统"><a href="#本地版本控制系统" class="headerlink" title="本地版本控制系统"></a>本地版本控制系统</h3><p><img src="https://wqdy.top/wp-content/uploads/2020/06/git1.png"></p>
+<h3 id="本地版本控制系统"><a href="#本地版本控制系统" class="headerlink" title="本地版本控制系统"></a>本地版本控制系统</h3><p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202248.png"></p>
 <p>本地版本控制系统就是在一台机器上，记录版本的不同变化，保证内容不会丢失</p>
 <ol>
 <li>如果多人开发，每个人都在不同的系统和电脑上开发，没办法协同工作。</li>
 </ol>
-<h3 id="集中式版本控制系統"><a href="#集中式版本控制系統" class="headerlink" title="集中式版本控制系統"></a>集中式版本控制系統</h3><p><img src="https://wqdy.top/wp-content/uploads/2020/06/git2.png"></p>
+<h3 id="集中式版本控制系統"><a href="#集中式版本控制系統" class="headerlink" title="集中式版本控制系統"></a>集中式版本控制系統</h3><p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202303.png"></p>
 <p><code>svn</code> 是集中式的版本控制系统，集中式版本控制系统都有一个单一的集中管理的服务器（中央服务器），保存所有文件的修订版本，而协同工作的人们都通过客户端连到这台服务器，取出最新的文件或者提交更新。</p>
 <ol>
 <li>需要一个中央服务器来管理代码的的版本和备份</li>
 <li>所有的用户电脑都是从中央服务器获取代码或者是将本地的代码提交到中央服务器</li>
 <li>依赖与网络环境，如果连不上中央服务器，就无法提交和获取代码。</li>
 </ol>
-<h3 id="分布式版本控制系统"><a href="#分布式版本控制系统" class="headerlink" title="分布式版本控制系统"></a>分布式版本控制系统</h3><p><img src="https://wqdy.top/wp-content/uploads/2020/06/git3.png"></p>
+<h3 id="分布式版本控制系统"><a href="#分布式版本控制系统" class="headerlink" title="分布式版本控制系统"></a>分布式版本控制系统</h3><p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202325.png"></p>
 <p><code>git</code> 是分布式的版本控制系统。分布式版本控制系统的客户端并不只提取最新版本的文件快照，而是把代码仓库完整地镜像下来。这么一来，任何一处协同工作用的服务器发生故障，事后都可以用任何一个镜像出来的本地仓库恢复。因为每一次的提取操作，实际上都是一次对代码仓库的完整备份</p>
 <ol>
 <li>需要一台服务器作为代码仓库</li>
@@ -4733,8 +4797,8 @@
 <li><p>**<code>.git</code>**：存放 Git 管理信息的目录，初始化仓库的时候会自动创建</p>
 </li>
 </ul>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/06/git.jpg"></p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/06/github-flows.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202341.jpeg"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202402.png"></p>
 <h2 id="Git-初始设置"><a href="#Git-初始设置" class="headerlink" title="Git 初始设置"></a>Git 初始设置</h2><h3 id="设置用户名和邮箱"><a href="#设置用户名和邮箱" class="headerlink" title="设置用户名和邮箱"></a>设置用户名和邮箱</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 用户名使用英文</span></span><br><span class="line"><span class="comment"># --global 全局设置</span></span><br><span class="line">git config --global user.name <span class="string">&#x27;your_name&#x27;</span></span><br><span class="line">git config --global user.email <span class="string">&#x27;your_email@example.com&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看账号信息</span></span><br><span class="line">git config --list</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重置信息</span></span><br><span class="line">git config --<span class="built_in">unset</span> -- user.name</span><br></pre></td></tr></table></figure>
 <p>全局设置会在 <code>~/.gitconfig</code> 中以如下形式输出设置文件，可以直接编辑这个文件来修改设置</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[user]</span><br><span class="line">name = your_name</span><br><span class="line">email = your_email@example.com</span><br></pre></td></tr></table></figure>
@@ -7298,7 +7362,7 @@
 <p><code>su</code> 不接用户名，可以切换到 <code>roo</code>，不推荐，不安全</p>
 </blockquote>
 <p>exit 示意图：</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/06/exit%E7%A4%BA%E6%84%8F%E5%9B%BE.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102205719.png"></p>
 <h4 id="修改文件权限"><a href="#修改文件权限" class="headerlink" title="修改文件权限"></a>修改文件权限</h4><p>chowm 修改拥有者</p>
 <p>chgrp 修改组</p>
 <p>chmod 修改权限</p>
@@ -7334,7 +7398,7 @@
 <li><p>源文件要使用绝对路径，可以方便移动链接文件后，仍然能够正常使用</p>
 </li>
 </ul>
-<h5 id="文件软硬链接示意图"><a href="#文件软硬链接示意图" class="headerlink" title="文件软硬链接示意图"></a>文件软硬链接示意图</h5><p><img src="https://wqdy.top/wp-content/uploads/2020/06/%E6%96%87%E4%BB%B6%E8%BD%AF%E7%A1%AC%E9%93%BE%E6%8E%A5%E7%A4%BA%E6%84%8F%E5%9B%BE.png"></p>
+<h5 id="文件软硬链接示意图"><a href="#文件软硬链接示意图" class="headerlink" title="文件软硬链接示意图"></a>文件软硬链接示意图</h5><p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102205748.png"></p>
 <ul>
 <li><p>在 linux 中<strong>文件名</strong>和<strong>文件的数据</strong>是分开存储的</p>
 </li>
@@ -9063,7 +9127,7 @@
 <h1 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h1><blockquote>
 <p>BOM（Browser Object Model）：浏览器对象模型，提供了一套操作浏览器功能的工具</p>
 </blockquote>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/06/2.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102205413.png"></p>
 <p><strong>重点</strong> ：定时器、 offset 系列</p>
 <h2 id="window"><a href="#window" class="headerlink" title="window"></a><code>window</code></h2><ul>
 <li>window 对象是一个全局对象，也可以说是 JavaScript 中的顶级对象</li>
@@ -9185,7 +9249,7 @@
 <li><code>offsetX</code> 与 <code>offsetY</code> ：鼠标相对于<strong>事件源</strong>左上角的位置</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">document</span>.onmousemove = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(e.clientX, e.clientY)</span><br><span class="line">  <span class="built_in">console</span>.log(e.pageX, e.pageY)</span><br><span class="line">  <span class="built_in">console</span>.log(e.screenX, e.screenY)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/06/client%E5%92%8Cpage%E5%92%8Cscreen.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102205438.png"></p>
 <p><strong>[案例 : 拖拽案例]</strong></p>
 <h4 id="键盘码"><a href="#键盘码" class="headerlink" title="键盘码"></a>键盘码</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 键盘按下的那个键的键盘码</span></span><br><span class="line">e.keyCode</span><br></pre></td></tr></table></figure>
 <h3 id="注册事件的两种方式"><a href="#注册事件的两种方式" class="headerlink" title="注册事件的两种方式"></a>注册事件的两种方式</h3><h4 id="on-事件名称"><a href="#on-事件名称" class="headerlink" title="on + 事件名称"></a>on + 事件名称</h4><blockquote>
@@ -9276,7 +9340,7 @@
 <li>获取到的是字符串，需要转换</li>
 </ul>
 </blockquote>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/06/offset.png" alt="offset"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102205502.png"></p>
 <h3 id="scroll-系列"><a href="#scroll-系列" class="headerlink" title="scroll 系列"></a>scroll 系列</h3><blockquote>
 <p>scroll 系列是用来获取<strong>盒子内容的大小和位置</strong></p>
 <p>scroll 系列主要有 : scrollWidth、scrollHeight、scrollLeft、scrollTop</p>
@@ -9306,7 +9370,7 @@
 <li><p>scrollY：文档在垂直方向已滚动的像素值<br>pageYOffset 属性是 scrollY 属性的别名<br>为了跨浏览器兼容，请使用 window.pageYOffset 代替 window.scrollY</p>
 </li>
 </ul>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/06/scroll.png" alt="scroll"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102205527.png"></p>
 <p><strong>onscroll 事件</strong></p>
 <p>对于有滚动条的盒子，可以使用 onscroll 注册滚动事件，每滚动一像素，就会触发该事件</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> div = doucment.getElementById(<span class="string">&#x27;div&#x27;</span>)</span><br><span class="line">div.onscroll = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(div.scrollLeft)</span><br><span class="line">  <span class="built_in">console</span>.log(div.scrollTop)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -9326,7 +9390,7 @@
 <p>client 家族有 clientWidth、clientHeight、clientLeft、clientTop</p>
 </blockquote>
 <p><strong>clientWidth、clientHeight 可视区宽高</strong></p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/06/client1.png" alt="client1"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102205558.png"></p>
 <p><strong>clientTop</strong> 与 <strong>clientLeft</strong> 完全没有用，他们就是 borderTop 与 borderLeft</p>
 <p><strong>onresize 事件：onresize 事件会在窗口被调整大小的时候发生。</strong></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">window</span>.onresize = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 事件处理程序</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -9406,7 +9470,7 @@
 <h2 id="php-基本语法结构"><a href="#php-基本语法结构" class="headerlink" title="php 基本语法结构"></a>php 基本语法结构</h2><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 避免使用中文目录和中文文件名</span></span><br><span class="line"><span class="comment">// 文件以.php后缀结尾，所有程序包含在<span class="meta">&lt;?php</span> 这里是代码 <span class="meta">?&gt;</span></span></span><br><span class="line"><span class="comment">// php页面无法直接打开需要运行在服务器环境当中</span></span><br><span class="line"><span class="comment">// 末尾必须加分号，不然就报错了（最后一行可以不加分号）</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">  <span class="keyword">echo</span> <span class="string">&quot;hello world&quot;</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 <p>输出中文乱码问题：如果使用 echo 输出中文，可能会乱码</p>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">  <span class="comment">// 解决中文乱码的问题</span></span><br><span class="line">  header(<span class="string">&quot;content-Type:text/html;charset=utf-8&quot;</span>); <span class="comment">// 返回HTML文档文本并设置编码集</span></span><br><span class="line">  <span class="keyword">echo</span> <span class="string">&quot;hello world&quot;</span>;</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">&quot;&lt;br/&gt;&quot;</span>;</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">&quot;大家好，我是一名摄影工作者&quot;</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="PHP-运行原理"><a href="#PHP-运行原理" class="headerlink" title="PHP 运行原理"></a>PHP 运行原理</h2><h3 id="HTML-运行原理"><a href="#HTML-运行原理" class="headerlink" title="HTML 运行原理"></a>HTML 运行原理</h3><p><img src="https://wqdy.top/wp-content/uploads/2020/06/HTML%E8%BF%90%E8%A1%8C%E5%8E%9F%E7%90%86.png"></p>
+<h2 id="PHP-运行原理"><a href="#PHP-运行原理" class="headerlink" title="PHP 运行原理"></a>PHP 运行原理</h2><h3 id="HTML-运行原理"><a href="#HTML-运行原理" class="headerlink" title="HTML 运行原理"></a>HTML 运行原理</h3><p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102205640.png"></p>
 <ol>
 <li>在浏览器的 URL 地址栏中输入 <a href="http://www.baidu.com/index.html">www.baidu.com/index.html</a> 地址，点回车。请求就发送给百度服务器。</li>
 <li>百度服务器找到 index.html 文件，并将文件的内容返回给浏览器</li>
@@ -9414,7 +9478,7 @@
 </ol>
 <p>同理: localhost/a.html , 则会返回 本机 web 服务器根目录下 a.html 文件的内容。浏览器拿到内容后进行渲染。</p>
 <h3 id="PHP-运行原理-1"><a href="#PHP-运行原理-1" class="headerlink" title="PHP 运行原理"></a>PHP 运行原理</h3><p>apache 不认识 php<br>浏览器也不认识 php</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/06/PHP%E8%BF%90%E8%A1%8C%E5%8E%9F%E7%90%86.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102205658.png"></p>
 <ol>
 <li> 在浏览器地址栏中输入 localhost/index.php ,点回车之后。将请求发送给 apache 服务器</li>
 <li> 服务器找到 index.php 文件之后，转发给 php 解释器</li>
@@ -10218,7 +10282,7 @@
 <blockquote>
 <p>注意 :<br>break 可以省略，如果省略，代码会继续执行下一个 case<br>switch 语句在比较值时使用的是 <strong>全等</strong> 操作符, 因此不会发生类型转换（例如，字符串’10’ 不等于数值 10）</p>
 </blockquote>
-<h1 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h1><h2 id="while-循环"><a href="#while-循环" class="headerlink" title="while 循环"></a>while 循环</h2><p><img src="https://wqdy.top/wp-content/uploads/2020/06/while.png"></p>
+<h1 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h1><h2 id="while-循环"><a href="#while-循环" class="headerlink" title="while 循环"></a>while 循环</h2><p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102205019.png"></p>
 <p>基本语法 :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 当循环条件为true时，执行循环体</span></span><br><span class="line"><span class="comment">// 当循环条件为false时，结束循环</span></span><br><span class="line"><span class="keyword">while</span> (循环条件) &#123;</span><br><span class="line">  <span class="comment">// 循环体：需要循环执行的语句</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>代码示例:</p>
@@ -10226,12 +10290,12 @@
 <h2 id="do-while-循环"><a href="#do-while-循环" class="headerlink" title="do..while 循环"></a>do..while 循环</h2><blockquote>
 <p>do..while 循环和 while 循环非常像，二者经常可以相互替代，但是 do..while 的特点是不管条件成不成立，都会执行一次。</p>
 </blockquote>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/06/dowhile.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102205045.png"></p>
 <p>基础语法 :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">  <span class="comment">// 循环体</span></span><br><span class="line">&#125; <span class="keyword">while</span> (条件)</span><br></pre></td></tr></table></figure>
 <p>代码示例 :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 初始化变量</span></span><br><span class="line"><span class="keyword">var</span> i = <span class="number">1</span></span><br><span class="line"><span class="keyword">var</span> sum = <span class="number">0</span></span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">  sum += i <span class="comment">// 循环体</span></span><br><span class="line">  i++ <span class="comment">// 自增</span></span><br><span class="line">&#125; <span class="keyword">while</span> (i &lt;= <span class="number">100</span>) <span class="comment">// 循环条件</span></span><br></pre></td></tr></table></figure>
-<h2 id="for-循环"><a href="#for-循环" class="headerlink" title="for 循环"></a>for 循环</h2><p><img src="https://wqdy.top/wp-content/uploads/2020/06/for.png"></p>
+<h2 id="for-循环"><a href="#for-循环" class="headerlink" title="for 循环"></a>for 循环</h2><p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102205112.png"></p>
 <p>for 循环语法：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. for循环使用分号分隔</span></span><br><span class="line"><span class="comment">// 2. for循环有2个分号，两个分号不能少</span></span><br><span class="line"><span class="keyword">for</span> (初始化语句; 判断语句; 自增语句) &#123;</span><br><span class="line">  <span class="comment">// 循环体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>执行顺序：1243 —- 243 —–243(直到循环条件变成 false)</p>
@@ -10363,9 +10427,9 @@
 <li>让所有的断点失效</li>
 <li>自动根据错误断点</li>
 </ol>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/06/%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95%E4%BB%8B%E7%BB%8D.png"></p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/06/watch%E7%9B%91%E5%90%AC.png"></p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/06/%E8%B0%83%E7%94%A8%E6%A0%88.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102205131.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102205150.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102205206.png"></p>
 <h2 id="函数的重载"><a href="#函数的重载" class="headerlink" title="函数的重载"></a>函数的重载</h2><p>如果多个函数的函数名相同，但是参数或返回值不同，这些函数是不同的函数</p>
 <p>参数不同指 1. 参数的个数不同 2. 参数的数据类型不同</p>
 <p>js 中不允许函数的重载，即在 js 中，只要函数名一样，就是同一个函数，如果两个函数名相同，后边的会覆盖前边的</p>
@@ -10692,7 +10756,7 @@
   <entry>
     <title>javascript 高级</title>
     <url>/1652.html</url>
-    <content><![CDATA[<p><img src="https://wqdy.top/wp-content/uploads/2020/06/dagang.png" alt="大纲"></p>
+    <content><![CDATA[<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102204500.png"></p>
 <h2 id="面向对象编程"><a href="#面向对象编程" class="headerlink" title="面向对象编程"></a>面向对象编程</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><blockquote>
 <p>Everything is object （万物皆对象）</p>
 </blockquote>
@@ -10774,7 +10838,7 @@
 <h3 id="构造函数、实例、原型三者之间的关系"><a href="#构造函数、实例、原型三者之间的关系" class="headerlink" title="构造函数、实例、原型三者之间的关系"></a>构造函数、实例、原型三者之间的关系</h3><p>构造函数：构造函数就是一个函数，配合 new 可以新建对象</p>
 <p>实例：通过构造函数实例化出来的对象我们把它叫做构造函数的实例。一个构造函数可以有很多实例</p>
 <p>原型：每一个构造函数都有一个属性<code>prototype</code>，函数的 prototype 属性值就是原型。通过构造函数创建出来的实例能够直接使用原型上的属性和方法</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/06/sanjiao.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102204519.png"></p>
 <p>原型三角关系：</p>
 <ul>
 <li><p>构造函数和原型：配偶关系</p>
@@ -10800,7 +10864,7 @@
 <p>绘制对象的原型链结构：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> Person()</span><br><span class="line"><span class="comment">// p ==&gt; Person.prototype  ==&gt; Object.prototype ==&gt; null</span></span><br><span class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>()</span><br><span class="line"><span class="comment">// o ==&gt; Object.prototype ==&gt; null</span></span><br><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>()</span><br><span class="line"><span class="comment">// arr ==&gt; Array.prototype ==&gt; Object.prototype ==&gt; null</span></span><br><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line"><span class="comment">// date ==&gt; Date.prototype ==&gt; Object.prototype ==&gt; null</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Math 是个内置对象，不是个构造函数</span></span><br><span class="line"><span class="comment">// Math ==&gt; Object.prototype ==&gt; null</span></span><br></pre></td></tr></table></figure>
 <p>总结：Object.prototype 是原型链的尽头，Object.prototype 的原型是 null</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/06/proto.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102204539.png"></p>
 <h3 id="属性查找原则"><a href="#属性查找原则" class="headerlink" title="属性查找原则"></a>属性查找原则</h3><p><strong>属性搜索（查找）原则： 沿着原型链进行查找</strong></p>
 <ol>
 <li>首先在当前对象上查找是否有该属性，如果有，直接返回属性值</li>
@@ -11003,7 +11067,7 @@
 <p>函数是由 new Function 创建出来的，因此函数也是一个对象，<code>所有的函数都是 new Function 的实例</code></p>
 </blockquote>
 <h4 id="函数的原型链结构"><a href="#函数的原型链结构" class="headerlink" title="函数的原型链结构"></a>函数的原型链结构</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 内部：var Person = new Function()</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="comment">// Person 实例对象的原型链：</span></span><br><span class="line"><span class="comment">// Person ==&gt; Function.prototype ==&gt; Object.prototype ==&gt; null</span></span><br><span class="line"><span class="comment">// Function.prototype 原型类型是个函数</span></span><br><span class="line"><span class="built_in">console</span>.dir(<span class="built_in">Function</span>.prototype)</span><br></pre></td></tr></table></figure>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/06/function.jpg"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102204558.jpeg"></p>
 <h4 id="Function-prototype-成员"><a href="#Function-prototype-成员" class="headerlink" title="Function.prototype 成员"></a>Function.prototype 成员</h4><ul>
 <li>arguments：获取函数的实参，已经被废弃了，现在推荐的做法是使用函数内部可用的  <code>arguments</code>对象来访问函数的实参<ul>
 <li>（废弃的意思：已经从 Web 标准中删除，虽然一些浏览器目前仍然支持它，但也许会在未来的某个时间停止支持，请尽量不要使用该特性）</li>
@@ -11023,8 +11087,8 @@
 <h4 id="完整版原型链"><a href="#完整版原型链" class="headerlink" title="完整版原型链"></a>完整版原型链</h4><blockquote>
 <p>绘制完整版原型链的目的是辅助大家理解 js 中对象的继承关系</p>
 </blockquote>
-<p>图一<br><img src="https://wqdy.top/wp-content/uploads/2020/06/full.png"></p>
-<p>图二<br><img src="https://wqdy.top/wp-content/uploads/2020/06/%E5%8E%9F%E5%9E%8B%E9%93%BE.jpg"></p>
+<p>图一<br><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102204647.png"></p>
+<p>图二<br><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102204701.jpeg"></p>
 <p>总结：</p>
 <ol>
 <li>所有函数都是 new Function 创建出来的，因此 <code>所有函数.__proto__</code> 都是 <code>Function.prototype</code></li>
@@ -11741,7 +11805,7 @@
 <h2 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h2><blockquote>
 <p>组件系统是 Vue 的另一个重要概念，因为它是一种抽象，允许我们使用小型、独立和通常 <strong>可复用</strong> 的组件构建大型应用。仔细想想，几乎任意类型的应用界面都可以抽象为一个组件树</p>
 </blockquote>
-<p><img src="vue/components.png" alt="组件化图释"></p>
+<p><img data-src="vue/components.png" alt="组件化图释"></p>
 <ul>
 <li>注册组件的两种方式：全局组件、局部组件</li>
 <li>Vue 实例中的配置项（如：methods、filters、watch、computed、directives、生命周期钩子函数）都可以在组件中使用</li>
@@ -12766,7 +12830,7 @@
 </ul>
 </blockquote>
 <p><strong>行高测量</strong></p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/06/line2.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102183819.png"></p>
 <p><strong>行高和高度的三种关系</strong></p>
 <ul>
 <li>如果 行高 等 高度 文字会 垂直居中</li>
@@ -13065,7 +13129,7 @@
 </li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CSS层叠性最后的执行口诀：  长江后浪推前浪，前浪死在沙滩上。</span><br></pre></td></tr></table></figure>
-<h3 id="6-2-CSS-继承性"><a href="#6-2-CSS-继承性" class="headerlink" title="6.2 CSS 继承性"></a>6.2 CSS 继承性</h3><p><img src="https://wqdy.top/wp-content/uploads/2020/06/21%E7%BB%A7%E6%89%BF%E6%80%A7.png"></p>
+<h3 id="6-2-CSS-继承性"><a href="#6-2-CSS-继承性" class="headerlink" title="6.2 CSS 继承性"></a>6.2 CSS 继承性</h3><p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102183947.png"></p>
 <ul>
 <li><p>概念：</p>
 <p>子标签会继承父标签的某些样式，如文本颜色和字号。</p>
@@ -13082,7 +13146,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="6-3-CSS-优先级（重点）"><a href="#6-3-CSS-优先级（重点）" class="headerlink" title="6.3 CSS 优先级（重点）"></a>6.3 CSS 优先级（重点）</h3><p><img src="https://wqdy.top/wp-content/uploads/2020/06/22%E4%BC%98%E5%85%88%E7%BA%A7.png"></p>
+<h3 id="6-3-CSS-优先级（重点）"><a href="#6-3-CSS-优先级（重点）" class="headerlink" title="6.3 CSS 优先级（重点）"></a>6.3 CSS 优先级（重点）</h3><p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102184033.png"></p>
 <ul>
 <li><p>概念：</p>
 <p>定义 CSS 样式时，经常出现两个或更多规则应用在同一元素上，此时，</p>
@@ -13150,7 +13214,7 @@
 <p>1） 如果选中了，那么以上面的公式来计权重。谁大听谁的。<br>2） 如果没有选中，那么权重是 0，因为继承的权重为 0.（**!important 也无效**）</p>
 <h2 id="7-盒子模型（CSS-重点）"><a href="#7-盒子模型（CSS-重点）" class="headerlink" title="7. 盒子模型（CSS 重点）"></a>7. 盒子模型（CSS 重点）</h2><p>css 学习三大重点： css 盒子模型 、 浮动 、 定位</p>
 <p>主题思路：</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/06/css%E7%9B%92%E6%A8%A1%E5%9E%8B.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102184059.png"></p>
 <p>目标：</p>
 <ul>
 <li>理解：<ul>
@@ -13405,13 +13469,13 @@
 <ul>
 <li>当上下相邻的两个块元素相遇时，如果上面的元素有下外边距 margin-bottom，下面的元素有上外边距 margin-top，则他们之间的垂直间距不是 margin-bottom 与 margin-top 之和而是<strong>取两个值中的较大者</strong>，这种现象被称为相邻块元素垂直外边距的合并（也称外边距塌陷）。</li>
 </ul>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/06/margin%E5%90%88%E5%B9%B6.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102184124.png"></p>
 <p><strong>解决方案：尽量只给一个盒子添加 margin 值</strong>。</p>
 <p><strong>(2). 嵌套块元素垂直外边距的合并（塌陷）</strong></p>
 <ul>
 <li>对于两个嵌套关系的块元素，如果父元素没有上内边距及边框，父元素的上外边距会与子元素的上外边距发生合并（父元素会跟着下来），合并后的外边距为两者中的较大者</li>
 </ul>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/06/margin%E5%90%88%E5%B9%B61.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102184202.png"></p>
 <p><strong>解决方案：</strong></p>
 <ol>
 <li>可以为父元素定义上边框。</li>
@@ -13913,7 +13977,7 @@
 <h3 id="11-4-防止拖拽文本域-resize"><a href="#11-4-防止拖拽文本域-resize" class="headerlink" title="11.4 防止拖拽文本域 resize"></a>11.4 防止拖拽文本域 resize</h3><p>实际开发中，我们文本域右下角是不可以拖拽：</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">style</span>=<span class="string">&quot;resize: none;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="11-5-vertical-align-了解不推荐使用"><a href="#11-5-vertical-align-了解不推荐使用" class="headerlink" title="11.5 vertical-align (了解不推荐使用)"></a>11.5 vertical-align (了解不推荐使用)</h3><p><strong>行内</strong>、<strong>行内块</strong>、表单元格 垂直方向的对齐方式: vertical-align</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/06/xian.jpg"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102184232.jpg"></p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line">vertical-align: baseline | sub | super | top(对齐line) | text-top(对齐文字) | middle | bottom | text-bottom | &lt;percentage&gt;(参照line-height向上) | &lt;length&gt;(参照baseline向上);</span><br><span class="line"><span class="selector-tag">baseline</span>: 当前元素的基线和父元素的基线对齐;</span><br><span class="line"><span class="selector-tag">middle</span>: 当前元素的中线和父元素的基线加上<span class="selector-tag">x</span>高度的一半对齐;</span><br></pre></td></tr></table></figure>
 <ul>
 <li><p>注意：</p>
@@ -13922,7 +13986,7 @@
 </li>
 </ul>
 <p><strong>去除图片底侧空白缝隙</strong></p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/06/vertical.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102184254.png"></p>
 <ul>
 <li><p>原因：</p>
 <pre><code>图片或者表单等行内块元素，他的基线会和父级盒子的基线对齐。就是图片底侧会有一个空白缝隙。</code></pre>

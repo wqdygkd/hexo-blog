@@ -19,32 +19,33 @@
 
 
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
   <script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"wqdy.top","root":"/","images":"/images","scheme":"Pisces","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
+    var CONFIG = {"hostname":"wqdy.top","root":"/","images":"/images","scheme":"Pisces","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
   </script>
 <meta name="description" content="面向对象编程基本概念 Everything is object （万物皆对象）  对象到底是什么，我们可以从两次层次来理解 (1) 对象是具体事物的抽象 一本书、一辆汽车、一个人都可以是对象，当实物被抽象成对象，实物之间的关系就变成了对象之间的关系，从而就可以模拟现实情况，针对对象进行编程 问： 书是对象吗 (2)对象是无序键值对的集合，其属性可以包含基本值、对象或者函数 每个对象都是基于一个引">
 <meta property="og:type" content="article">
 <meta property="og:title" content="javascript 高级">
 <meta property="og:url" content="https://wqdy.top/1652.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="我全都要">
 <meta property="og:description" content="面向对象编程基本概念 Everything is object （万物皆对象）  对象到底是什么，我们可以从两次层次来理解 (1) 对象是具体事物的抽象 一本书、一辆汽车、一个人都可以是对象，当实物被抽象成对象，实物之间的关系就变成了对象之间的关系，从而就可以模拟现实情况，针对对象进行编程 问： 书是对象吗 (2)对象是无序键值对的集合，其属性可以包含基本值、对象或者函数 每个对象都是基于一个引">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://wqdy.top/wp-content/uploads/2020/06/dagang.png">
-<meta property="og:image" content="https://wqdy.top/wp-content/uploads/2020/06/sanjiao.png">
-<meta property="og:image" content="https://wqdy.top/wp-content/uploads/2020/06/proto.png">
-<meta property="og:image" content="https://wqdy.top/wp-content/uploads/2020/06/function.jpg">
-<meta property="og:image" content="https://wqdy.top/wp-content/uploads/2020/06/full.png">
-<meta property="og:image" content="https://wqdy.top/wp-content/uploads/2020/06/%E5%8E%9F%E5%9E%8B%E9%93%BE.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102204500.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102204519.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102204539.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102204558.jpeg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102204647.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102204701.jpeg">
 <meta property="article:published_time" content="2018-10-18T14:34:36.000Z">
-<meta property="article:modified_time" content="2021-01-08T03:36:49.548Z">
-<meta property="article:author" content="cuilongjin">
+<meta property="article:modified_time" content="2021-01-09T05:30:47.554Z">
+<meta property="article:author" content="c">
 <meta property="article:tag" content="js">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://wqdy.top/wp-content/uploads/2020/06/dagang.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102204500.png">
 
 
 <link rel="canonical" href="https://wqdy.top/1652.html">
@@ -79,7 +80,7 @@
   })
 </script>
 
-<title>javascript 高级 | Hexo</title>
+<title>javascript 高级 | 我全都要</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112496567-1"></script>
     <script data-pjax>
@@ -157,9 +158,10 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">Hexo</h1>
+      <h1 class="site-title">我全都要</h1>
       <i class="logo-line"></i>
     </a>
+      <p class="site-subtitle" itemprop="description">搞快点</p>
   </div>
 
   <div class="site-nav-right">
@@ -186,6 +188,11 @@
         <li class="menu-item menu-item-tags">
 
     <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
         <li class="menu-item menu-item-sitemap">
@@ -255,13 +262,20 @@
 
         <section class="site-overview-wrap sidebar-panel">
           <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="cuilongjin"
+    <img class="site-author-image" itemprop="image" alt="c"
       src="/images/avatar.png">
-  <p class="site-author-name" itemprop="name">cuilongjin</p>
-  <div class="site-description" itemprop="description"></div>
+  <p class="site-author-name" itemprop="name">c</p>
+  <div class="site-description" itemprop="description">分享各类资源、经验与技巧</div>
 </div>
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">143</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
       <div class="site-state-item site-state-categories">
         <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">分类</span>
@@ -269,7 +283,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">62</span>
+        <span class="site-state-item-count">66</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -278,9 +292,6 @@
       <span class="links-of-author-item">
         <a href="https://github.com/cuilongjin" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;cuilongjin" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
-  </div>
-  <div class="cc-license site-overview-item animated" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
   </div>
 
 
@@ -320,12 +331,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="cuilongjin">
-      <meta itemprop="description" content="">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="我全都要">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -369,7 +380,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p><img src="https://wqdy.top/wp-content/uploads/2020/06/dagang.png" alt="大纲"></p>
+        <p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102204500.png"></p>
 <h2 id="面向对象编程"><a href="#面向对象编程" class="headerlink" title="面向对象编程"></a>面向对象编程</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><blockquote>
 <p>Everything is object （万物皆对象）</p>
 </blockquote>
@@ -451,7 +462,7 @@
 <h3 id="构造函数、实例、原型三者之间的关系"><a href="#构造函数、实例、原型三者之间的关系" class="headerlink" title="构造函数、实例、原型三者之间的关系"></a>构造函数、实例、原型三者之间的关系</h3><p>构造函数：构造函数就是一个函数，配合 new 可以新建对象</p>
 <p>实例：通过构造函数实例化出来的对象我们把它叫做构造函数的实例。一个构造函数可以有很多实例</p>
 <p>原型：每一个构造函数都有一个属性<code>prototype</code>，函数的 prototype 属性值就是原型。通过构造函数创建出来的实例能够直接使用原型上的属性和方法</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/06/sanjiao.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102204519.png"></p>
 <p>原型三角关系：</p>
 <ul>
 <li><p>构造函数和原型：配偶关系</p>
@@ -477,7 +488,7 @@
 <p>绘制对象的原型链结构：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> Person()</span><br><span class="line"><span class="comment">// p ==&gt; Person.prototype  ==&gt; Object.prototype ==&gt; null</span></span><br><span class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>()</span><br><span class="line"><span class="comment">// o ==&gt; Object.prototype ==&gt; null</span></span><br><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>()</span><br><span class="line"><span class="comment">// arr ==&gt; Array.prototype ==&gt; Object.prototype ==&gt; null</span></span><br><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line"><span class="comment">// date ==&gt; Date.prototype ==&gt; Object.prototype ==&gt; null</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Math 是个内置对象，不是个构造函数</span></span><br><span class="line"><span class="comment">// Math ==&gt; Object.prototype ==&gt; null</span></span><br></pre></td></tr></table></figure>
 <p>总结：Object.prototype 是原型链的尽头，Object.prototype 的原型是 null</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/06/proto.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102204539.png"></p>
 <h3 id="属性查找原则"><a href="#属性查找原则" class="headerlink" title="属性查找原则"></a>属性查找原则</h3><p><strong>属性搜索（查找）原则： 沿着原型链进行查找</strong></p>
 <ol>
 <li>首先在当前对象上查找是否有该属性，如果有，直接返回属性值</li>
@@ -680,7 +691,7 @@
 <p>函数是由 new Function 创建出来的，因此函数也是一个对象，<code>所有的函数都是 new Function 的实例</code></p>
 </blockquote>
 <h4 id="函数的原型链结构"><a href="#函数的原型链结构" class="headerlink" title="函数的原型链结构"></a>函数的原型链结构</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 内部：var Person = new Function()</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="comment">// Person 实例对象的原型链：</span></span><br><span class="line"><span class="comment">// Person ==&gt; Function.prototype ==&gt; Object.prototype ==&gt; null</span></span><br><span class="line"><span class="comment">// Function.prototype 原型类型是个函数</span></span><br><span class="line"><span class="built_in">console</span>.dir(<span class="built_in">Function</span>.prototype)</span><br></pre></td></tr></table></figure>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/06/function.jpg"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102204558.jpeg"></p>
 <h4 id="Function-prototype-成员"><a href="#Function-prototype-成员" class="headerlink" title="Function.prototype 成员"></a>Function.prototype 成员</h4><ul>
 <li>arguments：获取函数的实参，已经被废弃了，现在推荐的做法是使用函数内部可用的  <code>arguments</code>对象来访问函数的实参<ul>
 <li>（废弃的意思：已经从 Web 标准中删除，虽然一些浏览器目前仍然支持它，但也许会在未来的某个时间停止支持，请尽量不要使用该特性）</li>
@@ -700,8 +711,8 @@
 <h4 id="完整版原型链"><a href="#完整版原型链" class="headerlink" title="完整版原型链"></a>完整版原型链</h4><blockquote>
 <p>绘制完整版原型链的目的是辅助大家理解 js 中对象的继承关系</p>
 </blockquote>
-<p>图一<br><img src="https://wqdy.top/wp-content/uploads/2020/06/full.png"></p>
-<p>图二<br><img src="https://wqdy.top/wp-content/uploads/2020/06/%E5%8E%9F%E5%9E%8B%E9%93%BE.jpg"></p>
+<p>图一<br><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102204647.png"></p>
+<p>图二<br><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102204701.jpeg"></p>
 <p>总结：</p>
 <ol>
 <li>所有函数都是 new Function 创建出来的，因此 <code>所有函数.__proto__</code> 都是 <code>Function.prototype</code></li>
@@ -982,23 +993,6 @@
     
 
     <footer class="post-footer">
-          
-
-<div class="post-copyright">
-<ul>
-  <li class="post-copyright-author">
-      <strong>本文作者： </strong>cuilongjin
-  </li>
-  <li class="post-copyright-link">
-      <strong>本文链接：</strong>
-      <a href="https://wqdy.top/1652.html" title="javascript 高级">https://wqdy.top/1652.html</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
-  </li>
-</ul>
-</div>
-
           <div class="post-tags">
               <a href="/tags/js/" rel="tag"># js</a>
           </div>
@@ -1066,7 +1060,7 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">cuilongjin</span>
+  <span class="author" itemprop="copyrightHolder">c</span>
 </div>
 <div class="busuanzi-count">
     <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
@@ -1093,6 +1087,9 @@
   
   <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
 <script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script>
 var pjax = new Pjax({

@@ -19,34 +19,35 @@
 
 
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
   <script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"wqdy.top","root":"/","images":"/images","scheme":"Pisces","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
+    var CONFIG = {"hostname":"wqdy.top","root":"/","images":"/images","scheme":"Pisces","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
   </script>
 <meta name="description" content="1.CSS 初识 概念：CSS(Cascading Style Sheets) ，通常称为 CSS 样式表或层叠样式表（级联样式表）  作用：  主要用于设置 HTML 页面中的文本内容（字体、大小、对齐方式等）、图片的外形（宽高、边框样式、边距等）以及版面的布局和外观显示样式。 CSS 以 HTML 为基础，提供了丰富的功能，如字体、颜色、背景的控制及整体排版等，而且还可以针对不同的浏览器设置不">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS 基础">
 <meta property="og:url" content="https://wqdy.top/1616.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="我全都要">
 <meta property="og:description" content="1.CSS 初识 概念：CSS(Cascading Style Sheets) ，通常称为 CSS 样式表或层叠样式表（级联样式表）  作用：  主要用于设置 HTML 页面中的文本内容（字体、大小、对齐方式等）、图片的外形（宽高、边框样式、边距等）以及版面的布局和外观显示样式。 CSS 以 HTML 为基础，提供了丰富的功能，如字体、颜色、背景的控制及整体排版等，而且还可以针对不同的浏览器设置不">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://wqdy.top/wp-content/uploads/2020/06/line2.png">
-<meta property="og:image" content="https://wqdy.top/wp-content/uploads/2020/06/21%E7%BB%A7%E6%89%BF%E6%80%A7.png">
-<meta property="og:image" content="https://wqdy.top/wp-content/uploads/2020/06/22%E4%BC%98%E5%85%88%E7%BA%A7.png">
-<meta property="og:image" content="https://wqdy.top/wp-content/uploads/2020/06/css%E7%9B%92%E6%A8%A1%E5%9E%8B.png">
-<meta property="og:image" content="https://wqdy.top/wp-content/uploads/2020/06/margin%E5%90%88%E5%B9%B6.png">
-<meta property="og:image" content="https://wqdy.top/wp-content/uploads/2020/06/margin%E5%90%88%E5%B9%B61.png">
-<meta property="og:image" content="https://wqdy.top/wp-content/uploads/2020/06/xian.jpg">
-<meta property="og:image" content="https://wqdy.top/wp-content/uploads/2020/06/vertical.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102183819.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102183947.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102184033.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102184059.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102184124.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102184202.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102184232.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102184254.png">
 <meta property="article:published_time" content="2018-08-27T14:27:59.000Z">
-<meta property="article:modified_time" content="2021-01-08T03:36:49.544Z">
-<meta property="article:author" content="cuilongjin">
+<meta property="article:modified_time" content="2021-01-09T05:30:47.550Z">
+<meta property="article:author" content="c">
 <meta property="article:tag" content="css">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://wqdy.top/wp-content/uploads/2020/06/line2.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102183819.png">
 
 
 <link rel="canonical" href="https://wqdy.top/1616.html">
@@ -81,7 +82,7 @@
   })
 </script>
 
-<title>CSS 基础 | Hexo</title>
+<title>CSS 基础 | 我全都要</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112496567-1"></script>
     <script data-pjax>
@@ -159,9 +160,10 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">Hexo</h1>
+      <h1 class="site-title">我全都要</h1>
       <i class="logo-line"></i>
     </a>
+      <p class="site-subtitle" itemprop="description">搞快点</p>
   </div>
 
   <div class="site-nav-right">
@@ -188,6 +190,11 @@
         <li class="menu-item menu-item-tags">
 
     <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
         <li class="menu-item menu-item-sitemap">
@@ -257,13 +264,20 @@
 
         <section class="site-overview-wrap sidebar-panel">
           <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="cuilongjin"
+    <img class="site-author-image" itemprop="image" alt="c"
       src="/images/avatar.png">
-  <p class="site-author-name" itemprop="name">cuilongjin</p>
-  <div class="site-description" itemprop="description"></div>
+  <p class="site-author-name" itemprop="name">c</p>
+  <div class="site-description" itemprop="description">分享各类资源、经验与技巧</div>
 </div>
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">143</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
       <div class="site-state-item site-state-categories">
         <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">分类</span>
@@ -271,7 +285,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">62</span>
+        <span class="site-state-item-count">66</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -280,9 +294,6 @@
       <span class="links-of-author-item">
         <a href="https://github.com/cuilongjin" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;cuilongjin" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
-  </div>
-  <div class="cc-license site-overview-item animated" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
   </div>
 
 
@@ -322,12 +333,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="cuilongjin">
-      <meta itemprop="description" content="">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="我全都要">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -1027,7 +1038,7 @@
 </ul>
 </blockquote>
 <p><strong>行高测量</strong></p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/06/line2.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102183819.png"></p>
 <p><strong>行高和高度的三种关系</strong></p>
 <ul>
 <li>如果 行高 等 高度 文字会 垂直居中</li>
@@ -1326,7 +1337,7 @@
 </li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CSS层叠性最后的执行口诀：  长江后浪推前浪，前浪死在沙滩上。</span><br></pre></td></tr></table></figure>
-<h3 id="6-2-CSS-继承性"><a href="#6-2-CSS-继承性" class="headerlink" title="6.2 CSS 继承性"></a>6.2 CSS 继承性</h3><p><img src="https://wqdy.top/wp-content/uploads/2020/06/21%E7%BB%A7%E6%89%BF%E6%80%A7.png"></p>
+<h3 id="6-2-CSS-继承性"><a href="#6-2-CSS-继承性" class="headerlink" title="6.2 CSS 继承性"></a>6.2 CSS 继承性</h3><p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102183947.png"></p>
 <ul>
 <li><p>概念：</p>
 <p>子标签会继承父标签的某些样式，如文本颜色和字号。</p>
@@ -1343,7 +1354,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="6-3-CSS-优先级（重点）"><a href="#6-3-CSS-优先级（重点）" class="headerlink" title="6.3 CSS 优先级（重点）"></a>6.3 CSS 优先级（重点）</h3><p><img src="https://wqdy.top/wp-content/uploads/2020/06/22%E4%BC%98%E5%85%88%E7%BA%A7.png"></p>
+<h3 id="6-3-CSS-优先级（重点）"><a href="#6-3-CSS-优先级（重点）" class="headerlink" title="6.3 CSS 优先级（重点）"></a>6.3 CSS 优先级（重点）</h3><p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102184033.png"></p>
 <ul>
 <li><p>概念：</p>
 <p>定义 CSS 样式时，经常出现两个或更多规则应用在同一元素上，此时，</p>
@@ -1411,7 +1422,7 @@
 <p>1） 如果选中了，那么以上面的公式来计权重。谁大听谁的。<br>2） 如果没有选中，那么权重是 0，因为继承的权重为 0.（**!important 也无效**）</p>
 <h2 id="7-盒子模型（CSS-重点）"><a href="#7-盒子模型（CSS-重点）" class="headerlink" title="7. 盒子模型（CSS 重点）"></a>7. 盒子模型（CSS 重点）</h2><p>css 学习三大重点： css 盒子模型 、 浮动 、 定位</p>
 <p>主题思路：</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/06/css%E7%9B%92%E6%A8%A1%E5%9E%8B.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102184059.png"></p>
 <p>目标：</p>
 <ul>
 <li>理解：<ul>
@@ -1666,13 +1677,13 @@
 <ul>
 <li>当上下相邻的两个块元素相遇时，如果上面的元素有下外边距 margin-bottom，下面的元素有上外边距 margin-top，则他们之间的垂直间距不是 margin-bottom 与 margin-top 之和而是<strong>取两个值中的较大者</strong>，这种现象被称为相邻块元素垂直外边距的合并（也称外边距塌陷）。</li>
 </ul>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/06/margin%E5%90%88%E5%B9%B6.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102184124.png"></p>
 <p><strong>解决方案：尽量只给一个盒子添加 margin 值</strong>。</p>
 <p><strong>(2). 嵌套块元素垂直外边距的合并（塌陷）</strong></p>
 <ul>
 <li>对于两个嵌套关系的块元素，如果父元素没有上内边距及边框，父元素的上外边距会与子元素的上外边距发生合并（父元素会跟着下来），合并后的外边距为两者中的较大者</li>
 </ul>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/06/margin%E5%90%88%E5%B9%B61.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102184202.png"></p>
 <p><strong>解决方案：</strong></p>
 <ol>
 <li>可以为父元素定义上边框。</li>
@@ -2174,7 +2185,7 @@
 <h3 id="11-4-防止拖拽文本域-resize"><a href="#11-4-防止拖拽文本域-resize" class="headerlink" title="11.4 防止拖拽文本域 resize"></a>11.4 防止拖拽文本域 resize</h3><p>实际开发中，我们文本域右下角是不可以拖拽：</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">style</span>=<span class="string">&quot;resize: none;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="11-5-vertical-align-了解不推荐使用"><a href="#11-5-vertical-align-了解不推荐使用" class="headerlink" title="11.5 vertical-align (了解不推荐使用)"></a>11.5 vertical-align (了解不推荐使用)</h3><p><strong>行内</strong>、<strong>行内块</strong>、表单元格 垂直方向的对齐方式: vertical-align</p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/06/xian.jpg"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102184232.jpg"></p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line">vertical-align: baseline | sub | super | top(对齐line) | text-top(对齐文字) | middle | bottom | text-bottom | &lt;percentage&gt;(参照line-height向上) | &lt;length&gt;(参照baseline向上);</span><br><span class="line"><span class="selector-tag">baseline</span>: 当前元素的基线和父元素的基线对齐;</span><br><span class="line"><span class="selector-tag">middle</span>: 当前元素的中线和父元素的基线加上<span class="selector-tag">x</span>高度的一半对齐;</span><br></pre></td></tr></table></figure>
 <ul>
 <li><p>注意：</p>
@@ -2183,7 +2194,7 @@
 </li>
 </ul>
 <p><strong>去除图片底侧空白缝隙</strong></p>
-<p><img src="https://wqdy.top/wp-content/uploads/2020/06/vertical.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102184254.png"></p>
 <ul>
 <li><p>原因：</p>
 <pre><code>图片或者表单等行内块元素，他的基线会和父级盒子的基线对齐。就是图片底侧会有一个空白缝隙。</code></pre>
@@ -2230,23 +2241,6 @@
     
 
     <footer class="post-footer">
-          
-
-<div class="post-copyright">
-<ul>
-  <li class="post-copyright-author">
-      <strong>本文作者： </strong>cuilongjin
-  </li>
-  <li class="post-copyright-link">
-      <strong>本文链接：</strong>
-      <a href="https://wqdy.top/1616.html" title="CSS 基础">https://wqdy.top/1616.html</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
-  </li>
-</ul>
-</div>
-
           <div class="post-tags">
               <a href="/tags/css/" rel="tag"># css</a>
           </div>
@@ -2314,7 +2308,7 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">cuilongjin</span>
+  <span class="author" itemprop="copyrightHolder">c</span>
 </div>
 <div class="busuanzi-count">
     <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
@@ -2341,6 +2335,9 @@
   
   <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
 <script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script>
 var pjax = new Pjax({
