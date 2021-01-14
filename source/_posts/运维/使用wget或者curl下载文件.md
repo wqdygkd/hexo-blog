@@ -20,6 +20,10 @@ wget --no-check-certificate --content-disposition https://github.com/ctripcorp/a
 curl -LJO https://github.com/ctripcorp/apollo/releases/download/v1.5.1/apollo-adminservice-1.5.1-github.zip
 ```
 
+下载源码压缩包
+
+wget -q https://github.com/git/git/archive/v${GIT_VERSION}.tar.gz
+
 下载仓库中的单个文件
 
 点击文件进去，右上角有个raw，点击进去后地址栏就是该文件的下载地址
