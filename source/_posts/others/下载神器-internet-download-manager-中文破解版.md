@@ -15,8 +15,10 @@ date: 2019-12-22 14:56:22
 
 破解版下载地址
 
+Internet Download Manager 6.38.16
 Internet Download Manager 6.35.18
-百度云链接：https://pan.baidu.com/s/1wuStuzxT0aZxOYnMNi_DQA 提取码：n454
+链接：https://pan.baidu.com/s/1NQmnqEGAfCu416zCwX-ATA
+提取码：wqdy
 
 安装说明
 
