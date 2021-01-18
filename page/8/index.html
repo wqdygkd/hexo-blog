@@ -261,7 +261,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">143</span>
+          <span class="site-state-item-count">144</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -272,7 +272,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">66</span>
+        <span class="site-state-item-count">67</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -306,6 +306,87 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/384.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/384.html" class="post-title-link" itemprop="url">vue 项目中使用 axios.all 处理并发请求报 "TypeError: this.$axios.all is not a function" 异常解决方法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-12-27 18:25:44" itemprop="dateCreated datePublished" datetime="2019-12-27T18:25:44+00:00">2019-12-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>axios/index.js 部分配置如下</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// axios/index.js</span></span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span></span><br><span class="line"><span class="keyword">const</span> Axios = axios.create(&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>原因：</p>
+<p>axios 实例没有 all 这个方法，all 是 axios 的静态方法</p>
+<p>所以解决方式就是将该方法手动挂载到 Axios 实例上即可</p>
+<p>在 <code>axios/index.js</code> 添加如下配置</p>
+<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">// axios/index.js</span><br><span class="line">import axios from &#x27;axios&#x27;</span><br><span class="line">const Axios = axios.create(&#123;</span><br><span class="line">  // ...</span><br><span class="line">&#125;)</span><br><span class="line"><span class="addition">+ Axios.all = axios.all</span></span><br><span class="line"><span class="addition">+ Axios.spread = axios.spread</span></span><br></pre></td></tr></table></figure>
+
+<p>附 axios 并发多个请求方式：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">request1</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> axios.get(<span class="string">&#x27;/user/12345&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">request2</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> axios.get(<span class="string">&#x27;/user/12345/permissions&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">axios.all([request1(), request2()])</span><br><span class="line">  .then(axios.spread(<span class="function">(<span class="params">res1, res2</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 两个请求现在都执行完成</span></span><br><span class="line">    <span class="comment">// acct、perms 分别为两个请求的结果</span></span><br><span class="line">  &#125;))</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -364,7 +445,7 @@
           <p><a target="_blank" rel="noopener" href="http://www.internetdownloadmanager.com/">Internet Download Manager</a> (简称IDM)  是 Windows 平台老牌而功能强大的多线程下载工具，支持多媒体下载、自动捕获链接、自动识别文件名、静默下载、批量下载、计划下载任务、站点抓取、队列，支持IE, Opera, Firefox, Chrome等所有流行的浏览器，如果启用高级集成，则可以捕获和接管从任何程序的下载。</p>
 <p><img data-src="https://i.loli.net/2019/12/22/PJjQszUu2bL7SBK.jpg"></p>
 <p>破解版下载地址</p>
-<p>Internet Download Manager 6.35.18<br>百度云链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1wuStuzxT0aZxOYnMNi_DQA">https://pan.baidu.com/s/1wuStuzxT0aZxOYnMNi_DQA</a> 提取码：n454</p>
+<p>Internet Download Manager 6.38.16<br>Internet Download Manager 6.35.18<br>链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1NQmnqEGAfCu416zCwX-ATA">https://pan.baidu.com/s/1NQmnqEGAfCu416zCwX-ATA</a><br>提取码：wqdy</p>
 <p>安装说明</p>
 <p>下载完成后解压，运行安装程序，安装完就是注册版</p>
 <p>配合插件使用</p>
@@ -1038,98 +1119,6 @@
 <p>defer 和 async 之间的不同是他们开始执行脚本的时机的不同</p>
 <p>async(H5) 一旦脚本可用，则会异步执行（仅适用于外部脚本） 脚本在它们完成下载完成后的第一时间执行，如果一个指定 async 的脚本很快就完成了下载，那么它的执行会阻塞 DOM 构建以及所有在之后才完成下载的同步脚本。</p>
 <p>defer 规定当页面已完成解析后，执行脚本（仅适用于外部脚本） 脚本会按照它在 HTML 中出现的顺序执行，并且不会阻塞解析。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/356.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/356.html" class="post-title-link" itemprop="url">Github 开源项目收集</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-10-21 14:52:55" itemprop="dateCreated datePublished" datetime="2019-10-21T14:52:55+00:00">2019-10-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="知识库"><a href="#知识库" class="headerlink" title="知识库"></a>知识库</h2><p><a target="_blank" rel="noopener" href="https://github.com/Advanced-Frontend/Daily-Interview-Question/blob/master/datum/summary.md">前端面试题及答案汇总</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/CyC2018/CS-Notes">CS-Notes</a> 技术面试必备基础知识、Leetcode、计算机操作系统、计算机网络、系统设计、Java、Python、C++</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/xcatliu/typescript-tutorial">TypeScript 入门教程</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/MostlyAdequate/mostly-adequate-guide">js 函数式编程(英文)</a> <a target="_blank" rel="noopener" href="https://llh911001.gitbooks.io/mostly-adequate-guide-chinese/content/">中文翻译</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/basarat/typescript-book">TypeScript Deep Dive(英文)</a> <a target="_blank" rel="noopener" href="https://github.com/jkchao/typescript-book-chinese">深入理解 TypeScript(中文翻译)</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/zhongsp/TypeScript">TypeScript 手册(官方手册中文翻译版)</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/InterviewMap/CS-Interview-Knowledge-Map">前端进阶之道</a><br><a target="_blank" rel="noopener" href="https://yuchengkai.cn/docs/frontend/">前端进阶之道-在线阅读</a></p>
-<p><a target="_blank" rel="noopener" href="https://ustbhuangyi.github.io/vue-analysis/">Vue.js 技术揭秘</a></p>
-<h2 id="工具库"><a href="#工具库" class="headerlink" title="工具库"></a>工具库</h2><p><a target="_blank" rel="noopener" href="https://github.com/tsayen/dom-to-image">DOM to Image</a> 使用 HTML5 canvas 从 DOM 节点生成图像</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Akryum/v-tooltip">v-tooltip</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/MatteoGabriele/vue-analytics">vue-analytics</a> Vue plugin for Google Analytics</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/dfahlander/Dexie.js/">Dexie.js</a> A Minimalistic Wrapper for IndexedDB</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/phodal/2md">2md</a> A Converter for Copy/Paste content to Markdown</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/markedjs/marked">marked</a> A markdown parser and compiler. Built for speed</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/CanopyTax/single-spa">single-spa</a> A javascript framework for front-end microservices</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/pillarjs/path-to-regexp">path-to-regexp</a> Turn a path string such as <code>/user/:name</code> into a regular expression</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/facebook/draft-js">Draft.js</a> Rich Text Editor Framework for React</p>
-<p>Node.js Best Practices <a target="_blank" rel="noopener" href="https://github.com/goldbergyoni/nodebestpractices">https://github.com/goldbergyoni/nodebestpractices</a></p>
-<p>html5-boilerplate 前端模板 <a target="_blank" rel="noopener" href="https://github.com/h5bp/html5-boilerplate">https://github.com/h5bp/html5-boilerplate</a></p>
-<p>Airbnb 提供的非常精确和专业的风格指南<br><a target="_blank" rel="noopener" href="https://github.com/airbnb/javascript">https://github.com/airbnb/javascript</a></p>
 
       
     </div>
