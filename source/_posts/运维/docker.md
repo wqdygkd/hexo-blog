@@ -2,9 +2,7 @@
 title: Docker 的安装和使用
 tags:
   - docker
-id: '420'
-categories:
-  - - 教程
+id: 420
 date: 2019-06-18 22:27:38
 ---
 
@@ -122,11 +120,18 @@ $ sudo rm -rf /var/lib/docker
 #### 使用脚本安装
 
 ```bash
-$ curl -fsSL https://get.docker.com -o get-docker.sh
-$ sudo sh get-docker.sh
+curl -sSL https://get.docker.com/ | sh
 
 # 将用户添加到docker组，可以用非root用户使用docker
 $ sudo usermod -aG docker <your-user>
+```
+
+国内的服务器可以使用如下脚本加速安装，
+```bash
+# 阿里云的安装脚本
+curl -sSL http://acs-public-mirror.oss-cn-hangzhou.aliyuncs.com/docker-engine/internet | sh -
+# DaoCloud 的安装脚本
+curl -sSL https://get.daocloud.io/docker | sh
 ```
 
 ### centos 安装 docker
@@ -203,11 +208,13 @@ $ yum install container-selinux
 
 ## 使用 docker
 
-### 安装镜像
+## 配置镜像加速
 
-修改 docker 源
+### 修改 docker 源
 
-daemon.json
+修改配置文件 `/etc/docker/daemon.json`（Linux） 或者 `%programdata%\docker\config\daemon.json`（Window)
+
+如果没有新建一个
 
 ```json
 {
@@ -216,6 +223,8 @@ daemon.json
 ```
 
 重启 docker
+
+### 安装镜像
 
 安装 Ubuntu 镜像
 
@@ -399,4 +408,62 @@ sudo docker exec -it 容器 /bin/sh
 sudo docker exec -it 容器 bash
 ```
 
-docker-compose
+## docker-compose
+
+如果你想要通过 docker-compose 统一管理你的 Docker container，这里也可以安装一下
+
+官方文档：https://docs.docker.com/compose/install/
+
+```bash
+sudo curl -L https://github.com/docker/compose/releases/download/1.26.2/run.sh > /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+```
+
+使用 pip 安装
+
+```bash
+pip install docker-compose
+```
+
+运行一下 `docker-compose version` 来检测一下是否成功
+
+### 创建配置文件
+
+创建一个名为 `docker-compose.yml` 的配置文件
+
+```yml
+version: '3'
+services:
+  v2ray1:
+    image: v2fly/v2fly-core # 镜像名称
+    container_name: v2ray # 容器名称
+    restart: always
+    command: v2ray -config=/etc/v2ray/config.json # 覆盖容器启动后默认执行的命令
+    ports:
+      # HOST:CONTAINER
+      - '44222:44222' # 端口
+      #- "127.0.0.1:8889:8889"
+    volumes:
+      # HOST:CONTAINER
+      - ./config:/etc/v2ray # 目录
+      #- /etc/v2ray/v2ray.crt:/etc/v2ray/v2ray.crt
+      #- /etc/v2ray/v2ray.key:/etc/v2ray/v2ray.key
+
+  v2ray2:
+    build:
+      context: ./dir # context 选项可以是 Dockerfile 的文件路径，也可以是到链接到 git 仓库的 url
+      dockerfile: path/of/Dockerfile # 使用此 dockerfile 文件来构建，必须指定构建路径
+```
+
+### 命令
+
+以下命令需要在 docker-compose.yml 所在目录下执行
+
+```bash
+docker-compose up -d # 部署 v2ray
+docker-compose start v2ray # 启动 v2ray
+docker-compose stop v2ray # 停止 v2ray
+docker-compose restart v2ray # 重启 v2ray
+docker stop v2ray && docker rm v2ray # 删除 v2ray
+docker-compose pull && docker-compose up -d # 更新 v2ray
+```
