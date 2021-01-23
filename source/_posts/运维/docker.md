@@ -276,7 +276,7 @@ docker rmi 删除镜像
 
 ```bash
 # 制作 docker 镜像  1.0 为版本号
-docker commit 98 ubuntu_test:1.0
+docker commit 98 my-ubuntu:1.0
 
 # 查看镜像是否创建
 docker images
@@ -286,26 +286,27 @@ docker images
 docker login
 
 # 推送镜像
-docker tag a25ddfec4d2a arunpyasi/container-backup:test
-docker push arunpyasi/container-backup
+docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
+docker tag my-ubuntu:1.0 cuilongjin/my-ubuntu:1.0
+docker push cuilongjin/my-ubuntu:1.0
 
 # 打包镜像并查看
-docker save -o ubuntu_test.tar ubuntu_test:1.0
+docker save -o my-ubuntu.tar my-ubuntu:1.0
 ```
 
 恢复容器
 
 ```bash
 # 从docker账号中拉取
-docker pull arunpyasi/container-backup:test
+docker pull cuilongjin/my-ubuntu:1.0
 
 # 从本地
-docker load -i ~/container-backup.tar
+docker load -i ~/my-ubuntu.tar
 
 # docker images
 
 # 用加载的镜像去运行Docker容器
-docker run -d -p 80:80 container-backup
+docker run -d -p 80:80 my-ubuntu
 ```
 
 **docker 给已存在的容器添加或修改端口映射**
