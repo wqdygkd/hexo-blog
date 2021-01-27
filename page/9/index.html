@@ -261,7 +261,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">144</span>
+          <span class="site-state-item-count">145</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -272,7 +272,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">67</span>
+        <span class="site-state-item-count">72</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -306,6 +306,95 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/391.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/391.html" class="post-title-link" itemprop="url">预解析, async, defer 以及 preload</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-10-24 22:07:18" itemprop="dateCreated datePublished" datetime="2019-10-24T22:07:18+00:00">2019-10-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="预解析"><a href="#预解析" class="headerlink" title="预解析"></a>预解析</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Optimizing_your_pages_for_speculative_parsing">https://developer.mozilla.org/zh-CN/docs/Web/HTML/Optimizing_your_pages_for_speculative_parsing</a></p>
+<h3 id="link-标签-ref-属性值-prefetch-preload-用于预加载"><a href="#link-标签-ref-属性值-prefetch-preload-用于预加载" class="headerlink" title="link 标签 ref 属性值 prefetch preload 用于预加载"></a>link 标签 ref 属性值 prefetch preload 用于预加载</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">ref</span>=<span class="string">&quot;preload&quot;</span> <span class="attr">href</span>=<span class="string">&quot;*.js&quot;</span> <span class="attr">as</span>=<span class="string">&quot;script&quot;</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- preload需要写上正确的as属性,如果不写或错误，等同于XHR请求，优先级非常低 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;preload&quot;</span> <span class="attr">href</span>=<span class="string">&quot;font.woff&quot;</span> <span class="attr">as</span>=<span class="string">&quot;font&quot;</span> <span class="attr">crossorigin</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 预加载字体你还必须设置crossorigin 属性 --&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>preload 是用于预加载当前页的资源，浏览器会优先加载它们(加载后并不执行，在需要执行的时候再执行)</li>
+</ul>
+<p>将加载和执行分离开，可不阻塞渲染和 document 的 onload 事件<br>提前加载指定资源，不再出现依赖的 font 字体隔了一段时间才刷出</p>
+<ul>
+<li><p>prefetch 是用于预加载后续页面使用的资源，浏览器也会加载它们，但优先级不高</p>
+</li>
+<li><p>避免混用 preload 和 prefetch，混用的话，并不会复用资源，而是会重复加载</p>
+</li>
+</ul>
+<p>插入的脚本（无论在什么位置）在网络优先级中是很低级</p>
+<h3 id="script-标签的-defer-和-async-异步加载"><a href="#script-标签的-defer-和-async-异步加载" class="headerlink" title="script 标签的 defer 和 async 异步加载"></a>script 标签的 defer 和 async 异步加载</h3><p>这两个属性都告诉浏览器，它可以 “在后台” 加载脚本的同时继续解析 HTML，并在脚本加载完之后再执行。这样，脚本下载就不会阻塞 DOM 构建和页面渲染了</p>
+<p>defer 和 async 之间的不同是他们开始执行脚本的时机的不同</p>
+<p>async(H5) 一旦脚本可用，则会异步执行（仅适用于外部脚本） 脚本在它们完成下载完成后的第一时间执行，如果一个指定 async 的脚本很快就完成了下载，那么它的执行会阻塞 DOM 构建以及所有在之后才完成下载的同步脚本。</p>
+<p>defer 规定当页面已完成解析后，执行脚本（仅适用于外部脚本） 脚本会按照它在 HTML 中出现的顺序执行，并且不会阻塞解析。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -610,29 +699,25 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>v2ray 用户手册</p>
-<p><a target="_blank" rel="noopener" href="https://www.v2ray.com/">https://www.v2ray.com</a><br><a target="_blank" rel="noopener" href="https://v2fly.org/">https://v2fly.org</a></p>
-<p>V2Ray 项目地址：<a target="_blank" rel="noopener" href="https://github.com/v2ray/v2ray-core">https://github.com/v2ray/v2ray-core</a></p>
-<p>V2Ray 白话文指南：<a target="_blank" rel="noopener" href="https://guide.v2fly.org/">https://guide.v2fly.org/</a></p>
-<p>v2ray 配置手册<br><a target="_blank" rel="noopener" href="https://github.com/v2fly/v2ray-step-by-step/tree/transifex/zh_CN">https://github.com/v2fly/v2ray-step-by-step/tree/transifex/zh_CN</a></p>
-<p>v2ray web面板<br><a target="_blank" rel="noopener" href="https://github.com/sprov065/v2-ui">https://github.com/sprov065/v2-ui</a></p>
-<p>Ss-Panel Ssr/V2ray 节点管理面板/用户管理系统</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Anankke/SSPanel-Uim">https://github.com/Anankke/SSPanel-Uim</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/sspanel-uim/Wiki">https://github.com/sspanel-uim/Wiki</a></p>
-<p>使用宝塔部署 SSPanel 魔改版 <a target="_blank" rel="noopener" href="https://blog.anank.ke/w/SSPanel_with_DROP_DATABASE_BT">https://blog.anank.ke/w/SSPanel_with_DROP_DATABASE_BT</a></p>
-<h3 id="一键脚本"><a href="#一键脚本" class="headerlink" title="一键脚本"></a>一键脚本</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash &lt;(curl -s -L https://git.io/v2ray.sh)</span><br></pre></td></tr></table></figure>
-<p>安装完成后，输入 v2ray 即可管理 V2Ray<br>快速管理</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">v2ray info 查看 V2Ray 配置信息</span><br><span class="line">v2ray config 修改 V2Ray 配置</span><br><span class="line">v2ray link 生成 V2Ray 配置文件链接</span><br><span class="line">v2ray infolink 生成 V2Ray 配置信息链接</span><br><span class="line">v2ray qr 生成 V2Ray 配置二维码链接</span><br><span class="line">v2ray ss 修改 Shadowsocks 配置</span><br><span class="line">v2ray ssinfo 查看 Shadowsocks 配置信息</span><br><span class="line">v2ray ssqr 生成 Shadowsocks 配置二维码链接</span><br><span class="line">v2ray status 查看 V2Ray 运行状态</span><br><span class="line">v2ray start 启动 V2Ray</span><br><span class="line">v2ray stop 停止 V2Ray</span><br><span class="line">v2ray restart 重启 V2Ray</span><br><span class="line">v2ray <span class="built_in">log</span> 查看 V2Ray 运行日志</span><br><span class="line">v2ray update 更新 V2Ray</span><br><span class="line">v2ray update.sh 更新 V2Ray 管理脚本</span><br><span class="line">v2ray uninstall 卸载 V2Ray</span><br></pre></td></tr></table></figure>
-<h3 id="官方脚本"><a href="#官方脚本" class="headerlink" title="官方脚本"></a>官方脚本</h3><p>官方脚本 <a target="_blank" rel="noopener" href="https://v2ray.com/chapter_00/install.html">https://v2ray.com/chapter_00/install.html</a></p>
-<p>在线配置生成 <a target="_blank" rel="noopener" href="https://intmainreturn0.com/v2ray-config-gen/#">https://intmainreturn0.com/v2ray-config-gen/#</a></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装</span></span><br><span class="line">bash &lt;(curl -L -s https://install.direct/go.sh)</span><br><span class="line"><span class="comment"># 记住</span></span><br><span class="line">PORT:</span><br><span class="line">UUID:</span><br><span class="line"><span class="comment"># 启动</span></span><br><span class="line">systemctl start v2ray</span><br><span class="line"><span class="comment"># 查看端口 Port</span></span><br><span class="line">cat /etc/v2ray/config.json | grep port</span><br><span class="line"><span class="comment"># 查看 id (UUID)</span></span><br><span class="line">cat /etc/v2ray/config.json | grep id</span><br></pre></td></tr></table></figure>
-<p>v2ray 配置好后无法连接解决办法</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 检查端口占用情况</span></span><br><span class="line">yum install net-tools</span><br><span class="line">netstat -apn | grep v2ray</span><br><span class="line"></span><br><span class="line"><span class="comment"># 发现v2ray并没有监听我们的公网IP，只监听了一个IPV6：</span></span><br><span class="line"><span class="comment"># tcp6       0      0 :::40682                :::*                    LISTEN      19553/v2ray</span></span><br><span class="line"><span class="comment"># unix  3      [ ]         STREAM     CONNECTED     80938    19553/v2ray</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改配置文件添加 listen 字段</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># v2ray默认配置文件在/etc/v2ray/conf.json</span></span><br><span class="line"><span class="string">&quot;inbound&quot;</span>: &#123;</span><br><span class="line">  <span class="string">&quot;listen&quot;</span>:<span class="string">&quot;12.34.56.78&quot;</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># v2ray测试配置文件是否正确</span></span><br><span class="line">/usr/bin/v2ray/v2ray --<span class="built_in">test</span> --config /etc/v2ray/config.json</span><br></pre></td></tr></table></figure>
+          <h2 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h2><p><a target="_blank" rel="noopener" href="https://github.com/v2ray/v2ray-core">V2Ray 项目地址</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.v2ray.com/">v2ray 用户手册</a></p>
+<p><a target="_blank" rel="noopener" href="https://v2fly.org/">v2ray 用户手册</a> <a target="_blank" rel="noopener" href="https://github.com/v2fly/v2fly-github-io">github</a></p>
+<p><a target="_blank" rel="noopener" href="https://guide.v2fly.org/">V2Ray 白话文指南</a> <a target="_blank" rel="noopener" href="https://github.com/v2fly/v2ray-step-by-step/tree/transifex/zh_CN">github</a></p>
+<p><a target="_blank" rel="noopener" href="https://intmainreturn0.com/v2ray-config-gen/">在线配置生成</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/sprov065/v2-ui">v2ray web面板 v2-ui</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Anankke/SSPanel-Uim">SSPanel-Uim</a> 节点管理面板/用户管理系统</p>
+<p><a target="_blank" rel="noopener" href="https://blog.anank.ke/w/SSPanel_with_DROP_DATABASE_BT">使用宝塔部署 SSPanel 魔改版</a></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="一键脚本安装"><a href="#一键脚本安装" class="headerlink" title="一键脚本安装"></a>一键脚本安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash &lt;(curl -s -L https://git.io/v2ray.sh)</span><br></pre></td></tr></table></figure>
+<p>安装完成后，输入 v2ray 即可管理 V2Ray</p>
+<p>管理命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">v2ray info <span class="comment"># 查看 V2Ray 配置信息</span></span><br><span class="line">v2ray config <span class="comment"># 修改 V2Ray 配置</span></span><br><span class="line">v2ray link <span class="comment"># 生成 V2Ray 配置文件链接</span></span><br><span class="line">v2ray infolink <span class="comment"># 生成 V2Ray 配置信息链接</span></span><br><span class="line">v2ray qr <span class="comment"># 生成 V2Ray 配置二维码链接</span></span><br><span class="line">v2ray ss <span class="comment"># 修改 Shadowsocks 配置</span></span><br><span class="line">v2ray ssinfo <span class="comment"># 查看 Shadowsocks 配置信息</span></span><br><span class="line">v2ray ssqr <span class="comment"># 生成 Shadowsocks 配置二维码链接</span></span><br><span class="line">v2ray status <span class="comment"># 查看 V2Ray 运行状态</span></span><br><span class="line">v2ray start <span class="comment"># 启动 V2Ray</span></span><br><span class="line">v2ray stop <span class="comment"># 停止 V2Ray</span></span><br><span class="line">v2ray restart <span class="comment"># 重启 V2Ray</span></span><br><span class="line">v2ray <span class="built_in">log</span> <span class="comment"># 查看 V2Ray 运行日志</span></span><br><span class="line">v2ray update <span class="comment"># 更新 V2Ray</span></span><br><span class="line">v2ray update.sh <span class="comment"># 更新 V2Ray 管理脚本</span></span><br><span class="line">v2ray uninstall <span class="comment"># 卸载 V2Ray</span></span><br></pre></td></tr></table></figure>
+<h3 id="官方脚本"><a href="#官方脚本" class="headerlink" title="官方脚本"></a>官方脚本</h3><p><a target="_blank" rel="noopener" href="https://v2ray.com/chapter_00/install.html">官方脚本</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装</span></span><br><span class="line">bash &lt;(curl -L -s https://install.direct/go.sh)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装完成后记住 PORT UUID，忘记也没关系可以使用下面命令查看</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动</span></span><br><span class="line">systemctl start v2ray</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看端口 Port</span></span><br><span class="line">cat /etc/v2ray/config.json | grep port</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看 id (UUID)</span></span><br><span class="line">cat /etc/v2ray/config.json | grep id</span><br></pre></td></tr></table></figure>
 <h3 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h3><p>如果脚本不支持卸载，可使用以下方法手动卸载</p>
 <p>其中 systemd 和 sysv 二选一，取决于你的系统</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#停用并卸载服务(systemd)</span></span><br><span class="line">systemctl stop v2ray</span><br><span class="line">systemctl <span class="built_in">disable</span> v2ray</span><br><span class="line"></span><br><span class="line"><span class="comment">#停用并卸载服务(sysv)</span></span><br><span class="line">service v2ray stop</span><br><span class="line">update-rc.d -f v2ray remove</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除文件</span></span><br><span class="line"><span class="comment"># 配置文件</span></span><br><span class="line">rm -rf /etc/v2ray/*</span><br><span class="line"><span class="comment"># 程序</span></span><br><span class="line">rm -rf /usr/bin/v2ray/*</span><br><span class="line"><span class="comment"># 日志</span></span><br><span class="line">rm -rf /var/<span class="built_in">log</span>/v2ray/*</span><br><span class="line"><span class="comment"># systemd 启动项</span></span><br><span class="line">rm -rf /lib/systemd/system/v2ray.service</span><br><span class="line"><span class="comment"># sysv 启动项</span></span><br><span class="line">rm -rf /etc/init.d/v2ray</span><br></pre></td></tr></table></figure>
-<h3 id="V2Ray-使用-Nginx-实现-WebSocket-TLS-传输协议"><a href="#V2Ray-使用-Nginx-实现-WebSocket-TLS-传输协议" class="headerlink" title="V2Ray 使用 Nginx 实现 WebSocket + TLS 传输协议"></a>V2Ray 使用 Nginx 实现 WebSocket + TLS 传输协议</h3><p>参考：<a target="_blank" rel="noopener" href="https://guide.v2fly.org/advanced/wss_and_web.html">https://guide.v2fly.org/advanced/wss_and_web.html</a></p>
-<p>V2Ray 脚本可直接使用 Caddy 配置 WebSocket + TLS 传输协议，但是如果想在 vps 上同时使用 nginx 跑一个小博客，那么会导致 caddy 和 nginx 监听端口时发生冲突，这显然不是我们想要的。</p>
+<h3 id="Nginx-WebSocket-TLS"><a href="#Nginx-WebSocket-TLS" class="headerlink" title="Nginx + WebSocket + TLS"></a>Nginx + WebSocket + TLS</h3><p>参考：<a target="_blank" rel="noopener" href="https://guide.v2fly.org/advanced/wss_and_web.html">https://guide.v2fly.org/advanced/wss_and_web.html</a></p>
+<p>V2Ray 脚本可直接使用 Caddy 配置 WebSocket + TLS 传输协议，但是如果想在 vps 上同时使用 nginx 跑一个小博客，那么会导致 caddy 和 nginx 监听端口时发生冲突，这显然不是我们想要的</p>
 <p>所以就要将 TLS 部分放到 nginx 程序里面去实现</p>
 <h4 id="首先使用官方脚本安装好服务端程序"><a href="#首先使用官方脚本安装好服务端程序" class="headerlink" title="首先使用官方脚本安装好服务端程序"></a>首先使用官方脚本安装好服务端程序</h4><h4 id="申请-SSL-证书"><a href="#申请-SSL-证书" class="headerlink" title="申请 SSL 证书"></a>申请 SSL 证书</h4><blockquote>
 <p>如果使用宝塔面板，可以通过面板一键生成 ssl 证书，快速配置 <code>nginx+ssl</code></p>
@@ -645,16 +730,13 @@
 <h4 id="v2ray-服务端配置"><a href="#v2ray-服务端配置" class="headerlink" title="v2ray 服务端配置"></a>v2ray 服务端配置</h4><p>/etc/v2ray/config.json</p>
 <figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;inbounds&quot;</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">&quot;port&quot;</span>: <span class="number">2333</span>, <span class="comment">// WebSocket 监听端口</span></span><br><span class="line">      <span class="attr">&quot;listen&quot;</span>: <span class="string">&quot;127.0.0.1&quot;</span>, <span class="comment">// 只监听 127.0.0.1，避免除本机外的机器探测到开放了 22445 端口</span></span><br><span class="line">      <span class="attr">&quot;protocol&quot;</span>: <span class="string">&quot;vmess&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;settings&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;clients&quot;</span>: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">&quot;id&quot;</span>: <span class="string">&quot;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;alterId&quot;</span>: <span class="number">32</span></span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">&quot;streamSettings&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;network&quot;</span>: <span class="string">&quot;ws&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;wsSettings&quot;</span>: &#123;</span><br><span class="line">          <span class="attr">&quot;path&quot;</span>: <span class="string">&quot;/ray&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">&quot;outbounds&quot;</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">&quot;protocol&quot;</span>: <span class="string">&quot;freedom&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;settings&quot;</span>: &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="客户端配置"><a href="#客户端配置" class="headerlink" title="客户端配置"></a>客户端配置</h4><figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;inbounds&quot;</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">&quot;port&quot;</span>: <span class="number">1080</span>,</span><br><span class="line">      <span class="attr">&quot;listen&quot;</span>: <span class="string">&quot;127.0.0.1&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;protocol&quot;</span>: <span class="string">&quot;socks&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;sniffing&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;enabled&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">&quot;destOverride&quot;</span>: [<span class="string">&quot;http&quot;</span>, <span class="string">&quot;tls&quot;</span>]</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">&quot;settings&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;auth&quot;</span>: <span class="string">&quot;noauth&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;udp&quot;</span>: <span class="literal">false</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">&quot;outbounds&quot;</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">&quot;protocol&quot;</span>: <span class="string">&quot;vmess&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;settings&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;vnext&quot;</span>: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">&quot;address&quot;</span>: <span class="string">&quot;aaa.com&quot;</span>, <span class="comment">// nginx server_name</span></span><br><span class="line">            <span class="attr">&quot;port&quot;</span>: <span class="number">443</span>,</span><br><span class="line">            <span class="attr">&quot;users&quot;</span>: [</span><br><span class="line">              &#123;</span><br><span class="line">                <span class="attr">&quot;id&quot;</span>: <span class="string">&quot;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx&quot;</span>, <span class="comment">// 同服务端配合</span></span><br><span class="line">                <span class="attr">&quot;alterId&quot;</span>: <span class="number">32</span> <span class="comment">// 同服务端配合</span></span><br><span class="line">              &#125;</span><br><span class="line">            ]</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">&quot;streamSettings&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;network&quot;</span>: <span class="string">&quot;ws&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;security&quot;</span>: <span class="string">&quot;tls&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;wsSettings&quot;</span>: &#123;</span><br><span class="line">          <span class="attr">&quot;path&quot;</span>: <span class="string">&quot;/ray&quot;</span> <span class="comment">// 与 V2Ray 服务端配置中的 path 保持一致</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="V2Ray-基于-Nginx-的-vmess-ws-tls-一键安装脚本"><a href="#V2Ray-基于-Nginx-的-vmess-ws-tls-一键安装脚本" class="headerlink" title="V2Ray 基于 Nginx 的 vmess+ws+tls 一键安装脚本"></a>V2Ray 基于 Nginx 的 vmess+ws+tls 一键安装脚本</h3><p><a target="_blank" rel="noopener" href="https://github.com/wulabing/V2Ray_ws-tls_bash_onekey">https://github.com/wulabing/V2Ray_ws-tls_bash_onekey</a></p>
-<h3 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h3><p>更多客户端可以参考<a href="https://wqdy.top/228.html">这里</a></p>
-<p>macOS</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/yanue/V2rayU">V2rayU</a><br><a target="_blank" rel="noopener" href="https://github.com/Cenmrev/V2RayX">V2RayX</a></p>
-<p>Windows</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/2dust/v2rayN">v2rayN</a></p>
-<p>Android</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/2dust/v2rayNG/releases">V2RayNG</a></p>
-<p>iOS</p>
-<p>Shadowrocket</p>
+<h3 id="Nginx-vmess-ws-tls-http2-over-tls-一键安装脚本"><a href="#Nginx-vmess-ws-tls-http2-over-tls-一键安装脚本" class="headerlink" title="Nginx+vmess+ws+tls/ http2 over tls 一键安装脚本"></a>Nginx+vmess+ws+tls/ http2 over tls 一键安装脚本</h3><p><a target="_blank" rel="noopener" href="https://github.com/wulabing/V2Ray_ws-tls_bash_onekey">https://github.com/wulabing/V2Ray_ws-tls_bash_onekey</a></p>
+<h2 id="v2ray-配置好后无法连接解决办法"><a href="#v2ray-配置好后无法连接解决办法" class="headerlink" title="v2ray 配置好后无法连接解决办法"></a>v2ray 配置好后无法连接解决办法</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 检查端口占用情况</span></span><br><span class="line">yum install net-tools</span><br><span class="line">netstat -apn | grep v2ray</span><br><span class="line"></span><br><span class="line"><span class="comment"># 发现v2ray并没有监听我们的公网IP，只监听了一个IPV6：</span></span><br><span class="line"><span class="comment"># tcp6       0      0 :::40682                :::*                    LISTEN      19553/v2ray</span></span><br><span class="line"><span class="comment"># unix  3      [ ]         STREAM     CONNECTED     80938    19553/v2ray</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改配置文件添加 listen 字段</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># v2ray默认配置文件在/etc/v2ray/conf.json</span></span><br><span class="line"><span class="string">&quot;inbound&quot;</span>: &#123;</span><br><span class="line">  <span class="string">&quot;listen&quot;</span>:<span class="string">&quot;12.34.56.78&quot;</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># v2ray 测试配置文件是否正确</span></span><br><span class="line">/usr/bin/v2ray/v2ray --<span class="built_in">test</span> --config /etc/v2ray/config.json</span><br></pre></td></tr></table></figure>
+<h2 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h2><p>更多客户端可以参考<a href="https://wqdy.top/228.html">这里</a></p>
+<p>macOS：<a target="_blank" rel="noopener" href="https://github.com/yanue/V2rayU">V2rayU</a> <a target="_blank" rel="noopener" href="https://github.com/Cenmrev/V2RayX">V2RayX</a></p>
+<p>Windows：<a target="_blank" rel="noopener" href="https://github.com/2dust/v2rayN">v2rayN</a></p>
+<p>Android：<a target="_blank" rel="noopener" href="https://github.com/2dust/v2rayNG/releases">V2RayNG</a></p>
+<p>iOS：Shadowrocket</p>
 
       
     </div>
@@ -1145,116 +1227,6 @@
 </li>
 </ul>
 
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/2011.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2011.html" class="post-title-link" itemprop="url">icon 图标在 vue 项目中的使用</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-08-01 00:00:00" itemprop="dateCreated datePublished" datetime="2019-08-01T00:00:00+00:00">2019-08-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>参考链接：<a target="_blank" rel="noopener" href="https://juejin.im/post/59bb864b5188257e7a427c09">https://juejin.im/post/59bb864b5188257e7a427c09</a></p>
-<h3 id="使用-iconfont"><a href="#使用-iconfont" class="headerlink" title="使用 iconfont"></a>使用 iconfont</h3><p>阿里开源图库 <a target="_blank" rel="noopener" href="https://www.iconfont.cn/">https://www.iconfont.cn/</a></p>
-<p>使用方法 <a target="_blank" rel="noopener" href="https://www.iconfont.cn/help/detail?spm=a313x.7781069.1998910419.d8d11a391&amp;helptype=code">https://www.iconfont.cn/help/detail?spm=a313x.7781069.1998910419.d8d11a391&amp;helptype=code</a></p>
-<p>下载代码到本地（也可以使用在线链接）打开 demo_index.html 使用说明，有三种使用方式 unicode font-class symbol<br>unicode 方式： <span class="iconfont">&#x33;</span> 这样，不直观，语意不明确，不支持多色图标<br>font-class 方式： <span class="iconfont icon-xxx"></span> 使用 class 定义，有语意，需要注意命名空间的问题，也是不支持多色图标<br>symbol 方式：使用 svg 不用再去请求 woff|eot|ttf| 这些字体库，且缩放不会失真，支持更加复杂的图标</p>
-<p>symbol 方式使用步骤：</p>
-<p>第一步：引入项目下面生成的 symbol 代码：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;./iconfont.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>或通过 import 导入</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&#x27;./iconfont.js&#x27;</span></span><br></pre></td></tr></table></figure>
-<p>第二步：加入通用 CSS 代码：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.icon</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">1em</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">1em</span>;</span><br><span class="line">  <span class="attribute">vertical-align</span>: -<span class="number">0.15em</span>;</span><br><span class="line">  <span class="attribute">fill</span>: currentColor;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>第三步：挑选相应图标并获取类名，应用于页面：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">class</span>=<span class="string">&quot;icon&quot;</span> <span class="attr">aria-hidden</span>=<span class="string">&quot;true&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">use</span> <span class="attr">xlink:href</span>=<span class="string">&quot;#icon-xxx&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">use</span>&gt;</span><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>symbol 其实使用了 SVG Sprite 技术， 所有的 svg-sprite 都是通过 iconfont 的 iconfont.js 生成的，所以：</p>
-<p>所有图标 icon 都很不直观，完全不知道哪个图标名对应什么图标，每次增删改图标，或者添加一些自定义的 svg 图标，只能将其也上传到 iconfont 和原有的图标放在一个项目库中，之后再重新下载，将整体 js 文件一起替换，而且也做不到按需加载</p>
-<p>导出的 svg 包含大量的无用信息，例如编辑器源信息、注释等。通常包含其它一些不会影响渲染结果或可以移除的内容</p>
-<h3 id="vue-cli3-项目使用-svg-sprite-loader-打包-svg"><a href="#vue-cli3-项目使用-svg-sprite-loader-打包-svg" class="headerlink" title="vue cli3 项目使用 svg-sprite-loader 打包 svg"></a>vue cli3 项目使用 svg-sprite-loader 打包 svg</h3><p>vue cli3 默认使用 file-loader 处理 svg：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* config.module.rule(&#x27;svg&#x27;) */</span></span><br><span class="line">&#123;</span><br><span class="line">  test: <span class="regexp">/\.(svg)(\?.*)?$/</span>,</span><br><span class="line">  use: [</span><br><span class="line">    <span class="comment">/* config.module.rule(&#x27;svg&#x27;).use(&#x27;file-loader&#x27;) */</span></span><br><span class="line">    &#123;</span><br><span class="line">      loader: <span class="string">&#x27;file-loader&#x27;</span>,</span><br><span class="line">      options: &#123;</span><br><span class="line">        name: <span class="string">&#x27;static/img/[name].[hash:8].[ext]&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>并路径指定为在 img 文件夹下，但我们的 svg 并不在 img 文件夹，而且 svg-sprite-loader 已经自带了 file-loader 的功能，所以，我们可以在我们自定义的 vue.config.js 文件下将 rule(svg) 清除：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  chainWebpack: <span class="function"><span class="params">config</span> =&gt;</span> &#123;</span><br><span class="line">    config.module.rule(<span class="string">&#x27;svg&#x27;</span>).uses.clear()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>或者添加忽略，然后加上自定义的 svg rule，最后的配置如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 使用 svg-sprite-loader 处理 svg */</span></span><br><span class="line"><span class="comment">// 默认规则忽略 src/icons 文件夹</span></span><br><span class="line">config.module</span><br><span class="line">  .rule(<span class="string">&#x27;svg&#x27;</span>)</span><br><span class="line">  .exclude.add(path.resolve(__dirname, <span class="string">&#x27;src/icons&#x27;</span>))</span><br><span class="line">  .end()</span><br><span class="line"></span><br><span class="line"><span class="comment">// src/icons 文件夹下的 svg 使用 svg-sprite-loader</span></span><br><span class="line">config.module</span><br><span class="line">  .rule(<span class="string">&#x27;svg-sprite-loader&#x27;</span>)</span><br><span class="line">  .include.add(path.resolve(__dirname, <span class="string">&#x27;src/icons&#x27;</span>))</span><br><span class="line">  .end()</span><br><span class="line">  .test(<span class="regexp">/\.svg$/</span>)</span><br><span class="line">  .use(<span class="string">&#x27;svg-sprite&#x27;</span>)</span><br><span class="line">  .loader(<span class="string">&#x27;svg-sprite-loader&#x27;</span>)</span><br><span class="line">  .options(&#123;</span><br><span class="line">    symbolId: <span class="string">&#x27;icon-[name]&#x27;</span></span><br><span class="line">  &#125;)</span><br><span class="line">  .end()</span><br></pre></td></tr></table></figure>
-<p>之后可以通过如下方式使用</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&#x27;@/icons/qq.svg&#x27;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- xlink:href=&quot;#icon-图标文件名 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">svg</span>&gt;</span><span class="tag">&lt;<span class="name">use</span> <span class="attr">xlink:href</span>=<span class="string">&quot;#icon-qq&quot;</span> /&gt;</span><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>使用缺点：需要手动导入图标</p>
-<h3 id="自动导入"><a href="#自动导入" class="headerlink" title="自动导入"></a>自动导入</h3><p>使用 webpack 的 <a target="_blank" rel="noopener" href="https://webpack.js.org/guides/dependency-management/#require-context">require.context</a> api</p>
-<p>require.context 语法</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">require</span>.context(directory, (useSubdirectories = <span class="literal">false</span>), (regExp = <span class="regexp">/^\.\//</span>))</span><br><span class="line"><span class="comment">// directory：说明需要检索的目录</span></span><br><span class="line"><span class="comment">// useSubdirectories：是否检索子目录</span></span><br><span class="line"><span class="comment">// regExp: 匹配文件的正则表达式</span></span><br><span class="line"><span class="comment">// Examples:</span></span><br><span class="line"><span class="built_in">require</span>.context(<span class="string">&#x27;./test&#x27;</span>, <span class="literal">false</span>, <span class="regexp">/\.test\.js$/</span>)</span><br><span class="line"><span class="comment">// 表示在 test 文件夹（不包含子目录）下面的找所有文件名以 .test.js 结尾的能被 require 的文件</span></span><br></pre></td></tr></table></figure>
-<p>自动引入 @/icons 下面所有的图标</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 基础组件的自动化全局注册</span></span><br><span class="line"><span class="keyword">const</span> requireComponent = <span class="built_in">require</span>.context(<span class="string">&#x27;../../components&#x27;</span>, <span class="literal">false</span>)</span><br><span class="line"><span class="comment">// console.log(requireComponent.keys())</span></span><br><span class="line">requireComponent.keys().forEach(<span class="function"><span class="params">filename</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> componentConfig = requireComponent(filename)</span><br><span class="line">  <span class="comment">// console.log(componentConfig)</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> componentName = filename</span><br><span class="line">    .split(<span class="string">&#x27;/&#x27;</span>)</span><br><span class="line">    .pop()</span><br><span class="line">    .replace(<span class="regexp">/\.\w+$/</span>, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">  <span class="comment">// console.log(componentName)</span></span><br><span class="line"></span><br><span class="line">  Vue.component(</span><br><span class="line">    componentName,</span><br><span class="line">    <span class="comment">// 如果这个组件选项是通过 `export default` 导出的，</span></span><br><span class="line">    <span class="comment">// 那么就会优先使用 `.default`，</span></span><br><span class="line">    <span class="comment">// 否则回退到使用模块的根。</span></span><br><span class="line">    componentConfig.default || componentConfig</span><br><span class="line">  )</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> requireAll = <span class="function"><span class="params">requireContext</span> =&gt;</span> requireContext.keys().map(requireContext)</span><br><span class="line"><span class="keyword">const</span> req = <span class="built_in">require</span>.context(<span class="string">&#x27;@/icons&#x27;</span>, <span class="literal">false</span>)</span><br><span class="line">requireAll(req)</span><br></pre></td></tr></table></figure>
-<p>之后直接将图标放入 <code>@/icons</code> 文件夹下就可以直接使用了，删改图标同理</p>
-<h3 id="优化-svg"><a href="#优化-svg" class="headerlink" title="优化 svg"></a>优化 svg</h3><p>删除无用信息 <a target="_blank" rel="noopener" href="https://github.com/svg/svgo">svgo</a><br>阿里云导出的 svg 是带有默认的 fill 的，导致图标不能继承父级元素的颜色,可以通过删除默认 fill 解决</p>
-<p>安装</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm i svgo svgo-loader -D</span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">config.module</span><br><span class="line">  .rule(<span class="string">&#x27;svg-sprite-loader&#x27;</span>)</span><br><span class="line">  .include.add(path.resolve(__dirname, <span class="string">&#x27;src/icons&#x27;</span>))</span><br><span class="line">  .use(<span class="string">&#x27;svgo-loader&#x27;</span>)</span><br><span class="line">  .loader(<span class="string">&#x27;svgo-loader&#x27;</span>)</span><br><span class="line">  .tap(<span class="function"><span class="params">options</span> =&gt;</span> &#123;</span><br><span class="line">    options = &#123;</span><br><span class="line">      plugins: [</span><br><span class="line">        &#123; <span class="attr">removeXMLNS</span>: <span class="literal">true</span> &#125;, <span class="comment">// 删除xmlns属性（对于内联svg，默认情况下禁用）</span></span><br><span class="line">        &#123; <span class="attr">convertStyleToAttrs</span>: <span class="literal">true</span> &#125; <span class="comment">// 将css样式转换为svg元素属性</span></span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> options</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
-<p>也可以在图标管理中 我的项目 批量操作 批量去色 将默认颜色去除， 之后可以通过 css 自定义颜色</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">svg</span> &#123;</span><br><span class="line">  <span class="attribute">fill</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 

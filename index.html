@@ -261,7 +261,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">144</span>
+          <span class="site-state-item-count">145</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -272,7 +272,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">67</span>
+        <span class="site-state-item-count">72</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -791,6 +791,86 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/2017.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017.html" class="post-title-link" itemprop="url">Window 10下终端美化</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-11-01 00:00:00" itemprop="dateCreated datePublished" datetime="2020-11-01T00:00:00+00:00">2020-11-01</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>WSL(Ubuntu)/MSYS2/Cygwin/PowerShell7<br>Windows Terminal/Fluent Terminal</p>
+<h2 id="Fluent-Terminal-amp-PowerShell-7-amp-oh-my-posh-amp-posh-git"><a href="#Fluent-Terminal-amp-PowerShell-7-amp-oh-my-posh-amp-posh-git" class="headerlink" title="Fluent Terminal &amp; PowerShell 7+ &amp; oh-my-posh &amp; posh-git"></a>Fluent Terminal &amp; PowerShell 7+ &amp; oh-my-posh &amp; posh-git</h2><p><a target="_blank" rel="noopener" href="https://github.com/felixse/FluentTerminal/releases">Fluent Terminal</a><br><a target="_blank" rel="noopener" href="https://github.com/PowerShell/PowerShell/releases">PowerShell</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/137595941">https://zhuanlan.zhihu.com/p/137595941</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/137251716">https://zhuanlan.zhihu.com/p/137251716</a></p>
+<h2 id="MSYS2-Windows-Terminal"><a href="#MSYS2-Windows-Terminal" class="headerlink" title="MSYS2 + Windows Terminal"></a>MSYS2 + Windows Terminal</h2><p><a target="_blank" rel="noopener" href="https://www.msys2.org/">MSYS2</a><br><a target="_blank" rel="noopener" href="https://github.com/microsoft/terminal/releases">Windows Terminal</a></p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><h4 id="安装-zsh"><a href="#安装-zsh" class="headerlink" title="安装 zsh"></a>安装 zsh</h4><p>打开 MSYS2，</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pacman -Syu</span><br><span class="line">pacman -S zsh</span><br></pre></td></tr></table></figure>
+<p>由于 msys2 指定 MSYSCON 为 defterm 时默认是执行bash.exe， 我们把 C:\msys64\msys2_shell.cmd 大概第5行的bash 改成 zsh 即可：</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set</span> &quot;LOGINSHELL=zsh&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="安装-oh-my-zsh"><a href="#安装-oh-my-zsh" class="headerlink" title="安装 oh-my-zsh"></a>安装 oh-my-zsh</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果无法安装，使用下面这种方式</span></span><br><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://cdn.jsdelivr.net/gh/ohmyzsh/ohmyzsh@master/tools/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<h4 id="安装-Fira-Code-字体"><a href="#安装-Fira-Code-字体" class="headerlink" title="安装 Fira Code 字体"></a>安装 Fira Code 字体</h4><p><a target="_blank" rel="noopener" href="https://github.com/tonsky/FiraCode/releases">Fira Code</a></p>
+<h4 id="配置到-Windows-Terminal"><a href="#配置到-Windows-Terminal" class="headerlink" title="配置到 Windows Terminal"></a>配置到 Windows Terminal</h4><p>在 settings.json 文件中加入MSYS2的配置</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&quot;profiles&quot;:</span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;defaults&quot;</span>:</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="comment">// Put settings here that you want to apply to all profiles.</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">&quot;list&quot;</span>:</span><br><span class="line">  [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">&quot;guid&quot;</span>: <span class="string">&quot;&#123;1c4de342-38b7-51cf-b940-2309a097f589&#125;&quot;</span>, <span class="comment">// 唯一的标识，改成和其他的已有终端不一样</span></span><br><span class="line">      <span class="attr">&quot;hidden&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">      <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;MSYS2&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;acrylicOpacity&quot;</span>: <span class="number">0</span>, <span class="comment">// 透明度</span></span><br><span class="line">      <span class="attr">&quot;closeOnExit&quot;</span>: <span class="literal">true</span>, <span class="comment">// 关闭的时候退出命令终端</span></span><br><span class="line">      <span class="attr">&quot;colorScheme&quot;</span>: <span class="string">&quot;Homebrew&quot;</span>, <span class="comment">// 样式配置</span></span><br><span class="line">      <span class="attr">&quot;commandline&quot;</span>: <span class="string">&quot;C:\\msys64\\msys2_shell.cmd -defterm -no-start -here -use-full-path  -mingw64&quot;</span>, <span class="comment">// 重点就是要用这个脚本启动，以及他的参数</span></span><br><span class="line">      <span class="attr">&quot;startingDirectory&quot;</span>: <span class="string">&quot;~&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;cursorColor&quot;</span>: <span class="string">&quot;#FFFFFF&quot;</span>, <span class="comment">// 光标颜色</span></span><br><span class="line">      <span class="attr">&quot;cursorShape&quot;</span>: <span class="string">&quot;bar&quot;</span>, <span class="comment">// 光标形状</span></span><br><span class="line">      <span class="attr">&quot;fontFace&quot;</span>: <span class="string">&quot;Fira Code&quot;</span>, <span class="comment">// 字体配置，选择你电脑上已安装的字体</span></span><br><span class="line">      <span class="attr">&quot;fontSize&quot;</span>: <span class="number">11</span>, <span class="comment">// 终端字体大小</span></span><br><span class="line">      <span class="attr">&quot;historySize&quot;</span>: <span class="number">9001</span>, <span class="comment">// 终端窗口记忆大小</span></span><br><span class="line">      <span class="attr">&quot;icon&quot;</span>: <span class="string">&quot;C:\\msys64\\msys2.ico&quot;</span> <span class="comment">// git 的图</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line"><span class="comment">// Add custom color schemes to this array.</span></span><br><span class="line"><span class="comment">// To learn more about color schemes, visit https://aka.ms/terminal-color-schemes</span></span><br><span class="line">&quot;schemes&quot;: [</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;Homebrew&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;black&quot;</span>: <span class="string">&quot;#000000&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;red&quot;</span>: <span class="string">&quot;#FC5275&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;green&quot;</span>: <span class="string">&quot;#00a600&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;yellow&quot;</span>: <span class="string">&quot;#999900&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;blue&quot;</span>: <span class="string">&quot;#6666e9&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;purple&quot;</span>: <span class="string">&quot;#b200b2&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;cyan&quot;</span>: <span class="string">&quot;#00a6b2&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;white&quot;</span>: <span class="string">&quot;#bfbfbf&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightBlack&quot;</span>: <span class="string">&quot;#666666&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightRed&quot;</span>: <span class="string">&quot;#e50000&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightGreen&quot;</span>: <span class="string">&quot;#00d900&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightYellow&quot;</span>: <span class="string">&quot;#e5e500&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightBlue&quot;</span>: <span class="string">&quot;#0000ff&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightPurple&quot;</span>: <span class="string">&quot;#e500e5&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightCyan&quot;</span>: <span class="string">&quot;#00e5e5&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightWhite&quot;</span>: <span class="string">&quot;#e5e5e5&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;background&quot;</span>: <span class="string">&quot;#283033&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;foreground&quot;</span>: <span class="string">&quot;#00ff00&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h4 id="安装-oh-my-zsh-主题"><a href="#安装-oh-my-zsh-主题" class="headerlink" title="安装 oh-my-zsh 主题"></a>安装 oh-my-zsh 主题</h4><p><a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh/wiki/themes">主题列表</a></p>
+<p>推荐两款主题</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/sindresorhus/pure/">pure主题</a><br><a target="_blank" rel="noopener" href="https://github.com/agnoster/agnoster-zsh-theme">agnoster</a></p>
+<h4 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.oh-my-zsh/plugins</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-syntax-highlighting.git</span><br></pre></td></tr></table></figure>
+<p>启用插件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 编辑~/.zshrc</span></span><br><span class="line">vim ~/.zshrc</span><br><span class="line"><span class="comment"># 在plugins后括号里添加安装的插件名字</span></span><br><span class="line">plugins=( git</span><br><span class="line">          zsh-autosuggestions</span><br><span class="line">          zsh-syntax-highlighting</span><br><span class="line">        )</span><br><span class="line"><span class="comment"># 最后刷新</span></span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://wqdy.top/1966.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1036,82 +1116,6 @@
 <p>清空及删除团队回收站垃圾箱文件 <code>rclone delete xxx: --drive-trashed-only --drive-use-trash=false --verbose=3 --fast-list</code></p>
 <p>在线 查看文件数：<a target="_blank" rel="noopener" href="https://gdurl.viegg.com/api/gdrive/count?fid=1lDa7gqv8e6xGKJdmkk-bV0kt2w_07A5r">https://gdurl.viegg.com/api/gdrive/count?fid=1lDa7gqv8e6xGKJdmkk-bV0kt2w_07A5r</a></p>
 <p>Colaboratory 脚本运行： <a target="_blank" rel="noopener" href="https://colab.research.google.com/">https://colab.research.google.com/</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1931.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/1931.html" class="post-title-link" itemprop="url">微信小程序常用代码段</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-07-24 10:48:04" itemprop="dateCreated datePublished" datetime="2020-07-24T10:48:04+00:00">2020-07-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="检查小程序更新"><a href="#检查小程序更新" class="headerlink" title="检查小程序更新"></a>检查小程序更新</h2><p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/api/base/update/UpdateManager.html">https://developers.weixin.qq.com/miniprogram/dev/api/base/update/UpdateManager.html</a></p>
-<p>在 <code>app.js</code> 中添加如下代码</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// app.js</span></span><br><span class="line">App(&#123;</span><br><span class="line">  onLaunch: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.checkNewVersion()</span><br><span class="line">  &#125;,</span><br><span class="line">  checkNewVersion: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> self = <span class="built_in">this</span></span><br><span class="line">    <span class="comment">// 检查版本更新</span></span><br><span class="line">    <span class="comment">// 获取小程序更新机制兼容</span></span><br><span class="line">    <span class="keyword">if</span> (wx.canIUse(<span class="string">&#x27;getUpdateManager&#x27;</span>)) &#123;</span><br><span class="line">      <span class="keyword">const</span> updateManager = wx.getUpdateManager()</span><br><span class="line">      updateManager.onCheckForUpdate(<span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 请求完新版本信息的回调</span></span><br><span class="line">        <span class="built_in">console</span>.log(res)</span><br><span class="line">        <span class="keyword">if</span> (res.hasUpdate) &#123;</span><br><span class="line">          updateManager.onUpdateReady(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            wx.showModal(&#123;</span><br><span class="line">              title: <span class="string">&#x27;更新提示&#x27;</span>,</span><br><span class="line">              content: <span class="string">&#x27;新版本已经准备好，是否重启应用？&#x27;</span>,</span><br><span class="line">              success: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (res.confirm) &#123;</span><br><span class="line">                  <span class="comment">// 新的版本已经下载好，调用 applyUpdate 应用新版本并重启</span></span><br><span class="line">                  updateManager.applyUpdate()</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (res.cancel) &#123;</span><br><span class="line">                  <span class="comment">// 如果需要强制更新，则给出二次弹窗</span></span><br><span class="line">                  wx.showModal(&#123;</span><br><span class="line">                    title: <span class="string">&#x27;更新提示&#x27;</span>,</span><br><span class="line">                    content: <span class="string">&#x27;本次更新可能会导致旧版本无法正常访问，请使用新版本&#x27;</span>,</span><br><span class="line">                    showCancel: <span class="literal">false</span>, <span class="comment">// 不显示取消按钮</span></span><br><span class="line">                    success: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">                      <span class="keyword">if</span> (res.confirm) &#123;</span><br><span class="line">                        <span class="comment">// 新的版本已经下载好，调用 applyUpdate 应用新版本并重启</span></span><br><span class="line">                        updateManager.applyUpdate()</span><br><span class="line">                      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (res.cancel) &#123;</span><br><span class="line">                        <span class="comment">// 重新回到版本更新提示</span></span><br><span class="line">                        self.checkNewVersion()</span><br><span class="line">                      &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                  &#125;)</span><br><span class="line">                &#125;</span><br><span class="line">              &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">          &#125;)</span><br><span class="line">          updateManager.onUpdateFailed(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="comment">// 新的版本下载失败</span></span><br><span class="line">            wx.showModal(&#123;</span><br><span class="line">              title: <span class="string">&#x27;已经有新版本了&#x27;</span>,</span><br><span class="line">              content: <span class="string">&#x27;新版本已经上线啦~，请您删除当前小程序，重新搜索打开&#x27;</span></span><br><span class="line">            &#125;)</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">// 如果希望用户在最新版本的客户端上体验您的小程序，可以这样子提示</span></span><br><span class="line">      wx.showModal(&#123;</span><br><span class="line">        title: <span class="string">&#x27;提示&#x27;</span>,</span><br><span class="line">        content: <span class="string">&#x27;当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。&#x27;</span></span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>微信开发者工具上可以通过「编译模式」下的「下次编译模拟更新」开关来调试</p>
 
       
     </div>
