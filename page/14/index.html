@@ -261,7 +261,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">145</span>
+          <span class="site-state-item-count">146</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -272,7 +272,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">72</span>
+        <span class="site-state-item-count">75</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -306,6 +306,99 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/414.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/414.html" class="post-title-link" itemprop="url">jquery 中 AJAX 的全局事件</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-10-16 22:24:10" itemprop="dateCreated datePublished" datetime="2018-10-16T22:24:10+00:00">2018-10-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="jquery-中-AJAX-的全局事件"><a href="#jquery-中-AJAX-的全局事件" class="headerlink" title="jquery 中 AJAX 的全局事件"></a>jquery 中 AJAX 的全局事件</h2><blockquote>
+<p>ajax 提供了 6 个全局函数，会被页面中所有的 ajax 请求触发，在不同时间点会触发不同的全局事件。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://api.jquery.com/category/ajax/global-ajax-event-handlers/">https://api.jquery.com/category/ajax/global-ajax-event-handlers/</a></p>
+<p>在页面中会有很多的 ajax 请求，但是这些 ajax 请求都有相同的消息机制，比如我们需要在 ajax 请求发送之前弹出了一个提示框，提示”正在读取数据….” 在 ajax 请求成功时显示”获取数据成功…”,在 ajax 结束后隐藏提示框。如果不使用全局事件，那么需要在每一个 ajax 的 beforeSend、success、complete 回调函数中都加上相同的代码。</p>
+<ul>
+<li>jquery 的全局事件需要给 <code>document</code> 注册（固定写法）</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ajaxStart(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>全局事件的执行时机</li>
+</ul>
+<ol>
+<li><code>ajaxStart</code>： 在第一个 ajax 请求开始时触发 first start</li>
+<li><code>ajaxSend</code>： 在一个 ajax 请求开始之前触发（在 beforeSend 回调函数之后）one start</li>
+<li><code>ajaxSuccess</code>： 在一个 ajax 请求成功之后触发（在 success 回调函数之后触发）one success</li>
+<li><code>ajaxComplete</code>： 在一个 ajax 请求完成时触发（在 complete 回调函数之后触发） one complete</li>
+<li><code>ajaxError</code>： 在一个 ajax 请求失败时触发（在 error 回调函数之后触发）</li>
+<li><code>ajaxStop</code>： 在所有的 ajax 请求完成之后触发 all complete</li>
+</ol>
+<p>若<code>$.ajax()</code> global 参数设置为 false，则 ajax 全局事件不会被触发，global 参数默认为 true</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -3821,1014 +3914,6 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. 截取字符串’我爱中华人民共和国’，中的’中华’</span><br><span class="line">2. ’abcoefoxyozzopp’查找字符串中所有o出现的位置</span><br><span class="line">3. 把字符串中所有的o替换成!</span><br><span class="line">4. 把一个字符串中所有的空格全部去掉</span><br><span class="line">5. 统计一个字符串中每个字符出现的次数</span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 寻找重复最多的字符以及个数</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;shdshdfjkfjfdgjkjdksgjskdjfsfsfsfjksjkfdkjf&#x27;</span></span><br><span class="line"><span class="keyword">var</span> arr = str.split(<span class="string">&#x27;&#x27;</span>).sort()</span><br><span class="line">str = arr.join(<span class="string">&#x27;&#x27;</span>)</span><br><span class="line"><span class="keyword">var</span> count = <span class="number">0</span></span><br><span class="line"><span class="keyword">var</span> char = <span class="number">0</span></span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/(\w)\1+/g</span></span><br><span class="line">str.replace(reg, <span class="function"><span class="keyword">function</span>(<span class="params">a, b, c, d</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a, b, c, d) <span class="comment">// a 匹配模式的字符串 b 与模式中的子表达式匹配的字符串 c 匹配在 str 中出现的位置 d  str 本身</span></span><br><span class="line">  <span class="keyword">if</span> (a.length &gt; count) &#123;</span><br><span class="line">    count = a.length</span><br><span class="line">    char = b</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(str)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;最多的字符为:&#x27;</span> + char + <span class="string">&#x27;;个数为:&#x27;</span> + count)</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/394.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/394.html" class="post-title-link" itemprop="url">html 基础</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2018-08-27 22:09:55" itemprop="dateCreated datePublished" datetime="2018-08-27T22:09:55+00:00">2018-08-27</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="认识-WEB"><a href="#认识-WEB" class="headerlink" title="认识 WEB"></a>认识 WEB</h2><h3 id="认识网页"><a href="#认识网页" class="headerlink" title="认识网页"></a>认识网页</h3><p>!&gt; 网页主要由文字、图像和超链接等元素构成。当然，除了这些元素，网页中还可以包含音频、视频以及 Flash 等</p>
-<h3 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h3><p>浏览器是网页显示、运行的平台，常用的浏览器有 IE、火狐（Firefox）、谷歌（Chrome）、Safari 和 Opera 等。我们平时称为五大浏览器</p>
-<h4 id="常见浏览器内核"><a href="#常见浏览器内核" class="headerlink" title="常见浏览器内核"></a>常见浏览器内核</h4><p>浏览器内核，英文叫做：Rendering Engine，中文翻译很多，排版引擎、解释引擎、渲染引擎，现在流行称为浏览器内核，负责读取网页内容，整理讯息，计算网页的显示方式并显示页面</p>
-<p>因为浏览器太多啦， 但是现在主要流行的就是下面几个：</p>
-<table>
-<thead>
-<tr>
-<th align="left">浏览器</th>
-<th align="center">内核</th>
-<th align="left">备注</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">IE</td>
-<td align="center">Trident</td>
-<td align="left">IE、猎豹安全、360 极速浏览器、百度浏览器</td>
-</tr>
-<tr>
-<td align="left">firefox</td>
-<td align="center">Gecko</td>
-<td align="left">可惜这几年已经没落了，打开速度慢、升级频繁、猪一样的队友 flash、神一样的对手 chrome</td>
-</tr>
-<tr>
-<td align="left">Safari</td>
-<td align="center">webkit</td>
-<td align="left">从 Safari 推出之时起，它的渲染引擎就是 Webkit，一提到 webkit，首先想到的便是 chrome，可以说，chrome 将 Webkit 内核 深入人心，殊不知，Webkit 的鼻祖其实是 Safari</td>
-</tr>
-<tr>
-<td align="left">chrome</td>
-<td align="center">Chromium/Blink</td>
-<td align="left">在 Chromium 项目中研发 Blink 渲染引擎（即浏览器核心），内置于 Chrome 浏览器之中。Blink 其实是 WebKit 的分支。大部分国产浏览器最新版都采用 Blink 内核。二次开发</td>
-</tr>
-<tr>
-<td align="left">Opera</td>
-<td align="center">blink</td>
-<td align="left">现在跟随 chrome 用 blink 内核</td>
-</tr>
-</tbody></table>
-<p><strong>拓展阅读：</strong></p>
-<ul>
-<li><p>移动端的浏览器内核主要说的是系统内置浏览器的内核</p>
-</li>
-<li><p>Android 手机而言，使用率最高的就是 Webkit 内核，大部分国产浏览器宣称的自己的内核，基本上也是属于 webkit 二次开发</p>
-</li>
-<li><p>iOS 以及 WP7 平台上，由于系统原因，系统大部分自带浏览器内核，一般是 Safari 或者 IE 内核 Trident 的</p>
-</li>
-</ul>
-<h3 id="Web-标准（重点）"><a href="#Web-标准（重点）" class="headerlink" title="Web 标准（重点）"></a>Web 标准（重点）</h3><p>Web 标准是由 W3C 组织和其他标准化组织制定的一系列标准的集合</p>
-<p>W3C 万维网联盟是国际最著名的标准化组织。1994 年成立后，至今已发布近百项相关万维网的标准，对万维网发展做出了杰出的贡献</p>
-<p><strong>w3c 就类似于现实世界中的联合国。</strong></p>
-<h4 id="Web-标准的好处"><a href="#Web-标准的好处" class="headerlink" title="Web 标准的好处"></a>Web 标准的好处</h4><p>遵循 web 标准可以让不同我们写的页面更标准更统一外，还有许多优点：</p>
-<ul>
-<li><p>让 Web 的发展前景更广阔</p>
-</li>
-<li><p>内容能被更广泛的设备访问</p>
-</li>
-<li><p>更容易被搜寻引擎搜索</p>
-</li>
-<li><p>降低网站流量费用</p>
-</li>
-<li><p>使网站更易于维护</p>
-</li>
-<li><p>提高页面浏览速度</p>
-</li>
-</ul>
-<h4 id="Web-标准构成"><a href="#Web-标准构成" class="headerlink" title="Web 标准构成"></a>Web 标准构成</h4><p><strong>构成：</strong> 主要包括结构（Structure）、表现（Presentation）和行为（Behavior）三个方面。</p>
-<table>
-<thead>
-<tr>
-<th align="left">标准</th>
-<th align="left">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">结构</td>
-<td align="left">结构用于对<strong>网页元素</strong>进行整理和分类，咱们主要学的是 HTML。</td>
-</tr>
-<tr>
-<td align="left">表现</td>
-<td align="left">表现用于设置网页元素的版式、颜色、大小等<strong>外观样式</strong>，主要指的是 CSS</td>
-</tr>
-<tr>
-<td align="left">行为</td>
-<td align="left">行为是指网页模型的定义及<strong>交互</strong>的编写，咱们主要学的是 Javascript</td>
-</tr>
-</tbody></table>
-<p>理想状态我们的源码： .HTML .css .js</p>
-<h3 id="web-标准小结"><a href="#web-标准小结" class="headerlink" title="web 标准小结"></a>web 标准小结</h3><ul>
-<li>web 标准有三层结构，分别是结构（html）、表现（css）和行为（javascript）</li>
-<li>理想状态下，他们三层都是独立的， 放到不同的文件里面</li>
-</ul>
-<h3 id="深度阅读："><a href="#深度阅读：" class="headerlink" title="深度阅读："></a>深度阅读：</h3><p><a target="_blank" rel="noopener" href="http://blog.csdn.net/summer_15/article/details/71249203">五大主流浏览器内核的源起以及国内各大浏览器内核总结</a></p>
-<h2 id="HTML-初识"><a href="#HTML-初识" class="headerlink" title="HTML 初识"></a>HTML 初识</h2><h3 id="超文本标记语言"><a href="#超文本标记语言" class="headerlink" title="超文本标记语言"></a>超文本标记语言</h3><ul>
-<li><p>HTML 指的是超文本标记语言 (<strong>H</strong>yper <strong>T</strong>ext <strong>M</strong>arkup <strong>L</strong>anguage)是用来描述网页的一种语言。</p>
-</li>
-<li><p>HTML 不是一种编程语言，而是一种<strong>标记语言</strong> (markup language)</p>
-</li>
-<li><p>标记语言是一套标记标签 (markup tag)</p>
-</li>
-</ul>
-<p><strong>所谓超文本，有 2 层含义：</strong></p>
-<ol>
-<li>因为它可以加入图片、声音、动画、多媒体等内容（<strong>超越文本限制</strong>）</li>
-<li>不仅如此，它还可以从一个文件跳转到另一个文件，与世界各地主机的文件连接（<strong>超级链接文本</strong>）。</li>
-</ol>
-<h4 id="HTML-骨架标签"><a href="#HTML-骨架标签" class="headerlink" title="HTML 骨架标签"></a>HTML 骨架标签</h4><p><strong>标签：</strong></p>
-<p>在 HTML 页面中，带有 <code>&lt; &gt;</code> 符号的元素被称为 HTML 标签，</p>
-<p>HTML 骨架格式（一个 html 的基本格式）：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- HTML 标签：页面中最大的标签，我们称为根标签 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--文档的头部，注意在 head 标签中我们必须要设置的标签是 title --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 文档的标题，让页面拥有一个属于自己的网页标题 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 文档的主体包含文档的所有内容，页面内容基本都是放到 body 里面的 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>HTML 标签名、类名、标签属性和大部分属性值统一用小写</p>
-</blockquote>
-<h4 id="HTML-标签分类"><a href="#HTML-标签分类" class="headerlink" title="HTML 标签分类"></a>HTML 标签分类</h4><p><strong>分类：</strong></p>
-<ol>
-<li>双标签</li>
-</ol>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&lt;标签名&gt; 内容 &lt;/标签名&gt;   比如 <span class="tag">&lt;<span class="name">body</span>&gt;</span>  我是文字  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>该语法中“&lt;标签名&gt;”表示该标签的作用开始，一般称为“开始标签（start tag）”，“&lt;/标签名&gt;” 表示该标签的作用结束，一般称为“结束标签（end tag）”。</li>
-<li>和开始标签相比，结束标签只是在前面加了一个关闭符“/”。</li>
-<li>我们以后接触的基本都是双标签</li>
-</ul>
-<ol start="2">
-<li>单标签</li>
-</ol>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&lt;标签名&gt; 比如</span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>里面不需要包含内容， 只有一个开始标签不需要关闭。</li>
-</ul>
-<h4 id="HTML-标签关系"><a href="#HTML-标签关系" class="headerlink" title="HTML 标签关系"></a>HTML 标签关系</h4><p>主要针对于<strong>双标签</strong> 的相互关系分为两种： 请大家务必熟悉记住这种标签关系，因为后面我们标签嵌套特别多，很容易弄混他们的关系。</p>
-<ol>
-<li>嵌套关系</li>
-</ol>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>2.并列关系</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><strong>书写规范：</strong></p>
-<blockquote>
-<p>如果两个标签之间的关系是嵌套关系，子元素最好缩进一个 tab 键的身位（一个 tab 是 4 个或 2 个空格）。如果是并列关系，最好上下对齐。</p>
-</blockquote>
-<h3 id="代码开发工具（书写代码）"><a href="#代码开发工具（书写代码）" class="headerlink" title="代码开发工具（书写代码）"></a>代码开发工具（书写代码）</h3><ul>
-<li><p>Dreamweaver</p>
-</li>
-<li><p>SublimeText</p>
-</li>
-<li><p>WebStorm</p>
-</li>
-<li><p>HBuilder</p>
-</li>
-<li><p>VScode</p>
-</li>
-</ul>
-<p>sublime 有非常多的优点， 最开心的就是非常轻量级，打开速度超快，后面更高的功能，后面再接触。</p>
-<p><strong>sublime 生成 html 骨架小技巧</strong></p>
-<ul>
-<li><p>双击打开软件</p>
-</li>
-<li><p>新建文件（ctrl+n）</p>
-</li>
-<li><p>保存（ctrl+s）,保存为：文件名.html （ 注意 后缀名必须是 .html )</p>
-</li>
-<li><p>放大缩小代码 按住 ctrl 在 滚动鼠标滚轮 或者 ctrl+ 加号 键 和 ctrl + 减号键</p>
-</li>
-<li><p>生成页面骨架结构</p>
-<ul>
-<li>html: 5 按下 tab 键 或者</li>
-<li>! 按下 tab 键</li>
-</ul>
-</li>
-<li><p>在浏览器中预览页面</p>
-<ul>
-<li>右键在 浏览器中打开</li>
-</ul>
-</li>
-</ul>
-<h3 id="文档类型-lt-DOCTYPE-gt"><a href="#文档类型-lt-DOCTYPE-gt" class="headerlink" title="文档类型&lt;!DOCTYPE&gt;"></a>文档类型&lt;!DOCTYPE&gt;</h3><p><strong>用法：</strong></p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><strong>作用：</strong></p>
-<!DOCTYPE><p> 声明位于文档中的最前面的位置，处于 <html> 标签之前。此标签可告知浏览器文档使用哪种 HTML 或 XHTML 规范。</p>
-   <!DOCTYPE html><p>  就是告诉浏览器按照HTML5 规范解析页面.</p>
-<p><strong>团队约定：</strong></p>
-<blockquote>
-<p>HTML 文件必须加上 DOCTYPE 声明，并统一使用 HTML5 的文档声明</p>
-</blockquote>
-<h3 id="页面语言-lang"><a href="#页面语言-lang" class="headerlink" title="页面语言 lang"></a>页面语言 lang</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span> <span class="comment">&lt;!-- 指定html 语言种类 --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>最常见的 2 个：</p>
-<ol>
-<li><code>en</code>定义语言为英语</li>
-<li><code>zh-CN</code>定义语言为中文</li>
-</ol>
-<blockquote>
-<p><code>&lt;html lang=&quot;zh-CN&quot;&gt;</code> 指定该 html 标签内容所用的语言为中文</p>
-</blockquote>
-<p><strong>团队约定：</strong></p>
-<blockquote>
-<p>考虑浏览器和操作系统的兼容性，目前仍然使用 zh-CN 属性值</p>
-</blockquote>
-<p><strong>@拓展阅读：</strong></p>
-<p>简单来说，可能对于程序来说没有太大的作用，但是它可以告诉浏览器，搜索引擎，一些处理 Html 的程序对页面语言内容来做一些对应的处理或者事情。<br>比如可以</p>
-<ul>
-<li><p>告诉搜索引擎做精确的识别</p>
-</li>
-<li><p>让语法检查程序做语言识别</p>
-</li>
-<li><p>帮助翻译工具做识别</p>
-</li>
-<li><p>帮助网页阅读程序做识别等等</p>
-</li>
-</ul>
-<h3 id="字符集"><a href="#字符集" class="headerlink" title="字符集"></a>字符集</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">字符集(Character set)是多个字符的集合。</span><br><span class="line">计算机要准确的处理各种字符集文字，需要进行字符编码，以便计算机能够识别和存储各种文字。</span><br></pre></td></tr></table></figure>
-<p>utf-8 是目前最常用的字符集编码方式，常用的字符集编码方式还有 gbk 和 gb2312。</p>
-<ul>
-<li><p>gb2312 简单中文 包括 6763 个汉字 GUO BIAO</p>
-</li>
-<li><p>BIG5 繁体中文 港澳台等用</p>
-</li>
-<li><p>GBK 包含全部中文字符 是 GB2312 的扩展，加入对繁体字的支持，兼容 GB2312</p>
-</li>
-<li><p>这句话是告诉浏览器当前 html 文档使用 UTF-8 进行的字符编码。</p>
-</li>
-</ul>
-<p><strong>团队约定：</strong></p>
-<blockquote>
-<p>一般情况下统一使用 “UTF-8” 编码, 请尽量统一写成标准的 “UTF-8”，不要写成 “utf-8” 或 “utf8” 或 “UTF8”。</p>
-</blockquote>
-<h3 id="HTML-标签的语义化"><a href="#HTML-标签的语义化" class="headerlink" title="HTML 标签的语义化"></a>HTML 标签的语义化</h3><p>白话： 所谓标签语义化，就是指标签的含义。</p>
-<blockquote>
-<p>根据标签的语义，在合适的地方给一个最为合理的标签，让结构更清晰。</p>
-</blockquote>
-<ol>
-<li><p>方便代码的阅读和维护</p>
-</li>
-<li><p>同时让浏览器或是网络爬虫可以很好地解析，从而更好分析其中的内容</p>
-</li>
-<li><p>使用语义化标签会具有更好地搜索引擎优化（SEO）</p>
-</li>
-</ol>
-<p>语义是否良好： 当我们去掉 CSS 之后，网页结构依然组织有序，并且有良好的可读性。( 裸奔起来一样好看 )</p>
-<p>遵循的原则：先确定语义的 HTML ，再选合适的 CSS。所以，<strong>我们接下来学习 html 标签，要根据语义去记忆。</strong> HTML 网页中任何元素的实现都要依靠 HTML 标签。</p>
-<h2 id="HTML-常用标签"><a href="#HTML-常用标签" class="headerlink" title="HTML 常用标签"></a>HTML 常用标签</h2><p>首先 HTML 和 CSS 是两种完全不同的语言，我们学的是结构，就只写 HTML 标签，认识标签就可以了。 不会再给结构标签指定样式了。</p>
-<p>HTML 标签有很多，这里我们学习最为常用的，后面有些较少用的，我们可以查下手册就可以了。</p>
-<h3 id="排版标签"><a href="#排版标签" class="headerlink" title="排版标签"></a>排版标签</h3><p>排版标签主要和 css 搭配使用，显示网页结构的标签，是网页布局最常用的标签。</p>
-<h4 id="标题标签-h-熟记"><a href="#标题标签-h-熟记" class="headerlink" title="标题标签 h (熟记)"></a>标题标签 h (熟记)</h4><p>单词缩写： head 头部. 标题 title 文档标题</p>
-<p>为了使网页更具有语义化，我们经常会在页面中用到标题标签，HTML 提供了 6 个等级的标题，即</p>
-<p><strong>标题标签语义：</strong> 作为标题使用，并且依据重要性递减</p>
-<p>其基本语法格式如下：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>标题文本<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>标题文本<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h3</span>&gt;</span>标题文本<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h4</span>&gt;</span>标题文本<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h5</span>&gt;</span>标题文本<span class="tag">&lt;/<span class="name">h5</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h6</span>&gt;</span>标题文本<span class="tag">&lt;/<span class="name">h6</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>显示效果如下：</p>
-<p><strong>小结 :</strong></p>
-<ul>
-<li>加了标题的文字会变的加粗，字号也会依次变大</li>
-<li>一行是只能放一个标题的</li>
-</ul>
-<h4 id="段落标签-p-熟记"><a href="#段落标签-p-熟记" class="headerlink" title="段落标签 p ( 熟记)"></a>段落标签 p ( 熟记)</h4><p>单词缩写： paragraph 段落 [ˈpærəgræf] 无须记这个单词</p>
-<p><strong>作用语义：</strong></p>
-<p>可以把 HTML 文档分割为若干段落</p>
-<p>在网页中要把文字有条理地显示出来，离不开段落标签，就如同我们平常写文章一样，整个网页也可以分为若干个段落，而段落的标签就是</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>文本内容<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>是 HTML 文档中最常见的标签，默认情况下，文本在一个段落中会根据浏览器窗口的大小自动换行。</p>
-<h4 id="水平线标签-hr-认识"><a href="#水平线标签-hr-认识" class="headerlink" title="水平线标签 hr(认识)"></a>水平线标签 hr(认识)</h4><p>单词缩写： horizontal 横线 [ˌhɔrəˈzɑntl] 同上</p>
-<p>在网页中常常看到一些水平线将段落与段落之间隔开，使得文档结构清晰，层次分明。这些水平线可以通过插入图片实现，也可以简单地通过标签来完成，<hr />就是创建横跨网页水平线的标签。其基本语法格式如下：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">hr</span>&gt;</span> <span class="comment">&lt;!-- 是单标签 --&gt;</span></span><br></pre></td></tr></table></figure>
-<h4 id="换行标签-br-熟记"><a href="#换行标签-br-熟记" class="headerlink" title="换行标签 br (熟记)"></a>换行标签 br (熟记)</h4><p>单词缩写： break 打断 ,换行</p>
-<p>在 HTML 中，一个段落中的文字会从左到右依次排列，直到浏览器窗口的右端，然后自动换行。如果希望某段文本强制换行显示，就需要使用换行标签</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h4 id="div-和-span-标签-重点"><a href="#div-和-span-标签-重点" class="headerlink" title="div 和 span 标签(重点)"></a>div 和 span 标签(重点)</h4><p>div span 是没有语义的 是我们网页布局主要的 2 个盒子 想必你听过 css+div</p>
-<p>div 就是 division 的缩写 分割， 分区的意思 其实有很多 div 来组合网页</p>
-<p>span 跨度，跨距；范围</p>
-<p>语法格式：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>这是头部<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>今日价格<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>只不过他们有区别，现在我们主要记住使用方法和特点就好了</p>
-<ul>
-<li>div 标签 用来布局的，一行只能放一个 div</li>
-<li>span 标签 用来布局的，一行上可以放好多个 span</li>
-</ul>
-<p>后面后面讲显示模式的时候，会告诉大家</p>
-<h4 id="排版标签总结"><a href="#排版标签总结" class="headerlink" title="排版标签总结"></a>排版标签总结</h4><table>
-<thead>
-<tr>
-<th>标签名</th>
-<th align="left">定义</th>
-<th align="left">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>&lt;hx&gt;&lt;/hx&gt;</code></td>
-<td align="left">标题标签</td>
-<td align="left">作为标题使用，并且依据重要性递减</td>
-</tr>
-<tr>
-<td><code>&lt;p&gt;&lt;/p&gt;</code></td>
-<td align="left">段落标签</td>
-<td align="left">可以把 HTML 文档分割为若干段落</td>
-</tr>
-<tr>
-<td><code>&lt;hr /&gt;</code></td>
-<td align="left">水平线标签</td>
-<td align="left">没啥可说的，就是一条线</td>
-</tr>
-<tr>
-<td><code>&lt;br /&gt;</code></td>
-<td align="left">换行标签</td>
-<td align="left"></td>
-</tr>
-<tr>
-<td><code>&lt;div&gt;&lt;/div&gt;</code></td>
-<td align="left">div 标签</td>
-<td align="left">用来布局的，但是现在一行只能放一个 div</td>
-</tr>
-<tr>
-<td><code>&lt;span&gt;&lt;/span&gt;</code></td>
-<td align="left">span 标签</td>
-<td align="left">用来布局的，一行上可以放好多个 span</td>
-</tr>
-</tbody></table>
-<h3 id="文本格式化标签-熟记"><a href="#文本格式化标签-熟记" class="headerlink" title="文本格式化标签(熟记)"></a>文本格式化标签(熟记)</h3><p>在网页中，有时需要为文字设置粗体、斜体或下划线效果，这时就需要用到 HTML 中的文本格式化标签，使文字以特殊的方式显示。</p>
-<ul>
-<li><code>&lt;strong&gt;&lt;/strong&gt;</code> 加粗强调</li>
-<li><code>&lt;i&gt;&lt;/i&gt;</code> 倾斜</li>
-</ul>
-<h2 id="标签属性"><a href="#标签属性" class="headerlink" title="标签属性"></a>标签属性</h2><p>使用 HTML 制作网页时，如果想让 HTML 标签提供更多的信息，可以使用 HTML 标签的属性加以设置。其基本语法格式如下：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&lt;标签名 属性1=&quot;属性值1&quot; 属性2=&quot;属性值2&quot; …&gt; 内容 &lt;/标签名&gt;</span><br><span class="line">&lt;手机 颜色=&quot;红色&quot; 大小=&quot;5寸&quot;&gt;  &lt;/手机&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="图片标签-img"><a href="#图片标签-img" class="headerlink" title="图片标签 img"></a>图片标签 img</h3><p>单词缩写： image 图像</p>
-<p>要想在网页中显示图像就需要使用图像标签，接下来将详细介绍图像标签<code>&lt;img&gt;</code>以及和他相关的属性。（它是一个单身狗）</p>
-<p>语法如下：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;图像URL&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>该语法中 src 属性用于指定图像文件的路径和文件名，他是 img 标签的必需属性。</p>
-<ul>
-<li><p>src 图像的路径</p>
-</li>
-<li><p>alt 图像不能显示时的替换文本</p>
-</li>
-<li><p>title 鼠标悬停时显示的文本</p>
-</li>
-<li><p>width 设置图像的宽度</p>
-</li>
-<li><p>height 设置图像的高度</p>
-</li>
-</ul>
-<p><strong>注意:</strong></p>
-<ol>
-<li><p>标签可以拥有多个属性，必须写在开始标签中，位于标签名后面。</p>
-</li>
-<li><p>属性之间不分先后顺序，标签名与属性、属性与属性之间均以空格分开。</p>
-</li>
-<li><p>采取 键值对 的格式 key=”value” 的格式</p>
-</li>
-</ol>
-<p>比如:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 正常的 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;cz.jpg&quot;</span> <span class="attr">width</span>=<span class="string">&quot;300&quot;</span> <span class="attr">height</span>=<span class="string">&quot;300&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 带有边框的 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;cz.jpg&quot;</span> <span class="attr">width</span>=<span class="string">&quot;300&quot;</span> <span class="attr">height</span>=<span class="string">&quot;300&quot;</span> <span class="attr">border</span>=<span class="string">&quot;3&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 有提示文本的 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;cz.jpg&quot;</span> <span class="attr">width</span>=<span class="string">&quot;300&quot;</span> <span class="attr">height</span>=<span class="string">&quot;300&quot;</span> <span class="attr">border</span>=<span class="string">&quot;3&quot;</span> <span class="attr">title</span>=<span class="string">&quot;这是个小蒲公英&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 有替换文本的 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;cz.jpg&quot;</span> <span class="attr">width</span>=<span class="string">&quot;300&quot;</span> <span class="attr">height</span>=<span class="string">&quot;300&quot;</span> <span class="attr">border</span>=<span class="string">&quot;3&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;图片不存在&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><strong>重点掌握点：</strong></p>
-<ul>
-<li>请说出 图像标签哪个属性是必须要写的？</li>
-<li>请说出 图像标签中 alt 和 title 属性区别？</li>
-</ul>
-<h3 id="链接标签"><a href="#链接标签" class="headerlink" title="链接标签"></a>链接标签</h3><p>单词缩写： anchor 的缩写 [ˈæŋkə(r)] 。基本解释 锚, 铁锚 的</p>
-<p>在 HTML 中创建超链接非常简单，只需用标签把文字包括起来就好。</p>
-<p>语法格式：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;跳转目标&quot;</span> <span class="attr">target</span>=<span class="string">&quot;目标窗口的弹出方式&quot;</span>&gt;</span>文本或图像<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;mailto:邮箱&quot;</span>&gt;</span>文本或图像<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th align="left">作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>href</td>
-<td align="left">用于指定链接目标的 url 地址，（必须属性）当为标签应用 href 属性时，它就具有了超链接的功能</td>
-</tr>
-<tr>
-<td>target</td>
-<td align="left">用于指定链接页面的打开方式，其取值有<code>_self</code>、<code>_blank</code>、<code>inner</code>，其中_self 为默认值，__blank 为在新窗口中打开，inner 在内部打开。</td>
-</tr>
-</tbody></table>
-<p><strong>注意：</strong></p>
-<ol>
-<li><p>在网页中各种网页元素，如图像、表格、音频、视频等都可以添加超链接。图片链接： <code>&lt;a href=&quot; &quot;&gt;&lt;img src=&quot; &quot;&gt;&lt;/a&gt;</code></p>
-</li>
-<li><p>style 属性：<strong>text-decoration:none</strong> 链接没有下划线</p>
-</li>
-<li><p><code>#</code> 链接到文档顶部（什么都不写也会返回到页面顶端）</p>
-</li>
-<li><p>跳转某一页面某一锚点<code>&lt;a href=&quot;index.html#锚点&quot;&gt;&lt;/a&gt;</code></p>
-</li>
-<li><p>空连接 <code>javascript:void(null)</code></p>
-</li>
-<li><p>链接 css： <code>&lt;link rel=&quot;stylesheet&quot; href=&quot;mycss.css&quot; /&gt;</code></p>
-</li>
-<li><p>链接 js： <code>&lt;script type=&quot;text/javascript&quot; src=&quot;myscripts.js&quot;&gt;&lt;/script&gt;</code></p>
-</li>
-</ol>
-<h3 id="注释标签"><a href="#注释标签" class="headerlink" title="注释标签"></a>注释标签</h3><p>在 HTML 中还有一种特殊的标签——注释标签。如果需要在 HTML 文档中添加一些便于阅读和理解但又不需要显示在页面中的注释文字，就需要使用注释标签。</p>
-<p>简单解释：</p>
-<p>注释内容不会显示在浏览器窗口中，但是作为 HTML 文档内容的一部分，也会被下载到用户的计算机上，查看源代码时就可以看到。</p>
-<p>语法格式：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 注释语句 --&gt;</span></span><br><span class="line">快捷键是： ctrl + / 或者 ctrl +shift + /</span><br></pre></td></tr></table></figure>
-<p>注释内容前后各一个空格字符，注释位于要注释代码的上面，单独占一行</p>
-<h3 id="表格标签-table"><a href="#表格标签-table" class="headerlink" title="表格标签 table"></a>表格标签 table</h3><p>目标：</p>
-<ul>
-<li><p>理解：</p>
-<ul>
-<li>能说出表格用来做什么的</li>
-<li>表格的基本结构组成</li>
-</ul>
-</li>
-<li><p>应用：</p>
-<ul>
-<li><p>能够熟练写出 n 行 n 列的表格</p>
-</li>
-<li><p>能简单的合并单元格</p>
-</li>
-</ul>
-</li>
-</ul>
-<p><strong>表格作用：</strong></p>
-<p>表格现在还是较为常用的一种标签，但不是用来布局，而是<strong>显示、展示表格式数据。</strong></p>
-<p>因为它可以让数据显示的非常的规整，可读性非常好。</p>
-<p><strong>特别是后台展示数据的时候表格运用是否熟练就显得很重要</strong>，一个清爽简约的表格能够把繁杂的数据表现得很有条理，虽然 div 布局也可以做到，但是总没有表格来得方便。</p>
-<h4 id="创建表格"><a href="#创建表格" class="headerlink" title="创建表格"></a>创建表格</h4><p>在 HTML 网页中，要想创建表格，就需要使用表格相关的标签。</p>
-<p><strong>创建表格的基本语法：</strong></p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>单元格内的文字<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<ol>
-<li><p>table 用于定义一个表格标签。</p>
-</li>
-<li><p>tr 标签 用于定义表格中的行，必须嵌套在 table 标签中。</p>
-</li>
-<li><p>td 用于定义表格中的单元格，必须嵌套在 <code>&lt;tr&gt;&lt;/tr&gt;</code> 标签中。</p>
-</li>
-<li><p>字母 td 指表格数据（table data），即数据单元格的内容，现在我们明白，表格最合适的地方就是用来存储数据的。</p>
-</li>
-</ol>
-<p><strong>总结：</strong></p>
-<ul>
-<li><p>表格的主要目的是用来显示特殊数据的</p>
-</li>
-<li><p>一个完整的表格有表格标签（table），行标签（tr），单元格标签（td）组成，没有列的标签</p>
-</li>
-<li><p><code>&lt;tr&gt;&lt;/tr&gt;</code> 中只能嵌套 <code>&lt;td&gt;&lt;/td&gt;</code> 类的单元格</p>
-</li>
-<li><p><code>&lt;td&gt;&lt;/td&gt;</code> 标签，他就像一个容器，可以容纳所有的元素</p>
-</li>
-</ul>
-<h4 id="表格属性"><a href="#表格属性" class="headerlink" title="表格属性"></a>表格属性</h4><p>表格有部分属性我们不常用，这里重点记住 cellspacing 、 cellpadding。</p>
-<ul>
-<li><p><code>border</code> 设置表格的边框 <code>border=&quot;1px dashed #ccc&quot;</code> dashed 虚线</p>
-</li>
-<li><p><code>cellspacing</code> 设置单元格与单元格边框之间的空白距离</p>
-</li>
-<li><p><code>cellpadding</code> 设置单元格内容与单元格边框之间的空白距离</p>
-</li>
-<li><p><code>width</code> 设置表格宽度</p>
-</li>
-<li><p><code>height</code> 设置表格高度</p>
-</li>
-<li><p><code>align</code> 设置表格水平对齐方式 （left center right）</p>
-<ul>
-<li>写在 table 标签中控制表格位置</li>
-<li>写在 tr 标签中控制表格内文本位置</li>
-</ul>
-</li>
-</ul>
-<h4 id="表头单元格标签-th"><a href="#表头单元格标签-th" class="headerlink" title="表头单元格标签 th"></a>表头单元格标签 th</h4><ul>
-<li>作用：<ul>
-<li>一般表头单元格位于表格的第一行或第一列，并且文本加粗居中</li>
-</ul>
-</li>
-<li>语法：<ul>
-<li>只需用表头标签&lt;th&gt;&lt;/th&gt;替代相应的单元格标签&lt;td&gt;&lt;/td&gt;即可。</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p><code>th</code> 也是一个单元格 只不过和普通的 td 单元格不一样，它会让自己里面的文字居中且加粗</p>
-</blockquote>
-<h4 id="表格标题-caption"><a href="#表格标题-caption" class="headerlink" title="表格标题 caption"></a>表格标题 caption</h4><p><strong>定义和用法</strong></p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">caption</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span></span><br><span class="line">      我是表格标题</span><br><span class="line">    <span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">caption</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><strong>注意：</strong></p>
-<ol>
-<li><p>caption 元素定义<strong>表格标题</strong>，通常这个标题会被居中且显示于表格之上。</p>
-</li>
-<li><p>caption 标签必须紧随 table 标签之后。</p>
-</li>
-<li><p>这个标签只存在表格里面才有意义。</p>
-</li>
-<li><p>caption 没有加粗效果，一般用 h 标签实现加粗</p>
-</li>
-</ol>
-<h4 id="合并单元格-难点"><a href="#合并单元格-难点" class="headerlink" title="合并单元格(难点)"></a>合并单元格(难点)</h4><p>合并单元格 2 种方式：</p>
-<ul>
-<li>跨行合并（向下合并）：rowspan=”合并单元格的个数”</li>
-<li>跨列合并（向右合并）：colspan=”合并单元格的个数”</li>
-</ul>
-<blockquote>
-<p>合并后需删除多余的单元格</p>
-</blockquote>
-<h4 id="总结表格"><a href="#总结表格" class="headerlink" title="总结表格"></a>总结表格</h4><table>
-<thead>
-<tr>
-<th>标签名</th>
-<th align="left">定义</th>
-<th align="left">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>&lt;table&gt;&lt;/table&gt;</code></td>
-<td align="left">表格标签</td>
-<td align="left">就是一个四方的盒子</td>
-</tr>
-<tr>
-<td><code>&lt;tr&gt;&lt;/tr&gt;</code></td>
-<td align="left">表格行标签</td>
-<td align="left">行标签要再 table 标签内部才有意义</td>
-</tr>
-<tr>
-<td><code>&lt;td&gt;&lt;/td&gt;</code></td>
-<td align="left">单元格标签</td>
-<td align="left">单元格标签是个容器级元素，可以放任何东西</td>
-</tr>
-<tr>
-<td><code>&lt;th&gt;&lt;/th&gt;</code></td>
-<td align="left">表头单元格标签</td>
-<td align="left">它还是一个单元格，但是里面的文字会居中且加粗</td>
-</tr>
-<tr>
-<td><code>&lt;caption&gt;&lt;/caption&gt;</code></td>
-<td align="left">表格标题标签</td>
-<td align="left">表格的标题，跟着表格一起走，和表格居中对齐</td>
-</tr>
-<tr>
-<td><code>clospan</code> 和 <code>rowspan</code></td>
-<td align="left">合并属性</td>
-<td align="left">用来合并单元格的</td>
-</tr>
-</tbody></table>
-<ol>
-<li><p>表格提供了 HTML 中定义表格式数据的方法。</p>
-</li>
-<li><p>表格中由行中的单元格组成。</p>
-</li>
-<li><p>表格中没有列元素，列的个数取决于行的单元格个数。</p>
-</li>
-<li><p>表格不要纠结于外观，那是 CSS 的作用。</p>
-</li>
-<li><p>表格的学习要求： 能手写表格结构，并且能简单合并单元格。</p>
-</li>
-</ol>
-<h4 id="拓展阅读"><a href="#拓展阅读" class="headerlink" title="拓展阅读@"></a>拓展阅读@</h4><p>表格划分结构（了解）</p>
-<p>对于比较复杂的表格，表格的结构也就相对的复杂了，所以又将表格分割成三个部分：题头、正文和脚注。而这三部分分别用:thead, tbody, tfoot 来标注， 这样更好的分清表格结构</p>
-<ol>
-<li><p><code>&lt;thead&gt;&lt;/thead&gt;</code>：用于定义表格的头部。用来放标题之类的东西。<code>&lt;thead&gt;</code> 内部必须拥有<code>&lt;tr&gt;</code> 标签！</p>
-</li>
-<li><p><code>&lt;tbody&gt;&lt;/tbody&gt;</code>：用于定义表格的主体。放数据本体 。</p>
-</li>
-<li><p><code>&lt;tfoot&gt;&lt;/tfoot&gt;</code> 放表格的脚注之类。</p>
-</li>
-<li><p>以上标签都是放到 table 标签中。</p>
-</li>
-</ol>
-<h3 id="列表标签"><a href="#列表标签" class="headerlink" title="列表标签"></a>列表标签</h3><ul>
-<li>特点：用来布局</li>
-</ul>
-<h4 id="无序列表-ul"><a href="#无序列表-ul" class="headerlink" title="无序列表 ul"></a>无序列表 ul</h4><p>无序列表的各个列表项之间没有顺序级别之分，是并列的。其基本语法格式如下：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>列表项1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>列表项2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>列表项3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  ......</span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><strong>注意：</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. &lt;ul&gt;&lt;&#x2F;ul&gt; 中只能嵌套&lt;li&gt;&lt;&#x2F;li&gt; ，直接在&lt;ul&gt;&lt;&#x2F;ul&gt; 标签中输入其他标签或者文字的做法是不被允许的</span><br><span class="line"></span><br><span class="line">2. &lt;li&gt;与&lt;&#x2F;li&gt; 之间相当于一个容器，可以容纳所有元素</span><br><span class="line"></span><br><span class="line">3. HTML5 已不支持 &lt;ul&gt; 属性，用</span><br><span class="line"></span><br><span class="line">css ul &#123;</span><br><span class="line">  list-style-type: disc; 圆点列表</span><br><span class="line">&#125;</span><br><span class="line">ul &#123;</span><br><span class="line">  list-style-type: circle; 圆圈列表</span><br><span class="line">&#125;</span><br><span class="line">ul &#123;</span><br><span class="line">  list-style-type: square; 正方形列表</span><br><span class="line">&#125;</span><br><span class="line">ul &#123;</span><br><span class="line">  list-style-image: url(&#39;&#39;); 指定列表项标记的图像</span><br><span class="line">&#125;</span><br><span class="line">ul li &#123;</span><br><span class="line">  background-image: url(&#x2F;img.jpg);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="有序列表-ol-（了解）"><a href="#有序列表-ol-（了解）" class="headerlink" title="有序列表 ol （了解）"></a>有序列表 ol （了解）</h4><p>有序列表即为有排列顺序的列表，其各个列表项按照一定的顺序排列定义，有序列表的基本语法格式如下：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ol</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>列表项1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>列表项2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>列表项3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  ......</span><br><span class="line"><span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>所有特性基本与 ul 一致。 但是实际中比 无序列表 用的少很多。</p>
-<ul>
-<li><p><code>ol</code> start 属性 定义有序列表起始序号</p>
-</li>
-<li><p><code>ol</code> type 属性 定义序号类型</p>
-<ul>
-<li>“A” 大写字母列表</li>
-<li>“a” 小写字母列表</li>
-<li>“I” 罗马字母列表</li>
-<li>“i” 小写罗马字母列表</li>
-</ul>
-</li>
-<li><p><code>ol</code> css 属性 <code>list-style-type</code> 指定列表项标记的类型</p>
-<ul>
-<li>{list-style-type:upper-roman;} 大写罗马字体</li>
-<li>{list-style-type:lower-alpha;} 小写字母</li>
-</ul>
-</li>
-</ul>
-<h4 id="自定义列表（理解）"><a href="#自定义列表（理解）" class="headerlink" title="自定义列表（理解）"></a>自定义列表（理解）</h4><p>定义列表常用于对术语或名词进行解释和描述，自定义列表的列表项前没有任何项目符号。其基本语法如下：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dl</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dt</span>&gt;</span>名词1<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dd</span>&gt;</span>名词1解释1<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dd</span>&gt;</span>名词1解释2<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line">  <span class="tag">&lt;<span class="name">dt</span>&gt;</span>名词2<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dd</span>&gt;</span>名词2解释1<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dd</span>&gt;</span>名词2解释2<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">dl</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h4 id="列表总结"><a href="#列表总结" class="headerlink" title="列表总结"></a>列表总结</h4><table>
-<thead>
-<tr>
-<th>标签名</th>
-<th align="center">定义</th>
-<th align="left">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>&lt;ul&gt;&lt;/ul&gt;</code></td>
-<td align="center"><strong>无序标签</strong></td>
-<td align="left">里面只能包含 li 没有顺序，我们以后布局中最常用的列表</td>
-</tr>
-<tr>
-<td><code>&lt;ol&gt;&lt;/ol&gt;</code></td>
-<td align="center">有序标签</td>
-<td align="left">里面只能包含 li 有顺序， 使用情况较少</td>
-</tr>
-<tr>
-<td><code>&lt;dl&gt;&lt;/dl&gt;</code></td>
-<td align="center">自定义列表</td>
-<td align="left">里面有 2 个兄弟， dt 和 dd</td>
-</tr>
-</tbody></table>
-<p>我们现在还没有学布局，现在只要保证 2 个点：</p>
-<ol>
-<li><p>学会什么时候用无序列表， 学会什么时候用自定义列表</p>
-</li>
-<li><p>无序列表和自定义列表代码怎么写？</p>
-</li>
-<li><p>具体的我们刚才看的布局，等我们学了 css 在来全面布局。</p>
-</li>
-</ol>
-<h3 id="表单标签"><a href="#表单标签" class="headerlink" title="表单标签"></a>表单标签</h3><p><strong>语法</strong>:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;url地址&quot;</span> <span class="attr">method</span>=<span class="string">&quot;提交方式&quot;</span> <span class="attr">name</span>=<span class="string">&quot;表单名称&quot;</span>&gt;</span></span><br><span class="line">  各种表单控件</span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><strong>常用属性：</strong></p>
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th align="left">属性值</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>action</td>
-<td align="left">url 地址</td>
-<td>用于指定接收并处理表单数据的服务器程序的 url 地址。</td>
-</tr>
-<tr>
-<td>method</td>
-<td align="left">get/post</td>
-<td>用于设置表单数据的提交方式，其取值为 get 或 post。</td>
-</tr>
-<tr>
-<td>name</td>
-<td align="left">名称</td>
-<td>用于指定表单的名称，以区分同一个页面中的多个表单。</td>
-</tr>
-</tbody></table>
-<p><strong>作用</strong></p>
-<p>表单目的是为了收集用户信息。</p>
-<blockquote>
-<p>在 HTML 中，一个完整的表单通常由表单控件（也称为表单元素）、提示信息和表单域 3 个部分构成。</p>
-</blockquote>
-<p><strong>常用标签</strong>：</p>
-<p><code>&lt;form&gt;</code> 定义供用户输入的表单<br><code>&lt;input&gt;</code> 定义输入域<br><code>&lt;textarea&gt;</code> 定义文本域 (一个多行的输入控件)<br><code>&lt;label&gt;</code> 定义了 input 元素的标签，一般为输入标题<br><code>&lt;fieldset&gt;</code> 定义了一组相关的表单元素，并使用外框包含起来<br><code>&lt;legend&gt;</code> 定义了 fieldset 元素的标题<br><code>select&gt;</code> 定义了下拉选项列表<br><code>&lt;optgroup&gt;</code> 定义选项组<br><code>&lt;option&gt;</code> 定义下拉列表中的选项 <code>selected</code> 预选<br><code>&lt;button&gt;</code> 定义一个点击按钮<br><code>&lt;datalist&gt;</code> 指定一个预先定义的输入控件选项列表<br><code>&lt;output&gt;</code> 定义一个计算结果</p>
-<p><strong>注意:</strong></p>
-<p>每个表单都应该有自己表单域。我们现在做页面，不写看不到效果，但是 如果后面学 ajax 后台交互的时候，必须需要 form 表单域。</p>
-<p><strong>表单控件：</strong>包含了具体的表单功能项，如单行文本输入框、密码输入框、复选框、提交按钮、重置按钮等。</p>
-<p><strong>提示信息：</strong>一个表单中通常还需要包含一些说明性的文字，提示用户进行填写和操作。</p>
-<p><strong>表单域：</strong>他相当于一个容器，用来容纳所有的表单控件和提示信息，可以通过他定义处理表单数据所用程序的 url 地址，以及数据提交到服务器的方法。如果不定义表单域，表单中的数据就无法传送到后台服务器。</p>
-<h4 id="input-标签"><a href="#input-标签" class="headerlink" title="input 标签"></a>input 标签</h4><ul>
-<li><p>语法：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;属性值&quot;</span> <span class="attr">value</span>=<span class="string">&quot;你好&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>type 属性设置不同的属性值用来指定不同的控件类型</p>
-</li>
-<li><p>除了 type 属性还有别的属性</p>
-</li>
-</ul>
-</li>
-</ul>
-<h5 id="type-属性"><a href="#type-属性" class="headerlink" title="type 属性"></a>type 属性</h5><ul>
-<li>text 单行文本输入框</li>
-<li>password 密码输入框</li>
-<li>radio 单选按钮</li>
-<li>checkbox 复选框</li>
-<li>button 普通按钮</li>
-<li>submit 提交按钮</li>
-<li>reset 重置按钮</li>
-<li>image 图片按钮 ，添加 src 属性引入图片</li>
-<li>file 上传文件</li>
-</ul>
-<h4 id="value-属性值"><a href="#value-属性值" class="headerlink" title="value 属性值"></a>value 属性值</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- input 框在用户未输入时的默认值 --&gt;</span></span><br><span class="line">用户名:</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> <span class="attr">value</span>=<span class="string">&quot;请输入用户名&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><strong>input <code>placeholder</code> 属性与 <code>value</code> 属性区别</strong></p>
-<ul>
-<li><p><strong>placeholder</strong> 属性提供一种提示，描述输入域所期待的值，提示会在输入字段为空时显示，并会在字段获得焦点时消失。属性适用于以下类型的 input 标签：text、search、url、telephone、email 以及 password</p>
-</li>
-<li><p><strong>value</strong> 属性为 input 元素设定值，对于不同的输入类型，value 属性的用法也不同</p>
-<ul>
-<li><code>type=&quot;button&quot;, &quot;reset&quot;, &quot;submit&quot;</code> - 定义按钮上的显示的文本</li>
-<li><code>type=&quot;text&quot;, &quot;password&quot;, &quot;hidden&quot;</code> - 定义输入字段的初始值</li>
-<li><code>type=&quot;checkbox&quot;, &quot;radio&quot;, &quot;image&quot;</code> - 定义与输入相关联的值</li>
-</ul>
-</li>
-</ul>
-<p><code>&lt;input type=&quot;checkbox&quot;&gt;</code> 和 <code>&lt;input type=&quot;radio&quot;&gt;</code> 中必须设置 <code>value</code> 属性。<br><code>value</code> 属性无法与 <code>&lt;input type=&quot;file&quot;&gt;</code> 一同使用。</p>
-<h5 id="name-属性"><a href="#name-属性" class="headerlink" title="name 属性"></a>name 属性</h5><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">用户名:</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>name 表单的名字， 这样，后台可以通过这个 name 属性找到这个表单项。 页面中的表单项很多，name 主要作用就是用于区别不同的表单项。</p>
-<ul>
-<li>name 属性后面的值，是我们自己定义的。</li>
-</ul>
-<ul>
-<li>radio 如果是一组，我们必须给他们命名相同的名字 name ，这样就可以多个选其中的一个啦</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span> /&gt;</span> 男</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span> /&gt;</span> 女</span><br></pre></td></tr></table></figure>
-<h5 id="checked-属性"><a href="#checked-属性" class="headerlink" title="checked 属性"></a>checked 属性</h5><ul>
-<li>表示默认选中状态。 较常见于 单选按钮和复选按钮。</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">性 别:</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span> <span class="attr">value</span>=<span class="string">&quot;男&quot;</span> <span class="attr">checked</span>=<span class="string">&quot;checked&quot;</span> /&gt;</span></span><br><span class="line">男</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span> <span class="attr">value</span>=<span class="string">&quot;女&quot;</span> /&gt;</span></span><br><span class="line">女</span><br></pre></td></tr></table></figure>
-<p>上面这个，表示就默认选中了 男 这个单选按钮</p>
-<h4 id="label-标签-理解"><a href="#label-标签-理解" class="headerlink" title="label 标签(理解)"></a>label 标签(理解)</h4><p><strong>作用：</strong> 用于绑定一个表单元素, 当点击 label 标签的时候, 被绑定的表单元素就会获得输入焦点</p>
-<p><strong>如何绑定元素呢？</strong></p>
-<ul>
-<li>第一种用法就是用 label 直接包括 input 表单</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">label</span>&gt;</span></span><br><span class="line">  用户名：</span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;usename&quot;</span> <span class="attr">value</span>=<span class="string">&quot;请输入用户名&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>适合单个表单选择</p>
-<ul>
-<li>第二种用法 for 属性规定 label 与哪个表单元素绑定</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;sex&quot;</span>&gt;</span>男<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span> <span class="attr">id</span>=<span class="string">&quot;sex&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h4 id="textarea-控件-文本域"><a href="#textarea-控件-文本域" class="headerlink" title="textarea 控件(文本域)"></a>textarea 控件(文本域)</h4><ul>
-<li>语法：</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">textarea</span>&gt;</span></span><br><span class="line">  文本内容</span><br><span class="line"><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>作用：</p>
-<p>通过 textarea 控件可以轻松地创建多行文本输入框</p>
-<p>cols=”每行中的字符数” rows=”显示的行数” 我们实际开发不用</p>
-</li>
-</ul>
-<h5 id="文本框和文本域区别"><a href="#文本框和文本域区别" class="headerlink" title="文本框和文本域区别"></a>文本框和文本域区别</h5><table>
-<thead>
-<tr>
-<th align="left">表单</th>
-<th align="center">名称</th>
-<th align="center">区别</th>
-<th align="right">默认值显示</th>
-<th align="right">用于场景</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">input type=”text”</td>
-<td align="center">文本框</td>
-<td align="center">只能显示一行文本</td>
-<td align="right">单标签，通过 value 显示默认值</td>
-<td align="right">用户名、昵称、密码等</td>
-</tr>
-<tr>
-<td align="left">textarea</td>
-<td align="center">文本域</td>
-<td align="center">可以显示多行文本</td>
-<td align="right">双标签，默认值写到标签中间</td>
-<td align="right">留言板</td>
-</tr>
-</tbody></table>
-<h4 id="select-标签"><a href="#select-标签" class="headerlink" title="select 标签"></a>select 标签</h4><p><strong>语法：</strong></p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">multiple</span>=<span class="string">&quot;multiple&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span>&gt;</span>选项1<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span> <span class="attr">selected</span>&gt;</span>选项2<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span>&gt;</span>选项3<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>注意：</li>
-</ul>
-<ol>
-<li>&lt;select&gt; 中至少包含一对 option</li>
-<li>在 option 中定义 selected =” selected “时，当前项即为默认选中项，不写默认第一项。</li>
-<li>multiple 属性可以选多个</li>
-</ol>
-<h4 id="HTML5-新的表单属性"><a href="#HTML5-新的表单属性" class="headerlink" title="HTML5 新的表单属性"></a>HTML5 新的表单属性</h4><p>HTML5 的 form 和 input 标签添加了几个新属性</p>
-<p>form 新属性：<br><code>autocomplete</code> <code>novalidate</code></p>
-<p>input 新属性：<br><code>autocomplete</code><br><code>autofocus</code> 在页面加载后设置或返回文本域是否自动获取焦点<br><code>form</code><br><code>ormaction</code><br><code>formenctype</code><br><code>formmethod</code><br><code>formnovalidate</code><br><code>ormtarget</code><br><code>height 与 width</code><br><code>list</code><br><code>min 与 max</code><br><code>multiple</code><br><code>pattern (regexp)</code><br><code>placeholder</code><br><code>required</code><br><code>step</code><br><code>readOnly</code> 设置或返回文本域是否应是只读的</p>
-<h3 id="H5-新增标签：六大结构标签"><a href="#H5-新增标签：六大结构标签" class="headerlink" title="H5 新增标签：六大结构标签"></a>H5 新增标签：六大结构标签</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">header</span>&gt;</span>网站的头部<span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">footer</span>&gt;</span>网站的底部<span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">nav</span>&gt;</span>导航<span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">aside</span>&gt;</span>侧边栏<span class="tag">&lt;/<span class="name">aside</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">article</span>&gt;</span>文章页<span class="tag">&lt;/<span class="name">article</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">section</span>&gt;</span>区块<span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="路径-重点、难点"><a href="#路径-重点、难点" class="headerlink" title="路径(重点、难点)"></a>路径(重点、难点)</h2><p>实际工作中，我们的文件不能随便乱放，否则用起来很难快速的找到他们，因此我们需要一个文件夹来管理他们</p>
-<p><strong>目录文件夹：</strong></p>
-<p>就是普通文件夹，里面只不过存放了我们做页面所需要的 相关素材，比如 html 文件， 图片 等等</p>
-<p>页面中的图片会非常多， 通常我们再新建一个文件夹专门用于存放图像文件（images），这时再插入图像，就需要采用“路径”的方式来指定图像文件的位置。路径可以分为： 相对路径和绝对路径</p>
-<h3 id="相对路径"><a href="#相对路径" class="headerlink" title="相对路径"></a>相对路径</h3><p>以引用文件的网页所在位置为参考基础，而建立出的目录路径。因此，当保存于不同目录的网页引用同一个文件时，所使用的路径将不相同，故称之为相对路径</p>
-<ul>
-<li>同一级路径 只需输入图像文件的名称即可</li>
-<li>下一级路径 <code>/</code></li>
-<li>上一级路径 <code>../</code></li>
-</ul>
-<blockquote>
-<p>相对路径，是从代码所在的这个文件出发， 去寻找我们的目标文件的，而 我们所说的 上一级 下一级 同一级 简单说，就是 图片 位于 HTML 页面的位置</p>
-</blockquote>
-<h3 id="绝对路径"><a href="#绝对路径" class="headerlink" title="绝对路径"></a>绝对路径</h3><p>绝对路径以 Web 站点根目录为参考基础的目录路径。之所以称为绝对，意指当所有网页引用同一个文件时，所使用的路径都是一样的。</p>
-<p>“D:\web\img\logo.gif”，或完整的网络地址，例如 “<a target="_blank" rel="noopener" href="http://www.itcast.cn/images/logo.gif&quot;">http://www.itcast.cn/images/logo.gif&quot;</a></p>
-<p><strong>注意：</strong></p>
-<p>绝对路径用的较少，我们理解下就可以了</p>
-<h2 id="锚点定位"><a href="#锚点定位" class="headerlink" title="锚点定位"></a>锚点定位</h2><p>通过创建锚点链接，用户能够快速定位到目标内容</p>
-<p>创建锚点链接分为两步：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. 使用相应的id名标注跳转目标的位置。 (找目标)</span><br><span class="line">&lt;h3 id&#x3D;&quot;two&quot;&gt;第2集&lt;&#x2F;h3&gt;</span><br><span class="line"></span><br><span class="line">2. 使用 &lt;a href&#x3D;&quot;#id名&quot;&gt;链接文本&lt;&#x2F;a&gt; 创建链接文本（被点击的）</span><br><span class="line">&lt;a href&#x3D;&quot;#two&quot;&gt;&lt;&#x2F;a&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="延伸"><a href="#延伸" class="headerlink" title="延伸"></a>延伸</h2><h3 id="base-标签"><a href="#base-标签" class="headerlink" title="base 标签"></a>base 标签</h3><p>描述了基本的链接地址/链接目标，该标签作为 HTML 文档中所有的链接标签的默认链接(包括 <code>&lt;a&gt;</code>、<code>&lt;img&gt;</code>、<code>&lt;link&gt;</code>、<code>&lt;form&gt;</code>标签中的 URL)</p>
-<p><strong>语法：</strong></p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">base</span> <span class="attr">href</span>=<span class="string">&quot;&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><strong>总结：</strong></p>
-<ol>
-<li>base 可以设置整体链接的打开状态</li>
-<li>base 写到 <code>&lt;head&gt; &lt;/head&gt;</code> 之间</li>
-<li>把所有的连接 都默认添加 <code>target=&quot;_blank&quot;</code></li>
-</ol>
-<h3 id="lt-pre-gt-标签"><a href="#lt-pre-gt-标签" class="headerlink" title="&lt;pre&gt; 标签"></a><code>&lt;pre&gt;</code> 标签</h3><p>可定义预格式化的文本。</p>
-<p>被包围在 <pre> 标签 元素中的文本通常会保留空格和换行符。而文本也会呈现为等宽字体。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">pre</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  此例演示如何使用 pre 标签</span><br><span class="line"></span><br><span class="line">  对空行和 空格</span><br><span class="line"></span><br><span class="line">  进行控制</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">pre</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>所谓的预格式化文本就是 ，按照我们预先写好的文字格式来显示页面， 保留空格和换行等。</p>
-</blockquote>
-<p>有了这个标签，里面的文字，会按照我们书写的模式显示，不需要段落和换行标签了。但是，比较少用，因为不好整体控制。</p>
-<h3 id="meta-标签"><a href="#meta-标签" class="headerlink" title="meta 标签"></a>meta 标签</h3><ul>
-<li><code>&lt;meta&gt;</code> 元素可提供有关页面的元信息（meta-information），比如针对搜索引擎和更新频度的描述和关键词</li>
-<li>每 30 秒中刷新当前页面: <code>&lt;meta http-equiv=&quot;refresh&quot; content=&quot;30&quot;&gt;</code></li>
-</ul>
-<h3 id="特殊字符-（理解）"><a href="#特殊字符-（理解）" class="headerlink" title="特殊字符 （理解）"></a>特殊字符 （理解）</h3><table>
-<thead>
-<tr>
-<th>显示结果</th>
-<th>描述</th>
-<th>实体名称</th>
-<th>实体编号</th>
-</tr>
-</thead>
-<tbody><tr>
-<td></td>
-<td>空格</td>
-<td><code>&amp;nbsp;</code></td>
-<td><code>&amp;#160;</code></td>
-</tr>
-<tr>
-<td><code>&lt;</code></td>
-<td>小于号</td>
-<td><code>&amp;lt;</code></td>
-<td><code>&amp;#60;</code></td>
-</tr>
-<tr>
-<td><code>&gt;</code></td>
-<td>大于号</td>
-<td><code>&amp;gt;</code></td>
-<td><code>&amp;#62;</code></td>
-</tr>
-<tr>
-<td><code>&amp;</code></td>
-<td>和号</td>
-<td><code>&amp;amp;</code></td>
-<td><code>&amp;#38;</code></td>
-</tr>
-<tr>
-<td><code>&quot;</code></td>
-<td>引号</td>
-<td><code>&amp;quot;</code></td>
-<td><code>&amp;#34;</code></td>
-</tr>
-<tr>
-<td><code>&#39;</code></td>
-<td>撇号</td>
-<td><code>&amp;apos;</code>(IE 不支持)</td>
-<td><code>&amp;#39;</code></td>
-</tr>
-<tr>
-<td><code>￠</code></td>
-<td>分</td>
-<td><code>&amp;cent;</code></td>
-<td><code>&amp;#162;</code></td>
-</tr>
-<tr>
-<td><code>£</code></td>
-<td>镑</td>
-<td><code>&amp;pound;</code></td>
-<td><code>&amp;#163;</code></td>
-</tr>
-<tr>
-<td><code>¥</code></td>
-<td>人民币</td>
-<td><code>&amp;yen;</code></td>
-<td><code>&amp;#165;</code></td>
-</tr>
-<tr>
-<td><code>€</code></td>
-<td>欧元</td>
-<td><code>&amp;euro;</code></td>
-<td><code>&amp;#8364;</code></td>
-</tr>
-<tr>
-<td><code>§</code></td>
-<td>小节</td>
-<td><code>&amp;sect;</code></td>
-<td><code>&amp;#167;</code></td>
-</tr>
-<tr>
-<td><code>©</code></td>
-<td>版权</td>
-<td><code>&amp;copy;</code></td>
-<td><code>&amp;#169;</code></td>
-</tr>
-<tr>
-<td><code>®</code></td>
-<td>注册商标</td>
-<td><code>&amp;reg;</code></td>
-<td><code>&amp;#174;</code></td>
-</tr>
-<tr>
-<td><code>™</code></td>
-<td>商标</td>
-<td><code>&amp;trade;</code></td>
-<td><code>&amp;#8482;</code></td>
-</tr>
-<tr>
-<td><code>×</code></td>
-<td>乘号</td>
-<td><code>&amp;times;</code></td>
-<td><code>&amp;#215;</code></td>
-</tr>
-<tr>
-<td><code>÷</code></td>
-<td>除号</td>
-<td><code>&amp;divide;</code></td>
-<td><code>&amp;#247;</code></td>
-</tr>
-</tbody></table>
-<p><strong>总结：</strong></p>
-<ol>
-<li>是以<strong>运算符</strong><code>&amp;</code>开头,以<strong>分号运算符</strong><code>;</code>结尾。</li>
-<li>他们不是标签，而是符号。</li>
-<li>HTML 中不能使用小于号 “&lt;” 和大于号 “&gt;”特殊字符，浏览器会将它们作为标签解析，若要正确显示，在 HTML 源代码中使用字符实体</li>
-</ol>
-<h3 id="html5-发展之路"><a href="#html5-发展之路" class="headerlink" title="html5 发展之路"></a>html5 发展之路</h3><h3 id="什么是-XHTML"><a href="#什么是-XHTML" class="headerlink" title="什么是 XHTML"></a>什么是 XHTML</h3><p>XHTML 是更严格更纯净的 HTML 代码。</p>
-<ul>
-<li>XHTML 指<strong>可扩展超文本标签语言</strong>（EXtensible HyperText Markup Language）。</li>
-<li>XHTML 的目标是取代 HTML。</li>
-<li>XHTML 与 HTML 4.01 几乎是相同的。</li>
-<li>XHTML 是更严格更纯净的 HTML 版本。</li>
-<li>XHTML 是作为一种 XML 应用被重新定义的 HTML。</li>
-<li>XHTML 是一个 W3C 标准。</li>
-</ul>
-<h2 id="查文档"><a href="#查文档" class="headerlink" title="查文档"></a>查文档</h2><p>经常查阅文档是一个非常好的学习习惯。</p>
-<p>W3C : <a target="_blank" rel="noopener" href="http://www.w3school.com.cn/">http://www.w3school.com.cn/</a></p>
-<p>MDN: <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/">https://developer.mozilla.org/zh-CN/</a></p>
-
       
     </div>
 

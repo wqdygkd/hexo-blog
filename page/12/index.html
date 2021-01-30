@@ -261,7 +261,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">145</span>
+          <span class="site-state-item-count">146</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -272,7 +272,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">72</span>
+        <span class="site-state-item-count">75</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -306,6 +306,153 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/420.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/420.html" class="post-title-link" itemprop="url">Docker 的安装和使用</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-06-18 22:27:38" itemprop="dateCreated datePublished" datetime="2019-06-18T22:27:38+00:00">2019-06-18</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="安装-dcoker"><a href="#安装-dcoker" class="headerlink" title="安装 dcoker"></a>安装 dcoker</h2><h3 id="ubuntu-16-04-LTS-安装-docker"><a href="#ubuntu-16-04-LTS-安装-docker" class="headerlink" title="ubuntu 16.04 (LTS) 安装 docker"></a>ubuntu 16.04 (LTS) 安装 docker</h3><p>参考官网安装方法 <a target="_blank" rel="noopener" href="https://docs.docker.com/engine/install/ubuntu/">https://docs.docker.com/engine/install/ubuntu/</a></p>
+<p>卸载旧版本</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo apt-get remove docker docker-engine docker.io containerd runc</span><br></pre></td></tr></table></figure>
+<h4 id="镜像仓库方式安装"><a href="#镜像仓库方式安装" class="headerlink" title="镜像仓库方式安装"></a>镜像仓库方式安装</h4><h5 id="设置镜像仓库"><a href="#设置镜像仓库" class="headerlink" title="设置镜像仓库"></a>设置镜像仓库</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 更新 apt 软件包索引：</span></span><br><span class="line">$ sudo apt-get update</span><br><span class="line"><span class="comment"># 安装软件包，以允许 apt 通过 HTTPS 使用镜像仓库：</span></span><br><span class="line">$ sudo apt-get install \</span><br><span class="line">    apt-transport-https \</span><br><span class="line">    ca-certificates \</span><br><span class="line">    curl \</span><br><span class="line">    gnupg-agent \</span><br><span class="line">    software-properties-common</span><br><span class="line"><span class="comment"># 添加 Docker 的官方 GPG 密钥：</span></span><br><span class="line">$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</span><br><span class="line"><span class="comment"># 验证密钥指纹是否为 9DC8 5822 9FC7 DD38 854A E2D8 8D81 803C 0EBF CD88。</span></span><br><span class="line">$ sudo apt-key fingerprint 0EBFCD88</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置 stable 镜像仓库</span></span><br><span class="line"><span class="comment"># amd64:</span></span><br><span class="line">$ sudo add-apt-repository <span class="string">&quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu <span class="subst">$(lsb_release -cs)</span> stable&quot;</span></span><br></pre></td></tr></table></figure>
+<p>使用国内源</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 更换国内软件源，推荐中国科技大学的源</span></span><br><span class="line">$ sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak</span><br><span class="line">$ sudo sed -i <span class="string">&#x27;s/archive.ubuntu.com/mirrors.ustc.edu.cn/g&#x27;</span> /etc/apt/sources.list</span><br><span class="line">$ sudo apt update</span><br><span class="line"><span class="comment"># 安装需要的包</span></span><br><span class="line">$ sudo apt install apt-transport-https ca-certificates software-properties-common curl</span><br><span class="line"><span class="comment"># 添加 GPG 密钥，并添加 Docker-ce 软件源，这里还是以中国科技大学的 Docker-ce 源为例</span></span><br><span class="line">$ curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg | sudo apt-key add -</span><br><span class="line">$ sudo add-apt-repository <span class="string">&quot;deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu \</span></span><br><span class="line"><span class="string"><span class="subst">$(lsb_release -cs)</span> stable&quot;</span></span><br><span class="line"><span class="comment"># 添加成功后更新软件包缓存</span></span><br><span class="line">$ sudo apt update</span><br><span class="line"><span class="comment"># 安装 Docker-ce</span></span><br><span class="line">$ sudo apt install docker-ce</span><br></pre></td></tr></table></figure>
+<h5 id="安装-DOCKER-CE"><a href="#安装-DOCKER-CE" class="headerlink" title="安装 DOCKER CE"></a>安装 DOCKER CE</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get install docker-ce docker-ce-cli containerd.io</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装指定版本</span></span><br><span class="line">$ apt-cache madison docker-ce</span><br><span class="line"></span><br><span class="line">  docker-ce | 5:18.09.1~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages</span><br><span class="line">  docker-ce | 5:18.09.0~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages</span><br><span class="line">  docker-ce | 18.06.0~ce~3-0~ubuntu | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages</span><br><span class="line">  docker-ce | 18.03.1~ce~3-0~ubuntu | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages</span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">$ sudo apt-get install docker-ce=&lt;VERSION_STRING&gt; docker-ce-cli=&lt;VERSION_STRING&gt; containerd.io</span><br></pre></td></tr></table></figure>
+<p>启动 docker daemon<br>否则会报错：docker: Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?.<br>See ‘docker run –help’.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo service docker start</span><br><span class="line"><span class="comment"># sudo systemctl enable docker</span></span><br><span class="line"><span class="comment"># sudo systemctl start docker</span></span><br></pre></td></tr></table></figure>
+<p>验证是否正确安装</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo docker run hello-world</span><br></pre></td></tr></table></figure>
+<p>此命令将下载一个测试镜像并在容器中运行它。容器运行时，它将输出一条参考消息并退出</p>
+<h5 id="升级-docker-ce"><a href="#升级-docker-ce" class="headerlink" title="升级 docker ce"></a>升级 docker ce</h5><p>如需升级 Docker CE，首先运行 <code>sudo apt-get update</code>，然后按照顺序执行操作，并选择您要安装的新版本</p>
+<h5 id="卸载-docker-ce"><a href="#卸载-docker-ce" class="headerlink" title="卸载 docker ce"></a>卸载 docker ce</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo apt-get purge docker-ce docker-ce-cli containerd.io</span><br></pre></td></tr></table></figure>
+<p>主机上的镜像、容器、存储卷、或定制配置文件不会自动删除。如需删除所有镜像、容器和存储卷，请运行下列命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo rm -rf /var/lib/docker</span><br></pre></td></tr></table></figure>
+<h5 id="将-docker-配置为在启动时启动"><a href="#将-docker-配置为在启动时启动" class="headerlink" title="将 docker 配置为在启动时启动"></a>将 docker 配置为在启动时启动</h5><h4 id="使用脚本安装"><a href="#使用脚本安装" class="headerlink" title="使用脚本安装"></a>使用脚本安装</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -sSL https://get.docker.com/ | sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将用户添加到docker组，可以用非root用户使用docker</span></span><br><span class="line">$ sudo usermod -aG docker &lt;your-user&gt;</span><br></pre></td></tr></table></figure>
+<p>国内的服务器可以使用如下脚本加速安装，</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 阿里云的安装脚本</span></span><br><span class="line">curl -sSL http://acs-public-mirror.oss-cn-hangzhou.aliyuncs.com/docker-engine/internet | sh -</span><br><span class="line"><span class="comment"># DaoCloud 的安装脚本</span></span><br><span class="line">curl -sSL https://get.daocloud.io/docker | sh</span><br></pre></td></tr></table></figure>
+<h3 id="centos-安装-docker"><a href="#centos-安装-docker" class="headerlink" title="centos 安装 docker"></a>centos 安装 docker</h3><p>参考官网安装方法 <a target="_blank" rel="noopener" href="https://docs.docker.com/engine/install/centos/">https://docs.docker.com/engine/install/centos/</a></p>
+<p>卸载旧版本(如果安装过旧版本的话)</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo yum remove docker \</span><br><span class="line">                  docker-client \</span><br><span class="line">                  docker-client-latest \</span><br><span class="line">                  docker-common \</span><br><span class="line">                  docker-latest \</span><br><span class="line">                  docker-latest-logrotate \</span><br><span class="line">                  docker-logrotate \</span><br><span class="line">                  docker-engine</span><br></pre></td></tr></table></figure>
+<p>安装需要的软件包， yum-util 提供 yum-config-manager 功能，另外两个是 devicemapper 驱动依赖的</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo yum install -y yum-utils</span><br></pre></td></tr></table></figure>
+<p>设置 yum 源</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo yum-config-manager \</span><br><span class="line">    --add-repo \</span><br><span class="line">    https://download.docker.com/linux/centos/docker-ce.repo</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>安装</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo yum install docker-ce</span><br><span class="line"></span><br><span class="line"><span class="comment"># 可以查看所有仓库中所有 docker 版本，并选择特定版本安装</span></span><br><span class="line">$ yum list docker-ce --showduplicates | sort -r</span><br><span class="line">$ sudo yum install docker-ce-&lt;VERSION_STRING&gt; docker-ce-cli-&lt;VERSION_STRING&gt; containerd.io</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动 Docker,设置开机启动,停止 Docker</span></span><br><span class="line">$ sudo systemctl start docker</span><br><span class="line">$ sudo systemctl <span class="built_in">enable</span> docker</span><br><span class="line">$ sudo systemctl stop docker</span><br></pre></td></tr></table></figure>
+<p>卸载</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo yum remove docker-ce docker-ce-cli containerd.io</span><br><span class="line">$ sudo rm -rf /var/lib/docker</span><br></pre></td></tr></table></figure>
+<p>常见问题</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 报错：Requires: container-selinux &gt;= 2:2.74</span></span><br><span class="line">You could try using --skip-broken to work around the problem</span><br><span class="line"></span><br><span class="line">$ wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo</span><br><span class="line">$ yum install epel-release   <span class="comment"># 阿里云上的 epel 源</span></span><br><span class="line">$ yum makecache</span><br><span class="line">$ yum install container-selinux</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Job for docker.service failed because the control process exited with error code. See &quot;systemctl status docker.service&quot; and &quot;journalctl -xe&quot; for details.</span></span><br><span class="line"></span><br><span class="line">卸载 docker 重新安装</span><br></pre></td></tr></table></figure>
+<h2 id="使用-docker"><a href="#使用-docker" class="headerlink" title="使用 docker"></a>使用 docker</h2><h2 id="配置镜像加速"><a href="#配置镜像加速" class="headerlink" title="配置镜像加速"></a>配置镜像加速</h2><h3 id="修改-docker-源"><a href="#修改-docker-源" class="headerlink" title="修改 docker 源"></a>修改 docker 源</h3><p>修改配置文件 <code>/etc/docker/daemon.json</code>（Linux） 或者 <code>%programdata%\docker\config\daemon.json</code>（Window)</p>
+<p>如果没有新建一个</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;registry-mirrors&quot;</span>: [<span class="string">&quot;https://registry.docker-cn.com&quot;</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>重启 docker</p>
+<h3 id="安装镜像"><a href="#安装镜像" class="headerlink" title="安装镜像"></a>安装镜像</h3><p>安装 Ubuntu 镜像</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker search ubuntu <span class="comment"># 查找 Ubuntu 镜像</span></span><br><span class="line">docker pull ubuntu <span class="comment"># 安装 Ubuntu 镜像</span></span><br><span class="line">docker images <span class="comment">#查看 docker 镜像</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建并运行 docker 容器</span></span><br><span class="line">docker run -it -d --name ubuntu_test -p 8088:80 ubuntu</span><br><span class="line"><span class="comment"># --name 自定义容器名，-p 指定端口映射，前者为虚拟机端口，后者为容器端口,成功后返回 id</span></span><br><span class="line"><span class="comment"># 多个 -p 指定多个端口映射</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行 docker 容器  启动一个 bash 交互终端</span></span><br><span class="line">docker run -it 容器名:容器tag /bin/bash</span><br><span class="line"></span><br><span class="line">docker start container_id</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看所有启动的容器(查看所有容器加 -a)</span></span><br><span class="line">docker ps</span><br><span class="line"></span><br><span class="line"><span class="comment"># 根据 id 查看容器信息</span></span><br><span class="line">docker inspect id</span><br><span class="line"></span><br><span class="line"><span class="comment"># 进入docker(或者把容器id改为容器名，也可以进入)</span></span><br><span class="line">docker <span class="built_in">exec</span> -it 容器id或容器名 /bin/bash</span><br><span class="line"></span><br><span class="line"><span class="comment"># OCI runtime exec failed: exec failed: container_linux.go:349: starting container process caused &quot;exec: \&quot;/bin/bash\&quot;: stat /bin/bash: no such file or directory&quot;: unknown</span></span><br><span class="line"><span class="comment"># 解决</span></span><br><span class="line"><span class="comment"># docker exec -it 容器id或容器名 /bin/sh</span></span><br><span class="line"><span class="comment"># docker exec -it 容器id或容器名 bash</span></span><br><span class="line"><span class="comment"># docker exec -it 容器id或容器名 sh</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 退出容器</span></span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止容器</span></span><br><span class="line">docker stop id</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除容器</span></span><br><span class="line">docker rm 容器id</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除镜像</span></span><br><span class="line">docker rmi 删除镜像</span><br></pre></td></tr></table></figure>
+<p>备份镜像</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 制作 docker 镜像  1.0 为版本号</span></span><br><span class="line">docker commit 98 my-ubuntu:1.0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看镜像是否创建</span></span><br><span class="line">docker images</span><br><span class="line"></span><br><span class="line"><span class="comment"># 保存镜像到 docker 账号中</span></span><br><span class="line"><span class="comment"># 登录进 Docker 注册中心</span></span><br><span class="line">docker login</span><br><span class="line"></span><br><span class="line"><span class="comment"># 推送镜像</span></span><br><span class="line">docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]</span><br><span class="line">docker tag my-ubuntu:1.0 cuilongjin/my-ubuntu:1.0</span><br><span class="line">docker push cuilongjin/my-ubuntu:1.0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打包镜像并查看</span></span><br><span class="line">docker save -o my-ubuntu.tar my-ubuntu:1.0</span><br></pre></td></tr></table></figure>
+<p>恢复容器</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 从docker账号中拉取</span></span><br><span class="line">docker pull cuilongjin/my-ubuntu:1.0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 从本地</span></span><br><span class="line">docker load -i ~/my-ubuntu.tar</span><br><span class="line"></span><br><span class="line"><span class="comment"># docker images</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 用加载的镜像去运行Docker容器</span></span><br><span class="line">docker run -d -p 80:80 my-ubuntu</span><br></pre></td></tr></table></figure>
+<p><strong>docker 给已存在的容器添加或修改端口映射</strong></p>
+<p>方式 1：</p>
+<p>提交一个运行中的容器为镜像</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ docker commit containerid foo/live</span><br></pre></td></tr></table></figure>
+<p>运行镜像并添加端口</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ docker run -d -p 8000:80  foo/live /bin/bash</span><br></pre></td></tr></table></figure>
+<p>方式 2：iptable 转发端口</p>
+<p>将容器的 8000 端口映射到 docker 主机的 8001 端口</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ iptables -t nat -A  DOCKER -p tcp --dport 5001 -j DNAT --to-destination 45.77.150.20:8000</span><br></pre></td></tr></table></figure>
+<h3 id="docker-容器使用问题"><a href="#docker-容器使用问题" class="headerlink" title="docker 容器使用问题"></a>docker 容器使用问题</h3><h4 id="Centos7-docker-容器报-docker-Failed-to-get-D-Bus-connection-错误"><a href="#Centos7-docker-容器报-docker-Failed-to-get-D-Bus-connection-错误" class="headerlink" title="Centos7 docker 容器报 docker Failed to get D-Bus connection 错误"></a>Centos7 docker 容器报 docker Failed to get D-Bus connection 错误</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ systemctl start nginx</span><br><span class="line">Failed to get D-Bus connection: Operation not permitted。</span><br></pre></td></tr></table></figure>
+<p>原因是 dbus-daemon 没能启动</p>
+<p>解决方法</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -it -d --name ubuntu_test -p 8088:80 ubuntu</span><br><span class="line">$ docker run --privileged -ti --name test1  centos /usr/sbin/init</span><br></pre></td></tr></table></figure>
+<h4 id="ssh-链接-docker-容器"><a href="#ssh-链接-docker-容器" class="headerlink" title="ssh 链接 docker 容器"></a>ssh 链接 docker 容器</h4><p>进入容器</p>
+<p>安装依赖</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install passwd openssl openssh-server openssh-clients -y</span><br></pre></td></tr></table></figure>
+<p>安装 service 命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install initscripts -y</span><br></pre></td></tr></table></figure>
+<p>修改密码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">passwd</span><br></pre></td></tr></table></figure>
+<p>修改配置：</p>
+<p>vi /etc/ssh/sshd_config</p>
+<p>PubkeyAuthentication yes #启用公钥私钥配对认证方式<br>AuthorizedKeysFile .ssh/authorized_keys #公钥文件路径</p>
+<p>PermitRootLogin yes #root 能使用 ssh 登录</p>
+<p>重启 ssh 服务，并设置开机启动：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">service sshd restartchkconfig sshd on</span><br></pre></td></tr></table></figure>
+<p>如果无法执行，可试着执行：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">systemctl start sshd.service systemctl enable sshd.service</span><br><span class="line"></span><br><span class="line">service sshd restart</span><br></pre></td></tr></table></figure>
+<h4 id="运行-docker-exec-it-容器-bin-bash-出现如下错误"><a href="#运行-docker-exec-it-容器-bin-bash-出现如下错误" class="headerlink" title="运行 docker exec -it 容器 /bin/bash 出现如下错误"></a>运行 docker exec -it 容器 /bin/bash 出现如下错误</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">OCI runtime exec failed: exec failed: container_linux.go:346: starting container process caused &quot;exec: \&quot;&#x2F;bin&#x2F;bash\&quot;: stat &#x2F;bin&#x2F;bash: no such file or directory&quot;: unknown</span><br></pre></td></tr></table></figure>
+<p>解决方式：尝试使用如下命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo docker <span class="built_in">exec</span> -it 容器 /bin/sh</span><br><span class="line">sudo docker <span class="built_in">exec</span> -it 容器 bash</span><br></pre></td></tr></table></figure>
+<h2 id="docker-compose"><a href="#docker-compose" class="headerlink" title="docker-compose"></a>docker-compose</h2><p>如果你想要通过 docker-compose 统一管理你的 Docker container，这里也可以安装一下</p>
+<p>官方文档：<a target="_blank" rel="noopener" href="https://docs.docker.com/compose/install/">https://docs.docker.com/compose/install/</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo curl -L https://github.com/docker/compose/releases/download/1.26.2/run.sh &gt; /usr/<span class="built_in">local</span>/bin/docker-compose</span><br><span class="line">sudo chmod +x /usr/<span class="built_in">local</span>/bin/docker-compose</span><br></pre></td></tr></table></figure>
+<p>使用 pip 安装</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install docker-compose</span><br></pre></td></tr></table></figure>
+<p>运行一下 <code>docker-compose version</code> 来检测一下是否成功</p>
+<h3 id="创建配置文件"><a href="#创建配置文件" class="headerlink" title="创建配置文件"></a>创建配置文件</h3><p>创建一个名为 <code>docker-compose.yml</code> 的配置文件</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&#x27;3&#x27;</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">v2ray1:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">v2fly/v2fly-core</span> <span class="comment"># 镜像名称</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">v2ray</span> <span class="comment"># 容器名称</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="attr">command:</span> <span class="string">v2ray</span> <span class="string">-config=/etc/v2ray/config.json</span> <span class="comment"># 覆盖容器启动后默认执行的命令</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="comment"># HOST:CONTAINER</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;44222:44222&#x27;</span> <span class="comment"># 端口</span></span><br><span class="line">      <span class="comment">#- &quot;127.0.0.1:8889:8889&quot;</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="comment"># HOST:CONTAINER</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./config:/etc/v2ray</span> <span class="comment"># 目录</span></span><br><span class="line">      <span class="comment">#- /etc/v2ray/v2ray.crt:/etc/v2ray/v2ray.crt</span></span><br><span class="line">      <span class="comment">#- /etc/v2ray/v2ray.key:/etc/v2ray/v2ray.key</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">v2ray2:</span></span><br><span class="line">    <span class="attr">build:</span></span><br><span class="line">      <span class="attr">context:</span> <span class="string">./dir</span> <span class="comment"># context 选项可以是 Dockerfile 的文件路径，也可以是到链接到 git 仓库的 url</span></span><br><span class="line">      <span class="attr">dockerfile:</span> <span class="string">path/of/Dockerfile</span> <span class="comment"># 使用此 dockerfile 文件来构建，必须指定构建路径</span></span><br></pre></td></tr></table></figure>
+<h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><p>以下命令需要在 docker-compose.yml 所在目录下执行</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker-compose up -d <span class="comment"># 部署 v2ray</span></span><br><span class="line">docker-compose start v2ray <span class="comment"># 启动 v2ray</span></span><br><span class="line">docker-compose stop v2ray <span class="comment"># 停止 v2ray</span></span><br><span class="line">docker-compose restart v2ray <span class="comment"># 重启 v2ray</span></span><br><span class="line">docker stop v2ray &amp;&amp; docker rm v2ray <span class="comment"># 删除 v2ray</span></span><br><span class="line">docker-compose pull &amp;&amp; docker-compose up -d <span class="comment"># 更新 v2ray</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -2603,254 +2750,6 @@
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">li &#123;</span><br><span class="line">  float: left;</span><br><span class="line">  width: round(100%&#x2F;6, 2);</span><br><span class="line">  height: 100px + 100px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><a target="_blank" rel="noopener" href="http://www.1024i.com/demo/less/reference.html">http://www.1024i.com/demo/less/reference.html</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/390.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/390.html" class="post-title-link" itemprop="url">bootstrap 框架</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2018-12-11 22:06:47" itemprop="dateCreated datePublished" datetime="2018-12-11T22:06:47+00:00">2018-12-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Bootstrap，来自 Twitter，是目前最受欢迎的前端框架。Bootstrap 是基于 HTML、CSS、JAVASCRIPT 的，它简洁灵活，使得 Web 开发更加快捷</p>
-<p><a target="_blank" rel="noopener" href="http://www.bootcss.com/">bootstrap 中文网</a></p>
-<p>特点：</p>
-<ul>
-<li>组件简洁大方、代码规范精简、界面自定义性强</li>
-<li>Bootstrap 是基于 HTML5 和 CSS3 开发的，它在 jQuery 的基础上进行了更为个性化和人性化的完善，形成一套自己独有的网站风格，并兼容大部分 jQuery 插件</li>
-<li>Bootstrap 中包含了丰富的 Web 组件，根据这些组件，可以快速的搭建一个漂亮、功能完备的网站</li>
-</ul>
-<p>优点：</p>
-<ul>
-<li>有自己的生态圈，不断的更新迭代</li>
-<li>提供了一套简洁、直观、强悍的组件</li>
-<li>标准化的 HTML+CSS 编码规范</li>
-<li>让开发更简单，提高了开发效率</li>
-<li>扩展性强，虽然界面组件样式已经定义好了，我们还可以自定义，修改默认样式</li>
-</ul>
-<p>版本：</p>
-<ul>
-<li>2.x.x 停止维护<ul>
-<li>优点：兼容性好 IE678</li>
-<li>缺点：代码不够简洁、功能不够完善</li>
-</ul>
-</li>
-<li>3.x.x <strong>目前使用最多（H5C3 很多东西）</strong><ul>
-<li>优点：稳定，偏向于开发响应式布局，移动设备优先的 WEB 项目</li>
-<li>缺点：放弃了 IE67，对 IE8 支持但是界面效果不友好</li>
-</ul>
-</li>
-<li>4.x.x 测试阶段</li>
-</ul>
-<h2 id="基本模板"><a href="#基本模板" class="headerlink" title="基本模板"></a>基本模板</h2><p>!&gt; 但凡看到 <code>role属性</code> <code>aria-*的属性</code> <code>class=&#39;sr-only&#39;的标签</code> 都可以直接删除，因为是给屏幕阅读器用的</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>bootstrap基本模板<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 引入 bootstrap 的核心样式文件 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">&quot;lib/bootstrap/css/bootstrap.min.css&quot;</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- html5shiv 是用来解决 IE8 以下浏览器不支持 HTML5 语义化标签的问题 --&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- respond 是用来解决 IE8 以下浏览器不支持媒体查询的问题，注意：respond 不支持 file 协议打开 --&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 条件注释：IE浏览器专属 --&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--[if lt IE 9]&gt;</span></span><br><span class="line"><span class="comment">    &lt;script src=&quot;html5shiv.min.js&quot;&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="comment">    &lt;script src=&quot;respond.min.js&quot;&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="comment">  &lt;![endif]--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>你好，世界！<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- bootstrap 依赖于 jquery，因此需要在 bootstrap 之前引入jquery文件 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;lib/jquery/jquery-1.12.4.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 引入 bootstrap 的核心js文件 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;lib/bootstrap/js/bootstrap.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="全局样式"><a href="#全局样式" class="headerlink" title="全局样式"></a>全局样式</h2><h3 id="normalize-css"><a href="#normalize-css" class="headerlink" title="normalize.css"></a>normalize.css</h3><p>Normalize.css 是一种 CSS reset 的替代方案。经过@necolas 和@jon_neal 花了几百个小时来努力研究不同浏览器的默认样式的差异，这个项目终于变成了现在这样</p>
-<p><a target="_blank" rel="noopener" href="http://necolas.github.io/normalize.css/">官网</a> <a target="_blank" rel="noopener" href="https://github.com/necolas/normalize.css">github 网址</a></p>
-<p>normalize 的特点：</p>
-<ul>
-<li><strong>保护有用的浏览器默认样式</strong>而不是完全去掉它们</li>
-<li><strong>一般化的样式</strong>：为大部分 HTML 元素提供</li>
-<li><strong>修复浏览器自身的 bug</strong>并保证各浏览器的一致性</li>
-<li><strong>优化 CSS 可用性</strong>：用一些小技巧</li>
-</ul>
-<p><code>Normalize.css</code> 支持包括手机浏览器在内的超多浏览器，同时对 HTML5 元素、排版、列表、嵌入的内容、表单和表格都进行了一般化。尽管这个项目基于一般化的原则，但我们还是在合适的地方使用了更实用的默认值。</p>
-<p><a target="_blank" rel="noopener" href="http://www.cnblogs.com/webpush/p/4974063.html">Normalize.css 与 CSS reset 区别</a></p>
-<h3 id="布局容器"><a href="#布局容器" class="headerlink" title="布局容器"></a>布局容器</h3><p>Bootstrap 需要为页面内容和栅格系统包裹一个 .container 容器。默认带了 15px 的 padding 值</p>
-<p><code>.container</code> 类用于固定宽度并支持响应式布局的容器</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><code>.container-fluid</code> 类用于 100% 宽度，占据全部视口（viewport）的容器</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container-fluid&quot;</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>这两种容器类不能互相嵌套</p>
-<h3 id="栅格系统"><a href="#栅格系统" class="headerlink" title="栅格系统"></a>栅格系统</h3><p>栅格系统，也叫网格系统，bootstrap 栅格系统把一个盒子分成 12 格</p>
-<ul>
-<li><p>栅格参数：<code>col-xx-yy</code></p>
-<p>xx：<code>lg</code> 大屏(≥1200px)、<code>md</code> 中屏(≥992px)、<code>sm</code> 小屏(≥768px)、<code>xs</code> 超小屏(&lt;768px)</p>
-<p>yy：取值范围为 1 - 12 表示占几格</p>
-<p><code>col-xx-12</code>：可以省略不写</p>
-</li>
-<li><p>列偏移：<code>col-xx-offset-yy</code></p>
-<p>xx ：lg、md、sm、xs</p>
-<p>yy：取值范围为 1 - 12 表示往右偏移几格</p>
-<p>列偏移：实际上是给当前元素增加了左侧的边距（margin）</p>
-</li>
-<li><p>多余列（column）的元素将作为一个整体单元被另起一行排列</p>
-</li>
-<li><p><code>.row</code>用于抵消 <code>.container</code>容器的 15px 的 padding 值，实际上是给元素添加了 margin: -15px</p>
-</li>
-<li><p>可以在<code>.row</code>中嵌套<code>column</code></p>
-</li>
-<li><p>列排序：<code>.col-md-push-*</code> 和 <code>.col-md-pull-*</code></p>
-</li>
-</ul>
-<p>栅格系统常用类（总共 12 列）</p>
-<table>
-<thead>
-<tr>
-<th>类名</th>
-<th>例子</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>.col-xs-xx</td>
-<td>.col-xs-6</td>
-<td>在超小屏幕（及以上）生效</td>
-</tr>
-<tr>
-<td>.col-sm-xx</td>
-<td>.col-sm-6</td>
-<td>在小屏幕（及以上）生效</td>
-</tr>
-<tr>
-<td>.col-md-xx</td>
-<td>.col-md-6</td>
-<td>在中屏幕（及以上）生效</td>
-</tr>
-<tr>
-<td>.col-lg-xx</td>
-<td>.col-lg-3</td>
-<td>在大屏幕及生效，占 1/4</td>
-</tr>
-<tr>
-<td>.col-lg-xx</td>
-<td>.col-lg-4</td>
-<td>在大屏幕及生效，占 1/3</td>
-</tr>
-<tr>
-<td>.col-lg-xx</td>
-<td>.col-lg-5</td>
-<td>在大屏幕及生效，占 1/2</td>
-</tr>
-</tbody></table>
-<p>【案例：列嵌套.html】</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-lg-4&quot;</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 栅格系统无处不在，只要父盒子有宽度，就可以使用栅格系统 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;row&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-lg-6&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-lg-6&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>【案例：列偏移.html】</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 使用 .col-md-offset-* 类可以将列向右侧偏移--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;row&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-lg-3&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- col-lg-offset-3:在大屏下，这个div将向右侧偏移3个单位 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-lg-6 col-lg-offset-3&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="排版"><a href="#排版" class="headerlink" title="排版"></a>排版</h3><p>标题：h1 到 h6 标签、<code>.h1</code> 到 <code>.h6</code> 类、 <code>&lt;small&gt;</code> 标签或 <code>.small</code> 类用来标记副标题</p>
-<p>文本：<code>&lt;mark&gt;</code>标记、<code>&lt;del&gt;</code>删除、<code>&lt;s&gt;</code>无用文本、<code>&lt;ins&gt;</code>插入文本、<code>&lt;u&gt;</code>下划线文本、 <code>.small</code> 类或<code>&lt;small&gt;</code> 小号文本、<code>&lt;strong&gt;</code>着重</p>
-<p>对齐：<code>text-left</code>、<code>text-center</code>、<code>text-right</code>、<code>text-justify</code>、<code>text-nowrap</code></p>
-<h3 id="按钮"><a href="#按钮" class="headerlink" title="按钮"></a>按钮</h3><p><code>&lt;a&gt;</code>、<code>&lt;button&gt;</code> 或 <code>&lt;input&gt;</code></p>
-<p>预定义样式：btn、btn-default、btn-primary(蓝)、btn-success(绿)、btn-info(浅蓝)、btn-warning(橙)、btn-danger(红)、btn-link(链接)</p>
-<p>尺寸：btn-lg(大)、(默认)、btn-sm(小)、btn-xs(超小)<br>btn-block (块元素 100%宽度)</p>
-<p>激活状态：active</p>
-<p>禁用状态：button 元素 添加 <code>disabled</code> 属性、链接<code>&lt;a&gt;</code>元素添加 <code>.disabled</code> 类（建议通过 JavaScript 代码来禁止链接的原始功能）</p>
-<h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3><p>响应式图片：<code>img-responsive</code></p>
-<p>实质是为图片设置了 max-width: 100%;、 height: auto; 和 display: block; 属性</p>
-<p>图片形状：<code>img-rounded</code>、<code>img-circle</code>、<code>img-thumbnail</code></p>
-<h3 id="辅助类"><a href="#辅助类" class="headerlink" title="辅助类"></a>辅助类</h3><p>文本颜色：<code>text-muted</code>、<code>text-muted</code>、<code>text-primary</code>、<code>text-success</code>、<code>text-info</code>、<code>text-warning</code>、<code>text-danger</code></p>
-<p>背景颜色：<code>bg-primary</code>、<code>bg-success</code>、<code>bg-info</code>、<code>bg-warning</code>、<code>bg-danger</code></p>
-<p>关闭按钮：<code>&lt;button type=&quot;button&quot; class=&quot;close&quot;&gt;&lt;span&gt;&amp;times;&lt;/span&gt;&lt;/button&gt;</code></p>
-<p>三角符号：<code>&lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;</code></p>
-<p>快速浮动：<code>pull-left</code>、<code>pull-right</code></p>
-<p>让内容块居中：<code>&lt;div class=&quot;center-block&quot;&gt;...&lt;/div&gt;</code></p>
-<p>清除浮动：<code>clearfix</code></p>
-<p>显示隐藏内容：<code>show</code>、<code>hidden</code>、<code>invisible</code></p>
-<h3 id="响应式工具"><a href="#响应式工具" class="headerlink" title="响应式工具"></a>响应式工具</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">	            超小屏 小屏幕 中等屏幕 大屏幕桌面</span><br><span class="line">.visible-xs-*	可见   隐藏   隐藏	  隐藏</span><br><span class="line">.visible-sm-*	隐藏   可见   隐藏	  隐藏</span><br><span class="line">.visible-md-*	隐藏   隐藏   可见	  隐藏</span><br><span class="line">.visible-lg-*	隐藏   隐藏   隐藏	  可见</span><br><span class="line"></span><br><span class="line">.hidden-xs	  隐藏	 可见	  可见	  可见</span><br><span class="line">.hidden-sm	  可见	 隐藏	  可见	  可见</span><br><span class="line">.hidden-md	  可见	 可见	  隐藏	  可见</span><br><span class="line">.hidden-lg    可见	 可见	  可见	  隐藏</span><br></pre></td></tr></table></figure>
-<p><code>*</code> -&gt; block inline inline-block</p>
-<p>推荐使用 hidden 相关的属性</p>
-<h2 id="bootstrap-validator-插件"><a href="#bootstrap-validator-插件" class="headerlink" title="bootstrap-validator 插件"></a>bootstrap-validator 插件</h2><p>基于 bootstrap 的前端校验插件</p>
-<p><a target="_blank" rel="noopener" href="http://bootstrapvalidator.votintsev.ru/api">http://bootstrapvalidator.votintsev.ru/api</a></p>
-<h3 id="引包"><a href="#引包" class="headerlink" title="引包"></a>引包</h3><p>引入 css 文件</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;lib/bootstrap/css/bootstrap.css&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;lib/bootstrap-validator/css/bootstrapValidator.css&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-<p>引入 js 文件</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;lib/jquery/jquery.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;lib/bootstrap/js/bootstrap.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;lib/bootstrap-validator/js/bootstrapValidator.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="初始化表单校验插件"><a href="#初始化表单校验插件" class="headerlink" title="初始化表单校验插件"></a>初始化表单校验插件</h3><p>bootstrap-validator 插件会在表单提交的时候进行校验，如果校验成功了，表单会继续提交，但是如果校验失败了，就会阻止表单的提交</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 使用表单校验插件</span></span><br><span class="line">$(formSelector).bootstrapValidator(&#123;</span><br><span class="line">  <span class="comment">// 1. 指定不校验的类型，默认为[&#x27;:disabled&#x27;, &#x27;:hidden&#x27;, &#x27;:not(:visible)&#x27;],可以不设置</span></span><br><span class="line">  excluded: [], <span class="comment">// 全部校验</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 2. 指定校验时的图标显示，默认是bootstrap风格</span></span><br><span class="line">  feedbackIcons: &#123;</span><br><span class="line">    valid: <span class="string">&#x27;glyphicon glyphicon-ok&#x27;</span>,</span><br><span class="line">    invalid: <span class="string">&#x27;glyphicon glyphicon-remove&#x27;</span>,</span><br><span class="line">    validating: <span class="string">&#x27;glyphicon glyphicon-refresh&#x27;</span></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 3. 指定校验字段</span></span><br><span class="line">  fields: &#123;</span><br><span class="line">    username: &#123;</span><br><span class="line">      <span class="comment">// 设置校验规则</span></span><br><span class="line">      validators: &#123;</span><br><span class="line">        <span class="comment">// 不能为空</span></span><br><span class="line">        notEmpty: &#123;</span><br><span class="line">          message: <span class="string">&#x27;&#x27;</span></span><br><span class="line">        &#125;,</span><br><span class="line">        stringLength: &#123;</span><br><span class="line">          min: <span class="number">6</span>,</span><br><span class="line">          max: <span class="number">12</span>,</span><br><span class="line">          message: <span class="string">&#x27;&#x27;</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="comment">// 正则校验</span></span><br><span class="line">        regexp: &#123;</span><br><span class="line">          regexp: <span class="regexp">/^[a-zA-Z0-9_\.]+$/</span>,</span><br><span class="line">          message: <span class="string">&#x27;用户名由数字字母下划线和.组成&#x27;</span></span><br><span class="line">        &#125;,</span><br><span class="line"></span><br><span class="line">        callback: &#123;&#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    password: &#123;&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h3 id="注册表单校验成功的事件"><a href="#注册表单校验成功的事件" class="headerlink" title="注册表单校验成功的事件"></a>注册表单校验成功的事件</h3><p>当表单校验成功时，会触发<code>success.form.bv</code>事件，此时会提交表单，通常我们需要禁止表单的自动提交，使用 ajax 进行表单的提交</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;#form&#x27;</span>).on(<span class="string">&#x27;success.form.bv&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  e.preventDefault()</span><br><span class="line">  <span class="comment">// 使用ajax提交逻辑</span></span><br><span class="line">  $.ajax(&#123;&#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h3 id="获取-validator-实例-对象"><a href="#获取-validator-实例-对象" class="headerlink" title="获取 validator 实例(对象)"></a>获取 validator 实例(对象)</h3><p>当我们初始化好表单校验插件时，我们可以通过以下方法来获取表单校验的 validator 实例，通过 validator 实例调用一些方法来完成某些功能</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 获取表单校验实例</span></span><br><span class="line"><span class="keyword">var</span> validator = $(<span class="string">&#x27;#form&#x27;</span>).data(<span class="string">&#x27;bootstrapValidator&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用表单校验实例可以调用一些常用的方法</span></span><br><span class="line">validator.methodName(params)</span><br></pre></td></tr></table></figure>
-<h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><h4 id="重置表单"><a href="#重置表单" class="headerlink" title="重置表单"></a>重置表单</h4><p>重置表单中设置过校验的内容，将隐藏所有错误提示和图标</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 重置表单，隐藏所有的错误提示和图标 传入参数 true 会将内容也清空</span></span><br><span class="line">validator.resetForm()</span><br></pre></td></tr></table></figure>
-<h4 id="更新字段的状态"><a href="#更新字段的状态" class="headerlink" title="更新字段的状态"></a>更新字段的状态</h4><p>BootstrapValidator 在用户输入内容的时候，会做校验，当调用 bootstrap 的插件的方法可以手动会改变字段值的状态</p>
-<p><code>validator.updateStatus(field*, status*, validator)</code></p>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>field</code></td>
-<td>String|jQuery</td>
-<td>The field name or field element</td>
-</tr>
-<tr>
-<td><code>status</code></td>
-<td>String</td>
-<td>Can be <code>NOT_VALIDATED</code>, <code>VALIDATING</code>, <code>INVALID</code> or <code>VALID</code></td>
-</tr>
-<tr>
-<td><code>validator</code></td>
-<td>String</td>
-<td>The validator name. If <code>null</code>, the method updates validity result for all validators</td>
-</tr>
-</tbody></table>
 
       
     </div>
