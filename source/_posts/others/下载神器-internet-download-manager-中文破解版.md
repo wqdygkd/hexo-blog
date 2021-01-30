@@ -3,15 +3,15 @@ title: 下载神器 Internet Download Manager 中文破解版
 tags:
   - idm
   - 下载
-id: '366'
+id: 366
 categories:
-  - - 软件
+  - 软件
 date: 2019-12-22 14:56:22
 ---
 
 [Internet Download Manager](http://www.internetdownloadmanager.com/) (简称IDM)  是 Windows 平台老牌而功能强大的多线程下载工具，支持多媒体下载、自动捕获链接、自动识别文件名、静默下载、批量下载、计划下载任务、站点抓取、队列，支持IE, Opera, Firefox, Chrome等所有流行的浏览器，如果启用高级集成，则可以捕获和接管从任何程序的下载。
 
-![](https://i.loli.net/2019/12/22/PJjQszUu2bL7SBK.jpg)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210130211514.jpg)
 
 破解版下载地址
 
