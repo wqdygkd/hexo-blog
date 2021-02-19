@@ -1,7 +1,7 @@
 ---
 title: github 下载加速--解决克隆 github 仓库时速度慢的问题
 tags:
-  - GitHub
+  - github
 id: '890'
 categories:
   - - web前端

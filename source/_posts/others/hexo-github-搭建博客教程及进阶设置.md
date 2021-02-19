@@ -1,7 +1,7 @@
 ---
 title: Hexo+Github 搭建博客教程及进阶设置
 tags:
-  - GitHub
+  - github
   - hexo
 id: '423'
 categories:

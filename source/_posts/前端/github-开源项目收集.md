@@ -1,7 +1,7 @@
 ---
 title: Github 开源项目收集
 tags:
-  - GitHub
+  - github
 id: '356'
 categories:
   - - web前端
