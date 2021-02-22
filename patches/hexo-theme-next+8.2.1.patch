@@ -20,17 +20,14 @@ index 4c39119..bdbd652 100644
      </header>
    </article>
 diff --git a/node_modules/hexo-theme-next/layout/_third-party/comments/utterances.njk b/node_modules/hexo-theme-next/layout/_third-party/comments/utterances.njk
-index 85625af..e424ea5 100644
+index 262cb4f..d6f8edc 100644
 --- a/node_modules/hexo-theme-next/layout/_third-party/comments/utterances.njk
 +++ b/node_modules/hexo-theme-next/layout/_third-party/comments/utterances.njk
-@@ -6,8 +6,10 @@ NexT.utils.loadComments('#utterances-container', () => {
+@@ -6,6 +6,7 @@ NexT.utils.loadComments('.utterances-container', () => {
    script.setAttribute('repo', {{ theme.utterances.repo | safedump }});
    script.setAttribute('issue-term', {{ theme.utterances.issue_term | safedump }});
    script.setAttribute('theme', {{ theme.utterances.theme | safedump }});
 +  script.setAttribute('label', {{ theme.utterances.label | safedump }});
    script.crossOrigin = 'anonymous';
    script.async = true;
-+
-   document.querySelector('#utterances-container').appendChild(script);
- });
- </script>
+   document.querySelector('.utterances-container').appendChild(script);
