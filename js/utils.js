@@ -6,7 +6,7 @@ HTMLElement.prototype.wrap = function(wrapper) {
   wrapper.appendChild(this);
 };
 
-// https://caniuse.com/#feat=mdn-api_element_classlist_replace
+// https://caniuse.com/mdn-api_element_classlist_replace
 if (typeof DOMTokenList.prototype.replace !== 'function') {
   DOMTokenList.prototype.replace = function(remove, add) {
     this.remove(remove);
@@ -86,6 +86,7 @@ NexT.utils = {
         const lines = element.querySelector('.code') || element.querySelector('code');
         const code = lines.innerText;
         if (navigator.clipboard) {
+          // https://caniuse.com/mdn-api_clipboard_writetext
           navigator.clipboard.writeText(code).then(() => {
             button.querySelector('i').className = 'fa fa-check-circle fa-fw';
           }, () => {
@@ -336,13 +337,9 @@ NexT.utils = {
     if (condition) {
       callback();
     } else {
-      let script = document.createElement('script');
-      script.onload = script.onreadystatechange = function(_, isAbort) {
-        if (isAbort || !script.readyState || /loaded|complete/.test(script.readyState)) {
-          script.onload = script.onreadystatechange = null;
-          script = undefined;
-          if (!isAbort && callback) setTimeout(callback, 0);
-        }
+      const script = document.createElement('script');
+      script.onload = () => {
+        setTimeout(callback);
       };
       script.src = url;
       document.head.appendChild(script);
