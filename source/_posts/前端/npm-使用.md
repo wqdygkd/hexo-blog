@@ -49,8 +49,15 @@ npm install [<@scope>/]<pkg>@<version range>
 npm install <folder>
 npm install <tarball file>  # .tar, .tar.gz, or .tgz
 npm install <tarball url>
-npm install <github usename>/<guthub project>
-npm install <git:// url>
+
+# 公有仓库
+npm install user/project # 默认 github
+npm install bitbucket:user/project
+npm install gitlab:user/project#semver:^5.0 # semver 版本
+npm install git+https://git@github.com/user/project.git
+npm install git+ssh://git@github.com/user/project.git
+npm install git://github.com/user/project.git
+
 
 npm install <pkg> -S|--save # 安装到 dependencies
 npm install <pkg> -D|--save-dev # 安装到 devDependencies
