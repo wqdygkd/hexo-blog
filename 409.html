@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-logo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-logo.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-logo.png">
+  <link rel="mask-icon" href="/images/favicon-logo.png" color="#222">
+  <meta name="google-site-verification" content="4ub2lNf2WEkusifo-b7xbJIm2G5xxYUczDoWOFGp-NM">
+  <meta name="msvalidate.01" content="C2030D8E2452D4B39AED09488E55F2DF">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
+  <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"wqdy.top","root":"/","images":"/images","scheme":"Pisces","version":"8.2.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
+  </script>
+<meta name="description" content="nodejs 基本介绍为什么要学习 nodejs 降低编程语言切换的成本(nodejs 实质上用的还是 javascript) NodeJS 是前端项目的基础设施，前端项目中用到的大量工具 (大前端) nodejs 在处理高并发上有得天独厚的优势(利用 nodejs 做中间层) 对于前端工程师，面试时对于 nodejs 有一定的要求  node.js 是什么？node.js，也叫作 node，或者">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nodejs 基本使用">
+<meta property="og:url" content="https://wqdy.top/409.html">
+<meta property="og:site_name" content="我全都要">
+<meta property="og:description" content="nodejs 基本介绍为什么要学习 nodejs 降低编程语言切换的成本(nodejs 实质上用的还是 javascript) NodeJS 是前端项目的基础设施，前端项目中用到的大量工具 (大前端) nodejs 在处理高并发上有得天独厚的优势(利用 nodejs 做中间层) 对于前端工程师，面试时对于 nodejs 有一定的要求  node.js 是什么？node.js，也叫作 node，或者">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-12-29T22:21:15.000Z">
+<meta property="article:modified_time" content="2021-02-22T12:56:04.136Z">
+<meta property="article:author" content="c">
+<meta property="article:tag" content="js">
+<meta property="article:tag" content="nodejs">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://wqdy.top/409.html">
+
+
+<script data-pjax class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+<!-- google 分析 -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-9068539038073295",
+        enable_page_level_ads: true
+    });
+</script>
+
+<script>
+  let a = '🍏 🍎 🍐 🍊 🍋 🍌 🍉 🍇 🍓 🍈 🍒 🍑 🍍 🥭 🥥 🥝 🍅 🍆 🥑 🥦 🥒 🥬 🌶 🌽 🥕 🥔 🍠 🥐 🍞 🥖 🥨 🥯 🧀 🥚 🍳 🥞 🥓 🥩 🍗 🍖 🌭 🍔 🍟 🍕 🥪 🥙 🌮 🌯 🥗 🥘 🥫 🍝 🍜 🍲 🍛 🍣 🍱 🥟 🍤 🍙 🍚 🍘 🍥 🥮 🥠 🍢 🍡 🍧 🍨 🍦 🥧 🍰 🎂 🍮 🍭 🍬 🍫 🍿 🧂 🍩 🍪 🌰 🥜 🍯 🥛 🍼 ☕️ 🍵 🥤 🍶 🍺 🍻 🥂 🍷 🥃 🍸 🍹 🍾 🥄 🍴 🍽 🥣 🥡 🥢 🌵 🎄 🌲 🌳 🌴 🌱 🌿 ☘️ 🍀 🎍 🎋 🍃 🍂 🍁 🍄 🌾 💐 🌷 🌹 🥀 🌺 🌸 🌼 🌻 😀 😁 😂 🤣 😃 😄 😅 😆 😉 😊 😋 😎 😍 😘 🥰 😗 😙 😚 ☺️ 🙂 🤗 🤩 🤔 🤨 😐 😑 😶 🙄 😏 😣 😥 😮 🤐 😯 😪 😫 😴 😌 😛 😜 😝 🤤 😒 😓 😔 😕 🙃 🤑 😲 ☹️ 🙁 😖 😞 😟 😤 😢 😭 😦 😧 😨 😩 🤯 😬 😰 😱 🥵 🥶 😳 🤪 😵 😡 😠 🤬 😷 🤒 🤕 🤢 🤮 🤧 😇 🤠 🤡 🥳 🥴 🥺 🤥 🤫 🤭 🧐 🤓 😈 👿 👹 👺 💀 👻 👽 🤖 💩 😺 😸 😹 😻 😼 😽 🙀 😿 😾'
+  document.addEventListener('visibilitychange', function() {
+    if (document.visibilityState == 'hidden') {
+      normal_title = document.title
+      document.title = a.split(' ')[parseInt(Math.random() * 235)]
+    } else document.title = normal_title
+  })
+</script>
+
+<title>nodejs 基本使用 | 我全都要</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112496567-1"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-112496567-1');
+      }
+    </script>
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?4cf9aa5b4589576262198ad166b18a05";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">我全都要</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">搞快点</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#nodejs-%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D"><span class="nav-text">nodejs 基本介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%AD%A6%E4%B9%A0-nodejs"><span class="nav-text">为什么要学习 nodejs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node-js-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-text">node.js 是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nodejs-%E4%B8%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">nodejs 与浏览器的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nodejs-%E5%8F%AF%E4%BB%A5%E5%B9%B2%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-text">nodejs 可以干什么？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-nodejs"><span class="nav-text">安装 nodejs</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#nodejs-%E7%89%88%E6%9C%AC"><span class="nav-text">nodejs 版本</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C-nodejs-%E7%A8%8B%E5%BA%8F"><span class="nav-text">运行 nodejs 程序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E5%BC%8F%E4%B8%80%EF%BC%9A%E4%BD%BF%E7%94%A8-node-%E6%89%A7%E8%A1%8C-js-%E6%96%87%E4%BB%B6"><span class="nav-text">方式一：使用 node 执行 js 文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E5%BC%8F%E4%BA%8C%EF%BC%9AREPL-%E4%BB%8B%E7%BB%8D"><span class="nav-text">方式二：REPL 介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-text">环境变量</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#global-%E6%A8%A1%E5%9D%97-%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F"><span class="nav-text">global 模块-全局变量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#fs-%E6%A8%A1%E5%9D%97"><span class="nav-text">fs 模块</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6"><span class="nav-text">读取文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%99%E6%96%87%E4%BB%B6"><span class="nav-text">写文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E5%90%8C%E6%AD%A5%E4%B8%8E%E5%BC%82%E6%AD%A5%E7%9A%84%E8%AF%B4%E6%98%8E"><span class="nav-text">文件同步与异步的说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96-api%EF%BC%88%E4%BA%86%E8%A7%A3%EF%BC%89"><span class="nav-text">其他 api（了解）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#path-%E6%A8%A1%E5%9D%97"><span class="nav-text">path 模块</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%AF%E5%BE%84%E6%93%8D%E4%BD%9C%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-text">路径操作的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#path-%E6%A8%A1%E5%9D%97%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-text">path 模块的常用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#path-%E6%A8%A1%E5%9D%97%E5%85%B6%E4%BB%96-api%EF%BC%88%E4%BA%86%E8%A7%A3%EF%BC%89"><span class="nav-text">path 模块其他 api（了解）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#http-%E6%A8%A1%E5%9D%97"><span class="nav-text">http 模块</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%9F%BA%E6%9C%AC%E6%AD%A5%E9%AA%A4"><span class="nav-text">创建服务器基本步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#request-%E5%AF%B9%E8%B1%A1%E8%AF%A6%E8%A7%A3"><span class="nav-text">request 对象详解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#response-%E5%AF%B9%E8%B1%A1%E8%AF%A6%E8%A7%A3"><span class="nav-text">response 对象详解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E6%8B%9F-Apache-%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-text">模拟 Apache 服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MIME-%E7%B1%BB%E5%9E%8B"><span class="nav-text">MIME 类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mime-%E6%A8%A1%E5%9D%97"><span class="nav-text">mime 模块</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#nodemon-%E8%87%AA%E5%8A%A8%E9%87%8D%E5%90%AF"><span class="nav-text">nodemon 自动重启</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#hacknews-%E6%A1%88%E4%BE%8B"><span class="nav-text">hacknews 案例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD%E5%88%92%E5%88%86"><span class="nav-text">功能划分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#art-template-%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E"><span class="nav-text">art-template 模板引擎</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#url-%E6%A8%A1%E5%9D%97"><span class="nav-text">url 模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#querystring-%E6%A8%A1%E5%9D%97"><span class="nav-text">querystring 模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF%E9%87%8D%E5%AE%9A%E5%90%91"><span class="nav-text">服务端重定向</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#POST-%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E7%9A%84%E5%A4%84%E7%90%86"><span class="nav-text">POST 请求参数的处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%9D%97%E5%8C%96%E6%94%B9%E9%80%A0-hackerNews"><span class="nav-text">模块化改造 hackerNews</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="c"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">c</p>
+  <div class="site-description" itemprop="description">分享各类资源、经验与技巧</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">146</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">74</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/cuilongjin" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;cuilongjin" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/409.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          nodejs 基本使用
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-12-29 22:21:15" itemprop="dateCreated datePublished" datetime="2018-12-29T22:21:15+00:00">2018-12-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="nodejs-基本介绍"><a href="#nodejs-基本介绍" class="headerlink" title="nodejs 基本介绍"></a>nodejs 基本介绍</h1><h2 id="为什么要学习-nodejs"><a href="#为什么要学习-nodejs" class="headerlink" title="为什么要学习 nodejs"></a>为什么要学习 nodejs</h2><ol>
+<li>降低编程语言切换的成本(nodejs 实质上用的还是 javascript)</li>
+<li>NodeJS 是前端项目的基础设施，前端项目中用到的大量工具 (大前端)</li>
+<li>nodejs 在处理高并发上有得天独厚的优势(利用 nodejs 做中间层)</li>
+<li>对于前端工程师，面试时对于 nodejs 有一定的要求</li>
+</ol>
+<h2 id="node-js-是什么？"><a href="#node-js-是什么？" class="headerlink" title="node.js 是什么？"></a>node.js 是什么？</h2><p>node.js，也叫作 node，或者 nodejs，指的都是一个平台</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://nodejs.org/">node.js 官方网站</a></li>
+<li><a target="_blank" rel="noopener" href="http://nodejs.cn/">node.js 中文网</a></li>
+<li><a target="_blank" rel="noopener" href="https://cnodejs.org/">node.js 中文社区</a></li>
+</ol>
+<p>Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境，nodejs 允许 javascript 代码运行在服务端</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. nodejs不是一门新的编程语言，nodejs是在服务端运行javascript的运行环境</span><br><span class="line">2. 运行环境：写得程序想要运行必须要有对应的运行环境</span><br><span class="line">	php代码必须要有apache服务器</span><br><span class="line">	在web端，浏览器就是javascript的运行环境</span><br><span class="line">	在node端，nodejs就是javascript的运行环境</span><br><span class="line">2. javascript并不只是能运行在浏览器端，浏览器端能够运行js是因为浏览器有js解析器，因此只需要有js解析器，任何软件都可以运行js。</span><br><span class="line">3. nodejs可以在服务端运行js，因为nodejs是基于chrome v8的js引擎</span><br></pre></td></tr></table></figure>
+
+<p><strong>nodejs 的本质：不是一门新的编程语言，nodejs 是 javascript 运行在服务端的运行环境，编程语言还是 javascript</strong></p>
+<h2 id="nodejs-与浏览器的区别"><a href="#nodejs-与浏览器的区别" class="headerlink" title="nodejs 与浏览器的区别"></a>nodejs 与浏览器的区别</h2><p>相同点：nodejs 与浏览器都是 js 的运行环境，都能够解析 js 程序。对于 ECMAScript 语法来说，在 nodejs 和浏览器中都能运行</p>
+<p>不同点：nodejs 无法使用 DOM 和 BOM 的操作，浏览器无法执行 nodejs 中的文件操作等功能</p>
+<h2 id="nodejs-可以干什么？"><a href="#nodejs-可以干什么？" class="headerlink" title="nodejs 可以干什么？"></a>nodejs 可以干什么？</h2><ol>
+<li>开发服务端程序</li>
+<li>开发命令行工具（CLI），比如 npm，webpack，gulp，less，sass 等</li>
+<li>开发桌面应用程序（借助 node-webkit、electron 等框架实现）</li>
+</ol>
+<h1 id="安装-nodejs"><a href="#安装-nodejs" class="headerlink" title="安装 nodejs"></a>安装 nodejs</h1><h2 id="nodejs-版本"><a href="#nodejs-版本" class="headerlink" title="nodejs 版本"></a>nodejs 版本</h2><p>下载地址</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://nodejs.org/en/download/">当前版本</a></li>
+<li><a target="_blank" rel="noopener" href="https://nodejs.org/en/download/releases/">历史版本</a></li>
+</ul>
+<p>官网术语解释</p>
+<ul>
+<li>LTS 版本：Long-term Support 版本，长期支持版，即稳定版。</li>
+<li>Current 版本：Latest Features 版本，最新版本，新特性会在该版本中最先加入</li>
+</ul>
+<p>查看 node 版本</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
+
+<h1 id="运行-nodejs-程序"><a href="#运行-nodejs-程序" class="headerlink" title="运行 nodejs 程序"></a>运行 nodejs 程序</h1><h2 id="方式一：使用-node-执行-js-文件"><a href="#方式一：使用-node-执行-js-文件" class="headerlink" title="方式一：使用 node 执行 js 文件"></a>方式一：使用 node 执行 js 文件</h2><ul>
+<li><p>创建 js 文件 <code>helloworld.js</code></p>
+</li>
+<li><p>写 nodejs 的内容：<code>console.log(&#39;hello nodejs&#39;)</code></p>
+</li>
+<li><p>打开命令窗口 <code>cmd</code></p>
+<ul>
+<li>shift 加右键打开命令窗口，执行 <code>node 文件名.js</code>即可</li>
+</ul>
+</li>
+<li><p>执行命令：<code>node helloworld.js</code></p>
+</li>
+</ul>
+<p>注意：在 nodejs 中是无法使用 DOM 和 BOM 的内容的，因此<code>document</code>， <code>window</code>等内容是无法使用的</p>
+<h2 id="方式二：REPL-介绍"><a href="#方式二：REPL-介绍" class="headerlink" title="方式二：REPL 介绍"></a>方式二：REPL 介绍</h2><ol>
+<li>REPL 全称: Read-Eval-Print-Loop（交互式解释器）<ul>
+<li>R 读取 - 读取用户输入，解析输入了 Javascript 数据结构并存储在内存中</li>
+<li>E 执行 - 执行输入的数据结构</li>
+<li>P 打印 - 输出结果</li>
+<li>L 循环 - 循环操作以上步骤直到用户两次按下 ctrl-c 按钮退出</li>
+</ul>
+</li>
+<li>在 REPL 中编写程序 （类似于浏览器开发人员工具中的控制台功能）<ul>
+<li>直接在控制台输入 <code>node</code> 命令进入 REPL 环境</li>
+</ul>
+</li>
+<li>按两次 Control + C 退出 REPL 界面 或者 输入 <code>.exit</code> 退出 REPL 界面<ul>
+<li>按住 control 键不要放开, 然后按两下 c 键</li>
+</ul>
+</li>
+</ol>
+<h2 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h2><p>当要求系统运行一个<strong>程序</strong> 而没有告诉它程序所在的完整路径时</p>
+<ol>
+<li>首先在<strong>当前目录</strong>中查找和该字符串匹配的可执行文件</li>
+<li>进入用户 path 环境变量查找</li>
+<li>进入系统 path 环境变量查找</li>
+</ol>
+<p>配置环境变量：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">找到环境变量：计算机 --右键--&gt; 属性 --&gt; 高级系统设置 --&gt; 高级 --&gt; 环境变量</span><br></pre></td></tr></table></figure>
+
+<h1 id="global-模块-全局变量"><a href="#global-模块-全局变量" class="headerlink" title="global 模块-全局变量"></a>global 模块-全局变量</h1><p>JavaScript 中有一个特殊的对象，称为全局对象（Global Object），它及其所有属性都可以在程序的任何地方访问，即全局变量。</p>
+<p>在浏览器 JavaScript 中，通常 window 是全局对象， 而 Node.js 中的全局对象是 <code>global</code>，所有全局变量（除了 global 本身以外）都是 global 对象的属性。</p>
+<p>在 Node.js 我们可以直接访问到 global 的属性，而不需要在应用中包含它。</p>
+<p><strong>常用的 global 属性</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>: 用于打印日志</span><br><span class="line"><span class="built_in">setTimeout</span>/<span class="built_in">clearTimeout</span>: 设置清除延时器</span><br><span class="line"><span class="built_in">setInterval</span>/<span class="built_in">clearInterval</span>: 设置清除定时器</span><br><span class="line"></span><br><span class="line">__dirname: 当前文件的路径，不包括文件名</span><br><span class="line">__filename：当前文件的路径，包括文件名</span><br><span class="line"></span><br><span class="line"><span class="comment">// 与模块化相关的，模块化的时候会用到</span></span><br><span class="line"><span class="built_in">require</span></span><br><span class="line"><span class="built_in">exports</span></span><br><span class="line"><span class="built_in">module</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="fs-模块"><a href="#fs-模块" class="headerlink" title="fs 模块"></a>fs 模块</h1><blockquote>
+<p>fs 模块是 nodejs 中最常用的一个模块，因此掌握 fs 模块非常的有必要，fs 模块的方法非常多，用到了哪个查哪个即可。</p>
+<p>文档地址：<a target="_blank" rel="noopener" href="http://nodejs.cn/api/fs.html">http://nodejs.cn/api/fs.html</a></p>
+</blockquote>
+<p>在 nodejs 中，提供了 fs 模块，这是 node 的核心模块</p>
+<p>注意：</p>
+<ol>
+<li>除了 global 模块中的内容可以直接使用，其他模块都是需要加载的。</li>
+<li>fs 模块不是全局的，不能直接使用。因此需要导入才能使用。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="读取文件"><a href="#读取文件" class="headerlink" title="读取文件"></a>读取文件</h2><blockquote>
+<p>语法：fs.readFile(file[, options], callback)</p>
+</blockquote>
+<p>方式一：不传编码参数</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 参数1：文件路径</span></span><br><span class="line"><span class="comment">// 参数2：读取文件的回调函数</span></span><br><span class="line"><span class="comment">// 回调函数参数1：错误对象，如果读取失败，err 会包含错误信息，如果读取成功，err 是 null</span></span><br><span class="line"><span class="comment">// 回调函数参数2：读取成功后的数据（是一个Buffer对象）</span></span><br><span class="line">fs.readFile(<span class="string">&#x27;data.txt&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(err)</span><br><span class="line">  <span class="built_in">console</span>.log(data)</span><br><span class="line">  <span class="built_in">console</span>.log(data.toString()) <span class="comment">// 将Buffer对象转换成字符串</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>方式二：传编码参数</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 参数1：文件的路径</span></span><br><span class="line"><span class="comment">// 参数2：编码，如果设置了，返回一个字符串，如果没有设置，会返回一个buffer对象</span></span><br><span class="line"><span class="comment">// 参数3：回调函数</span></span><br><span class="line">fs.readFile(<span class="string">&#x27;data.txt&#x27;</span>, <span class="string">&#x27;utf8&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(err)</span><br><span class="line">  <span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>关于 Buffer 对象</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. Buffer对象是Nodejs用于处理二进制数据的</span><br><span class="line">2. 其实任意的数据在计算机底层都是二进制数据，因为计算机只认识二进制</span><br><span class="line">3. 所以读取任意的文件，返回的结果都是二进制数据，即Buffer对象</span><br><span class="line">4. Buffer对象可以调用toString()方法转换成字符串</span><br></pre></td></tr></table></figure>
+
+<h2 id="写文件"><a href="#写文件" class="headerlink" title="写文件"></a>写文件</h2><blockquote>
+<p>语法：fs.writeFile(file, data[, options], callback)</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 参数1：文件路径(如果文件不存在，会自动创建)</span></span><br><span class="line"><span class="comment">// 参数2：写入的文件内容（注意：写入的内容会覆盖以前的内容）</span></span><br><span class="line"><span class="comment">// 参数3：写文件后的回调函数</span></span><br><span class="line">fs.writeFile(<span class="string">&#x27;2.txt&#x27;</span>, <span class="string">&#x27;hello world&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (err) <span class="keyword">return</span> <span class="built_in">console</span>.log(<span class="string">&#x27;写入文件失败&#x27;</span>, err)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;写入文件成功&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>注意：</p>
+<ol>
+<li>写文件的时候，会把原来的内容给覆盖掉</li>
+</ol>
+<blockquote>
+<p>语法：fs.appendFile(path, data[, options], callback)</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 参数1：追加的文件名(如果文件不存在，会自动创建)</span></span><br><span class="line"><span class="comment">// 参数2：追加的文件内容</span></span><br><span class="line"><span class="comment">// 参数3：追加文件后的回调函数</span></span><br><span class="line">fs.appendFile(<span class="string">&#x27;2.txt&#x27;</span>, <span class="string">&#x27;我是追加的内容&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (err) <span class="keyword">return</span> <span class="built_in">console</span>.log(<span class="string">&#x27;追加文件内容失败&#x27;</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;追加文件内容成功&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>思考：如果没有 appendFile，通过 readFile 与 writeFile 应该怎么实现？</p>
+<h2 id="文件同步与异步的说明"><a href="#文件同步与异步的说明" class="headerlink" title="文件同步与异步的说明"></a>文件同步与异步的说明</h2><blockquote>
+<p>fs 中所有的文件操作，都提供了异步和同步两种方式</p>
+</blockquote>
+<p>异步方式：不会阻塞代码的执行</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 异步方式</span></span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">111</span>)</span><br><span class="line">fs.readFile(<span class="string">&#x27;2.txt&#x27;</span>, <span class="string">&#x27;utf8&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (err) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">console</span>.log(<span class="string">&#x27;读取文件失败&#x27;</span>, err)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;222&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>同步方式：会阻塞代码的执行</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//同步方式</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">111</span>)</span><br><span class="line"><span class="keyword">const</span> result = fs.readFileSync(<span class="string">&#x27;2.txt&#x27;</span>, <span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(result)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">222</span>)</span><br></pre></td></tr></table></figure>
+
+<p>总结：同步操作使用虽然简单，但是会影响性能，因此尽量使用异步方法，尤其是在工作过程中。</p>
+<h2 id="其他-api（了解）"><a href="#其他-api（了解）" class="headerlink" title="其他 api（了解）"></a>其他 api（了解）</h2><p>方法有很多，但是用起来都非常的简单，学会查文档</p>
+<p>文档：<a target="_blank" rel="noopener" href="http://nodejs.cn/api/fs.html">http://nodejs.cn/api/fs.html</a></p>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>fs.readFile(path, callback)</code></td>
+<td>读取文件内容（异步）</td>
+</tr>
+<tr>
+<td><code>fs.readFileSync(path)</code></td>
+<td>读取文件内容（同步）</td>
+</tr>
+<tr>
+<td><code>fs.writeFile(path, data, callback)</code></td>
+<td>写入文件内容（异步）</td>
+</tr>
+<tr>
+<td><code>fs.writeFileSync(path, data)</code></td>
+<td>写入文件内容（同步）</td>
+</tr>
+<tr>
+<td><code>fs.appendFile(path, data, callback)</code></td>
+<td>追加文件内容（异步）</td>
+</tr>
+<tr>
+<td><code>fs.appendFileSync(path, data)</code></td>
+<td>追加文件内容（同步）</td>
+</tr>
+<tr>
+<td><code>fs.rename(oldPath, newPath, callback)</code></td>
+<td>重命名文件（异步）</td>
+</tr>
+<tr>
+<td><code>fs.renameSync(oldPath, newPath)</code></td>
+<td>重命名文件（同步）</td>
+</tr>
+<tr>
+<td><code>fs.unlink(path, callback)</code></td>
+<td>删除文件（异步）</td>
+</tr>
+<tr>
+<td><code>fs.unlinkSync(path)</code></td>
+<td>删除文件（同步）</td>
+</tr>
+<tr>
+<td><code>fs.mkdir(path, mode, callback)</code></td>
+<td>创建文件夹（异步）</td>
+</tr>
+<tr>
+<td><code>fs.mkdirSync(path, mode)</code></td>
+<td>创建文件夹（同步）</td>
+</tr>
+<tr>
+<td><code>fs.rmdir(path, callback)</code></td>
+<td>删除文件夹（异步）</td>
+</tr>
+<tr>
+<td><code>fs.rmdirSync(path)</code></td>
+<td>删除文件夹（同步）</td>
+</tr>
+<tr>
+<td><code>fs.readdir(path, option, callback)</code></td>
+<td>读取文件夹内容（异步）</td>
+</tr>
+<tr>
+<td><code>fs.readdirSync(path, option)</code></td>
+<td>读取文件夹内容（同步）</td>
+</tr>
+<tr>
+<td><code>fs.stat(path, callback)</code></td>
+<td>查看文件状态（异步）</td>
+</tr>
+<tr>
+<td><code>fs.statSync(path)</code></td>
+<td>查看文件状态（同步）</td>
+</tr>
+</tbody></table>
+<h1 id="path-模块"><a href="#path-模块" class="headerlink" title="path 模块"></a>path 模块</h1><h2 id="路径操作的问题"><a href="#路径操作的问题" class="headerlink" title="路径操作的问题"></a>路径操作的问题</h2><p>在读写文件的时候，文件路径可以写相对路径或者绝对路径</p>
+<p>data.txt 是相对路径，读取当前目录下的 data.txt，相对路径相对的是指向 node 命令的路径</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 如果node命令不是在当前目录下执行就会报错，在当前执行node命令的目录下查找data.txt，找不到</span></span><br><span class="line">fs.readFile(<span class="string">&#x27;data.txt&#x27;</span>, <span class="string">&#x27;utf8&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (err) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">console</span>.log(<span class="string">&#x27;读取文件失败&#x27;</span>, err)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>相对路径：相对于执行 node 命令的路径</p>
+<p>推荐使用绝对路径：<code>__dirname</code>: 当前文件的目录，<code>__filename</code>: 当前文件的目录，包含文件名</p>
+<h2 id="path-模块的常用方法"><a href="#path-模块的常用方法" class="headerlink" title="path 模块的常用方法"></a>path 模块的常用方法</h2><blockquote>
+<p>关于路径，在 linux 系统中，路径分隔符使用的是<code>/</code>，但是在 windows 系统中，路径使用的<code>\</code></p>
+</blockquote>
+<p>在我们拼写路径的时候会带来很多的麻烦，经常会出现 windows 下写的代码，在 linux 操作系统下执行不了，path 模块就是为了解决这个问题而存在的。</p>
+<p>常用方法：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">path.join() <span class="comment">// 拼接路径，返回拼接后的结果</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// windows系统下</span></span><br><span class="line">path.join(<span class="string">&#x27;abc&#x27;</span>, <span class="string">&#x27;def&#x27;</span>, <span class="string">&#x27;gg&#x27;</span>, <span class="string">&#x27;index.html&#x27;</span>)</span><br><span class="line"><span class="string">&#x27;abc\def\gg\a.html&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// linux系统下</span></span><br><span class="line">path.join(<span class="string">&#x27;abc&#x27;</span>,<span class="string">&#x27;def&#x27;</span>,<span class="string">&#x27;gg&#x27;</span>, <span class="string">&#x27;index.html&#x27;</span>)</span><br><span class="line"><span class="string">&#x27;abc/def/gg/index.html&#x27;</span></span><br><span class="line"></span><br><span class="line">【优化读写文件的代码】</span><br><span class="line"></span><br><span class="line">其他方法:</span><br><span class="line">path.basename(path[, ext])	返回文件的最后一部分</span><br><span class="line">path.dirname(path)	返回路径的目录名</span><br><span class="line">path.extname(path)	获取路径的扩展名(后缀名)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"><span class="keyword">var</span> temp = <span class="string">&#x27;abc\\def\\gg\\a.html&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(path.basename(temp)) <span class="comment">//a.html</span></span><br><span class="line"><span class="built_in">console</span>.log(path.dirname(temp)) <span class="comment">//abc\def\gg</span></span><br><span class="line"><span class="built_in">console</span>.log(path.extname(temp)) <span class="comment">//.html</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="path-模块其他-api（了解）"><a href="#path-模块其他-api（了解）" class="headerlink" title="path 模块其他 api（了解）"></a>path 模块其他 api（了解）</h2><table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>path.basename(path[, ext])</code></td>
+<td>返回文件的最后一部分</td>
+</tr>
+<tr>
+<td><code>path.dirname(path)</code></td>
+<td>返回路径的目录名</td>
+</tr>
+<tr>
+<td><code>path.extname(path)</code></td>
+<td>获取路径的扩展名</td>
+</tr>
+<tr>
+<td><code>path.isAbsolute(path)</code></td>
+<td>判断目录是否是绝对路径</td>
+</tr>
+<tr>
+<td><code>path.join([...paths])</code></td>
+<td>将所有的 path 片段拼接成一个规范的路径</td>
+</tr>
+<tr>
+<td><code>path.normalize(path)</code></td>
+<td>规范化路径</td>
+</tr>
+<tr>
+<td><code>path.parse(path)</code></td>
+<td>将一个路径解析成一个 path 对象</td>
+</tr>
+<tr>
+<td><code>path.format(pathObj)</code></td>
+<td>讲一个 path 对象解析成一个规范的路径</td>
+</tr>
+</tbody></table>
+<h1 id="http-模块"><a href="#http-模块" class="headerlink" title="http 模块"></a>http 模块</h1><h2 id="创建服务器基本步骤"><a href="#创建服务器基本步骤" class="headerlink" title="创建服务器基本步骤"></a>创建服务器基本步骤</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 导入http模块，http模块是node的核心模块，作用是用来创建 http 服务器的</span></span><br><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 创建服务器</span></span><br><span class="line"><span class="keyword">let</span> server = http.createServer()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 服务器处理请求</span></span><br><span class="line">server.on(<span class="string">&#x27;request&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;我接收到请求了&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. 启动服务器，监听某个端口</span></span><br><span class="line">server.listen(<span class="number">9999</span>, <span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;服务器启动成功了, 请访问： http://localhost:9999&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>详细说明</p>
+<ol>
+<li>给服务器注册 request 事件，只要服务器接收到了客户端的请求，就会触发 request 事件</li>
+<li>request 事件有两个参数，req 表示请求对象，可以获取所有与请求相关的信息，res 是响应对象，可以获取所有与响应相关的信息</li>
+<li>服务器监听的端口范围为：1-65535 之间，推荐使用 3000 以上的端口，因为 3000 以下的端口一般留给系统使用</li>
+</ol>
+<h2 id="request-对象详解"><a href="#request-对象详解" class="headerlink" title="request 对象详解"></a>request 对象详解</h2><p>文档地址：<a target="_blank" rel="noopener" href="http://nodejs.cn/api/http.html#http_message_headers">http://nodejs.cn/api/http.html#http_message_headers</a></p>
+<p>常见属性：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">headers: 所有的请求头信息</span><br><span class="line">method：请求的方式</span><br><span class="line">rawHeaders：所有的请求头信息（数组的方式）</span><br><span class="line">url：请求的地址（url地址的路径部分）</span><br><span class="line">	请求 http:<span class="comment">//127.0.0.1:3000/index 获取到的是：/index</span></span><br><span class="line">	请求 http:<span class="comment">//127.0.0.1:3000 获取到的是：/</span></span><br></pre></td></tr></table></figure>
+
+<p>注意：在发送请求的时候，可能会出现两次请求的情况，这是因为谷歌浏览器会自动增加一个<code>favicon.ico</code>的请求</p>
+<p>小结：request 对象中，常用的就是 method 和 url 两个参数</p>
+<h2 id="response-对象详解"><a href="#response-对象详解" class="headerlink" title="response 对象详解"></a>response 对象详解</h2><p>文档地址：<a target="_blank" rel="noopener" href="http://nodejs.cn/api/http.html#http_class_http_serverresponse">http://nodejs.cn/api/http.html#http_class_http_serverresponse</a></p>
+<p>常见的属性和方法：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">res.write(data): 给浏览器发送响应体，可以调用多次，从而提供连续的响应体</span><br><span class="line">res.end()：通知服务器，所有响应头和响应主体都已被发送，即服务器将其视为已完成</span><br><span class="line">res.end(data)：结束请求，并且响应一段内容，相当于res.write(data) + res.end()</span><br><span class="line">res.statusCode: 响应的的状态码 <span class="number">200</span> <span class="number">404</span> <span class="number">500</span></span><br><span class="line">res.statusMessage: 响应的状态信息（不能有中文）， 如果不设置会根据statusCode自动设置</span><br><span class="line">res.setHeader(name, value)：设置响应头信息，比如<span class="string">&#x27;content-type&#x27;</span>，<span class="string">&#x27;text/html;charset=utf-8&#x27;</span></span><br><span class="line">res.writeHead(statusCode, statusMessage, options)：设置响应头，同时可以设置状态码和状态信息</span><br><span class="line">	options 是对象，写响应头的键值对</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：必须先设置响应头，才能设置响应主体。</strong></p>
+<ul>
+<li><p>注意：浏览器中输入的 URL 地址，仅仅是一个标识，可以不与服务器中的文件路径一致。也就是说：返回什么内容是由服务端的逻辑决定</p>
+</li>
+<li><p>路由 : url 标示和对应文件/数据的一一对应关系</p>
+</li>
+</ul>
+<h2 id="模拟-Apache-服务器"><a href="#模拟-Apache-服务器" class="headerlink" title="模拟 Apache 服务器"></a>模拟 Apache 服务器</h2><ul>
+<li>根据 <code>req.url</code> 读取不同的页面内容，返回给浏览器</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 需求: 简单模仿apache服务器，浏览器发送127.0.0.1:8888/index.html</span></span><br><span class="line"><span class="comment">// 对应的返回www文件夹下面的index.html的内容</span></span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建服务器</span></span><br><span class="line"><span class="keyword">let</span> server = http.createServer()</span><br><span class="line"><span class="comment">// 监听请求</span></span><br><span class="line">server.on(<span class="string">&#x27;request&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 根据不同请求输出不同响应数据</span></span><br><span class="line">  <span class="keyword">if</span> (req.url === <span class="string">&#x27;/&#x27;</span> || req.url === <span class="string">&#x27;/i&#x27;</span>) &#123;</span><br><span class="line">    <span class="comment">// 读取www下面的index.html</span></span><br><span class="line">    <span class="keyword">let</span> filename = path.join(__dirname, <span class="string">&#x27;www&#x27;</span>, <span class="string">&#x27;index.html&#x27;</span>)</span><br><span class="line">    fs.readFile(filename, <span class="string">&#x27;utf-8&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (err) <span class="built_in">console</span>.log(<span class="string">&#x27;文件读取失败&#x27;</span>)</span><br><span class="line">      <span class="comment">// 服务器响应文件</span></span><br><span class="line">      res.statusCode = <span class="number">200</span></span><br><span class="line">      res.statusMessage = <span class="string">&#x27;ok&#x27;</span></span><br><span class="line">      res.setHeader(<span class="string">&#x27;content-type&#x27;</span>, <span class="string">&#x27;text/html;charset=utf-8&#x27;</span>)</span><br><span class="line">      res.end(data)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (req.url === <span class="string">&#x27;/l&#x27;</span>) &#123;</span><br><span class="line">    <span class="comment">// 读取list.html</span></span><br><span class="line">    <span class="keyword">let</span> filename = path.join(__dirname, <span class="string">&#x27;www&#x27;</span>, <span class="string">&#x27;list.html&#x27;</span>)</span><br><span class="line">    fs.readFile(filename, <span class="string">&#x27;utf-8&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (err) <span class="keyword">return</span> <span class="built_in">console</span>.log(<span class="string">&#x27;文件读取失败&#x27;</span>)</span><br><span class="line">      <span class="comment">// 服务器响应文件</span></span><br><span class="line">      res.writeHead(<span class="number">200</span>, <span class="string">&#x27;OOOOOOK&#x27;</span>, &#123;</span><br><span class="line">        <span class="string">&#x27;content-type&#x27;</span>: <span class="string">&#x27;text/html;charset=utf-8&#x27;</span></span><br><span class="line">      &#125;)</span><br><span class="line">      res.end(data)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 返回浏览器, 未找到资源</span></span><br><span class="line">    res.writeHead(<span class="number">404</span>, <span class="string">&#x27;NOT FOUND&#x27;</span>, &#123;</span><br><span class="line">      <span class="string">&#x27;content-type&#x27;</span>: <span class="string">&#x27;text/html;charset=utf-8&#x27;</span></span><br><span class="line">    &#125;)</span><br><span class="line">    res.end(<span class="string">&#x27;404 ,资源未找到&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 开启服务器</span></span><br><span class="line"></span><br><span class="line">server.listen(<span class="number">8888</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;服务器开启了&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="MIME-类型"><a href="#MIME-类型" class="headerlink" title="MIME 类型"></a>MIME 类型</h2><ul>
+<li>MIME(Multipurpose Internet Mail Extensions)多用途 Internet 邮件扩展类型 是一种表示文档性质和格式的标准化方式</li>
+<li>浏览器通常使用 MIME 类型（而不是文件扩展名）来确定如何处理文档；因此服务器将正确的 MIME 类型附加到响应对象的头部是非常重要的</li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Basics_of_HTTP/MIME_Types">MIME 类型</a></li>
+</ul>
+<h2 id="mime-模块"><a href="#mime-模块" class="headerlink" title="mime 模块"></a>mime 模块</h2><ul>
+<li>作用：获取文件的 MIME 类型</li>
+<li>安装：<code>npm i mime</code></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> mime = <span class="built_in">require</span>(<span class="string">&#x27;mime&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取路径对应的 MIME 类型</span></span><br><span class="line">mime.getType(<span class="string">&#x27;txt&#x27;</span>) <span class="comment">// &#x27;text/plain&#x27;</span></span><br><span class="line"><span class="comment">// 根据 MIME 获取到文件后缀名</span></span><br><span class="line">mime.getExtension(<span class="string">&#x27;text/plain&#x27;</span>) <span class="comment">// &#x27;txt&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="nodemon-自动重启"><a href="#nodemon-自动重启" class="headerlink" title="nodemon 自动重启"></a>nodemon 自动重启</h1><ul>
+<li>作用：监听到 js 文件修改后，自动重启 node 程序</li>
+<li>安装：<code>npm i -g nodemon</code></li>
+<li>使用：<code>nodemon app.js</code> 运行 node 程序</li>
+</ul>
+<h1 id="hacknews-案例"><a href="#hacknews-案例" class="headerlink" title="hacknews 案例"></a>hacknews 案例</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://news.ycombinator.com/">Hacker News 示例</a></li>
+<li>路由（route）：就是一套映射规则，根据 url 地址分配到对应的处理程序</li>
+</ul>
+<h2 id="功能划分"><a href="#功能划分" class="headerlink" title="功能划分"></a>功能划分</h2><ul>
+<li>1 新闻列表页 - /index get</li>
+<li>2 新闻详情页 - /details get</li>
+<li>3 新闻添加页 - /submit get</li>
+<li>4 新闻添加请求 - /add post</li>
+</ul>
+<h2 id="art-template-模板引擎"><a href="#art-template-模板引擎" class="headerlink" title="art-template 模板引擎"></a>art-template 模板引擎</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://aui.github.io/art-template/zh-cn/docs/">文档</a></li>
+<li>安装</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install art-template</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>核心方法</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 基于模板路径渲染模板</span></span><br><span class="line"><span class="comment">// 参数1：文件的路径</span></span><br><span class="line"><span class="comment">// 参数2：数据</span></span><br><span class="line"><span class="comment">// 返回值：返回渲染后的内容</span></span><br><span class="line"><span class="comment">// template(filename, data)</span></span><br><span class="line"><span class="keyword">let</span> html = template(path.join(__dirname, <span class="string">&#x27;pages&#x27;</span>, <span class="string">&#x27;index.html&#x27;</span>), &#123; <span class="attr">name</span>: <span class="string">&#x27;大吉大利，今晚吃鸡&#x27;</span> &#125;)</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意点：文件的路径必须是绝对路径</strong>；会将整个 html 当做模板返回</p>
+<h2 id="url-模块"><a href="#url-模块" class="headerlink" title="url 模块"></a>url 模块</h2><ul>
+<li>说明：用于 URL 处理与解析</li>
+<li>注意：通过 url 拿到的查询参数都是字符串格式</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 导入url模块</span></span><br><span class="line"><span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">&#x27;url&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 解析 URL 字符串并返回一个 URL 对象</span></span><br><span class="line"><span class="comment">// 第一个参数：表示要解析的URL字符串</span></span><br><span class="line"><span class="comment">// 第二个参数：是否将query属性（查询参数）解析为一个对象，如果为：true，则query是一个对象</span></span><br><span class="line"><span class="keyword">var</span> ret = url.parse(<span class="string">&#x27;http://localhost:3000/details?id=1&amp;name=jack&#x27;</span>, <span class="literal">true</span>)</span><br><span class="line"><span class="built_in">console</span>.log(ret.query) <span class="comment">// &#123;id: &#x27;1&#x27;, name: &#x27;jack&#x27;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="querystring-模块"><a href="#querystring-模块" class="headerlink" title="querystring 模块"></a>querystring 模块</h2><ul>
+<li>用于解析与格式化 URL 查询字符串</li>
+<li>注意：只在专门处理查询字符串时使用</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// foo=bar&amp;abc=xyz&amp;abc=123</span></span><br><span class="line"><span class="keyword">var</span> querystring = <span class="built_in">require</span>(<span class="string">&#x27;querystring&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将查询参数转化为对象</span></span><br><span class="line"><span class="comment">// 第一个参数: 要解析的 URL 查询字符串</span></span><br><span class="line">querystring.parse(<span class="string">&#x27;foo=bar&amp;abc=xyz&#x27;</span>) <span class="comment">// &#123;foo: &#x27;bar&#x27;, abc: &#x27;xyz&#x27;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="服务端重定向"><a href="#服务端重定向" class="headerlink" title="服务端重定向"></a>服务端重定向</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status">HTTP 状态码说明</a></li>
+<li><a target="_blank" rel="noopener" href="http://shuai.be/archives/301-302-redirection/">301 和 302</a></li>
+<li>说明：服务端可以通过 HTTP 状态码让浏览器中的页面重定向</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">res.writeHead(<span class="number">302</span>, &#123;</span><br><span class="line">  Location: <span class="string">&#x27;/&#x27;</span></span><br><span class="line">&#125;)</span><br><span class="line">res.end()</span><br></pre></td></tr></table></figure>
+
+<h2 id="POST-请求参数的处理"><a href="#POST-请求参数的处理" class="headerlink" title="POST 请求参数的处理"></a>POST 请求参数的处理</h2><ul>
+<li>说明：POST 请求可以发送大量数据，没有大小限制</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 接受POST参数</span></span><br><span class="line"><span class="keyword">var</span> postData = []</span><br><span class="line"></span><br><span class="line"><span class="comment">// data事件：用来接受客户端发送过来的POST请求数据</span></span><br><span class="line"><span class="keyword">var</span> result = <span class="string">&#x27;&#x27;</span></span><br><span class="line">req.on(<span class="string">&#x27;data&#x27;</span>, <span class="function">(<span class="params">chunk</span>) =&gt;</span> &#123;</span><br><span class="line">  result += chunk</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// end事件：当POST数据接收完毕时，触发</span></span><br><span class="line">req.on(<span class="string">&#x27;end&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  cosnole.log(result)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="模块化改造-hackerNews"><a href="#模块化改造-hackerNews" class="headerlink" title="模块化改造 hackerNews"></a>模块化改造 hackerNews</h2>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/js/" rel="tag"># js</a>
+              <a href="/tags/nodejs/" rel="tag"># nodejs</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/405.html" rel="prev" title="ES6（ECMAScript）">
+                  <i class="fa fa-chevron-left"></i> ES6（ECMAScript）
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/429.html" rel="next" title="Webpack">
+                  Webpack <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2015 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">c</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>本站为个人博客，站内所有软件资源均收集自互联网，本站仅做免费分享，不出售。本站内所有软件资源仅限个人用于学习和研究目的，不得将上述内容用于商业或者非法用途，否则，一切后果请用户自负。本站内所有软件必须在下载后的24个小时之内，从您的电脑中彻底删除。本站对任何资源不提供技术支持，遇到问题请自行研究或购买正版。本站信息来自网络，版权争议与本站无关。访问和下载本站内容，说明您已同意上述条款。
+
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '.page-configurations',
+    '.main-inner',
+    '.post-toc-wrap',
+    '.languages',
+    '.pjax'
+  ],
+  analytics: false,
+  cacheBust: false,
+  scrollRestoration: false,
+  scrollTo: !CONFIG.bookmark.enable
+});
+
+document.addEventListener('pjax:success', () => {
+  pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  const hasTOC = document.querySelector('.post-toc');
+  document.querySelector('.sidebar-inner').classList.toggle('sidebar-nav-active', hasTOC);
+  document.querySelector(hasTOC ? '.sidebar-nav-toc' : '.sidebar-nav-overview').click();
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+  <script>
+    NProgress.configure({
+      showSpinner: true
+    });
+    NProgress.start();
+    document.addEventListener('readystatechange', () => {
+      if (document.readyState === 'interactive') {
+        NProgress.inc(0.8);
+      }
+      if (document.readyState === 'complete') {
+        NProgress.done();
+      }
+    });
+    document.addEventListener('pjax:send', () => {
+      NProgress.start();
+    });
+    document.addEventListener('pjax:success', () => {
+      NProgress.done();
+    });
+  </script>
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    <div class="pjax">
+
+
+<script>
+NexT.utils.loadComments('.utterances-container', () => {
+  const script = document.createElement('script');
+  script.src = 'https://utteranc.es/client.js';
+  script.setAttribute('repo', "cuilongjin/hexo-blog");
+  script.setAttribute('issue-term', "pathname");
+  script.setAttribute('theme', "github-light");
+  script.setAttribute('label', "comment");
+  script.crossOrigin = 'anonymous';
+  script.async = true;
+  document.querySelector('.utterances-container').appendChild(script);
+});
+</script>
+
+    </div>
+</body>
+</html>

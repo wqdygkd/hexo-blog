@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-logo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-logo.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-logo.png">
+  <link rel="mask-icon" href="/images/favicon-logo.png" color="#222">
+  <meta name="google-site-verification" content="4ub2lNf2WEkusifo-b7xbJIm2G5xxYUczDoWOFGp-NM">
+  <meta name="msvalidate.01" content="C2030D8E2452D4B39AED09488E55F2DF">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
+  <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"wqdy.top","root":"/","images":"/images","scheme":"Pisces","version":"8.2.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
+  </script>
+<meta name="description" content="2020-03-19真机调试报错 r.Canvas is not a constructor原因：canvas 2d 和 webgl 暂不支持真机调试，请直接使用真机预览，真机预览模式下使用 vConsole 调试  基础代码(使用 Canvas 2D 接口) Component(&amp;#123;  data: &amp;#123;    ctx: &amp;#x27;&amp;#x27;,    image: &amp;#x27">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信小程序 canvas touchmove 事件实现手写签名并保存到相册">
+<meta property="og:url" content="https://wqdy.top/969.html">
+<meta property="og:site_name" content="我全都要">
+<meta property="og:description" content="2020-03-19真机调试报错 r.Canvas is not a constructor原因：canvas 2d 和 webgl 暂不支持真机调试，请直接使用真机预览，真机预览模式下使用 vConsole 调试  基础代码(使用 Canvas 2D 接口) Component(&amp;#123;  data: &amp;#123;    ctx: &amp;#x27;&amp;#x27;,    image: &amp;#x27">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-18T10:57:43.000Z">
+<meta property="article:modified_time" content="2021-02-22T12:56:04.136Z">
+<meta property="article:author" content="c">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://wqdy.top/969.html">
+
+
+<script data-pjax class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+<!-- google 分析 -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-9068539038073295",
+        enable_page_level_ads: true
+    });
+</script>
+
+<script>
+  let a = '🍏 🍎 🍐 🍊 🍋 🍌 🍉 🍇 🍓 🍈 🍒 🍑 🍍 🥭 🥥 🥝 🍅 🍆 🥑 🥦 🥒 🥬 🌶 🌽 🥕 🥔 🍠 🥐 🍞 🥖 🥨 🥯 🧀 🥚 🍳 🥞 🥓 🥩 🍗 🍖 🌭 🍔 🍟 🍕 🥪 🥙 🌮 🌯 🥗 🥘 🥫 🍝 🍜 🍲 🍛 🍣 🍱 🥟 🍤 🍙 🍚 🍘 🍥 🥮 🥠 🍢 🍡 🍧 🍨 🍦 🥧 🍰 🎂 🍮 🍭 🍬 🍫 🍿 🧂 🍩 🍪 🌰 🥜 🍯 🥛 🍼 ☕️ 🍵 🥤 🍶 🍺 🍻 🥂 🍷 🥃 🍸 🍹 🍾 🥄 🍴 🍽 🥣 🥡 🥢 🌵 🎄 🌲 🌳 🌴 🌱 🌿 ☘️ 🍀 🎍 🎋 🍃 🍂 🍁 🍄 🌾 💐 🌷 🌹 🥀 🌺 🌸 🌼 🌻 😀 😁 😂 🤣 😃 😄 😅 😆 😉 😊 😋 😎 😍 😘 🥰 😗 😙 😚 ☺️ 🙂 🤗 🤩 🤔 🤨 😐 😑 😶 🙄 😏 😣 😥 😮 🤐 😯 😪 😫 😴 😌 😛 😜 😝 🤤 😒 😓 😔 😕 🙃 🤑 😲 ☹️ 🙁 😖 😞 😟 😤 😢 😭 😦 😧 😨 😩 🤯 😬 😰 😱 🥵 🥶 😳 🤪 😵 😡 😠 🤬 😷 🤒 🤕 🤢 🤮 🤧 😇 🤠 🤡 🥳 🥴 🥺 🤥 🤫 🤭 🧐 🤓 😈 👿 👹 👺 💀 👻 👽 🤖 💩 😺 😸 😹 😻 😼 😽 🙀 😿 😾'
+  document.addEventListener('visibilitychange', function() {
+    if (document.visibilityState == 'hidden') {
+      normal_title = document.title
+      document.title = a.split(' ')[parseInt(Math.random() * 235)]
+    } else document.title = normal_title
+  })
+</script>
+
+<title>微信小程序 canvas touchmove 事件实现手写签名并保存到相册 | 我全都要</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112496567-1"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-112496567-1');
+      }
+    </script>
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?4cf9aa5b4589576262198ad166b18a05";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">我全都要</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">搞快点</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="c"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">c</p>
+  <div class="site-description" itemprop="description">分享各类资源、经验与技巧</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">146</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">74</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/cuilongjin" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;cuilongjin" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/969.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          微信小程序 canvas touchmove 事件实现手写签名并保存到相册
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-03-18 10:57:43" itemprop="dateCreated datePublished" datetime="2020-03-18T10:57:43+00:00">2020-03-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <blockquote>
+<p>2020-03-19<br>真机调试报错 <code>r.Canvas is not a constructor</code><br>原因：canvas 2d 和 webgl 暂不支持真机调试，请直接使用真机预览，真机预览模式下使用 vConsole 调试</p>
+</blockquote>
+<p>基础代码(使用 Canvas 2D 接口)</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Component(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    ctx: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">    image: <span class="string">&#x27;&#x27;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    onLoad: <span class="function"><span class="keyword">function</span>(<span class="params">options</span>) </span>&#123;&#125;,</span><br><span class="line">    onReady: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">const</span> query = wx.createSelectorQuery()</span><br><span class="line">      query</span><br><span class="line">        .select(<span class="string">&#x27;#sign&#x27;</span>)</span><br><span class="line">        .fields(&#123; <span class="attr">node</span>: <span class="literal">true</span>, <span class="attr">size</span>: <span class="literal">true</span> &#125;)</span><br><span class="line">        .exec(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(res)</span><br><span class="line">          <span class="keyword">const</span> canvas = res[<span class="number">0</span>].node</span><br><span class="line">          <span class="keyword">const</span> ctx = canvas.getContext(<span class="string">&#x27;2d&#x27;</span>)</span><br><span class="line">          <span class="built_in">console</span>.log(ctx)</span><br><span class="line"></span><br><span class="line">          <span class="keyword">const</span> dpr = wx.getSystemInfoSync().pixelRatio</span><br><span class="line">          canvas.width = res[<span class="number">0</span>].width * dpr</span><br><span class="line">          canvas.height = res[<span class="number">0</span>].height * dpr</span><br><span class="line">          ctx.scale(dpr, dpr)</span><br><span class="line"></span><br><span class="line">          ctx.lineWidth = <span class="number">4</span> <span class="comment">//线条的宽度</span></span><br><span class="line">          ctx.strokeStyle = <span class="string">&#x27;#333&#x27;</span> <span class="comment">//线条的颜色</span></span><br><span class="line">          ctx.lineCap = <span class="string">&#x27;round&#x27;</span> <span class="comment">//定义线条开头和结尾处的形状</span></span><br><span class="line">          ctx.lineJoin = <span class="string">&#x27;bevel&#x27;</span> <span class="comment">// 线条与线条之间的连接方式，该属性有三个属性值：miter（默认值，尖角），bevel（衔接），round（圆角）。</span></span><br><span class="line">          <span class="built_in">this</span>.setData(&#123;</span><br><span class="line">            ctx: ctx</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>实现手写效果</p>
+<p>使用 catchtouchmove 绑定，默认会阻止页面跟着滑动</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">type</span>=<span class="string">&quot;2d&quot;</span> <span class="attr">id</span>=<span class="string">&quot;sign&quot;</span> <span class="attr">bindtouchstart</span>=<span class="string">&quot;bindtouchstartHandler&quot;</span> <span class="attr">catchtouchmove</span>=<span class="string">&quot;catchtouchmoveHandler&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">bindtouchstartHandler</span>(<span class="params">e</span>)</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (e.type != <span class="string">&#x27;touchstart&#x27;</span>) <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  <span class="keyword">let</span> ctx = <span class="built_in">this</span>.data.ctx</span><br><span class="line">  <span class="comment">//开始本次绘画</span></span><br><span class="line">  ctx.beginPath()</span><br><span class="line">  <span class="comment">//画笔起始点</span></span><br><span class="line">  ctx.moveTo(e.touches[<span class="number">0</span>].x, e.touches[<span class="number">0</span>].y)</span><br><span class="line">&#125;,</span><br><span class="line"><span class="function"><span class="title">catchtouchmoveHandler</span>(<span class="params">e</span>)</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> left = e.currentTarget.offsetLeft</span><br><span class="line">  <span class="keyword">let</span> top = e.currentTarget.offsetTop</span><br><span class="line">  <span class="keyword">let</span> pageX = e.touches[<span class="number">0</span>].pageX</span><br><span class="line">  <span class="keyword">let</span> pageY = e.touches[<span class="number">0</span>].pageY</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> ctx = <span class="built_in">this</span>.data.ctx</span><br><span class="line">  <span class="comment">//根据鼠标路径绘画</span></span><br><span class="line">  ctx.lineTo(pageX - left, pageY - top)</span><br><span class="line">  <span class="comment">//立即渲染</span></span><br><span class="line">  ctx.stroke()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用 <code>bindtouchmove</code>，需要单独处理页面跟着滚动的问题</p>
+<p>给 canvas 绑定 bindtouchmove=”touchmoveHandler” 然后绑定空的 catchtouchmove 事件<code>catchtouchmove=&quot;preventTouchmove&quot;</code> 或者直接 <code>catchtouchmove=&quot;ture&quot;</code></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">type</span>=<span class="string">&quot;2d&quot;</span> <span class="attr">id</span>=<span class="string">&quot;sign&quot;</span> <span class="attr">bindtouchstart</span>=<span class="string">&quot;bindtouchstartHandler&quot;</span> <span class="attr">bindtouchmove</span>=<span class="string">&quot;bindtouchmoveHandler&quot;</span> <span class="attr">catchtouchmove</span>=<span class="string">&quot;preventTouchmove&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">bindtouchstartHandler</span>(<span class="params">e</span>)</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (e.type != <span class="string">&#x27;touchstart&#x27;</span>) <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  <span class="keyword">let</span> ctx = <span class="built_in">this</span>.data.ctx</span><br><span class="line">  <span class="comment">//开始本次绘画</span></span><br><span class="line">  ctx.beginPath()</span><br><span class="line">  <span class="comment">//画笔起始点</span></span><br><span class="line">  ctx.moveTo(e.touches[<span class="number">0</span>].x, e.touches[<span class="number">0</span>].y)</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line"><span class="comment">// bind绑定的事件</span></span><br><span class="line">bindtouchmoveHandler (e) &#123;</span><br><span class="line">  <span class="keyword">let</span> ctx = <span class="built_in">this</span>.data.ctx</span><br><span class="line">  <span class="comment">//根据鼠标路径绘画</span></span><br><span class="line">  ctx.lineTo(e.touches[<span class="number">0</span>].x, e.touches[<span class="number">0</span>].y)</span><br><span class="line">  <span class="comment">//立即渲染</span></span><br><span class="line">  ctx.stroke()</span><br><span class="line">&#125;,</span><br><span class="line">preventTouchmove () &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>保存到相册</p>
+<p>wx.canvasToTempFilePath(Object object, Object this)<br><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/api/canvas/wx.canvasToTempFilePath.html">https://developers.weixin.qq.com/miniprogram/dev/api/canvas/wx.canvasToTempFilePath.html</a></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="comment">// 把当前画布指定区域的内容导出生成指定大小的图片。 canvas2d不需要使用draw方法</span></span><br><span class="line"><span class="function"><span class="title">canvasToTempFilePath</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> query = wx.createSelectorQuery()</span><br><span class="line">    query</span><br><span class="line">      .select(<span class="string">&#x27;#sign&#x27;</span>)</span><br><span class="line">      .fields(&#123; <span class="attr">node</span>: <span class="literal">true</span>, <span class="attr">size</span>: <span class="literal">true</span> &#125;)</span><br><span class="line">      .exec(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// console.log(res)</span></span><br><span class="line">        <span class="keyword">const</span> canvas = res[<span class="number">0</span>].node</span><br><span class="line">        wx.canvasToTempFilePath(&#123;</span><br><span class="line">          x: <span class="number">0</span>,</span><br><span class="line">          y: <span class="number">0</span>,</span><br><span class="line">          fileType: <span class="string">&#x27;jpg&#x27;</span>,</span><br><span class="line">          canvas: canvas,</span><br><span class="line">          <span class="function"><span class="title">success</span>(<span class="params">res</span>)</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(res.tempFilePath) <span class="comment">// 文件临时地址 可以保存到相册或上传</span></span><br><span class="line">            resolve(res.tempFilePath)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line"><span class="comment">// 保存本地</span></span><br><span class="line"><span class="function"><span class="title">saveToAlbum</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">  <span class="built_in">this</span>.canvasToTempFilePath().then(<span class="function"><span class="params">file</span> =&gt;</span> &#123;</span><br><span class="line">    wx.getSetting(&#123;</span><br><span class="line">      <span class="function"><span class="title">success</span>(<span class="params">res</span>)</span> &#123;</span><br><span class="line">        <span class="comment">// 如果没有则获取授权</span></span><br><span class="line">        <span class="keyword">if</span> (!res.authSetting[<span class="string">&#x27;scope.writePhotosAlbum&#x27;</span>]) &#123;</span><br><span class="line">          wx.authorize(&#123;</span><br><span class="line">            scope: <span class="string">&#x27;scope.writePhotosAlbum&#x27;</span>,</span><br><span class="line">            <span class="function"><span class="title">success</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">              wx.saveImageToPhotosAlbum(&#123;</span><br><span class="line">                filePath: file,</span><br><span class="line">                <span class="function"><span class="title">success</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">                  wx.showToast(&#123;</span><br><span class="line">                    title: <span class="string">&#x27;保存成功&#x27;</span></span><br><span class="line">                  &#125;)</span><br><span class="line">                &#125;,</span><br><span class="line">                <span class="function"><span class="title">fail</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">                  wx.showToast(&#123;</span><br><span class="line">                    title: <span class="string">&#x27;保存失败&#x27;</span>,</span><br><span class="line">                    icon: <span class="string">&#x27;none&#x27;</span></span><br><span class="line">                  &#125;)</span><br><span class="line">                &#125;</span><br><span class="line">              &#125;)</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="function"><span class="title">fail</span>(<span class="params"></span>)</span> &#123;&#125;</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="comment">// 有授权直接保存</span></span><br><span class="line">          wx.saveImageToPhotosAlbum(&#123;</span><br><span class="line">            filePath: file,</span><br><span class="line">            <span class="function"><span class="title">success</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">              wx.showToast(&#123;</span><br><span class="line">                title: <span class="string">&#x27;保存成功&#x27;</span></span><br><span class="line">              &#125;)</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="function"><span class="title">fail</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">              wx.showToast(&#123;</span><br><span class="line">                title: <span class="string">&#x27;保存失败&#x27;</span>,</span><br><span class="line">                icon: <span class="string">&#x27;none&#x27;</span></span><br><span class="line">              &#125;)</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/951.html" rel="prev" title="解决 WordPress 'Briefly unavailable for scheduled maintenance. Check back in a minute.'">
+                  <i class="fa fa-chevron-left"></i> 解决 WordPress 'Briefly unavailable for scheduled maintenance. Check back in a minute.'
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/957.html" rel="next" title="WP-China-Yes 解决 wordpress 插件无法更新问题">
+                  WP-China-Yes 解决 wordpress 插件无法更新问题 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2015 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">c</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>本站为个人博客，站内所有软件资源均收集自互联网，本站仅做免费分享，不出售。本站内所有软件资源仅限个人用于学习和研究目的，不得将上述内容用于商业或者非法用途，否则，一切后果请用户自负。本站内所有软件必须在下载后的24个小时之内，从您的电脑中彻底删除。本站对任何资源不提供技术支持，遇到问题请自行研究或购买正版。本站信息来自网络，版权争议与本站无关。访问和下载本站内容，说明您已同意上述条款。
+
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '.page-configurations',
+    '.main-inner',
+    '.post-toc-wrap',
+    '.languages',
+    '.pjax'
+  ],
+  analytics: false,
+  cacheBust: false,
+  scrollRestoration: false,
+  scrollTo: !CONFIG.bookmark.enable
+});
+
+document.addEventListener('pjax:success', () => {
+  pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  const hasTOC = document.querySelector('.post-toc');
+  document.querySelector('.sidebar-inner').classList.toggle('sidebar-nav-active', hasTOC);
+  document.querySelector(hasTOC ? '.sidebar-nav-toc' : '.sidebar-nav-overview').click();
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+  <script>
+    NProgress.configure({
+      showSpinner: true
+    });
+    NProgress.start();
+    document.addEventListener('readystatechange', () => {
+      if (document.readyState === 'interactive') {
+        NProgress.inc(0.8);
+      }
+      if (document.readyState === 'complete') {
+        NProgress.done();
+      }
+    });
+    document.addEventListener('pjax:send', () => {
+      NProgress.start();
+    });
+    document.addEventListener('pjax:success', () => {
+      NProgress.done();
+    });
+  </script>
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    <div class="pjax">
+
+
+<script>
+NexT.utils.loadComments('.utterances-container', () => {
+  const script = document.createElement('script');
+  script.src = 'https://utteranc.es/client.js';
+  script.setAttribute('repo', "cuilongjin/hexo-blog");
+  script.setAttribute('issue-term', "pathname");
+  script.setAttribute('theme', "github-light");
+  script.setAttribute('label', "comment");
+  script.crossOrigin = 'anonymous';
+  script.async = true;
+  document.querySelector('.utterances-container').appendChild(script);
+});
+</script>
+
+    </div>
+</body>
+</html>

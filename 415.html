@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-logo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-logo.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-logo.png">
+  <link rel="mask-icon" href="/images/favicon-logo.png" color="#222">
+  <meta name="google-site-verification" content="4ub2lNf2WEkusifo-b7xbJIm2G5xxYUczDoWOFGp-NM">
+  <meta name="msvalidate.01" content="C2030D8E2452D4B39AED09488E55F2DF">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
+  <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"wqdy.top","root":"/","images":"/images","scheme":"Pisces","version":"8.2.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
+  </script>
+<meta name="description" content="Apache 安装centos# yum install httpd  （centos之下，Apache的名字叫httpd，和Apache的主程序 httpd.exe 同名）  打开并测试 Apache 先确保，云服务器的 80 端口，是允许外网访问的。  开启 Apache 服务   service httpd start# 查看状态service httpd status   测试 Apach">
+<meta property="og:type" content="article">
+<meta property="og:title" content="配置 web 服务器">
+<meta property="og:url" content="https://wqdy.top/415.html">
+<meta property="og:site_name" content="我全都要">
+<meta property="og:description" content="Apache 安装centos# yum install httpd  （centos之下，Apache的名字叫httpd，和Apache的主程序 httpd.exe 同名）  打开并测试 Apache 先确保，云服务器的 80 端口，是允许外网访问的。  开启 Apache 服务   service httpd start# 查看状态service httpd status   测试 Apach">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-07-09T22:24:43.000Z">
+<meta property="article:modified_time" content="2021-02-22T12:56:04.140Z">
+<meta property="article:author" content="c">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://wqdy.top/415.html">
+
+
+<script data-pjax class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+<!-- google 分析 -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-9068539038073295",
+        enable_page_level_ads: true
+    });
+</script>
+
+<script>
+  let a = '🍏 🍎 🍐 🍊 🍋 🍌 🍉 🍇 🍓 🍈 🍒 🍑 🍍 🥭 🥥 🥝 🍅 🍆 🥑 🥦 🥒 🥬 🌶 🌽 🥕 🥔 🍠 🥐 🍞 🥖 🥨 🥯 🧀 🥚 🍳 🥞 🥓 🥩 🍗 🍖 🌭 🍔 🍟 🍕 🥪 🥙 🌮 🌯 🥗 🥘 🥫 🍝 🍜 🍲 🍛 🍣 🍱 🥟 🍤 🍙 🍚 🍘 🍥 🥮 🥠 🍢 🍡 🍧 🍨 🍦 🥧 🍰 🎂 🍮 🍭 🍬 🍫 🍿 🧂 🍩 🍪 🌰 🥜 🍯 🥛 🍼 ☕️ 🍵 🥤 🍶 🍺 🍻 🥂 🍷 🥃 🍸 🍹 🍾 🥄 🍴 🍽 🥣 🥡 🥢 🌵 🎄 🌲 🌳 🌴 🌱 🌿 ☘️ 🍀 🎍 🎋 🍃 🍂 🍁 🍄 🌾 💐 🌷 🌹 🥀 🌺 🌸 🌼 🌻 😀 😁 😂 🤣 😃 😄 😅 😆 😉 😊 😋 😎 😍 😘 🥰 😗 😙 😚 ☺️ 🙂 🤗 🤩 🤔 🤨 😐 😑 😶 🙄 😏 😣 😥 😮 🤐 😯 😪 😫 😴 😌 😛 😜 😝 🤤 😒 😓 😔 😕 🙃 🤑 😲 ☹️ 🙁 😖 😞 😟 😤 😢 😭 😦 😧 😨 😩 🤯 😬 😰 😱 🥵 🥶 😳 🤪 😵 😡 😠 🤬 😷 🤒 🤕 🤢 🤮 🤧 😇 🤠 🤡 🥳 🥴 🥺 🤥 🤫 🤭 🧐 🤓 😈 👿 👹 👺 💀 👻 👽 🤖 💩 😺 😸 😹 😻 😼 😽 🙀 😿 😾'
+  document.addEventListener('visibilitychange', function() {
+    if (document.visibilityState == 'hidden') {
+      normal_title = document.title
+      document.title = a.split(' ')[parseInt(Math.random() * 235)]
+    } else document.title = normal_title
+  })
+</script>
+
+<title>配置 web 服务器 | 我全都要</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112496567-1"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-112496567-1');
+      }
+    </script>
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?4cf9aa5b4589576262198ad166b18a05";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">我全都要</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">搞快点</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Apache-%E5%AE%89%E8%A3%85"><span class="nav-text">Apache 安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#centos"><span class="nav-text">centos</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%93%E5%BC%80%E5%B9%B6%E6%B5%8B%E8%AF%95-Apache"><span class="nav-text">打开并测试 Apache</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9-Apache-%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-text">修改 Apache 的配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E8%AF%81%E4%B9%A6"><span class="nav-text">安装证书</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Nginx-%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="nav-text">Nginx 的安装与配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CentOS-%E4%B8%8B%E5%AE%89%E8%A3%85%EF%BC%9A"><span class="nav-text">CentOS 下安装：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ubuntu-%E4%B8%8B%E5%AE%89%E8%A3%85"><span class="nav-text">ubuntu 下安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#arch-%E4%B8%8B%E5%AE%89%E8%A3%85-nginx"><span class="nav-text">arch 下安装 nginx</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A6%81-Nginx-%E6%9C%8D%E5%8A%A1%E5%BC%80%E6%9C%BA%E6%97%B6%E5%90%AF%E5%8A%A8-%E8%BF%90%E8%A1%8C%E4%BB%A5%E4%B8%8B%E5%91%BD%E4%BB%A4"><span class="nav-text">要 Nginx 服务开机时启动,运行以下命令:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-text">配置</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="c"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">c</p>
+  <div class="site-description" itemprop="description">分享各类资源、经验与技巧</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">146</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">74</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/cuilongjin" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;cuilongjin" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/415.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          配置 web 服务器
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-07-09 22:24:43" itemprop="dateCreated datePublished" datetime="2019-07-09T22:24:43+00:00">2019-07-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Apache-安装"><a href="#Apache-安装" class="headerlink" title="Apache 安装"></a>Apache 安装</h1><h2 id="centos"><a href="#centos" class="headerlink" title="centos"></a>centos</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># yum install httpd  （centos之下，Apache的名字叫httpd，和Apache的主程序 httpd.exe 同名）</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="打开并测试-Apache"><a href="#打开并测试-Apache" class="headerlink" title="打开并测试 Apache"></a>打开并测试 Apache</h3><ul>
+<li><p>先确保，云服务器的 80 端口，是允许外网访问的。</p>
+</li>
+<li><p>开启 Apache 服务</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">service httpd start</span><br><span class="line"><span class="comment"># 查看状态</span></span><br><span class="line">service httpd status</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>测试 Apache 是否正常运行</li>
+</ul>
+<p>浏览器输入： 外网 IP:80，如果能正常显示 Apache 的内置主页，则说明 Apache 服务已正常开启。</p>
+<h3 id="修改-Apache-的配置文件"><a href="#修改-Apache-的配置文件" class="headerlink" title="修改 Apache 的配置文件"></a>修改 Apache 的配置文件</h3><p>主配置文件 <code>/etc/httpd/conf/httpd.conf</code></p>
+<p>修改如下键值兼容 php</p>
+<blockquote>
+<p>键：DirectoryIndex<br>值：index.html index.php</p>
+</blockquote>
+<p><strong>默认站点主目录</strong>：/var/www/html/</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/smbin/p/6946210.html">https://www.cnblogs.com/smbin/p/6946210.html</a></p>
+<h3 id="安装证书"><a href="#安装证书" class="headerlink" title="安装证书"></a><strong>安装证书</strong></h3><ol>
+<li>安装 ssl 模块</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># yum install mod_ssl -y</span><br></pre></td></tr></table></figure>
+
+<p>Ps：安装完成后，会在/etc/httpd/conf.d/下生成一个 ssl.conf 配置文件。</p>
+<p>建一个目录用来放 ssl 证书文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># mkdir &#x2F;etc&#x2F;httpd&#x2F;ssl&#x2F;</span><br></pre></td></tr></table></figure>
+
+<p>编辑 ssl 配置文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># vim &#x2F;etc&#x2F;httpd&#x2F;conf.d&#x2F;ssl.conf</span><br></pre></td></tr></table></figure>
+
+<p>修改以下几行，去掉前面的“#”注释；</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;VirtualHost&gt;</span><br><span class="line">#网页文件路径</span><br><span class="line">DocumentRoot &quot;&#x2F;var&#x2F;www&#x2F;html&quot;</span><br><span class="line">#改为自己的域名</span><br><span class="line">ServerName cuilongjin.top:80</span><br><span class="line">#启用SSL功能</span><br><span class="line">SSLEngine on</span><br><span class="line">#填写证书文件路径</span><br><span class="line">SSLCertificateFile   &#x2F;etc&#x2F;httpd&#x2F;ssl&#x2F;cert-1541656252121_cuilongjin.top.key</span><br><span class="line">#填写私钥文件路径</span><br><span class="line">SSLCertificateKeyFile   &#x2F;etc&#x2F;httpd&#x2F;ssl&#x2F;cert-1541656252121_cuilongjin.top.key</span><br><span class="line">#填写证书链文件路径</span><br><span class="line">SSLCertificateChainFile   &#x2F;etc&#x2F;httpd&#x2F;ssl&#x2F;cert-1541656252121_cuilongjin.top_chain.crt</span><br><span class="line">&lt;&#x2F;VirtualHost&gt;</span><br></pre></td></tr></table></figure>
+
+<p>重启服务器</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># service httpd restart</span><br></pre></td></tr></table></figure>
+
+<h1 id="Nginx-的安装与配置"><a href="#Nginx-的安装与配置" class="headerlink" title="Nginx 的安装与配置"></a>Nginx 的安装与配置</h1><h2 id="CentOS-下安装："><a href="#CentOS-下安装：" class="headerlink" title="CentOS 下安装："></a><strong>CentOS</strong> 下安装：</h2><p>通过安装包安装</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装所需环境</span></span><br><span class="line">yum install gcc-c++</span><br><span class="line">yum install -y pcre pcre-devel</span><br><span class="line">yum install -y zlib zlib-devel</span><br><span class="line">yum install -y openssl openssl-devel</span><br><span class="line"></span><br><span class="line"><span class="comment"># 官网下载 nginx https://nginx.org/</span></span><br><span class="line">yum install wget</span><br><span class="line">wget -c https://nginx.org/download/nginx-1.17.4.tar.gz</span><br><span class="line"><span class="comment"># 解压</span></span><br><span class="line">tar -zxvf nginx-1.17.4.tar.gz</span><br><span class="line"><span class="built_in">cd</span> nginx-1.17.1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置</span></span><br><span class="line">./configure</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编译安装</span></span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查找安装路径：</span></span><br><span class="line">whereis nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动、停止 重启 nginx</span></span><br><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/nginx/sbin/</span><br><span class="line">./nginx <span class="comment"># 启动</span></span><br><span class="line">./nginx -s stop <span class="comment"># 此方式相当于先查出nginx进程id再使用kill命令强制杀掉进程</span></span><br><span class="line">./nginx -s quit <span class="comment"># 此方式停止步骤是待nginx进程处理任务完毕进行停止</span></span><br><span class="line">./nginx -s quit &amp;&amp; ./nginx <span class="comment"># 重启 nginx</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 重新加载配置文件</span></span><br><span class="line"><span class="comment"># 配置文件 nginx.conf 修改后，要想让配置生效需要重启 nginx，使用 -s reload 不用先停止 nginx 再启动即可将配置信息在 nginx 中生效，如下：</span></span><br><span class="line">./nginx -s reload</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查询 nginx 进程</span></span><br><span class="line">ps aux|grep nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 开机自启动</span></span><br><span class="line">在 rc.local 增加启动代码</span><br><span class="line">vi /etc/rc.local</span><br><span class="line"><span class="comment"># 增加一行 /usr/local/nginx/sbin/nginx</span></span><br><span class="line"><span class="comment"># 设置执行权限</span></span><br><span class="line">chmod 755 rc.local</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加 nginx 为系统服务</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>centos 下，yum 源不提供 nginx 的安装，可以通过切换 yum 源的方法获取安装</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum -y install nginx</span><br></pre></td></tr></table></figure>
+
+<p>主站点目录/usr/share/nginx/html</p>
+<p><strong>配置 Nginx：</strong></p>
+<p>Nginx 的配置文件默认位置为：<code>/etc/nginx/nginx.conf</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen       80; #监听80端口，接收http请求</span><br><span class="line">  server_name  localhost; #就是网站地址</span><br><span class="line">  root         &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html; # 准备存放代码工程的路径</span><br><span class="line">  #路由到网站根目录www.example.com时候的处理</span><br><span class="line">  location &#x2F; &#123;</span><br><span class="line">    index index.php index.html index.htm;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  #当请求网站下php文件的时候，反向代理到php-fpm</span><br><span class="line">  location ~ \.php$ &#123;</span><br><span class="line">    include fastcgi.conf; #加载nginx的fastcgi模块</span><br><span class="line">    fastcgi_intercept_errors on;</span><br><span class="line">    fastcgi_pass   127.0.0.1:9000; #nginx fastcgi进程监听的IP地址和端口</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>自定义 Nginx 站点配置文件存放目录</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;etc&#x2F;nginx&#x2F;conf.d&#x2F;</span><br></pre></td></tr></table></figure>
+
+<p>默认站点目录/usr/share/nginx/html</p>
+<p>安装 php</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install php php-fpm</span><br></pre></td></tr></table></figure>
+
+<p>配置 php.ini</p>
+<p>/etc/php.ini</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cgi.fix_pathinfo&#x3D;1</span><br></pre></td></tr></table></figure>
+
+<p>配置 php-fpm</p>
+<p>/etc/php-fpm.d/<a target="_blank" rel="noopener" href="http://www.conf/">www.conf</a></p>
+<p>user = nginx</p>
+<p>group = nginx</p>
+<p>chkconfig php-fpm on #设置 php-fpm 自启动</p>
+<p>service nginx restart #重新启动 nginx</p>
+<p>service php-fpm start #启动 php-fpm</p>
+<p>sudo iptables -I INPUT -p tcp -m tcp –dport 80 -j ACCEPT</p>
+<p>sudo iptables -I INPUT -p tcp -m tcp –dport 443 -j ACCEPT</p>
+<p>iptables -L -n</p>
+<p>/usr/sbin/nginx</p>
+<p>查询 nginx 进程</p>
+<p>ps -ef | grep nginx</p>
+<p>nginx 配置</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#</span><br><span class="line"># HTTPS server configuration</span><br><span class="line">#</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">  listen       443 ssl http2 default_server;</span><br><span class="line">  listen       [::]:443 ssl;</span><br><span class="line">  server_name  _;</span><br><span class="line">  root         &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html;</span><br><span class="line"></span><br><span class="line">  ssl_certificate ssl&#x2F;cuilongjin.top.pem;</span><br><span class="line">  ssl_certificate_key ssl&#x2F;cuilongjin.top.key;</span><br><span class="line">  ssl_session_cache shared:SSL:1m;</span><br><span class="line">  ssl_session_timeout  10m;</span><br><span class="line">  ssl_ciphers HIGH:!aNULL:!MD5;</span><br><span class="line">  ssl_prefer_server_ciphers on;</span><br><span class="line"></span><br><span class="line">  # Load configuration files for the default server block.</span><br><span class="line">  include &#x2F;etc&#x2F;nginx&#x2F;default.d&#x2F;*.conf;</span><br><span class="line"></span><br><span class="line">  location &#x2F; &#123;</span><br><span class="line">  &#125;</span><br><span class="line">    location ~ \.php$ &#123;</span><br><span class="line">      root html;</span><br><span class="line">      fastcgi_pass 127.0.0.1:9000;</span><br><span class="line">      fastcgi_index index.php;</span><br><span class="line">      fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;</span><br><span class="line">      include fastcgi_params;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  error_page 404 &#x2F;404.html;</span><br><span class="line">    location &#x3D; &#x2F;40x.html &#123;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  error_page 500 502 503 504 &#x2F;50x.html;</span><br><span class="line">    location &#x3D; &#x2F;50x.html &#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#</span><br><span class="line"># The default server</span><br><span class="line">#</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">  listen       80 default_server;</span><br><span class="line">  listen       [::]:80 default_server;</span><br><span class="line">  server_name  _;</span><br><span class="line">  root         &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html;</span><br><span class="line"></span><br><span class="line">  # Load configuration files for the default server block.</span><br><span class="line">  include &#x2F;etc&#x2F;nginx&#x2F;default.d&#x2F;*.conf;</span><br><span class="line"></span><br><span class="line">  location &#x2F; &#123;</span><br><span class="line">  &#125;</span><br><span class="line">  location ~ \.php$ &#123;</span><br><span class="line">    root html;</span><br><span class="line">    fastcgi_pass 127.0.0.1:9000;</span><br><span class="line">    fastcgi_index index.php;</span><br><span class="line">    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;</span><br><span class="line">    include fastcgi_params;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  error_page 404 &#x2F;404.html;</span><br><span class="line">    location &#x3D; &#x2F;40x.html &#123;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  error_page 500 502 503 504 &#x2F;50x.html;</span><br><span class="line">    location &#x3D; &#x2F;50x.html &#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="ubuntu-下安装"><a href="#ubuntu-下安装" class="headerlink" title="ubuntu 下安装"></a>ubuntu 下安装</h2><p>安装 nginx</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install nginx</span><br></pre></td></tr></table></figure>
+
+<p>Ubuntu 安装之后的文件结构大致为：</p>
+<ul>
+<li>所有的配置文件都在/etc/nginx 下，并且每个虚拟主机已经安排在了/etc/nginx/sites-available 下</li>
+<li>程序文件在/usr/sbin/nginx</li>
+<li>日志文件在/var/log/nginx</li>
+<li>并已经在/etc/init.d/下创建了启动脚本 nginx</li>
+<li>服务器配置文件在/etc/nginx/sites-available/</li>
+<li>默认主站点目录 /var/www/html，（有的可能在/var/www）, 请参考/etc/nginx/sites-available 里的配置</li>
+</ul>
+<p>安装 php</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get install php</span><br></pre></td></tr></table></figure>
+
+<p>配置 php.ini /etc/php/7.2/cli/</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cgi.fix_pathinfo&#x3D;1</span><br></pre></td></tr></table></figure>
+
+<p>配置 php-fpm</p>
+<p>启动 nginx</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/etc/init.d/nginx restart</span><br><span class="line">/etc/init.d/nginx stop</span><br><span class="line">/etc/init.d/nginx start</span><br></pre></td></tr></table></figure>
+
+<p>删除 nginx</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get --purge remove nginx</span><br><span class="line"><span class="comment"># –-purge 包括配置文件</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="arch-下安装-nginx"><a href="#arch-下安装-nginx" class="headerlink" title="arch 下安装 nginx"></a>arch 下安装 nginx</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pacman -S nginx</span><br></pre></td></tr></table></figure>
+
+<p>启动 Nginx 服务,运行以下命令:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># systemctl start nginx</span><br></pre></td></tr></table></figure>
+
+<h3 id="要-Nginx-服务开机时启动-运行以下命令"><a href="#要-Nginx-服务开机时启动-运行以下命令" class="headerlink" title="要 Nginx 服务开机时启动,运行以下命令:"></a>要 Nginx 服务开机时启动,运行以下命令:</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># systemctl enable nginx</span><br></pre></td></tr></table></figure>
+
+<p>默认页面是:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html&#x2F;index.html</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>你可以修改在 <strong>/etc/nginx/</strong> 目录中的文件来更改配置 <strong>./etc/nginx/nginx.conf</strong> 是主配置文件</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/linux/" rel="tag"># linux</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/408.html" rel="prev" title="js 中编码（encode）和解码（decode）的三种方法">
+                  <i class="fa fa-chevron-left"></i> js 中编码（encode）和解码（decode）的三种方法
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/383.html" rel="next" title="Window.history 对象">
+                  Window.history 对象 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2015 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">c</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>本站为个人博客，站内所有软件资源均收集自互联网，本站仅做免费分享，不出售。本站内所有软件资源仅限个人用于学习和研究目的，不得将上述内容用于商业或者非法用途，否则，一切后果请用户自负。本站内所有软件必须在下载后的24个小时之内，从您的电脑中彻底删除。本站对任何资源不提供技术支持，遇到问题请自行研究或购买正版。本站信息来自网络，版权争议与本站无关。访问和下载本站内容，说明您已同意上述条款。
+
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '.page-configurations',
+    '.main-inner',
+    '.post-toc-wrap',
+    '.languages',
+    '.pjax'
+  ],
+  analytics: false,
+  cacheBust: false,
+  scrollRestoration: false,
+  scrollTo: !CONFIG.bookmark.enable
+});
+
+document.addEventListener('pjax:success', () => {
+  pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  const hasTOC = document.querySelector('.post-toc');
+  document.querySelector('.sidebar-inner').classList.toggle('sidebar-nav-active', hasTOC);
+  document.querySelector(hasTOC ? '.sidebar-nav-toc' : '.sidebar-nav-overview').click();
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+  <script>
+    NProgress.configure({
+      showSpinner: true
+    });
+    NProgress.start();
+    document.addEventListener('readystatechange', () => {
+      if (document.readyState === 'interactive') {
+        NProgress.inc(0.8);
+      }
+      if (document.readyState === 'complete') {
+        NProgress.done();
+      }
+    });
+    document.addEventListener('pjax:send', () => {
+      NProgress.start();
+    });
+    document.addEventListener('pjax:success', () => {
+      NProgress.done();
+    });
+  </script>
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    <div class="pjax">
+
+
+<script>
+NexT.utils.loadComments('.utterances-container', () => {
+  const script = document.createElement('script');
+  script.src = 'https://utteranc.es/client.js';
+  script.setAttribute('repo', "cuilongjin/hexo-blog");
+  script.setAttribute('issue-term', "pathname");
+  script.setAttribute('theme', "github-light");
+  script.setAttribute('label', "comment");
+  script.crossOrigin = 'anonymous';
+  script.async = true;
+  document.querySelector('.utterances-container').appendChild(script);
+});
+</script>
+
+    </div>
+</body>
+</html>

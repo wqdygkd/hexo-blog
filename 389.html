@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-logo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-logo.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-logo.png">
+  <link rel="mask-icon" href="/images/favicon-logo.png" color="#222">
+  <meta name="google-site-verification" content="4ub2lNf2WEkusifo-b7xbJIm2G5xxYUczDoWOFGp-NM">
+  <meta name="msvalidate.01" content="C2030D8E2452D4B39AED09488E55F2DF">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
+  <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"wqdy.top","root":"/","images":"/images","scheme":"Pisces","version":"8.2.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}};
+  </script>
+<meta name="description" content="移动 web 基础移动端开发现状 移动 web 开发指的是需要适配移动设备的网页开发 移动 web 开发与 pc 端 web 开发没有本质的区别，使用的还是 HTML&#x2F;CSS&#x2F;JavaScript 的技术 移动 web 开发与 pc 端 web 开发的区别是什么？  移动端的浏览器与 pc 端不同 谷歌浏览器 苹果浏览器、 UC浏览器 QQ浏览器 欧朋浏览器 百度手机浏览器  360安全浏览器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动 web">
+<meta property="og:url" content="https://wqdy.top/389.html">
+<meta property="og:site_name" content="我全都要">
+<meta property="og:description" content="移动 web 基础移动端开发现状 移动 web 开发指的是需要适配移动设备的网页开发 移动 web 开发与 pc 端 web 开发没有本质的区别，使用的还是 HTML&#x2F;CSS&#x2F;JavaScript 的技术 移动 web 开发与 pc 端 web 开发的区别是什么？  移动端的浏览器与 pc 端不同 谷歌浏览器 苹果浏览器、 UC浏览器 QQ浏览器 欧朋浏览器 百度手机浏览器  360安全浏览器">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-12-11T22:05:45.000Z">
+<meta property="article:modified_time" content="2021-02-22T12:56:04.136Z">
+<meta property="article:author" content="c">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://wqdy.top/389.html">
+
+
+<script data-pjax class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+<!-- google 分析 -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-9068539038073295",
+        enable_page_level_ads: true
+    });
+</script>
+
+<script>
+  let a = '🍏 🍎 🍐 🍊 🍋 🍌 🍉 🍇 🍓 🍈 🍒 🍑 🍍 🥭 🥥 🥝 🍅 🍆 🥑 🥦 🥒 🥬 🌶 🌽 🥕 🥔 🍠 🥐 🍞 🥖 🥨 🥯 🧀 🥚 🍳 🥞 🥓 🥩 🍗 🍖 🌭 🍔 🍟 🍕 🥪 🥙 🌮 🌯 🥗 🥘 🥫 🍝 🍜 🍲 🍛 🍣 🍱 🥟 🍤 🍙 🍚 🍘 🍥 🥮 🥠 🍢 🍡 🍧 🍨 🍦 🥧 🍰 🎂 🍮 🍭 🍬 🍫 🍿 🧂 🍩 🍪 🌰 🥜 🍯 🥛 🍼 ☕️ 🍵 🥤 🍶 🍺 🍻 🥂 🍷 🥃 🍸 🍹 🍾 🥄 🍴 🍽 🥣 🥡 🥢 🌵 🎄 🌲 🌳 🌴 🌱 🌿 ☘️ 🍀 🎍 🎋 🍃 🍂 🍁 🍄 🌾 💐 🌷 🌹 🥀 🌺 🌸 🌼 🌻 😀 😁 😂 🤣 😃 😄 😅 😆 😉 😊 😋 😎 😍 😘 🥰 😗 😙 😚 ☺️ 🙂 🤗 🤩 🤔 🤨 😐 😑 😶 🙄 😏 😣 😥 😮 🤐 😯 😪 😫 😴 😌 😛 😜 😝 🤤 😒 😓 😔 😕 🙃 🤑 😲 ☹️ 🙁 😖 😞 😟 😤 😢 😭 😦 😧 😨 😩 🤯 😬 😰 😱 🥵 🥶 😳 🤪 😵 😡 😠 🤬 😷 🤒 🤕 🤢 🤮 🤧 😇 🤠 🤡 🥳 🥴 🥺 🤥 🤫 🤭 🧐 🤓 😈 👿 👹 👺 💀 👻 👽 🤖 💩 😺 😸 😹 😻 😼 😽 🙀 😿 😾'
+  document.addEventListener('visibilitychange', function() {
+    if (document.visibilityState == 'hidden') {
+      normal_title = document.title
+      document.title = a.split(' ')[parseInt(Math.random() * 235)]
+    } else document.title = normal_title
+  })
+</script>
+
+<title>移动 web | 我全都要</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112496567-1"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-112496567-1');
+      }
+    </script>
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?4cf9aa5b4589576262198ad166b18a05";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">我全都要</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">搞快点</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A7%BB%E5%8A%A8-web-%E5%9F%BA%E7%A1%80"><span class="nav-text">移动 web 基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%BC%80%E5%8F%91%E7%8E%B0%E7%8A%B6"><span class="nav-text">移动端开发现状</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%BC%80%E5%8F%91%E5%88%86%E7%B1%BB"><span class="nav-text">移动端开发分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%8F%E5%B9%95%E4%B8%8E%E5%88%86%E8%BE%A8%E7%8E%87"><span class="nav-text">屏幕与分辨率</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E5%A4%87%E5%83%8F%E7%B4%A0"><span class="nav-text">设备像素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E5%A4%87%E7%8B%AC%E7%AB%8B%E5%83%8F%E7%B4%A0"><span class="nav-text">设备独立像素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#css-%E5%83%8F%E7%B4%A0%E4%B8%8E%E7%BC%A9%E6%94%BE"><span class="nav-text">css 像素与缩放</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%80%8D%E5%9B%BE%E4%B8%8E-3-%E5%80%8D%E5%9B%BE"><span class="nav-text">2 倍图与 3 倍图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%86%E5%8F%A3-viewport"><span class="nav-text">视口 viewport</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%B0%83%E8%AF%95%E9%97%AE%E9%A2%98"><span class="nav-text">移动端调试问题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%81%E5%BC%8F%E5%B8%83%E5%B1%80"><span class="nav-text">流式布局</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#touch-%E4%BA%8B%E4%BB%B6"><span class="nav-text">touch 事件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#iscroll-%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8"><span class="nav-text">iscroll 插件使用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#zepto-%E6%A1%86%E6%9E%B6"><span class="nav-text">zepto 框架</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#zepto-%E4%B8%8E-jquery-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">zepto 与 jquery 的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zepto-%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="nav-text">zepto 的基本使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zepto-%E7%9A%84%E5%AE%9A%E5%88%B6"><span class="nav-text">zepto 的定制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zepto-%E6%89%8B%E5%8A%BF%E4%BA%8B%E4%BB%B6"><span class="nav-text">zepto 手势事件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%93%8D%E5%BA%94%E5%BC%8F"><span class="nav-text">响应式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80"><span class="nav-text">什么是响应式布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%93%8D%E5%BA%94%E5%BC%8F%E5%BC%80%E5%8F%91%E4%B8%8E%E7%A7%BB%E5%8A%A8-web-%E5%BC%80%E5%8F%91%E7%9A%84%E6%AF%94%E8%BE%83"><span class="nav-text">响应式开发与移动 web 开发的比较</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2"><span class="nav-text">媒体查询</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E5%A4%87%E5%88%86%E7%B1%BB"><span class="nav-text">设备分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-text">媒体查询的使用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bootstrap-%E6%A1%86%E6%9E%B6"><span class="nav-text">bootstrap 框架</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#REM"><span class="nav-text">REM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#rem-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-text">rem 是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8-rem%EF%BC%9F"><span class="nav-text">为什么要用 rem？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rem-%E5%B8%83%E5%B1%80"><span class="nav-text">rem 布局</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#rem-%E9%85%8D%E5%90%88%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2"><span class="nav-text">rem 配合媒体查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rem-%E9%85%8D%E5%90%88-javascript"><span class="nav-text">rem 配合 javascript</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rem-%E9%85%8D%E5%90%88-flexible-%E6%8F%92%E4%BB%B6"><span class="nav-text">rem 配合 flexible 插件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#swiper-%E6%8F%92%E4%BB%B6"><span class="nav-text">swiper 插件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#other"><span class="nav-text">other</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="c"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">c</p>
+  <div class="site-description" itemprop="description">分享各类资源、经验与技巧</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">146</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">74</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/cuilongjin" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;cuilongjin" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/389.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          移动 web
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-12-11 22:05:45" itemprop="dateCreated datePublished" datetime="2018-12-11T22:05:45+00:00">2018-12-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="移动-web-基础"><a href="#移动-web-基础" class="headerlink" title="移动 web 基础"></a>移动 web 基础</h1><h2 id="移动端开发现状"><a href="#移动端开发现状" class="headerlink" title="移动端开发现状"></a>移动端开发现状</h2><ul>
+<li>移动 web 开发指的是需要适配移动设备的网页开发</li>
+<li>移动 web 开发与 pc 端 web 开发没有本质的区别，使用的还是 HTML/CSS/JavaScript 的技术</li>
+<li>移动 web 开发与 pc 端 web 开发的区别是什么？</li>
+</ul>
+<p>移动端的浏览器与 pc 端不同</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">谷歌浏览器 苹果浏览器、 UC浏览器 QQ浏览器 欧朋浏览器 百度手机浏览器  360安全浏览器  搜狗浏览器  猎豹浏览器等</span><br><span class="line">国内的手机浏览器都是根据webkit内核修改过来的，国内没有自主研发的内核，国内的操作系统也是基于Android系统修改的。</span><br><span class="line"></span><br><span class="line">因此在移动端，css3 属性只需要加 webkit 前缀即可</span><br></pre></td></tr></table></figure>
+
+<p>移动端设备尺寸不一样(尺寸非常多，碎片化很严重)</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">Android： <span class="number">320</span>*<span class="number">480</span> <span class="number">480</span>*<span class="number">800</span>  <span class="number">540</span>*<span class="number">960</span> <span class="number">720</span>*<span class="number">1280</span> <span class="number">1080</span>*<span class="number">1920</span> 2k屏 4k屏</span><br><span class="line">iphpne：  <span class="number">640</span>*<span class="number">960</span> <span class="number">640</span>*<span class="number">1136</span> <span class="number">750</span>*<span class="number">1334</span> <span class="number">1242</span>*<span class="number">2208</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="移动端开发分类"><a href="#移动端开发分类" class="headerlink" title="移动端开发分类"></a>移动端开发分类</h2><ul>
+<li>原生 app（native app）</li>
+<li>混合 app（Hybrid app）</li>
+<li>web 应用（webApp）</li>
+</ul>
+<p><strong>原生 app（native app）</strong></p>
+<blockquote>
+<p>原生 app 是基于操作系统的开发，比如安卓，ios，windows phone,他们只能在各自的操作系统上运行。</p>
+</blockquote>
+<p>优点：</p>
+<ol>
+<li>可以访问操作系统，获取更多的资源（gps，摄像头，传感器，麦克风等）</li>
+<li>速度快，性能高，用户体验好</li>
+<li>可以离线使用</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>开发成本高</li>
+<li>需要安装和更新，更新与发布需要审核。</li>
+</ol>
+<p><strong>Web App</strong></p>
+<blockquote>
+<p>Web 应用使用 H5C3 开发页面，为浏览器设计的基于 web 的应用，可以在各种智能设备的手机浏览器上运行。不需要安装即可运行。</p>
+</blockquote>
+<p>优点：</p>
+<ol>
+<li>支持设备广泛</li>
+<li>开发成本低（使用）</li>
+<li>可以随时上线与更新，无需审核</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>用户体验极度依赖网速</li>
+<li>要求联网</li>
+<li>无法获取手机的资源（gps，摄像头）</li>
+</ol>
+<p><strong>混合 app（Hybrid App）</strong></p>
+<blockquote>
+<p>Hybrid App 是指介于 web-app、native-app 这两者之间的 app,它虽然看上去是一个 Native App，但只有一个 UI WebView，里面访问的是一个 Web App。（淘宝、京东、手机百度）</p>
+</blockquote>
+<p>Hybird App 说白了就是使用了 Native app 的壳，里面其实还是 HTML5 页面</p>
+<p>优点：</p>
+<ol>
+<li>开发成本和难度更低，兼容多个平台</li>
+<li>也可以访问手机的操作系统资源。</li>
+<li>更新维护更方便</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>用户体验相比原生 app 稍差</li>
+<li>性能依赖于网速</li>
+</ol>
+<p>总结：</p>
+<p>三种开发各有优缺点，具体用什么需要根据实际情况而定，比如预算，app 注重功能还是内容等</p>
+<h2 id="屏幕与分辨率"><a href="#屏幕与分辨率" class="headerlink" title="屏幕与分辨率"></a>屏幕与分辨率</h2><p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000011753855">理解设备像素、设备独立像素和 css 像素</a></p>
+<blockquote>
+<p>移动设备与 PC 设备最大的差异在于屏幕，这主要体现在屏幕尺寸和屏幕分辨率两个方面</p>
+</blockquote>
+<p>屏幕尺寸</p>
+<p>通常我们所指的屏幕<code>尺寸</code>，实际上指的是屏幕对角线的长度（一般用英寸来度量）</p>
+<p><code>1英寸 = 2.54厘米</code></p>
+<p>屏幕分辨率</p>
+<p>分辨率则一般用像素来度量，表示屏幕水平和垂直方向的像素数，例如 1920*1080 指的是屏幕垂直方向和水平方向分别有 1920 和 1080 个像素点而构成</p>
+<p><code>像素</code>：指计算机显示设备中的最小单位，即一个像素点的大小。每一个像素点可以理解为就是屏幕上的一个发光点</p>
+<p>像素密度 ppi</p>
+<p><code>PPI (Pixels Per Inch)</code>表示屏幕每英寸的像素数</p>
+<p>PPI 值的越大说明单位尺寸里所能容纳的像素数量就越多，所能展现画面的品质也就越精细，反之就越粗糙</p>
+<h2 id="设备像素"><a href="#设备像素" class="headerlink" title="设备像素"></a>设备像素</h2><blockquote>
+<p>设备像素 (device pixels）也叫物理像素</p>
+</blockquote>
+<p>设备像素指的是显示器上的真实像素，每个像素的大小是屏幕固有的属性，屏幕出厂以后就不会改变了</p>
+<p>设备分辨率描述的就是这个显示器的宽和高分别是多少个设备像素</p>
+<p>设备像素和设备分辨率交给操作系统来管理，浏览器不知道、也不需要知道设备分辨率的大小，浏览器只需要知道<strong>逻辑分辨率</strong>就可以了</p>
+<h2 id="设备独立像素"><a href="#设备独立像素" class="headerlink" title="设备独立像素"></a>设备独立像素</h2><blockquote>
+<p>设备独立像素（Device Independent Pixels）也叫逻辑像素、设备无关像素。在 IOS 设备上叫<code>PT</code>，Android 设备上叫<code>DP</code>，在 css 中，叫<code>PX</code></p>
+</blockquote>
+<p>为了能够保证 <code>图像内容在不同的 PPI 设备看上去大小应该差不多</code> ，操作系统定义了一个单位：设备独立像素，用设备独立像素定义的尺寸，不管屏幕的参数如何，都能以合适的大小显示（这也是设备独立像素名字的由来）</p>
+<p>对于那些像素密度高的屏幕，操作系统将多个设备像素划分为一个逻辑像素。屏幕的像素密度越高，就需要更多的设备像素来显示一个设备独立像素。至于将多少设备像素划分为一个逻辑像素，这由操作系统决定</p>
+<p>获取设备的像素比</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">window</span>.devicePixelRatio <span class="comment">// 物理像素 与 css 像素的比值 DPR</span></span><br></pre></td></tr></table></figure>
+
+<p>通过 <code>screen.width/height</code>得到的屏幕宽度和高度就是逻辑分辨率（单位：设备独立像素）</p>
+<h2 id="css-像素与缩放"><a href="#css-像素与缩放" class="headerlink" title="css 像素与缩放"></a>css 像素与缩放</h2><p>在缩放比例为 100% 的情况下，一个 css 像素大小等于一个设备独立像素</p>
+<p>缩放页面的时候，元素的 css 像素数量不会改变，改变的只是每个 css 像素的大小</p>
+<p>缩放比例 = css 像素边长 / 设备独立像素边长</p>
+<p>如果原本元素宽度为 128 个设备独立像素，那么缩放 200% 以后元素宽度为 256 个设备独立像素（css 像素宽度始终是 128）</p>
+<p>桌面浏览器上缩放机制是 page zoom，缩放会导致 CSS 像素边长的改变，从而导致 window.devicePixelRatio 的改变</p>
+<p>在移动端缩放机制是 pinch zoom，计算 window.devicePixelRatio 时，不考虑 pinch zoom 对 CSS 像素尺寸的影响，因此 window.devicePixelRatio 不会随缩放而改变</p>
+<h2 id="2-倍图与-3-倍图"><a href="#2-倍图与-3-倍图" class="headerlink" title="2 倍图与 3 倍图"></a>2 倍图与 3 倍图</h2><blockquote>
+<p>以后同学在工作的过程中，从 UI 那拿到的设计图通常都是 640 的设计图或者是 750 的设计图</p>
+</blockquote>
+<p>把更多的像素点压缩至一块屏幕里，从而达到更高的分辨率并提高屏幕显示的细腻程度</p>
+<p>设备像素比 devicePixelRatio：即像素的压缩比例</p>
+<p><strong>结论 ：在移动端为了在高清屏手机上显示得更加细腻，通常会使用更大的图片，比如 2 倍图或者 3 倍图</strong></p>
+<h2 id="视口-viewport"><a href="#视口-viewport" class="headerlink" title="视口 viewport"></a>视口 viewport</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">问题：一个电脑上的网站，在手机端访问，效果是什么样的？</span><br><span class="line"></span><br><span class="line">iPhone5 的设备宽度只有 320px，一张宽度为 640px 的图片在手机端访问，显示的效果是什么？</span><br><span class="line"></span><br><span class="line">1. 在手机端，html的 大小都是 980px，为什么？</span><br><span class="line">这主要是历史原因导致的，因为在移动设备刚流行的时候，网站大多都是pc端的，pc端的页面宽度一般都比较大，移动设备的宽度比较小，如果pc端页面直接在移动端显示的话，页面就会错乱。为了解决这个问题，移动端html的大小直接就定死成了980px（因为早起的pc端网站版心就是980px居多）</span><br><span class="line"></span><br><span class="line">2. 视口</span><br><span class="line">在 pc 端，html 的大小默认是继承了浏览器的宽度，即浏览器多宽，html 的大小就是多宽，但是在移动端，多出来了一个视口的概念（乔布斯）,视口说白了就是介于浏览器与 html 之间的一个东西，视口的宽度默认定死了 980px，因此 html 的宽度默认就是 980px，视口的特点是能够根据设备的宽度进行缩放</span><br><span class="line"></span><br><span class="line">3. 视口设置</span><br><span class="line">对于现在的移动端页面来说，视口默认为 980px 肯定不合适，因为设备宽度不够的话，视口会进行缩放，导致页面展示效果不好看</span><br></pre></td></tr></table></figure>
+
+<p><strong>视口参数设置</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// width 设置视口的宽度</span></span><br><span class="line"><span class="comment">// width=device-width   设置视口宽度为设备的宽度（常用）</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// initial-scale 设置初始缩放比例</span></span><br><span class="line"><span class="comment">// initial-scale=1.0  表示不缩放</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// user-scalable 设置是否允许用户缩放</span></span><br><span class="line"><span class="comment">// user-scalable=no  不允许用户缩放</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// maximum-scale  设置允许的最大缩放比例</span></span><br><span class="line"><span class="comment">// maximum-scale=1.0  可以不设置，因为都禁止用户缩放了</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// minimum-scale 设置允许最小缩放比</span></span><br><span class="line"><span class="comment">// minimum-scale=1.0  不设置，因为都禁用用户缩放了</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 标准写法：</span></span><br><span class="line"><span class="comment">// 快捷键：  meta:vp + tab键</span></span><br><span class="line">&lt;meta name=<span class="string">&quot;viewport&quot;</span> content=<span class="string">&quot;width=device-width, user-scalable=no, initial-scale=1.0&quot;</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="移动端调试问题"><a href="#移动端调试问题" class="headerlink" title="移动端调试问题"></a>移动端调试问题</h2><ol>
+<li>模拟器调试</li>
+<li>真机调试：使用手机进行访问。</li>
+</ol>
+<p>手机设备五花八门，屏幕尺寸都大不一样，尤其是安卓端，给我们的页面预览带来了一些麻烦。在实际工作中，作为开发者不可能有足够的设备让我们去测试（<strong>除了测试部门</strong> ），即便有，效率也特别的低，因此开发者一般都是通过浏览器的手机模拟器来模拟不同的设备。</p>
+<h1 id="流式布局"><a href="#流式布局" class="headerlink" title="流式布局"></a>流式布局</h1><p><strong>移动端的特点</strong></p>
+<ul>
+<li>手机端的兼容性问题比 PC 端小很多，因为手机端的浏览器版本比较新</li>
+<li>手机端屏幕比较小，能够放的内容比较少。</li>
+</ul>
+<p>问题：布局的时候怎么解决屏幕大小不一致的问题？</p>
+<ul>
+<li>PC 端，固定版心，让所有分辨率的电脑的版心都是一样的，比如京东</li>
+<li>移动端：移动端无法设置版心，因为移动端的设备屏幕本身就小，设置版心不合适。因此移动端大多会采用流式布局（百分比布局）</li>
+</ul>
+<p><strong>流式布局</strong>，也叫百分比布局，是移动端开发中经常使用的布局方式之一。</p>
+<p>流式布局的特征：</p>
+<ul>
+<li>宽度自适应，高度写死，并不是百分百还原设计图</li>
+<li>图标都是固定死大小的，包括字体等也是固定死的。并不是所有的东西都是自适应的。</li>
+<li>一些大的图片，设置宽度为百分比自适应即可，随着屏幕大小进行变化</li>
+</ul>
+<p><strong>流式布局无法做到所有设备都非常逼真的还原设计图，有些设备显示效果不是特别的好看。但是流式布局是移动端非常常用的一种布局方式，比较简单，需要掌握（携程、京东)</strong></p>
+<p><strong>最后一天会学习 rem 布局，配合 less 非常的方便，并且能够实现完全的自适应，包括字体以及图标等</strong></p>
+<p>经典的流式布局</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. 左侧固定，右侧自适应</span><br><span class="line">2. 右侧固定，左侧自适应</span><br><span class="line">3. 两侧固定，中间自适应（圣杯布局，双飞翼布局）</span><br><span class="line">4. 等分布局</span><br></pre></td></tr></table></figure>
+
+<h1 id="touch-事件"><a href="#touch-事件" class="headerlink" title="touch 事件"></a>touch 事件</h1><p>移动端新增了 4 个与手指触摸相关的事件</p>
+<ul>
+<li><code>touchstart</code>: 手指放到屏幕上时触发</li>
+<li><code>touchmove</code>: 手指在屏幕上滑动式触发（会触发多次）</li>
+<li><code>touchend</code>: 手指离开屏幕时触发</li>
+<li><code>touchcancel</code>: 系统取消 touch 事件的时候触发，比如电话</li>
+</ul>
+<p>每个触摸事件被触发后，会生成一个 event 对象，event 对象中<code>changedTouches</code>会记录手指滑动的信息</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">e.touches <span class="comment">// 当前屏幕上的手指</span></span><br><span class="line">e.targetTouches <span class="comment">// 当前dom元素上的手指。</span></span><br><span class="line">e.changedTouches <span class="comment">// 触摸时发生改变的手指(重点)(如手指离开屏幕)</span></span><br></pre></td></tr></table></figure>
+
+<p>这些列表里的每次触摸由 touch 对象组成，touch 对象里包含着触摸信息，主要属性如下</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// e.changedTouches[0].clientX</span></span><br><span class="line">clientX / clientY <span class="comment">// 触摸点相对浏览器窗口的位置</span></span><br><span class="line">pageX / pageY <span class="comment">// 触摸点相对于页面的位置</span></span><br></pre></td></tr></table></figure>
+
+<p>!&gt; 使用 jquery 注册 touch 类事件时，获取手指使用 <code>e.originalEvent.touchs[0]</code> ，因为 jq 对事件对象进行了封装</p>
+<p>【案例：jdm-滑动轮播图】</p>
+<p>【案例：jdm-区域滚动】</p>
+<h2 id="iscroll-插件使用"><a href="#iscroll-插件使用" class="headerlink" title="iscroll 插件使用"></a>iscroll 插件使用</h2><p><a target="_blank" rel="noopener" href="https://github.com/cubiq/iscroll">https://github.com/cubiq/iscroll</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.mamicode.com/info-detail-331827.html">iscroll 参考文档</a></p>
+<p><strong>注意</strong>：使用 iscroll 需要满足的条件</p>
+<ol>
+<li>父盒子嵌套了子盒子（一个）</li>
+<li>如果有多个子盒子，所以我们需要使用一个盒子把所有的子盒子包裹起来</li>
+<li>如果有图片，我们需要保证图片加载完成，如果有浮动，需要清除浮动，为了保证子盒子的高度获取的是正确的</li>
+<li>子盒子大小一定要超过父盒子的大小</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 使用：box为父盒子</span></span><br><span class="line"><span class="keyword">var</span> box = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.box&#x27;</span>)</span><br><span class="line"><span class="keyword">new</span> IScroll(box, &#123;</span><br><span class="line">  scrollX: <span class="literal">false</span>, <span class="comment">// 横向滚动</span></span><br><span class="line">  scrollY: <span class="literal">true</span> <span class="comment">// 纵向滚动</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h1 id="zepto-框架"><a href="#zepto-框架" class="headerlink" title="zepto 框架"></a>zepto 框架</h1><blockquote>
+<p><strong>Zepto</strong>是一个轻量级的<strong>针对现代高级浏览器的 JavaScript 库， <strong>它与 jquery</strong>有着类似的 api</strong>。 如果你会用 jquery，那么你也会用 zepto</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/madrobby/zepto">github 地址</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.css88.com/doc/zeptojs_api/">中文文档</a></p>
+<h2 id="zepto-与-jquery-的区别"><a href="#zepto-与-jquery-的区别" class="headerlink" title="zepto 与 jquery 的区别"></a>zepto 与 jquery 的区别</h2><ul>
+<li>jquery 针对 pc 端，主要用于解决浏览器兼容性问题，zepto 主要针对移动端</li>
+<li>zepto 比 jquery 轻量，文件体积更小</li>
+<li>zepto 封装了一些移动端的手势事件</li>
+</ul>
+<h2 id="zepto-的基本使用"><a href="#zepto-的基本使用" class="headerlink" title="zepto 的基本使用"></a>zepto 的基本使用</h2><p>zepto 的使用与 jquery 基本一致，zepto 是分模块的，需要某个功能，就需要引入某个 zepto 的文件</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;zepto/zepto.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;zepto/event.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;zepto/fx.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  $(<span class="string">&#x27;.box&#x27;</span>).addClass(<span class="string">&#x27;demo&#x27;</span>)</span><br><span class="line"></span><br><span class="line">  $(<span class="string">&#x27;button&#x27;</span>).on(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="string">&#x27;.box&#x27;</span>).animate(&#123; <span class="attr">width</span>: <span class="number">500</span> &#125;, <span class="number">1000</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="zepto-的定制"><a href="#zepto-的定制" class="headerlink" title="zepto 的定制"></a>zepto 的定制</h2><p>安装 Nodejs 环境</p>
+<p>1、下载 zepto.js</p>
+<p>2、解压缩</p>
+<p>3、cmd 命令行进入解压缩后的目录</p>
+<p>4、执行<code>npm install</code>命令</p>
+<p>5、编辑 make 文件的<code>41行</code>，添加自定义模块并保存</p>
+<p>7、然后执行命令 <code>npm run-script dist</code></p>
+<p>8、查看目录 dist 即构建好的 zepto.js</p>
+<h2 id="zepto-手势事件"><a href="#zepto-手势事件" class="headerlink" title="zepto 手势事件"></a>zepto 手势事件</h2><p>zepto 中根据<code>touchstart touchmove touchend</code>封装了一些常用的手势事件，这些事件都是基于 touchstart touchmove touchend 封装</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">tap <span class="comment">// 轻触事件,用于替代移动端的click事件，因为click事件在老版本中会有300ms的延迟</span></span><br><span class="line">swipe <span class="comment">//手指滑动时触发</span></span><br><span class="line">swipeLeft <span class="comment">//左滑</span></span><br><span class="line">swipeRight <span class="comment">//右滑</span></span><br><span class="line">swipeUp <span class="comment">//上滑</span></span><br><span class="line">swipeDown <span class="comment">//下滑</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="响应式"><a href="#响应式" class="headerlink" title="响应式"></a>响应式</h1><h2 id="什么是响应式布局"><a href="#什么是响应式布局" class="headerlink" title="什么是响应式布局"></a>什么是响应式布局</h2><blockquote>
+<p>响应式布局（respond layout）是 Ethan Marcotte 在 2010 年 5 月份提出的一个概念，简而言之，就是<strong>一个网站能够兼容多个终端（手机、平板、pc 电脑、手表）</strong> ——而不是为每个终端做一个特定的版本。这个概念是为解决移动互联网浏览而诞生的</p>
+</blockquote>
+<p><strong>为什么要有响应式布局？</strong></p>
+<ul>
+<li>在移动互联日益成熟的时候，在 PC 端开发的网页已经无法满足移动设备的要求</li>
+<li>通常的做法是针对移动端单独做一套特定的版本</li>
+<li>如果终端越来越多，那么需要开发的版本就会越来越多（大屏设备的普及）</li>
+<li><strong>响应式布局</strong> ：一个网站能够兼容多个终端（节约开发成本）</li>
+</ul>
+<p><strong>优点：</strong></p>
+<p>面对不同分辨率设备灵活性强</p>
+<p>能够快捷解决多设备显示适应问题</p>
+<p>**缺点： **</p>
+<p>兼容各种设备工作量大，效率低下</p>
+<p>代码累赘，会出现隐藏无用的元素，加载时间加长</p>
+<p>其实这是一种折中性质的设计解决方案，多方面因素影响而达不到最佳效果</p>
+<p>一定程度上改变了网站原有的布局结构，会出现用户混淆的情况</p>
+<p>响应式开发现状：</p>
+<ul>
+<li>如果已经存在 PC 的网站了，那么一般不会使用响应式开发，而是针对移动端再开发一套系统（比如京东、淘宝）</li>
+<li>在<strong>新建站点</strong> 上采用响应式开发的越来越多</li>
+<li>在国内，响应式开发还不是特别的流行。但响应式开发是大势所趋，会越来越流行</li>
+</ul>
+<h2 id="响应式开发与移动-web-开发的比较"><a href="#响应式开发与移动-web-开发的比较" class="headerlink" title="响应式开发与移动 web 开发的比较"></a>响应式开发与移动 web 开发的比较</h2><table>
+<thead>
+<tr>
+<th>开发方式</th>
+<th>移动 web 开发+pc 开发</th>
+<th>响应式开发</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>引用场景</td>
+<td>一般已经有了 PC 端网站，只需要端独开发移动端网站即可</td>
+<td>针对一些新建网站，并且要求适配移动端</td>
+</tr>
+<tr>
+<td>开发</td>
+<td>针对性强，开发效率高</td>
+<td>兼容各种终端，效率低</td>
+</tr>
+<tr>
+<td>适配</td>
+<td>只能适配移动端或者 PC 端，pad 上体验比较差</td>
+<td>可以适配各种终端</td>
+</tr>
+<tr>
+<td>效率</td>
+<td>代码简介，加载快</td>
+<td>代码相对复杂，加载慢</td>
+</tr>
+</tbody></table>
+<h1 id="媒体查询"><a href="#媒体查询" class="headerlink" title="媒体查询"></a>媒体查询</h1><blockquote>
+<p>媒体查询（Media Query）是 CSS3 提出来的一个新的属性，通过媒体查询可以查询到 screen 的宽度，从而指定某个宽度区间的网页布局</p>
+</blockquote>
+<h2 id="设备分类"><a href="#设备分类" class="headerlink" title="设备分类"></a>设备分类</h2><table>
+<thead>
+<tr>
+<th>分类</th>
+<th>宽度范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>大屏设备</td>
+<td>&gt;1200px</td>
+</tr>
+<tr>
+<td>中屏设备</td>
+<td>992px~1200px</td>
+</tr>
+<tr>
+<td>小屏设备</td>
+<td>768px~992px</td>
+</tr>
+<tr>
+<td>超小屏设备</td>
+<td>&lt; 768px</td>
+</tr>
+</tbody></table>
+<h2 id="媒体查询的使用"><a href="#媒体查询的使用" class="headerlink" title="媒体查询的使用"></a>媒体查询的使用</h2><p>需求：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">  大屏设备(&gt;1200px)   版心：1170px   背景色：红色</span></span><br><span class="line"><span class="comment">  中屏设备(992-1200)  版心：970px    背景色：蓝色</span></span><br><span class="line"><span class="comment">  小屏设备(768-992)   版心：750px    背景色：黄色</span></span><br><span class="line"><span class="comment">  超小屏设备(&lt;768px)  版心：100%     背景色：绿色</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>响应式开发的原理：使用媒体查询实现不同终端的布局和样式的切换</p>
+<p>媒体查询语法：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 查询屏幕 */</span></span><br><span class="line"><span class="comment">/* screen 和第一个 and 可以省略 */</span></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> 条件 &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 条件的写法 */</span></span><br><span class="line"><span class="comment">/* min-width: 只要屏幕宽度超过这个值的设备样式就能生效 */</span></span><br><span class="line"><span class="comment">/* max-width: 只要屏幕宽度小于这个值的设备样式就能生效 */</span></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">1200px</span>) &#123;</span><br><span class="line">  <span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">1170px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: red;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">992px</span>) <span class="keyword">and</span> (<span class="attribute">max-width</span>: <span class="number">1200px</span>) &#123;</span><br><span class="line">  <span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">970px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: blue;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">768px</span>) <span class="keyword">and</span> (<span class="attribute">max-width</span>: <span class="number">992px</span>) &#123;</span><br><span class="line">  <span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">750px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: yellow;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">max-width</span>: <span class="number">768px</span>) &#123;</span><br><span class="line">  <span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: green;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="bootstrap-框架"><a href="#bootstrap-框架" class="headerlink" title="bootstrap 框架"></a>bootstrap 框架</h1><p><strong>【项目：微金所】</strong></p>
+<h1 id="REM"><a href="#REM" class="headerlink" title="REM"></a>REM</h1><h2 id="rem-是什么？"><a href="#rem-是什么？" class="headerlink" title="rem 是什么？"></a>rem 是什么？</h2><p><code>rem</code>（font size of the root element）是指相对于<code>根元素</code>的字体大小的单位。它就是一个相对单位。</p>
+<p><code>em</code>（font size of the element）是指相对于 <code>当前元素的字体大小</code> 的单位。它也是一个相对单位。</p>
+<p>它们之间其实很相似，只不过计算的规则一个是依赖根元素，一个是当前元素计算。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">16px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-class">.em</span> &#123;</span><br><span class="line">  <span class="comment">/* em 的计算方式参照的当前元素的 font-size，如果不设置，默认继承自父盒子 */</span></span><br><span class="line">  <span class="attribute">width</span>: <span class="number">2em</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">2em</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* rem 的计算方式参照的是 html 的 font-size */</span></span><br><span class="line"><span class="selector-tag">div</span><span class="selector-class">.rem</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">2rem</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">2rem</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="为什么要用-rem？"><a href="#为什么要用-rem？" class="headerlink" title="为什么要用 rem？"></a>为什么要用 rem？</h2><blockquote>
+<p>rem 的主要目的就是解决用于不同屏幕的适配问题。rem 能够等比例的适配所有的屏幕。</p>
+</blockquote>
+<p>由于市面上手机种类繁多，导致移动端的屏幕种类非常的混乱，比如有常见的<code>320px 360px 375px 384px 480px 640px</code>等。在开发中，美工一般只会提供 750px 或者是 640px 的设计稿，这就要求我们通过一张设计稿能够适配所有的屏幕。通常解决方案如下：</p>
+<ul>
+<li>流式布局：虽然可以让各种屏幕都适配，但是显示效果不是非常的友好，因为只有几个尺寸的手机能够完美的显示出来视觉设计师和交互最想要的效果。但是目前使用流式布局的公司非常多，比如 <a target="_blank" rel="noopener" href="https://www.amazon.cn/">亚马逊</a> 、<a target="_blank" rel="noopener" href="https://m.jd.com/">京东</a> 、<a target="_blank" rel="noopener" href="https://m.ctrip.com/">携程</a></li>
+<li>响应式布局：响应式这种方式在国内很少有大型企业的复杂性的网站在移动端用这种方法去做，主要原因是<strong>工作大，维护性难</strong> 。所以一般都是中小型的门户或者博客类站点会采用响应式的方法从 PC 端页面到移动端页面以及 web app 直接一步到位，因为这样反而可以节约成本。</li>
+<li>rem 布局：rem 能够适配所有的屏幕，与 less 配合使用效果会更好。目前使用 rem 布局的有：<a target="_blank" rel="noopener" href="https://m.taobao.com/">淘宝</a> 、 <a target="_blank" rel="noopener" href="https://m.suning.com/">苏宁</a></li>
+</ul>
+<h2 id="rem-布局"><a href="#rem-布局" class="headerlink" title="rem 布局"></a>rem 布局</h2><p>因为 rem 的基准点是根元素 html 的字体大小，因此我们只需要设置不同屏幕的 html 的 font-size 大小不一样就可以达到不同屏幕的适配了。</p>
+<h3 id="rem-配合媒体查询"><a href="#rem-配合媒体查询" class="headerlink" title="rem 配合媒体查询"></a>rem 配合媒体查询</h3><p>使用 rem 配合媒体查询可以适配多个终端</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">@media(min-width: 320px) &#123;</span><br><span class="line">  <span class="selector-tag">html</span> &#123;</span><br><span class="line">    <span class="comment">/* 基准值 / 设计图的大小  = 某个屏幕的font-size / 屏幕的宽度 */</span></span><br><span class="line">    <span class="comment">/* 100/750 = x/370 */</span></span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">50px</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>优点：使用媒体查询适配，速度快。</p>
+<p>缺点：适配多个终端时，需要添加响应的代码。</p>
+<h3 id="rem-配合-javascript"><a href="#rem-配合-javascript" class="headerlink" title="rem 配合 javascript"></a>rem 配合 javascript</h3><p>通过 javascript 获取可视区的宽度，计算 font-size 的值，也可以适配多个终端</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 根据屏幕的大小动态设置 html的 font-size</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">responsive</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> uiWidth = <span class="number">750</span> <span class="comment">// 设计图宽度</span></span><br><span class="line">  <span class="keyword">var</span> base = <span class="number">100</span> <span class="comment">// 设计图中1rem的大小</span></span><br><span class="line">  <span class="comment">// 当前屏幕的大小</span></span><br><span class="line">  <span class="keyword">var</span> pageWidth = <span class="built_in">window</span>.innerWidth</span><br><span class="line">  <span class="keyword">if</span>(pageWidth &gt;= <span class="number">750</span>) &#123;</span><br><span class="line">    pageWidth = <span class="number">750</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(pageWidth &lt;= <span class="number">320</span>) &#123;</span><br><span class="line">    pageWidth = <span class="number">320</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 说白了就是把一个屏幕分成了 7.5 rem</span></span><br><span class="line">  <span class="built_in">document</span>.documentElement.style.fontSize = (base / uiWidth * pageWidth).toFixed(<span class="number">2</span>) + ’px‘</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>优点：直接适配所有的终端</p>
+<p>缺点：必须在页面加载之前设置 html 的 font-size 值，不然会出现文字大小调动的情况。</p>
+<h3 id="rem-配合-flexible-插件"><a href="#rem-配合-flexible-插件" class="headerlink" title="rem 配合 flexible 插件"></a>rem 配合 flexible 插件</h3><ul>
+<li><p>flexible 插件基准值（base）是设计图的 1/10</p>
+</li>
+<li><p>使用 flexible</p>
+</li>
+</ul>
+<ol>
+<li><p>在 header 中引入 flexible.js 这个文件</p>
+</li>
+<li><p>根据设计图能够确定基准值， 配合 px2rem 插件 ，需要设置一个 rootFontSize</p>
+</li>
+</ol>
+<p>【案例：苏宁易购】</p>
+<h1 id="swiper-插件"><a href="#swiper-插件" class="headerlink" title="swiper 插件"></a>swiper 插件</h1><blockquote>
+<p>Swiper 是纯 javascript 打造的滑动特效插件，面向手机、平板电脑等移动终端</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="http://www.swiper.com.cn/">swiper 中文网</a></p>
+<h1 id="other"><a href="#other" class="headerlink" title="other"></a>other</h1><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="comment">/* 取消链接高亮, 移动端特有的样式  */</span></span><br><span class="line">  -webkit-tap-highlight-<span class="attribute">color</span>: <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/400.html" rel="prev" title="浏览器的工作原理">
+                  <i class="fa fa-chevron-left"></i> 浏览器的工作原理
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/390.html" rel="next" title="bootstrap 框架">
+                  bootstrap 框架 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2015 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">c</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>本站为个人博客，站内所有软件资源均收集自互联网，本站仅做免费分享，不出售。本站内所有软件资源仅限个人用于学习和研究目的，不得将上述内容用于商业或者非法用途，否则，一切后果请用户自负。本站内所有软件必须在下载后的24个小时之内，从您的电脑中彻底删除。本站对任何资源不提供技术支持，遇到问题请自行研究或购买正版。本站信息来自网络，版权争议与本站无关。访问和下载本站内容，说明您已同意上述条款。
+
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.4.0/pjax.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '.page-configurations',
+    '.main-inner',
+    '.post-toc-wrap',
+    '.languages',
+    '.pjax'
+  ],
+  analytics: false,
+  cacheBust: false,
+  scrollRestoration: false,
+  scrollTo: !CONFIG.bookmark.enable
+});
+
+document.addEventListener('pjax:success', () => {
+  pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  const hasTOC = document.querySelector('.post-toc');
+  document.querySelector('.sidebar-inner').classList.toggle('sidebar-nav-active', hasTOC);
+  document.querySelector(hasTOC ? '.sidebar-nav-toc' : '.sidebar-nav-overview').click();
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+  <script>
+    NProgress.configure({
+      showSpinner: true
+    });
+    NProgress.start();
+    document.addEventListener('readystatechange', () => {
+      if (document.readyState === 'interactive') {
+        NProgress.inc(0.8);
+      }
+      if (document.readyState === 'complete') {
+        NProgress.done();
+      }
+    });
+    document.addEventListener('pjax:send', () => {
+      NProgress.start();
+    });
+    document.addEventListener('pjax:success', () => {
+      NProgress.done();
+    });
+  </script>
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    <div class="pjax">
+
+
+<script>
+NexT.utils.loadComments('.utterances-container', () => {
+  const script = document.createElement('script');
+  script.src = 'https://utteranc.es/client.js';
+  script.setAttribute('repo', "cuilongjin/hexo-blog");
+  script.setAttribute('issue-term', "pathname");
+  script.setAttribute('theme', "github-light");
+  script.setAttribute('label', "comment");
+  script.crossOrigin = 'anonymous';
+  script.async = true;
+  document.querySelector('.utterances-container').appendChild(script);
+});
+</script>
+
+    </div>
+</body>
+</html>
