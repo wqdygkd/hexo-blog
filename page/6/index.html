@@ -242,7 +242,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">147</span>
+          <span class="site-state-item-count">148</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -253,7 +253,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">75</span>
+        <span class="site-state-item-count">78</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -287,6 +287,98 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1018.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/1018.html" class="post-title-link" itemprop="url">微信小程序中使用 async/await 语法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-03-24 15:47:04" itemprop="dateCreated datePublished" datetime="2020-03-24T15:47:04+00:00">2020-03-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>旧文章害死人</p>
+<p>研究了半天，突然发现开发工具在 1.02.1904282 以及之后版本中，增加了<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/devtools/codecompile.html#%E5%A2%9E%E5%BC%BA%E7%BC%96%E8%AF%91">增强编译</a>已支持 Async/Await 语法</p>
+<p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/devtools/uplog.html#_2019-05-08">2019-05-08更新日志</a>第一条</p>
+<p>已下内容已过期(文章刚发布一小时)</p>
+<blockquote>
+<p>微信小程序中原生支持 async await 语法，前提是需要关闭 ES6 转 ES5 后</p>
+</blockquote>
+<p>在开启 ES6 转 ES5 后 async 函数无法使用，可以使用 <a target="_blank" rel="noopener" href="https://github.com/facebook/regenerator">regenerator</a> 包来解决。新版本的 regenerator 在小程序中无法使用，会报如下错误：<br><img data-src="/wp-content/uploads/2020/03/regenerator.png" alt="regenerator"></p>
+<p>原因是 regenerator 包更新了 Function 函数，具体可参考：<br><a target="_blank" rel="noopener" href="https://github.com/facebook/regenerator/pull/369">https://github.com/facebook/regenerator/pull/369</a><br><a target="_blank" rel="noopener" href="https://github.com/facebook/regenerator/commit/063f14ef7f01bb29830e3f17e9ef151e7a5cb2f3">https://github.com/facebook/regenerator/commit/063f14ef7f01bb29830e3f17e9ef151e7a5cb2f3</a></p>
+<p>可以直接使用老版本来解决这个问题，或者修改源码，把 Function 改回去</p>
+<p>直接使用老版本</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install regenerator@0.13.1</span><br></pre></td></tr></table></figure>
+
+<p>如果使用了 npm 模块，之后在需要使用 async 语法的 js 中直接引入即可</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> regeneratorRuntime = <span class="built_in">require</span>(<span class="string">&#x27;regenerator-runtime&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>如果没有使用 npm 模块，不能直接 require 包名，需要将包提取出来，并引入完整路径</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> regeneratorRuntime = <span class="built_in">require</span>(<span class="string">&#x27;../../libs/regenerator-runtime&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>参考：<a href="https://wqdy.top/1041.html">微信小程序中使用 npm 包</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1506,84 +1598,6 @@
 
 <h4 id="添加-js-代码"><a href="#添加-js-代码" class="headerlink" title="添加 js 代码"></a>添加 js 代码</h4><p>默认示例添加 js 代码使用的是 <code>wp_head</code> 函数，这里推荐使用 <code>wp_footer</code>，你可以根据 js 作用自行选择</p>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 在底部添加js代码，</span></span><br><span class="line">add_action( <span class="string">&#x27;wp_footer&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="meta">?&gt;</span></span><br><span class="line">&lt;script&gt;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/* write your JavaScript code here */</span></span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br><span class="line"><span class="meta">&lt;?php</span> &#125; );</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/660.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/660.html" class="post-title-link" itemprop="url">浏览器中图片另存为时默认保存为jfif格式问题</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-02-29 16:30:25" itemprop="dateCreated datePublished" datetime="2020-02-29T16:30:25+00:00">2020-02-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/jfif">jfif（JPEG File Interchange Format，JPEG 档案交换格式）</a>格式是一种图片存储格式之一，由 JPEG 格式衍生而来</p>
-<p>win10 中，在浏览器中通过图片另存为时发现默认保存为该格式时，说明系统把 JPEG 格式默认为了该格式，可以通过修改注册表还原，具体操作步骤如下：</p>
-<ul>
-<li><code>WIN</code> + <code>R</code> 打开运行窗口，输入 <code>regedit</code> 回车</li>
-<li>找到路径 <code>HKEY_CLASSES_ROOT\MIME\Database\Content Type\image/jpeg</code>，把 <code>extension</code> 的值改成 .jpg，关闭注册表即可</li>
-</ul>
 
       
     </div>

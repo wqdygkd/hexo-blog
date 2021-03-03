@@ -98,7 +98,7 @@
 <p>如果是 GSuite Admin 账号，可以使用如下方式直接添加进群组</p>
 <ol>
 <li>将生成的json文件保存到 credentials 文件夹中</li>
-<li>在管理控制台中为您的组织创建组。创建群组后，您将拥有一个例如的地址<a href="mailto:&#115;&#x61;&#64;&#x79;&#111;&#117;&#114;&#x64;&#111;&#109;&#97;&#105;&#110;&#x2e;&#x63;&#111;&#109;">&#115;&#x61;&#64;&#x79;&#111;&#117;&#114;&#x64;&#111;&#109;&#97;&#105;&#110;&#x2e;&#x63;&#111;&#109;</a></li>
+<li>在管理控制台中为您的组织创建组。创建群组后，您将拥有一个例如的地址<a href="mailto:&#x73;&#x61;&#64;&#121;&#x6f;&#117;&#114;&#x64;&#x6f;&#109;&#x61;&#105;&#x6e;&#46;&#99;&#x6f;&#109;">&#x73;&#x61;&#64;&#121;&#x6f;&#117;&#114;&#x64;&#x6f;&#109;&#x61;&#105;&#x6e;&#46;&#99;&#x6f;&#109;</a></li>
 <li>运行 <code>python3 add_to_google_group.py -g sa@yourdomain.com</code></li>
 </ol>
 </blockquote>
@@ -1184,6 +1184,32 @@
 
 <p>thefuck<br>快速修正命令行手误</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>使用 github actions 将 github 项目自动同步到 gitee 并自动部署 Gitee Pages</title>
+    <url>/2023.html</url>
+    <content><![CDATA[<p>由于 github Pages 和 netlify 的访问速度慢，所以现在将博客部署到 Gitee Pages</p>
+<p>先使用 wearerequired/git-mirror-action 将 GitHub 仓库同步到 Gitee 仓库，再使用 yanglbme/gitee-pages-action 实现 Gitee Pages 的自动部署。</p>
+<h3 id="配置秘钥"><a href="#配置秘钥" class="headerlink" title="配置秘钥"></a>配置秘钥</h3><ul>
+<li><p>使用命令 <code>ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</code> 生成 SSH Key(⚠️注意此处不要设置密码)</p>
+</li>
+<li><p>在 GitHub 项目的「​Settings -&gt; Secrets」路径下配置好命名为 <code>GITEE_RSA_PRIVATE_KEY</code> 和 <code>GITEE_PASSWORD</code> 的两个密钥。其中：<code>GITEE_RSA_PRIVATE_KEY</code> 存放 <code>id_rsa</code> 私钥；<code>GITEE_PASSWORD</code> 存放 <code>Gitee</code> 帐号的密码</p>
+</li>
+<li><p>在 GitHub 的个人设置页面「Settings -&gt; SSH and GPG keys」​ 配置 SSH 公钥（即：id_rsa.pub），命名随意</p>
+</li>
+<li><p>在 Gitee 的个人设置页面「安全设置 -&gt; SSH 公钥」​ 配置 SSH 公钥（即：id_rsa.pub），命名随意</p>
+</li>
+</ul>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Sync</span> <span class="string">to</span> <span class="string">Gitee</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span> [<span class="string">main</span>, <span class="string">gh-pages</span>]</span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">build:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Sync</span> <span class="string">to</span> <span class="string">Gitee</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">wearerequired/git-mirror-action@master</span></span><br><span class="line">        <span class="attr">env:</span></span><br><span class="line">          <span class="comment"># 注意在 Settings-&gt;Secrets 配置 GITEE_RSA_PRIVATE_KEY</span></span><br><span class="line">          <span class="attr">SSH_PRIVATE_KEY:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.GITEE_RSA_PRIVATE_KEY</span> <span class="string">&#125;&#125;</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="comment"># 注意替换为你的 GitHub 源仓库地址</span></span><br><span class="line">          <span class="attr">source-repo:</span> <span class="string">git@github.com:cuilongjin/hexo-blog.git</span></span><br><span class="line">          <span class="comment"># 注意替换为你的 Gitee 目标仓库地址</span></span><br><span class="line">          <span class="attr">destination-repo:</span> <span class="string">git@gitee.com:cuilongjin/hexo-blog.git</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Build</span> <span class="string">Gitee</span> <span class="string">Pages</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">yanglbme/gitee-pages-action@main</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="comment"># 注意替换为你的 Gitee 用户名</span></span><br><span class="line">          <span class="attr">gitee-username:</span> <span class="string">cuilongjin</span></span><br><span class="line">          <span class="comment"># 注意在 Settings-&gt;Secrets 配置 GITEE_PASSWORD</span></span><br><span class="line">          <span class="attr">gitee-password:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.GITEE_PASSWORD</span> <span class="string">&#125;&#125;</span></span><br><span class="line">          <span class="comment"># 注意替换为你的 Gitee 仓库，仓库名严格区分大小写，请准确填写，否则会出错</span></span><br><span class="line">          <span class="attr">gitee-repo:</span> <span class="string">cuilongjin/hexo-blog</span></span><br><span class="line">          <span class="comment"># 要部署的分支，默认是 master，若是其他分支，则需要指定（指定的分支必须存在）</span></span><br><span class="line">          <span class="attr">branch:</span> <span class="string">gh-pages</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>github actions</tag>
+        <tag>github pages</tag>
+        <tag>gitee pages</tag>
+      </tags>
   </entry>
   <entry>
     <title>使用 github 仓库作为图床，并用 jsDelivr 加速</title>
