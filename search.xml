@@ -98,7 +98,7 @@
 <p>如果是 GSuite Admin 账号，可以使用如下方式直接添加进群组</p>
 <ol>
 <li>将生成的json文件保存到 credentials 文件夹中</li>
-<li>在管理控制台中为您的组织创建组。创建群组后，您将拥有一个例如的地址<a href="mailto:&#x73;&#x61;&#64;&#121;&#x6f;&#117;&#114;&#x64;&#x6f;&#109;&#x61;&#105;&#x6e;&#46;&#99;&#x6f;&#109;">&#x73;&#x61;&#64;&#121;&#x6f;&#117;&#114;&#x64;&#x6f;&#109;&#x61;&#105;&#x6e;&#46;&#99;&#x6f;&#109;</a></li>
+<li>在管理控制台中为您的组织创建组。创建群组后，您将拥有一个例如的地址<a href="mailto:&#115;&#x61;&#64;&#121;&#111;&#x75;&#x72;&#100;&#x6f;&#x6d;&#x61;&#105;&#110;&#x2e;&#99;&#111;&#x6d;">&#115;&#x61;&#64;&#121;&#111;&#x75;&#x72;&#100;&#x6f;&#x6d;&#x61;&#105;&#110;&#x2e;&#99;&#111;&#x6d;</a></li>
 <li>运行 <code>python3 add_to_google_group.py -g sa@yourdomain.com</code></li>
 </ol>
 </blockquote>
@@ -227,6 +227,39 @@
       </categories>
       <tags>
         <tag>seo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ZeroTier 异地组网及私有 Moon 转发节点搭建</title>
+    <url>/819.html</url>
+    <content><![CDATA[<p>支持 Windows、macOS、Linux、IOS、Android、Synology、QNAP、Western Digital MyCloud NAS等</p>
+<h2 id="使用官方根节点"><a href="#使用官方根节点" class="headerlink" title="使用官方根节点"></a>使用官方根节点</h2><p>1、创建账号</p>
+<p><a href="https://my.zerotier.com/">https://my.zerotier.com</a></p>
+<p>2、创建网络</p>
+<p>进入 <a href="https://my.zerotier.com/network">https://my.zerotier.com/network</a> 点击 Create 创建网络，点击进入已创建的网络 此时可以看到 Network ID，后续添加设备都会需要这个 ID</p>
+<p>Access Control，默认是Certificate (Private Network)，选择此模式表示每次在添加新的主机时，需要手动勾选是否允许连接，如果选择None (Public Network)模式，表示加入网络后自动分配IP并允许连接，从安全性来说建议使用默认选项Certificate (Private Network)，方便性来看None (Public Network)更方便，不用每次加入网络后手动勾选。</p>
+<p>好了，一个中转的ZeroTier就配置完成了，接下来只需要在其他设备安装所对应的客户端，然后加入到这个网络中就可以了。</p>
+<h2 id="搭建私有节点（moon）"><a href="#搭建私有节点（moon）" class="headerlink" title="搭建私有节点（moon）"></a>搭建私有节点（moon）</h2><blockquote>
+<p>搭建私有节点是为了解决根节点在国外,速度慢, 且不稳定</p>
+</blockquote>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -s https://install.zerotier.com/ | sudo bash</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装成功后</span></span><br><span class="line"><span class="comment"># *** Success! You are ZeroTier address [ b32fxxxxxx ].</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="配置-Moon"><a href="#配置-Moon" class="headerlink" title="配置 Moon"></a>配置 Moon</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /var/lib/zerotier-one</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成 moon.json 配置文件</span></span><br><span class="line">zerotier-idtool initmoon identity.public &gt;&gt; moon.json</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编辑 moon.json 配置文件，修改 stableEndpoints</span></span><br><span class="line">vim moon.json</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;stableEndpoints&quot;</span>: [<span class="string">&quot;你服务器公网ip/9993&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成 .moon 文件 私有网络的 zerotier 标志性文件</span></span><br><span class="line">zerotier-idtool genmoon moon.json</span><br><span class="line"><span class="comment"># 此命令会生成一个签名文件在当前目录下，文件名如 000000b32fxxxxxx.moon （b32fxxxxxx 为 ZeroTier address)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 移动文件</span></span><br><span class="line"><span class="comment"># 将生成的 000000b32fxxxxxx.moon 移动到 moons.d 目录</span></span><br><span class="line">mkdir moons.d</span><br><span class="line">mv 000000b32fxxxxxx.moon moons.d</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启 zerotier-one 服务</span></span><br><span class="line">systemctl restart zerotier-one</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加入虚拟网络</span></span><br><span class="line"><span class="comment"># zerotier-cli join 000000b32fxxxxxx</span></span><br></pre></td></tr></table></figure>
+
+
+<p>将内网机器连接上 moon 节点</p>
+<p>执行命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># windows 在 zerotier 安装目录下执行</span></span><br><span class="line">zerotier-cli orbit 000000b32fxxxxxx 000000b32fxxxxxx <span class="comment"># moon 服务器的ID值 输入2遍</span></span><br></pre></td></tr></table></figure>
+
+<p> 查看是否连接</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 在其他机子执行以下命令是否显示该 moon 节点</span></span><br><span class="line"><span class="comment"># 或在 moon 服务器上执行命令否显示 LEAF 节点</span></span><br><span class="line">zerotier-cli listpeers</span><br><span class="line"></span><br><span class="line">200 listpeers &lt;ztaddr&gt; &lt;path&gt; &lt;latency&gt; &lt;version&gt; &lt;role&gt;</span><br><span class="line">200 listpeers xxxxxxxxxx xx.xx.xx.xx/4532;1037;853 183 1.6.4 LEAF</span><br><span class="line">200 listpeers xxxxxxxxxx xx.xx.xx.xx/9993;19869;4337 0 - PLANET</span><br><span class="line">200 listpeers xxxxxxxxxx xx.xx.xx.xx/9993;4337;4167 170 - PLANET</span><br><span class="line">200 listpeers xxxxxxxxxx xx.xx.xx.xx/9993;363;4274 63 - PLANET</span><br><span class="line">200 listpeers xxxxxxxxxx xx.xx.xx.xx/9993;19508;4192 145 - PLANET</span><br></pre></td></tr></table></figure>
+
+<h2 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h2><p><a href="https://docs.docker.com/engine/reference/builder/">https://docs.docker.com/engine/reference/builder/</a></p>
+<p><a href="https://github.com/zerotier/ZeroTierOne/tree/master/ext/installfiles/linux/zerotier-containerized">https://github.com/zerotier/ZeroTierOne/tree/master/ext/installfiles/linux/zerotier-containerized</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker build . -t zerotier</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>zerotier</tag>
       </tags>
   </entry>
   <entry>
@@ -3129,7 +3162,7 @@
       </categories>
   </entry>
   <entry>
-    <title>Date对象使用及常用的时间格式化代码块--获取本周,本月,本季度,本年,上月,上周,上季度,去年等</title>
+    <title>Date对象使用及常用的时间格式化代码块</title>
     <url>/249.html</url>
     <content><![CDATA[<h2 id="Date-对象"><a href="#Date-对象" class="headerlink" title="Date 对象"></a>Date 对象</h2><h2 id="整理一些时间格式化的方法"><a href="#整理一些时间格式化的方法" class="headerlink" title="整理一些时间格式化的方法"></a>整理一些时间格式化的方法</h2><p>1.</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 时间格式化</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;date&#125;</span> </span>timeStamp 要格式化的时间对象</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;string&#125;</span> </span>2019年10月31日 16:22</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">format_date</span>(<span class="params">timeStamp</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>(timeStamp)</span><br><span class="line">  <span class="keyword">return</span> date.getFullYear() + <span class="string">&#x27;年&#x27;</span> + prefix_zero(date.getMonth() + <span class="number">1</span>) + <span class="string">&#x27;月&#x27;</span> + prefix_zero(date.getDate()) + <span class="string">&#x27;日 &#x27;</span> + prefix_zero(date.getHours()) + <span class="string">&#x27;:&#x27;</span> + prefix_zero(date.getMinutes())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -3171,6 +3204,7 @@
       </categories>
       <tags>
         <tag>js</tag>
+        <tag>date</tag>
       </tags>
   </entry>
   <entry>
