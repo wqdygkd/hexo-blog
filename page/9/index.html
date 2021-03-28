@@ -242,7 +242,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">149</span>
+          <span class="site-state-item-count">150</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -253,7 +253,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">80</span>
+        <span class="site-state-item-count">81</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -287,6 +287,112 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/249.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/249.html" class="post-title-link" itemprop="url">Date对象使用及常用的时间格式化代码块</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-12-10 16:16:04" itemprop="dateCreated datePublished" datetime="2019-12-10T16:16:04+00:00">2019-12-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Date-对象"><a href="#Date-对象" class="headerlink" title="Date 对象"></a>Date 对象</h2><h2 id="整理一些时间格式化的方法"><a href="#整理一些时间格式化的方法" class="headerlink" title="整理一些时间格式化的方法"></a>整理一些时间格式化的方法</h2><p>1.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 时间格式化</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;date&#125;</span> </span>timeStamp 要格式化的时间对象</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;string&#125;</span> </span>2019年10月31日 16:22</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">format_date</span>(<span class="params">timeStamp</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>(timeStamp)</span><br><span class="line">  <span class="keyword">return</span> date.getFullYear() + <span class="string">&#x27;年&#x27;</span> + prefix_zero(date.getMonth() + <span class="number">1</span>) + <span class="string">&#x27;月&#x27;</span> + prefix_zero(date.getDate()) + <span class="string">&#x27;日 &#x27;</span> + prefix_zero(date.getHours()) + <span class="string">&#x27;:&#x27;</span> + prefix_zero(date.getMinutes())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 数字格式化</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> </span>num 要格式化的数值</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;string&#125;</span> </span>把小于10的数值前面加上0</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">prefix_zero</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> num &gt;= <span class="number">10</span> ? num : <span class="string">&#x27;0&#x27;</span> + num</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 昨天的字符串格式时间</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;string&#125;</span> </span>返回当前时间 - 1天</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getYesterday</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line">  d.setDate(d.getDate() - <span class="number">1</span>)</span><br><span class="line">  <span class="keyword">return</span> d.toLocaleString()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 明天的字符串格式时间</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;string&#125;</span> </span>返回当前时间 + 1天</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> getTomorrow = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line">  d.setDate(d.getDate() + <span class="number">1</span>)</span><br><span class="line">  <span class="keyword">return</span> d.toLocalString()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>4.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获得本周的开始日期</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> </span>start 不传默认一周以周日开始 1 表示以周一开始</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;date&#125;</span> </span>timeStamp 时间戳</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getWeekDate</span>(<span class="params">start = <span class="number">0</span></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">&#x27;2019-12-15&#x27;</span>)</span><br><span class="line">  <span class="keyword">let</span> D = d.getDate()</span><br><span class="line">  <span class="keyword">if</span> (start == <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> d.setDate(D - d.getDay())</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> W = d.getDay() || <span class="number">6</span></span><br><span class="line">    <span class="keyword">return</span> d.setDate(D - W + <span class="number">1</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>5.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获得最近一周时间段</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;date[]&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getLastWeek</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line">  <span class="keyword">let</span> D = d.getDate()</span><br><span class="line">  d.setDate(D - <span class="number">7</span>)</span><br><span class="line">  <span class="keyword">return</span> [d, <span class="keyword">new</span> <span class="built_in">Date</span>()]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>6.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获得某月的天数</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> </span>year 年</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> </span>month 月 从 0 开始</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span> </span>某月的天数, 不传参数为当月天数</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getMonthDays</span>(<span class="params">year, month</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line">  year = year || d.getFullYear()</span><br><span class="line">  month = month || d.getMonth()</span><br><span class="line">  <span class="keyword">var</span> monthStart = <span class="keyword">new</span> <span class="built_in">Date</span>(year, month, <span class="number">1</span>)</span><br><span class="line">  <span class="keyword">var</span> monthEnd = <span class="keyword">new</span> <span class="built_in">Date</span>(year, month + <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">  <span class="keyword">var</span> days = (monthEnd - monthStart) / (<span class="number">1000</span> * <span class="number">60</span> * <span class="number">60</span> * <span class="number">24</span>)</span><br><span class="line">  <span class="keyword">return</span> days</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>7.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获得本月的开始或结束日期</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> </span>isEnd 不传默认本周的开端日期 1 本周的结束日期</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;date&#125;</span> </span>timeStamp 时间戳</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getMonthDate</span>(<span class="params">isEnd = <span class="number">0</span></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line">  d.setDate(<span class="number">1</span>)</span><br><span class="line">  <span class="keyword">if</span> (isEnd) &#123;</span><br><span class="line">    d.setDate(d.getDate() + getMonthDays() - <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> d</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> d</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>8.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 倒计时时间格式化</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;date&#125;</span> </span>timeStamp 要格式化的时间对象</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;string&#125;</span></span></span></span><br><span class="line"><span class="comment"> * 若时间大于1天 返回 n天n小时n分钟</span></span><br><span class="line"><span class="comment"> * 若时间小于1天，大于1小时 返回 n小时n分钟n秒</span></span><br><span class="line"><span class="comment"> * 若时间小于1小时，大于1分钟 返回 n分钟n秒</span></span><br><span class="line"><span class="comment"> * 若时间小于1分钟 返回 n秒</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">format_time</span>(<span class="params">timeStamp</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> day = <span class="built_in">Math</span>.floor(timeStamp / (<span class="number">24</span> * <span class="number">3600</span> * <span class="number">1000</span>))</span><br><span class="line">  <span class="keyword">let</span> leave1 = timeStamp % (<span class="number">24</span> * <span class="number">3600</span> * <span class="number">1000</span>)</span><br><span class="line">  <span class="keyword">let</span> hours = <span class="built_in">Math</span>.floor(leave1 / (<span class="number">3600</span> * <span class="number">1000</span>))</span><br><span class="line">  <span class="keyword">let</span> leave2 = leave1 % (<span class="number">3600</span> * <span class="number">1000</span>)</span><br><span class="line">  <span class="keyword">let</span> minutes = <span class="built_in">Math</span>.floor(leave2 / (<span class="number">60</span> * <span class="number">1000</span>))</span><br><span class="line">  <span class="keyword">let</span> leave3 = leave2 % (<span class="number">60</span> * <span class="number">1000</span>)</span><br><span class="line">  <span class="keyword">let</span> seconds = <span class="built_in">Math</span>.floor(leave3 / <span class="number">1000</span>)</span><br><span class="line">  <span class="keyword">if</span> (day) <span class="keyword">return</span> day + <span class="string">&#x27;天&#x27;</span> + hours + <span class="string">&#x27;小时&#x27;</span> + minutes + <span class="string">&#x27;分&#x27;</span></span><br><span class="line">  <span class="keyword">if</span> (hours) <span class="keyword">return</span> hours + <span class="string">&#x27;小时&#x27;</span> + minutes + <span class="string">&#x27;分&#x27;</span> + seconds + <span class="string">&#x27;秒&#x27;</span></span><br><span class="line">  <span class="keyword">if</span> (minutes) <span class="keyword">return</span> minutes + <span class="string">&#x27;分&#x27;</span> + seconds + <span class="string">&#x27;秒&#x27;</span></span><br><span class="line">  <span class="keyword">if</span> (seconds) <span class="keyword">return</span> seconds + <span class="string">&#x27;秒&#x27;</span></span><br><span class="line">  <span class="keyword">return</span> <span class="string">&#x27;时间到！&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="dayjs-库"><a href="#dayjs-库" class="headerlink" title="dayjs 库"></a>dayjs 库</h2><p>轻量的处理时间和日期的 JavaScript 库</p>
+<p>参考文档 <a target="_blank" rel="noopener" href="https://github.com/iamkun/dayjs/blob/dev/docs/zh-cn/README.zh-CN.md">github 中文文档</a></p>
+<p>在本页面打开控制台即可体验 dayjs 的 api</p>
+<script src="https://unpkg.com/dayjs"></script>
+
+<p>使用 dayjs 获取本周,上周,本月,上月,本季度,上季度,本年,去年时间</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// let date = dayjs(&#x27;2020-01-16&#x27;)</span></span><br><span class="line"><span class="keyword">let</span> date = dayjs()</span><br><span class="line"><span class="keyword">let</span> day = date.day() <span class="comment">// 1 星期</span></span><br><span class="line"><span class="keyword">let</span> currentWeekStart</span><br><span class="line"><span class="keyword">let</span> currentWeekEnd</span><br><span class="line"></span><br><span class="line"><span class="comment">// 本周</span></span><br><span class="line"><span class="keyword">if</span> (day &gt; <span class="number">0</span>) &#123;</span><br><span class="line">  currentWeekStart = date.startOf(<span class="string">&#x27;week&#x27;</span>).add(<span class="number">1</span>, <span class="string">&#x27;day&#x27;</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  currentWeekStart = date.startOf(<span class="string">&#x27;week&#x27;</span>).subtract(<span class="number">6</span>, <span class="string">&#x27;day&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line">currentWeekEnd = currentWeekStart.add(<span class="number">6</span>, <span class="string">&#x27;day&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 上周</span></span><br><span class="line"><span class="keyword">let</span> lastWeekStart = currentWeekStart.subtract(<span class="number">7</span>, <span class="string">&#x27;day&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> lastWeekEnd = currentWeekStart.subtract(<span class="number">1</span>, <span class="string">&#x27;day&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 本月 上月</span></span><br><span class="line"><span class="keyword">let</span> currentMonthStart = date.date(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">let</span> lastMonthStart = date.subtract(<span class="number">1</span>, <span class="string">&#x27;month&#x27;</span>).date(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">let</span> nextMonthStart = date.add(<span class="number">1</span>, <span class="string">&#x27;month&#x27;</span>).date(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">let</span> currentMonthEnd = nextMonthStart.subtract(<span class="number">1</span>, <span class="string">&#x27;day&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> lastMonthEnd = currentMonthStart.subtract(<span class="number">1</span>, <span class="string">&#x27;day&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 本季度,上季度</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 本年 去年</span></span><br><span class="line"><span class="keyword">let</span> currentYearStart = date.month(<span class="number">0</span>).date(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">let</span> currentYearEnd = date.month(<span class="number">11</span>).date(<span class="number">31</span>)</span><br><span class="line"><span class="keyword">let</span> lastYear = date.subtract(<span class="number">1</span>, <span class="string">&#x27;year&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> lastYearStart = date.subtract(<span class="number">1</span>, <span class="string">&#x27;year&#x27;</span>).month(<span class="number">0</span>).date(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">let</span> lastYearEnd = lastYearStart.month(<span class="number">11</span>).date(<span class="number">31</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> computedDate = &#123;</span><br><span class="line">  currentWeekStart: currentWeekStart.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  currentWeekEnd: currentWeekEnd.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  lastWeekStart: lastWeekStart.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  lastWeekEnd: lastWeekEnd.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  currentMonthStart: currentMonthStart.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  currentMonthEnd: currentMonthEnd.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  lastMonthStart: lastMonthStart.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  lastMonthEnd: lastMonthEnd.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  currentYearStart: currentYearStart.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  currentYearEnd: currentYearEnd.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  lastYearStart: lastYearStart.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  lastYearEnd: lastYearEnd.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(computedDate)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1041,137 +1147,6 @@
 <p>Windows：<a target="_blank" rel="noopener" href="https://github.com/2dust/v2rayN">v2rayN</a></p>
 <p>Android：<a target="_blank" rel="noopener" href="https://github.com/2dust/v2rayNG/releases">V2RayNG</a></p>
 <p>iOS：Shadowrocket</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/406.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/406.html" class="post-title-link" itemprop="url">input file 控件</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-09-27 22:18:32" itemprop="dateCreated datePublished" datetime="2019-09-27T22:18:32+00:00">2019-09-27</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="限制上传文件类型"><a href="#限制上传文件类型" class="headerlink" title="限制上传文件类型"></a>限制上传文件类型</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;File1&quot;</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">accept</span>=<span class="string">&quot;.xls,.doc,.txt,.pdf&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-
-<details>
-<summary>文件类型</summary>
-<pre>
-.3gpp audio/3gpp， video/3gpp 3GPP Audio/Video
-.ac3 audio/ac3 AC3 Audio
-.asf allpication/vnd.ms-asf Advanced Streaming Format
-.au audio/basic AU Audio
-.css text/css Cascading Style Sheets
-.csv text/csv Comma Separated Values
-.doc application/msword MS Word Document
-.dot application/msword MS Word Template
-.dtd application/xml-dtd Document Type Definition
-.dwg image/vnd.dwg AutoCAD Drawing Database
-.dxf image/vnd.dxf AutoCAD Drawing Interchange Format
-.gif image/gif Graphic Interchange Format
-.htm text/html HyperText Markup Language
-.html text/html HyperText Markup Language
-.jp2 image/jp2 JPEG-2000
-.jpe image/jpeg JPEG
-.jpeg image/jpeg JPEG
-.jpg image/jpeg JPEG
-.js text/javascript， application/javascript JavaScript
-.json application/json JavaScript Object Notation
-.mp2 audio/mpeg， video/mpeg MPEG Audio/Video Stream， Layer II
-.mp3 audio/mpeg MPEG Audio Stream， Layer III
-.mp4 audio/mp4， video/mp4 MPEG-4 Audio/Video
-.mpeg video/mpeg MPEG Video Stream， Layer II
-.mpg video/mpeg MPEG Video Stream， Layer II
-.mpp application/vnd.ms-project MS Project Project
-.ogg application/ogg， audio/ogg Ogg Vorbis
-.pdf application/pdf Portable Document Format
-.png image/png Portable Network Graphics
-.pot application/vnd.ms-powerpoint MS PowerPoint Template
-.pps application/vnd.ms-powerpoint MS PowerPoint Slideshow
-.ppt application/vnd.ms-powerpoint MS PowerPoint Presentation
-.rtf application/rtf， text/rtf Rich Text Format
-.svf image/vnd.svf Simple Vector Format
-.tif image/tiff Tagged Image Format File
-.tiff image/tiff Tagged Image Format File
-.txt text/plain Plain Text
-.wdb application/vnd.ms-works MS Works Database
-.wps application/vnd.ms-works Works Text Document
-.xhtml application/xhtml+xml Extensible HyperText Markup Language
-.xlc application/vnd.ms-excel MS Excel Chart
-.xlm application/vnd.ms-excel MS Excel Macro
-.xls application/vnd.ms-excel MS Excel Spreadsheet
-.xlt application/vnd.ms-excel MS Excel Template
-.xlw application/vnd.ms-excel MS Excel Workspace
-.xml text/xml， application/xml Extensible Markup Language
-.zip aplication/zip Compressed Archive
-</pre>
-</details>
-
-<h2 id="清空-value"><a href="#清空-value" class="headerlink" title="清空 value"></a>清空 value</h2><p>使用 input file 进行文件上传时，重复选择相同文件时，change 事件不再触发<br>解决方式：手动将 file 的 value 值设置为空</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">id</span>=<span class="string">&quot;file&quot;</span> <span class="attr">accept</span>=<span class="string">&quot;image/gif,image/jpeg&quot;</span> @<span class="attr">change</span>=<span class="string">&quot;uploadFile($event)&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$event.target.value = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="comment">// 或</span></span><br><span class="line"><span class="keyword">var</span> file = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;file&#x27;</span>)</span><br><span class="line">file.value = <span class="string">&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
 
       
     </div>

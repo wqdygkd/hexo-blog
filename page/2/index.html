@@ -242,7 +242,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">149</span>
+          <span class="site-state-item-count">150</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -253,7 +253,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">80</span>
+        <span class="site-state-item-count">81</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -287,6 +287,92 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/2017.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017.html" class="post-title-link" itemprop="url">Window 10下终端美化</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-11-01 00:00:00" itemprop="dateCreated datePublished" datetime="2020-11-01T00:00:00+00:00">2020-11-01</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>WSL(Ubuntu)/MSYS2/Cygwin/PowerShell7<br>Windows Terminal/Fluent Terminal</p>
+<h2 id="Fluent-Terminal-amp-PowerShell-7-amp-oh-my-posh-amp-posh-git"><a href="#Fluent-Terminal-amp-PowerShell-7-amp-oh-my-posh-amp-posh-git" class="headerlink" title="Fluent Terminal &amp; PowerShell 7+ &amp; oh-my-posh &amp; posh-git"></a>Fluent Terminal &amp; PowerShell 7+ &amp; oh-my-posh &amp; posh-git</h2><p><a target="_blank" rel="noopener" href="https://github.com/felixse/FluentTerminal/releases">Fluent Terminal</a><br><a target="_blank" rel="noopener" href="https://github.com/PowerShell/PowerShell/releases">PowerShell</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/137595941">https://zhuanlan.zhihu.com/p/137595941</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/137251716">https://zhuanlan.zhihu.com/p/137251716</a></p>
+<h2 id="MSYS2-Windows-Terminal"><a href="#MSYS2-Windows-Terminal" class="headerlink" title="MSYS2 + Windows Terminal"></a>MSYS2 + Windows Terminal</h2><p><a target="_blank" rel="noopener" href="https://www.msys2.org/">MSYS2</a><br><a target="_blank" rel="noopener" href="https://github.com/microsoft/terminal/releases">Windows Terminal</a></p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><h4 id="安装-zsh"><a href="#安装-zsh" class="headerlink" title="安装 zsh"></a>安装 zsh</h4><p>打开 MSYS2，</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pacman -Syu</span><br><span class="line">pacman -S zsh</span><br></pre></td></tr></table></figure>
+
+<p>由于 msys2 指定 MSYSCON 为 defterm 时默认是执行bash.exe， 我们把 C:\msys64\msys2_shell.cmd 大概第5行的bash 改成 zsh 即可：</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set</span> &quot;LOGINSHELL=zsh&quot;</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装-oh-my-zsh"><a href="#安装-oh-my-zsh" class="headerlink" title="安装 oh-my-zsh"></a>安装 oh-my-zsh</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果无法安装，使用下面这种方式</span></span><br><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://cdn.jsdelivr.net/gh/ohmyzsh/ohmyzsh@master/tools/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="安装-Fira-Code-字体"><a href="#安装-Fira-Code-字体" class="headerlink" title="安装 Fira Code 字体"></a>安装 Fira Code 字体</h4><p><a target="_blank" rel="noopener" href="https://github.com/tonsky/FiraCode/releases">Fira Code</a></p>
+<h4 id="配置到-Windows-Terminal"><a href="#配置到-Windows-Terminal" class="headerlink" title="配置到 Windows Terminal"></a>配置到 Windows Terminal</h4><p>在 settings.json 文件中加入MSYS2的配置</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&quot;profiles&quot;:</span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;defaults&quot;</span>:</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="comment">// Put settings here that you want to apply to all profiles.</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">&quot;list&quot;</span>:</span><br><span class="line">  [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">&quot;guid&quot;</span>: <span class="string">&quot;&#123;1c4de342-38b7-51cf-b940-2309a097f589&#125;&quot;</span>, <span class="comment">// 唯一的标识，改成和其他的已有终端不一样</span></span><br><span class="line">      <span class="attr">&quot;hidden&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">      <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;MSYS2&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;acrylicOpacity&quot;</span>: <span class="number">0</span>, <span class="comment">// 透明度</span></span><br><span class="line">      <span class="attr">&quot;closeOnExit&quot;</span>: <span class="literal">true</span>, <span class="comment">// 关闭的时候退出命令终端</span></span><br><span class="line">      <span class="attr">&quot;colorScheme&quot;</span>: <span class="string">&quot;Homebrew&quot;</span>, <span class="comment">// 样式配置</span></span><br><span class="line">      <span class="attr">&quot;commandline&quot;</span>: <span class="string">&quot;C:\\msys64\\msys2_shell.cmd -defterm -no-start -here -use-full-path  -mingw64&quot;</span>, <span class="comment">// 重点就是要用这个脚本启动，以及他的参数</span></span><br><span class="line">      <span class="attr">&quot;startingDirectory&quot;</span>: <span class="string">&quot;~&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;cursorColor&quot;</span>: <span class="string">&quot;#FFFFFF&quot;</span>, <span class="comment">// 光标颜色</span></span><br><span class="line">      <span class="attr">&quot;cursorShape&quot;</span>: <span class="string">&quot;bar&quot;</span>, <span class="comment">// 光标形状</span></span><br><span class="line">      <span class="attr">&quot;fontFace&quot;</span>: <span class="string">&quot;Fira Code&quot;</span>, <span class="comment">// 字体配置，选择你电脑上已安装的字体</span></span><br><span class="line">      <span class="attr">&quot;fontSize&quot;</span>: <span class="number">11</span>, <span class="comment">// 终端字体大小</span></span><br><span class="line">      <span class="attr">&quot;historySize&quot;</span>: <span class="number">9001</span>, <span class="comment">// 终端窗口记忆大小</span></span><br><span class="line">      <span class="attr">&quot;icon&quot;</span>: <span class="string">&quot;C:\\msys64\\msys2.ico&quot;</span> <span class="comment">// git 的图</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line"><span class="comment">// Add custom color schemes to this array.</span></span><br><span class="line"><span class="comment">// To learn more about color schemes, visit https://aka.ms/terminal-color-schemes</span></span><br><span class="line">&quot;schemes&quot;: [</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;Homebrew&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;black&quot;</span>: <span class="string">&quot;#000000&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;red&quot;</span>: <span class="string">&quot;#FC5275&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;green&quot;</span>: <span class="string">&quot;#00a600&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;yellow&quot;</span>: <span class="string">&quot;#999900&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;blue&quot;</span>: <span class="string">&quot;#6666e9&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;purple&quot;</span>: <span class="string">&quot;#b200b2&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;cyan&quot;</span>: <span class="string">&quot;#00a6b2&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;white&quot;</span>: <span class="string">&quot;#bfbfbf&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightBlack&quot;</span>: <span class="string">&quot;#666666&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightRed&quot;</span>: <span class="string">&quot;#e50000&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightGreen&quot;</span>: <span class="string">&quot;#00d900&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightYellow&quot;</span>: <span class="string">&quot;#e5e500&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightBlue&quot;</span>: <span class="string">&quot;#0000ff&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightPurple&quot;</span>: <span class="string">&quot;#e500e5&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightCyan&quot;</span>: <span class="string">&quot;#00e5e5&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightWhite&quot;</span>: <span class="string">&quot;#e5e5e5&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;background&quot;</span>: <span class="string">&quot;#283033&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;foreground&quot;</span>: <span class="string">&quot;#00ff00&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装-oh-my-zsh-主题"><a href="#安装-oh-my-zsh-主题" class="headerlink" title="安装 oh-my-zsh 主题"></a>安装 oh-my-zsh 主题</h4><p><a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh/wiki/themes">主题列表</a></p>
+<p>推荐两款主题</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/sindresorhus/pure/">pure主题</a><br><a target="_blank" rel="noopener" href="https://github.com/agnoster/agnoster-zsh-theme">agnoster</a></p>
+<h4 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.oh-my-zsh/plugins</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-syntax-highlighting.git</span><br></pre></td></tr></table></figure>
+
+<p>启用插件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 编辑~/.zshrc</span></span><br><span class="line">vim ~/.zshrc</span><br><span class="line"><span class="comment"># 在plugins后括号里添加安装的插件名字</span></span><br><span class="line">plugins=( git</span><br><span class="line">          zsh-autosuggestions</span><br><span class="line">          zsh-syntax-highlighting</span><br><span class="line">        )</span><br><span class="line"><span class="comment"># 最后刷新</span></span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -430,7 +516,7 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># wget</span></span><br><span class="line">wget --no-check-certificate --content-disposition https://github.com/ctripcorp/apollo/releases/download/v1.5.1/apollo-adminservice-1.5.1-github.zip</span><br><span class="line"></span><br><span class="line"><span class="comment"># curl</span></span><br><span class="line">curl -LJO https://github.com/ctripcorp/apollo/releases/download/v1.5.1/apollo-adminservice-1.5.1-github.zip</span><br></pre></td></tr></table></figure>
 
 <p>下载源码压缩包</p>
-<p>wget -q <a target="_blank" rel="noopener" href="https://github.com/git/git/archive/v$%7BGIT_VERSION%7D.tar.gz">https://github.com/git/git/archive/v${GIT_VERSION}.tar.gz</a></p>
+<p>wget -q <a target="_blank" rel="noopener" href="https://github.com/git/git/archive/v$%7BGIT_VERSION%7D.tar.gz">https://github.com/git/git/archive/v${GIT_VERSION}.tar.gz</a><br>wget -O git-master.zip <a target="_blank" rel="noopener" href="https://github.com/git/git/archive/$%7BGIT_BRANCH%7D.zip">https://github.com/git/git/archive/${GIT_BRANCH}.zip</a></p>
 <p>下载仓库中的单个文件</p>
 <p>点击文件进去，右上角有个raw，点击进去后地址栏就是该文件的下载地址<br>直接 <code>wget 地址</code> 即可下载</p>
 
@@ -1033,96 +1119,6 @@
 <p>github地址 <a target="_blank" rel="noopener" href="https://github.com/rlv-dan/Snap2HTML">https://github.com/rlv-dan/Snap2HTML</a></p>
 <p>官网地址 <a target="_blank" rel="noopener" href="https://www.rlvision.com/snap2html/about.php">https://www.rlvision.com/snap2html/about.php</a></p>
 <p>百度云链接: <a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1XVvgMX4TKTOZSvEay8xvnQ">https://pan.baidu.com/s/1XVvgMX4TKTOZSvEay8xvnQ</a> 提取码: pbi3</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1853.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/1853.html" class="post-title-link" itemprop="url">UsbEAm Hosts Editor [多平台 hosts 修改] V3.50</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-07-05 18:04:08" itemprop="dateCreated datePublished" datetime="2020-07-05T18:04:08+00:00">2020-07-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%BD%AF%E4%BB%B6/" itemprop="url" rel="index"><span itemprop="name">软件</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>UsbEAm Hosts Editor 是一款能够提升 origin、steam、uplay 等游戏平台下载速度的工具，同时也可以有效的解决一些游戏或者平台出现的各种网络错误，帮玩家能够顺利的登录平台，顺利进行游戏。</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102203606.png"></p>
-<p>UsbEAm Hosts Editor 还可以为 github 加速，提高网页浏览的速度和代码下载的速度</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102203624.png"></p>
-<p>使用方法：</p>
-<ul>
-<li><p>点击左下角的游戏手柄（或者点击鼠标右键），弹出菜单</p>
-</li>
-<li><p>在弹出的菜单上选择要检测的项目。里面包含了多个流行的游戏平台，每个平台还有下载、浏览等子菜单</p>
-</li>
-<li><p>接着会出现一大堆 IP，先别急着去用，先点击 <code>检测延迟</code>，然后选择延迟最低的地址，点击应用选中即可</p>
-</li>
-<li><p>也可以点击 <code>编辑Hosts</code>，手工对 Hosts 进行编辑</p>
-</li>
-</ul>
-<p>如果某些安全软件弹出阻止情况，请忽略放过，不然无法修改</p>
-<p>软件下载</p>
-<p>百度云：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1CYNEbqxkH-8vzdxWDOOE2g">https://pan.baidu.com/s/1CYNEbqxkH-8vzdxWDOOE2g</a> 提取码：p1ee</p>
 
       
     </div>

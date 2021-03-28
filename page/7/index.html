@@ -242,7 +242,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">149</span>
+          <span class="site-state-item-count">150</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -253,7 +253,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">80</span>
+        <span class="site-state-item-count">81</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -287,6 +287,81 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/690.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/690.html" class="post-title-link" itemprop="url">使用代码方式显示 WordPress 文章最后修改时间</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-03-01 17:19:48" itemprop="dateCreated datePublished" datetime="2020-03-01T17:19:48+00:00">2020-03-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/wordpress/" itemprop="url" rel="index"><span itemprop="name">wordpress</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>对于偏技术性的文章，用户更在意文章的更新时间而非发表时间</p>
+<p>将如下代码添加到主题函数 function.php 文件中，如果你不会的话，推荐使用这个插件：<a href="https://wqdy.top/671.html">Code Snippets</a></p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">wp_last_updated_date</span>(<span class="params"> <span class="variable">$content</span> </span>) </span>&#123;</span><br><span class="line">  <span class="variable">$time</span> = get_the_time(<span class="string">&#x27;U&#x27;</span>);</span><br><span class="line">  <span class="variable">$modified_time</span> = get_the_modified_time(<span class="string">&#x27;U&#x27;</span>);</span><br><span class="line">  <span class="variable">$custom_content</span> = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  <span class="keyword">if</span> (<span class="variable">$modified_time</span> &gt;= <span class="variable">$time</span> + <span class="number">86400</span>) &#123;</span><br><span class="line">    <span class="variable">$updated_time</span> = get_the_modified_time(<span class="string">&#x27;Y-m-d H:i:s&#x27;</span>);</span><br><span class="line">    <span class="variable">$custom_content</span> .= <span class="string">&#x27;&lt;p class=&quot;last-updated&quot; style=&quot;color: #999;font-size: 12px;&quot;&gt;文章最后更新于&#x27;</span>. <span class="variable">$updated_time</span> .<span class="string">&#x27;，如果失效请留言&lt;/p&gt;&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="variable">$custom_content</span> .= <span class="variable">$content</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="variable">$custom_content</span>;</span><br><span class="line">&#125;</span><br><span class="line">add_filter( <span class="string">&#x27;the_content&#x27;</span>, <span class="string">&#x27;wp_last_updated_date&#x27;</span> );</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1022,85 +1097,6 @@
 <p><a target="_blank" rel="noopener" href="https://myssl.com/http2_check.html">https://myssl.com/http2_check.html</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.ssllabs.com/ssltest/analyze.html">https://www.ssllabs.com/ssltest/analyze.html</a></p>
 <p><img data-src="/wp-content/uploads/2020/03/HTTP2-test.png"><br><img data-src="/wp-content/uploads/2020/03/HTTP2-test-1.png"></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1002.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/1002.html" class="post-title-link" itemprop="url">vue-awesome-swiper 设置 loop：true不会自动滚动的问题</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-01-20 13:11:58" itemprop="dateCreated datePublished" datetime="2020-01-20T13:11:58+00:00">2020-01-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>vue-awesome-swiper: 基于 Swiper4、适用于 Vue 的轮播组件，支持服务端渲染和单页应用</p>
-<p>github地址：<a target="_blank" rel="noopener" href="https://github.com/surmon-china/vue-awesome-swiper">https://github.com/surmon-china/vue-awesome-swiper</a></p>
-<p>官网：<a target="_blank" rel="noopener" href="https://github.surmon.me/vue-awesome-swiper/">https://github.surmon.me/vue-awesome-swiper/</a></p>
-<p>问题：</p>
-<p>设置loop：true， autoplay：2000 不会自动滚动</p>
-<p>解决<br>在 swiper 上添加 <code>v-if=&quot;swiperSlides.length&gt;0&quot;</code></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;swiper v-<span class="keyword">if</span>=<span class="string">&quot;swiperSlides.length&gt;0&quot;</span> :options=<span class="string">&quot;swiperOption&quot;</span> ref=<span class="string">&quot;mySwiper&quot;</span>&gt;</span><br></pre></td></tr></table></figure>
 
       
     </div>
