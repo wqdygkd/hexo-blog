@@ -44,7 +44,7 @@ certbot certonly --standalone -d www.test.org
 
 acme.sh 实现了 acme 协议, 可以从 letsencrypt 生成免费的证书
 
-github：https://github.com/acmesh-official/acme.sh/wiki/%E8%AF%B4%E6%98%8E
+github：https://github.com/acmesh-official/acme.sh/wiki/说明
 
 ### 宝塔面板
 
@@ -52,7 +52,13 @@ github：https://github.com/acmesh-official/acme.sh/wiki/%E8%AF%B4%E6%98%8E
 
 ![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102184437.png)
 
-##
+## freessl
+
+提供免费HTTPS证书申请 https://freessl.cn/
+
+## 其他
+
+HTTPS 网站检测 https://myssl.com/
 
 
 参考文章：

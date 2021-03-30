@@ -2,11 +2,21 @@
 title: 安装 rclone 并挂载 Google drive
 tags:
   - Google Drive
+  - rclone
 id: '1243'
 categories:
-  - - 教程
+  - 教程
 date: 2020-04-22 00:00:05
 ---
+
+```
+todo:
+https://www.cnblogs.com/mysummerday/p/12661263.html#_caption_1
+
+./rclone.exe mount secret:/  Q: --cache-dir G:\OneDrive --vfs-cache-mode writes &
+
+ Fatal error: failed to mount FUSE fs: mount stopped before calling Init: mount failed: cgofuse: cannot find winfsp
+```
 
 ### 安装 rclone 并挂载 Googledrive
 
@@ -236,14 +246,20 @@ mkdir -p /home/gdrive
  --allow-other \
  --buffer-size 32M \
  --dir-cache-time 12h \
- --vfs-read-chunk-size 64M \
- --vfs-read-chunk-size-limit 1G &
+ --vfs-cache-mode \
+  writes &
 ```
 
 > 报错
 > Fatal error: failed to mount FUSE fs: fusermount: exec: "fusermount": executable file not found in \$PATH
 > 解决：安装 fuse
 > `apt-get install fuse -y`
+
+
+```bash
+# 卸载磁盘
+fusermount -qzu LocalFolder  # LocalFolder 为本地挂载目录
+```
 
 ### 查看挂载
 

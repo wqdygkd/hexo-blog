@@ -61,7 +61,7 @@ mv 000000b32fxxxxxx.moon moons.d
 systemctl restart zerotier-one
 
 # 加入虚拟网络
-# zerotier-cli join 000000b32fxxxxxx
+# zerotier-cli join af415e486f26xxxx //  af415e486f26xxxx 为在 zerotier 官网创建的网络
 ```
 
 
@@ -70,7 +70,7 @@ systemctl restart zerotier-one
 执行命令
 
 ```bash
-# windows 在 zerotier 安装目录下执行
+# windows 在 C:\ProgramData\ZeroTier\One 目录下执行
 zerotier-cli orbit 000000b32fxxxxxx 000000b32fxxxxxx # moon 服务器的ID值 输入2遍
 ```
 
