@@ -242,7 +242,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">150</span>
+          <span class="site-state-item-count">151</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -253,7 +253,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">82</span>
+        <span class="site-state-item-count">85</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -287,6 +287,96 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/450.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/450.html" class="post-title-link" itemprop="url">网站配置SSL后无法访问解决办法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-02-04 14:04:31" itemprop="dateCreated datePublished" datetime="2020-02-04T14:04:31+00:00">2020-02-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/wordpress/" itemprop="url" rel="index"><span itemprop="name">wordpress</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ol>
+<li><p>开放 443 端口</p>
+</li>
+<li><p>域名证书有效且配置正确</p>
+</li>
+<li><p>ssl配置问题</p>
+</li>
+</ol>
+<p>正确启用HTTP/2支持，正确配置ssl_protocols和ssl_ciphers</p>
+<p>启用HTTP2并非只在 listen 443 ssl 配置中加入http2就行了，它主要需要两个地方的设置支持：ssl_protocols 和 ssl_ciphers 。</p>
+<p>修改如下配置以向后兼容</p>
+<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">listen 443 ssl http2;</span><br><span class="line"><span class="deletion">- ssl_protocols TLSv1.1 TLSv1.2 TLSv1.3;</span></span><br><span class="line"><span class="addition">+ ssl_protocols TLSv1 TLSv1.1 TLSv1.2 TLSv1.3;</span></span><br><span class="line">ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;</span><br></pre></td></tr></table></figure>
+
+<p>在线 http2 检测</p>
+<p><a target="_blank" rel="noopener" href="https://www.rosehosting.com/network-tools/http2-support.html">https://www.rosehosting.com/network-tools/http2-support.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://myssl.com/http2_check.html">https://myssl.com/http2_check.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.ssllabs.com/ssltest/analyze.html">https://www.ssllabs.com/ssltest/analyze.html</a></p>
+<p><img data-src="/wp-content/uploads/2020/03/HTTP2-test.png"><br><img data-src="/wp-content/uploads/2020/03/HTTP2-test-1.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1059,96 +1149,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/338.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/338.html" class="post-title-link" itemprop="url">dux 主题自定义代码高亮-使用 highlight.js</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-12-14 12:02:12" itemprop="dateCreated datePublished" datetime="2019-12-14T12:02:12+00:00">2019-12-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/wordpress/" itemprop="url" rel="index"><span itemprop="name">wordpress</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p>dux 主题默认使用 <a target="_blank" rel="noopener" href="https://github.com/google/code-prettify">Google Code Prettify</a> 实现代码高亮</p>
-</blockquote>
-<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>在 <a target="_blank" rel="noopener" href="https://highlightjs.org/">highlight 官网</a>下载 js 和 css 文件</p>
-<p>可以使用官网提供的 <a target="_blank" rel="noopener" href="https://highlightjs.org/download/">CDN 链接</a>，也可以根据需要定制自己需要的语言</p>
-<p>选择自己喜欢的<a target="_blank" rel="noopener" href="https://highlightjs.org/static/demo/">主题</a>，在<a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/%7D">这里</a>进行下载</p>
-<p>将 <code>highlight.main.js</code> 文件放到主题的 <code>/js/libs/</code> 文件夹中</p>
-<h3 id="编辑主题文件"><a href="#编辑主题文件" class="headerlink" title="编辑主题文件"></a>编辑主题文件</h3><p>编辑 <code>/js/loader.js</code> 文件，将 <code>highlight.min.js</code> 引入</p>
-<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">tbquire.config(&#123;</span><br><span class="line">  baseUrl: jsui.uri + &#x27;/js&#x27;,</span><br><span class="line">  urlArgs: &#x27;ver=&#x27; + jsui.ver,</span><br><span class="line">  paths: &#123;</span><br><span class="line">    &#x27;swiper&#x27;        : &#x27;libs/swiper.min&#x27;,</span><br><span class="line">    &#x27;jquery.cookie&#x27; : &#x27;libs/jquery.cookie.min&#x27;,</span><br><span class="line">    &#x27;jsrender&#x27;      : &#x27;libs/jsrender.min&#x27;,</span><br><span class="line">    &#x27;router&#x27;        : &#x27;libs/router.min&#x27;,</span><br><span class="line">    &#x27;lazyload&#x27;      : &#x27;libs/lazyload.min&#x27;,</span><br><span class="line">    &#x27;prettyprint&#x27;   : &#x27;libs/prettyprint&#x27;,</span><br><span class="line"><span class="addition">+   &#x27;highlight&#x27;     : &#x27;libs/highlight.min&#x27;,</span></span><br><span class="line">    &#x27;ias&#x27;           : &#x27;libs/ias.min&#x27;,</span><br><span class="line">    &#x27;main&#x27;          : &#x27;main&#x27;,</span><br><span class="line">    &#x27;comment&#x27;       : &#x27;comment&#x27;,</span><br><span class="line">    &#x27;user&#x27;          : &#x27;user&#x27;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>编辑 <code>/js/main.js</code> 注释掉 prettyprint 部分</p>
-<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">/*</span><br><span class="line"> * prettyprint</span><br><span class="line"> * <span class="comment">====================================================</span></span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line"><span class="deletion">-$(&#x27;pre&#x27;).each(function()&#123;</span></span><br><span class="line"><span class="deletion">-    if( !$(this).attr(&#x27;style&#x27;) ) $(this).addClass(&#x27;prettyprint&#x27;)</span></span><br><span class="line"><span class="deletion">-&#125;)</span></span><br><span class="line"></span><br><span class="line"><span class="deletion">-if( $(&#x27;.prettyprint&#x27;).length )&#123;</span></span><br><span class="line"><span class="deletion">-    tbquire([&#x27;prettyprint&#x27;], function(prettyprint) &#123;</span></span><br><span class="line"><span class="deletion">-        prettyPrint()</span></span><br><span class="line"><span class="deletion">-    &#125;)</span></span><br><span class="line"><span class="deletion">-&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="addition">+/*</span></span><br><span class="line"><span class="addition">+ * highlight</span></span><br><span class="line"><span class="addition">+ * ====================================================</span></span><br><span class="line"><span class="addition">+*/</span></span><br><span class="line"><span class="addition">+</span></span><br><span class="line"><span class="addition">+$(&#x27;pre code&#x27;).forEach((block) =&gt; &#123;</span></span><br><span class="line"><span class="addition">+  tbquire([&#x27;highlight&#x27;], function() &#123;</span></span><br><span class="line"><span class="addition">+    hljs.highlightBlock(block)</span></span><br><span class="line"><span class="addition">+&#125;)</span></span><br></pre></td></tr></table></figure>
-
-<p>此时 highlight 脚本已经生效，接下来就是应用 highlight 样式</p>
-<h3 id="应用-highlight-样式"><a href="#应用-highlight-样式" class="headerlink" title="应用 highlight 样式"></a>应用 highlight 样式</h3><p>你可以选择将下载好的 css 文件打开，将样式拷贝到 /libs/css/main.css 文件中</p>
-<p>也可以在 <code>wordpress后台-外观-自定义-添加额外css</code> 中为主题定义样式</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 

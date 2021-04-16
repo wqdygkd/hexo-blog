@@ -242,7 +242,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">150</span>
+          <span class="site-state-item-count">151</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -253,7 +253,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">82</span>
+        <span class="site-state-item-count">85</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -287,6 +287,129 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/427.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/427.html" class="post-title-link" itemprop="url">npm 包管理工具的使用</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-07-03 22:32:09" itemprop="dateCreated datePublished" datetime="2019-07-03T22:32:09+00:00">2019-07-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="解决某些-npm-包无法下载的问题"><a href="#解决某些-npm-包无法下载的问题" class="headerlink" title="解决某些 npm 包无法下载的问题"></a>解决某些 npm 包无法下载的问题</h3><p>如 electron sass</p>
+<p>修改 <code>~/.npmrc</code>，或当前项目下的<code>.npmrc</code> 文件（如果没有可以新建）增加如下内容</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">registry&#x3D;https:&#x2F;&#x2F;registry.npm.taobao.org</span><br><span class="line">sass_binary_site&#x3D;https:&#x2F;&#x2F;npm.taobao.org&#x2F;mirrors&#x2F;node-sass&#x2F;</span><br><span class="line">phantomjs_cdnurl&#x3D;http:&#x2F;&#x2F;npm.taobao.org&#x2F;mirrors&#x2F;phantomjs</span><br><span class="line">electron_mirror&#x3D;http:&#x2F;&#x2F;npm.taobao.org&#x2F;mirrors&#x2F;electron&#x2F;</span><br><span class="line">chromedriver_cdnurl&#x3D;http:&#x2F;&#x2F;npm.taobao.org&#x2F;mirrors&#x2F;chromedriver</span><br></pre></td></tr></table></figure>
+
+<p>淘宝 npm 镜像 <a target="_blank" rel="noopener" href="https://npm.taobao.org/">https://npm.taobao.org/</a></p>
+<p><a target="_blank" rel="noopener" href="https://npmjs.com/">npm 官网</a><br><a target="_blank" rel="noopener" href="https://docs.npmjs.com/">npm 文档</a><br><a target="_blank" rel="noopener" href="https://www.npmjs.cn/">npm 中文文档</a></p>
+<h3 id="npm-基本命令"><a href="#npm-基本命令" class="headerlink" title="npm 基本命令"></a>npm 基本命令</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 更新 npm</span></span><br><span class="line">npm -v|--version</span><br><span class="line">npm install npm@latest -g</span><br><span class="line"></span><br><span class="line"><span class="comment"># nvm : npm Version Manager</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 搜索包</span></span><br><span class="line">npm search &lt;pkg&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装包</span></span><br><span class="line">npm install [&lt;@scope&gt;/]&lt;pkg&gt; <span class="comment"># [&lt;@scope&gt;/] 安装限定范围的包</span></span><br><span class="line">npm install [&lt;@scope&gt;/]&lt;pkg&gt;@&lt;tag&gt;</span><br><span class="line">npm install [&lt;@scope&gt;/]&lt;pkg&gt;@&lt;version&gt;</span><br><span class="line">npm install [&lt;@scope&gt;/]&lt;pkg&gt;@&lt;version range&gt;</span><br><span class="line">npm install &lt;folder&gt;</span><br><span class="line">npm install &lt;tarball file&gt;  <span class="comment"># .tar, .tar.gz, or .tgz</span></span><br><span class="line">npm install &lt;tarball url&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 公有仓库</span></span><br><span class="line">npm install user/project <span class="comment"># 默认 github</span></span><br><span class="line">npm install bitbucket:user/project</span><br><span class="line">npm install gitlab:user/project<span class="comment">#semver:^5.0 # semver 版本</span></span><br><span class="line">npm install git+https://git@github.com/user/project.git</span><br><span class="line">npm install git+ssh://git@github.com/user/project.git</span><br><span class="line">npm install git://github.com/user/project.git</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">npm install &lt;pkg&gt; -S|--save <span class="comment"># 安装到 dependencies</span></span><br><span class="line">npm install &lt;pkg&gt; -D|--save-dev <span class="comment"># 安装到 devDependencies</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># --verbose 参数 显示安装的详细信息</span></span><br><span class="line">npm i --verbose</span><br><span class="line"></span><br><span class="line"><span class="comment"># --production 参数 只会安装 dependencies 依赖，而忽略 devDependencies 依赖，用于生产环境</span></span><br><span class="line">npm i --production</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装全局包</span></span><br><span class="line">npm install -g &lt;pkg&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新包</span></span><br><span class="line">npm outdated <span class="comment"># 检查可以更新的模块</span></span><br><span class="line">npm update <span class="comment"># 更新全部本地包</span></span><br><span class="line"><span class="comment"># 更新全局安装的包</span></span><br><span class="line">npm update -g <span class="comment"># 更新全部</span></span><br><span class="line">npm update -g| --global &lt;pkg&gt; <span class="comment"># 更新指定包</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新方式 1</span></span><br><span class="line"><span class="comment"># 手动修改 package.json 中依赖包版本，之后执行</span></span><br><span class="line">npm install --force</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新方式 2 使用第三方插件：</span></span><br><span class="line">npm install -g npm-check-updates</span><br><span class="line">ncu <span class="comment"># 查看可更新包</span></span><br><span class="line">ncu -u <span class="comment"># 更新 package.json</span></span><br><span class="line">npm install <span class="comment"># 升级到最新版本</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除本地包</span></span><br><span class="line">npm uninstall &lt;pkg&gt;</span><br><span class="line">npm uninstall --save &lt;pkg&gt; <span class="comment"># 从 `package.json` 文件中删除依赖</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载全局安装的包</span></span><br><span class="line">npm uninstall -g &lt;pkg&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开官网</span></span><br><span class="line">npm docs|home [&lt;pkg&gt;]</span><br><span class="line"><span class="comment"># 打开源码仓库页面</span></span><br><span class="line">npm repo [&lt;pkg&gt;]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化一个项目，创建一个 package.json 文件，项目名不能为中文</span></span><br><span class="line">npm init</span><br><span class="line"><span class="comment"># 创建默认 package.json 文件 快速的初始化一个项目，会使用文件夹名称作为项目名</span></span><br><span class="line">npm init --yes or -y</span><br></pre></td></tr></table></figure>
+
+<p>简写</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install  可简写成 npm i</span><br><span class="line"></span><br><span class="line">npm uninstall 可简写成 npm uni</span><br></pre></td></tr></table></figure>
+
+<h3 id="npm-修改源"><a href="#npm-修改源" class="headerlink" title="npm 修改源"></a>npm 修改源</h3><p><strong>修改全局配置</strong></p>
+<ul>
+<li>进入~/.npmrc 增加 <code>registry=https://registry.npm.taobao.org</code></li>
+<li>通过命令 <code>npm config set registry https://registry.npm.taobao.org</code></li>
+</ul>
+<p><strong>修改当前项目的 npm 源</strong></p>
+<p>在 <code>package.json</code> 同级目录下创建 <code>.npmrc</code> 文件，增加 <code>registry=https://registry.npm.taobao.org</code></p>
+<p><strong>临时使用指定源下载</strong> <code>npm install jquery --registry=https://registry.npm.taobao.org</code></p>
+<p><strong>使用 nrm 管理源</strong></p>
+<h3 id="npm-配置文件"><a href="#npm-配置文件" class="headerlink" title="npm 配置文件"></a>npm 配置文件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># .npmrc 配置文件位置（~/.npmrc）</span></span><br><span class="line">npm config list</span><br><span class="line"></span><br><span class="line"><span class="comment"># npm 缓存目录，默认 C:\Users\&lt;username&gt;\AppData\Roaming\npm-cache</span></span><br><span class="line">npm config get cache</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除 npm 缓存：注意：如果网速慢的话，会导致下载失败。 再重新下载之前，建议使用该命令，清除刚才下载的缓存，否则有可能一直无法下载成功</span></span><br><span class="line">npm cache clean --force | -f</span><br><span class="line"></span><br><span class="line"><span class="comment"># npm 全局 node 包位置：  默认在 C:\Users\用户名\AppData\Roaming\npm目录下</span></span><br><span class="line">npm config get prefix</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">npm root -g</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改 npm 全局文件位置及缓存文件位置</span></span><br><span class="line">npm config <span class="built_in">set</span> prefix <span class="string">&quot;&lt;new_path&gt;&quot;</span></span><br><span class="line">npm config <span class="built_in">set</span> cache <span class="string">&quot;&lt;new_path&gt;&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="版本号"><a href="#版本号" class="headerlink" title="版本号"></a>版本号</h3><p>使用 NPM 下载和发布代码时都会接触到版本号。NPM 使用语义版本号来管理代码</p>
+<p>语义版本号分为 X.Y.Z 三位，分别代表主版本号、次版本号和补丁版本号。当代码变更时，版本号按以下原则更新。</p>
+<ul>
+<li>如果只是修复 bug，需要更新 Z 位</li>
+<li>如果是新增了功能，但是向下兼容，需要更新 Y 位</li>
+<li>如果有大变动，向下不兼容，需要更新 X 位</li>
+</ul>
+<h3 id="nrm-使用"><a href="#nrm-使用" class="headerlink" title="nrm 使用"></a>nrm 使用</h3><p>nrm：npm registry manager（npm 仓库地址管理工具）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看配置列表，带 `*` 号即为当前使用的配置</span></span><br><span class="line">nrm ls</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换源</span></span><br><span class="line">nrm use 源的别名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加源</span></span><br><span class="line">nrm add 别名 地址</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测速</span></span><br><span class="line">nrm <span class="built_in">test</span> 别名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除源</span></span><br><span class="line">nrm del 别名</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看项目安装了那些包"><a href="#查看项目安装了那些包" class="headerlink" title="查看项目安装了那些包"></a>查看项目安装了那些包</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm list --depth=0 [--dev | --production]</span><br><span class="line">npm list --depth=0</span><br></pre></td></tr></table></figure>
+
+<p>–depth 表示深度，我们使用的模块会有依赖，深度为零的时候，不会显示依赖模块</p>
+<h3 id="查看全局安装的包"><a href="#查看全局安装的包" class="headerlink" title="查看全局安装的包"></a>查看全局安装的包</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm list --depth=0 --global</span><br></pre></td></tr></table></figure>
+
+<h3 id="package-json-文件"><a href="#package-json-文件" class="headerlink" title="package.json 文件"></a>package.json 文件</h3><p>package.json 文件，包（项目）描述文件，用来管理组织一个包（项目），它是一个纯 JSON 格式的</p>
+<ul>
+<li>作用：描述当前项目（包）的信息，描述当前包（项目）的依赖项</li>
+<li>如何生成：<code>npm init</code>或者<code>npm init -y</code></li>
+<li>作用<ul>
+<li>作为一个标准的包，必须要有<code>package.json</code>文件进行描述</li>
+<li>一个项目的 node_modules 目录通常都会很大，不用拷贝 node_modules 目录，可以通过 package.json 文件配合<code>npm install</code> 直接安装项目所有的依赖项</li>
+</ul>
+</li>
+<li>描述内容</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;myproject&quot;</span>, <span class="comment">// 描述了包的名字，不能有中文</span></span><br><span class="line">  <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;1.0.0&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;description&quot;</span>: <span class="string">&quot;&quot;</span>, <span class="comment">// 包的描述信息</span></span><br><span class="line">  <span class="attr">&quot;main&quot;</span>: <span class="string">&quot;index.js&quot;</span>, <span class="comment">// 入口文件</span></span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">    <span class="comment">// 配置一些脚本</span></span><br><span class="line">    <span class="attr">&quot;test&quot;</span>: <span class="string">&quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">&quot;keywords&quot;</span>: [], <span class="comment">// 关键字（方便搜索）</span></span><br><span class="line">  <span class="attr">&quot;author&quot;</span>: <span class="string">&quot;&quot;</span>, <span class="comment">// 作者信息</span></span><br><span class="line">  <span class="attr">&quot;license&quot;</span>: <span class="string">&quot;ISC&quot;</span>, <span class="comment">// 许可证，开源协议</span></span><br><span class="line">  <span class="attr">&quot;dependencies&quot;</span>: &#123;</span><br><span class="line">    <span class="comment">// 项目依赖</span></span><br><span class="line">    <span class="attr">&quot;bootstrap&quot;</span>: <span class="string">&quot;^3.3.7&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;jquery&quot;</span>: <span class="string">&quot;^3.3.1&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：一个合法的 package.json，必须要有 name 和 version 两个属性</strong></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -2311,438 +2434,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/409.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/409.html" class="post-title-link" itemprop="url">nodejs 基本使用</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2018-12-29 22:21:15" itemprop="dateCreated datePublished" datetime="2018-12-29T22:21:15+00:00">2018-12-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="nodejs-基本介绍"><a href="#nodejs-基本介绍" class="headerlink" title="nodejs 基本介绍"></a>nodejs 基本介绍</h1><h2 id="为什么要学习-nodejs"><a href="#为什么要学习-nodejs" class="headerlink" title="为什么要学习 nodejs"></a>为什么要学习 nodejs</h2><ol>
-<li>降低编程语言切换的成本(nodejs 实质上用的还是 javascript)</li>
-<li>NodeJS 是前端项目的基础设施，前端项目中用到的大量工具 (大前端)</li>
-<li>nodejs 在处理高并发上有得天独厚的优势(利用 nodejs 做中间层)</li>
-<li>对于前端工程师，面试时对于 nodejs 有一定的要求</li>
-</ol>
-<h2 id="node-js-是什么？"><a href="#node-js-是什么？" class="headerlink" title="node.js 是什么？"></a>node.js 是什么？</h2><p>node.js，也叫作 node，或者 nodejs，指的都是一个平台</p>
-<ol>
-<li><a target="_blank" rel="noopener" href="https://nodejs.org/">node.js 官方网站</a></li>
-<li><a target="_blank" rel="noopener" href="http://nodejs.cn/">node.js 中文网</a></li>
-<li><a target="_blank" rel="noopener" href="https://cnodejs.org/">node.js 中文社区</a></li>
-</ol>
-<p>Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境，nodejs 允许 javascript 代码运行在服务端</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. nodejs不是一门新的编程语言，nodejs是在服务端运行javascript的运行环境</span><br><span class="line">2. 运行环境：写得程序想要运行必须要有对应的运行环境</span><br><span class="line">	php代码必须要有apache服务器</span><br><span class="line">	在web端，浏览器就是javascript的运行环境</span><br><span class="line">	在node端，nodejs就是javascript的运行环境</span><br><span class="line">2. javascript并不只是能运行在浏览器端，浏览器端能够运行js是因为浏览器有js解析器，因此只需要有js解析器，任何软件都可以运行js。</span><br><span class="line">3. nodejs可以在服务端运行js，因为nodejs是基于chrome v8的js引擎</span><br></pre></td></tr></table></figure>
-
-<p><strong>nodejs 的本质：不是一门新的编程语言，nodejs 是 javascript 运行在服务端的运行环境，编程语言还是 javascript</strong></p>
-<h2 id="nodejs-与浏览器的区别"><a href="#nodejs-与浏览器的区别" class="headerlink" title="nodejs 与浏览器的区别"></a>nodejs 与浏览器的区别</h2><p>相同点：nodejs 与浏览器都是 js 的运行环境，都能够解析 js 程序。对于 ECMAScript 语法来说，在 nodejs 和浏览器中都能运行</p>
-<p>不同点：nodejs 无法使用 DOM 和 BOM 的操作，浏览器无法执行 nodejs 中的文件操作等功能</p>
-<h2 id="nodejs-可以干什么？"><a href="#nodejs-可以干什么？" class="headerlink" title="nodejs 可以干什么？"></a>nodejs 可以干什么？</h2><ol>
-<li>开发服务端程序</li>
-<li>开发命令行工具（CLI），比如 npm，webpack，gulp，less，sass 等</li>
-<li>开发桌面应用程序（借助 node-webkit、electron 等框架实现）</li>
-</ol>
-<h1 id="安装-nodejs"><a href="#安装-nodejs" class="headerlink" title="安装 nodejs"></a>安装 nodejs</h1><h2 id="nodejs-版本"><a href="#nodejs-版本" class="headerlink" title="nodejs 版本"></a>nodejs 版本</h2><p>下载地址</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://nodejs.org/en/download/">当前版本</a></li>
-<li><a target="_blank" rel="noopener" href="https://nodejs.org/en/download/releases/">历史版本</a></li>
-</ul>
-<p>官网术语解释</p>
-<ul>
-<li>LTS 版本：Long-term Support 版本，长期支持版，即稳定版。</li>
-<li>Current 版本：Latest Features 版本，最新版本，新特性会在该版本中最先加入</li>
-</ul>
-<p>查看 node 版本</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
-
-<h1 id="运行-nodejs-程序"><a href="#运行-nodejs-程序" class="headerlink" title="运行 nodejs 程序"></a>运行 nodejs 程序</h1><h2 id="方式一：使用-node-执行-js-文件"><a href="#方式一：使用-node-执行-js-文件" class="headerlink" title="方式一：使用 node 执行 js 文件"></a>方式一：使用 node 执行 js 文件</h2><ul>
-<li><p>创建 js 文件 <code>helloworld.js</code></p>
-</li>
-<li><p>写 nodejs 的内容：<code>console.log(&#39;hello nodejs&#39;)</code></p>
-</li>
-<li><p>打开命令窗口 <code>cmd</code></p>
-<ul>
-<li>shift 加右键打开命令窗口，执行 <code>node 文件名.js</code>即可</li>
-</ul>
-</li>
-<li><p>执行命令：<code>node helloworld.js</code></p>
-</li>
-</ul>
-<p>注意：在 nodejs 中是无法使用 DOM 和 BOM 的内容的，因此<code>document</code>， <code>window</code>等内容是无法使用的</p>
-<h2 id="方式二：REPL-介绍"><a href="#方式二：REPL-介绍" class="headerlink" title="方式二：REPL 介绍"></a>方式二：REPL 介绍</h2><ol>
-<li>REPL 全称: Read-Eval-Print-Loop（交互式解释器）<ul>
-<li>R 读取 - 读取用户输入，解析输入了 Javascript 数据结构并存储在内存中</li>
-<li>E 执行 - 执行输入的数据结构</li>
-<li>P 打印 - 输出结果</li>
-<li>L 循环 - 循环操作以上步骤直到用户两次按下 ctrl-c 按钮退出</li>
-</ul>
-</li>
-<li>在 REPL 中编写程序 （类似于浏览器开发人员工具中的控制台功能）<ul>
-<li>直接在控制台输入 <code>node</code> 命令进入 REPL 环境</li>
-</ul>
-</li>
-<li>按两次 Control + C 退出 REPL 界面 或者 输入 <code>.exit</code> 退出 REPL 界面<ul>
-<li>按住 control 键不要放开, 然后按两下 c 键</li>
-</ul>
-</li>
-</ol>
-<h2 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h2><p>当要求系统运行一个<strong>程序</strong> 而没有告诉它程序所在的完整路径时</p>
-<ol>
-<li>首先在<strong>当前目录</strong>中查找和该字符串匹配的可执行文件</li>
-<li>进入用户 path 环境变量查找</li>
-<li>进入系统 path 环境变量查找</li>
-</ol>
-<p>配置环境变量：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">找到环境变量：计算机 --右键--&gt; 属性 --&gt; 高级系统设置 --&gt; 高级 --&gt; 环境变量</span><br></pre></td></tr></table></figure>
-
-<h1 id="global-模块-全局变量"><a href="#global-模块-全局变量" class="headerlink" title="global 模块-全局变量"></a>global 模块-全局变量</h1><p>JavaScript 中有一个特殊的对象，称为全局对象（Global Object），它及其所有属性都可以在程序的任何地方访问，即全局变量。</p>
-<p>在浏览器 JavaScript 中，通常 window 是全局对象， 而 Node.js 中的全局对象是 <code>global</code>，所有全局变量（除了 global 本身以外）都是 global 对象的属性。</p>
-<p>在 Node.js 我们可以直接访问到 global 的属性，而不需要在应用中包含它。</p>
-<p><strong>常用的 global 属性</strong></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>: 用于打印日志</span><br><span class="line"><span class="built_in">setTimeout</span>/<span class="built_in">clearTimeout</span>: 设置清除延时器</span><br><span class="line"><span class="built_in">setInterval</span>/<span class="built_in">clearInterval</span>: 设置清除定时器</span><br><span class="line"></span><br><span class="line">__dirname: 当前文件的路径，不包括文件名</span><br><span class="line">__filename：当前文件的路径，包括文件名</span><br><span class="line"></span><br><span class="line"><span class="comment">// 与模块化相关的，模块化的时候会用到</span></span><br><span class="line"><span class="built_in">require</span></span><br><span class="line"><span class="built_in">exports</span></span><br><span class="line"><span class="built_in">module</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="fs-模块"><a href="#fs-模块" class="headerlink" title="fs 模块"></a>fs 模块</h1><blockquote>
-<p>fs 模块是 nodejs 中最常用的一个模块，因此掌握 fs 模块非常的有必要，fs 模块的方法非常多，用到了哪个查哪个即可。</p>
-<p>文档地址：<a target="_blank" rel="noopener" href="http://nodejs.cn/api/fs.html">http://nodejs.cn/api/fs.html</a></p>
-</blockquote>
-<p>在 nodejs 中，提供了 fs 模块，这是 node 的核心模块</p>
-<p>注意：</p>
-<ol>
-<li>除了 global 模块中的内容可以直接使用，其他模块都是需要加载的。</li>
-<li>fs 模块不是全局的，不能直接使用。因此需要导入才能使用。</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<h2 id="读取文件"><a href="#读取文件" class="headerlink" title="读取文件"></a>读取文件</h2><blockquote>
-<p>语法：fs.readFile(file[, options], callback)</p>
-</blockquote>
-<p>方式一：不传编码参数</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 参数1：文件路径</span></span><br><span class="line"><span class="comment">// 参数2：读取文件的回调函数</span></span><br><span class="line"><span class="comment">// 回调函数参数1：错误对象，如果读取失败，err 会包含错误信息，如果读取成功，err 是 null</span></span><br><span class="line"><span class="comment">// 回调函数参数2：读取成功后的数据（是一个Buffer对象）</span></span><br><span class="line">fs.readFile(<span class="string">&#x27;data.txt&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(err)</span><br><span class="line">  <span class="built_in">console</span>.log(data)</span><br><span class="line">  <span class="built_in">console</span>.log(data.toString()) <span class="comment">// 将Buffer对象转换成字符串</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>方式二：传编码参数</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 参数1：文件的路径</span></span><br><span class="line"><span class="comment">// 参数2：编码，如果设置了，返回一个字符串，如果没有设置，会返回一个buffer对象</span></span><br><span class="line"><span class="comment">// 参数3：回调函数</span></span><br><span class="line">fs.readFile(<span class="string">&#x27;data.txt&#x27;</span>, <span class="string">&#x27;utf8&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(err)</span><br><span class="line">  <span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>关于 Buffer 对象</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. Buffer对象是Nodejs用于处理二进制数据的</span><br><span class="line">2. 其实任意的数据在计算机底层都是二进制数据，因为计算机只认识二进制</span><br><span class="line">3. 所以读取任意的文件，返回的结果都是二进制数据，即Buffer对象</span><br><span class="line">4. Buffer对象可以调用toString()方法转换成字符串</span><br></pre></td></tr></table></figure>
-
-<h2 id="写文件"><a href="#写文件" class="headerlink" title="写文件"></a>写文件</h2><blockquote>
-<p>语法：fs.writeFile(file, data[, options], callback)</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 参数1：文件路径(如果文件不存在，会自动创建)</span></span><br><span class="line"><span class="comment">// 参数2：写入的文件内容（注意：写入的内容会覆盖以前的内容）</span></span><br><span class="line"><span class="comment">// 参数3：写文件后的回调函数</span></span><br><span class="line">fs.writeFile(<span class="string">&#x27;2.txt&#x27;</span>, <span class="string">&#x27;hello world&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (err) <span class="keyword">return</span> <span class="built_in">console</span>.log(<span class="string">&#x27;写入文件失败&#x27;</span>, err)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;写入文件成功&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>注意：</p>
-<ol>
-<li>写文件的时候，会把原来的内容给覆盖掉</li>
-</ol>
-<blockquote>
-<p>语法：fs.appendFile(path, data[, options], callback)</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 参数1：追加的文件名(如果文件不存在，会自动创建)</span></span><br><span class="line"><span class="comment">// 参数2：追加的文件内容</span></span><br><span class="line"><span class="comment">// 参数3：追加文件后的回调函数</span></span><br><span class="line">fs.appendFile(<span class="string">&#x27;2.txt&#x27;</span>, <span class="string">&#x27;我是追加的内容&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (err) <span class="keyword">return</span> <span class="built_in">console</span>.log(<span class="string">&#x27;追加文件内容失败&#x27;</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;追加文件内容成功&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>思考：如果没有 appendFile，通过 readFile 与 writeFile 应该怎么实现？</p>
-<h2 id="文件同步与异步的说明"><a href="#文件同步与异步的说明" class="headerlink" title="文件同步与异步的说明"></a>文件同步与异步的说明</h2><blockquote>
-<p>fs 中所有的文件操作，都提供了异步和同步两种方式</p>
-</blockquote>
-<p>异步方式：不会阻塞代码的执行</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 异步方式</span></span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">111</span>)</span><br><span class="line">fs.readFile(<span class="string">&#x27;2.txt&#x27;</span>, <span class="string">&#x27;utf8&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (err) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">console</span>.log(<span class="string">&#x27;读取文件失败&#x27;</span>, err)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;222&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>同步方式：会阻塞代码的执行</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//同步方式</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">111</span>)</span><br><span class="line"><span class="keyword">const</span> result = fs.readFileSync(<span class="string">&#x27;2.txt&#x27;</span>, <span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(result)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">222</span>)</span><br></pre></td></tr></table></figure>
-
-<p>总结：同步操作使用虽然简单，但是会影响性能，因此尽量使用异步方法，尤其是在工作过程中。</p>
-<h2 id="其他-api（了解）"><a href="#其他-api（了解）" class="headerlink" title="其他 api（了解）"></a>其他 api（了解）</h2><p>方法有很多，但是用起来都非常的简单，学会查文档</p>
-<p>文档：<a target="_blank" rel="noopener" href="http://nodejs.cn/api/fs.html">http://nodejs.cn/api/fs.html</a></p>
-<table>
-<thead>
-<tr>
-<th>方法名</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>fs.readFile(path, callback)</code></td>
-<td>读取文件内容（异步）</td>
-</tr>
-<tr>
-<td><code>fs.readFileSync(path)</code></td>
-<td>读取文件内容（同步）</td>
-</tr>
-<tr>
-<td><code>fs.writeFile(path, data, callback)</code></td>
-<td>写入文件内容（异步）</td>
-</tr>
-<tr>
-<td><code>fs.writeFileSync(path, data)</code></td>
-<td>写入文件内容（同步）</td>
-</tr>
-<tr>
-<td><code>fs.appendFile(path, data, callback)</code></td>
-<td>追加文件内容（异步）</td>
-</tr>
-<tr>
-<td><code>fs.appendFileSync(path, data)</code></td>
-<td>追加文件内容（同步）</td>
-</tr>
-<tr>
-<td><code>fs.rename(oldPath, newPath, callback)</code></td>
-<td>重命名文件（异步）</td>
-</tr>
-<tr>
-<td><code>fs.renameSync(oldPath, newPath)</code></td>
-<td>重命名文件（同步）</td>
-</tr>
-<tr>
-<td><code>fs.unlink(path, callback)</code></td>
-<td>删除文件（异步）</td>
-</tr>
-<tr>
-<td><code>fs.unlinkSync(path)</code></td>
-<td>删除文件（同步）</td>
-</tr>
-<tr>
-<td><code>fs.mkdir(path, mode, callback)</code></td>
-<td>创建文件夹（异步）</td>
-</tr>
-<tr>
-<td><code>fs.mkdirSync(path, mode)</code></td>
-<td>创建文件夹（同步）</td>
-</tr>
-<tr>
-<td><code>fs.rmdir(path, callback)</code></td>
-<td>删除文件夹（异步）</td>
-</tr>
-<tr>
-<td><code>fs.rmdirSync(path)</code></td>
-<td>删除文件夹（同步）</td>
-</tr>
-<tr>
-<td><code>fs.readdir(path, option, callback)</code></td>
-<td>读取文件夹内容（异步）</td>
-</tr>
-<tr>
-<td><code>fs.readdirSync(path, option)</code></td>
-<td>读取文件夹内容（同步）</td>
-</tr>
-<tr>
-<td><code>fs.stat(path, callback)</code></td>
-<td>查看文件状态（异步）</td>
-</tr>
-<tr>
-<td><code>fs.statSync(path)</code></td>
-<td>查看文件状态（同步）</td>
-</tr>
-</tbody></table>
-<h1 id="path-模块"><a href="#path-模块" class="headerlink" title="path 模块"></a>path 模块</h1><h2 id="路径操作的问题"><a href="#路径操作的问题" class="headerlink" title="路径操作的问题"></a>路径操作的问题</h2><p>在读写文件的时候，文件路径可以写相对路径或者绝对路径</p>
-<p>data.txt 是相对路径，读取当前目录下的 data.txt，相对路径相对的是指向 node 命令的路径</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 如果node命令不是在当前目录下执行就会报错，在当前执行node命令的目录下查找data.txt，找不到</span></span><br><span class="line">fs.readFile(<span class="string">&#x27;data.txt&#x27;</span>, <span class="string">&#x27;utf8&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (err) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">console</span>.log(<span class="string">&#x27;读取文件失败&#x27;</span>, err)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>相对路径：相对于执行 node 命令的路径</p>
-<p>推荐使用绝对路径：<code>__dirname</code>: 当前文件的目录，<code>__filename</code>: 当前文件的目录，包含文件名</p>
-<h2 id="path-模块的常用方法"><a href="#path-模块的常用方法" class="headerlink" title="path 模块的常用方法"></a>path 模块的常用方法</h2><blockquote>
-<p>关于路径，在 linux 系统中，路径分隔符使用的是<code>/</code>，但是在 windows 系统中，路径使用的<code>\</code></p>
-</blockquote>
-<p>在我们拼写路径的时候会带来很多的麻烦，经常会出现 windows 下写的代码，在 linux 操作系统下执行不了，path 模块就是为了解决这个问题而存在的。</p>
-<p>常用方法：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">path.join() <span class="comment">// 拼接路径，返回拼接后的结果</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// windows系统下</span></span><br><span class="line">path.join(<span class="string">&#x27;abc&#x27;</span>, <span class="string">&#x27;def&#x27;</span>, <span class="string">&#x27;gg&#x27;</span>, <span class="string">&#x27;index.html&#x27;</span>)</span><br><span class="line"><span class="string">&#x27;abc\def\gg\a.html&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// linux系统下</span></span><br><span class="line">path.join(<span class="string">&#x27;abc&#x27;</span>,<span class="string">&#x27;def&#x27;</span>,<span class="string">&#x27;gg&#x27;</span>, <span class="string">&#x27;index.html&#x27;</span>)</span><br><span class="line"><span class="string">&#x27;abc/def/gg/index.html&#x27;</span></span><br><span class="line"></span><br><span class="line">【优化读写文件的代码】</span><br><span class="line"></span><br><span class="line">其他方法:</span><br><span class="line">path.basename(path[, ext])	返回文件的最后一部分</span><br><span class="line">path.dirname(path)	返回路径的目录名</span><br><span class="line">path.extname(path)	获取路径的扩展名(后缀名)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"><span class="keyword">var</span> temp = <span class="string">&#x27;abc\\def\\gg\\a.html&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(path.basename(temp)) <span class="comment">//a.html</span></span><br><span class="line"><span class="built_in">console</span>.log(path.dirname(temp)) <span class="comment">//abc\def\gg</span></span><br><span class="line"><span class="built_in">console</span>.log(path.extname(temp)) <span class="comment">//.html</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="path-模块其他-api（了解）"><a href="#path-模块其他-api（了解）" class="headerlink" title="path 模块其他 api（了解）"></a>path 模块其他 api（了解）</h2><table>
-<thead>
-<tr>
-<th>方法名</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>path.basename(path[, ext])</code></td>
-<td>返回文件的最后一部分</td>
-</tr>
-<tr>
-<td><code>path.dirname(path)</code></td>
-<td>返回路径的目录名</td>
-</tr>
-<tr>
-<td><code>path.extname(path)</code></td>
-<td>获取路径的扩展名</td>
-</tr>
-<tr>
-<td><code>path.isAbsolute(path)</code></td>
-<td>判断目录是否是绝对路径</td>
-</tr>
-<tr>
-<td><code>path.join([...paths])</code></td>
-<td>将所有的 path 片段拼接成一个规范的路径</td>
-</tr>
-<tr>
-<td><code>path.normalize(path)</code></td>
-<td>规范化路径</td>
-</tr>
-<tr>
-<td><code>path.parse(path)</code></td>
-<td>将一个路径解析成一个 path 对象</td>
-</tr>
-<tr>
-<td><code>path.format(pathObj)</code></td>
-<td>讲一个 path 对象解析成一个规范的路径</td>
-</tr>
-</tbody></table>
-<h1 id="http-模块"><a href="#http-模块" class="headerlink" title="http 模块"></a>http 模块</h1><h2 id="创建服务器基本步骤"><a href="#创建服务器基本步骤" class="headerlink" title="创建服务器基本步骤"></a>创建服务器基本步骤</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 导入http模块，http模块是node的核心模块，作用是用来创建 http 服务器的</span></span><br><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 创建服务器</span></span><br><span class="line"><span class="keyword">let</span> server = http.createServer()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 服务器处理请求</span></span><br><span class="line">server.on(<span class="string">&#x27;request&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;我接收到请求了&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. 启动服务器，监听某个端口</span></span><br><span class="line">server.listen(<span class="number">9999</span>, <span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;服务器启动成功了, 请访问： http://localhost:9999&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>详细说明</p>
-<ol>
-<li>给服务器注册 request 事件，只要服务器接收到了客户端的请求，就会触发 request 事件</li>
-<li>request 事件有两个参数，req 表示请求对象，可以获取所有与请求相关的信息，res 是响应对象，可以获取所有与响应相关的信息</li>
-<li>服务器监听的端口范围为：1-65535 之间，推荐使用 3000 以上的端口，因为 3000 以下的端口一般留给系统使用</li>
-</ol>
-<h2 id="request-对象详解"><a href="#request-对象详解" class="headerlink" title="request 对象详解"></a>request 对象详解</h2><p>文档地址：<a target="_blank" rel="noopener" href="http://nodejs.cn/api/http.html#http_message_headers">http://nodejs.cn/api/http.html#http_message_headers</a></p>
-<p>常见属性：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">headers: 所有的请求头信息</span><br><span class="line">method：请求的方式</span><br><span class="line">rawHeaders：所有的请求头信息（数组的方式）</span><br><span class="line">url：请求的地址（url地址的路径部分）</span><br><span class="line">	请求 http:<span class="comment">//127.0.0.1:3000/index 获取到的是：/index</span></span><br><span class="line">	请求 http:<span class="comment">//127.0.0.1:3000 获取到的是：/</span></span><br></pre></td></tr></table></figure>
-
-<p>注意：在发送请求的时候，可能会出现两次请求的情况，这是因为谷歌浏览器会自动增加一个<code>favicon.ico</code>的请求</p>
-<p>小结：request 对象中，常用的就是 method 和 url 两个参数</p>
-<h2 id="response-对象详解"><a href="#response-对象详解" class="headerlink" title="response 对象详解"></a>response 对象详解</h2><p>文档地址：<a target="_blank" rel="noopener" href="http://nodejs.cn/api/http.html#http_class_http_serverresponse">http://nodejs.cn/api/http.html#http_class_http_serverresponse</a></p>
-<p>常见的属性和方法：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">res.write(data): 给浏览器发送响应体，可以调用多次，从而提供连续的响应体</span><br><span class="line">res.end()：通知服务器，所有响应头和响应主体都已被发送，即服务器将其视为已完成</span><br><span class="line">res.end(data)：结束请求，并且响应一段内容，相当于res.write(data) + res.end()</span><br><span class="line">res.statusCode: 响应的的状态码 <span class="number">200</span> <span class="number">404</span> <span class="number">500</span></span><br><span class="line">res.statusMessage: 响应的状态信息（不能有中文）， 如果不设置会根据statusCode自动设置</span><br><span class="line">res.setHeader(name, value)：设置响应头信息，比如<span class="string">&#x27;content-type&#x27;</span>，<span class="string">&#x27;text/html;charset=utf-8&#x27;</span></span><br><span class="line">res.writeHead(statusCode, statusMessage, options)：设置响应头，同时可以设置状态码和状态信息</span><br><span class="line">	options 是对象，写响应头的键值对</span><br></pre></td></tr></table></figure>
-
-<p><strong>注意：必须先设置响应头，才能设置响应主体。</strong></p>
-<ul>
-<li><p>注意：浏览器中输入的 URL 地址，仅仅是一个标识，可以不与服务器中的文件路径一致。也就是说：返回什么内容是由服务端的逻辑决定</p>
-</li>
-<li><p>路由 : url 标示和对应文件/数据的一一对应关系</p>
-</li>
-</ul>
-<h2 id="模拟-Apache-服务器"><a href="#模拟-Apache-服务器" class="headerlink" title="模拟 Apache 服务器"></a>模拟 Apache 服务器</h2><ul>
-<li>根据 <code>req.url</code> 读取不同的页面内容，返回给浏览器</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 需求: 简单模仿apache服务器，浏览器发送127.0.0.1:8888/index.html</span></span><br><span class="line"><span class="comment">// 对应的返回www文件夹下面的index.html的内容</span></span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建服务器</span></span><br><span class="line"><span class="keyword">let</span> server = http.createServer()</span><br><span class="line"><span class="comment">// 监听请求</span></span><br><span class="line">server.on(<span class="string">&#x27;request&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 根据不同请求输出不同响应数据</span></span><br><span class="line">  <span class="keyword">if</span> (req.url === <span class="string">&#x27;/&#x27;</span> || req.url === <span class="string">&#x27;/i&#x27;</span>) &#123;</span><br><span class="line">    <span class="comment">// 读取www下面的index.html</span></span><br><span class="line">    <span class="keyword">let</span> filename = path.join(__dirname, <span class="string">&#x27;www&#x27;</span>, <span class="string">&#x27;index.html&#x27;</span>)</span><br><span class="line">    fs.readFile(filename, <span class="string">&#x27;utf-8&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (err) <span class="built_in">console</span>.log(<span class="string">&#x27;文件读取失败&#x27;</span>)</span><br><span class="line">      <span class="comment">// 服务器响应文件</span></span><br><span class="line">      res.statusCode = <span class="number">200</span></span><br><span class="line">      res.statusMessage = <span class="string">&#x27;ok&#x27;</span></span><br><span class="line">      res.setHeader(<span class="string">&#x27;content-type&#x27;</span>, <span class="string">&#x27;text/html;charset=utf-8&#x27;</span>)</span><br><span class="line">      res.end(data)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (req.url === <span class="string">&#x27;/l&#x27;</span>) &#123;</span><br><span class="line">    <span class="comment">// 读取list.html</span></span><br><span class="line">    <span class="keyword">let</span> filename = path.join(__dirname, <span class="string">&#x27;www&#x27;</span>, <span class="string">&#x27;list.html&#x27;</span>)</span><br><span class="line">    fs.readFile(filename, <span class="string">&#x27;utf-8&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (err) <span class="keyword">return</span> <span class="built_in">console</span>.log(<span class="string">&#x27;文件读取失败&#x27;</span>)</span><br><span class="line">      <span class="comment">// 服务器响应文件</span></span><br><span class="line">      res.writeHead(<span class="number">200</span>, <span class="string">&#x27;OOOOOOK&#x27;</span>, &#123;</span><br><span class="line">        <span class="string">&#x27;content-type&#x27;</span>: <span class="string">&#x27;text/html;charset=utf-8&#x27;</span></span><br><span class="line">      &#125;)</span><br><span class="line">      res.end(data)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 返回浏览器, 未找到资源</span></span><br><span class="line">    res.writeHead(<span class="number">404</span>, <span class="string">&#x27;NOT FOUND&#x27;</span>, &#123;</span><br><span class="line">      <span class="string">&#x27;content-type&#x27;</span>: <span class="string">&#x27;text/html;charset=utf-8&#x27;</span></span><br><span class="line">    &#125;)</span><br><span class="line">    res.end(<span class="string">&#x27;404 ,资源未找到&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 开启服务器</span></span><br><span class="line"></span><br><span class="line">server.listen(<span class="number">8888</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;服务器开启了&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h2 id="MIME-类型"><a href="#MIME-类型" class="headerlink" title="MIME 类型"></a>MIME 类型</h2><ul>
-<li>MIME(Multipurpose Internet Mail Extensions)多用途 Internet 邮件扩展类型 是一种表示文档性质和格式的标准化方式</li>
-<li>浏览器通常使用 MIME 类型（而不是文件扩展名）来确定如何处理文档；因此服务器将正确的 MIME 类型附加到响应对象的头部是非常重要的</li>
-<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Basics_of_HTTP/MIME_Types">MIME 类型</a></li>
-</ul>
-<h2 id="mime-模块"><a href="#mime-模块" class="headerlink" title="mime 模块"></a>mime 模块</h2><ul>
-<li>作用：获取文件的 MIME 类型</li>
-<li>安装：<code>npm i mime</code></li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> mime = <span class="built_in">require</span>(<span class="string">&#x27;mime&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取路径对应的 MIME 类型</span></span><br><span class="line">mime.getType(<span class="string">&#x27;txt&#x27;</span>) <span class="comment">// &#x27;text/plain&#x27;</span></span><br><span class="line"><span class="comment">// 根据 MIME 获取到文件后缀名</span></span><br><span class="line">mime.getExtension(<span class="string">&#x27;text/plain&#x27;</span>) <span class="comment">// &#x27;txt&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="nodemon-自动重启"><a href="#nodemon-自动重启" class="headerlink" title="nodemon 自动重启"></a>nodemon 自动重启</h1><ul>
-<li>作用：监听到 js 文件修改后，自动重启 node 程序</li>
-<li>安装：<code>npm i -g nodemon</code></li>
-<li>使用：<code>nodemon app.js</code> 运行 node 程序</li>
-</ul>
-<h1 id="hacknews-案例"><a href="#hacknews-案例" class="headerlink" title="hacknews 案例"></a>hacknews 案例</h1><ul>
-<li><a target="_blank" rel="noopener" href="https://news.ycombinator.com/">Hacker News 示例</a></li>
-<li>路由（route）：就是一套映射规则，根据 url 地址分配到对应的处理程序</li>
-</ul>
-<h2 id="功能划分"><a href="#功能划分" class="headerlink" title="功能划分"></a>功能划分</h2><ul>
-<li>1 新闻列表页 - /index get</li>
-<li>2 新闻详情页 - /details get</li>
-<li>3 新闻添加页 - /submit get</li>
-<li>4 新闻添加请求 - /add post</li>
-</ul>
-<h2 id="art-template-模板引擎"><a href="#art-template-模板引擎" class="headerlink" title="art-template 模板引擎"></a>art-template 模板引擎</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://aui.github.io/art-template/zh-cn/docs/">文档</a></li>
-<li>安装</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install art-template</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>核心方法</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 基于模板路径渲染模板</span></span><br><span class="line"><span class="comment">// 参数1：文件的路径</span></span><br><span class="line"><span class="comment">// 参数2：数据</span></span><br><span class="line"><span class="comment">// 返回值：返回渲染后的内容</span></span><br><span class="line"><span class="comment">// template(filename, data)</span></span><br><span class="line"><span class="keyword">let</span> html = template(path.join(__dirname, <span class="string">&#x27;pages&#x27;</span>, <span class="string">&#x27;index.html&#x27;</span>), &#123; <span class="attr">name</span>: <span class="string">&#x27;大吉大利，今晚吃鸡&#x27;</span> &#125;)</span><br></pre></td></tr></table></figure>
-
-<p><strong>注意点：文件的路径必须是绝对路径</strong>；会将整个 html 当做模板返回</p>
-<h2 id="url-模块"><a href="#url-模块" class="headerlink" title="url 模块"></a>url 模块</h2><ul>
-<li>说明：用于 URL 处理与解析</li>
-<li>注意：通过 url 拿到的查询参数都是字符串格式</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 导入url模块</span></span><br><span class="line"><span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">&#x27;url&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 解析 URL 字符串并返回一个 URL 对象</span></span><br><span class="line"><span class="comment">// 第一个参数：表示要解析的URL字符串</span></span><br><span class="line"><span class="comment">// 第二个参数：是否将query属性（查询参数）解析为一个对象，如果为：true，则query是一个对象</span></span><br><span class="line"><span class="keyword">var</span> ret = url.parse(<span class="string">&#x27;http://localhost:3000/details?id=1&amp;name=jack&#x27;</span>, <span class="literal">true</span>)</span><br><span class="line"><span class="built_in">console</span>.log(ret.query) <span class="comment">// &#123;id: &#x27;1&#x27;, name: &#x27;jack&#x27;&#125;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="querystring-模块"><a href="#querystring-模块" class="headerlink" title="querystring 模块"></a>querystring 模块</h2><ul>
-<li>用于解析与格式化 URL 查询字符串</li>
-<li>注意：只在专门处理查询字符串时使用</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// foo=bar&amp;abc=xyz&amp;abc=123</span></span><br><span class="line"><span class="keyword">var</span> querystring = <span class="built_in">require</span>(<span class="string">&#x27;querystring&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将查询参数转化为对象</span></span><br><span class="line"><span class="comment">// 第一个参数: 要解析的 URL 查询字符串</span></span><br><span class="line">querystring.parse(<span class="string">&#x27;foo=bar&amp;abc=xyz&#x27;</span>) <span class="comment">// &#123;foo: &#x27;bar&#x27;, abc: &#x27;xyz&#x27;&#125;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="服务端重定向"><a href="#服务端重定向" class="headerlink" title="服务端重定向"></a>服务端重定向</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status">HTTP 状态码说明</a></li>
-<li><a target="_blank" rel="noopener" href="http://shuai.be/archives/301-302-redirection/">301 和 302</a></li>
-<li>说明：服务端可以通过 HTTP 状态码让浏览器中的页面重定向</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">res.writeHead(<span class="number">302</span>, &#123;</span><br><span class="line">  Location: <span class="string">&#x27;/&#x27;</span></span><br><span class="line">&#125;)</span><br><span class="line">res.end()</span><br></pre></td></tr></table></figure>
-
-<h2 id="POST-请求参数的处理"><a href="#POST-请求参数的处理" class="headerlink" title="POST 请求参数的处理"></a>POST 请求参数的处理</h2><ul>
-<li>说明：POST 请求可以发送大量数据，没有大小限制</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 接受POST参数</span></span><br><span class="line"><span class="keyword">var</span> postData = []</span><br><span class="line"></span><br><span class="line"><span class="comment">// data事件：用来接受客户端发送过来的POST请求数据</span></span><br><span class="line"><span class="keyword">var</span> result = <span class="string">&#x27;&#x27;</span></span><br><span class="line">req.on(<span class="string">&#x27;data&#x27;</span>, <span class="function">(<span class="params">chunk</span>) =&gt;</span> &#123;</span><br><span class="line">  result += chunk</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// end事件：当POST数据接收完毕时，触发</span></span><br><span class="line">req.on(<span class="string">&#x27;end&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  cosnole.log(result)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h2 id="模块化改造-hackerNews"><a href="#模块化改造-hackerNews" class="headerlink" title="模块化改造 hackerNews"></a>模块化改造 hackerNews</h2>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/11/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/13/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/11/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/13/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
