@@ -3634,16 +3634,13 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">a = b &amp;&amp; <span class="number">1</span></span><br><span class="line"><span class="comment">// 相当于</span></span><br><span class="line">a = !!b ? <span class="number">1</span> : b</span><br><span class="line"><span class="keyword">if</span> (b) &#123; a = <span class="number">1</span> &#125; <span class="keyword">else</span> &#123; a = b &#125;</span><br><span class="line"></span><br><span class="line">a = b || <span class="number">1</span></span><br><span class="line"><span class="comment">// 相当于</span></span><br><span class="line">a = !!b ? b : <span class="number">1</span></span><br><span class="line"><span class="keyword">if</span> (b) &#123; a = b &#125; <span class="keyword">else</span> &#123; a = <span class="number">1</span> &#125;</span><br></pre></td></tr></table></figure>
 
 <p>取整(不四舍五入)</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">~~<span class="number">2.33</span> === <span class="number">2</span></span><br><span class="line"><span class="number">2.33</span> | <span class="number">0</span> === <span class="number">2</span></span><br><span class="line"><span class="number">2.33</span> &gt;&gt; <span class="number">0</span> === <span class="number">2</span></span><br></pre></td></tr></table></figure>
-
-
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">~~<span class="number">2.33</span> === <span class="number">2</span></span><br><span class="line"><span class="number">2.33</span> | <span class="number">0</span> === <span class="number">2</span></span><br><span class="line"><span class="number">2.33</span> &gt;&gt; <span class="number">0</span> === <span class="number">2</span></span><br><span class="line"><span class="built_in">Math</span>.floor(<span class="number">2.33</span>)</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="string">&#x27;0&#x27;</span> == <span class="number">0</span> <span class="comment">// true</span></span><br><span class="line"><span class="number">0</span> == [] <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;0&#x27;</span> == [] <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
 
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;&#125; + [] === <span class="number">0</span> <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 
-
-
-
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">parseInt</span>(<span class="number">0.0000005</span>) === <span class="number">5</span></span><br><span class="line"><span class="comment">// 如果 parseInt 第一个参数不是字符串，会将其转换成字符串，之后在解析</span></span><br><span class="line"><span class="comment">// 小于 10-6 的浮点数以指数表示</span></span><br><span class="line"><span class="comment">// parseint 从 float 的指数法中提取整数</span></span><br><span class="line"><span class="built_in">String</span>(<span class="number">0.0000005</span>) <span class="comment">// =&gt; &#x27;5e-7&#x27;</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="number">5e-7</span>) <span class="comment">// =&gt; 5</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">&#x27;5e-7&#x27;</span>) <span class="comment">// =&gt; 5</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="number">1111111111111111111111</span>) <span class="comment">// =&gt; 1</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="number">999999999999999999999</span>) <span class="comment">// =&gt; 1</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>web前端</category>
@@ -4739,7 +4736,7 @@
 <p>如果是 GSuite Admin 账号，可以使用如下方式直接添加进群组</p>
 <ol>
 <li>将生成的json文件保存到 credentials 文件夹中</li>
-<li>在管理控制台中为您的组织创建组。创建群组后，您将拥有一个例如的地址<a href="mailto:&#115;&#x61;&#64;&#x79;&#x6f;&#117;&#x72;&#100;&#111;&#109;&#97;&#105;&#110;&#46;&#x63;&#x6f;&#109;">&#115;&#x61;&#64;&#x79;&#x6f;&#117;&#x72;&#100;&#111;&#109;&#97;&#105;&#110;&#46;&#x63;&#x6f;&#109;</a></li>
+<li>在管理控制台中为您的组织创建组。创建群组后，您将拥有一个例如的地址<a href="mailto:&#115;&#x61;&#64;&#x79;&#111;&#x75;&#114;&#100;&#x6f;&#109;&#97;&#105;&#110;&#46;&#99;&#111;&#109;">&#115;&#x61;&#64;&#x79;&#111;&#x75;&#114;&#100;&#x6f;&#109;&#97;&#105;&#110;&#46;&#99;&#111;&#109;</a></li>
 <li>运行 <code>python3 add_to_google_group.py -g sa@yourdomain.com</code></li>
 </ol>
 </blockquote>
