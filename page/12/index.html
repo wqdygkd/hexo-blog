@@ -242,7 +242,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">151</span>
+          <span class="site-state-item-count">152</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -287,6 +287,122 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/224.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/224.html" class="post-title-link" itemprop="url">搭建ss服务器</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-07-09 00:00:08" itemprop="dateCreated datePublished" datetime="2019-07-09T00:00:08+00:00">2019-07-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="购买-VPS-服务器"><a href="#购买-VPS-服务器" class="headerlink" title="购买 VPS 服务器"></a>购买 VPS 服务器</h2><p>vultr 注册地址：<a target="_blank" rel="noopener" href="https://www.vultr.com/">https://www.vultr.com/</a></p>
+<p>利用 <code>ipip</code> 这个网站的 实用工具里的 ping 来全国性的 ping 我们的主机，检测连通性</p>
+<h2 id="部署-VPS-服务器"><a href="#部署-VPS-服务器" class="headerlink" title="部署 VPS 服务器"></a>部署 VPS 服务器</h2><h3 id="ssh-工具"><a href="#ssh-工具" class="headerlink" title="ssh 工具"></a>ssh 工具</h3><p><strong>Win：</strong><br>使用软件 PuTTY<br>打开软件<br>Host Name (or IP address) 写你服务器的 IP 地址<br>Port 默认 22<br>Connection type 选择 SSH<br>Open</p>
+<p><strong>Mac：</strong><br>默认有 SSH 命令<br>ssh root@IP<br>输入用户名和密码,用户名为 root<br>login as: root<br>root@IP’s password:</p>
+<h3 id="安装服务"><a href="#安装服务" class="headerlink" title="安装服务"></a>安装服务</h3><p>CentOS/Debian/Ubuntu ShadowsocksR 单/多端口 一键管理脚本<br><a target="_blank" rel="noopener" href="https://doub.io/ss-jc42/">https://doub.io/ss-jc42/</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum -y install wget</span><br><span class="line"></span><br><span class="line">wget -N --no-check-certificate https://softs.fun/Bash/ssr.sh &amp;&amp; chmod +x ssr.sh &amp;&amp; bash ssr.sh</span><br></pre></td></tr></table></figure>
+
+<p>备用脚本：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum -y install wget</span><br><span class="line"></span><br><span class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssr.sh &amp;&amp; chmod +x ssr.sh &amp;&amp; bash ssr.sh</span><br></pre></td></tr></table></figure>
+
+<p>复制上面的代码到 VPS 服务器里，按回车键，脚本会自动安装，以后只需要运行 <code>bash ssr.sh</code> 这个快捷命令就可以出现下图的界面进行设置。</p>
+<ol>
+<li>安装 SSR 服务端</li>
+<li>设置端口和密码</li>
+<li>设置的加密方式: aes-256-cfb</li>
+<li>选择协议插件: auth_sha1_v4</li>
+<li>选择混淆插件 plain</li>
+</ol>
+<p>ShadowsocksR MudbJSON 模式多用户一键脚本 支持流量限制<br><a target="_blank" rel="noopener" href="https://doub.io/ss-jc60/">https://doub.io/ss-jc60/</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget -N --no-check-certificate https://softs.fun/Bash/ssrmu.sh &amp;&amp; chmod +x ssrmu.sh &amp;&amp; bash ssrmu.sh</span><br></pre></td></tr></table></figure>
+
+<p>备用下载地址</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssrmu.sh &amp;&amp; chmod +x ssrmu.sh &amp;&amp; bash ssrmu.sh</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash ssrmu.sh</span><br></pre></td></tr></table></figure>
+
+<h2 id="测速脚本官方地址"><a href="#测速脚本官方地址" class="headerlink" title="测速脚本官方地址"></a>测速脚本官方地址</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://raw.githubusercontent.com/oooldking/script/master/superbench.sh</span><br><span class="line">chmod +x superbench.sh</span><br><span class="line">./superbench.sh</span><br></pre></td></tr></table></figure>
+
+<h2 id="加速"><a href="#加速" class="headerlink" title="加速"></a>加速</h2><p><a target="_blank" rel="noopener" href="https://ssr.tools/674">锐速/BBR/魔改 BBR/KCPTUN 加速效果对比测试</a></p>
+<p>【原版 BBR】</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh</span><br><span class="line">chmod +x bbr.sh</span><br><span class="line">./bbr.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启服务器</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证是否安装成功</span></span><br><span class="line">sysctl net.ipv4.tcp_congestion_control</span><br><span class="line"><span class="comment"># 得到如下结果表示安装成功</span></span><br><span class="line">net.ipv4.tcp_congestion_control = bbr</span><br></pre></td></tr></table></figure>
+
+<p>【魔改 BBR】</p>
+<p>只有 centos 和 debain 版</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># centos 版</span></span><br><span class="line">wget --no-check-certificate https://raw.githubusercontent.com/tcp-nanqinlang/general/master/General/CentOS/bash/tcp_nanqinlang-1.3.2.sh</span><br><span class="line">bash tcp_nanqinlang-1.3.2.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># debain 版</span></span><br><span class="line">wget --no-check-certificate https://github.com/tcp-nanqinlang/general/releases/download/3.4.2.1/tcp_nanqinlang-fool-1.3.0.sh</span><br><span class="line">bash tcp_nanqinlang-fool-1.3.0.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 选择 1 安装内核，重启</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行 选择 2 安装并开启算法</span></span><br><span class="line">bash tcp_nanqinlang-1.3.2.sh</span><br><span class="line"><span class="comment"># 选择 2 安装并开启算法</span></span><br></pre></td></tr></table></figure>
+
+<p>【BBRPlus（BBR v2.0）】</p>
+<p>Github 项目地址：<a target="_blank" rel="noopener" href="https://github.com/cx9208/bbrplus">https://github.com/cx9208/bbrplus</a></p>
+<p>一键脚本（仅CentOS）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum -y install wget &amp;&amp; wget <span class="string">&quot;https://github.com/cx9208/bbrplus/raw/master/ok_bbrplus_centos.sh&quot;</span> &amp;&amp; chmod +x ok_bbrplus_centos.sh &amp;&amp; ./ok_bbrplus_centos.sh</span><br></pre></td></tr></table></figure>
+
+<p>等待安装完成，重启，重启之后，按照以下步骤检查是否成功：</p>
+<p>执行 uname -r，显示 4.14.129-bbrplus 则切换内核成功</p>
+<p>执行 lsmod | grep bbr，显示有 bbrplus 则开启成功</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -2165,257 +2281,6 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm i -g json-server</span><br><span class="line">npm i axios</span><br><span class="line">json-server data.json</span><br></pre></td></tr></table></figure>
 
 <h3 id="组件化-TODOMVC"><a href="#组件化-TODOMVC" class="headerlink" title="组件化 TODOMVC"></a>组件化 TODOMVC</h3><p><a target="_blank" rel="noopener" href="https://github.com/cuilongjin/todomvc-app-template/tree/zujianhua">https://github.com/cuilongjin/todomvc-app-template/tree/zujianhua</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/429.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/429.html" class="post-title-link" itemprop="url">Webpack</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-01-05 22:33:14" itemprop="dateCreated datePublished" datetime="2019-01-05T22:33:14+00:00">2019-01-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <ul>
-<li><a target="_blank" rel="noopener" href="https://webpack.js.org/">webpack 官网</a></li>
-<li><a target="_blank" rel="noopener" href="https://webpack.docschina.org/">webpack 中文网</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/cuilongjin/webpack-config/">webpack 配置文件</a></li>
-</ul>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>webpack 是一个现代 JavaScript 应用程序的模块打包器（module bundler）</p>
-<p>webpack 是一个模块化方案（预编译）</p>
-<p>webpack 获取具有依赖关系的模块，并生成表示这些模块的静态资源</p>
-<p>webpack 的两个特点：模块化、打包</p>
-<p>四个核心概念：<strong>入口(entry)<strong>、</strong>输出(output)<strong>、</strong>加载器(loader)<strong>、</strong>插件(plugins)</strong></p>
-<p>模块化方案：webpack 和 requirejs（通过编写代码的方式将前端的功能，划分成独立的模块）<br>browserify 是与 webpack 相似的模块化打包工具</p>
-<h3 id="webpack-起源"><a href="#webpack-起源" class="headerlink" title="webpack 起源"></a>webpack 起源</h3><ul>
-<li>webpack 解决了现存模块打包器的两个痛点：<ul>
-<li>Code Spliting - 代码分离</li>
-<li>静态资源的模块化处理方案</li>
-</ul>
-</li>
-</ul>
-<h3 id="webpack-与模块"><a href="#webpack-与模块" class="headerlink" title="webpack 与模块"></a>webpack 与模块</h3><ul>
-<li><p><a target="_blank" rel="noopener" href="http://zhaoda.net/webpack-handbook/module-system.html">前端模块系统的演进</a></p>
-</li>
-<li><p>在 webpack 看来：所有的<strong>静态资源都是模块</strong></p>
-</li>
-<li><p>webpack 模块能够识别以下等形式的模块之间的依赖：</p>
-<ul>
-<li><p>ES2015 <code>import</code> <code>export</code></p>
-</li>
-<li><p>CommonJS <code>require()</code> <code>module.exports</code></p>
-</li>
-<li><p>AMD <code>define</code> 和 <code>require</code></p>
-</li>
-<li><p>css/sass/less 文件中的 <code>@import</code></p>
-</li>
-<li><p>图片连接，比如：样式 <code>url(...)</code> 或 HTML <code>&lt;img src=...&gt;</code></p>
-</li>
-<li><p>字体等</p>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>在 webpack 提供的模块化环境中<ul>
-<li>想要加载一个 JS 文件，只需要 require(‘a.js’)</li>
-<li>想要加载一个 CSS 文件，只需要 require(‘css/index.css’)</li>
-<li>想要加载一个图片文件，只需要 require(‘images/a.png’)</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><a target="_blank" rel="noopener" href="http://www.jianshu.com/p/42e11515c10f#">入门 Webpack，看这篇就够了</a></li>
-</ul>
-<h3 id="webpack-打包原理："><a href="#webpack-打包原理：" class="headerlink" title="webpack 打包原理："></a>webpack 打包原理：</h3><p>​ 入口文件： main.js</p>
-<p>​ webpack 从入口出发，递归分析项目中所有的依赖项（模块），使用 loader 来处理对应的模块最终，打包生成一个 bundle.js 文件。</p>
-<p>​ 如果配置了 webpack 中的 代码分离（Code Spliting），webpack 会根据 分离点 将这个模块生成一个独立的 JS 文件</p>
-<p>​ 还可以通过配置，将 CSS 、 图片、 字体 等文件，从 bundle.js 中抽离为独立的文件</p>
-<h2 id="webpack-的基本使用"><a href="#webpack-的基本使用" class="headerlink" title="webpack 的基本使用"></a>webpack 的基本使用</h2><p>安装：<code>npm i -D webpack webpack-cli</code></p>
-<p>webpack：是 webpack 工具的核心包</p>
-<p>webpack-cli：提供了一些在终端中使用的命令</p>
-<p>-D(–save-dev)：表示项目开发期间的依赖</p>
-<p>webpack 的两种使用方式：命令行、配置文件（<code>webpack.config.js</code>）</p>
-<h3 id="命令行使用说明"><a href="#命令行使用说明" class="headerlink" title="命令行使用说明"></a>命令行使用说明</h3><ul>
-<li><code>package.json</code>中的<code>scripts</code>中可以存放一些 bash 命令，这些 bash 命令可以通过 <code>npm run 命令名称</code> 来执行</li>
-<li>注意：npm 在执行 scripts 中的命令的时候，是在电脑系统后台默认开启一个 bash，将当前目录下的<code>./node_modules/.bin</code>这个文件夹临时加入了系统环境变量</li>
-<li>使用方式：<code>npm run build</code></li>
-<li>设置开发状态： <code>mode</code> 如果没有设置 mode 配置项，webpack 会默认提供开发环境(production)</li>
-<li>在入口文件中可以使用 <code>import</code> 引入 js css less 等文件</li>
-</ul>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">  <span class="comment">// webpack 是 webpack-cli 提供的命令</span></span><br><span class="line">  <span class="comment">// src/js/main.js 为入口文件</span></span><br><span class="line">  <span class="comment">// --output dist/bundle.js 为出口文件</span></span><br><span class="line">  <span class="comment">// --mode development 生产环境</span></span><br><span class="line">  &quot;build&quot;: &quot;webpack&quot;</span><br><span class="line">  &quot;build1&quot;: &quot;webpack src/js/main.js --output dist/bundle.js --mode development&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="配置文件方式（推荐）"><a href="#配置文件方式（推荐）" class="headerlink" title="配置文件方式（推荐）"></a>配置文件方式（推荐）</h3><p>项目<code>根目录</code>下创建一个 <code>webpack.config.js</code>文件，运行 <code>webpack</code> 命令时的默认配置文件</p>
-<p>指定其他文件：<code>--config webpack.XX.js</code></p>
-<p>配置 <code>package.json</code> 中的 <code>scripts</code> , 脚本命令为： <code>&quot;build&quot;: &quot;webpack&quot;</code></p>
-<p>执行命令 : <code>npm run build</code></p>
-<p>示例代码</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// webpack 是基于 node的 , 所以配置文件符合 node 方式书写配置</span></span><br><span class="line"><span class="comment">// 注意 : 不要再这个文件中使用ES6的的模块化 import语法</span></span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// 入口</span></span><br><span class="line">  entry: path.join(__dirname, <span class="string">&#x27;./src/js/main.js&#x27;</span>),</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 出口</span></span><br><span class="line">  output: &#123;</span><br><span class="line">    <span class="comment">// 出口目录</span></span><br><span class="line">    path: path.join(__dirname, <span class="string">&#x27;dist&#x27;</span>),</span><br><span class="line">    filename: <span class="string">&#x27;js/bundle.js&#x27;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 开发模式</span></span><br><span class="line">  mode: <span class="string">&#x27;development&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="webpack-dev-server"><a href="#webpack-dev-server" class="headerlink" title="webpack-dev-server"></a>webpack-dev-server</h2><p>安装：<code>npm i -D webpack-dev-server</code></p>
-<p>作用：配合 webpack，创建开发环境（启动服务器、监视文件变化、自动编译、刷新浏览器等），提高开发效率</p>
-<p>注意：无法直接在终端中执行 <code>webpack-dev-server</code>，需要在 <code>package.json</code> 配置 <code>scripts</code> 后使用</p>
-<h3 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h3><ul>
-<li><code>webpack-dev-server</code>将打包好的文件存储在内存中，提高编译和加载速度，效率更高（不会生成 dist 目录）</li>
-<li>在内存中出口目录为项目根目录（命令行中的提示：<code>webpack output is served from /</code>）<ul>
-<li>在<code>index.html</code>页面中引入文件不需要加<code>dist</code></li>
-</ul>
-</li>
-</ul>
-<h3 id="CLI-配置"><a href="#CLI-配置" class="headerlink" title="CLI 配置"></a>CLI 配置</h3><ul>
-<li><code>--contentBase</code> ：告诉服务器在哪个目录中提供服务（可以理解为：打开哪个目录中的 index.html）<ul>
-<li><code>--contentBase ./src</code>：当前目录下的 src 文件夹</li>
-</ul>
-</li>
-<li><code>--open true</code> ：自动打开浏览器</li>
-<li><code>--port 3000</code> ：指定端口号</li>
-<li><code>--hot</code> ：热更新，只加载修改的文件(按需加载修改的内容)，而非全部加载</li>
-<li><code>--progress</code>：显示进度条</li>
-</ul>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;dev&quot;</span>: <span class="string">&quot;webpack-dev-server --contentBase src --open --port 8888 --hot&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="配置文件配置"><a href="#配置文件配置" class="headerlink" title="配置文件配置"></a>配置文件配置</h3><p>配置 <code>package.json</code> 中的 <code>scripts</code> , 脚本命令为： <code>&quot;dev&quot;: &quot;webpack-dev-server --hot&quot;</code></p>
-<p>执行命令 : <code>npm run dev</code></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// --hot 热更新写在命令行里，不然的话还要配其他插件麻烦</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  devServer: &#123;</span><br><span class="line">    contentBase: path.join(__dirname, <span class="string">&#x27;src&#x27;</span>),</span><br><span class="line">    <span class="comment">// 自动打开浏览器</span></span><br><span class="line">    open: <span class="literal">true</span>,</span><br><span class="line">    <span class="comment">// 端口号</span></span><br><span class="line">    port: <span class="number">3000</span>,</span><br><span class="line">    <span class="comment">// hot: true,</span></span><br><span class="line"></span><br><span class="line">    proxy: &#123;</span><br><span class="line">      <span class="string">&#x27;/api&#x27;</span>: &#123;</span><br><span class="line">        <span class="comment">// api 表示当前项目请求的 key</span></span><br><span class="line">        target: <span class="string">&#x27;http://www.baidu.com&#x27;</span>, <span class="comment">// 代理服务器路径</span></span><br><span class="line">        pathRewrite: &#123; <span class="string">&#x27;^/api&#x27;</span>: <span class="string">&#x27;/api&#x27;</span> &#125;, <span class="comment">// 重写路径</span></span><br><span class="line">        changeOrigin: <span class="literal">true</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 请求 localhost:8080/api/.. 会被代理到 http://www.baidu.com/api/..</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// plugins: [</span></span><br><span class="line">  <span class="comment">//   new webpack.HotModuleReplacementPlugin()</span></span><br><span class="line">  <span class="comment">// ]</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="html-webpack-plugin-插件"><a href="#html-webpack-plugin-插件" class="headerlink" title="html-webpack-plugin 插件"></a>html-webpack-plugin 插件</h2><ul>
-<li>安装：<code>npm i -D html-webpack-plugin</code></li>
-<li>作用：根据模板，在内存中自动生成 html 页面，并自动引入<code>bundle.js</code>、<code>css</code>等文件</li>
-</ul>
-<p>配置文件配置：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 引入 html-webpack-plugin 插件</span></span><br><span class="line"><span class="keyword">const</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">&#x27;html-webpack-plugin&#x27;</span>)</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// 配置插件</span></span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="comment">// html-webpack-plugin 配置</span></span><br><span class="line">    <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">      <span class="comment">// 模板页面路径</span></span><br><span class="line">      template: path.join(__dirname, <span class="string">&#x27;src/index.html&#x27;</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="打包非-js-文件"><a href="#打包非-js-文件" class="headerlink" title="打包非 js 文件"></a>打包非 js 文件</h2><p>webpack 默认只能处理 js 文件，非 js(css、less、图片、字体等)处理不了，借助 loader 加载器</p>
-<h3 id="处理-css-文件"><a href="#处理-css-文件" class="headerlink" title="处理 css 文件"></a>处理 css 文件</h3><p>在 <code>main.js</code>中引入 css 文件 <code>import &#39;../css/main.css&#39;</code></p>
-<p>安装 : <code>npm i -D style-loader css-loader</code></p>
-<p>在 <code>webpack.config.js</code> 中，添加个新的配置项 <code>module</code></p>
-<p>在 <code>module</code> 中添加 <code>loader</code> 来处理 <code>css</code></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      <span class="comment">// 处理 css</span></span><br><span class="line">      <span class="comment">// 注意点 use 执行loader 顺序 从右往左</span></span><br><span class="line">      <span class="comment">// css-loader: 读取css文件内容，将其转化为一个模块</span></span><br><span class="line">      <span class="comment">// style-loader: 拿到模块, 创建一个style标签，插入页面中</span></span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">        use: [<span class="string">&#x27;style-loader&#x27;</span>, <span class="string">&#x27;css-loader&#x27;</span>]</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="处理-less-文件"><a href="#处理-less-文件" class="headerlink" title="处理 less 文件"></a>处理 less 文件</h3><p>在 <code>main.js</code>中引入 less 文件 <code>import &#39;../css/main.less&#39;</code></p>
-<p>安装 : <code>npm i -D less-loader less style-loader css-loader</code></p>
-<p>在 webpack.config.js 中配置项 <code>module-&gt;rules</code>中添加 loader 来处理 <code>less</code></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      <span class="comment">//处理 css</span></span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.less$/</span>,</span><br><span class="line">        use: [<span class="string">&#x27;style-loader&#x27;</span>, <span class="string">&#x27;css-loader&#x27;</span>, <span class="string">&#x27;less-loader&#x27;</span>]</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="处理图片文件"><a href="#处理图片文件" class="headerlink" title="处理图片文件"></a>处理图片文件</h3><p>安装 : <code>npm i -D url-loader file-loader</code></p>
-<p>在 webpack.config.js 中配置项 <code>module-&gt;rules</code>中添加 loader 来处理图片</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      <span class="comment">// 处理图片</span></span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.(jpg|png)$/</span>,</span><br><span class="line">        use: [</span><br><span class="line">          &#123;</span><br><span class="line">            loader: <span class="string">&#x27;url-loader&#x27;</span>,</span><br><span class="line">            options: &#123;</span><br><span class="line">              <span class="comment">//  图片大小 &lt;= 10000 =&gt; 转化为base64</span></span><br><span class="line">              <span class="comment">//  图片大小 &gt;= 10000 =&gt; 不会转base64 内部调用 file-loader 加载图片</span></span><br><span class="line">              limit: <span class="number">10000</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>url-loader</strong> 默认会将图片转化为 base64 编码格式，目的：提高性能</p>
-<p><strong>file-loader</strong> 在处理图片时，会对文件进行重命名</p>
-<p>base64 编码格式的图片说明：</p>
-<ul>
-<li>精灵图：将一些小图片合并为一张图片，减少请求次数，提高性能</li>
-<li>字体图标：直接将一些小的图片,合并到字体文件中，并且不会失真</li>
-<li>base64：是一种编码格式,能够将图片、文字等常见的文件，转化为 base64 格式，这种字符串格式浏览器能够识别并且读取显示到页面中</li>
-<li>base64 是一个字符串，也可以直接被内嵌到页面中，或者 css 中</li>
-<li>注意：大图片不适合用 base64 处理，只有小的图标才适合 base64 处理</li>
-</ul>
-<h3 id="处理字体文件"><a href="#处理字体文件" class="headerlink" title="处理字体文件"></a>处理字体文件</h3><p>在 <strong>main.js</strong> 中引入 css 文件 <code>import &#39;../css/iconfont/iconfont.css&#39;</code></p>
-<p>在 webpack.config.js 中配置</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      <span class="comment">// 处理字体图标</span></span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.(svg|woff|woff2|ttf|eot)$/</span>,</span><br><span class="line">        use: <span class="string">&#x27;url-loader&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="处理-ES6-语法"><a href="#处理-ES6-语法" class="headerlink" title="处理 ES6 语法"></a>处理 ES6 语法</h3><ol>
-<li>现在的项目都是使用 ES6 开发的，但是这些新的 ES6 语法，并不是所有的浏览器都支持，所以就需要有一个工具，帮我们转成 es5 语法，这个就是：babel</li>
-<li><a target="_blank" rel="noopener" href="https://babeljs.io/">babel</a></li>
-<li>Babel is a JavaScript compiler. ==&gt; babel 是一个 JavaScript 编译器</li>
-<li>webpack 只能处理 import / export 这个 es6 模块化语法，而其他的 js 新语法，应该使用 babel 来处理</li>
-</ol>
-<p>babel 的使用 :</p>
-<ul>
-<li>安装： <code>npm i -D babel-core babel-loader@7</code><ul>
-<li>babel-core 是 babel 的核心包</li>
-<li>babel-loader 加载 js 文件，并将 js 代码内容交给 babel-core 解析为 es5 低版本的 js</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>安装：<code>npm i -D babel-preset-env babel-preset-stage-2</code><ul>
-<li>babel-preset-env：表示能够解析 es2015、es2016、es2017、es2018 这些标准的语法</li>
-<li>babel-preset-stage-2：用来解析还没有被采纳为标准的语法</li>
-<li><code>babel-polyfill与babel-plugin-transform-runtime</code> 也是做兼容处理的,以前都是用这个，兼容更早的</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>配置 : 在 webpack.config.js 中添加一个 loader</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      <span class="comment">// 处理 ES6 语法</span></span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.js$/</span>,</span><br><span class="line">        use: <span class="string">&#x27;babel-loader&#x27;</span>,</span><br><span class="line">        <span class="comment">// 设置忽略 node-modules 文件夹</span></span><br><span class="line">        exclude: <span class="regexp">/node-modules/</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>在项目根目录中创建 babel 的配置文件，叫：<code>.babelrc</code></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;presets&quot;: [</span><br><span class="line">    &quot;env&quot;,</span><br><span class="line">    &quot;stage-2&quot;</span><br><span class="line">  ],</span><br><span class="line"></span><br><span class="line">  -----------</span><br><span class="line">  &#x2F;&#x2F; 暂时不用</span><br><span class="line">  &#x2F;&#x2F; 如果未来某一天真的用到了polify</span><br><span class="line">  &quot;plugins&quot;: [</span><br><span class="line">    &quot;transform-runtime&quot;, &#123;</span><br><span class="line">      &quot;helpers&quot;: false,</span><br><span class="line">      &quot;polyfill&quot;: true,</span><br><span class="line">      &quot;regenerator&quot;: true,</span><br><span class="line">      &quot;moduleName&quot;: &quot;babel-runtime&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="项目打包上线"><a href="#项目打包上线" class="headerlink" title="项目打包上线"></a>项目打包上线</h2><p>执行 : <code>npm run build</code> 对项目进行打包，生成 dist 文件</p>
-<p>模拟本地服务器 : 安装 : <code>npm i -g http-server</code></p>
-<p>把 dist 文件里的内容放到服务器里即可，直接运行<code>http-server</code></p>
-<h2 id="webpack-和-gulp-区别"><a href="#webpack-和-gulp-区别" class="headerlink" title="webpack 和 gulp 区别"></a>webpack 和 gulp 区别</h2><ol>
-<li>Gulp 侧重于前端开发的整个过程的控制管理（像是流水线），我们可以通过给 gulp 配置不通的 task（通过 Gulp 中的 gulp.task() 方法配置，比如启动 server、sass/less 预编译、文件的合并压缩等等）来让 gulp 实现不同的功能，从而构建整个前端开发流程</li>
-<li>Webpack 也称之为模块打包机 ，由此也可以看出 Webpack 更侧重于模块打包，当然我们可以把开发中的所有资源（图片、js 文件、css 文件等）都可以看成模块，最初 Webpack 本身就是为前端 JS 代码打包而设计的，后来被扩展到其他资源的打包处理。Webpack 是通过 loader（加载器）和 plugins（插件）对资源进行处理的</li>
-<li>gulp 是构建工具，Webpack 是 js 模块化的解决方案</li>
-</ol>
 
       
     </div>
