@@ -42,7 +42,37 @@ Math.floor(2.33)
 ```
 
 ```js
-{} + [] === 0 // true
++[] // 0
++{} // NaN
+
+[].toString() // ''
+({}).toString() // "[object Object]"
+{}.toString() // Uncaught SyntaxError: Unexpected token '.'
+
+0 + [] // '0'
+0 + {} // "0[object Object]"
+
+{} + [] === 0 // true  {} 被解析为空的 block， + 被解析为正号运算符，结果等于 +[]
+[] + {} === "[object Object]" // true [] 被解析为数组，后续的 + 被解析为加法运算符
+({} + []) // '[object Object]  括号会阻止js将{}识别为block，因此他的运算结果与 []+{} 一致
+console.log({} + []) // '[object Object]  当表达式作为参数传递给函数时，不会被默认为新的block
+console.log({} + [] === 0)  // false
+
+[] + {} === {} + [] // true
+```
+
+```js
+null >= 0 // false
+null <= 0 // false
+null == 0 // false
+null >= null // true Number(null)  >=  Number(null)
+null == false // false
+
+Number(null) // 0
+Number(undefined) // NaN
+
+// 在关系运算符中，null，undefined 会被 Number()强制转换成数字类型 Number(null) => 0,  Number(undefined) => NaN
+// 在相等运算符中，null，undefined 在与自身对比或 null与undefined对比为 true，其他情况为 false
 ```
 
 ```js
