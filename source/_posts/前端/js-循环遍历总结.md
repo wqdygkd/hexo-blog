@@ -15,6 +15,8 @@ date: 2018-11-04 22:11:35
 
 <span class='red'>可使用 continue 跳出当前循环， break 跳出整个循环</span>
 
+如果 for 语句在函数中，使用 return 可以结束 for 循环，同时也会结束函数后续代码的执行
+
 ```js
 // 语法：
 // 1. for循环使用分号分隔
