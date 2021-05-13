@@ -242,7 +242,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">152</span>
+          <span class="site-state-item-count">153</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -287,6 +287,98 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1887.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/1887.html" class="post-title-link" itemprop="url">Linux screen 命令——多重视窗管理程序</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-07-12 20:47:14" itemprop="dateCreated datePublished" datetime="2020-07-12T20:47:14+00:00">2020-07-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Screen 是一个全屏窗口管理器。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt install screen</span><br><span class="line"><span class="comment"># 或</span></span><br><span class="line">yum install screen</span><br></pre></td></tr></table></figure>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">screen -S &lt;name&gt; <span class="comment"># 新建一个作业名为 name 的窗口，(标注 screen 窗口)</span></span><br><span class="line">screen -ls <span class="comment"># 显示目前所有的 screen 作业</span></span><br><span class="line">screen -d &lt;name&gt; <span class="comment"># 将指定的 screen 作业离线</span></span><br><span class="line">screen -h &lt;行数&gt; <span class="comment"># 指定视窗的缓冲区行数</span></span><br><span class="line">screen -r &lt;name&gt; <span class="comment"># 恢复指定的 screen 作业</span></span><br><span class="line">screen -d -r &lt;name&gt; <span class="comment"># 离线当前作业并回到 name 这个作业</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 当需要运行脚本、执行程序时，在命令前添加 screen 即可</span></span><br><span class="line"></span><br><span class="line">ctrl + A + D <span class="comment"># 将当前 screen detach 到后台</span></span><br><span class="line"></span><br><span class="line">screen -X -S &lt;name&gt; quit <span class="comment"># 删除指定 screen</span></span><br></pre></td></tr></table></figure>
+
+<p>进入一个 screen session 后，可能你开始跑一些程序，这时不能在命令行输入任何东西，可以使用快捷键 ctrl + A + D 将当前 screen detach 到后台</p>
+<h3 id="使用问题"><a href="#使用问题" class="headerlink" title="使用问题"></a>使用问题</h3><p>问题：linux 在进入 screen 模式下之后，发现是无法在终端使用鼠标滚轮进行上下翻页拉动的，无法查看上面的终端输出内容了</p>
+<p>解决办法</p>
+<p>进入回滚模式（可以操作鼠标滚轮上下翻页）：先按<code>Ctrl+a</code>键，然后释放，然后再按[键即可进入翻页模式。<br>切换回之前模式：<code>Ctrl+c</code></p>
+<h2 id="ubuntu-下源码编译安装-screen-最新版"><a href="#ubuntu-下源码编译安装-screen-最新版" class="headerlink" title="ubuntu 下源码编译安装 screen 最新版"></a>ubuntu 下源码编译安装 screen 最新版</h2><p>下载地址：<a target="_blank" rel="noopener" href="http://ftp.gnu.org/gnu/screen/">http://ftp.gnu.org/gnu/screen/</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 下载</span></span><br><span class="line">wget -c https://ftp.gnu.org/gnu/screen/screen-4.8.0.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解压</span></span><br><span class="line">tar -xzvf screen-4.8.0.tar.gz</span><br><span class="line"><span class="built_in">cd</span> screen-4.8.0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装依赖</span></span><br><span class="line">apt install gcc g++ make make-guile</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编译</span></span><br><span class="line">mkdir build &amp;&amp; <span class="built_in">cd</span> build</span><br><span class="line">../configure</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装</span></span><br><span class="line">make &amp;&amp; make install</span><br><span class="line"></span><br><span class="line">验证一下</span><br><span class="line">screen -h</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>问题：</p>
+<p>如果报错：<code>checking whether the C compiler works... no</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装 g++</span></span><br><span class="line">apt install g++</span><br></pre></td></tr></table></figure>
+
+<p>如果报错，信息如：<code>configure: error: !!! no tgetent - no screen</code></p>
+<p>需要先安装 ncurses 下载地址 <a target="_blank" rel="noopener" href="https://ftp.gnu.org/gnu/ncurses">https://ftp.gnu.org/gnu/ncurses</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 下载依赖包ncurses</span></span><br><span class="line">wget -c https://ftp.gnu.org/gnu/ncurses/ncurses-6.2.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解压安装</span></span><br><span class="line">tar -xzvf ncurses-6.2.tar.gz</span><br><span class="line"><span class="built_in">cd</span> ncurses-6.2</span><br><span class="line">mkdir build &amp;&amp; <span class="built_in">cd</span> build</span><br><span class="line">../configure</span><br><span class="line">make &amp;&amp; sudo make install</span><br></pre></td></tr></table></figure>
+
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1112,79 +1204,6 @@
 <p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102205301.png"></p>
 <h3 id="Compressor-js-图像压缩"><a href="#Compressor-js-图像压缩" class="headerlink" title="Compressor.js 图像压缩"></a>Compressor.js 图像压缩</h3><p>github 地址：<a target="_blank" rel="noopener" href="https://github.com/fengyuanchen/compressorjs">https://github.com/fengyuanchen/compressorjs</a><br>示例地址：<a target="_blank" rel="noopener" href="https://fengyuanchen.github.io/compressorjs/">https://fengyuanchen.github.io/compressorjs/</a></p>
 <p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102205339.png"></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1737.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/1737.html" class="post-title-link" itemprop="url">wordpress 修改文章id</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-06-16 16:43:32" itemprop="dateCreated datePublished" datetime="2020-06-16T16:43:32+00:00">2020-06-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/wordpress/" itemprop="url" rel="index"><span itemprop="name">wordpress</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">update wp_posts <span class="keyword">set</span> id <span class="operator">=</span> <span class="number">430</span> <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">404</span>;</span><br><span class="line">update wp_term_relationships <span class="keyword">set</span> object_id <span class="operator">=</span> <span class="number">430</span> <span class="keyword">where</span> object_id <span class="operator">=</span> <span class="number">404</span>;</span><br><span class="line">update wp_postmeta <span class="keyword">set</span> post_id <span class="operator">=</span> <span class="number">430</span> <span class="keyword">where</span> post_id <span class="operator">=</span> <span class="number">404</span>;</span><br><span class="line">update wp_comments <span class="keyword">set</span> comment_post_ID <span class="operator">=</span> <span class="number">430</span> <span class="keyword">where</span> comment_post_ID <span class="operator">=</span> <span class="number">404</span>;</span><br></pre></td></tr></table></figure>
 
       
     </div>

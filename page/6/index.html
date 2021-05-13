@@ -242,7 +242,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">152</span>
+          <span class="site-state-item-count">153</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -287,6 +287,97 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1114.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/1114.html" class="post-title-link" itemprop="url">element-ui 实现向下滚动加载</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-04-07 13:51:41" itemprop="dateCreated datePublished" datetime="2020-04-07T13:51:41+00:00">2020-04-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="自定义封装-vue-指令，实现-select-下拉框滚动加载"><a href="#自定义封装-vue-指令，实现-select-下拉框滚动加载" class="headerlink" title="自定义封装 vue 指令，实现 select 下拉框滚动加载"></a>自定义封装 vue 指令，实现 select 下拉框滚动加载</h3><p>封装 v-loadmore 指令</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Vue.directive(<span class="string">&#x27;loadmore&#x27;</span>, &#123;</span><br><span class="line">  <span class="function"><span class="title">bind</span>(<span class="params">el, binding</span>)</span> &#123;</span><br><span class="line">    <span class="comment">// 获取 element-ui 定义好的 scroll 盒子</span></span><br><span class="line">    <span class="keyword">const</span> target = el.querySelector(<span class="string">&#x27;.el-select-dropdown .el-select-dropdown__wrap&#x27;</span>)</span><br><span class="line">    target.addEventListener(<span class="string">&#x27;scroll&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// scrollHeight 获取元素内容高度(只读)</span></span><br><span class="line">      <span class="comment">// scrollTop 获取或者设置元素的滚动高度</span></span><br><span class="line">      <span class="comment">// clientHeight 读取元素的可见高度(只读)</span></span><br><span class="line">      <span class="keyword">const</span> flag = <span class="built_in">this</span>.scrollHeight - <span class="built_in">this</span>.scrollTop &lt;= <span class="built_in">this</span>.clientHeight</span><br><span class="line">      <span class="keyword">if</span> (flag) &#123;</span><br><span class="line">        binding.value()</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>使用</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&lt;el-select</span><br><span class="line">  v-loadmore=&quot;loadMore&quot;&gt;</span><br><span class="line">  <span class="tag">&lt;<span class="name">el-option</span>&gt;</span><span class="tag">&lt;/<span class="name">el-option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">el-select</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line">  methods: &#123;</span><br><span class="line">    loadMore () &#123;</span><br><span class="line"><span class="javascript">      <span class="keyword">if</span> (<span class="built_in">this</span>.loadingMore == <span class="literal">false</span>) &#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">this</span>.loadingMore = <span class="literal">true</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">return</span></span></span><br><span class="line">      &#125;</span><br><span class="line"><span class="javascript">      <span class="keyword">if</span> (<span class="built_in">this</span>.currentPage &gt; <span class="built_in">this</span>.totlaPage) &#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">return</span></span></span><br><span class="line">      &#125;</span><br><span class="line"><span class="javascript">      <span class="comment">// 获取数据</span></span></span><br><span class="line"><span class="javascript">      <span class="built_in">this</span>.getData()</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用-vue-infinite-scroll"><a href="#使用-vue-infinite-scroll" class="headerlink" title="使用 vue-infinite-scroll"></a>使用 vue-infinite-scroll</h3><p>github 地址：<a target="_blank" rel="noopener" href="https://github.com/ElemeFE/vue-infinite-scroll">https://github.com/ElemeFE/vue-infinite-scroll</a></p>
+<p>安装</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm i vue-infinite-scroll</span><br></pre></td></tr></table></figure>
+
+<p>使用</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// # main.js</span></span><br><span class="line"><span class="keyword">import</span> infiniteScroll <span class="keyword">from</span> <span class="string">&#x27;vue-infinite-scroll&#x27;</span></span><br><span class="line">Vue.use(infiniteScroll)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">v-infinite-scroll</span>=<span class="string">&quot;loadMore&quot;</span> <span class="attr">infinite-scroll-disabled</span>=<span class="string">&quot;busy&quot;</span> <span class="attr">infinite-scroll-distance</span>=<span class="string">&quot;10&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">&quot;(item, index) in moveRecord&quot;</span> <span class="attr">:key</span>=<span class="string">&quot;index&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line">  methods: &#123;</span><br><span class="line">    loadMore () &#123;</span><br><span class="line"><span class="javascript">      <span class="built_in">this</span>.busy = <span class="literal">true</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="javascript">      <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, j = <span class="number">10</span>; i &lt; j; i++) &#123;</span></span><br><span class="line"><span class="javascript">          <span class="built_in">this</span>.data.push(&#123; <span class="attr">name</span>: count++ &#125;);</span></span><br><span class="line">        &#125;</span><br><span class="line"><span class="javascript">        <span class="built_in">this</span>.busy = <span class="literal">false</span>;</span></span><br><span class="line">      &#125;, 1000);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="element-ui-el-scrollbar-组件"><a href="#element-ui-el-scrollbar-组件" class="headerlink" title="element-ui el-scrollbar 组件"></a>element-ui el-scrollbar 组件</h3><p><a target="_blank" rel="noopener" href="https://github.com/ElemeFE/element/blob/dev/packages/scrollbar/src/main.js">https://github.com/ElemeFE/element/blob/dev/packages/scrollbar/src/main.js</a></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">el-scrollbar</span> <span class="attr">style</span>=<span class="string">&quot;height: 200px&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>zs<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">el-scrollbar</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.el-scrollbar__wrap</span> &#123;</span><br><span class="line">  <span class="attribute">overflow-x</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1032,89 +1123,6 @@
 <h2 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h2><p><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/reference/builder/">https://docs.docker.com/engine/reference/builder/</a></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/zerotier/ZeroTierOne/tree/master/ext/installfiles/linux/zerotier-containerized">https://github.com/zerotier/ZeroTierOne/tree/master/ext/installfiles/linux/zerotier-containerized</a></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker build . -t zerotier</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/798.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/798.html" class="post-title-link" itemprop="url">关于 a 标签 target_blank 使用 rel=noopener</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-03-06 00:10:51" itemprop="dateCreated datePublished" datetime="2020-03-06T00:10:51+00:00">2020-03-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>为什么要使用rel=’noopener’？</p>
-<p>举个例子: a.html 和 b.html 两个页面</p>
-<p>a.html</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;b.html&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span>&gt;</span>da<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>b.html</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"><span class="built_in">window</span>.opener.location.href =<span class="string">&quot;http://wqdy.top&quot;</span></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>其中在 <code>a.html</code> 中有个超链接，点击后在新标签页打开 <code>b.html</code>页面，但是发现原 <code>a.html</code> 页面已经变成了其他页面。原因是使用 <code>target=_blank</code> 打开新的窗口时，赋予了新的窗口一些权限可以操作原窗口，其中 <code>window.location</code> 就是一个。</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102203759.png"></p>
-<p>为了防止 <code>window.opener</code> 被滥用，提高网站的安全性，在使用 <code>targrt=_blank</code> 时需要加上 <code>rel=noopener</code>，同时为了兼容也可以加上 <code>rel=noreferrer</code>。</p>
 
       
     </div>

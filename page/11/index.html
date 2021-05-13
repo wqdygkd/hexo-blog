@@ -242,7 +242,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">152</span>
+          <span class="site-state-item-count">153</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -287,6 +287,83 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/430.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/430.html" class="post-title-link" itemprop="url">axios 取消请求</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-07-27 22:17:21" itemprop="dateCreated datePublished" datetime="2019-07-27T22:17:21+00:00">2019-07-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">web前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>原生 js abort() 方法</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> A = $.ajax(&#123;&#125;)</span><br><span class="line">A.abort()</span><br></pre></td></tr></table></figure>
+
+<p>Axios 提供了一个 CancelToken 的函数，这是一个构造函数，该函数的作用就是用来取消接口请求的</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">methods: &#123;</span><br><span class="line">  getMsg () &#123;</span><br><span class="line">    <span class="keyword">let</span> CancelToken = axios.CancelToken</span><br><span class="line">    <span class="keyword">let</span> that = <span class="built_in">this</span></span><br><span class="line">    axios.get(<span class="string">&#x27;&#x27;</span>, &#123;</span><br><span class="line">      cancelToken: <span class="keyword">new</span> CancelToken(<span class="function"><span class="keyword">function</span> <span class="title">executor</span>(<span class="params">c</span>) </span>&#123;</span><br><span class="line">        that.cancel = c</span><br><span class="line">        <span class="built_in">console</span>.log(c)</span><br><span class="line">        <span class="comment">// 这个参数 c 就是 CancelToken 构造函数里面自带的取消请求的函数，这里把该函数当参数用</span></span><br><span class="line">      &#125;)</span><br><span class="line">      params: &#123;&#125;</span><br><span class="line">    &#125;).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">this</span>.items = res.data</span><br><span class="line">    &#125;).catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(err)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br><span class="line">  cancelGetMsg () &#123;</span><br><span class="line">    <span class="built_in">this</span>.cancel()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1297,91 +1374,6 @@
 </ul>
 <p>说明：Meta 标签中的 format-detection 属性及含义<br>format-detection 中文的意思是 “格式检测”，它是用来检测 html 里的一些格式的</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 禁止了把数字转化为拨号链接 默认为 yes --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;format-detection&quot;</span> <span class="attr">content</span>=<span class="string">&quot;telephone=no&quot;</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 禁止作为邮箱地址 默认为 yes --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;format-detection&quot;</span> <span class="attr">content</span>=<span class="string">&quot;email=no&quot;</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 禁止跳转至地图 默认为 yes --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;format-detection&quot;</span> <span class="attr">content</span>=<span class="string">&quot;adress=no&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;format-detection&quot;</span> <span class="attr">content</span>=<span class="string">&quot;telephone=no,email=no,adress=no&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/222.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/222.html" class="post-title-link" itemprop="url">解决VPS通过SS访问谷歌学术受限</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-07-09 00:00:09" itemprop="dateCreated datePublished" datetime="2019-07-09T00:00:09+00:00">2019-07-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在网上搜索后发现有可能有以下原因：</p>
-<p>1.你的 VPS 被人用来做爬虫爬 Google，IP 被封</p>
-<p>2.你的 IPv4 网段有人做爬虫，网段被封</p>
-<p>3.你的 IPv6 网段有人做爬虫，网段被封</p>
-<p>IPv6 网段被封</p>
-<p>强制你的 VPS 用 IPv4 来访问，具体方法在 <code>/etc/sysctl.conf</code> 后追加</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># disable ipv6</span><br><span class="line">net.ipv6.conf.all.disable_ipv6&#x3D;1</span><br><span class="line">net.ipv6.conf.default.disable_ipv6&#x3D;1</span><br><span class="line">net.ipv6.conf.lo.disable_ipv6&#x3D;1</span><br></pre></td></tr></table></figure>
-
-<p>IPv4 网段被封</p>
-<p>强制 VPS 使用 IPv6 访问，确认打开 VPS 上的 IPv6 功能，更改 VPS 的 hosts 中指定 Google Schoolar 的 IPv6 地址，编辑<code>/etc/hosts</code>后追加：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">## Scholar</span><br><span class="line">## type &#39;host google.com&#39; to get the correct ipv6 address or</span><br><span class="line">## visit https:&#x2F;&#x2F;github.com&#x2F;lennylxx&#x2F;ipv6-hosts</span><br><span class="line">2404:6800:4004:81a::200e scholar.google.cn</span><br><span class="line">2404:6800:4004:81a::200e scholar.google.com.hk</span><br><span class="line">2404:6800:4004:81a::200e scholar.google.com</span><br><span class="line">2404:6800:4004:81a::200e scholar.l.google.com</span><br></pre></td></tr></table></figure>
-
-<p>更改配置后，重启 SS</p>
 
       
     </div>

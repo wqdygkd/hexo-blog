@@ -447,6 +447,41 @@
       </tags>
   </entry>
   <entry>
+    <title>Window 10下终端美化</title>
+    <url>/2017.html</url>
+    <content><![CDATA[<p>WSL(Ubuntu)/MSYS2/Cygwin/PowerShell7<br>Windows Terminal/Fluent Terminal</p>
+<h2 id="Fluent-Terminal-amp-PowerShell-7-amp-oh-my-posh-amp-posh-git"><a href="#Fluent-Terminal-amp-PowerShell-7-amp-oh-my-posh-amp-posh-git" class="headerlink" title="Fluent Terminal &amp; PowerShell 7+ &amp; oh-my-posh &amp; posh-git"></a>Fluent Terminal &amp; PowerShell 7+ &amp; oh-my-posh &amp; posh-git</h2><p><a href="https://github.com/felixse/FluentTerminal/releases">Fluent Terminal</a><br><a href="https://github.com/PowerShell/PowerShell/releases">PowerShell</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/137595941">https://zhuanlan.zhihu.com/p/137595941</a><br><a href="https://zhuanlan.zhihu.com/p/137251716">https://zhuanlan.zhihu.com/p/137251716</a></p>
+<h2 id="MSYS2-Windows-Terminal"><a href="#MSYS2-Windows-Terminal" class="headerlink" title="MSYS2 + Windows Terminal"></a>MSYS2 + Windows Terminal</h2><p><a href="https://www.msys2.org/">MSYS2</a><br><a href="https://github.com/microsoft/terminal/releases">Windows Terminal</a></p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><h4 id="安装-zsh"><a href="#安装-zsh" class="headerlink" title="安装 zsh"></a>安装 zsh</h4><p>打开 MSYS2，</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pacman -Syu</span><br><span class="line">pacman -S zsh</span><br></pre></td></tr></table></figure>
+
+<p>由于 msys2 指定 MSYSCON 为 defterm 时默认是执行bash.exe， 我们把 C:\msys64\msys2_shell.cmd 大概第5行的bash 改成 zsh 即可：</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set</span> &quot;LOGINSHELL=zsh&quot;</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装-oh-my-zsh"><a href="#安装-oh-my-zsh" class="headerlink" title="安装 oh-my-zsh"></a>安装 oh-my-zsh</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果无法安装，使用下面这种方式</span></span><br><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://cdn.jsdelivr.net/gh/ohmyzsh/ohmyzsh@master/tools/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="安装-Fira-Code-字体"><a href="#安装-Fira-Code-字体" class="headerlink" title="安装 Fira Code 字体"></a>安装 Fira Code 字体</h4><p><a href="https://github.com/tonsky/FiraCode/releases">Fira Code</a></p>
+<h4 id="配置到-Windows-Terminal"><a href="#配置到-Windows-Terminal" class="headerlink" title="配置到 Windows Terminal"></a>配置到 Windows Terminal</h4><p>在 settings.json 文件中加入MSYS2的配置</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&quot;profiles&quot;:</span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;defaults&quot;</span>:</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="comment">// Put settings here that you want to apply to all profiles.</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">&quot;list&quot;</span>:</span><br><span class="line">  [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">&quot;guid&quot;</span>: <span class="string">&quot;&#123;1c4de342-38b7-51cf-b940-2309a097f589&#125;&quot;</span>, <span class="comment">// 唯一的标识，改成和其他的已有终端不一样</span></span><br><span class="line">      <span class="attr">&quot;hidden&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">      <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;MSYS2&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;acrylicOpacity&quot;</span>: <span class="number">0</span>, <span class="comment">// 透明度</span></span><br><span class="line">      <span class="attr">&quot;closeOnExit&quot;</span>: <span class="literal">true</span>, <span class="comment">// 关闭的时候退出命令终端</span></span><br><span class="line">      <span class="attr">&quot;colorScheme&quot;</span>: <span class="string">&quot;Homebrew&quot;</span>, <span class="comment">// 样式配置</span></span><br><span class="line">      <span class="attr">&quot;commandline&quot;</span>: <span class="string">&quot;C:\\msys64\\msys2_shell.cmd -defterm -no-start -here -use-full-path  -mingw64&quot;</span>, <span class="comment">// 重点就是要用这个脚本启动，以及他的参数</span></span><br><span class="line">      <span class="attr">&quot;startingDirectory&quot;</span>: <span class="string">&quot;~&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;cursorColor&quot;</span>: <span class="string">&quot;#FFFFFF&quot;</span>, <span class="comment">// 光标颜色</span></span><br><span class="line">      <span class="attr">&quot;cursorShape&quot;</span>: <span class="string">&quot;bar&quot;</span>, <span class="comment">// 光标形状</span></span><br><span class="line">      <span class="attr">&quot;fontFace&quot;</span>: <span class="string">&quot;Fira Code&quot;</span>, <span class="comment">// 字体配置，选择你电脑上已安装的字体</span></span><br><span class="line">      <span class="attr">&quot;fontSize&quot;</span>: <span class="number">11</span>, <span class="comment">// 终端字体大小</span></span><br><span class="line">      <span class="attr">&quot;historySize&quot;</span>: <span class="number">9001</span>, <span class="comment">// 终端窗口记忆大小</span></span><br><span class="line">      <span class="attr">&quot;icon&quot;</span>: <span class="string">&quot;C:\\msys64\\msys2.ico&quot;</span> <span class="comment">// git 的图</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line"><span class="comment">// Add custom color schemes to this array.</span></span><br><span class="line"><span class="comment">// To learn more about color schemes, visit https://aka.ms/terminal-color-schemes</span></span><br><span class="line">&quot;schemes&quot;: [</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;Homebrew&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;black&quot;</span>: <span class="string">&quot;#000000&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;red&quot;</span>: <span class="string">&quot;#FC5275&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;green&quot;</span>: <span class="string">&quot;#00a600&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;yellow&quot;</span>: <span class="string">&quot;#999900&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;blue&quot;</span>: <span class="string">&quot;#6666e9&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;purple&quot;</span>: <span class="string">&quot;#b200b2&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;cyan&quot;</span>: <span class="string">&quot;#00a6b2&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;white&quot;</span>: <span class="string">&quot;#bfbfbf&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightBlack&quot;</span>: <span class="string">&quot;#666666&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightRed&quot;</span>: <span class="string">&quot;#e50000&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightGreen&quot;</span>: <span class="string">&quot;#00d900&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightYellow&quot;</span>: <span class="string">&quot;#e5e500&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightBlue&quot;</span>: <span class="string">&quot;#0000ff&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightPurple&quot;</span>: <span class="string">&quot;#e500e5&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightCyan&quot;</span>: <span class="string">&quot;#00e5e5&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightWhite&quot;</span>: <span class="string">&quot;#e5e5e5&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;background&quot;</span>: <span class="string">&quot;#283033&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;foreground&quot;</span>: <span class="string">&quot;#00ff00&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装-oh-my-zsh-主题"><a href="#安装-oh-my-zsh-主题" class="headerlink" title="安装 oh-my-zsh 主题"></a>安装 oh-my-zsh 主题</h4><p><a href="https://github.com/ohmyzsh/ohmyzsh/wiki/themes">主题列表</a></p>
+<p>推荐两款主题</p>
+<p><a href="https://github.com/sindresorhus/pure/">pure主题</a><br><a href="https://github.com/agnoster/agnoster-zsh-theme">agnoster</a></p>
+<h4 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.oh-my-zsh/plugins</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-syntax-highlighting.git</span><br></pre></td></tr></table></figure>
+
+<p>启用插件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 编辑~/.zshrc</span></span><br><span class="line">vim ~/.zshrc</span><br><span class="line"><span class="comment"># 在plugins后括号里添加安装的插件名字</span></span><br><span class="line">plugins=( git</span><br><span class="line">          zsh-autosuggestions</span><br><span class="line">          zsh-syntax-highlighting</span><br><span class="line">        )</span><br><span class="line"><span class="comment"># 最后刷新</span></span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>zsh</tag>
+        <tag>oh-my-zsh</tag>
+        <tag>Fluent Terminal</tag>
+        <tag>Windows Terminal</tag>
+        <tag>PowerShell</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>windows 终端命令行下使用代理</title>
     <url>/1404.html</url>
     <content><![CDATA[<p>20200822更新：只要启用了代理软件，或系统设置（windows设置-网络和Internet-代理-手动设置代理）中配置了代理，powershell 就会走代理，不在需要上面的方式设置，实际上上面的这个脚本也是在系统设置中配置了代理，因为我发现运行上面的脚本，我的系统代理中就多了如下代理</p>
@@ -518,54 +553,6 @@
       </categories>
   </entry>
   <entry>
-    <title>Window 10下终端美化</title>
-    <url>/2017.html</url>
-    <content><![CDATA[<p>WSL(Ubuntu)/MSYS2/Cygwin/PowerShell7<br>Windows Terminal/Fluent Terminal</p>
-<h2 id="Fluent-Terminal-amp-PowerShell-7-amp-oh-my-posh-amp-posh-git"><a href="#Fluent-Terminal-amp-PowerShell-7-amp-oh-my-posh-amp-posh-git" class="headerlink" title="Fluent Terminal &amp; PowerShell 7+ &amp; oh-my-posh &amp; posh-git"></a>Fluent Terminal &amp; PowerShell 7+ &amp; oh-my-posh &amp; posh-git</h2><p><a href="https://github.com/felixse/FluentTerminal/releases">Fluent Terminal</a><br><a href="https://github.com/PowerShell/PowerShell/releases">PowerShell</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/137595941">https://zhuanlan.zhihu.com/p/137595941</a><br><a href="https://zhuanlan.zhihu.com/p/137251716">https://zhuanlan.zhihu.com/p/137251716</a></p>
-<h2 id="MSYS2-Windows-Terminal"><a href="#MSYS2-Windows-Terminal" class="headerlink" title="MSYS2 + Windows Terminal"></a>MSYS2 + Windows Terminal</h2><p><a href="https://www.msys2.org/">MSYS2</a><br><a href="https://github.com/microsoft/terminal/releases">Windows Terminal</a></p>
-<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><h4 id="安装-zsh"><a href="#安装-zsh" class="headerlink" title="安装 zsh"></a>安装 zsh</h4><p>打开 MSYS2，</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pacman -Syu</span><br><span class="line">pacman -S zsh</span><br></pre></td></tr></table></figure>
-
-<p>由于 msys2 指定 MSYSCON 为 defterm 时默认是执行bash.exe， 我们把 C:\msys64\msys2_shell.cmd 大概第5行的bash 改成 zsh 即可：</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set</span> &quot;LOGINSHELL=zsh&quot;</span><br></pre></td></tr></table></figure>
-
-<h4 id="安装-oh-my-zsh"><a href="#安装-oh-my-zsh" class="headerlink" title="安装 oh-my-zsh"></a>安装 oh-my-zsh</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果无法安装，使用下面这种方式</span></span><br><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://cdn.jsdelivr.net/gh/ohmyzsh/ohmyzsh@master/tools/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="安装-Fira-Code-字体"><a href="#安装-Fira-Code-字体" class="headerlink" title="安装 Fira Code 字体"></a>安装 Fira Code 字体</h4><p><a href="https://github.com/tonsky/FiraCode/releases">Fira Code</a></p>
-<h4 id="配置到-Windows-Terminal"><a href="#配置到-Windows-Terminal" class="headerlink" title="配置到 Windows Terminal"></a>配置到 Windows Terminal</h4><p>在 settings.json 文件中加入MSYS2的配置</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&quot;profiles&quot;:</span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;defaults&quot;</span>:</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="comment">// Put settings here that you want to apply to all profiles.</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">&quot;list&quot;</span>:</span><br><span class="line">  [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">&quot;guid&quot;</span>: <span class="string">&quot;&#123;1c4de342-38b7-51cf-b940-2309a097f589&#125;&quot;</span>, <span class="comment">// 唯一的标识，改成和其他的已有终端不一样</span></span><br><span class="line">      <span class="attr">&quot;hidden&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">      <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;MSYS2&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;acrylicOpacity&quot;</span>: <span class="number">0</span>, <span class="comment">// 透明度</span></span><br><span class="line">      <span class="attr">&quot;closeOnExit&quot;</span>: <span class="literal">true</span>, <span class="comment">// 关闭的时候退出命令终端</span></span><br><span class="line">      <span class="attr">&quot;colorScheme&quot;</span>: <span class="string">&quot;Homebrew&quot;</span>, <span class="comment">// 样式配置</span></span><br><span class="line">      <span class="attr">&quot;commandline&quot;</span>: <span class="string">&quot;C:\\msys64\\msys2_shell.cmd -defterm -no-start -here -use-full-path  -mingw64&quot;</span>, <span class="comment">// 重点就是要用这个脚本启动，以及他的参数</span></span><br><span class="line">      <span class="attr">&quot;startingDirectory&quot;</span>: <span class="string">&quot;~&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;cursorColor&quot;</span>: <span class="string">&quot;#FFFFFF&quot;</span>, <span class="comment">// 光标颜色</span></span><br><span class="line">      <span class="attr">&quot;cursorShape&quot;</span>: <span class="string">&quot;bar&quot;</span>, <span class="comment">// 光标形状</span></span><br><span class="line">      <span class="attr">&quot;fontFace&quot;</span>: <span class="string">&quot;Fira Code&quot;</span>, <span class="comment">// 字体配置，选择你电脑上已安装的字体</span></span><br><span class="line">      <span class="attr">&quot;fontSize&quot;</span>: <span class="number">11</span>, <span class="comment">// 终端字体大小</span></span><br><span class="line">      <span class="attr">&quot;historySize&quot;</span>: <span class="number">9001</span>, <span class="comment">// 终端窗口记忆大小</span></span><br><span class="line">      <span class="attr">&quot;icon&quot;</span>: <span class="string">&quot;C:\\msys64\\msys2.ico&quot;</span> <span class="comment">// git 的图</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line"><span class="comment">// Add custom color schemes to this array.</span></span><br><span class="line"><span class="comment">// To learn more about color schemes, visit https://aka.ms/terminal-color-schemes</span></span><br><span class="line">&quot;schemes&quot;: [</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;Homebrew&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;black&quot;</span>: <span class="string">&quot;#000000&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;red&quot;</span>: <span class="string">&quot;#FC5275&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;green&quot;</span>: <span class="string">&quot;#00a600&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;yellow&quot;</span>: <span class="string">&quot;#999900&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;blue&quot;</span>: <span class="string">&quot;#6666e9&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;purple&quot;</span>: <span class="string">&quot;#b200b2&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;cyan&quot;</span>: <span class="string">&quot;#00a6b2&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;white&quot;</span>: <span class="string">&quot;#bfbfbf&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightBlack&quot;</span>: <span class="string">&quot;#666666&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightRed&quot;</span>: <span class="string">&quot;#e50000&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightGreen&quot;</span>: <span class="string">&quot;#00d900&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightYellow&quot;</span>: <span class="string">&quot;#e5e500&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightBlue&quot;</span>: <span class="string">&quot;#0000ff&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightPurple&quot;</span>: <span class="string">&quot;#e500e5&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightCyan&quot;</span>: <span class="string">&quot;#00e5e5&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;brightWhite&quot;</span>: <span class="string">&quot;#e5e5e5&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;background&quot;</span>: <span class="string">&quot;#283033&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;foreground&quot;</span>: <span class="string">&quot;#00ff00&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-
-<h4 id="安装-oh-my-zsh-主题"><a href="#安装-oh-my-zsh-主题" class="headerlink" title="安装 oh-my-zsh 主题"></a>安装 oh-my-zsh 主题</h4><p><a href="https://github.com/ohmyzsh/ohmyzsh/wiki/themes">主题列表</a></p>
-<p>推荐两款主题</p>
-<p><a href="https://github.com/sindresorhus/pure/">pure主题</a><br><a href="https://github.com/agnoster/agnoster-zsh-theme">agnoster</a></p>
-<h4 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.oh-my-zsh/plugins</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-syntax-highlighting.git</span><br></pre></td></tr></table></figure>
-
-<p>启用插件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 编辑~/.zshrc</span></span><br><span class="line">vim ~/.zshrc</span><br><span class="line"><span class="comment"># 在plugins后括号里添加安装的插件名字</span></span><br><span class="line">plugins=( git</span><br><span class="line">          zsh-autosuggestions</span><br><span class="line">          zsh-syntax-highlighting</span><br><span class="line">        )</span><br><span class="line"><span class="comment"># 最后刷新</span></span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>zsh</tag>
-        <tag>oh-my-zsh</tag>
-        <tag>Fluent Terminal</tag>
-        <tag>Windows Terminal</tag>
-        <tag>PowerShell</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>优秀的命令行工具</title>
-    <url>/2012.html</url>
-    <content><![CDATA[<p>tldr<br>快速查看命令的使用示例</p>
-<p>安装</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm i -g tldr</span><br></pre></td></tr></table></figure>
-
-<p>使用</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看git的使用示例</span></span><br><span class="line">tldr git</span><br></pre></td></tr></table></figure>
-
-<p>thefuck<br>快速修正命令行手误</p>
-]]></content>
-  </entry>
-  <entry>
     <title>临时邮箱手机号</title>
     <url>/232.html</url>
     <content><![CDATA[<p>用于注册临时账号，保护隐私</p>
@@ -580,6 +567,19 @@
       <categories>
         <category>教程</category>
       </categories>
+  </entry>
+  <entry>
+    <title>优秀的命令行工具</title>
+    <url>/2012.html</url>
+    <content><![CDATA[<p>tldr<br>快速查看命令的使用示例</p>
+<p>安装</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm i -g tldr</span><br></pre></td></tr></table></figure>
+
+<p>使用</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看git的使用示例</span></span><br><span class="line">tldr git</span><br></pre></td></tr></table></figure>
+
+<p>thefuck<br>快速修正命令行手误</p>
+]]></content>
   </entry>
   <entry>
     <title>使用 github actions 将 github 项目自动同步到 gitee 并自动部署 Gitee Pages</title>
@@ -2605,6 +2605,7 @@
 <p>循环 、遍历数组</p>
 </blockquote>
 <p><span class='red'>可使用 continue 跳出当前循环， break 跳出整个循环</span></p>
+<p>如果 for 语句在函数中，使用 return 可以结束 for 循环，同时也会结束函数后续代码的执行</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 语法：</span></span><br><span class="line"><span class="comment">// 1. for循环使用分号分隔</span></span><br><span class="line"><span class="comment">// 2. for循环有2个分号，两个分号不能少</span></span><br><span class="line"><span class="keyword">for</span> (初始化语句; 判断语句; 自增语句) &#123;</span><br><span class="line">  <span class="comment">// 循环体</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 普通循环</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt;= <span class="number">5</span>; i++) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(i)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 遍历数组</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(arr[i])</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 遍历函数的参数(arguments)</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="built_in">arguments</span>.length; i++) &#123;&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="原生-js-中数组的-forEach-方法"><a href="#原生-js-中数组的-forEach-方法" class="headerlink" title="原生 js 中数组的 forEach 方法"></a>原生 js 中数组的 forEach 方法</h1><blockquote>
@@ -4758,7 +4759,7 @@
 <p>如果是 GSuite Admin 账号，可以使用如下方式直接添加进群组</p>
 <ol>
 <li>将生成的json文件保存到 credentials 文件夹中</li>
-<li>在管理控制台中为您的组织创建组。创建群组后，您将拥有一个例如的地址<a href="mailto:&#115;&#97;&#64;&#121;&#111;&#117;&#x72;&#x64;&#111;&#109;&#97;&#x69;&#110;&#x2e;&#99;&#111;&#x6d;">&#115;&#97;&#64;&#121;&#111;&#117;&#x72;&#x64;&#111;&#109;&#97;&#x69;&#110;&#x2e;&#99;&#111;&#x6d;</a></li>
+<li>在管理控制台中为您的组织创建组。创建群组后，您将拥有一个例如的地址<a href="mailto:&#x73;&#x61;&#64;&#x79;&#111;&#x75;&#x72;&#100;&#111;&#x6d;&#97;&#105;&#110;&#x2e;&#99;&#111;&#x6d;">&#x73;&#x61;&#64;&#x79;&#111;&#x75;&#x72;&#100;&#111;&#x6d;&#97;&#105;&#110;&#x2e;&#99;&#111;&#x6d;</a></li>
 <li>运行 <code>python3 add_to_google_group.py -g sa@yourdomain.com</code></li>
 </ol>
 </blockquote>
@@ -5446,6 +5447,42 @@
       </tags>
   </entry>
   <entry>
+    <title>vue 中 hock 的使用</title>
+    <url>/2026.html</url>
+    <content><![CDATA[<p>在 Vue 组件中，可以用过 <code>$on</code>, <code>$once</code> 去监听所有的生命周期钩子函数，如监听组件的 updated 钩子函数可以写成 this.$on(‘hook:updated’, () =&gt; {})</p>
+<h3 id="使用-once-‘hook-beforeDestory’-gt-清理定时器"><a href="#使用-once-‘hook-beforeDestory’-gt-清理定时器" class="headerlink" title="使用$.once(‘hook:beforeDestory’,() =&gt; {})清理定时器"></a>使用$.once(‘hook:beforeDestory’,() =&gt; {})清理定时器</h3><p><a href="https://cn.vuejs.org/v2/guide/components-edge-cases.html#%E7%A8%8B%E5%BA%8F%E5%8C%96%E7%9A%84%E4%BA%8B%E4%BB%B6%E4%BE%A6%E5%90%AC%E5%99%A8">https://cn.vuejs.org/v2/guide/components-edge-cases.html#程序化的事件侦听器</a></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> timer = <span class="built_in">setInterval</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;1&#x27;</span>)</span><br><span class="line">&#125;, <span class="number">1000</span>)</span><br><span class="line"><span class="comment">// 直接在需要定时器的方法或者生命周期函数中声明并销毁</span></span><br><span class="line"><span class="built_in">this</span>.$once(<span class="string">&#x27;hook:beforeDestory&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">clearInterval</span>(timer)</span><br><span class="line">  timer = <span class="literal">null</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="在父组件监听子组件的生命周期方法"><a href="#在父组件监听子组件的生命周期方法" class="headerlink" title="在父组件监听子组件的生命周期方法"></a>在父组件监听子组件的生命周期方法</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 父组件中 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">child-component</span> @<span class="attr">hook:mounted</span>=<span class="string">&quot;handleChildMounted&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>监听第三方组件数据的变化，但是组件又没有提供change事件，可以在外部监听组件的updated钩子函数</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">child-component</span> @<span class="attr">hook:updated</span>=<span class="string">&quot;handleChildUpdated&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>web前端</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在vue的template中如何使用scss变量</title>
+    <url>/2000.html</url>
+    <content><![CDATA[<p>在 scss 中使用 <code>:export</code> 暴露变量</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="variable">$color</span>: <span class="number">#009A61</span>;</span><br><span class="line"><span class="comment">//暴露css</span></span><br><span class="line">:export &#123;</span><br><span class="line">  color: <span class="variable">$color</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>script</code> 中引入变量</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> variables <span class="keyword">from</span> <span class="string">&#x27;@/assets/styles/variables.scss&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>在 <code>computed</code> 中缓存暴露变量</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">  <span class="function"><span class="title">variables</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> variables</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>web前端</category>
+      </categories>
+  </entry>
+  <entry>
     <title>微信小程序 canvas touchmove 事件实现手写签名并保存到相册</title>
     <url>/969.html</url>
     <content><![CDATA[<blockquote>
@@ -5469,22 +5506,6 @@
 <p>保存到相册</p>
 <p>wx.canvasToTempFilePath(Object object, Object this)<br><a href="https://developers.weixin.qq.com/miniprogram/dev/api/canvas/wx.canvasToTempFilePath.html">https://developers.weixin.qq.com/miniprogram/dev/api/canvas/wx.canvasToTempFilePath.html</a></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="comment">// 把当前画布指定区域的内容导出生成指定大小的图片。 canvas2d不需要使用draw方法</span></span><br><span class="line"><span class="function"><span class="title">canvasToTempFilePath</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> query = wx.createSelectorQuery()</span><br><span class="line">    query</span><br><span class="line">      .select(<span class="string">&#x27;#sign&#x27;</span>)</span><br><span class="line">      .fields(&#123; <span class="attr">node</span>: <span class="literal">true</span>, <span class="attr">size</span>: <span class="literal">true</span> &#125;)</span><br><span class="line">      .exec(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// console.log(res)</span></span><br><span class="line">        <span class="keyword">const</span> canvas = res[<span class="number">0</span>].node</span><br><span class="line">        wx.canvasToTempFilePath(&#123;</span><br><span class="line">          x: <span class="number">0</span>,</span><br><span class="line">          y: <span class="number">0</span>,</span><br><span class="line">          fileType: <span class="string">&#x27;jpg&#x27;</span>,</span><br><span class="line">          canvas: canvas,</span><br><span class="line">          <span class="function"><span class="title">success</span>(<span class="params">res</span>)</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(res.tempFilePath) <span class="comment">// 文件临时地址 可以保存到相册或上传</span></span><br><span class="line">            resolve(res.tempFilePath)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line"><span class="comment">// 保存本地</span></span><br><span class="line"><span class="function"><span class="title">saveToAlbum</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">  <span class="built_in">this</span>.canvasToTempFilePath().then(<span class="function"><span class="params">file</span> =&gt;</span> &#123;</span><br><span class="line">    wx.getSetting(&#123;</span><br><span class="line">      <span class="function"><span class="title">success</span>(<span class="params">res</span>)</span> &#123;</span><br><span class="line">        <span class="comment">// 如果没有则获取授权</span></span><br><span class="line">        <span class="keyword">if</span> (!res.authSetting[<span class="string">&#x27;scope.writePhotosAlbum&#x27;</span>]) &#123;</span><br><span class="line">          wx.authorize(&#123;</span><br><span class="line">            scope: <span class="string">&#x27;scope.writePhotosAlbum&#x27;</span>,</span><br><span class="line">            <span class="function"><span class="title">success</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">              wx.saveImageToPhotosAlbum(&#123;</span><br><span class="line">                filePath: file,</span><br><span class="line">                <span class="function"><span class="title">success</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">                  wx.showToast(&#123;</span><br><span class="line">                    title: <span class="string">&#x27;保存成功&#x27;</span></span><br><span class="line">                  &#125;)</span><br><span class="line">                &#125;,</span><br><span class="line">                <span class="function"><span class="title">fail</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">                  wx.showToast(&#123;</span><br><span class="line">                    title: <span class="string">&#x27;保存失败&#x27;</span>,</span><br><span class="line">                    icon: <span class="string">&#x27;none&#x27;</span></span><br><span class="line">                  &#125;)</span><br><span class="line">                &#125;</span><br><span class="line">              &#125;)</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="function"><span class="title">fail</span>(<span class="params"></span>)</span> &#123;&#125;</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="comment">// 有授权直接保存</span></span><br><span class="line">          wx.saveImageToPhotosAlbum(&#123;</span><br><span class="line">            filePath: file,</span><br><span class="line">            <span class="function"><span class="title">success</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">              wx.showToast(&#123;</span><br><span class="line">                title: <span class="string">&#x27;保存成功&#x27;</span></span><br><span class="line">              &#125;)</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="function"><span class="title">fail</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">              wx.showToast(&#123;</span><br><span class="line">                title: <span class="string">&#x27;保存失败&#x27;</span>,</span><br><span class="line">                icon: <span class="string">&#x27;none&#x27;</span></span><br><span class="line">              &#125;)</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>web前端</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>在vue的template中如何使用scss变量</title>
-    <url>/2000.html</url>
-    <content><![CDATA[<p>在 scss 中使用 <code>:export</code> 暴露变量</p>
-<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="variable">$color</span>: <span class="number">#009A61</span>;</span><br><span class="line"><span class="comment">//暴露css</span></span><br><span class="line">:export &#123;</span><br><span class="line">  color: <span class="variable">$color</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在 <code>script</code> 中引入变量</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> variables <span class="keyword">from</span> <span class="string">&#x27;@/assets/styles/variables.scss&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>在 <code>computed</code> 中缓存暴露变量</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">  <span class="function"><span class="title">variables</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> variables</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>web前端</category>
