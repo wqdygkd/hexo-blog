@@ -1,0 +1,34 @@
+diff --git a/node_modules/hexo-theme-next/layout/_macro/post-collapse.njk b/node_modules/hexo-theme-next/layout/_macro/post-collapse.njk
+index 4c39119..86aa6f8 100644
+--- a/node_modules/hexo-theme-next/layout/_macro/post-collapse.njk
++++ b/node_modules/hexo-theme-next/layout/_macro/post-collapse.njk
+@@ -33,6 +33,15 @@
+         {%- endif %}
+       </div>
+ 
++      {# 添加tag #}
++      {%- if post.tags and post.tags.length and theme.menu.tags %}
++        <span class="post-meta-tags">
++          {%- for tag in post.tags.toArray() %}
++              <a href="{{ url_for(tag.path) }}" itemprop="url" rel="index"><span itemprop="name">{{ tag.name }}</span></a>
++          {%- endfor %}
++        </span>
++      {%- endif %}
++
+       {{ post_gallery(post.photos) }}
+     </header>
+   </article>
+diff --git a/node_modules/hexo-theme-next/source/js/third-party/comments/utterances.js b/node_modules/hexo-theme-next/source/js/third-party/comments/utterances.js
+index 332ee05..de89bbe 100644
+--- a/node_modules/hexo-theme-next/source/js/third-party/comments/utterances.js
++++ b/node_modules/hexo-theme-next/source/js/third-party/comments/utterances.js
+@@ -10,7 +10,8 @@ document.addEventListener('page:loaded', () => {
+         crossOrigin : 'anonymous',
+         'repo'      : CONFIG.utterances.repo,
+         'issue-term': CONFIG.utterances.issue_term,
+-        'theme'     : CONFIG.utterances.theme
++        'theme'     : CONFIG.utterances.theme,
++        label       : CONFIG.utterances.label
+       },
+       parentNode: document.querySelector('.utterances-container')
+     }));
