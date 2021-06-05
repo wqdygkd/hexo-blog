@@ -1,5 +1,5 @@
 ---
-title: Scrcpy - 开源免费在电脑显示手机画面并控制手机的工具(投屏/录屏/免 Root)
+title: Scrcpy - 开源免费在电脑显示手机画面并控制手机的工具(投屏/录屏/免Root)
 tags:
   - 安卓
   - 投屏
@@ -58,3 +58,8 @@ https://www.coolapk.com/feed/15973938?shareKey=YWE5NWFkMTg1N2Y2NWU1ODFlOWQ~&shar
 蓝奏云：https://www.lanzous.com/b009vk8ze 密码:gu2t
 
 百度云：https://pan.baidu.com/s/1E41IIgyU1vvERkhxFh0eGg 提取码：zfqd
+
+
+**QtScrcpy**
+
+开源地址：https://github.com/barry-ran/QtScrcpy
