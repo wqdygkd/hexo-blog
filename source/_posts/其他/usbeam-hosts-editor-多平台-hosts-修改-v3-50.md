@@ -4,7 +4,7 @@ tags:
   - hosts
 id: '1853'
 categories:
-  - - 软件
+  - 软件
 date: 2020-07-05 18:04:08
 ---
 

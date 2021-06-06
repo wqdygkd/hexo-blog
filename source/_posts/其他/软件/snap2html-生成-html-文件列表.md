@@ -3,7 +3,7 @@ title: Snap2HTML – 生成 html 文件列表
 tags: []
 id: '1857'
 categories:
-  - - 软件
+  - 软件
 date: 2020-07-09 18:18:43
 ---
 

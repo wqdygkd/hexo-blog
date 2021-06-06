@@ -3,6 +3,8 @@ title: VMware Workstation Pro v16.1.0 虚拟机软件及永久许可证
 tags:
   - vmware
 id: 2015
+categories:
+  - 软件
 date: 2021-01-07
 ---
 

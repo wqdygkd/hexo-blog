@@ -6,7 +6,7 @@ tags:
   - 群辉
 id: '1365'
 categories:
-  - - NAS
+  - NAS
 date: 2020-05-10 14:32:17
 ---
 

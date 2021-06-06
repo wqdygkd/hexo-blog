@@ -5,7 +5,8 @@ tags:
   - plex
 id: '1469'
 categories:
-  - - NAS
+  - NAS
+  - 软件
 date: 2020-05-20 23:09:12
 ---
 
