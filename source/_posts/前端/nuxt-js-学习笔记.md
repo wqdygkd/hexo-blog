@@ -4,7 +4,7 @@ tags:
   - nuxt
 id: '1782'
 categories:
-  - - web前端
+  - 前端
 date: 2020-06-21 00:00:26
 ---
 

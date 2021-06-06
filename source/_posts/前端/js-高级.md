@@ -4,7 +4,7 @@ tags:
   - js
 id: '1652'
 categories:
-  - - web前端
+  - 前端
 date: 2018-10-18 14:34:36
 ---
 

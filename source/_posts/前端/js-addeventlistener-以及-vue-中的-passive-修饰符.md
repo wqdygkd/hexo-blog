@@ -3,7 +3,7 @@ title: addEventListener 以及 vue 中的 .passive 修饰符
 tags: []
 id: '403'
 categories:
-  - - web前端
+  - 前端
 date: 2019-07-31 22:16:42
 ---
 

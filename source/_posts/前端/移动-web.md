@@ -3,7 +3,7 @@ title: 移动 web
 tags: []
 id: '389'
 categories:
-  - - web前端
+  - 前端
 date: 2018-12-11 22:05:45
 ---
 

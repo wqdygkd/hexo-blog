@@ -6,7 +6,7 @@ tags:
   - promise
 id: '410'
 categories:
-  - - web前端
+  - 前端
 date: 2019-01-08 22:21:49
 ---
 

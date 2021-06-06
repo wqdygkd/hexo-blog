@@ -3,7 +3,7 @@ title: 微信小程序中相关 api 使用 promise
 tags: []
 id: '1065'
 categories:
-  - - web前端
+  - 前端
 date: 2020-03-26 14:43:36
 ---
 

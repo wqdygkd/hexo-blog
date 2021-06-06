@@ -3,7 +3,7 @@ title: vue-awesome-swiper 设置 loop：true不会自动滚动的问题
 tags: []
 id: '1002'
 categories:
-  - - web前端
+  - 前端
 date: 2020-01-20 13:11:58
 ---
 

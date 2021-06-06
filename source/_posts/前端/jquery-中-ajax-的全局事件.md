@@ -5,7 +5,7 @@ tags:
   - jquery
 id: '414'
 categories:
-  - - web前端
+  - 前端
 date: 2018-10-16 22:24:10
 ---
 

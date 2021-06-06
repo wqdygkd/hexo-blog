@@ -4,7 +4,7 @@ tags:
   - html
 id: '394'
 categories:
-  - web前端
+  - 前端
 date: 2018-08-27 22:09:55
 ---
 

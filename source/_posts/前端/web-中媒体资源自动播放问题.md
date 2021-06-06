@@ -3,7 +3,7 @@ title: web 中媒体资源自动播放问题
 tags: []
 id: '1276'
 categories:
-  - - web前端
+  - 前端
 date: 2020-04-23 18:40:33
 ---
 

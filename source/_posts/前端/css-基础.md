@@ -4,7 +4,7 @@ tags:
   - css
 id: '1616'
 categories:
-  - - web前端
+  - 前端
 date: 2018-08-27 14:27:59
 ---
 ## 1.CSS 初识

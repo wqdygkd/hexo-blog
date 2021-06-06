@@ -3,7 +3,7 @@ title: vue 2.0 和 vue3 响应式数据原理总结对比
 tags: []
 id: '748'
 categories:
-  - - web前端
+  - 前端
 date: 2020-03-04
 ---
 

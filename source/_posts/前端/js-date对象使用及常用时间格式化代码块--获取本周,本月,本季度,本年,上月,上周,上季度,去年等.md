@@ -5,7 +5,7 @@ tags:
   - date
 id: 249
 categories:
-  - web前端
+  - 前端
 date: 2019-12-10 16:16:04
 ---
 

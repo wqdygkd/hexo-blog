@@ -3,7 +3,7 @@ title: 微信小程序中使用 async/await 语法
 tags: []
 id: '1018'
 categories:
-  - - web前端
+  - 前端
 date: 2020-03-24 15:47:04
 ---
 

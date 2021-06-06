@@ -3,7 +3,7 @@ title: 神奇的js
 tags: []
 id: '2009'
 categories:
-  - - web前端
+  - 前端
 date: 2018-04-07
 ---
 

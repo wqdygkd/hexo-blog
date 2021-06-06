@@ -3,7 +3,7 @@ title: 微信小程序中使用 npm 包
 tags: []
 id: '1041'
 categories:
-  - - web前端
+  - 前端
 date: 2020-03-24 16:21:57
 ---
 

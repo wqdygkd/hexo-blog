@@ -4,7 +4,7 @@ tags:
   - js
 id: 2025
 categories:
-  - web前端
+  - 前端
 date: 2021-04-27
 ---
 

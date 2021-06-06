@@ -4,7 +4,7 @@ tags:
   - ajax
 id: '1646'
 categories:
-  - - web前端
+  - 前端
 date: 2018-11-03 14:32:32
 ---
 

@@ -3,7 +3,7 @@ title: 关于 a 标签 target_blank 使用 rel=noopener
 tags: []
 id: '798'
 categories:
-  - - web前端
+  - 前端
 date: 2020-03-06 00:10:51
 ---
 

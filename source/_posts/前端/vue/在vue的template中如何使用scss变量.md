@@ -3,7 +3,7 @@ title: 在vue的template中如何使用scss变量
 tags: []
 id: '2000'
 categories:
-  - - web前端
+  - 前端
 date: 2020-11-06
 ---
 

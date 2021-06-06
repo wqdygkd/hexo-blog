@@ -3,7 +3,7 @@ title: 在微信小程序中使用 iconfont
 tags: []
 id: '1060'
 categories:
-  - - web前端
+  - 前端
 date: 2020-03-25 17:34:41
 ---
 

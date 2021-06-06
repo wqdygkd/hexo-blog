@@ -5,7 +5,7 @@ tags:
   - vue
 id: 2026
 categories:
-  - web前端
+  - 前端
 date: 2021-05-13
 ---
 

@@ -4,7 +4,7 @@ tags:
   - echarts
 id: '1145'
 categories:
-  - - web前端
+  - 前端
 date: 2020-01-20 00:00:21
 ---
 

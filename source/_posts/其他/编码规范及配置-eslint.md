@@ -4,7 +4,7 @@ tags:
   - eslint
 id: '416'
 categories:
-  - - web前端
+  - 前端
 date: 2018-11-15 22:25:23
 ---
 
