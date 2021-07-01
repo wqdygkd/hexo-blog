@@ -1,3 +1,5 @@
+keep-alive缓存页面使用$destroy后不能在次缓存 https://github.com/vuejs/vue/issues/6509
+
 js  比较两个日期大小。格式：2018-8-12 12:30
 
 ```
