@@ -73,3 +73,8 @@ git clone https://github.com/vuejs/vue.git
 # 改为
 git clone https://github.com.cnpmjs.org/vuejs/vue.git
 ```
+
+## https://github.com/521xueweihan/GitHub520
+
+SwitchHosts v4.0.2
+https://github.com/oldj/SwitchHosts/releases/tag/v4.0.2
