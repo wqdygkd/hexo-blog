@@ -67,7 +67,7 @@ var module1 = (function() {
 // console.info(module1._count) // undefined
 ```
 
-## 模块化的标准
+# 模块化的标准
 
 让模块拥有更好的通用性
 
@@ -81,9 +81,29 @@ var module1 = (function() {
 
 - commonJS: node.js 同步加载模块，适用于服务端
 
-- ES6 标准模块化规范
+- ES 标准模块化规范
 
-### CMD (Common Module Definition)
+## AMD (Asynchronous Module Definition)
+
+> 异步加载模块 [requireJs](http://requirejs.org/) 库应用这一规范
+
+```js
+// module add.js
+define(function () {
+  return {
+    add: function (a, b) { return a + b }
+  }
+})
+
+// main.js
+// 第一个参数是要请求的模块,第二个参数是依赖模块请求完成的回调函数
+require(['add'], function (add) {
+  console.log('1 + 2 = ' + add(1,2)
+});
+```
+
+
+## CMD (Common Module Definition)
 
 > 同步加载模块 SeaJS
 
@@ -120,26 +140,7 @@ console.log('1 + 2 = ' + add(1, 2)
 // 同步加载这对服务器端不是一个问题，因为所有的模块都存放在本地硬盘，可以同步加载完成，等待时间就是硬盘的读取时间。但是，对于浏览器，这却是一个大问题，因为模块都放在服务器端，等待时间取决于网速的快慢，可能要等很长时间，浏览器处于"假死"状态
 ```
 
-### AMD (Asynchronous Module Definition)
-
-> 异步加载模块 [requireJs](http://requirejs.org/) 库应用这一规范
-
-```js
-// module add.js
-define(function () {
-  return {
-    add: function (a, b) { return a + b }
-  }
-})
-
-// main.js
-// 第一个参数是要请求的模块,第二个参数是依赖模块请求完成的回调函数
-require(['add'], function (add) {
-  console.log('1 + 2 = ' + add(1,2)
-});
-```
-
-### AMD 和 CMD 区别
+## AMD 和 CMD 区别
 
 AMD 和 CMD 最大的区别是对依赖模块的执行时机处理不同，而不是加载的时机或者方式不同，二者皆为异步加载模块。
 
@@ -148,6 +149,14 @@ AMD(requirejs)是将所有文件同时加载、一次性引入、推崇依赖前
 CMD(seajs)强调的是一个文件一个模块、可按需引入、推崇依赖就近、加载完某个模块后不会立即执行，只是下载而已，所有依赖模块加载完成后进入主逻辑，遇到 require 语句的时候才执行对应的模块，这样模块的执行顺序和书写顺序是完全一致的
 
 ```js
+// AMD
+define(['./a', './b'], function(a, b) {
+  // 依赖必须一开始就写好
+  a.doSomething()
+  b.doSomething()
+  // ...
+})
+
 // CMD
 define(function(require, exports, module) {
   var a = require('./a')
@@ -156,17 +165,9 @@ define(function(require, exports, module) {
   b.doSomething()
   // ...
 })
-
-// AMD
-define(['./a', './b'], function(a, b) {
-  // 依赖必须一开始就写好
-  a.doSomething()
-  b.doSomething()
-  // ...
-})
 ```
 
-### CommonJS 规范
+## CommonJS 规范
 
 > Node 应用由模块组成，采用 CommonJS 模块规范，每个文件就是一个模块，有自己的作用域
 
@@ -174,7 +175,7 @@ define(['./a', './b'], function(a, b) {
 
 有四个重要的环境变量为模块化的实现提供支持：module、exports、require、global
 
-#### node 中模块分类
+### node 中模块分类
 
 - 核心模块：由 node 本身提供，不需要单独安装（npm），可直接引入使用
 
@@ -188,7 +189,7 @@ define(['./a', './b'], function(a, b) {
 
 - 自定义模块：由开发人员自己创建，比如：tool.js 、 user.js
 
-#### 模块导入
+### 模块导入
 
 - 核心模块直接引入使用：`require('fs')` 加载文件操作模块
 
@@ -208,7 +209,7 @@ require('./a.js')
 
 - 模块可以被多次导入，但是只会在第一次加载
 
-#### 模块导出
+### 模块导出
 
 - 在模块的内部，`module` 变量代表的就是当前模块，它的 `exports` 属性就是对外的接口，加载某个模块，加载的就是 `module.exports` 属性，这个属性指向一个空的对象
 
@@ -223,7 +224,7 @@ module.exports = () => {}
 module.exports = {}
 ```
 
-#### module.exports 与 exports
+### module.exports 与 exports
 
 - exports 不是 module.exports 的缩写，exports 是单独存在的
 
@@ -250,7 +251,7 @@ module.exports = {}
 // 模块导出的是 module.exports 指向的对象
 ```
 
-#### nodejs 中 require 加载模块的规则
+### nodejs 中 require 加载模块的规则
 
 require('mime') 以 mime 为例
 
@@ -261,63 +262,86 @@ require('mime') 以 mime 为例
 5. 如果没有找到对应的模块，回去上一层目录，继续查找，一直找到根目录 C: || D: || E:
 6. 报错： can not find module xxx
 
-### ES6 模块化 - import 和 export
+## ES 模块化 - import 和 export
 
 Modules 不是对象，<span class="red">import 命令会被 JavaScript 引擎静态分析，在编译时就引入模块代码，而不是在代码运行时加载，所以无法实现条件加载。</span>也正因为这个，使得静态分析成为可能
 
-export default 默认导出一个模块 ( 简单类型 + 复杂类型 )
-
-- **导出 : export default**
-
-默认只能导出一个
-
-```js
-let str = 'abc'
-let num = 20
-let obj = { name: 'zs' }
-
-export default num
-// export default obj
-```
-
-- **导入 : import**
-
-  导入的名字可以任意
-
-```js
-import res from './a.js'
-console.log(res)
-```
-
 export 导出多个模块，都放在一个对象里
 
-- **导出 : export**
+export default 默认只能导出一个，一个模块只允许有一个 export default，否则报错
+export default 后面不可以用 var、let、const 可用 export default function(){} function add(){}
 
 ```js
-export { num, str }
-```
+// 导出
+export const a = 1
 
-- **导入 : import**
+const b = 2
+export { b } // 必须用对象包裹，否则报错
+
+export function c () {}
+export const d = function () {}
+
+// 导入
+import { a, b, c, d, e } from 'test.js'
+a // 1
+b // 2
+c // ƒ c() {}
+d // ƒ d() {}
+e // undefined
+```
 
 ```js
-import { num, str } from './a'
-console.log(num, str)
+// 导出
+export default a = 1
+// 等价于
+let a = 1
+export { a as default }
+// 等价于
+let a = 1
+export default a
+
+// 导入
+import a from 'test.js'
+a // 1
+
+// 导入的名字可以任意
+import b from 'test.js'
+b // 1
 ```
 
-### es6 import() 函数
+```js
+// 导出
+export default a = 1
+export const b = 2
+export const c = 3
+// 导入
+import * as tool from 'test.js'
+tool.a // 1
+tool.b // 2
+tool.c // 3
 
-参数同 import 命令的参数
+// 或者
+import a, { b as d, c } from '@/utils/type'
 
-返回一个 promise 对象
+// 以下写法错误
+import { b as d, c }, a from '@/utils/type' // x
+import a, e from '@/utils/type' // x
+```
 
-import() 函数可以用在任何地方，不仅仅是模块，非模块的脚本也可以使用。它是运行时执行，也就是说，什么时候运行到这一句，也会加载指定的模块。另外，import() 函数与所加载的模块没有静态连接关系，这点也是与 import
+## es import() 函数
 
-import()类似于 Node 的 require 方法，区别主要是前者是异步加载，后者是同步加载。
+参数同 import 命令的参数，返回一个 promise 对象
+
+import() 函数可以用在任何地方，不仅仅是模块，非模块的脚本也可以使用。它是运行时执行，也就是说，什么时候运行到这一句，才会加载指定的模块。另外，import() 函数与所加载的模块没有静态连接关系
+
+import 命令会被 js 引擎静态分析，import 语句放在 if 代码块之中毫无意义，因此会报句法错误，即不能用于条件加载
+
+import() 类似于 Node 的 require 方法，区别主要是前者是异步加载，后者是同步加载
 
 应用： 按需加载，条件加载，动态模块路径
 
 ```js
-import('./myModule.js').then(({ export1, export2 }) => {
+import('./module.js').then(({ export1, export2 }) => {
   // ...
 })
 ```
@@ -326,22 +350,21 @@ import('./myModule.js').then(({ export1, export2 }) => {
 
 ```js
 Promise.all([
-import('./module1.js'),
-import('./module2.js'),
-import('./module3.js'),
-])
-.then(([module1, module2, module3]) => {
-···
+  import('./module1.js'),
+  import('./module2.js'),
+  import('./module3.js'),
+]).then(([module1, module2, module3]) => {
+  // ···
 })
 ```
 
-import()也可以用在 async 函数之中。
+import() 也可以用在 async 函数之中。
 
-在 webpack 中使用 import() 动态加载模块时，webpack 默认会将所有 import()的模块都进行单独打包
+在 webpack 中使用 import() 动态加载模块时，webpack 默认会将所有 import() 的模块都进行单独打包
 
 https://webpack.js.org/api/module-methods/#import-1
 
-### CommonJS 模块 和 ES6 模块化区别
+## CommonJS 模块 和 ES 模块化区别
 
 CommonJS 模块是运行时加载，ES6 模块是编译时输出接口
 运行时加载: CommonJS 模块就是对象；即在输入时是先加载整个模块，生成一个对象，然后再从这个对象上面读取方法，这种加载称为“运行时加载”
