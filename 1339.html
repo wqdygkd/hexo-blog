@@ -32,7 +32,7 @@
 <meta property="og:description" content="项目地址：https:&#x2F;&#x2F;github.com&#x2F;nondanee&#x2F;UnblockNeteaseMusic食用指南：https:&#x2F;&#x2F;github.com&#x2F;nondanee&#x2F;UnblockNeteaseMusic&#x2F;issues&#x2F;22 特性：  使用 QQ &#x2F; 虾米 &#x2F; 百度 &#x2F; 酷狗 &#x2F; 酷我 &#x2F; 咪咕 &#x2F; JOOX 音源替换变灰歌曲链接 (默认仅启用一、五、六) 为请求增加 X-Real-IP 参数">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-04-30T12:00:24.000Z">
-<meta property="article:modified_time" content="2021-07-19T10:41:14.771Z">
+<meta property="article:modified_time" content="2021-07-24T02:30:01.242Z">
 <meta property="article:author" content="c">
 <meta property="article:tag" content="网易云音乐">
 <meta name="twitter:card" content="summary">
@@ -306,7 +306,7 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npx @nondanee/unblockneteasemusic</span><br></pre></td></tr></table></figure>
 
 <p>或</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ npm install -g @nondanee&#x2F;unblockneteasemusic</span><br><span class="line">$ unblockneteasemusic</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ npm install -g @nondanee/unblockneteasemusic</span><br><span class="line">$ unblockneteasemusic</span><br></pre></td></tr></table></figure>
 
 <h3 id="网易云客户端连接使用"><a href="#网易云客户端连接使用" class="headerlink" title="网易云客户端连接使用"></a>网易云客户端连接使用</h3><p>在网易云客户端内设置代理：<br>右上角设置 &gt; 自定义代理 &gt; 地址 127.0.0.1 端口 8080<br>确定重启客户端后，即可开始使用</p>
 <p>PAC 自动代理脚本地址 <code>http://127.0.0.1:8080/proxy.pac</code></p>
@@ -321,7 +321,7 @@
 <h4 id="ios-设备"><a href="#ios-设备" class="headerlink" title="ios 设备"></a>ios 设备</h4><p>ios 配置经验分享：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25vbmRhbmVlL1VuYmxvY2tOZXRlYXNlTXVzaWMvaXNzdWVzLzM2OA==">https://github.com/nondanee/UnblockNeteaseMusic/issues/368<i class="fa fa-external-link-alt"></i></span></p>
 <p>ios 需要一个域名，并配置反代</p>
 <p>nginx 配置：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">	  listen 443 ssl http2;</span><br><span class="line">	  server_name your_domain; # 改为你自己的域名</span><br><span class="line">	  ssl_certificate 1_your_domain_bundle.crt; # 改为自己申请得到的 crt 文件的名称</span><br><span class="line">	  ssl_certificate_key 2_your_domain.key; # 改为自己申请得到的 key 文件的名称</span><br><span class="line">	  ssl_session_timeout 5m;</span><br><span class="line">	  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">	  ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;</span><br><span class="line">	  ssl_prefer_server_ciphers on;</span><br><span class="line"></span><br><span class="line">	  location &#x2F; &#123;</span><br><span class="line">	    proxy_pass http:&#x2F;&#x2F;localhost:8080; # 代理到 Unblock 服务地址</span><br><span class="line">	  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">	  listen 443 ssl http2;</span><br><span class="line">	  server_name your_domain; # 改为你自己的域名</span><br><span class="line">	  ssl_certificate 1_your_domain_bundle.crt; # 改为自己申请得到的 crt 文件的名称</span><br><span class="line">	  ssl_certificate_key 2_your_domain.key; # 改为自己申请得到的 key 文件的名称</span><br><span class="line">	  ssl_session_timeout 5m;</span><br><span class="line">	  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">	  ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;</span><br><span class="line">	  ssl_prefer_server_ciphers on;</span><br><span class="line"></span><br><span class="line">	  location / &#123;</span><br><span class="line">	    proxy_pass http://localhost:8080; # 代理到 Unblock 服务地址</span><br><span class="line">	  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>pm2 部署：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pm2 start app.js --name UnblockNeteaseMusic -- -s -p 8080 -e https://unblockneteasemusic.ayyy.club</span><br></pre></td></tr></table></figure>
@@ -329,7 +329,7 @@
 <p>iOS 搭配 Shadowrocket 连接代理</p>
 <p>Shadowrocket 右上角加号添加节点 -&gt; 类型选择 HTTP -&gt; 服务器填写你的服务器公网 IP -&gt; 端口填写你启动服务的端口号（默认为 8080） -&gt; 点击配置 -&gt; 点击本地文件 -&gt; default.conf -&gt; 编辑配置</p>
 <p>添加三条规则 选项选择你刚刚添加的节点</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">USER-AGENT: NeteaseMusic*</span><br><span class="line">DOMAIN-SUFFIX: 163.com</span><br><span class="line">DOMAIN-SUFFIX: 126.net</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">USER-AGENT: NeteaseMusic*</span><br><span class="line">DOMAIN-SUFFIX: 163.com</span><br><span class="line">DOMAIN-SUFFIX: 126.net</span><br></pre></td></tr></table></figure>
 
 <h3 id="pm2-常用命令"><a href="#pm2-常用命令" class="headerlink" title="pm2 常用命令"></a>pm2 常用命令</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pm2 stop UnblockNeteaseMusic <span class="comment"># 停止服务</span></span><br><span class="line">pm2 restart UnblockNeteaseMusic <span class="comment"># 重启服务</span></span><br><span class="line">pm2 pull UnblockNeteaseMusic <span class="comment"># 更新服务到最新代码</span></span><br><span class="line">pm2 show UnblockNeteaseMusic <span class="comment"># 查看服务的参数信息</span></span><br><span class="line">pm2 <span class="built_in">log</span> UnblockNeteaseMusic <span class="comment"># 查看服务日志</span></span><br><span class="line">pm2 ls <span class="comment"># 查看已部署的服务列表</span></span><br><span class="line">pm2 monit <span class="comment"># 监控服务状态</span></span><br><span class="line">pm2 flush <span class="comment"># 清理所有日志文件</span></span><br><span class="line">pm2 update <span class="comment"># 更新 pm2 状态</span></span><br></pre></td></tr></table></figure>
 

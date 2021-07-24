@@ -32,7 +32,7 @@
 <meta property="og:description" content="移动 web 基础移动端开发现状 移动 web 开发指的是需要适配移动设备的网页开发 移动 web 开发与 pc 端 web 开发没有本质的区别，使用的还是 HTML&#x2F;CSS&#x2F;JavaScript 的技术 移动 web 开发与 pc 端 web 开发的区别是什么？  移动端的浏览器与 pc 端不同 谷歌浏览器 苹果浏览器、 UC浏览器 QQ浏览器 欧朋浏览器 百度手机浏览器  360安全浏览器">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2018-12-11T22:05:45.000Z">
-<meta property="article:modified_time" content="2021-07-19T10:41:14.779Z">
+<meta property="article:modified_time" content="2021-07-24T02:30:01.250Z">
 <meta property="article:author" content="c">
 <meta name="twitter:card" content="summary">
 
@@ -297,7 +297,7 @@
 <li>移动 web 开发与 pc 端 web 开发的区别是什么？</li>
 </ul>
 <p>移动端的浏览器与 pc 端不同</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">谷歌浏览器 苹果浏览器、 UC浏览器 QQ浏览器 欧朋浏览器 百度手机浏览器  360安全浏览器  搜狗浏览器  猎豹浏览器等</span><br><span class="line">国内的手机浏览器都是根据webkit内核修改过来的，国内没有自主研发的内核，国内的操作系统也是基于Android系统修改的。</span><br><span class="line"></span><br><span class="line">因此在移动端，css3 属性只需要加 webkit 前缀即可</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">谷歌浏览器 苹果浏览器、 UC浏览器 QQ浏览器 欧朋浏览器 百度手机浏览器  360安全浏览器  搜狗浏览器  猎豹浏览器等</span><br><span class="line">国内的手机浏览器都是根据webkit内核修改过来的，国内没有自主研发的内核，国内的操作系统也是基于Android系统修改的。</span><br><span class="line"></span><br><span class="line">因此在移动端，css3 属性只需要加 webkit 前缀即可</span><br></pre></td></tr></table></figure>
 
 <p>移动端设备尺寸不一样(尺寸非常多，碎片化很严重)</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">Android： <span class="number">320</span>*<span class="number">480</span> <span class="number">480</span>*<span class="number">800</span>  <span class="number">540</span>*<span class="number">960</span> <span class="number">720</span>*<span class="number">1280</span> <span class="number">1080</span>*<span class="number">1920</span> 2k屏 4k屏</span><br><span class="line">iphpne：  <span class="number">640</span>*<span class="number">960</span> <span class="number">640</span>*<span class="number">1136</span> <span class="number">750</span>*<span class="number">1334</span> <span class="number">1242</span>*<span class="number">2208</span></span><br></pre></td></tr></table></figure>
@@ -396,7 +396,7 @@
 <p>把更多的像素点压缩至一块屏幕里，从而达到更高的分辨率并提高屏幕显示的细腻程度</p>
 <p>设备像素比 devicePixelRatio：即像素的压缩比例</p>
 <p><strong>结论 ：在移动端为了在高清屏手机上显示得更加细腻，通常会使用更大的图片，比如 2 倍图或者 3 倍图</strong></p>
-<h2 id="视口-viewport"><a href="#视口-viewport" class="headerlink" title="视口 viewport"></a>视口 viewport</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">问题：一个电脑上的网站，在手机端访问，效果是什么样的？</span><br><span class="line"></span><br><span class="line">iPhone5 的设备宽度只有 320px，一张宽度为 640px 的图片在手机端访问，显示的效果是什么？</span><br><span class="line"></span><br><span class="line">1. 在手机端，html的 大小都是 980px，为什么？</span><br><span class="line">这主要是历史原因导致的，因为在移动设备刚流行的时候，网站大多都是pc端的，pc端的页面宽度一般都比较大，移动设备的宽度比较小，如果pc端页面直接在移动端显示的话，页面就会错乱。为了解决这个问题，移动端html的大小直接就定死成了980px（因为早起的pc端网站版心就是980px居多）</span><br><span class="line"></span><br><span class="line">2. 视口</span><br><span class="line">在 pc 端，html 的大小默认是继承了浏览器的宽度，即浏览器多宽，html 的大小就是多宽，但是在移动端，多出来了一个视口的概念（乔布斯）,视口说白了就是介于浏览器与 html 之间的一个东西，视口的宽度默认定死了 980px，因此 html 的宽度默认就是 980px，视口的特点是能够根据设备的宽度进行缩放</span><br><span class="line"></span><br><span class="line">3. 视口设置</span><br><span class="line">对于现在的移动端页面来说，视口默认为 980px 肯定不合适，因为设备宽度不够的话，视口会进行缩放，导致页面展示效果不好看</span><br></pre></td></tr></table></figure>
+<h2 id="视口-viewport"><a href="#视口-viewport" class="headerlink" title="视口 viewport"></a>视口 viewport</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">问题：一个电脑上的网站，在手机端访问，效果是什么样的？</span><br><span class="line"></span><br><span class="line">iPhone5 的设备宽度只有 320px，一张宽度为 640px 的图片在手机端访问，显示的效果是什么？</span><br><span class="line"></span><br><span class="line">1. 在手机端，html的 大小都是 980px，为什么？</span><br><span class="line">这主要是历史原因导致的，因为在移动设备刚流行的时候，网站大多都是pc端的，pc端的页面宽度一般都比较大，移动设备的宽度比较小，如果pc端页面直接在移动端显示的话，页面就会错乱。为了解决这个问题，移动端html的大小直接就定死成了980px（因为早起的pc端网站版心就是980px居多）</span><br><span class="line"></span><br><span class="line">2. 视口</span><br><span class="line">在 pc 端，html 的大小默认是继承了浏览器的宽度，即浏览器多宽，html 的大小就是多宽，但是在移动端，多出来了一个视口的概念（乔布斯）,视口说白了就是介于浏览器与 html 之间的一个东西，视口的宽度默认定死了 980px，因此 html 的宽度默认就是 980px，视口的特点是能够根据设备的宽度进行缩放</span><br><span class="line"></span><br><span class="line">3. 视口设置</span><br><span class="line">对于现在的移动端页面来说，视口默认为 980px 肯定不合适，因为设备宽度不够的话，视口会进行缩放，导致页面展示效果不好看</span><br></pre></td></tr></table></figure>
 
 <p><strong>视口参数设置</strong></p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// width 设置视口的宽度</span></span><br><span class="line"><span class="comment">// width=device-width   设置视口宽度为设备的宽度（常用）</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// initial-scale 设置初始缩放比例</span></span><br><span class="line"><span class="comment">// initial-scale=1.0  表示不缩放</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// user-scalable 设置是否允许用户缩放</span></span><br><span class="line"><span class="comment">// user-scalable=no  不允许用户缩放</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// maximum-scale  设置允许的最大缩放比例</span></span><br><span class="line"><span class="comment">// maximum-scale=1.0  可以不设置，因为都禁止用户缩放了</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// minimum-scale 设置允许最小缩放比</span></span><br><span class="line"><span class="comment">// minimum-scale=1.0  不设置，因为都禁用用户缩放了</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 标准写法：</span></span><br><span class="line"><span class="comment">// 快捷键：  meta:vp + tab键</span></span><br><span class="line">&lt;meta name=<span class="string">&quot;viewport&quot;</span> content=<span class="string">&quot;width=device-width, user-scalable=no, initial-scale=1.0&quot;</span>&gt;</span><br></pre></td></tr></table></figure>
@@ -426,7 +426,7 @@
 <p><strong>流式布局无法做到所有设备都非常逼真的还原设计图，有些设备显示效果不是特别的好看。但是流式布局是移动端非常常用的一种布局方式，比较简单，需要掌握（携程、京东)</strong></p>
 <p><strong>最后一天会学习 rem 布局，配合 less 非常的方便，并且能够实现完全的自适应，包括字体以及图标等</strong></p>
 <p>经典的流式布局</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. 左侧固定，右侧自适应</span><br><span class="line">2. 右侧固定，左侧自适应</span><br><span class="line">3. 两侧固定，中间自适应（圣杯布局，双飞翼布局）</span><br><span class="line">4. 等分布局</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1. 左侧固定，右侧自适应</span><br><span class="line">2. 右侧固定，左侧自适应</span><br><span class="line">3. 两侧固定，中间自适应（圣杯布局，双飞翼布局）</span><br><span class="line">4. 等分布局</span><br></pre></td></tr></table></figure>
 
 <h1 id="touch-事件"><a href="#touch-事件" class="headerlink" title="touch 事件"></a>touch 事件</h1><p>移动端新增了 4 个与手指触摸相关的事件</p>
 <ul>
@@ -453,7 +453,7 @@
 <li>如果有图片，我们需要保证图片加载完成，如果有浮动，需要清除浮动，为了保证子盒子的高度获取的是正确的</li>
 <li>子盒子大小一定要超过父盒子的大小</li>
 </ol>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 使用：box为父盒子</span></span><br><span class="line"><span class="keyword">var</span> box = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.box&#x27;</span>)</span><br><span class="line"><span class="keyword">new</span> IScroll(box, &#123;</span><br><span class="line">  scrollX: <span class="literal">false</span>, <span class="comment">// 横向滚动</span></span><br><span class="line">  scrollY: <span class="literal">true</span> <span class="comment">// 纵向滚动</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 使用：box为父盒子</span></span><br><span class="line"><span class="keyword">var</span> box = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.box&#x27;</span>)</span><br><span class="line"><span class="keyword">new</span> IScroll(box, &#123;</span><br><span class="line">  <span class="attr">scrollX</span>: <span class="literal">false</span>, <span class="comment">// 横向滚动</span></span><br><span class="line">  <span class="attr">scrollY</span>: <span class="literal">true</span> <span class="comment">// 纵向滚动</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 <h1 id="zepto-框架"><a href="#zepto-框架" class="headerlink" title="zepto 框架"></a>zepto 框架</h1><blockquote>
 <p><strong>Zepto</strong>是一个轻量级的<strong>针对现代高级浏览器的 JavaScript 库， <strong>它与 jquery</strong>有着类似的 api</strong>。 如果你会用 jquery，那么你也会用 zepto</p>
@@ -585,7 +585,7 @@
 </ul>
 <h2 id="rem-布局"><a href="#rem-布局" class="headerlink" title="rem 布局"></a>rem 布局</h2><p>因为 rem 的基准点是根元素 html 的字体大小，因此我们只需要设置不同屏幕的 html 的 font-size 大小不一样就可以达到不同屏幕的适配了。</p>
 <h3 id="rem-配合媒体查询"><a href="#rem-配合媒体查询" class="headerlink" title="rem 配合媒体查询"></a>rem 配合媒体查询</h3><p>使用 rem 配合媒体查询可以适配多个终端</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">@media(min-width: 320px) &#123;</span><br><span class="line">  <span class="selector-tag">html</span> &#123;</span><br><span class="line">    <span class="comment">/* 基准值 / 设计图的大小  = 某个屏幕的font-size / 屏幕的宽度 */</span></span><br><span class="line">    <span class="comment">/* 100/750 = x/370 */</span></span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">50px</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@media</span>(min-width: <span class="number">320px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">html</span> &#123;</span><br><span class="line">    <span class="comment">/* 基准值 / 设计图的大小  = 某个屏幕的font-size / 屏幕的宽度 */</span></span><br><span class="line">    <span class="comment">/* 100/750 = x/370 */</span></span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">50px</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 
 <p>优点：使用媒体查询适配，速度快。</p>
 <p>缺点：适配多个终端时，需要添加响应的代码。</p>

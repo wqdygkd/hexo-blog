@@ -32,7 +32,7 @@
 <meta property="og:description" content="Window.history 是一个只读属性，提供了操作浏览器会话历史（浏览器地址栏中访问的页面，以及当前页面中通过框架加载的页面）的接口。HTML5 引入了 history.pushState() 和 history.replaceState() 方法，它们分别可以添加和修改历史记录条目。这些方法通常与 window.onpopstate 配合使用。  参考 https:&#x2F;&#x2F;developer.">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-07-12T13:38:26.000Z">
-<meta property="article:modified_time" content="2021-07-19T10:41:14.775Z">
+<meta property="article:modified_time" content="2021-07-24T02:30:01.246Z">
 <meta property="article:author" content="c">
 <meta property="article:tag" content="js">
 <meta name="twitter:card" content="summary">
@@ -310,7 +310,7 @@
 <p>地址（url）–新的历史记录条目的地址（可选，不指定的话则为文档当前 URL）；浏览器在调用 pushState()方法后不会加载该地址；传入的 URL 与当前 URL 应该是同源的，否则，pushState()会抛出异常。</p>
 <p>history.pushState()主要是在不刷新浏览器的情况下，创建新的浏览记录并插入浏览记录队列中</p>
 <p>假设在 <span class="exturl" data-url="aHR0cDovL21vemlsbGEub3JnL2Zvby5odG1s">http://mozilla.org/foo.html<i class="fa fa-external-link-alt"></i></span> 中执行了以下 JavaScript 代码:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> stateObj = &#123;</span><br><span class="line">  foo: <span class="string">&#x27;bar&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">history.pushState(stateObj, <span class="string">&#x27;page 2&#x27;</span>, <span class="string">&#x27;bar.html&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> stateObj = &#123;</span><br><span class="line">  <span class="attr">foo</span>: <span class="string">&#x27;bar&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">history.pushState(stateObj, <span class="string">&#x27;page 2&#x27;</span>, <span class="string">&#x27;bar.html&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
 <p>这将使浏览器地址栏显示为 <span class="exturl" data-url="aHR0cDovL21vemlsbGEub3JnL2Jhci5odG1sJUVGJUJDJThDJUU0JUJEJTg2JUU1JUI5JUI2JUU0JUI4JThEJUU0JUJDJTlBJUU1JUFGJUJDJUU4JTg3JUI0JUU2JUI1JThGJUU4JUE3JTg4JUU1JTk5JUE4JUU1JThBJUEwJUU4JUJEJUJE">http://mozilla.org/bar.html，但并不会导致浏览器加载<i class="fa fa-external-link-alt"></i></span> bar.html ，甚至不会检查 bar.html 是否存在</p>
 <p>history.replaceState() 的使用与 history.pushState() 非常相似，区别在于 replaceState() 是修改了当前的历史记录项而不是新建一个</p>

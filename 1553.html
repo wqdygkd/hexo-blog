@@ -32,7 +32,7 @@
 <meta property="og:description" content="如果页面指定了 DTD，即指定了 DOCTYPE 时，使用 document.documentElement.scrollTop&#x2F;Left 可以获取到正确的结果 页面没有 DTD，即没指定 DOCTYPE 时，使用 document.body.scrollTop&#x2F;Left 可以获取到正确的结果 获取页面向左、向上卷动的距离的兼容性方式 function getScroll() &amp;#123;  re">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-05-28T14:34:57.000Z">
-<meta property="article:modified_time" content="2021-07-19T10:41:14.775Z">
+<meta property="article:modified_time" content="2021-07-24T02:30:01.246Z">
 <meta property="article:author" content="c">
 <meta name="twitter:card" content="summary">
 
@@ -293,7 +293,7 @@
         <p>如果页面指定了 DTD，即指定了 DOCTYPE 时，使用 document.documentElement.scrollTop/Left 可以获取到正确的结果</p>
 <p>页面没有 DTD，即没指定 DOCTYPE 时，使用 document.body.scrollTop/Left 可以获取到正确的结果</p>
 <p>获取页面向左、向上卷动的距离的兼容性方式</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getScroll</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    left: <span class="built_in">window</span>.pageXOffset || <span class="built_in">document</span>.documentElement.scrollLeft || <span class="built_in">document</span>.body.scrollLeft || <span class="number">0</span>,</span><br><span class="line">    top: <span class="built_in">window</span>.pageYOffset || <span class="built_in">document</span>.documentElement.scrollTop || <span class="built_in">document</span>.body.scrollTop || <span class="number">0</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getScroll</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="attr">left</span>: <span class="built_in">window</span>.pageXOffset || <span class="built_in">document</span>.documentElement.scrollLeft || <span class="built_in">document</span>.body.scrollLeft || <span class="number">0</span>,</span><br><span class="line">    <span class="attr">top</span>: <span class="built_in">window</span>.pageYOffset || <span class="built_in">document</span>.documentElement.scrollTop || <span class="built_in">document</span>.body.scrollTop || <span class="number">0</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>document.body 与 document.documentElement 区别</p>
 <p>document.body 返回 dom 中的 body 节点即 <code>&lt;body&gt;</code><br>document.documentElement 返回 dom 中的 root 节点即 <code>&lt;html&gt;</code></p>

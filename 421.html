@@ -37,7 +37,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202341.jpeg">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202402.png">
 <meta property="article:published_time" content="2018-09-12T22:28:19.000Z">
-<meta property="article:modified_time" content="2021-07-19T10:41:14.767Z">
+<meta property="article:modified_time" content="2021-07-24T02:30:01.238Z">
 <meta property="article:author" content="c">
 <meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary">
@@ -383,7 +383,7 @@
 
 <p>将公钥上传到对应的用户账号中</p>
 <p>在 <code>.ssh</code> 目录创建 <code>config</code> 文件，配置私钥对应的服务器，每个账号单独配置一个 Host，每个 Host 要取一个别名，每个 Host 主要配置 HostName 和 IdentityFile 两个属性即可</p>
-<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line"># 配置用户1</span><br><span class="line">Host github</span><br><span class="line">HostName github.com</span><br><span class="line">IdentityFile ~/.ssh/id_rsa_github</span><br><span class="line">User cuilongjin</span><br><span class="line"></span><br><span class="line"># 配置用户2</span><br><span class="line">Host gitlab</span><br><span class="line">HostName git.gitlab.net</span><br><span class="line">IdentityFile ~/.ssh/id_rsa_gitlab</span><br><span class="line">User cuilongjin</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 配置用户1</span><br><span class="line">Host github</span><br><span class="line">HostName github.com</span><br><span class="line">IdentityFile ~/.ssh/id_rsa_github</span><br><span class="line">User cuilongjin</span><br><span class="line"></span><br><span class="line"># 配置用户2</span><br><span class="line">Host gitlab</span><br><span class="line">HostName git.gitlab.net</span><br><span class="line">IdentityFile ~/.ssh/id_rsa_gitlab</span><br><span class="line">User cuilongjin</span><br></pre></td></tr></table></figure>
 
 <p>Host 的名字可以任意，不过这个会影响 git 相关命令，例如：</p>
 <p>Host mygithub 这样定义的话，命令如下</p>
@@ -484,7 +484,7 @@
 </ul>
 <p>在仓库的根目录创建一个 <code>.gitignore</code> 的文件，文件名是固定的</p>
 <p>将不需要被 git 管理的文件路径添加到 <code>.gitignore</code> 中，把 <code>.gitignore</code> 也提交到 Git，Git 就会自动忽略这些文件</p>
-<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line"># 忽视 index.txt 文件</span><br><span class="line">index.txt</span><br><span class="line"></span><br><span class="line"># 忽视 .gitignore 文件</span><br><span class="line">.gitignore</span><br><span class="line"></span><br><span class="line"># 忽视 css 下的 index.css 文件</span><br><span class="line">css/index.css</span><br><span class="line"></span><br><span class="line"># 忽视 css 下的所有的 css 文件</span><br><span class="line">css/*.css</span><br><span class="line"></span><br><span class="line"># 忽视 css 下的所有文件</span><br><span class="line">css/*.*</span><br><span class="line"></span><br><span class="line"># 忽视 css 文件夹</span><br><span class="line">css</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 忽视 index.txt 文件</span><br><span class="line">index.txt</span><br><span class="line"></span><br><span class="line"># 忽视 .gitignore 文件</span><br><span class="line">.gitignore</span><br><span class="line"></span><br><span class="line"># 忽视 css 下的 index.css 文件</span><br><span class="line">css/index.css</span><br><span class="line"></span><br><span class="line"># 忽视 css 下的所有的 css 文件</span><br><span class="line">css/*.css</span><br><span class="line"></span><br><span class="line"># 忽视 css 下的所有文件</span><br><span class="line">css/*.*</span><br><span class="line"></span><br><span class="line"># 忽视 css 文件夹</span><br><span class="line">css</span><br></pre></td></tr></table></figure>
 
 <p>GitHub 已经为我们准备了各种配置文件 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2dpdGh1Yi9naXRpZ25vcmU=">https://github.com/github/gitignore<i class="fa fa-external-link-alt"></i></span></p>
 <p>强制添加被 .gitignore 忽略的文件</p>
@@ -545,7 +545,7 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 删除本地标签 v1.0</span></span><br><span class="line">git tag -d v1.0</span><br><span class="line"><span class="comment"># 删除远程标签 v1.0</span></span><br><span class="line">git push origin :refs/tags/v1.0</span><br><span class="line">或 git push origin --delete tag v1.0</span><br></pre></td></tr></table></figure>
 
 <h2 id="git-仓库分离"><a href="#git-仓库分离" class="headerlink" title="git 仓库分离"></a>git 仓库分离</h2><p>将一个 git 仓库里的一部分文件转出作为一个独立的仓库并保留提交记录 commit log</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 这就是那个大仓库 big-project</span><br><span class="line">git clone git@github.com:**&#x2F;big-project.git</span><br><span class="line">cd big-project</span><br><span class="line"># 把所有 &#96;source&#x2F;page&#96; 目录下的相关提交整理为一个新的分支 page</span><br><span class="line">git subtree split -P source&#x2F;page -b page</span><br><span class="line"># 另建一个新目录并初始化为 git 仓库</span><br><span class="line">mkdir ..&#x2F;page</span><br><span class="line">cd ..&#x2F;page</span><br><span class="line">git init</span><br><span class="line"># 拉取旧仓库的 page 分支到当前的 master 分支</span><br><span class="line">git pull ..&#x2F;big-project page</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 这就是那个大仓库 big-project</span><br><span class="line">git clone git@github.com:**/big-project.git</span><br><span class="line">cd big-project</span><br><span class="line"># 把所有 `source/page` 目录下的相关提交整理为一个新的分支 page</span><br><span class="line">git subtree split -P source/page -b page</span><br><span class="line"># 另建一个新目录并初始化为 git 仓库</span><br><span class="line">mkdir ../page</span><br><span class="line">cd ../page</span><br><span class="line">git init</span><br><span class="line"># 拉取旧仓库的 page 分支到当前的 master 分支</span><br><span class="line">git pull ../big-project page</span><br></pre></td></tr></table></figure>
 
 <h2 id="快速克隆大项目"><a href="#快速克隆大项目" class="headerlink" title="快速克隆大项目"></a>快速克隆大项目</h2><p>克隆单个分支</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> --branch &lt;branch_name&gt; &lt;remote-address&gt;</span><br></pre></td></tr></table></figure>
@@ -555,7 +555,7 @@
 
 <p>– depth 代表克隆的深度，–depth 1 代表只克隆最新一次提交记录以及这次提交之后的最新内容，不克隆历史提交，所造成的影响就是不能查看历史提交记录</p>
 <p>克隆单个分支的最新一次提交</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone --branch &lt;branch_name&gt; &lt;remote-address&gt; --depth 1</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone --branch &lt;branch_name&gt; &lt;remote-address&gt; --depth 1</span><br></pre></td></tr></table></figure>
 
 <h2 id="git-修改提交历史"><a href="#git-修改提交历史" class="headerlink" title="git 修改提交历史"></a>git 修改提交历史</h2><p>修改最后一条 commit</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git commit --amend</span><br></pre></td></tr></table></figure>
