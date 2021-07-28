@@ -9,26 +9,28 @@ categories:
 date: 2018-09-08 22:19:59
 ---
 
-# Javascript 模块化编程
+# js 模块化编程
 
-> 最初 Javascript 不是一种模块化编程语言(es6 开始支持)。为了能够尽可能的实现 js 的模块化，我们会把代码写成这样:
+> 最初 js 不是一种模块化编程语言(es6 开始支持)。为了能够尽可能的实现 js 的模块化，我们会把代码写成这样:
+
+1. 最原始: 封装函数写法
 
 ```js
-// 1. 最原始:封装函数写法
 function fn1() {
   // code
 }
 function fn2() {
   // code
 }
-// 上面的函数fn1()和fn2()，组成一个模块。使用的时候，直接调用就行了
-// 这种做法的缺点很明显："污染"了全局变量，无法保证不与其他模块发生变量名冲突，而且模块成员之间看不出直接关系
 ```
 
-```js
-// 2. 对象写法
-// 为了解决上面的缺点，可以把模块写成一个对象，所有的模块成员都放到这个对象里面
+上面的函数 `fn1()` 和 `fn2()`，组成一个模块。使用的时候，直接调用就行了，这种做法的缺点很明显："污染"了全局变量，无法保证不与其他模块发生变量名冲突，而且模块成员之间看不出直接关系
 
+2. 对象写法
+
+为了解决上面的缺点，可以把模块写成一个对象，所有的模块成员都放到这个对象里面
+
+```js
 var module1 = {
   _count: 0,
   fn1: function() {
@@ -38,19 +40,18 @@ var module1 = {
     //code
   }
 }
-// 上面的函数fn1()和fn2()，都封装在module1对象里。使用的时候，就是调用这个对象的属性
-//　module1.fn1()
-// 但是，这样的写法会暴露所有模块成员，内部状态可以被外部改写。比如，外部代码可以直接改变内部计数器的值
-// module1._count = 666
 ```
 
-> js 模块的基本写法
+上面的函数 `fn1()`和 `fn2()`，都封装在 `module1` 对象里。使用的时候，就是调用这个对象的属性：`module1.fn1()`
+
+但是，这样的写法会暴露所有模块成员，内部状态可以被外部改写。比如，外部代码可以直接改变内部计数器的值：`module1._count = 666`
+
+3. 立即执行函数(自调用函数)写法  (沙箱模式)
 
 ```js
-// 3.立即执行函数(自调用函数)写法  (沙箱模式)
-// 使用"立即执行函数"，可以达到不暴露私有成员的目的
+// 使用 立即执行函数，可以达到不暴露私有成员的目的
 var module1 = (function() {
-  var _count = 0 //一般私有的变量:申明变量名时,以_开头
+  var _count = 0 // 一般私有的变量，申明变量名时，以 _ 开头
   function fn1() {
     // code
   }
@@ -62,22 +63,17 @@ var module1 = (function() {
     fn2: fn2
   }
 })()
-
-// 使用上面的写法，外部代码无法读取内部的 _count 变量
-// console.info(module1._count) // undefined
 ```
+
+使用上面的写法，外部代码无法读取内部的 _count 变量：`console.info(module1._count)` => `undefined`
 
 # 模块化的标准
 
 让模块拥有更好的通用性
 
-- AMD : Async Module Definition 异步模块定义
+- AMD : Async Module Definition 异步模块定义：依赖前置、提前执行： 在一开始就将所有的依赖项全部加载
 
-> 依赖前置、提前执行： 在一开始就将所有的依赖项全部加载
-
-- CMD : Common Module Definition 通用模块定义
-
-> 依赖就近、延迟执行： 在需要的时候才去 require 加载依赖项
+- CMD : Common Module Definition 通用模块定义：依赖就近、延迟执行： 在需要的时候才去 require 加载依赖项
 
 - commonJS: node.js 同步加载模块，适用于服务端
 
@@ -96,12 +92,11 @@ define(function () {
 })
 
 // main.js
-// 第一个参数是要请求的模块,第二个参数是依赖模块请求完成的回调函数
+// 第一个参数是要请求的模块, 第二个参数是依赖模块请求完成的回调函数
 require(['add'], function (add) {
-  console.log('1 + 2 = ' + add(1,2)
-});
+  console.log('1 + 2 = ' + add(1, 2)
+})
 ```
-
 
 ## CMD (Common Module Definition)
 
@@ -130,7 +125,6 @@ define(function(require, exports, module) {
   exports = {
     add: function (a, b) { return a + b }
   }
-
 })
 
 // main.js
@@ -154,7 +148,6 @@ define(['./a', './b'], function(a, b) {
   // 依赖必须一开始就写好
   a.doSomething()
   b.doSomething()
-  // ...
 })
 
 // CMD
@@ -163,7 +156,6 @@ define(function(require, exports, module) {
   a.doSomething()
   var b = require('./b') // 依赖可以就近书写
   b.doSomething()
-  // ...
 })
 ```
 
@@ -185,9 +177,9 @@ define(function(require, exports, module) {
   - url：解析地址的模块
   - querystring：解析参数字符串的模块
 
-- 第三方模块：由社区或个人提供，需要通过 npm 安装后使用，比如：mime 模块/art-template/jquery
+- 第三方模块：由社区或个人提供，需要通过 npm 安装后使用，比如：mime
 
-- 自定义模块：由开发人员自己创建，比如：tool.js 、 user.js
+- 自定义模块：由开发人员自己创建，比如：tool.js、user.js
 
 ### 模块导入
 
@@ -215,13 +207,43 @@ require('./a.js')
 
 ```js
 // module.exports 指向的是一个对象，我们给对象增加属性即可
-module.exports.num = 123
+module.exports.name = 'zs'
 module.exports.age = 18
 
-// 通过 module.exports 也可以导出一个值，但是多次导出会覆盖
+setTimeout(function() {
+  module.exports.gender = 'man'
+}, 0)
+```
+
+```js
+let m = require('./module.js')
+console.log(m.name) // zs
+console.log(m.age) // 18
+console.log(m.gender) // undefined
+
+setTimeout(function() {
+  console.log(m.gender) // man
+}, 0)
+```
+
+```js
+// 也可以直接给 module.exports 赋值，但是多次导出会覆盖
 module.exports = '123'
 module.exports = () => {}
 module.exports = {}
+
+// 对 module.exports 的赋值需要同步执行，不能放在回调函数里
+setTimeout(function() {
+  module.exports = { a: 1 }
+}, 0)
+```
+
+```js
+let m = require('./module.js')
+console.log(m) // {}
+setTimeout(function() {
+  console.log(m.a) // undefined
+}, 0)
 ```
 
 ### module.exports 与 exports
@@ -271,15 +293,18 @@ export 导出多个模块，都放在一个对象里
 export default 默认只能导出一个，一个模块只允许有一个 export default，否则报错
 export default 后面不可以用 var、let、const 可用 export default function(){} function add(){}
 
+命名导出(Named exports)
+
 ```js
 // 导出
-export const a = 1
+export const a = 1 // 声明后立即导出，这可以与 `var`, `let`, `const`, `class`, and `function` 配合使用
 
 const b = 2
-export { b } // 必须用对象包裹，否则报错
+export { b } // 导出以前声明的值 必须用对象包裹，否则报错
 
 export function c () {}
 export const d = function () {}
+export { something as somethingElse } // 在导出时重命名
 
 // 导入
 import { a, b, c, d, e } from 'test.js'
@@ -289,6 +314,10 @@ c // ƒ c() {}
 d // ƒ d() {}
 e // undefined
 ```
+
+默认导出(Default Export)
+
+仅当源模块只有一个导出时，才建议使用此做法
 
 ```js
 // 导出
@@ -309,6 +338,8 @@ import b from 'test.js'
 b // 1
 ```
 
+将默认和命名导出组合在同一模块中是不好的做法，尽管它是规范允许的。
+
 ```js
 // 导出
 export default a = 1
@@ -321,11 +352,11 @@ tool.b // 2
 tool.c // 3
 
 // 或者
-import a, { b as d, c } from '@/utils/type'
+import a, { b as d, c } from 'test.js'
 
 // 以下写法错误
-import { b as d, c }, a from '@/utils/type' // x
-import a, e from '@/utils/type' // x
+import { b as d, c }, a from 'test.js' // x
+import a, e from 'test.js' // x
 ```
 
 ## es import() 函数
@@ -360,215 +391,81 @@ Promise.all([
 
 import() 也可以用在 async 函数之中。
 
-在 webpack 中使用 import() 动态加载模块时，webpack 默认会将所有 import() 的模块都进行单独打包
-
-https://webpack.js.org/api/module-methods/#import-1
+在 webpack 中使用 import() 动态加载模块时，webpack 默认会将所有 import() 的模块都进行单独打包，https://webpack.js.org/api/module-methods/#import-1
 
 ## CommonJS 模块 和 ES 模块化区别
 
+CommonJS 模块
+
+```js
+// commonJsModule.js
+var num = 1
+let obj = {}
+var addNum = () => num++
+var addObj = () => obj.num = num
+
+module.exports = {
+    addNum, num,
+    addObj, obj,
+    get getNum()  {
+        return num
+    }
+}
+```
+
+```js
+let m = require('./commonJsModule.js')
+console.log(m.num) // 1
+m.addNum()
+console.log(m.num) // 1
+// 这里 num 输出的结果还是原来的值，因为 num 是一个原始类型的值，会被缓存
+// 除非写成一个函数，才能得到内部变动的值
+console.log(m.getNum) // 2
+
+// 引用类型
+console.log(m.obj) // {}
+m.addObj()
+console.log(m.obj) // { count: 2 }
+
+// 重新赋值
+m = {}
+console.log(m.obj) // undefined
+```
+
+ES 模块
+
+```js
+// esModule.js
+export let num = 1
+export let obj = {}
+export function addNum() {
+    num++
+}
+```
+
+```js
+import  { num,obj, addNum } from './esModule.js'
+console.log(num) // 1
+addNum()
+console.log(num) // 2
+
+// 重新赋值 报错
+num = 3 // TypeError: Assignment to constant variable.
+console.log(num)
+
+// 修改属性
+obj.a = 1
+console.log(obj) // { a: 1 }
+```
+
 CommonJS 模块是运行时加载，ES6 模块是编译时输出接口
+CommonJS和 ES 模块都可以对导出对象内部属性的值进行改变
+CommonJS 模块输出的是一个值的拷贝，类似浅拷贝
+ES 模块输出的 不论是基本类还是引用类型的数据，都是值的引用
+ES 模块对导出的数据不可以重新赋值（只读状态），重新赋值会编译报错（即导出的数据指针指向不能变），但可以改变对象的属性，类似 const 声明的变量
+CommonJS 模块的require()是同步加载模块，ES6 模块的import命令是异步加载，有一个独立的模块依赖的解析阶段。
+
+CommonJS 加载的是一个对象（即module.exports属性），该对象只有在脚本运行完才会生成。而 ES6 Modules不是对象，它的对外接口只是一种静态定义，在代码静态解析阶段就会生成。
+
 运行时加载: CommonJS 模块就是对象；即在输入时是先加载整个模块，生成一个对象，然后再从这个对象上面读取方法，这种加载称为“运行时加载”
 编译时加载: ES6 模块不是对象，而是通过 export 命令显式指定输出的代码，import 时采用静态命令的形式。即在 import 时可以指定加载某个输出值，而不是加载整个模块，这种加载称为“编译时加载”
-
-## 使用 require.js
-
-js 文件加载的时候，浏览器会停止网页渲染，加载文件越多，网页失去响应的时间就会越长；由于 js 文件之间存在依赖关系，因此必须严格保证加载顺序，依赖性最大的模块一定要放到最后加载，当依赖关系很复杂的时候，代码的编写和维护都会变得困难
-
-require.js 的诞生，就是为了解决这两个问题：
-
-> （1）实现 js 文件的异步加载，避免网页失去响应；
->
-> （2）管理模块之间的依赖性，便于代码的编写和维护。
-
-### require.js 的下载和引入
-
-[官网](http://requirejs.org/)
-
-中文网 http://www.requirejs.cn
-
-```html
-<!-- 引入方式: -->
-<script src="js/require.js"></script>
-```
-
-加载这个文件，也可能造成网页失去响应。解决办法有两个，一个是把它放在网页底部加载，另一个是写成下面这样：
-
-```html
-<!-- async 属性表明这个文件需要异步加载，避免网页失去响应 -->
-<!-- IE不支持这个属性，只支持 defer，所以把 defer 也写上 -->
-
-<script src="js/require.js" defer async="true"></script>
-```
-
-加载 require.js 以后，下一步就要加载我们自己的代码了。假定我们自己的代码文件是 main.js，也放在 js 目录下面。那么，只需要写成下面这样就行了：
-
-```html
-<!-- data-main 属性的作用是，指定网页程序的主模块。在上例中，就是 js 目录下面的 main.js，这个文件会第一个被 require.js 加载。由于 require.js 默认的文件后缀名是 js ，所以可以把 main.js 简写成 main。-->
-
-<script src="js/require.js" data-main="js/main"></script>
-```
-
-### 主模块的写法
-
-main.js，我把它称为"主模块"，意思是整个网页的入口代码。所有代码都从这儿开始运行
-
-下面就来看，怎么写 main.js
-
-如果我们的代码不依赖任何其他模块，那么可以直接写入 javascript 代码
-
-```js
-// main.js
-alert('加载成功！')
-```
-
-但这样的话，就没必要使用 require.js 了。真正常见的情况是，主模块依赖于其他模块，这时就要使用 AMD 规范定义的的 require()函数
-
-```js
-// main.js
-require(['moduleA', 'moduleB', 'moduleC'], function(moduleA, moduleB, moduleC) {
-  // some code here
-})
-
-// require.js 要求，每个模块是一个单独的js文件
-
-// require() 函数接受两个参数。第一个参数是一个数组，表示所依赖的模块，上例就是['moduleA', 'moduleB', 'moduleC']，即主模块依赖这三个模块；第二个参数是一个回调函数，当前面指定的模块都加载成功后，它将被调用。加载的模块会以参数形式传入该函数，从而在回调函数内部就可以使用这些模块
-
-// require() 异步加载 moduleA，moduleB 和 moduleC，浏览器不会失去响应；它指定的回调函数，只有前面的模块都加载成功后，才会运行，解决了依赖性的问题
-```
-
-### 每个 AMD 模块的写法
-
-> require.js 加载的模块，采用 AMD 规范。也就是说，模块必须按照 AMD 的规定来写
->
-> 具体来说，就是模块必须采用特定的 define() 函数来定义
-
-> 如果一个模块不依赖其他模块，那么可以直接定义在 define() 函数之中
-
-```js
-// 假定现在有一个 math.js 文件，它定义了一个 math 模块。那么，math.js 就要这样写：
-// math.js
-define(function() {
-  var add = function(x, y) {
-    return x + y
-  }
-  return {
-    add: add
-  }
-})
-```
-
-加载方法如下：
-
-```js
-// main.js
-require(['math'], function(math) {
-  alert(math.add(1, 1))
-})
-```
-
-> 如果这个模块还依赖其他模块，那么 define() 函数的第一个参数，必须是一个数组，指明该模块的依赖性
-
-```js
-// 当require() 函数加载上面这个模块的时候，就会先加载 myLib.js 文件
-define(['myLib'], function(myLib) {
-  function foo() {
-    myLib.doSomething()
-  }
-  return {
-    foo: foo
-  }
-})
-```
-
-### 模块加载的配置
-
-```js
-// 上面代码中主模块的依赖模块是['moduleA', 'moduleB', 'moduleC']。默认情况下，require.js 假定这三个模块与 main.js 在同一个目录，文件名分别为 moduleA.js，moduleB.js 和 moduleC.js，然后自动加载
-
-// 使用 require.config() 方法，我们可以对模块的加载行为进行自定义。require.config() 写在主模块（main.js）的头部。参数就是一个对象，这个对象的 paths 属性指定各个模块的加载路径
-
-require.config({
-  paths: {
-    moduleA: 'moduleA.min',
-    moduleB: 'moduleB.min',
-    moduleC: 'moduleC.min'
-  }
-})
-```
-
-```js
-// 上面的代码给出了三个模块的文件名，路径默认与 main.js 在同一个目录（js子目录）。如果这些模块在其他目录，比如js/lib目录，则有两种写法。一种是逐一指定路径。
-require.config({
-  paths: {
-    // 注意:路径相对的是 main 的路径, 不需要写后缀名,require 会自动加
-    moduleA: 'lib/moduleA.min',
-    moduleB: 'lib/moduleB.min',
-    moduleC: 'lib/moduleC.min'
-  }
-})
-
-// 另一种则是直接改变基目录（baseUrl）。
-require.config({
-  baseUrl: 'js/lib',
-  paths: {
-    moduleA: 'moduleA.min',
-    moduleB: 'moduleB.min',
-    moduleC: 'moduleC.min'
-  }
-})
-
-// 如果某个模块在另一台主机上，也可以直接指定它的网址，比如：
-require.config({
-  paths: {
-    jquery: 'https://code.jquery.com/jquery-3.3.1.min'
-  }
-})
-```
-
-### 加载非规范的模块
-
-> 理论上，require.js 加载的模块，必须是按照 AMD 规范、用 define() 函数定义的模块。但是实际上，虽然已经有一部分流行的函数库（比如 jQuery）符合 AMD 规范，更多的库并不符合。那么，require.js 是否能够加载非规范的模块呢？
->
-> 回答是可以的
->
-> 这样的模块在用 require()加载之前，要先用 require.config() 方法，定义它们的一些特征
-
-```js
-// require.config() 接受一个配置对象，这个对象除了有前面说过的 paths 属性之外，还有一个 shim 属性，专门用来配置不兼容的模块。具体来说，每个模块要定义：（1）exports值（输出的变量名），表明这个模块外部调用时的名称；（2）deps数组，表明该模块的依赖性。
-
-// 加入有一个demo.js文件,没有按照AMD规范定义, 那么应该如果使用呢?
-// 1. 在 paths 中先配置一下这个 demo.js 的路径
-// 2. 在 shim 中配置这个文件的依赖项和导出项
-
-// demo.js
-function animate() {
-  $('.box')
-    .stop(true)
-    .fadeIn(1000)
-    .fadeOut(1000)
-    .slideDown(1000)
-    .hide(1000)
-  console.log('动画执行了')
-}
-
-// main.js
-require.config({
-  paths: {
-    jquery: 'https://code.jquery.com/jquery-3.3.1.min',
-    demo: 'demo.js 相对 main.js 的路径'
-  },
-  shim: {
-    demo: {
-      deps: ['jquery'],
-      // 注意: 这里导出项要写的是demo.js中的那些内容
-      // 这里要导出 animate 函数
-      exports: 'animate'
-    }
-  }
-})
-
-require(['demo'], function(demo) {
-  console.log(demo)
-  demo() // 会执行demo.js 文件中 animate 函数
-})
-```
