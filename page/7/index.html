@@ -176,7 +176,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">153</span>
+          <span class="site-state-item-count">154</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -186,7 +186,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">85</span>
+        <span class="site-state-item-count">87</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -220,6 +220,94 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/819.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/819.html" class="post-title-link" itemprop="url">ZeroTier 异地组网及私有 Moon 转发节点搭建</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-03-07 00:00:00" itemprop="dateCreated datePublished" datetime="2020-03-07T00:00:00+00:00">2020-03-07</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>支持 Windows、macOS、Linux、IOS、Android、Synology、QNAP、Western Digital MyCloud NAS等</p>
+<h2 id="使用官方根节点"><a href="#使用官方根节点" class="headerlink" title="使用官方根节点"></a>使用官方根节点</h2><p>1、创建账号</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9teS56ZXJvdGllci5jb20v">https://my.zerotier.com<i class="fa fa-external-link-alt"></i></span></p>
+<p>2、创建网络</p>
+<p>进入 <span class="exturl" data-url="aHR0cHM6Ly9teS56ZXJvdGllci5jb20vbmV0d29yaw==">https://my.zerotier.com/network<i class="fa fa-external-link-alt"></i></span> 点击 Create 创建网络，点击进入已创建的网络 此时可以看到 Network ID，后续添加设备都会需要这个 ID</p>
+<p>Access Control，默认是Certificate (Private Network)，选择此模式表示每次在添加新的主机时，需要手动勾选是否允许连接，如果选择None (Public Network)模式，表示加入网络后自动分配IP并允许连接，从安全性来说建议使用默认选项Certificate (Private Network)，方便性来看None (Public Network)更方便，不用每次加入网络后手动勾选。</p>
+<p>好了，一个中转的ZeroTier就配置完成了，接下来只需要在其他设备安装所对应的客户端，然后加入到这个网络中就可以了。</p>
+<h2 id="搭建私有节点（moon）"><a href="#搭建私有节点（moon）" class="headerlink" title="搭建私有节点（moon）"></a>搭建私有节点（moon）</h2><blockquote>
+<p>搭建私有节点是为了解决根节点在国外,速度慢, 且不稳定</p>
+</blockquote>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -s https://install.zerotier.com/ | sudo bash</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装成功后</span></span><br><span class="line"><span class="comment"># *** Success! You are ZeroTier address [ b32fxxxxxx ].</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="配置-Moon"><a href="#配置-Moon" class="headerlink" title="配置 Moon"></a>配置 Moon</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /var/lib/zerotier-one</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成 moon.json 配置文件</span></span><br><span class="line">zerotier-idtool initmoon identity.public &gt;&gt; moon.json</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编辑 moon.json 配置文件，修改 stableEndpoints</span></span><br><span class="line">vim moon.json</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;stableEndpoints&quot;</span>: [<span class="string">&quot;你服务器公网ip/9993&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成 .moon 文件 私有网络的 zerotier 标志性文件</span></span><br><span class="line">zerotier-idtool genmoon moon.json</span><br><span class="line"><span class="comment"># 此命令会生成一个签名文件在当前目录下，文件名如 000000b32fxxxxxx.moon （b32fxxxxxx 为 ZeroTier address)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 移动文件</span></span><br><span class="line"><span class="comment"># 将生成的 000000b32fxxxxxx.moon 移动到 moons.d 目录</span></span><br><span class="line">mkdir moons.d</span><br><span class="line">mv 000000b32fxxxxxx.moon moons.d</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启 zerotier-one 服务</span></span><br><span class="line">systemctl restart zerotier-one</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加入虚拟网络</span></span><br><span class="line"><span class="comment"># zerotier-cli join af415e486f26xxxx //  af415e486f26xxxx 为在 zerotier 官网创建的网络</span></span><br></pre></td></tr></table></figure>
+
+
+<p>将内网机器连接上 moon 节点</p>
+<p>执行命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># windows 在 C:\ProgramData\ZeroTier\One 目录下执行</span></span><br><span class="line">zerotier-cli orbit 000000b32fxxxxxx 000000b32fxxxxxx <span class="comment"># moon 服务器的ID值 输入2遍</span></span><br></pre></td></tr></table></figure>
+
+<p> 查看是否连接</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 在其他机子执行以下命令是否显示该 moon 节点</span></span><br><span class="line"><span class="comment"># 或在 moon 服务器上执行命令否显示 LEAF 节点</span></span><br><span class="line">zerotier-cli listpeers</span><br><span class="line"></span><br><span class="line">200 listpeers &lt;ztaddr&gt; &lt;path&gt; &lt;latency&gt; &lt;version&gt; &lt;role&gt;</span><br><span class="line">200 listpeers xxxxxxxxxx xx.xx.xx.xx/4532;1037;853 183 1.6.4 LEAF</span><br><span class="line">200 listpeers xxxxxxxxxx xx.xx.xx.xx/9993;19869;4337 0 - PLANET</span><br><span class="line">200 listpeers xxxxxxxxxx xx.xx.xx.xx/9993;4337;4167 170 - PLANET</span><br><span class="line">200 listpeers xxxxxxxxxx xx.xx.xx.xx/9993;363;4274 63 - PLANET</span><br><span class="line">200 listpeers xxxxxxxxxx xx.xx.xx.xx/9993;19508;4192 145 - PLANET</span><br></pre></td></tr></table></figure>
+
+<h2 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h2><p><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmRvY2tlci5jb20vZW5naW5lL3JlZmVyZW5jZS9idWlsZGVyLw==">https://docs.docker.com/engine/reference/builder/<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3plcm90aWVyL1plcm9UaWVyT25lL3RyZWUvbWFzdGVyL2V4dC9pbnN0YWxsZmlsZXMvbGludXgvemVyb3RpZXItY29udGFpbmVyaXplZA==">https://github.com/zerotier/ZeroTierOne/tree/master/ext/installfiles/linux/zerotier-containerized<i class="fa fa-external-link-alt"></i></span></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker build . -t zerotier</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1447,87 +1535,6 @@
 <p>代码查看窗口将在浏览器的底部/右侧打开。你可以通过查看 HTML 代码查看链接是否添加了 rel=”nofollow”。</p>
 <p><strong>使用 Chrome 扩展组件（插件）检查页面 nofollow 链接</strong></p>
 <p>下载名为<span class="exturl" data-url="aHR0cHM6Ly9jaHJvbWUuZ29vZ2xlLmNvbS93ZWJzdG9yZS9kZXRhaWwvbm9mb2xsb3cvZGZvZ2lkZ2hhaWdvb21qZGVhY25kYWZhcGRpam1paWQ/aGw9ZW4=">NoFollow<i class="fa fa-external-link-alt"></i></span>的 Chrome 扩展组件，安装该插件后重新加载页面，该网页上的所有 nofollow 链接都将会高亮突出显示。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/504.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/504.html" class="post-title-link" itemprop="url">dux主题修改记录</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-02-12 11:35:20" itemprop="dateCreated datePublished" datetime="2020-02-12T11:35:20+00:00">2020-02-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/wordpress/" itemprop="url" rel="index"><span itemprop="name">wordpress</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="给网站添加语言"><a href="#给网站添加语言" class="headerlink" title="给网站添加语言"></a>给网站添加语言</h2><p>打开 <code>theme/dux/header.php</code> 文件，修改如下内容</p>
-<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE HTML&gt;</span><br><span class="line"><span class="deletion">-&lt;html&gt;</span></span><br><span class="line"><span class="addition">+&lt;html lang=&quot;zh&quot;&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="修改面包屑导航位置"><a href="#修改面包屑导航位置" class="headerlink" title="修改面包屑导航位置"></a>修改面包屑导航位置</h2><p>打开 <code>theme/dux/single.php</code> 文件，修改如下内容</p>
-<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">&lt;?php get_header(); ?&gt;</span><br><span class="line"><span class="deletion">-&lt;?php if( _hui(&#x27;breadcrumbs_single_s&#x27;) )&#123; ?&gt;</span></span><br><span class="line"><span class="deletion">- &lt;div class=&quot;breadcrumbs&quot;&gt;</span></span><br><span class="line"><span class="deletion">-  &lt;div class=&quot;container&quot;&gt;&lt;?php echo hui_breadcrumbs() ?&gt;&lt;/div&gt;</span></span><br><span class="line"><span class="deletion">- &lt;/div&gt;</span></span><br><span class="line"><span class="deletion">-&lt;?php &#125; ?&gt;</span></span><br><span class="line">&lt;section class=&quot;container&quot;&gt;</span><br><span class="line"><span class="addition">+ &lt;?php if( _hui(&#x27;breadcrumbs_single_s&#x27;) )&#123; ?&gt;</span></span><br><span class="line"><span class="addition">+  &lt;div class=&quot;breadcrumbs&quot;&gt;</span></span><br><span class="line"><span class="addition">+   &lt;div class=&quot;container&quot;&gt;&lt;?php echo hui_breadcrumbs() ?&gt;&lt;/div&gt;</span></span><br><span class="line"><span class="addition">+  &lt;/div&gt;</span></span><br><span class="line"><span class="addition">+ &lt;?php &#125; ?&gt;</span></span><br><span class="line"> &lt;div class=&quot;content-wrap&quot;&gt;</span><br><span class="line"> &lt;div class=&quot;content&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>添加自定义样式</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 面包屑导航 */</span></span><br><span class="line"><span class="selector-class">.breadcrumbs</span> &#123;</span><br><span class="line">	<span class="attribute">box-shadow</span>: none;</span><br><span class="line">	<span class="attribute">background</span>: none;</span><br><span class="line">	<span class="attribute">margin-bottom</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>

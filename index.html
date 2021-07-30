@@ -176,7 +176,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">153</span>
+          <span class="site-state-item-count">154</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -186,7 +186,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">85</span>
+        <span class="site-state-item-count">87</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -220,6 +220,126 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/2028.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2028.html" class="post-title-link" itemprop="url">Babel 入门</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-07-28 00:00:00" itemprop="dateCreated datePublished" datetime="2021-07-28T00:00:00+00:00">2021-07-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Babel与Polyfill的关系和区别<br>Babel 默认只转换新的 js 句法（syntax），而不转换新的 API，例如箭头函数等<br>Polyfill 用于实现浏览器并不支持的原生API的代码，如新增的方法等</p>
+<p>Babel</p>
+<p>Babel的安装，配置</p>
+<p>创建 <code>babel.config.js</code> 文件，内容如下</p>
+<blockquote>
+<p>babel.config.js 是Babel执行时会默认在当前目录寻找的Babel配置文件，除了babel.config.js，我们也可以选择用.babelrc或.babelrc.js这两种配置文件</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="attr">presets</span>: [<span class="string">&quot;@babel/env&quot;</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>安装如下包</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm i -D @babel/cli @babel/core @babel/preset-env</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>@babel/cli是Babel命令行转码工具，如果我们使用命令行进行Babel转码就需要安装它。</li>
+<li>@babel/cli依赖@babel/core，因此也需要安装@babel/core这个Babel核心npm包。</li>
+<li>@babel/preset-env这个npm包提供了ES6转换ES5的语法转换规则，我们在Babel配置文件里指定使用它。如果不使用的话，也可以完成转码，但转码后的代码仍然是ES6的，相当于没有转码。</li>
+</ul>
+<p>创建 <code>index.js</code> 文件，如下</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> fn = <span class="function">(<span class="params">num</span>) =&gt;</span> num + <span class="number">1</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">() =&gt;</span> &#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>执行命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npx babel index.js -o output.js</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> num + <span class="number">1</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">() =&gt;</span> &#123;&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>可以看到，ES6的箭头函数语法转换成了 ES5 的函数定义语法，但是并没有对ES6的Promise进行转换。因为Babel默认只转换新的 js 语法（箭头函数，解构…），而不转换新的 API。新的API分类两类，一类是Promise、Map、Symbol、Proxy、Iterator等全局对象及其对象自身的方法，例如Object.assign，Promise.resolve；另一类是新的实例方法，例如数组实例方法[1, 2, 3].find((item) =&gt; item &lt; 2)</p>
+<p>polyfill</p>
+<p>安装</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install --save @babel/polyfill</span><br></pre></td></tr></table></figure>
+
+<p>在 index.js 中引入 <code>import &#39;@babel/polyfill&#39;</code></p>
+<p>执行命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npx babel index.js -o output.js</span><br></pre></td></tr></table></figure>
+
+<p>输出结果</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">require</span>(<span class="string">&quot;@babel/polyfill&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> num + <span class="number">1</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果中 <code>require(&quot;@babel/polyfill&quot;);</code></p>
+<p>import被编译成了require，如果想要编译出来的模块引入规范还是import，则可以在preset-env的配置项中添加”modules”: false即可</p>
+<p>有时候我们项目里并没有用到那么多的新增API，但是 @babel/polyfill 会把所有浏览器环境的的polyfill都引入，整个包的体积就会很大，我们想要对目标环境按需引入相应的polyfill应该怎么办呢，这个时候我们就可以使用 preset-env 的配置项中的 useBuiltIns 属性来按需引入 polyfill。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="attr">presets</span>: [</span><br><span class="line">    [</span><br><span class="line">      <span class="string">&quot;@babel/preset-env&quot;</span>, &#123;</span><br><span class="line">        <span class="string">&quot;modules&quot;</span>: <span class="literal">false</span>, <span class="comment">// 用来设置是否把ES6的模块化语法改成其它模块化语法</span></span><br><span class="line">        <span class="string">&quot;useBuiltIns&quot;</span>: <span class="string">&quot;usage&quot;</span>,</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用useBuiltIns:”usage”后，Babel除了会考虑目标环境缺失的API模块，同时考虑我们项目代码里使用到的ES6特性，且不需要在项目入口处手动引入polyfill</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&quot;core-js/modules/es6.object.to-string.js&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;core-js/modules/es6.promise.js&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> num + <span class="number">1</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>可以看到 多了 <code>import &quot;core-js/...</code> 的引用，因为 @babel/polyfil 是由core-js2和regenerator-runtime组成的一个集成包，<br>Babel 7.4.0 之后已经弃用了 @babel/polyfill，所以core-js官方现在推荐我们使用polyfill的时候直接引入core-js和regenerator-runtime/runtime这两个包完全取代 @babel/polyfil</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3psb2lyb2NrL2NvcmUtanMjYmFiZWxwb2x5ZmlsbA==">core-js<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly93d3cuYmFiZWxqcy5jbi9kb2NzL2JhYmVsLXBvbHlmaWxs">babel-polyfill<i class="fa fa-external-link-alt"></i></span></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -890,101 +1010,6 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看git的使用示例</span></span><br><span class="line">tldr git</span><br></pre></td></tr></table></figure>
 
 <p>thefuck<br>快速修正命令行手误</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/2001.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2001.html" class="post-title-link" itemprop="url">使用 patch-package 来科学修改 node_modules 里的文件</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-12-15 00:00:00" itemprop="dateCreated datePublished" datetime="2020-12-15T00:00:00+00:00">2020-12-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>当我们使用npm包时，需要修改部分源码做自定义功能，但是直接修改node_modules里面的文件，重新安装包后做的修改就没有了。一般常用办法有两个：</p>
-<ol>
-<li>将代码下载到本地，修改后手动引入</li>
-<li>fork别人的代码到自己仓库，修改后，从自己仓库安装</li>
-</ol>
-<p>但是这样做比较麻烦，而且更新不方便。我们可以使用 patch-package 来管理修改</p>
-<p>以 hexo-theme-next 为例</p>
-<ol>
-<li><p>修改 node_modules 里面的代码</p>
-</li>
-<li><p>安装patch-package：<code>npm i patch-package --save-dev</code></p>
-</li>
-<li><p>执行命令：<code>npx patch-package hexo-theme-next</code></p>
-</li>
-</ol>
-<p>第一次使用 patch-package 会在项目根目录生成 patches 文件夹，里面有修改过的文件 diff 记录</p>
-<p>当这个包被重新安装后，可以使用如下方式让修改生效</p>
-<p>方式一：执行命令：<code>git apply --ignore-whitespace patches/hexo-theme-next+8.0.1.patch</code></p>
-<p>方式二：在 package.json，新增命令 postinstall:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">+  &quot;postinstall&quot;: &quot;patch-package&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>执行：<code>npm run postinstall</code></p>
-<p>该命令也会在每次 npm install 时自动执行</p>
 
       
     </div>

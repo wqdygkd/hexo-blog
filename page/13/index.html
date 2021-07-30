@@ -176,7 +176,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">153</span>
+          <span class="site-state-item-count">154</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -186,7 +186,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">85</span>
+        <span class="site-state-item-count">87</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -220,6 +220,134 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/410.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/410.html" class="post-title-link" itemprop="url">【es6】Promise</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-01-08 22:21:49" itemprop="dateCreated datePublished" datetime="2019-01-08T22:21:49+00:00">2019-01-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ul>
+<li>Promise 是<code>异步编程</code>的一种解决方案，它允许你以一种同步的方式编写异步代码</li>
+<li><code>promise</code>：承诺、保证</li>
+<li><span class="exturl" data-url="aHR0cDovL2VzNi5ydWFueWlmZW5nLmNvbS8jZG9jcy9wcm9taXNl">ES6 - Promise<i class="fa fa-external-link-alt"></i></span></li>
+<li>JS 是通过回调函数来实现异步编程的，当异步操作多了以后，就会产生回调嵌套回调的问题，这就是<code>回调地狱</code></li>
+<li>Promise 方式：将异步操作以同步操作的方式表达出来，避免了层层嵌套的回调函数</li>
+<li>Promise 新建后立即执行</li>
+</ul>
+<h2 id="封装一个-Promise"><a href="#封装一个-Promise" class="headerlink" title="封装一个 Promise"></a>封装一个 Promise</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 按序读取文件：a -&gt; b -&gt; c</span></span><br><span class="line"><span class="comment">// 按顺序读取 a b c 文件</span></span><br><span class="line"><span class="comment">// 以前</span></span><br><span class="line"><span class="comment">// 读取 a 文件</span></span><br><span class="line">fs.readFile(<span class="string">&#x27;./a&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (err) <span class="keyword">return</span> <span class="built_in">console</span>.log(<span class="string">&#x27;读取错误&#x27;</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(data.toString())</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 读取 b 文件</span></span><br><span class="line">  fs.readFile(<span class="string">&#x27;./b&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (err) <span class="keyword">return</span> <span class="built_in">console</span>.log(<span class="string">&#x27;读取错误&#x27;</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(data.toString())</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 读取 c 文件</span></span><br><span class="line">    fs.readFile(<span class="string">&#x27;./a&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (err) <span class="keyword">return</span> <span class="built_in">console</span>.log(<span class="string">&#x27;读取错误&#x27;</span>)</span><br><span class="line">      <span class="built_in">console</span>.log(data.toString())</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 Promise</span></span><br><span class="line"><span class="comment">// 封装</span></span><br><span class="line"><span class="comment">// Promise 是一个构造函数</span></span><br><span class="line"><span class="comment">// 通过 new 创建 Promise 的实例对象</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">readFile</span>(<span class="params">path</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 实例化 Promise</span></span><br><span class="line">  <span class="keyword">const</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// resolve 表示成功，异步操作成功调用</span></span><br><span class="line">    <span class="comment">// reject  表示失败，异步操作失败调用</span></span><br><span class="line">    fs.readFile(path, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// 读取错误，调用 reject()</span></span><br><span class="line">      <span class="keyword">if</span> (err) <span class="keyword">return</span> reject(err)</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 读取成功 调用 resolve</span></span><br><span class="line">      resolve(data.toString())</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 返回 Promise 对象</span></span><br><span class="line">  <span class="keyword">return</span> p</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 使用</span></span><br><span class="line">readFile(<span class="string">&#x27;a&#x27;</span>)</span><br><span class="line">  .then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">    <span class="keyword">return</span> readFile(<span class="string">&#x27;a&#x27;</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">  .then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">    <span class="keyword">return</span> readFile(<span class="string">&#x27;b&#x27;</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">  .then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="promise-的三个状态"><a href="#promise-的三个状态" class="headerlink" title="promise 的三个状态"></a>promise 的三个状态</h2><ul>
+<li><p>pending : 等待 (等待成功或者失败去调用)</p>
+</li>
+<li><p>fulfilled : 成功调用(resolve)</p>
+</li>
+<li><p>rejected : 失败调用(reject)</p>
+</li>
+</ul>
+<h2 id="then、catch-和-finally"><a href="#then、catch-和-finally" class="headerlink" title="then、catch 和 finally"></a>then、catch 和 finally</h2><ul>
+<li>说明：获取异步操作的结果</li>
+<li><code>then()</code> ：用于获取异步操作成功时的结果 -&gt; <code>resolve</code></li>
+<li><code>catch()</code>：用于获取异步操作失败时的结果 -&gt; <code>reject</code></li>
+<li><code>finally()</code>：方法用于指定不管 Promise 对象最后状态如何，都会执行的操作，finally方法的回调函数不接受任何参数</li>
+<li>说明：<code>then()</code>方法可以有多个，按照先后顺序执行，通过回调函数返回值传递数据给下一个 then</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">p</span><br><span class="line">  <span class="comment">// onfullfilled 执行</span></span><br><span class="line">  .then(<span class="function">(<span class="params">value</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;文件a的内容为：&#x27;</span>, value)</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="comment">// onrejected 执行</span></span><br><span class="line">  .catch(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;文件读取失败：&#x27;</span>, err)</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// ----------- 或者 -----------</span></span><br><span class="line"><span class="comment">// then 中传两个参数</span></span><br><span class="line"><span class="comment">// then方法的第一个参数是resolved状态的回调函数，第二个参数（可选）是rejected状态的回调函数</span></span><br><span class="line">p.then(</span><br><span class="line">  <span class="comment">// onfullfilled 执行</span></span><br><span class="line">  <span class="function">(<span class="params">value</span>) =&gt;</span> &#123; &#125;,</span><br><span class="line">  <span class="comment">// onrejected 执行</span></span><br><span class="line">  <span class="function">(<span class="params">err</span>) =&gt;</span> &#123; &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h2 id="all-和-race"><a href="#all-和-race" class="headerlink" title="all 和 race"></a>all 和 race</h2><p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvSmF2YVNjcmlwdC9SZWZlcmVuY2UvR2xvYmFsX09iamVjdHMvUHJvbWlzZS9hbGw=">MDN-Promise.all()<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvSmF2YVNjcmlwdC9SZWZlcmVuY2UvR2xvYmFsX09iamVjdHMvUHJvbWlzZS9yYWNl">MDN-Promise.race()<i class="fa fa-external-link-alt"></i></span></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> p1 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    resolve(<span class="string">&#x27;成功1&#x27;</span>)</span><br><span class="line">  &#125;,<span class="number">500</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> p2 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    resolve(<span class="string">&#x27;成功2&#x27;</span>)</span><br><span class="line">  &#125;,<span class="number">1500</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> p3 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    reject(<span class="string">&#x27;失败&#x27;</span>)</span><br><span class="line">  &#125;, <span class="number">1000</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等待 p1，p2 请求完成</span></span><br><span class="line"><span class="built_in">Promise</span>.all([p1, p2]).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res) <span class="comment">// [&#x27;成功1&#x27;, &#x27;成功2&#x27;]</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 只要有一个请求被 reject，就会进入 catch 回调</span></span><br><span class="line"><span class="built_in">Promise</span>.all([p1, p2, p3]).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;).catch(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(error) <span class="comment">// &#x27;失败&#x27;</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 始终返回最快的那一个异步，不管resolve还是reject</span></span><br><span class="line"><span class="built_in">Promise</span>.race([p1, p2]).then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res) <span class="comment">// &#x27;成功1&#x27;</span></span><br><span class="line">&#125;, <span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(error)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">Promise</span>.race([p1, p3]).then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res) <span class="comment">// &#x27;成功1&#x27;</span></span><br><span class="line">&#125;, <span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(error)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">Promise</span>.race([p2, p3]).then(<span class="function">(<span class="params">result</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;, <span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(error) <span class="comment">// &#x27;失败&#x27;</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="async-和-await"><a href="#async-和-await" class="headerlink" title="async 和 await"></a>async 和 await</h2><ul>
+<li>异步编程终极方案</li>
+</ul>
+<ul>
+<li>async / await 用同步编写代码的方式 处理异步操作的一个方案</li>
+<li>async：修饰 (修饰一个内部有异步操作的函数) 格式 : async + 函数 (里面有异步操作的函数)</li>
+<li>await : 等待 (等上一个异步操作完成啊 , 修饰 一个结果是 promise 的)异步操作 格式 : await + 异步操作(结果 promise 对象)</li>
+<li>async 和 await 是成对出现的，await 只能在 async 函数中使用</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 第一步封装</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">readFile</span>(<span class="params">path</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 1. 实例化 promise</span></span><br><span class="line">  <span class="keyword">const</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    fs.readFile(path, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (err) &#123;</span><br><span class="line">        <span class="comment">// 操作错误 调用 =&gt;  reject  =&gt; catch</span></span><br><span class="line">        <span class="keyword">return</span> reject(err)</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">// 操作成功  调用 =&gt; resolve =&gt; then</span></span><br><span class="line">      resolve(data.toString())</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="comment">// 2. 返回 promise 对象</span></span><br><span class="line">  <span class="keyword">return</span> p</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第二步：使用 (async/await)</span></span><br><span class="line"><span class="comment">// async + 函数 (里面有异步操作的函数)</span></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// await + 异步操作(结果promise对象)</span></span><br><span class="line">  <span class="comment">// 读取a文件</span></span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> res1 = <span class="keyword">await</span> readFile(<span class="string">&#x27;./data/a1.txt&#x27;</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(res1)</span><br><span class="line">  &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(error)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 读取 b 文件</span></span><br><span class="line">  <span class="keyword">const</span> res2 = <span class="keyword">await</span> readFile(<span class="string">&#x27;./data/b.txt&#x27;</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(res2)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 读取 c 文件</span></span><br><span class="line">  <span class="keyword">const</span> res3 = <span class="keyword">await</span> readFile(<span class="string">&#x27;./data/c.txt&#x27;</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(res3)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fn()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 延时函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sleep</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      resolve(b)</span><br><span class="line">    &#125;, a)</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">return</span> p</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> res1 = <span class="keyword">await</span> sleep(<span class="number">1000</span>, <span class="string">&#x27;a&#x27;</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(res1)</span><br><span class="line">  <span class="keyword">const</span> res2 = <span class="keyword">await</span> sleep(<span class="number">5000</span>, <span class="string">&#x27;b&#x27;</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(res2)</span><br><span class="line">  <span class="keyword">const</span> res3 = <span class="keyword">await</span> sleep(<span class="number">3000</span>, <span class="string">&#x27;c&#x27;</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(res3)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// fn()</span></span><br><span class="line"></span><br><span class="line">sleep(<span class="number">1000</span>, <span class="string">&#x27;a&#x27;</span>)</span><br><span class="line">  .then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">    <span class="keyword">return</span> sleep(<span class="number">5000</span>, <span class="string">&#x27;b&#x27;</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">  .then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">    <span class="keyword">return</span> sleep(<span class="number">3000</span>, <span class="string">&#x27;c&#x27;</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">  .then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> p1 = <span class="built_in">Promise</span>.all([sleep(<span class="number">1000</span>, <span class="string">&#x27;a&#x27;</span>), sleep(<span class="number">5000</span>, <span class="string">&#x27;b&#x27;</span>)])</span><br><span class="line">p1.then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> p2 = <span class="built_in">Promise</span>.race([sleep(<span class="number">1000</span>, <span class="string">&#x27;a&#x27;</span>), sleep(<span class="number">5000</span>, <span class="string">&#x27;b&#x27;</span>)])</span><br><span class="line">p2.then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Promise-try"><a href="#Promise-try" class="headerlink" title="Promise.try()"></a>Promise.try()</h2><p>实际开发中，经常遇到一种情况：不知道或者不想区分，函数f是同步函数还是异步操作，但是想用 Promise 来处理它。因为这样就可以不管f是否包含异步操作，都用then方法指定下一步流程，用catch方法处理f抛出的错误。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Promise</span>.resolve().then(f)</span><br></pre></td></tr></table></figure>
+
+<p>上面的写法有一个缺点，就是如果f是同步函数，那么它会在本轮事件循环的末尾执行。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> f = <span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&#x27;now&#x27;</span>)</span><br><span class="line"><span class="built_in">Promise</span>.resolve().then(f)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;next&#x27;</span>)</span><br><span class="line"><span class="comment">// next</span></span><br><span class="line"><span class="comment">// now</span></span><br></pre></td></tr></table></figure>
+
+<p>用async函数</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">(<span class="keyword">async</span> () =&gt; f())()</span><br><span class="line">.then(...)</span><br><span class="line">.catch(...)</span><br></pre></td></tr></table></figure>
+
+<p>Promise.try方法</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> f = <span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&#x27;now&#x27;</span>)</span><br><span class="line"><span class="built_in">Promise</span>.try(f)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;next&#x27;</span>)</span><br><span class="line"><span class="comment">// now</span></span><br><span class="line"><span class="comment">// next</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="new-Promise-和-Promise-resolve"><a href="#new-Promise-和-Promise-resolve" class="headerlink" title="new Promise 和 Promise.resolve()"></a>new Promise 和 Promise.resolve()</h2>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -3078,165 +3206,6 @@
 </blockquote>
 <p><span class="exturl" data-url="aHR0cDovL3d3dy5zd2lwZXIuY29tLmNuLw==">swiper 中文网<i class="fa fa-external-link-alt"></i></span></p>
 <h1 id="other"><a href="#other" class="headerlink" title="other"></a>other</h1><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="comment">/* 取消链接高亮, 移动端特有的样式  */</span></span><br><span class="line">  -webkit-tap-highlight-<span class="attribute">color</span>: <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/400.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/400.html" class="post-title-link" itemprop="url">浏览器的工作原理</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2018-11-30 22:14:52" itemprop="dateCreated datePublished" datetime="2018-11-30T22:14:52+00:00">2018-11-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="浏览器的组成"><a href="#浏览器的组成" class="headerlink" title="浏览器的组成"></a>浏览器的组成</h2><p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102203825.png"></p>
-<ul>
-<li>用户界面－ 包括地址栏、后退/前进按钮、书签目录等，也就是你所看到的除了用来显示你所请求页面的主窗口之外的其他部分</li>
-<li>浏览器引擎－ 用来查询及操作渲染引擎的接口</li>
-<li>渲染引擎（浏览器内核）－ 用来显示请求的内容，例如，如果请求内容为 html，它负责解析 html 及 css，并将解析后的结果显示出来</li>
-<li>网络－ 用来完成网络调用，例如 http 请求，它具有平台无关的接口，可以在不同平台上工作</li>
-<li>UI 后端－ 用来绘制类似组合选择框及对话框等基本组件，具有不特定于某个平台的通用接口，底层使用操作系统的用户接口</li>
-<li>JS 解释器－ 用来解释执行 JS 代码</li>
-<li>数据存储－ 属于持久层，浏览器需要在硬盘中保存类似 cookie 的各种数据，HTML5 定义了 Storage 技术，这是一种轻量级完整的客户端存储技术</li>
-</ul>
-<h2 id="主流的渲染引擎"><a href="#主流的渲染引擎" class="headerlink" title="主流的渲染引擎"></a>主流的渲染引擎</h2><blockquote>
-<p>浏览器的渲染引擎也叫排版引擎，或者是<strong>浏览器内核</strong></p>
-</blockquote>
-<p>主流的 渲染引擎 有</p>
-<ul>
-<li><strong>Chrome 浏览器</strong>: Blink 引擎（WebKit 的一个分支）。</li>
-<li><strong>Safari 浏览器</strong>: WebKit 引擎，windows 版本 2008 年 3 月 18 日推出正式版，但苹果已于 2012 年 7 月 25 日停止开发 Windows 版的 Safari。</li>
-<li><strong>FireFox 浏览器</strong>: Gecko 引擎。</li>
-<li><strong>Opera 浏览器</strong>: Blink 引擎(早期版使用 Presto 引擎）。</li>
-<li><strong>Internet Explorer 浏览器</strong>: Trident 引擎。</li>
-<li><strong>Microsoft Edge 浏览器</strong>: EdgeHTML 引擎（Trident 的一个分支）。</li>
-</ul>
-<h2 id="渲染引擎工作原理"><a href="#渲染引擎工作原理" class="headerlink" title="渲染引擎工作原理"></a>渲染引擎工作原理</h2><p>渲染引擎解析的基本流程：</p>
-<ol>
-<li><p>解析 HTML 构建 <code>Dom树</code>，同时解析所有的 css 样式，构建 css 规则。DOM 是 W3C 组织推荐的处理可扩展置标语言的标准编程接口。</p>
-</li>
-<li><p>根据 DOM 树和 css 规则合并构建 <code>渲染树</code></p>
-<ul>
-<li>DOM 树上的节点没有样式的，渲染树的节点有样式的</li>
-<li>渲染树上的节点都是需要渲染的，所以渲染树上没有像<code>head</code>标签 或 <code>display: none</code>这样的元素，但是它们在 Dom 树中</li>
-</ul>
-</li>
-<li><p>对渲染树进行布局，定位坐标和大小、确定是否换行、确定 position、overflow、z-index 等等，这个过程叫<code>layout</code> 或 <code>reflow</code>。</p>
-</li>
-<li><p>绘制渲染树，调用操作系统底层 API(UI Backend)进行绘图操作。</p>
-</li>
-</ol>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102203846.png"></p>
-<p><strong>webkit 内核工作流程</strong></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102203907.png"></p>
-<p><strong>gecko 内核工作流程</strong></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102203924.jpeg"></p>
-<p>结论：浏览器能够解析 HTML 文件，并且显示到页面中。所以我们写的文件能够使用浏览器打开并且能够看到效果。</p>
-<h1 id="重绘与回流"><a href="#重绘与回流" class="headerlink" title="重绘与回流"></a>重绘与回流</h1><h2 id="重绘与回流-1"><a href="#重绘与回流-1" class="headerlink" title="重绘与回流"></a>重绘与回流</h2><p><code>回流(reflow)</code>: 又叫重排，当 render tree 中的一部分(或全部)因为元素的规模尺寸，布局，隐藏等改变而需要重新构建。</p>
-<p><code>重绘(repaint)</code>：当 render tree 中的一些元素需要更新属性，而这些属性只是影响元素的外观，风格，而不会影响布局的，比如 background-color。</p>
-<ol>
-<li>每个页面至少需要一次回流+重绘</li>
-<li>回流必将引起重绘</li>
-</ol>
-<p>回流什么时候发生？</p>
-<p>1、添加或者删除可见的 DOM 元素</p>
-<p>2、元素位置改变</p>
-<p>3、元素尺寸改变——边距、填充、边框、宽度和高度</p>
-<p>4、内容改变——比如文本改变或者图片大小改变而引起的计算值宽度和高度改变</p>
-<p>5、页面渲染初始化</p>
-<p>6、浏览器窗口尺寸改变——resize 事件发生时</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="built_in">document</span>.body.style</span><br><span class="line">s.padding = <span class="string">&#x27;2px&#x27;</span> <span class="comment">// 回流+重绘</span></span><br><span class="line">s.border = <span class="string">&#x27;1px solid red&#x27;</span> <span class="comment">// 再一次 回流+重绘</span></span><br><span class="line">s.color = <span class="string">&#x27;blue&#x27;</span> <span class="comment">// 再一次重绘</span></span><br><span class="line">s.backgroundColor = <span class="string">&#x27;#ccc&#x27;</span> <span class="comment">// 再一次 重绘</span></span><br><span class="line">s.fontSize = <span class="string">&#x27;14px&#x27;</span> <span class="comment">// 再一次 回流+重绘</span></span><br><span class="line"><span class="comment">// 添加node，再一次 回流+重绘</span></span><br><span class="line"><span class="built_in">document</span>.body.appendChild(<span class="built_in">document</span>.createTextNode(<span class="string">&#x27;abc!&#x27;</span>))</span><br></pre></td></tr></table></figure>
-
-<h2 id="聪明的浏览器"><a href="#聪明的浏览器" class="headerlink" title="聪明的浏览器"></a>聪明的浏览器</h2><blockquote>
-<p>从上个实例代码中可以看到几行简单的 JS 代码就引起了 6 次左右的回流、重绘。而且我们也知道回流的花销也不小，如果每句 JS 操作都去回流重绘的话，浏览器可能就会受不了。所以很多浏览器都会优化这些操作，浏览器会维护 1 个队列，把所有会引起回流、重绘的操作放入这个队列，等队列中的操作到了一定的数量或者到了一定的时间间隔，浏览器就会 flush 队列，进行一个批处理。这样就会让多次的回流、重绘变成一次回流重绘。</p>
-</blockquote>
-<p>虽然有了浏览器的优化，但有时候我们写的一些代码可能会强制浏览器提前 flush 队列，这样浏览器的优化可能就起不到作用了。当你向浏览器请求一些 style 信息的时候，就会让浏览器 flush 队列，比如：</p>
-<ol>
-<li><p>offsetTop, offsetLeft, offsetWidth, offsetHeight</p>
-</li>
-<li><p>scrollTop/Left/Width/Height</p>
-</li>
-<li><p>clientTop/Left/Width/Height</p>
-</li>
-<li><p>width,height</p>
-</li>
-<li><p>请求了 getComputedStyle(), 或者 IE 的 currentStyle</p>
-</li>
-</ol>
-<h2 id="如何性能优化"><a href="#如何性能优化" class="headerlink" title="如何性能优化"></a>如何性能优化</h2><blockquote>
-<p>减少回流与重绘的次数，就需要简单对渲染树的操作</p>
-</blockquote>
-<ol>
-<li>直接使用 <code>className</code> 修改样式，少用 style 设置样式</li>
-<li>让要操作的元素进行”离线处理”，处理完后一起更新<ul>
-<li>使用 <code>DocumentFragment</code> 进行缓存操作，引发一次回流和重绘</li>
-<li>使用 <code>display:none</code> 技术，只引发两次回流和重绘</li>
-</ul>
-</li>
-<li>将需要多次重排的元素，position 属性设为 absolute 或 fixed，这样此元素就脱离了文档流，它的变化不会影响到其他元素为动画的 HTML 元素，例如动画，那么修改他们的 CSS 是会大大减小 reflow</li>
-<li><strong>完成功能是前提，在完成功能的情况下想着优化代码</strong></li>
-</ol>
 
       
     </div>

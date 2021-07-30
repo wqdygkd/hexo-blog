@@ -176,7 +176,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">153</span>
+          <span class="site-state-item-count">154</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -186,7 +186,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">85</span>
+        <span class="site-state-item-count">87</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -220,6 +220,101 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/2001.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2001.html" class="post-title-link" itemprop="url">使用 patch-package 来科学修改 node_modules 里的文件</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-12-15 00:00:00" itemprop="dateCreated datePublished" datetime="2020-12-15T00:00:00+00:00">2020-12-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>当我们使用npm包时，需要修改部分源码做自定义功能，但是直接修改node_modules里面的文件，重新安装包后做的修改就没有了。一般常用办法有两个：</p>
+<ol>
+<li>将代码下载到本地，修改后手动引入</li>
+<li>fork别人的代码到自己仓库，修改后，从自己仓库安装</li>
+</ol>
+<p>但是这样做比较麻烦，而且更新不方便。我们可以使用 patch-package 来管理修改</p>
+<p>以 hexo-theme-next 为例</p>
+<ol>
+<li><p>修改 node_modules 里面的代码</p>
+</li>
+<li><p>安装patch-package：<code>npm i patch-package --save-dev</code></p>
+</li>
+<li><p>执行命令：<code>npx patch-package hexo-theme-next</code></p>
+</li>
+</ol>
+<p>第一次使用 patch-package 会在项目根目录生成 patches 文件夹，里面有修改过的文件 diff 记录</p>
+<p>当这个包被重新安装后，可以使用如下方式让修改生效</p>
+<p>方式一：执行命令：<code>git apply --ignore-whitespace patches/hexo-theme-next+8.0.1.patch</code></p>
+<p>方式二：在 package.json，新增命令 postinstall:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">+  &quot;postinstall&quot;: &quot;patch-package&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>执行：<code>npm run postinstall</code></p>
+<p>该命令也会在每次 npm install 时自动执行</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -989,84 +1084,6 @@
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>HTTPS 网站检测 <span class="exturl" data-url="aHR0cHM6Ly9teXNzbC5jb20v">https://myssl.com/<i class="fa fa-external-link-alt"></i></span></p>
 <p>参考文章：</p>
 <p><span class="exturl" data-url="aHR0cHM6Ly90ZWRkeXN1bi5jb20vNTI3Lmh0bWw=">https://teddysun.com/527.html<i class="fa fa-external-link-alt"></i></span></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1895.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/1895.html" class="post-title-link" itemprop="url">微信小程序中使用less</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-07-14 09:56:35" itemprop="dateCreated datePublished" datetime="2020-07-14T09:56:35+00:00">2020-07-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>安装</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g wxss-cli</span><br></pre></td></tr></table></figure>
-
-<p>然后在小程序目录，监听此目录以下所有 css 及 less 文件并实时保存文件后转换为 wxss</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 监听文件会自动将此目录下 css,less 文件编译为 wxss</span></span><br><span class="line">wxss ./pages</span><br></pre></td></tr></table></figure>
-<p>新建的 less 文件最终不会上传至小程序</p>
 
       
     </div>
