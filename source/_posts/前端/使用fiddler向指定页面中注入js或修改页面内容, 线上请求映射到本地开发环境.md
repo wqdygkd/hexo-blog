@@ -3,7 +3,7 @@ title: '使用 Fiddler 向指定页面中注入 js 或修改页面内容, 本地
 tags:
   - fiddler
   - 调试
-id: '433'
+id: 433
 categories:
   - 前端
 date: 2020-01-13 17:42:46
@@ -23,12 +23,11 @@ date: 2020-01-13 17:42:46
 static function OnBeforeResponse(oSession: Session) {
   // ...
   // 判断如果是百度或是请求url中包含 baidu.com 的响应就在head前面添加一个 js 弹窗
-  if (oSession.HostnameIs('www.baidu.com') || oSession.uriContains('baidu.com') && oSession.oResponse.headers.ExistsAndContains('Content-Type','text/html')){
-
-        // 解码响应内容
-        oSession.utilDecodeResponse()
-        // 替换内容
-        oSession.utilReplaceInResponse('</head>','<script>alert('哈哈');</script></head>')
+  if (oSession.HostnameIs('www.baidu.com') || oSession.uriContains('baidu.com') && oSession.oResponse.headers.ExistsAndContains('Content-Type', 'text/html')) {
+    // 解码响应内容
+    oSession.utilDecodeResponse()
+    // 替换内容
+    oSession.utilReplaceInResponse('</head>', '<script>alert("哈哈");</script></head>')
   }
 }
 ```
@@ -50,18 +49,20 @@ oSession.utilSetResponseBody(oBody)
 
 ## 线上请求映射到本地开发环境
 
-1. 指定一个本地文件来代替线上请求的文件，编辑 FiddlerScript 添加如下代码
+1. 本地文件响应
+
+编辑 FiddlerScript 添加如下代码
 
 ```js
 static function OnBeforeResponse(oSession: Session) {
-  // 如果请求url中包含nav.js 就用 D:/nav.js 来响应
+  // 如果请求 url 中包含 nav.js 就用 D:/nav.js 来响应
   if (oSession.uriContains('nav.js')) {
-    oSession['x-replywithfile'] ='D:/nav.js'
+    oSession['x-replywithfile'] = 'D:/nav.js'
   }
 }
 ```
 
-除了编辑 FiddlerScript，也可以选择在右侧打开 `AutoResponder(自动回复器)` 选项卡 ，添加规则并`启用规则`，效果相同
+除了编辑 FiddlerScript，也可以选择在右侧打开 `AutoResponder(自动回复器)` 选项卡（参考第三点） ，添加规则并`启用规则`，效果相同
 
 2. 本地目录响应
 
@@ -70,20 +71,20 @@ static function OnBeforeResponse(oSession: Session) {
 ```js
 static function OnBeforeResponse(oSession: Session) {
   if (m_Hide304s && oSession.responseCode == 304) {
-      oSession['ui-hide'] = 'true'
+    oSession['ui-hide'] = 'true'
   }
 
-  var domain:String='http://online.com/static/'
+  var domain: String = 'http://online.com/static/'
   // 本地目录 注意使用 '/' 代替 '\'
-  var folder:String='D:/static/'
+  var folder: String = 'D:/static/'
   AutoResponseFolder(oSession, domain, folder)
 }
 
-static function AutoResponseFolder (oSession: Session, domain:String, folder:String) {
+static function AutoResponseFolder (oSession: Session, domain: String, folder: String) {
   // 获取当前对话的完整URL
-  var fullUrl:String = oSession.fullUrl
+  var fullUrl: String = oSession.fullUrl
   if (fullUrl.StartsWith(domain)) {
-    var localPath:String = fullUrl.replace(domain, folder)
+    var localPath: String = fullUrl.replace(domain, folder)
     // 设置延迟
     // oSession['response-trickle-delay'] = 1000
     oSession['x-replywithfile'] = localPath
@@ -94,10 +95,9 @@ static function AutoResponseFolder (oSession: Session, domain:String, folder:Str
 
 3. 替换整个线上环境为本地开发环境
 
-在 `AutoResponder(自动回复器)` 选项卡中，
-添加如下规则：`regex:(?insx)http://online.com\/(?<name>.+)$` => `http://localhost/${name}`
+例如将所有 `http://online.com` 上的请求替换成本地 `localhost`，可以做如下：
 
-将所有 `http://online.com` 上的请求替换成本地 `localhost`
+在 `AutoResponder(自动回复器)` 选项卡中，添加如下规则：`regex:(?insx)http://online.com\/(?<name>.+)$` => `http://localhost/${name}`
 
 4. 使用 Stave 插件批量映射
 
