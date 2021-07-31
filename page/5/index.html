@@ -103,6 +103,7 @@
         <li class="menu-item menu-item-前端"><a href="/c/frontend/" rel="section"><i class="fab fa-html5 fa-fw"></i>前端</a></li>
         <li class="menu-item menu-item-软件"><a href="/c/software/" rel="section"><i class="fas fa-th-large fa-fw"></i>软件</a></li>
         <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fas fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-面试"><span class="exturl" data-url="aHR0cHM6Ly9tcy53cWR5LnRvcA=="><i class="fas fa-archive fa-fw"></i>面试</span></li>
         <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
         <li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
       <li class="menu-item menu-item-search">
@@ -275,7 +276,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>项目地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25vbmRhbmVlL1VuYmxvY2tOZXRlYXNlTXVzaWM=">https://github.com/nondanee/UnblockNeteaseMusic<i class="fa fa-external-link-alt"></i></span><br>食用指南：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25vbmRhbmVlL1VuYmxvY2tOZXRlYXNlTXVzaWMvaXNzdWVzLzIy">https://github.com/nondanee/UnblockNeteaseMusic/issues/22<i class="fa fa-external-link-alt"></i></span></p>
+          <p>项目地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25vbmRhbmVlL1VuYmxvY2tOZXRlYXNlTXVzaWM=">https://github.com/nondanee/UnblockNeteaseMusic</span><br>食用指南：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25vbmRhbmVlL1VuYmxvY2tOZXRlYXNlTXVzaWMvaXNzdWVzLzIy">https://github.com/nondanee/UnblockNeteaseMusic/issues/22</span></p>
 <p>特性：</p>
 <ul>
 <li>使用 QQ / 虾米 / 百度 / 酷狗 / 酷我 / 咪咕 / JOOX 音源替换变灰歌曲链接 (默认仅启用一、五、六)</li>
@@ -301,7 +302,7 @@
 <p>pm2 部署：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pm2 start app.js --name UnblockNeteaseMusic -- -s -p 8080</span><br></pre></td></tr></table></figure>
 
-<h4 id="ios-设备"><a href="#ios-设备" class="headerlink" title="ios 设备"></a>ios 设备</h4><p>ios 配置经验分享：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25vbmRhbmVlL1VuYmxvY2tOZXRlYXNlTXVzaWMvaXNzdWVzLzM2OA==">https://github.com/nondanee/UnblockNeteaseMusic/issues/368<i class="fa fa-external-link-alt"></i></span></p>
+<h4 id="ios-设备"><a href="#ios-设备" class="headerlink" title="ios 设备"></a>ios 设备</h4><p>ios 配置经验分享：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25vbmRhbmVlL1VuYmxvY2tOZXRlYXNlTXVzaWMvaXNzdWVzLzM2OA==">https://github.com/nondanee/UnblockNeteaseMusic/issues/368</span></p>
 <p>ios 需要一个域名，并配置反代</p>
 <p>nginx 配置：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">	  listen 443 ssl http2;</span><br><span class="line">	  server_name your_domain; # 改为你自己的域名</span><br><span class="line">	  ssl_certificate 1_your_domain_bundle.crt; # 改为自己申请得到的 crt 文件的名称</span><br><span class="line">	  ssl_certificate_key 2_your_domain.key; # 改为自己申请得到的 key 文件的名称</span><br><span class="line">	  ssl_session_timeout 5m;</span><br><span class="line">	  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">	  ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;</span><br><span class="line">	  ssl_prefer_server_ciphers on;</span><br><span class="line"></span><br><span class="line">	  location / &#123;</span><br><span class="line">	    proxy_pass http://localhost:8080; # 代理到 Unblock 服务地址</span><br><span class="line">	  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -316,11 +317,11 @@
 
 <h3 id="pm2-常用命令"><a href="#pm2-常用命令" class="headerlink" title="pm2 常用命令"></a>pm2 常用命令</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pm2 stop UnblockNeteaseMusic <span class="comment"># 停止服务</span></span><br><span class="line">pm2 restart UnblockNeteaseMusic <span class="comment"># 重启服务</span></span><br><span class="line">pm2 pull UnblockNeteaseMusic <span class="comment"># 更新服务到最新代码</span></span><br><span class="line">pm2 show UnblockNeteaseMusic <span class="comment"># 查看服务的参数信息</span></span><br><span class="line">pm2 <span class="built_in">log</span> UnblockNeteaseMusic <span class="comment"># 查看服务日志</span></span><br><span class="line">pm2 ls <span class="comment"># 查看已部署的服务列表</span></span><br><span class="line">pm2 monit <span class="comment"># 监控服务状态</span></span><br><span class="line">pm2 flush <span class="comment"># 清理所有日志文件</span></span><br><span class="line">pm2 update <span class="comment"># 更新 pm2 状态</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="一键打卡刷满-300-听歌量"><a href="#一键打卡刷满-300-听歌量" class="headerlink" title="一键打卡刷满 300 听歌量"></a>一键打卡刷满 300 听歌量</h3><p><span class="exturl" data-url="aHR0cHM6Ly90b2RheS5uYW5nZS5jbi8=">https://today.nange.cn/<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="一键打卡刷满-300-听歌量"><a href="#一键打卡刷满-300-听歌量" class="headerlink" title="一键打卡刷满 300 听歌量"></a>一键打卡刷满 300 听歌量</h3><p><span class="exturl" data-url="aHR0cHM6Ly90b2RheS5uYW5nZS5jbi8=">https://today.nange.cn/</span></p>
 <div style="display: none;">
 使用方法参考
 
-<p><span class="exturl" data-url="aHR0cHM6Ly93d3cubmFuZ2UuY24vdW5sb2NrLW5ldGVhc2UtbXVzaWMuaHRtbA==">https://www.nange.cn/unlock-netease-music.html<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cubmFuZ2UuY24vdW5sb2NrLW5ldGVhc2UtbXVzaWMuaHRtbA==">https://www.nange.cn/unlock-netease-music.html</span></p>
 </div>
 </div>
 
@@ -551,7 +552,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>开源地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3hpYW5kYW5pbi9tYWduZXRX">https://github.com/xiandanin/magnetW<i class="fa fa-external-link-alt"></i></span><br>下载地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3hpYW5kYW5pbi9tYWduZXRXL3JlbGVhc2Vz">https://github.com/xiandanin/magnetW/releases<i class="fa fa-external-link-alt"></i></span></p>
+          <p>开源地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3hpYW5kYW5pbi9tYWduZXRX">https://github.com/xiandanin/magnetW</span><br>下载地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3hpYW5kYW5pbi9tYWduZXRXL3JlbGVhc2Vz">https://github.com/xiandanin/magnetW/releases</span></p>
 <p>欢迎 star</p>
 <p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102203211.gif"></p>
 
@@ -714,24 +715,24 @@
     
     <div class="post-body" itemprop="articleBody">
           <h2 id="HWIDGEN"><a href="#HWIDGEN" class="headerlink" title="HWIDGEN"></a>HWIDGEN</h2><p>是一款由国外 Nsane 论坛会员 s1ave77 制作的 Windows 10 数字权利激活工具，可以自动获取 Windows 10 数字许可证</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9zdXBwb3J0Lm1pY3Jvc29mdC5jb20vemgtY24vaGVscC8xMjQ0MC93aW5kb3dzLTEwLWFjdGl2YXRl">数字许可证<i class="fa fa-external-link-alt"></i></span>（在 Windows 10 版本 1511 中称为数字授权）是 Windows 10 的一种激活方法，该方法不需要输入产品密钥。在同一台电脑上主要硬件（应该是 CPU 和主板）不变化的情况下，重新安装系统时无需再次输入密钥，系统会在自动连接到微软服务器进行激活。</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9zdXBwb3J0Lm1pY3Jvc29mdC5jb20vemgtY24vaGVscC8xMjQ0MC93aW5kb3dzLTEwLWFjdGl2YXRl">数字许可证</span>（在 Windows 10 版本 1511 中称为数字授权）是 Windows 10 的一种激活方法，该方法不需要输入产品密钥。在同一台电脑上主要硬件（应该是 CPU 和主板）不变化的情况下，重新安装系统时无需再次输入密钥，系统会在自动连接到微软服务器进行激活。</p>
 <p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102203303.png"></p>
 <h3 id="支持的-win10-版本："><a href="#支持的-win10-版本：" class="headerlink" title="支持的 win10 版本："></a>支持的 win10 版本：</h3><p>家庭版（HWID/KMS3）<br>家庭单语言版（HWID/KMS3）<br>专业版（HWID/KMS3）<br>专业教育版（HWID/KMS3）<br>专业工作站版（HWID/KMS3）<br>教育版（HWID/KMS3）<br>企业版（HWID/KMS3）<br>企业版 S 2015（HWID）<br>企业版 S 2016（HWID/KMS3）<br>企业版 S（KMS19™）</p>
-<h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuYWlvd2FyZXMuY29tL3Nob3d0aHJlYWQucGhwP3RpZD0yNDY=">https://www.aiowares.com/showthread.php?tid=246<i class="fa fa-external-link-alt"></i></span></p>
-<p>百度云：链接：<span class="exturl" data-url="aHR0cHM6Ly9wYW4uYmFpZHUuY29tL3MvMTExckpaSGFPRkpycE9kT0tYVzVWY3c=">https://pan.baidu.com/s/111rJZHaOFJrpOdOKXW5Vcw<i class="fa fa-external-link-alt"></i></span> 提取码：3o1c</p>
+<h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuYWlvd2FyZXMuY29tL3Nob3d0aHJlYWQucGhwP3RpZD0yNDY=">https://www.aiowares.com/showthread.php?tid=246</span></p>
+<p>百度云：链接：<span class="exturl" data-url="aHR0cHM6Ly9wYW4uYmFpZHUuY29tL3MvMTExckpaSGFPRkpycE9kT0tYVzVWY3c=">https://pan.baidu.com/s/111rJZHaOFJrpOdOKXW5Vcw</span> 提取码：3o1c</p>
 <h2 id="W10-数字许可激活-C-版"><a href="#W10-数字许可激活-C-版" class="headerlink" title="W10 数字许可激活 C#版"></a>W10 数字许可激活 C#版</h2><p>是一款由吾爱破解论坛 angelkyo 编写的 Windows 10 数字权利激活工具，跟 HWIDGen 类似</p>
 <p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102203321.png"></p>
-<h3 id="下载地址-1"><a href="#下载地址-1" class="headerlink" title="下载地址"></a>下载地址</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuNTJwb2ppZS5jbi90aHJlYWQtNzQyODg0LTEtMS5odG1s">https://www.52pojie.cn/thread-742884-1-1.html<i class="fa fa-external-link-alt"></i></span></p>
-<p>百度云：链接：<span class="exturl" data-url="aHR0cHM6Ly9wYW4uYmFpZHUuY29tL3MvMU9zb1JfWnB1X0JGN20wUGx3OG1VRUE=">https://pan.baidu.com/s/1OsoR_Zpu_BF7m0Plw8mUEA<i class="fa fa-external-link-alt"></i></span> 提取码：a1ru</p>
+<h3 id="下载地址-1"><a href="#下载地址-1" class="headerlink" title="下载地址"></a>下载地址</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuNTJwb2ppZS5jbi90aHJlYWQtNzQyODg0LTEtMS5odG1s">https://www.52pojie.cn/thread-742884-1-1.html</span></p>
+<p>百度云：链接：<span class="exturl" data-url="aHR0cHM6Ly9wYW4uYmFpZHUuY29tL3MvMU9zb1JfWnB1X0JGN20wUGx3OG1VRUE=">https://pan.baidu.com/s/1OsoR_Zpu_BF7m0Plw8mUEA</span> 提取码：a1ru</p>
 <h2 id="离线-KMS-激活工具-HEU-KMS-Activator-v19-6-2-正式版"><a href="#离线-KMS-激活工具-HEU-KMS-Activator-v19-6-2-正式版" class="headerlink" title="离线 KMS 激活工具 HEU KMS Activator v19.6.2 正式版"></a>离线 KMS 激活工具 HEU KMS Activator v19.6.2 正式版</h2><p>一款简洁高效的 KMS 激活工具，适用于 Windows、Office 及 VL 版本，无需联网即可一键激活，离线全自动激活软件，</p>
 <p>KMS 服务是微软公司对 Windows 以及 Office 等的批量授权服务，可以利用 KMS 激活局域网中的产品。而这款工具是利用在系统内部搭建 KMS 服务器，因此无论是 Windows 还是 Office 都可轻易进行激活。</p>
 <h3 id="功能："><a href="#功能：" class="headerlink" title="功能："></a>功能：</h3><p>Heu KMS 几乎支持所有 Vl 批量授权版本<br>可以通过搭建内置的 KMS 服务器进行手动激活产品<br>支持对 Windows 系统以及 Office 办公软件备份激活信息</p>
 <p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102203343.png"></p>
-<h3 id="下载地址-2"><a href="#下载地址-2" class="headerlink" title="下载地址"></a>下载地址</h3><p>百度云：链接：<span class="exturl" data-url="aHR0cHM6Ly9wYW4uYmFpZHUuY29tL3MvMWdBR3FFSEVNalVhNElEeDR0WU5YYWc=">https://pan.baidu.com/s/1gAGqEHEMjUa4IDx4tYNXag<i class="fa fa-external-link-alt"></i></span> 提取码：vrfc</p>
-<h2 id="Microsoft-激活脚本（MAS）："><a href="#Microsoft-激活脚本（MAS）：" class="headerlink" title="Microsoft 激活脚本（MAS）："></a>Microsoft 激活脚本（MAS）：</h2><p>一组脚本，用于使用 HWID / KMS38 /在线 KMS 激活方法激活 Microsoft 产品，重点是开放源代码，较少的防病毒检测和用户友好性。<br>原贴地址（需要登录）：<span class="exturl" data-url="aHR0cHM6Ly93d3cubnNhbmVmb3J1bXMuY29tL3RvcGljLzMxNjY2OC1taWNyb3NvZnQtYWN0aXZhdGlvbi1zY3JpcHRzLw==">https://www.nsaneforums.com/topic/316668-microsoft-activation-scripts/<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="开源地址"><a href="#开源地址" class="headerlink" title="开源地址"></a>开源地址</h3><p><span class="exturl" data-url="aHR0cHM6Ly9naXRsYWIuY29tL21hc3NncmF2ZS9taWNyb3NvZnQtYWN0aXZhdGlvbi1zY3JpcHRz">https://gitlab.com/massgrave/microsoft-activation-scripts<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL21hc3NncmF2ZWwvTWljcm9zb2Z0LUFjdGl2YXRpb24tU2NyaXB0cw==">https://github.com/massgravel/Microsoft-Activation-Scripts<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="下载地址-3"><a href="#下载地址-3" class="headerlink" title="下载地址"></a>下载地址</h3><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL21hc3NncmF2ZWwvTWljcm9zb2Z0LUFjdGl2YXRpb24tU2NyaXB0cy9yZWxlYXNlcw==">https://github.com/massgravel/Microsoft-Activation-Scripts/releases<i class="fa fa-external-link-alt"></i></span></p>
-<p>百度云：链接：<span class="exturl" data-url="aHR0cHM6Ly9wYW4uYmFpZHUuY29tL3MvMUpLRVlBZmdKajltc2ZXODFiaGJLanc=">https://pan.baidu.com/s/1JKEYAfgJj9msfW81bhbKjw<i class="fa fa-external-link-alt"></i></span> 提取码：21di</p>
+<h3 id="下载地址-2"><a href="#下载地址-2" class="headerlink" title="下载地址"></a>下载地址</h3><p>百度云：链接：<span class="exturl" data-url="aHR0cHM6Ly9wYW4uYmFpZHUuY29tL3MvMWdBR3FFSEVNalVhNElEeDR0WU5YYWc=">https://pan.baidu.com/s/1gAGqEHEMjUa4IDx4tYNXag</span> 提取码：vrfc</p>
+<h2 id="Microsoft-激活脚本（MAS）："><a href="#Microsoft-激活脚本（MAS）：" class="headerlink" title="Microsoft 激活脚本（MAS）："></a>Microsoft 激活脚本（MAS）：</h2><p>一组脚本，用于使用 HWID / KMS38 /在线 KMS 激活方法激活 Microsoft 产品，重点是开放源代码，较少的防病毒检测和用户友好性。<br>原贴地址（需要登录）：<span class="exturl" data-url="aHR0cHM6Ly93d3cubnNhbmVmb3J1bXMuY29tL3RvcGljLzMxNjY2OC1taWNyb3NvZnQtYWN0aXZhdGlvbi1zY3JpcHRzLw==">https://www.nsaneforums.com/topic/316668-microsoft-activation-scripts/</span></p>
+<h3 id="开源地址"><a href="#开源地址" class="headerlink" title="开源地址"></a>开源地址</h3><p><span class="exturl" data-url="aHR0cHM6Ly9naXRsYWIuY29tL21hc3NncmF2ZS9taWNyb3NvZnQtYWN0aXZhdGlvbi1zY3JpcHRz">https://gitlab.com/massgrave/microsoft-activation-scripts</span><br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL21hc3NncmF2ZWwvTWljcm9zb2Z0LUFjdGl2YXRpb24tU2NyaXB0cw==">https://github.com/massgravel/Microsoft-Activation-Scripts</span></p>
+<h3 id="下载地址-3"><a href="#下载地址-3" class="headerlink" title="下载地址"></a>下载地址</h3><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL21hc3NncmF2ZWwvTWljcm9zb2Z0LUFjdGl2YXRpb24tU2NyaXB0cy9yZWxlYXNlcw==">https://github.com/massgravel/Microsoft-Activation-Scripts/releases</span></p>
+<p>百度云：链接：<span class="exturl" data-url="aHR0cHM6Ly9wYW4uYmFpZHUuY29tL3MvMUpLRVlBZmdKajltc2ZXODFiaGJLanc=">https://pan.baidu.com/s/1JKEYAfgJj9msfW81bhbKjw</span> 提取码：21di</p>
 
       
     </div>
@@ -805,7 +806,7 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>Google Drive 团队盘，不是增加你本身空间，是增加一个团队盘在你名下，你账号是 15G 依然是 15G，但是存在团队盘里的不算你的占用。</p>
-<p>申请地址：<br><span class="exturl" data-url="aHR0cDovL2xlb24uZWR1Y2F0aW9uaG9zdC5jbG91ZC8=">http://leon.educationhost.cloud/<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly90ZC5mYXN0aW8ubWUv">https://td.fastio.me/<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly9nZC56eGQud29ya2Vycy5kZXYv">https://gd.zxd.workers.dev/<i class="fa fa-external-link-alt"></i></span> All Saints CofE Junior School<br><span class="exturl" data-url="aHR0cHM6Ly90ZWFtZHJpdmUueGNweC53b3JrZXJzLmRldi8=">https://teamdrive.xcpx.workers.dev/<i class="fa fa-external-link-alt"></i></span> swccd.edu<br><span class="exturl" data-url="aHR0cHM6Ly9nZC40MDRlZHUud29ya2Vycy5kZXYv">https://gd.404edu.workers.dev/<i class="fa fa-external-link-alt"></i></span> 台灣教育部</p>
+<p>申请地址：<br><span class="exturl" data-url="aHR0cDovL2xlb24uZWR1Y2F0aW9uaG9zdC5jbG91ZC8=">http://leon.educationhost.cloud/</span><br><span class="exturl" data-url="aHR0cHM6Ly90ZC5mYXN0aW8ubWUv">https://td.fastio.me/</span><br><span class="exturl" data-url="aHR0cHM6Ly9nZC56eGQud29ya2Vycy5kZXYv">https://gd.zxd.workers.dev/</span> All Saints CofE Junior School<br><span class="exturl" data-url="aHR0cHM6Ly90ZWFtZHJpdmUueGNweC53b3JrZXJzLmRldi8=">https://teamdrive.xcpx.workers.dev/</span> swccd.edu<br><span class="exturl" data-url="aHR0cHM6Ly9nZC40MDRlZHUud29ya2Vycy5kZXYv">https://gd.404edu.workers.dev/</span> 台灣教育部</p>
 <p>输入团队盘名称，随便你自己取，建议英文格式。Gmail 邮箱地址建议用自己的小号。弄好这两样后点击提交即可，等提示创建成功就 OK 了。</p>
 <p>登陆 Google Drive 后你会发现在 My Drive(我的云端硬盘) 下面多出了一个 Shared drives(共享云端硬盘) 的菜单按钮</p>
 <p>无限空间方式：</p>
@@ -895,7 +896,7 @@
           <p>04/27 更新 解决 workers 无法正常访问</p>
 <p>作者删除了 github 仓库， GoIndex 依赖的 js 资源加载失败，导致网页打开是一片空白</p>
 <p>解决方法；</p>
-<p>首先到 GitHub Fork 一份 goindex，可以直接 fork <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2N1aWxvbmdqaW4vZ29pbmRleA==">我的<i class="fa fa-external-link-alt"></i></span>，</p>
+<p>首先到 GitHub Fork 一份 goindex，可以直接 fork <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2N1aWxvbmdqaW4vZ29pbmRleA==">我的</span>，</p>
 <p>登录 CF，打开 workers，选中项目，找到以下代码，我的是在 21 行，替换成有效的即可（可以是你 fork 的，也可以直接使用我的）</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;//cdn.jsdelivr.net/combine/gh/jquery/jquery@3.2/dist/jquery.min.js,gh/donwa/goindex@$&#123;authConfig.version&#125;/themes/$&#123;authConfig.theme&#125;/app.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
@@ -904,16 +905,16 @@
 
 <p>原文</p>
 <p>利用 GoIndex 程序，以及 CloudFlare，可以将 Google Drive 文件以目录形式（类似 OneIndex 部署 OneDrive 网盘）列出，可直链调用网盘图片、音频、视频文件等，也可以下载，流量走 CloudFlare ，网速由 CloudFlare 决定</p>
-<p>项目地址： <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RvbndhL2dvaW5kZXg=">https://github.com/donwa/goindex<i class="fa fa-external-link-alt"></i></span></p>
-<p>demo： <span class="exturl" data-url="aHR0cHM6Ly9pbmRleC5nZC53b3JrZXJzLmRldi8=">https://index.gd.workers.dev/<i class="fa fa-external-link-alt"></i></span></p>
+<p>项目地址： <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RvbndhL2dvaW5kZXg=">https://github.com/donwa/goindex</span></p>
+<p>demo： <span class="exturl" data-url="aHR0cHM6Ly9pbmRleC5nZC53b3JrZXJzLmRldi8=">https://index.gd.workers.dev/</span></p>
 <p>安装部署方案 1</p>
-<p>1、在本地安装 rclone<br>2、按照 <span class="exturl" data-url="aHR0cHM6Ly9yY2xvbmUub3JnL2RyaXZlLw==">https://rclone.org/drive/<i class="fa fa-external-link-alt"></i></span> 流程进行授权<br>3、执行 rclone config file 查看 rclone.conf 路径。找到 root_folder_id 和 refresh_token 记录下来<br>4、下载 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RvbndhL2dvaW5kZXg=">https://github.com/donwa/goindex<i class="fa fa-external-link-alt"></i></span> 中的 index.js 并填入 root 和 refresh_token<br>5、复制代码 到 CloudFlare 部署</p>
+<p>1、在本地安装 rclone<br>2、按照 <span class="exturl" data-url="aHR0cHM6Ly9yY2xvbmUub3JnL2RyaXZlLw==">https://rclone.org/drive/</span> 流程进行授权<br>3、执行 rclone config file 查看 rclone.conf 路径。找到 root_folder_id 和 refresh_token 记录下来<br>4、下载 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RvbndhL2dvaW5kZXg=">https://github.com/donwa/goindex</span> 中的 index.js 并填入 root 和 refresh_token<br>5、复制代码 到 CloudFlare 部署</p>
 <p>安装部署方案 2</p>
-<p>作者不会记录 refresh_token，但为避免纠纷，建议有条件的同学使用方案 1 进行部署<br>1、访问<span class="exturl" data-url="aHR0cHM6Ly9pbnN0YWxsLmdkLndvcmtlcnMuZGV2Lw==">https://install.gd.workers.dev/<i class="fa fa-external-link-alt"></i></span><br>2、授权认证后，生成部署代码<br>3、复制代码 到 CloudFlare 部署</p>
+<p>作者不会记录 refresh_token，但为避免纠纷，建议有条件的同学使用方案 1 进行部署<br>1、访问<span class="exturl" data-url="aHR0cHM6Ly9pbnN0YWxsLmdkLndvcmtlcnMuZGV2Lw==">https://install.gd.workers.dev/</span><br>2、授权认证后，生成部署代码<br>3、复制代码 到 CloudFlare 部署</p>
 <p>目录 id：例如 google 网盘链接为<code>https://drive.google.com/drive/folders/1rrDnupW_1qxRnQf-jy_0PN_GqNK8SEk2</code>，则目录 id 为 <code>1rrDnupW_1qxRnQf-jy_0PN_GqNK8SEk2</code></p>
 <p>部署 CloudFlare</p>
 <p>绑定自定义域名</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RvbndhL2dvaW5kZXgvaXNzdWVzLzQ=">https://github.com/donwa/goindex/issues/4<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RvbndhL2dvaW5kZXgvaXNzdWVzLzQ=">https://github.com/donwa/goindex/issues/4</span></p>
 
       
     </div>
@@ -994,7 +995,7 @@
 <p>Windows 环境</p>
 <p>直接去 rclone 官网下载 rclone，最好将 rclone.exe 所在目录加入系统环境变量</p>
 <h3 id="配置-rclone"><a href="#配置-rclone" class="headerlink" title="配置 rclone"></a>配置 rclone</h3><blockquote>
-<p>详细配置参考 <span class="exturl" data-url="aHR0cHM6Ly9yY2xvbmUub3JnL2RyaXZlLw==">https://rclone.org/drive/<i class="fa fa-external-link-alt"></i></span></p>
+<p>详细配置参考 <span class="exturl" data-url="aHR0cHM6Ly9yY2xvbmUub3JnL2RyaXZlLw==">https://rclone.org/drive/</span></p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rclone config</span><br></pre></td></tr></table></figure>
 
@@ -1002,7 +1003,7 @@
 
 <p><strong>注意：</strong>如果在远程 linux 安装，有些配置(涉及 oauth2 的配置)需要使用浏览器授权，可以使用一下方法配置</p>
 <blockquote>
-<p>参考：<span class="exturl" data-url="aHR0cHM6Ly9yY2xvbmUub3JnL3JlbW90ZV9zZXR1cC8=">https://rclone.org/remote_setup/<i class="fa fa-external-link-alt"></i></span></p>
+<p>参考：<span class="exturl" data-url="aHR0cHM6Ly9yY2xvbmUub3JnL3JlbW90ZV9zZXR1cC8=">https://rclone.org/remote_setup/</span></p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Remote config</span><br><span class="line">Use auto config?</span><br><span class="line"> * Say Y if not sure</span><br><span class="line"> * Say N if you are working on a remote or headless machine</span><br><span class="line">y) Yes</span><br><span class="line">n) No</span><br><span class="line">y/n&gt; n # 这里选择 n，授权链接会变成如下样式，而不再是 http://127.0.0.1</span><br><span class="line">Please go to the following link: https://accounts.google.com/o/oauth2/auth?access_type=offline&amp;client_id=202264815644.apps.googleusercontent.com&amp;redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob&amp;response_type=code&amp;scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive&amp;state=J17j_xVz3tAQmV3sMO0xxw</span><br><span class="line">Log in and authorize rclone for access</span><br><span class="line">Enter verification code&gt; # 打开链接登陆授权，将code粘贴到这里</span><br></pre></td></tr></table></figure>
 

@@ -32,7 +32,7 @@
 <meta property="og:description" content="js 模块化编程 最初 js 不是一种模块化编程语言(es6 开始支持)。为了能够尽可能的实现 js 的模块化，我们会把代码写成这样:   最原始: 封装函数写法  function fn1() &amp;#123;  &#x2F;&#x2F; code&amp;#125;function fn2() &amp;#123;  &#x2F;&#x2F; code&amp;#125;  上面的函数 fn1() 和 fn2()，组成一个模块。使用的时候，直接调用就行了，这种">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2018-09-08T22:19:59.000Z">
-<meta property="article:modified_time" content="2021-07-30T14:28:04.933Z">
+<meta property="article:modified_time" content="2021-07-31T17:29:43.563Z">
 <meta property="article:author" content="c">
 <meta property="article:tag" content="js">
 <meta property="article:tag" content="模块化">
@@ -107,6 +107,7 @@
         <li class="menu-item menu-item-前端"><a href="/c/frontend/" rel="section"><i class="fab fa-html5 fa-fw"></i>前端</a></li>
         <li class="menu-item menu-item-软件"><a href="/c/software/" rel="section"><i class="fas fa-th-large fa-fw"></i>软件</a></li>
         <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fas fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-面试"><span class="exturl" data-url="aHR0cHM6Ly9tcy53cWR5LnRvcA=="><i class="fas fa-archive fa-fw"></i>面试</span></li>
         <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
         <li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
       <li class="menu-item menu-item-search">
@@ -323,7 +324,7 @@
 </li>
 </ul>
 <h2 id="AMD-Asynchronous-Module-Definition"><a href="#AMD-Asynchronous-Module-Definition" class="headerlink" title="AMD (Asynchronous Module Definition)"></a>AMD (Asynchronous Module Definition)</h2><blockquote>
-<p>异步加载模块 <span class="exturl" data-url="aHR0cDovL3JlcXVpcmVqcy5vcmcv">requireJs<i class="fa fa-external-link-alt"></i></span> 库应用这一规范</p>
+<p>异步加载模块 <span class="exturl" data-url="aHR0cDovL3JlcXVpcmVqcy5vcmcv">requireJs</span> 库应用这一规范</p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// module add.js</span></span><br><span class="line">define(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="attr">add</span>: <span class="function"><span class="keyword">function</span> (<span class="params">a, b</span>) </span>&#123; <span class="keyword">return</span> a + b &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="comment">// 第一个参数是要请求的模块, 第二个参数是依赖模块请求完成的回调函数</span></span><br><span class="line"><span class="built_in">require</span>([<span class="string">&#x27;add&#x27;</span>], <span class="function"><span class="keyword">function</span> (<span class="params">add</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;1 + 2 = &#x27;</span> + add(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
@@ -433,7 +434,7 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Promise</span>.all([</span><br><span class="line">  <span class="keyword">import</span>(<span class="string">&#x27;./module1.js&#x27;</span>),</span><br><span class="line">  <span class="keyword">import</span>(<span class="string">&#x27;./module2.js&#x27;</span>),</span><br><span class="line">  <span class="keyword">import</span>(<span class="string">&#x27;./module3.js&#x27;</span>),</span><br><span class="line">]).then(<span class="function">(<span class="params">[module1, module2, module3]</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// ···</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 <p>import() 也可以用在 async 函数之中。</p>
-<p>在 webpack 中使用 import() 动态加载模块时，webpack 默认会将所有 import() 的模块都进行单独打包，<span class="exturl" data-url="aHR0cHM6Ly93ZWJwYWNrLmpzLm9yZy9hcGkvbW9kdWxlLW1ldGhvZHMvI2ltcG9ydC0x">https://webpack.js.org/api/module-methods/#import-1<i class="fa fa-external-link-alt"></i></span></p>
+<p>在 webpack 中使用 import() 动态加载模块时，webpack 默认会将所有 import() 的模块都进行单独打包，<span class="exturl" data-url="aHR0cHM6Ly93ZWJwYWNrLmpzLm9yZy9hcGkvbW9kdWxlLW1ldGhvZHMvI2ltcG9ydC0x">https://webpack.js.org/api/module-methods/#import-1</span></p>
 <h2 id="CommonJS-模块-和-ES-模块化区别"><a href="#CommonJS-模块-和-ES-模块化区别" class="headerlink" title="CommonJS 模块 和 ES 模块化区别"></a>CommonJS 模块 和 ES 模块化区别</h2><p>CommonJS 模块</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// commonJsModule.js</span></span><br><span class="line"><span class="keyword">var</span> num = <span class="number">1</span></span><br><span class="line"><span class="keyword">let</span> obj = &#123;&#125;</span><br><span class="line"><span class="keyword">var</span> addNum = <span class="function">() =&gt;</span> num++</span><br><span class="line"><span class="keyword">var</span> addObj = <span class="function">() =&gt;</span> obj.num = num</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    addNum, num,</span><br><span class="line">    addObj, obj,</span><br><span class="line">    <span class="keyword">get</span> <span class="title">getNum</span>()  &#123;</span><br><span class="line">        <span class="keyword">return</span> num</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 

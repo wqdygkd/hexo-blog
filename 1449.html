@@ -32,7 +32,7 @@
 <meta property="og:description" content="介绍Transmission 是一个强大的 BitTorrent 开源客户端，官方网站上提供了多个版本可以下载，包括：Mac、GTK+、QT、web 版本。 Transmission 支持 DHT、Magnet Link、uTP 以及 PEX 等特性。尤其是支持 Magnet Link 磁力链接下载十分重要，因为目前网上很多资源都是采用这种方式来分享的，而不是传统的.torrent 文件 在 Ub">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-05-19T20:46:55.000Z">
-<meta property="article:modified_time" content="2021-07-30T14:28:04.929Z">
+<meta property="article:modified_time" content="2021-07-31T17:29:43.555Z">
 <meta property="article:author" content="c">
 <meta name="twitter:card" content="summary">
 
@@ -105,6 +105,7 @@
         <li class="menu-item menu-item-前端"><a href="/c/frontend/" rel="section"><i class="fab fa-html5 fa-fw"></i>前端</a></li>
         <li class="menu-item menu-item-软件"><a href="/c/software/" rel="section"><i class="fas fa-th-large fa-fw"></i>软件</a></li>
         <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fas fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-面试"><span class="exturl" data-url="aHR0cHM6Ly9tcy53cWR5LnRvcA=="><i class="fas fa-archive fa-fw"></i>面试</span></li>
         <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
         <li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
       <li class="menu-item menu-item-search">
@@ -286,7 +287,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>Transmission 是一个强大的 BitTorrent 开源客户端，<span class="exturl" data-url="aHR0cHM6Ly93d3cudHJhbnNtaXNzaW9uYnQuY29tLw==">官方网站<i class="fa fa-external-link-alt"></i></span>上提供了多个版本可以下载，包括：Mac、GTK+、QT、web 版本。</p>
+        <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>Transmission 是一个强大的 BitTorrent 开源客户端，<span class="exturl" data-url="aHR0cHM6Ly93d3cudHJhbnNtaXNzaW9uYnQuY29tLw==">官方网站</span>上提供了多个版本可以下载，包括：Mac、GTK+、QT、web 版本。</p>
 <p>Transmission 支持 DHT、Magnet Link、uTP 以及 PEX 等特性。尤其是支持 Magnet Link 磁力链接下载十分重要，因为目前网上很多资源都是采用这种方式来分享的，而不是传统的.torrent 文件</p>
 <p>在 Ubuntu 的发行版中，Transmission 软件包下面包含多个套件，这些套件的名字很容易搞混淆，它们分别是：</p>
 <ul>
@@ -309,11 +310,11 @@
 <li>transmission-remote： 控制 daemon 的程序。</li>
 <li>transmission-show：查看.torrent 文件的信息。</li>
 </ul>
-<p>安装好后，Transmission-daemon 有一些默认设置(<span class="exturl" data-url="aHR0cHM6Ly90cmFjLnRyYW5zbWlzc2lvbmJ0LmNvbS93aWtpL1VuaXhTZXJ2ZXIvRGViaWFu">参考链接<i class="fa fa-external-link-alt"></i></span>)。</p>
+<p>安装好后，Transmission-daemon 有一些默认设置(<span class="exturl" data-url="aHR0cHM6Ly90cmFjLnRyYW5zbWlzc2lvbmJ0LmNvbS93aWtpL1VuaXhTZXJ2ZXIvRGViaWFu">参考链接</span>)。</p>
 <p>默认配置目录清单</p>
 <p>启动初始化脚本 /etc/init.d/transmission-daemon<br>基本配置文件 /etc/default/transmission-daemon<br>详细配置文件目录 /var/lib/transmsision-daemon/info/settings.json<br>下载存储目录 /var/lib/transmission-daemon/downloads</p>
 <p>settings.json： 主要的配置文件，设置 daemon 的各项参数，包括 RPC 的用户名密码配置。它实际上是一个符号链接，指向的原始文件是/etc/transmission-daemon/settings.json。里面的参数解释可以参考官网的配置说明。<br>torrents/： 用户存放.torrent 种子文件的目录,凡是添加到下载任务的种子，都存放在这里。.torrent 的命名包含,种子文件本身的名字和种子的 SHA1 HASH 值。<br>resume/： 存放了.resume 文件，.resume 文件包含了一个种子的信息，例如该文件哪些部分被下载了，下载的数据存储的位置等等。<br>blocklists/： 存储被屏蔽的 peer 的地址。<br>dht.dat： 存储 DHT 节点信息。</p>
-<p>如果使用另外一个用户来运行 transmission-daemon 的话，会在该用户的目录下，创建一个.config/transmission-daemon 的文件夹，配置目录 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RyYW5zbWlzc2lvbi90cmFuc21pc3Npb24vd2lraS9Db25maWd1cmF0aW9uLUZpbGVz">https://github.com/transmission/transmission/wiki/Configuration-Files<i class="fa fa-external-link-alt"></i></span></p>
+<p>如果使用另外一个用户来运行 transmission-daemon 的话，会在该用户的目录下，创建一个.config/transmission-daemon 的文件夹，配置目录 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RyYW5zbWlzc2lvbi90cmFuc21pc3Npb24vd2lraS9Db25maWd1cmF0aW9uLUZpbGVz">https://github.com/transmission/transmission/wiki/Configuration-Files</span></p>
 <h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 启动</span></span><br><span class="line">sudo service transmission-daemon start</span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止</span></span><br><span class="line">sudo service transmission-daemon stop</span><br></pre></td></tr></table></figure>
 
 <h3 id="Transmission-的配置"><a href="#Transmission-的配置" class="headerlink" title="Transmission 的配置"></a>Transmission 的配置</h3><p>配置主要是通过修改/var/lib/transmission-daemon/info/settings.json 文件中的参数来实现的。<br>注意：在编辑 Transmission 的配置文件的时候，需要先关闭 daemon 进程，否则编辑的参数将会被恢复到原来的状态。</p>
@@ -325,7 +326,7 @@
 <p>输入<code>service transmission-daemon start</code>启动程序后，打开 settings.json，会看到 rpc-password 一项被改为了 HASH 值。</p>
 <figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;rpc-password&quot;</span>: <span class="string">&quot;&#123;5f4bd5498bddd9aa2ad8f4d475dcebe23e9d8c8bsorspnUE&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>settings.json 里面还有很多参数可以配置，包括上传/下载速度的限制、DHT 的配置、端口设置等等，详细的参数解释可以参考<span class="exturl" data-url="aHR0cHM6Ly90cmFjLnRyYW5zbWlzc2lvbmJ0LmNvbS93aWtpL0VkaXRDb25maWdGaWxlcw==">官网的配置说明<i class="fa fa-external-link-alt"></i></span></p>
+<p>settings.json 里面还有很多参数可以配置，包括上传/下载速度的限制、DHT 的配置、端口设置等等，详细的参数解释可以参考<span class="exturl" data-url="aHR0cHM6Ly90cmFjLnRyYW5zbWlzc2lvbmJ0LmNvbS93aWtpL0VkaXRDb25maWdGaWxlcw==">官网的配置说明</span></p>
 <h3 id="使用-Web-界面控制-Transmission-daemon"><a href="#使用-Web-界面控制-Transmission-daemon" class="headerlink" title="使用 Web 界面控制 Transmission daemon"></a>使用 Web 界面控制 Transmission daemon</h3><p>经过上述配置后，我们就可以通过 Web 界面来访问和控制 Transmission daemon 了。在浏览器里面输入以下地址</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://127.0.0.1:9091/transmission/web/</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
@@ -338,7 +339,7 @@
 <figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;rpc-host-whitelist&quot;</span>: <span class="string">&quot;&quot;</span>, <span class="comment">// rpc 主机白名单</span></span><br><span class="line">  <span class="attr">&quot;rpc-host-whitelist-enabled&quot;</span>: <span class="literal">true</span> <span class="comment">//rpc 主机白名单是否开启，若需要任意主机都能访问，建议false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>将 <code>rpc-host-whitelist</code>设置为 <code>&quot;*&quot;</code>或将 <code>rpc-host-whitelist-enabled</code> 设置为 <code>false</code></p>
-<p>原始界面，没有汉化，也比较简单，可以使用 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3JvbmdnYW5nL3RyYW5zbWlzc2lvbi13ZWItY29udHJvbA==">transmission-web-control<i class="fa fa-external-link-alt"></i></span> 加强 Transmission Web 的操作能力</p>
+<p>原始界面，没有汉化，也比较简单，可以使用 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3JvbmdnYW5nL3RyYW5zbWlzc2lvbi13ZWItY29udHJvbA==">transmission-web-control</span> 加强 Transmission Web 的操作能力</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget -N  https://github.com/ronggang/transmission-web-control/raw/master/release/install-tr-control-cn.sh</span><br><span class="line">bash install-tr-control-cn.sh</span><br></pre></td></tr></table></figure>
 
 <p>安装完成之后刷新浏览器即可看到新的 ui，如果没有看到可能是浏览器缓存，ctrl + f5 强制刷新一下，如果还是没有看到，<br>可以尝试使用 root 用户运行</p>

@@ -32,7 +32,7 @@
 <meta property="og:description" content="Screen 是一个全屏窗口管理器。 安装apt install screen# 或yum install screen 使用screen -S &lt;name&gt; # 新建一个作业名为 name 的窗口，(标注 screen 窗口)screen -ls # 显示目前所有的 screen 作业screen -d &lt;name&gt; # 将指定的 screen 作业离线screen -h">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-07-12T20:47:14.000Z">
-<meta property="article:modified_time" content="2021-07-30T14:28:04.937Z">
+<meta property="article:modified_time" content="2021-07-31T17:29:43.567Z">
 <meta property="article:author" content="c">
 <meta property="article:tag" content="linux">
 <meta property="article:tag" content="screen">
@@ -107,6 +107,7 @@
         <li class="menu-item menu-item-前端"><a href="/c/frontend/" rel="section"><i class="fab fa-html5 fa-fw"></i>前端</a></li>
         <li class="menu-item menu-item-软件"><a href="/c/software/" rel="section"><i class="fas fa-th-large fa-fw"></i>软件</a></li>
         <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fas fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-面试"><span class="exturl" data-url="aHR0cHM6Ly9tcy53cWR5LnRvcA=="><i class="fas fa-archive fa-fw"></i>面试</span></li>
         <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
         <li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
       <li class="menu-item menu-item-search">
@@ -296,7 +297,7 @@
 <h3 id="使用问题"><a href="#使用问题" class="headerlink" title="使用问题"></a>使用问题</h3><p>问题：linux 在进入 screen 模式下之后，发现是无法在终端使用鼠标滚轮进行上下翻页拉动的，无法查看上面的终端输出内容了</p>
 <p>解决办法</p>
 <p>进入回滚模式（可以操作鼠标滚轮上下翻页）：先按<code>Ctrl+a</code>键，然后释放，然后再按[键即可进入翻页模式。<br>切换回之前模式：<code>Ctrl+c</code></p>
-<h2 id="ubuntu-下源码编译安装-screen-最新版"><a href="#ubuntu-下源码编译安装-screen-最新版" class="headerlink" title="ubuntu 下源码编译安装 screen 最新版"></a>ubuntu 下源码编译安装 screen 最新版</h2><p>下载地址：<span class="exturl" data-url="aHR0cDovL2Z0cC5nbnUub3JnL2dudS9zY3JlZW4v">http://ftp.gnu.org/gnu/screen/<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="ubuntu-下源码编译安装-screen-最新版"><a href="#ubuntu-下源码编译安装-screen-最新版" class="headerlink" title="ubuntu 下源码编译安装 screen 最新版"></a>ubuntu 下源码编译安装 screen 最新版</h2><p>下载地址：<span class="exturl" data-url="aHR0cDovL2Z0cC5nbnUub3JnL2dudS9zY3JlZW4v">http://ftp.gnu.org/gnu/screen/</span></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 下载</span></span><br><span class="line">wget -c https://ftp.gnu.org/gnu/screen/screen-4.8.0.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解压</span></span><br><span class="line">tar -xzvf screen-4.8.0.tar.gz</span><br><span class="line"><span class="built_in">cd</span> screen-4.8.0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装依赖</span></span><br><span class="line">apt install gcc g++ make make-guile</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编译</span></span><br><span class="line">mkdir build &amp;&amp; <span class="built_in">cd</span> build</span><br><span class="line">../configure</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装</span></span><br><span class="line">make &amp;&amp; make install</span><br><span class="line"></span><br><span class="line">验证一下</span><br><span class="line">screen -h</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>问题：</p>
@@ -304,7 +305,7 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装 g++</span></span><br><span class="line">apt install g++</span><br></pre></td></tr></table></figure>
 
 <p>如果报错，信息如：<code>configure: error: !!! no tgetent - no screen</code></p>
-<p>需要先安装 ncurses 下载地址 <span class="exturl" data-url="aHR0cHM6Ly9mdHAuZ251Lm9yZy9nbnUvbmN1cnNlcw==">https://ftp.gnu.org/gnu/ncurses<i class="fa fa-external-link-alt"></i></span></p>
+<p>需要先安装 ncurses 下载地址 <span class="exturl" data-url="aHR0cHM6Ly9mdHAuZ251Lm9yZy9nbnUvbmN1cnNlcw==">https://ftp.gnu.org/gnu/ncurses</span></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 下载依赖包ncurses</span></span><br><span class="line">wget -c https://ftp.gnu.org/gnu/ncurses/ncurses-6.2.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解压安装</span></span><br><span class="line">tar -xzvf ncurses-6.2.tar.gz</span><br><span class="line"><span class="built_in">cd</span> ncurses-6.2</span><br><span class="line">mkdir build &amp;&amp; <span class="built_in">cd</span> build</span><br><span class="line">../configure</span><br><span class="line">make &amp;&amp; sudo make install</span><br></pre></td></tr></table></figure>
 
 

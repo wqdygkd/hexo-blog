@@ -32,7 +32,7 @@
 <meta property="og:description" content="https:&#x2F;&#x2F;developer.mozilla.org&#x2F;zh-CN&#x2F;docs&#x2F;Web&#x2F;API&#x2F;EventTarget&#x2F;addEventListener 添加事件 &#x2F;&#x2F; 语法target.addEventListener(type, listener[, useCapture])&#x2F;&#x2F; type: 事件的类型: click mouseover  字符串类型，不带 on&#x2F;&#x2F; listener: 函数">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-07-31T22:16:42.000Z">
-<meta property="article:modified_time" content="2021-07-30T14:28:04.929Z">
+<meta property="article:modified_time" content="2021-07-31T17:29:43.559Z">
 <meta property="article:author" content="c">
 <meta name="twitter:card" content="summary">
 
@@ -105,6 +105,7 @@
         <li class="menu-item menu-item-前端"><a href="/c/frontend/" rel="section"><i class="fab fa-html5 fa-fw"></i>前端</a></li>
         <li class="menu-item menu-item-软件"><a href="/c/software/" rel="section"><i class="fas fa-th-large fa-fw"></i>软件</a></li>
         <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fas fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-面试"><span class="exturl" data-url="aHR0cHM6Ly9tcy53cWR5LnRvcA=="><i class="fas fa-archive fa-fw"></i>面试</span></li>
         <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
         <li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
       <li class="menu-item menu-item-search">
@@ -285,13 +286,13 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL0V2ZW50VGFyZ2V0L2FkZEV2ZW50TGlzdGVuZXI=">https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/addEventListener<i class="fa fa-external-link-alt"></i></span></p>
+        <p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL0V2ZW50VGFyZ2V0L2FkZEV2ZW50TGlzdGVuZXI=">https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/addEventListener</span></p>
 <p>添加事件</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 语法</span></span><br><span class="line">target.addEventListener(type, listener[, useCapture])</span><br><span class="line"><span class="comment">// type: 事件的类型: click mouseover  字符串类型，不带 on</span></span><br><span class="line"><span class="comment">// listener: 函数，每次点击，执行这个函数</span></span><br><span class="line"><span class="comment">// useCapture: 可选，true: 事件在捕获阶段执行，false: 事件在冒泡阶段执行(默认)</span></span><br><span class="line"></span><br><span class="line">target.addEventListener(type, listener[, options])</span><br></pre></td></tr></table></figure>
 
 <p>options 可选，可用的选项如下：<br>capture: Boolean，默认 false，等价于以前的 useCapture 参数<br>once: Boolean，默认 false，如果是 true，表示 listener 在添加之后最多只调用一次。 listener 也会在其被调用之后自动移除<br>passive: Boolean，默认 false，设置为 true 时，表示 listener 永远不会调用 preventDefault() 如果 listener 仍然调用了这个函数，客户端将会忽略它并抛出一个控制台警告。</p>
 <p>浏览器无法预先知道一个监听器会不会调用 preventDefault()，它能做的只有等监听器执行完后再去执行默认行为，而监听器执行是要耗时的，有些甚至耗时很明显，这样就会导致页面卡顿</p>
-<p><code>.passive</code> 修饰符尤其能够提升移动端的性能<br><span class="exturl" data-url="aHR0cHM6Ly9jbi52dWVqcy5vcmcvdjIvZ3VpZGUvZXZlbnRzLmh0bWwjJUU0JUJBJThCJUU0JUJCJUI2JUU0JUJGJUFFJUU5JUE1JUIwJUU3JUFDJUE2">vue .passive 事件修饰符<i class="fa fa-external-link-alt"></i></span></p>
+<p><code>.passive</code> 修饰符尤其能够提升移动端的性能<br><span class="exturl" data-url="aHR0cHM6Ly9jbi52dWVqcy5vcmcvdjIvZ3VpZGUvZXZlbnRzLmh0bWwjJUU0JUJBJThCJUU0JUJCJUI2JUU0JUJGJUFFJUU5JUE1JUIwJUU3JUFDJUE2">vue .passive 事件修饰符</span></p>
 <p>移除事件</p>
 <p>removeEventListener</p>
 <p>在第三个参数是布尔值的时候，addEventListener(“foo”, listener, true) 添加的监听器，必须用 removeEventListener(“foo”, listener, true) 才能删除掉, 因为这个监听器也有可能还注册在了冒泡阶段, 如果第三个参数为 false 则直接通过 removeEventListener(“foo”, listener) 就可以删除</p>

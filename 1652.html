@@ -38,7 +38,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102204647.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102204701.jpeg">
 <meta property="article:published_time" content="2018-10-18T14:34:36.000Z">
-<meta property="article:modified_time" content="2021-07-30T14:28:04.933Z">
+<meta property="article:modified_time" content="2021-07-31T17:29:43.563Z">
 <meta property="article:author" content="c">
 <meta property="article:tag" content="js">
 <meta name="twitter:card" content="summary">
@@ -113,6 +113,7 @@
         <li class="menu-item menu-item-前端"><a href="/c/frontend/" rel="section"><i class="fab fa-html5 fa-fw"></i>前端</a></li>
         <li class="menu-item menu-item-软件"><a href="/c/software/" rel="section"><i class="fas fa-th-large fa-fw"></i>软件</a></li>
         <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fas fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-面试"><span class="exturl" data-url="aHR0cHM6Ly9tcy53cWR5LnRvcA=="><i class="fas fa-archive fa-fw"></i>面试</span></li>
         <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
         <li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
       <li class="menu-item menu-item-search">
@@ -532,7 +533,7 @@
 </ul>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. 直接给原型增加属性和方法（麻烦）</span></span><br><span class="line">Person.prototype.color = <span class="string">&#x27;lime&#x27;</span></span><br><span class="line">Person.prototype.legs = <span class="number">2</span></span><br><span class="line">Person.prototype.sayHi = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;sayHi&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 2. 原型替换，将原型替换成一个对象</span></span><br><span class="line">Person.prototype = &#123;</span><br><span class="line">  <span class="comment">// 手动添加一个constructor属性，如果不手动添加，会找到 Object 的 constructor 属性</span></span><br><span class="line">  <span class="attr">constructor</span>: Person,</span><br><span class="line"></span><br><span class="line">  <span class="attr">color</span>: <span class="string">&#x27;lime&#x27;</span>,</span><br><span class="line">  <span class="attr">legs</span>: <span class="number">2</span>,</span><br><span class="line">  <span class="attr">sayHi</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;sayHi&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 3. 原型链 + 混入式继承</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="keyword">var</span> lw = &#123;</span><br><span class="line">  <span class="attr">skill</span>: <span class="string">&#x27;翻墙&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 给原型添加 extend 方法  -- 混入式继承</span></span><br><span class="line">Person.prototype.extend = <span class="function"><span class="keyword">function</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> k <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    <span class="keyword">if</span> (obj.hasOwnProperty(k)) &#123;</span><br><span class="line">      <span class="built_in">this</span>[k] = obj[k]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 把 lw 的成员添加到了 Person 的原型上， Person 的实例就可以访问到原型上的这个成员</span></span><br><span class="line">Person.prototype.extend(lw)</span><br><span class="line"><span class="built_in">console</span>.log(Person.prototype)</span><br><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> Person()</span><br><span class="line"><span class="built_in">console</span>.log(p.skill)</span><br></pre></td></tr></table></figure>
 
-<h3 id="Object-create"><a href="#Object-create" class="headerlink" title="Object.create"></a>Object.create</h3><p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvSmF2YVNjcmlwdC9SZWZlcmVuY2UvR2xvYmFsX09iamVjdHMvT2JqZWN0L2NyZWF0ZQ==">MDN<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="Object-create"><a href="#Object-create" class="headerlink" title="Object.create"></a>Object.create</h3><p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvSmF2YVNjcmlwdC9SZWZlcmVuY2UvR2xvYmFsX09iamVjdHMvT2JqZWN0L2NyZWF0ZQ==">MDN</span></p>
 <blockquote>
 <p>最初是由道格拉斯丶克罗克福德发布的一篇文章提出的，ECMAScript5 新增了 Object.create() 方法来规范化了这种继承</p>
 </blockquote>
@@ -561,7 +562,7 @@
 <ul>
 <li>eval 形式的代码难以阅读</li>
 <li>eval 形式的代码无法打断点，因为本质还是还是一个字符串</li>
-<li>在浏览器端执行任意的 JavaScript 会带来潜在的安全风险，恶意的 JavaScript 代码可能会破坏应用，特别是在用它执行用户输入数据的情况下。可能会有恶意用户输入威胁你的站点或应用程序安全的代码（即所谓的代码注入）<br><span class="exturl" data-url="aHR0cDovL3Fpbmdib2IuY29tL0V4Y2Vzcy1YU1Mv">推荐了解下 xss 攻击<i class="fa fa-external-link-alt"></i></span></li>
+<li>在浏览器端执行任意的 JavaScript 会带来潜在的安全风险，恶意的 JavaScript 代码可能会破坏应用，特别是在用它执行用户输入数据的情况下。可能会有恶意用户输入威胁你的站点或应用程序安全的代码（即所谓的代码注入）<br><span class="exturl" data-url="aHR0cDovL3Fpbmdib2IuY29tL0V4Y2Vzcy1YU1Mv">推荐了解下 xss 攻击</span></li>
 </ul>
 <h3 id="函数的四种调用模式"><a href="#函数的四种调用模式" class="headerlink" title="函数的四种调用模式"></a>函数的四种调用模式</h3><p>分析 this 指向问题</p>
 <ol>
@@ -680,7 +681,7 @@
 <li>所有函数都是 new Function 创建出来的，因此 <code>所有函数.__proto__</code> 都是 <code>Function.prototype</code></li>
 <li>所有对象都是 new Object 创建出来的，因此 <code>所有对象.__proto__</code> 都是 <code>Object.prototype</code></li>
 </ol>
-<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2NyZWVwZXJ5YW5nL2Jsb2cvaXNzdWVzLzk=">参考链接<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2NyZWVwZXJ5YW5nL2Jsb2cvaXNzdWVzLzk=">参考链接</span></p>
 <h3 id="作用域与预解析"><a href="#作用域与预解析" class="headerlink" title="作用域与预解析"></a>作用域与预解析</h3><h4 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h4><blockquote>
 <p>作用域：变量起作用的区域，也就是说：变量定义后，可以在哪个范围内使用该变量</p>
 </blockquote>

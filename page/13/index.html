@@ -103,6 +103,7 @@
         <li class="menu-item menu-item-前端"><a href="/c/frontend/" rel="section"><i class="fab fa-html5 fa-fw"></i>前端</a></li>
         <li class="menu-item menu-item-软件"><a href="/c/software/" rel="section"><i class="fas fa-th-large fa-fw"></i>软件</a></li>
         <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fas fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-面试"><span class="exturl" data-url="aHR0cHM6Ly9tcy53cWR5LnRvcA=="><i class="fas fa-archive fa-fw"></i>面试</span></li>
         <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
         <li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
       <li class="menu-item menu-item-search">
@@ -278,7 +279,7 @@
           <ul>
 <li>Promise 是<code>异步编程</code>的一种解决方案，它允许你以一种同步的方式编写异步代码</li>
 <li><code>promise</code>：承诺、保证</li>
-<li><span class="exturl" data-url="aHR0cDovL2VzNi5ydWFueWlmZW5nLmNvbS8jZG9jcy9wcm9taXNl">ES6 - Promise<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cDovL2VzNi5ydWFueWlmZW5nLmNvbS8jZG9jcy9wcm9taXNl">ES6 - Promise</span></li>
 <li>JS 是通过回调函数来实现异步编程的，当异步操作多了以后，就会产生回调嵌套回调的问题，这就是<code>回调地狱</code></li>
 <li>Promise 方式：将异步操作以同步操作的方式表达出来，避免了层层嵌套的回调函数</li>
 <li>Promise 新建后立即执行</li>
@@ -302,7 +303,7 @@
 </ul>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">p</span><br><span class="line">  <span class="comment">// onfullfilled 执行</span></span><br><span class="line">  .then(<span class="function">(<span class="params">value</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;文件a的内容为：&#x27;</span>, value)</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="comment">// onrejected 执行</span></span><br><span class="line">  .catch(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;文件读取失败：&#x27;</span>, err)</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// ----------- 或者 -----------</span></span><br><span class="line"><span class="comment">// then 中传两个参数</span></span><br><span class="line"><span class="comment">// then方法的第一个参数是resolved状态的回调函数，第二个参数（可选）是rejected状态的回调函数</span></span><br><span class="line">p.then(</span><br><span class="line">  <span class="comment">// onfullfilled 执行</span></span><br><span class="line">  <span class="function">(<span class="params">value</span>) =&gt;</span> &#123; &#125;,</span><br><span class="line">  <span class="comment">// onrejected 执行</span></span><br><span class="line">  <span class="function">(<span class="params">err</span>) =&gt;</span> &#123; &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 
-<h2 id="all-和-race"><a href="#all-和-race" class="headerlink" title="all 和 race"></a>all 和 race</h2><p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvSmF2YVNjcmlwdC9SZWZlcmVuY2UvR2xvYmFsX09iamVjdHMvUHJvbWlzZS9hbGw=">MDN-Promise.all()<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvSmF2YVNjcmlwdC9SZWZlcmVuY2UvR2xvYmFsX09iamVjdHMvUHJvbWlzZS9yYWNl">MDN-Promise.race()<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="all-和-race"><a href="#all-和-race" class="headerlink" title="all 和 race"></a>all 和 race</h2><p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvSmF2YVNjcmlwdC9SZWZlcmVuY2UvR2xvYmFsX09iamVjdHMvUHJvbWlzZS9hbGw=">MDN-Promise.all()</span><br><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvSmF2YVNjcmlwdC9SZWZlcmVuY2UvR2xvYmFsX09iamVjdHMvUHJvbWlzZS9yYWNl">MDN-Promise.race()</span></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> p1 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    resolve(<span class="string">&#x27;成功1&#x27;</span>)</span><br><span class="line">  &#125;,<span class="number">500</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> p2 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    resolve(<span class="string">&#x27;成功2&#x27;</span>)</span><br><span class="line">  &#125;,<span class="number">1500</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> p3 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    reject(<span class="string">&#x27;失败&#x27;</span>)</span><br><span class="line">  &#125;, <span class="number">1000</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等待 p1，p2 请求完成</span></span><br><span class="line"><span class="built_in">Promise</span>.all([p1, p2]).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res) <span class="comment">// [&#x27;成功1&#x27;, &#x27;成功2&#x27;]</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 只要有一个请求被 reject，就会进入 catch 回调</span></span><br><span class="line"><span class="built_in">Promise</span>.all([p1, p2, p3]).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;).catch(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(error) <span class="comment">// &#x27;失败&#x27;</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 始终返回最快的那一个异步，不管resolve还是reject</span></span><br><span class="line"><span class="built_in">Promise</span>.race([p1, p2]).then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res) <span class="comment">// &#x27;成功1&#x27;</span></span><br><span class="line">&#125;, <span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(error)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">Promise</span>.race([p1, p3]).then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res) <span class="comment">// &#x27;成功1&#x27;</span></span><br><span class="line">&#125;, <span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(error)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">Promise</span>.race([p2, p3]).then(<span class="function">(<span class="params">result</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;, <span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(error) <span class="comment">// &#x27;失败&#x27;</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 <h2 id="async-和-await"><a href="#async-和-await" class="headerlink" title="async 和 await"></a>async 和 await</h2><ul>
@@ -404,9 +405,9 @@
     
     <div class="post-body" itemprop="articleBody">
           <h1 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h1><ul>
-<li><p><span class="exturl" data-url="aHR0cHM6Ly9jbi52dWVqcy5vcmcv">vue 中文网<i class="fa fa-external-link-alt"></i></span></p>
+<li><p><span class="exturl" data-url="aHR0cHM6Ly9jbi52dWVqcy5vcmcv">vue 中文网</span></p>
 </li>
-<li><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Z1ZWpzL3Z1ZQ==">github 下载地址<i class="fa fa-external-link-alt"></i></span></p>
+<li><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Z1ZWpzL3Z1ZQ==">github 下载地址</span></p>
 </li>
 <li><p>Vue.js (读音 /vju:/ view)</p>
 </li>
@@ -445,7 +446,7 @@
 </li>
 <li><p>会发现使用框架的时候，会受到很多限制</p>
 </li>
-<li><p><span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8yNjA3ODM1OT9ncm91cF9pZD04MzA4MDE4MDA0MDY5MTcxMjA=">我们所说的前端框架与库的区别？<i class="fa fa-external-link-alt"></i></span></p>
+<li><p><span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8yNjA3ODM1OT9ncm91cF9pZD04MzA4MDE4MDA0MDY5MTcxMjA=">我们所说的前端框架与库的区别？</span></p>
 </li>
 </ul>
 <h2 id="MVC-MVVM"><a href="#MVC-MVVM" class="headerlink" title="MVC + MVVM"></a>MVC + MVVM</h2><h3 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h3><ol>
@@ -749,7 +750,7 @@
 <li>实例生命周期也叫做：组件生命周期</li>
 <li>声明周期图：<a href="/zh-cn/_vue/Vue%E5%AE%9E%E4%BE%8B%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%9B%BE">01</a></li>
 </ul>
-<h3 id="生命周期介绍"><a href="#生命周期介绍" class="headerlink" title="生命周期介绍"></a>生命周期介绍</h3><p><span class="exturl" data-url="aHR0cHM6Ly9jbi52dWVqcy5vcmcvdjIvYXBpLyMlRTklODAlODklRTklQTElQjktJUU3JTk0JTlGJUU1JTkxJUJEJUU1JTkxJUE4JUU2JTlDJTlGJUU5JTkyJUE5JUU1JUFEJTkw">vue 生命周期钩子函数<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="生命周期介绍"><a href="#生命周期介绍" class="headerlink" title="生命周期介绍"></a>生命周期介绍</h3><p><span class="exturl" data-url="aHR0cHM6Ly9jbi52dWVqcy5vcmcvdjIvYXBpLyMlRTklODAlODklRTklQTElQjktJUU3JTk0JTlGJUU1JTkxJUJEJUU1JTkxJUE4JUU2JTlDJTlGJUU5JTkyJUE5JUU1JUFEJTkw">vue 生命周期钩子函数</span></p>
 <ul>
 <li>简单说：一个组件（实例）从开始到最后消化所经历的各种状态，就是一个组件的生命周期</li>
 <li>生命周期钩子函数的定义：从组件被创建，到组件挂在到页面上运行，再到页面关闭组件被销毁，这三个阶段总是伴随着组件的各种事件，这些事件，统称为组件的生命周期函数（简称 : 钩子函数）</li>
@@ -760,8 +761,8 @@
 <li>vue 在执行过程中会 <strong>自动调用</strong> <code>生命周期钩子函数</code>，我们只需要提供这些钩子函数即可</li>
 <li>钩子函数的名称都是 vue 中规定好的</li>
 </ul>
-<p><span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2EvMTE5MDAwMDAwODg3OTk2Ng==">vue 实例生命周期 参考 1<i class="fa fa-external-link-alt"></i></span></p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2EvMTE5MDAwMDAwODAxMDY2Ng==">vue 实例生命周期 参考 2<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2EvMTE5MDAwMDAwODg3OTk2Ng==">vue 实例生命周期 参考 1</span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2EvMTE5MDAwMDAwODAxMDY2Ng==">vue 实例生命周期 参考 2</span></p>
 <h3 id="钩子函数-beforeCreate"><a href="#钩子函数-beforeCreate" class="headerlink" title="钩子函数 - beforeCreate"></a>钩子函数 - beforeCreate</h3><ul>
 <li>在实例初始化之后，数据观测 (data observer) 和 event/watcher 事件配置之前被调用</li>
 <li>此时组件的选项还未挂载，因此无法访问 methods，data，computed 上的方法或数据</li>
@@ -807,7 +808,7 @@
 </ul>
 <h2 id="使用接口的形式发送数据"><a href="#使用接口的形式发送数据" class="headerlink" title="使用接口的形式发送数据"></a>使用接口的形式发送数据</h2><h3 id="json-server-提供假数据接口"><a href="#json-server-提供假数据接口" class="headerlink" title="json-server 提供假数据接口"></a>json-server 提供假数据接口</h3><ul>
 <li>作用：根据指定的 JSON 文件，提供假数据接口</li>
-<li>地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3R5cGljb2RlL2pzb24tc2VydmVy">json-server<i class="fa fa-external-link-alt"></i></span></li>
+<li>地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3R5cGljb2RlL2pzb24tc2VydmVy">json-server</span></li>
 <li>使用步骤</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span> 全局安装 json-server: <span class="string">`npm i -g json-server`</span></span><br><span class="line"><span class="number">2.</span> 准备一个json数据</span><br><span class="line"><span class="number">3.</span> 执行：<span class="string">`json-server data.json`</span></span><br><span class="line"></span><br><span class="line">data.json</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;todos&quot;</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">&quot;id&quot;</span>: <span class="number">1</span>,</span><br><span class="line">      <span class="string">&quot;name&quot;</span>: <span class="string">&quot;张三&quot;</span>,</span><br><span class="line">      <span class="string">&quot;age&quot;</span>: <span class="number">20</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -819,10 +820,10 @@
 
 <ul>
 <li>具体接口<ul>
-<li>查询全部数据 <span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDozMDAwL3RvZG9z">http://localhost:3000/todos<i class="fa fa-external-link-alt"></i></span><br>查询指定数据 <span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDozMDAwL3RvZG9zLzI=">http://localhost:3000/todos/2<i class="fa fa-external-link-alt"></i></span></li>
-<li>添加一个对象 <span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDozMDAwL3RvZG9z">http://localhost:3000/todos<i class="fa fa-external-link-alt"></i></span><br>POST<br>id 会自动帮我们添加</li>
-<li>更新数据 <span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDozMDAwL3RvZG9zLzM=">http://localhost:3000/todos/3<i class="fa fa-external-link-alt"></i></span><br>PUT 或者 PATCH<br>PUT 需要提供该对象的所有数据<br>PATCH 只需要提供要修改的数据即可</li>
-<li>删除数据<span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDozMDAwL3RvZG9zLzM=">http://localhost:3000/todos/3<i class="fa fa-external-link-alt"></i></span><br>DELETE</li>
+<li>查询全部数据 <span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDozMDAwL3RvZG9z">http://localhost:3000/todos</span><br>查询指定数据 <span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDozMDAwL3RvZG9zLzI=">http://localhost:3000/todos/2</span></li>
+<li>添加一个对象 <span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDozMDAwL3RvZG9z">http://localhost:3000/todos</span><br>POST<br>id 会自动帮我们添加</li>
+<li>更新数据 <span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDozMDAwL3RvZG9zLzM=">http://localhost:3000/todos/3</span><br>PUT 或者 PATCH<br>PUT 需要提供该对象的所有数据<br>PATCH 只需要提供要修改的数据即可</li>
+<li>删除数据<span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDozMDAwL3RvZG9zLzM=">http://localhost:3000/todos/3</span><br>DELETE</li>
 </ul>
 </li>
 <li>可以借助 <code>postman</code> 测试接口</li>
@@ -834,7 +835,7 @@
 <li>导入 axios</li>
 </ul>
 </li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2F4aW9zL2F4aW9z">axios 使用说明<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2F4aW9zL2F4aW9z">axios 使用说明</span></li>
 <li><strong>GTE 方式发送请求</strong></li>
 </ul>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 方式1</span></span><br><span class="line">axios.get(<span class="string">&#x27;http://localhost:3000/todoList/1&#x27;</span>).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;获取到数据了：&#x27;</span>, res.data)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 方式2</span></span><br><span class="line">axios</span><br><span class="line">  .get(<span class="string">&#x27;http://localhost:3000/todoList&#x27;</span>, &#123;</span><br><span class="line">    <span class="attr">params</span>: &#123;</span><br><span class="line">      <span class="attr">id</span>: <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;获取到数据了：&#x27;</span>, res.data)</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
@@ -866,7 +867,7 @@
 
 <p><strong>moment 插件</strong></p>
 <ul>
-<li><p><span class="exturl" data-url="aHR0cDovL21vbWVudGpzLmNuLw==">moment<i class="fa fa-external-link-alt"></i></span></p>
+<li><p><span class="exturl" data-url="aHR0cDovL21vbWVudGpzLmNuLw==">moment</span></p>
 </li>
 <li><p>使用：<code>npm i moment</code></p>
 </li>
@@ -1093,14 +1094,14 @@
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 1. 入口  --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">&quot;/detail/1&quot;</span>&gt;</span>手机1<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">&quot;/detail/2&quot;</span>&gt;</span>手机2<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">&quot;/detail/3&quot;</span>&gt;</span>手机3<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>传参</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9yb3V0ZXIudnVlanMub3JnL3poL2d1aWRlL2Vzc2VudGlhbHMvZHluYW1pYy1tYXRjaGluZy5odG1sIyVFNSU4QSVBOCVFNiU4MCU4MSVFOCVCNyVBRiVFNyU5NCVCMSVFNSU4QyVCOSVFOSU4NSU4RA==">动态路由匹配<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9yb3V0ZXIudnVlanMub3JnL3poL2d1aWRlL2Vzc2VudGlhbHMvZHluYW1pYy1tYXRjaGluZy5odG1sIyVFNSU4QSVBOCVFNiU4MCU4MSVFOCVCNyVBRiVFNyU5NCVCMSVFNSU4QyVCOSVFOSU4NSU4RA==">动态路由匹配</span></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> Detail = Vue.component(<span class="string">&#x27;detail&#x27;</span>, &#123;</span><br><span class="line">  <span class="attr">template</span>: <span class="string">`&lt;div&gt;&#123;&#123; $route.path &#125;&#125;&lt;/div&gt;`</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="attr">routes</span>: [</span><br><span class="line">  <span class="comment">// 方式1：手动一个一个配置</span></span><br><span class="line">  &#123; <span class="attr">path</span>: <span class="string">&#x27;/detail/1&#x27;</span>, <span class="attr">component</span>: Detail &#125;,</span><br><span class="line">  &#123; <span class="attr">path</span>: <span class="string">&#x27;/detail/2&#x27;</span>, <span class="attr">component</span>: Detail &#125;,</span><br><span class="line">  &#123; <span class="attr">path</span>: <span class="string">&#x27;/detail/3&#x27;</span>, <span class="attr">component</span>: Detail &#125;，</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 正确的方式：把传过去的 1/2/3 当成参数</span></span><br><span class="line">  &#123; <span class="attr">path</span>: <span class="string">&#x27;/detail/:id?&#x27;</span>, <span class="attr">component</span>: Detail &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 
 <p><code>?</code> 代表参数可传可不传，即可识别的路径包括：<code>detail</code>、<code>detail/1</code>、<code>detail2</code>、<code>detail3</code></p>
 <p>获取参数的三种正确方式</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// $route =&gt; 路由配置对象</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Detail = Vue.component(<span class="string">&#x27;detail&#x27;</span>, &#123;</span><br><span class="line">  <span class="comment">// 方式1：组件中直接读取</span></span><br><span class="line">  <span class="comment">// $route.path 为路由路径</span></span><br><span class="line">  <span class="comment">// $route.params.id 为路由参数</span></span><br><span class="line">  <span class="attr">template</span>: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;div&gt;&#123;&#123; $route.path &#125;&#125;&lt;/div&gt;</span></span><br><span class="line"><span class="string">    &lt;div&gt;&#123;&#123; $route.params.id &#125;&#125;&lt;/div&gt;</span></span><br><span class="line"><span class="string">  `</span>,</span><br><span class="line">  <span class="function"><span class="title">created</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="comment">// 方式2：js直接读取</span></span><br><span class="line">    <span class="comment">// 打印只会打印一次，因为组件是复用的，每次进来钩子函数只会执行一次</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// #/detail/2?name=zs</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.$route) <span class="comment">// 路由配置对象</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.$route.path) <span class="comment">// #/detail/2</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.$route.params) <span class="comment">// &#123;id: &quot;2&quot;&#125;</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.$route.query) <span class="comment">// &#123;name: &#x27;zs&#x27;&#125;</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.$route.params.id) <span class="comment">// 2</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 方式3：监听路由的参数变化(因为不是 data 中的数据，不需要深度监听)</span></span><br><span class="line">  <span class="attr">watch</span>: &#123;</span><br><span class="line">    <span class="comment">// to：新值</span></span><br><span class="line">    <span class="comment">// from：旧值</span></span><br><span class="line">    $route(to, <span class="keyword">from</span>) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(to.params.id)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<p><span class="exturl" data-url="aHR0cHM6Ly9yb3V0ZXIudnVlanMub3JnL3poL2d1aWRlL2Vzc2VudGlhbHMvbmF2aWdhdGlvbi5odG1sIyVFNyVCQyU5NiVFNyVBOCU4QiVFNSVCQyU4RiVFNyU5QSU4NCVFNSVBRiVCQyVFOCU4OCVBQQ==">编程式导航<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9yb3V0ZXIudnVlanMub3JnL3poL2d1aWRlL2Vzc2VudGlhbHMvbmF2aWdhdGlvbi5odG1sIyVFNyVCQyU5NiVFNyVBOCU4QiVFNSVCQyU4RiVFNyU5QSU4NCVFNSVBRiVCQyVFOCU4OCVBQQ==">编程式导航</span></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> userId = <span class="string">&#x27;123&#x27;</span></span><br><span class="line"><span class="comment">// 字符串</span></span><br><span class="line">router.push(<span class="string">&#x27;/user&#x27;</span>) <span class="comment">// -&gt; /user</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 对象, path为路由的path属性值</span></span><br><span class="line">router.push(&#123; <span class="attr">path</span>: <span class="string">&#x27;/user&#x27;</span> &#125;) <span class="comment">// -&gt; /user</span></span><br><span class="line">router.push(&#123; <span class="attr">path</span>: <span class="string">`/user/<span class="subst">$&#123;userId&#125;</span>`</span> &#125;) <span class="comment">// -&gt; /user/123</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 命名的路由，name 为路由的 name 属性值</span></span><br><span class="line">router.push(&#123; <span class="attr">name</span>: <span class="string">&#x27;user&#x27;</span>, <span class="attr">params</span>: &#123; userId &#125;&#125;) <span class="comment">// -&gt; /user/123</span></span><br><span class="line"><span class="comment">// 如果提供了 path，params 会被忽略</span></span><br><span class="line"><span class="comment">// 这里的 params 不生效</span></span><br><span class="line">router.push(&#123; <span class="attr">path</span>: <span class="string">&#x27;/user&#x27;</span>, <span class="attr">params</span>: &#123; userId &#125;&#125;) <span class="comment">// -&gt; /user</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 带查询参数</span></span><br><span class="line">router.push(&#123; <span class="attr">path</span>: <span class="string">&#x27;register&#x27;</span>, <span class="attr">query</span>: &#123; <span class="attr">plan</span>: <span class="string">&#x27;private&#x27;</span> &#125;&#125;) <span class="comment">// -&gt; /register?plan=private</span></span><br><span class="line"></span><br><span class="line"><span class="attr">routes</span>: [&#123; <span class="attr">path</span>: <span class="string">&#x27;/user/:id?&#x27;</span>, name=<span class="string">&#x27;user&#x27;</span>, <span class="attr">component</span>: User &#125;]</span><br></pre></td></tr></table></figure>
 
 <h3 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h3><p><code>redirect</code></p>
@@ -1117,16 +1118,16 @@
 <h3 id="脚手架介绍"><a href="#脚手架介绍" class="headerlink" title="脚手架介绍"></a>脚手架介绍</h3><p><strong>vue-cli</strong> 是 vue 的脚手架工具</p>
 <p>因为 webpack 配置繁琐，阻止一批想用 vue 但是不会 webpack 的开发人员</p>
 <p>vue-cli 提供了一条命令，我们直接通过这条命令就可以快速的生成一个 vue 项目 (<code>vue init XX</code>)，项目的基本结构、以及 webpack 配置项 <strong>全部配置</strong> 好了</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly92dWUtbG9hZGVyLnZ1ZWpzLm9yZy96aC8=">Vue Loader<i class="fa fa-external-link-alt"></i></span> 手动配置置 <code>webpack</code></p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9jbGkudnVlanMub3JnL3poLw==">Vue CLI3<i class="fa fa-external-link-alt"></i></span></p>
-<p><span class="exturl" data-url="aHR0cHM6Ly92dWVqcy10ZW1wbGF0ZXMuZ2l0aHViLmlvL3dlYnBhY2sv">Vue webpack 配置<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly92dWUtbG9hZGVyLnZ1ZWpzLm9yZy96aC8=">Vue Loader</span> 手动配置置 <code>webpack</code></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9jbGkudnVlanMub3JnL3poLw==">Vue CLI3</span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly92dWVqcy10ZW1wbGF0ZXMuZ2l0aHViLmlvL3dlYnBhY2sv">Vue webpack 配置</span></p>
 <h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><p>安装：<code>npm i -g vue-cli</code></p>
 <p>初始化 vue 项目：<code>vue init webpack 项目名称</code></p>
 <p>进入到项目根目录运行项目：<code>npm run dev</code></p>
 <p>项目安装过程：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">? Project name demo</span><br><span class="line">? Project description A Vue.js project</span><br><span class="line">? Author</span><br><span class="line">? Vue build standalone  =&gt; 运行时+编译</span><br><span class="line">? Install vue-router? Yes</span><br><span class="line">? Use ESLint to lint your code? Yes? Pick an ESLint preset Standard</span><br><span class="line">? <span class="built_in">Set</span> up unit tests No</span><br><span class="line">? Setup e2e tests <span class="keyword">with</span> Nightwatch? No</span><br></pre></td></tr></table></figure>
 
-<h4 id="项目目录介绍"><a href="#项目目录介绍" class="headerlink" title="项目目录介绍"></a>项目目录介绍</h4><p><span class="exturl" data-url="aHR0cHM6Ly92dWVqcy10ZW1wbGF0ZXMuZ2l0aHViLmlvL3dlYnBhY2svc3RydWN0dXJlLmh0bWw=">https://vuejs-templates.github.io/webpack/structure.html<i class="fa fa-external-link-alt"></i></span></p>
+<h4 id="项目目录介绍"><a href="#项目目录介绍" class="headerlink" title="项目目录介绍"></a>项目目录介绍</h4><p><span class="exturl" data-url="aHR0cHM6Ly92dWVqcy10ZW1wbGF0ZXMuZ2l0aHViLmlvL3dlYnBhY2svc3RydWN0dXJlLmh0bWw=">https://vuejs-templates.github.io/webpack/structure.html</span></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.</span><br><span class="line">├── build/                      # webpack config files</span><br><span class="line">├── config/index.js             # main project config</span><br><span class="line">├── src/</span><br><span class="line">│   ├── main.js                 # app entry file</span><br><span class="line">│   ├── App.vue                 # main app component</span><br><span class="line">│   ├── components/             # ui components</span><br><span class="line">│   └── assets/                 # module assets (processed by webpack)</span><br><span class="line">├── static/                     # pure static assets (directly copied)</span><br><span class="line">├── test/</span><br><span class="line">│   └── unit/                   # unit tests</span><br><span class="line">│   └── e2e/                    # e2e tests</span><br><span class="line">├── .babelrc                    # babel config</span><br><span class="line">├── .editorconfig               # settings for your editor</span><br><span class="line">├── .eslintrc.js                # eslint config</span><br><span class="line">├── .eslintignore               # eslint ignore rules</span><br><span class="line">├── .gitignore                  # sensible defaults for gitignore</span><br><span class="line">├── .postcssrc.js               # postcss config</span><br><span class="line">├── index.html                  # index.html template</span><br><span class="line">├── package.json                # build scripts and dependencies</span><br><span class="line">└── README.md                   # Default README file</span><br></pre></td></tr></table></figure>
 
 <ul>
@@ -1145,7 +1146,7 @@
 <li>可以前面给个变量 var vm = new Vue()</li>
 <li>但是又提示没有用,还要打印一下,其实这个赋值是没有意义的</li>
 <li>不要去掉.这是 eslint 的<code>不校验下一行代码</code></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9zdGFuZGFyZGpzLmNvbS9yZWFkbWUtemhjbi5odG1s">standard 代码规范<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9zdGFuZGFyZGpzLmNvbS9yZWFkbWUtemhjbi5odG1s">standard 代码规范</span></li>
 </ul>
 </li>
 <li>postcssrc 处理 less css 等</li>
@@ -1173,7 +1174,7 @@
 </li>
 </ul>
 <h3 id="两种编译模式"><a href="#两种编译模式" class="headerlink" title="两种编译模式"></a>两种编译模式</h3><p>完整版和运行时版</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9jbi52dWVqcy5vcmcvdjIvZ3VpZGUvaW5zdGFsbGF0aW9uLmh0bWwjJUU1JUFGJUI5JUU0JUI4JThEJUU1JTkwJThDJUU2JTlFJTg0JUU1JUJCJUJBJUU3JTg5JTg4JUU2JTlDJUFDJUU3JTlBJTg0JUU4JUE3JUEzJUU5JTg3JThB">参考官网<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9jbi52dWVqcy5vcmcvdjIvZ3VpZGUvaW5zdGFsbGF0aW9uLmh0bWwjJUU1JUFGJUI5JUU0JUI4JThEJUU1JTkwJThDJUU2JTlFJTg0JUU1JUJCJUJBJUU3JTg5JTg4JUU2JTlDJUFDJUU3JTlBJTg0JUU4JUE3JUEzJUU5JTg3JThB">参考官网</span></p>
 <p>编译器：用来将模板字符串编译成为 JavaScript 渲染函数的代码</p>
 <p>运行时：用来创建 Vue 实例、渲染并处理虚拟 DOM 等的代码。基本上就是除去编译器的其它一切</p>
 <ul>
@@ -1208,11 +1209,11 @@
 </li>
 </ul>
 <h2 id="TODOMVC-案例"><a href="#TODOMVC-案例" class="headerlink" title="TODOMVC 案例"></a>TODOMVC 案例</h2><h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><ol>
-<li><span class="exturl" data-url="aHR0cDovL3RvZG9tdmMuY29tL2V4YW1wbGVzL3Z1ZS8=">Vue-TodoMVC<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Rhc3RlanMvdG9kb212Yy1hcHAtdGVtcGxhdGU=">下载模板地址<i class="fa fa-external-link-alt"></i></span> <code>git clone https://github.com/tastejs/todomvc-app-template.git</code></li>
+<li><span class="exturl" data-url="aHR0cDovL3RvZG9tdmMuY29tL2V4YW1wbGVzL3Z1ZS8=">Vue-TodoMVC</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Rhc3RlanMvdG9kb212Yy1hcHAtdGVtcGxhdGU=">下载模板地址</span> <code>git clone https://github.com/tastejs/todomvc-app-template.git</code></li>
 <li>安装依赖包 : <code>npm i</code></li>
 <li>安装 vue : <code>npm i vue</code></li>
-<li>开始 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2N1aWxvbmdqaW4vdG9kb212Yy1hcHAtdGVtcGxhdGUvdHJlZS9tYXN0ZXI=">https://github.com/cuilongjin/todomvc-app-template/tree/master<i class="fa fa-external-link-alt"></i></span></li>
+<li>开始 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2N1aWxvbmdqaW4vdG9kb212Yy1hcHAtdGVtcGxhdGUvdHJlZS9tYXN0ZXI=">https://github.com/cuilongjin/todomvc-app-template/tree/master</span></li>
 </ol>
 <h3 id="列表渲染"><a href="#列表渲染" class="headerlink" title="列表渲染"></a>列表渲染</h3><ul>
 <li>渲染任务列表：<code>&lt;label&gt;&#123;&#123; item.name &#125;&#125;&lt;/label&gt;</code></li>
@@ -1292,11 +1293,11 @@
 
 <h3 id="使用钩子函数来完善数据存储"><a href="#使用钩子函数来完善数据存储" class="headerlink" title="使用钩子函数来完善数据存储"></a>使用钩子函数来完善数据存储</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">created () &#123;</span><br><span class="line">  <span class="built_in">this</span>.todoList = <span class="built_in">JSON</span>.parse(<span class="built_in">localStorage</span>.getItem(<span class="string">&#x27;todoList&#x27;</span>)) || []</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="获取接口数据"><a href="#获取接口数据" class="headerlink" title="获取接口数据"></a>获取接口数据</h3><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3R5cGljb2RlL2pzb24tc2VydmVy">json-server<i class="fa fa-external-link-alt"></i></span> 提供假数据接口</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2F4aW9zL2F4aW9z">axios<i class="fa fa-external-link-alt"></i></span> 发送请求</p>
+<h3 id="获取接口数据"><a href="#获取接口数据" class="headerlink" title="获取接口数据"></a>获取接口数据</h3><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3R5cGljb2RlL2pzb24tc2VydmVy">json-server</span> 提供假数据接口</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2F4aW9zL2F4aW9z">axios</span> 发送请求</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm i -g json-server</span><br><span class="line">npm i axios</span><br><span class="line">json-server data.json</span><br></pre></td></tr></table></figure>
 
-<h3 id="组件化-TODOMVC"><a href="#组件化-TODOMVC" class="headerlink" title="组件化 TODOMVC"></a>组件化 TODOMVC</h3><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2N1aWxvbmdqaW4vdG9kb212Yy1hcHAtdGVtcGxhdGUvdHJlZS96dWppYW5odWE=">https://github.com/cuilongjin/todomvc-app-template/tree/zujianhua<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="组件化-TODOMVC"><a href="#组件化-TODOMVC" class="headerlink" title="组件化 TODOMVC"></a>组件化 TODOMVC</h3><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2N1aWxvbmdqaW4vdG9kb212Yy1hcHAtdGVtcGxhdGUvdHJlZS96dWppYW5odWE=">https://github.com/cuilongjin/todomvc-app-template/tree/zujianhua</span></p>
 
       
     </div>
@@ -1370,9 +1371,9 @@
     
     <div class="post-body" itemprop="articleBody">
           <ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly93ZWJwYWNrLmpzLm9yZy8=">webpack 官网<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly93ZWJwYWNrLmRvY3NjaGluYS5vcmcv">webpack 中文网<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2N1aWxvbmdqaW4vd2VicGFjay1jb25maWcv">webpack 配置文件<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93ZWJwYWNrLmpzLm9yZy8=">webpack 官网</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93ZWJwYWNrLmRvY3NjaGluYS5vcmcv">webpack 中文网</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2N1aWxvbmdqaW4vd2VicGFjay1jb25maWcv">webpack 配置文件</span></li>
 </ul>
 <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>webpack 是一个现代 JavaScript 应用程序的模块打包器（module bundler）</p>
 <p>webpack 是一个模块化方案（预编译）</p>
@@ -1388,7 +1389,7 @@
 </li>
 </ul>
 <h3 id="webpack-与模块"><a href="#webpack-与模块" class="headerlink" title="webpack 与模块"></a>webpack 与模块</h3><ul>
-<li><p><span class="exturl" data-url="aHR0cDovL3poYW9kYS5uZXQvd2VicGFjay1oYW5kYm9vay9tb2R1bGUtc3lzdGVtLmh0bWw=">前端模块系统的演进<i class="fa fa-external-link-alt"></i></span></p>
+<li><p><span class="exturl" data-url="aHR0cDovL3poYW9kYS5uZXQvd2VicGFjay1oYW5kYm9vay9tb2R1bGUtc3lzdGVtLmh0bWw=">前端模块系统的演进</span></p>
 </li>
 <li><p>在 webpack 看来：所有的<strong>静态资源都是模块</strong></p>
 </li>
@@ -1418,7 +1419,7 @@
 </li>
 </ul>
 <ul>
-<li><span class="exturl" data-url="aHR0cDovL3d3dy5qaWFuc2h1LmNvbS9wLzQyZTExNTE1YzEwZiM=">入门 Webpack，看这篇就够了<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cDovL3d3dy5qaWFuc2h1LmNvbS9wLzQyZTExNTE1YzEwZiM=">入门 Webpack，看这篇就够了</span></li>
 </ul>
 <h3 id="webpack-打包原理："><a href="#webpack-打包原理：" class="headerlink" title="webpack 打包原理："></a>webpack 打包原理：</h3><p>​ 入口文件： main.js</p>
 <p>​ webpack 从入口出发，递归分析项目中所有的依赖项（模块），使用 loader 来处理对应的模块最终，打包生成一个 bundle.js 文件。</p>
@@ -1510,7 +1511,7 @@
 
 <h3 id="处理-ES6-语法"><a href="#处理-ES6-语法" class="headerlink" title="处理 ES6 语法"></a>处理 ES6 语法</h3><ol>
 <li>现在的项目都是使用 ES6 开发的，但是这些新的 ES6 语法，并不是所有的浏览器都支持，所以就需要有一个工具，帮我们转成 es5 语法，这个就是：babel</li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9iYWJlbGpzLmlvLw==">babel<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9iYWJlbGpzLmlvLw==">babel</span></li>
 <li>Babel is a JavaScript compiler. ==&gt; babel 是一个 JavaScript 编译器</li>
 <li>webpack 只能处理 import / export 这个 es6 模块化语法，而其他的 js 新语法，应该使用 babel 来处理</li>
 </ol>
@@ -1628,9 +1629,9 @@
 </ol>
 <h2 id="node-js-是什么？"><a href="#node-js-是什么？" class="headerlink" title="node.js 是什么？"></a>node.js 是什么？</h2><p>node.js，也叫作 node，或者 nodejs，指的都是一个平台</p>
 <ol>
-<li><span class="exturl" data-url="aHR0cHM6Ly9ub2RlanMub3JnLw==">node.js 官方网站<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cDovL25vZGVqcy5jbi8=">node.js 中文网<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9jbm9kZWpzLm9yZy8=">node.js 中文社区<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9ub2RlanMub3JnLw==">node.js 官方网站</span></li>
+<li><span class="exturl" data-url="aHR0cDovL25vZGVqcy5jbi8=">node.js 中文网</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9jbm9kZWpzLm9yZy8=">node.js 中文社区</span></li>
 </ol>
 <p>Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境，nodejs 允许 javascript 代码运行在服务端</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1. nodejs不是一门新的编程语言，nodejs是在服务端运行javascript的运行环境</span><br><span class="line">2. 运行环境：写得程序想要运行必须要有对应的运行环境</span><br><span class="line">	php代码必须要有apache服务器</span><br><span class="line">	在web端，浏览器就是javascript的运行环境</span><br><span class="line">	在node端，nodejs就是javascript的运行环境</span><br><span class="line">2. javascript并不只是能运行在浏览器端，浏览器端能够运行js是因为浏览器有js解析器，因此只需要有js解析器，任何软件都可以运行js。</span><br><span class="line">3. nodejs可以在服务端运行js，因为nodejs是基于chrome v8的js引擎</span><br></pre></td></tr></table></figure>
@@ -1645,8 +1646,8 @@
 </ol>
 <h1 id="安装-nodejs"><a href="#安装-nodejs" class="headerlink" title="安装 nodejs"></a>安装 nodejs</h1><h2 id="nodejs-版本"><a href="#nodejs-版本" class="headerlink" title="nodejs 版本"></a>nodejs 版本</h2><p>下载地址</p>
 <ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly9ub2RlanMub3JnL2VuL2Rvd25sb2FkLw==">当前版本<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9ub2RlanMub3JnL2VuL2Rvd25sb2FkL3JlbGVhc2VzLw==">历史版本<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9ub2RlanMub3JnL2VuL2Rvd25sb2FkLw==">当前版本</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9ub2RlanMub3JnL2VuL2Rvd25sb2FkL3JlbGVhc2VzLw==">历史版本</span></li>
 </ul>
 <p>官网术语解释</p>
 <ul>
@@ -1704,7 +1705,7 @@
 
 <h1 id="fs-模块"><a href="#fs-模块" class="headerlink" title="fs 模块"></a>fs 模块</h1><blockquote>
 <p>fs 模块是 nodejs 中最常用的一个模块，因此掌握 fs 模块非常的有必要，fs 模块的方法非常多，用到了哪个查哪个即可。</p>
-<p>文档地址：<span class="exturl" data-url="aHR0cDovL25vZGVqcy5jbi9hcGkvZnMuaHRtbA==">http://nodejs.cn/api/fs.html<i class="fa fa-external-link-alt"></i></span></p>
+<p>文档地址：<span class="exturl" data-url="aHR0cDovL25vZGVqcy5jbi9hcGkvZnMuaHRtbA==">http://nodejs.cn/api/fs.html</span></p>
 </blockquote>
 <p>在 nodejs 中，提供了 fs 模块，这是 node 的核心模块</p>
 <p>注意：</p>
@@ -1752,7 +1753,7 @@
 
 <p>总结：同步操作使用虽然简单，但是会影响性能，因此尽量使用异步方法，尤其是在工作过程中。</p>
 <h2 id="其他-api（了解）"><a href="#其他-api（了解）" class="headerlink" title="其他 api（了解）"></a>其他 api（了解）</h2><p>方法有很多，但是用起来都非常的简单，学会查文档</p>
-<p>文档：<span class="exturl" data-url="aHR0cDovL25vZGVqcy5jbi9hcGkvZnMuaHRtbA==">http://nodejs.cn/api/fs.html<i class="fa fa-external-link-alt"></i></span></p>
+<p>文档：<span class="exturl" data-url="aHR0cDovL25vZGVqcy5jbi9hcGkvZnMuaHRtbA==">http://nodejs.cn/api/fs.html</span></p>
 <table>
 <thead>
 <tr>
@@ -1894,13 +1895,13 @@
 <li>request 事件有两个参数，req 表示请求对象，可以获取所有与请求相关的信息，res 是响应对象，可以获取所有与响应相关的信息</li>
 <li>服务器监听的端口范围为：1-65535 之间，推荐使用 3000 以上的端口，因为 3000 以下的端口一般留给系统使用</li>
 </ol>
-<h2 id="request-对象详解"><a href="#request-对象详解" class="headerlink" title="request 对象详解"></a>request 对象详解</h2><p>文档地址：<span class="exturl" data-url="aHR0cDovL25vZGVqcy5jbi9hcGkvaHR0cC5odG1sI2h0dHBfbWVzc2FnZV9oZWFkZXJz">http://nodejs.cn/api/http.html#http_message_headers<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="request-对象详解"><a href="#request-对象详解" class="headerlink" title="request 对象详解"></a>request 对象详解</h2><p>文档地址：<span class="exturl" data-url="aHR0cDovL25vZGVqcy5jbi9hcGkvaHR0cC5odG1sI2h0dHBfbWVzc2FnZV9oZWFkZXJz">http://nodejs.cn/api/http.html#http_message_headers</span></p>
 <p>常见属性：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">headers: 所有的请求头信息</span><br><span class="line">method：请求的方式</span><br><span class="line">rawHeaders：所有的请求头信息（数组的方式）</span><br><span class="line">url：请求的地址（url地址的路径部分）</span><br><span class="line">	请求 http:<span class="comment">//127.0.0.1:3000/index 获取到的是：/index</span></span><br><span class="line">	请求 http:<span class="comment">//127.0.0.1:3000 获取到的是：/</span></span><br></pre></td></tr></table></figure>
 
 <p>注意：在发送请求的时候，可能会出现两次请求的情况，这是因为谷歌浏览器会自动增加一个<code>favicon.ico</code>的请求</p>
 <p>小结：request 对象中，常用的就是 method 和 url 两个参数</p>
-<h2 id="response-对象详解"><a href="#response-对象详解" class="headerlink" title="response 对象详解"></a>response 对象详解</h2><p>文档地址：<span class="exturl" data-url="aHR0cDovL25vZGVqcy5jbi9hcGkvaHR0cC5odG1sI2h0dHBfY2xhc3NfaHR0cF9zZXJ2ZXJyZXNwb25zZQ==">http://nodejs.cn/api/http.html#http_class_http_serverresponse<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="response-对象详解"><a href="#response-对象详解" class="headerlink" title="response 对象详解"></a>response 对象详解</h2><p>文档地址：<span class="exturl" data-url="aHR0cDovL25vZGVqcy5jbi9hcGkvaHR0cC5odG1sI2h0dHBfY2xhc3NfaHR0cF9zZXJ2ZXJyZXNwb25zZQ==">http://nodejs.cn/api/http.html#http_class_http_serverresponse</span></p>
 <p>常见的属性和方法：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">res.write(data): 给浏览器发送响应体，可以调用多次，从而提供连续的响应体</span><br><span class="line">res.end()：通知服务器，所有响应头和响应主体都已被发送，即服务器将其视为已完成</span><br><span class="line">res.end(data)：结束请求，并且响应一段内容，相当于res.write(data) + res.end()</span><br><span class="line">res.statusCode: 响应的的状态码 <span class="number">200</span> <span class="number">404</span> <span class="number">500</span></span><br><span class="line">res.statusMessage: 响应的状态信息（不能有中文）， 如果不设置会根据statusCode自动设置</span><br><span class="line">res.setHeader(name, value)：设置响应头信息，比如<span class="string">&#x27;content-type&#x27;</span>，<span class="string">&#x27;text/html;charset=utf-8&#x27;</span></span><br><span class="line">res.writeHead(statusCode, statusMessage, options)：设置响应头，同时可以设置状态码和状态信息</span><br><span class="line">	options 是对象，写响应头的键值对</span><br></pre></td></tr></table></figure>
 
@@ -1919,7 +1920,7 @@
 <h2 id="MIME-类型"><a href="#MIME-类型" class="headerlink" title="MIME 类型"></a>MIME 类型</h2><ul>
 <li>MIME(Multipurpose Internet Mail Extensions)多用途 Internet 邮件扩展类型 是一种表示文档性质和格式的标准化方式</li>
 <li>浏览器通常使用 MIME 类型（而不是文件扩展名）来确定如何处理文档；因此服务器将正确的 MIME 类型附加到响应对象的头部是非常重要的</li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvSFRUUC9CYXNpY3Nfb2ZfSFRUUC9NSU1FX1R5cGVz">MIME 类型<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvSFRUUC9CYXNpY3Nfb2ZfSFRUUC9NSU1FX1R5cGVz">MIME 类型</span></li>
 </ul>
 <h2 id="mime-模块"><a href="#mime-模块" class="headerlink" title="mime 模块"></a>mime 模块</h2><ul>
 <li>作用：获取文件的 MIME 类型</li>
@@ -1933,7 +1934,7 @@
 <li>使用：<code>nodemon app.js</code> 运行 node 程序</li>
 </ul>
 <h1 id="hacknews-案例"><a href="#hacknews-案例" class="headerlink" title="hacknews 案例"></a>hacknews 案例</h1><ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly9uZXdzLnljb21iaW5hdG9yLmNvbS8=">Hacker News 示例<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9uZXdzLnljb21iaW5hdG9yLmNvbS8=">Hacker News 示例</span></li>
 <li>路由（route）：就是一套映射规则，根据 url 地址分配到对应的处理程序</li>
 </ul>
 <h2 id="功能划分"><a href="#功能划分" class="headerlink" title="功能划分"></a>功能划分</h2><ul>
@@ -1943,7 +1944,7 @@
 <li>4 新闻添加请求 - /add post</li>
 </ul>
 <h2 id="art-template-模板引擎"><a href="#art-template-模板引擎" class="headerlink" title="art-template 模板引擎"></a>art-template 模板引擎</h2><ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly9hdWkuZ2l0aHViLmlvL2FydC10ZW1wbGF0ZS96aC1jbi9kb2NzLw==">文档<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9hdWkuZ2l0aHViLmlvL2FydC10ZW1wbGF0ZS96aC1jbi9kb2NzLw==">文档</span></li>
 <li>安装</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install art-template</span><br></pre></td></tr></table></figure>
@@ -1967,8 +1968,8 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// foo=bar&amp;abc=xyz&amp;abc=123</span></span><br><span class="line"><span class="keyword">var</span> querystring = <span class="built_in">require</span>(<span class="string">&#x27;querystring&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将查询参数转化为对象</span></span><br><span class="line"><span class="comment">// 第一个参数: 要解析的 URL 查询字符串</span></span><br><span class="line">querystring.parse(<span class="string">&#x27;foo=bar&amp;abc=xyz&#x27;</span>) <span class="comment">// &#123;foo: &#x27;bar&#x27;, abc: &#x27;xyz&#x27;&#125;</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="服务端重定向"><a href="#服务端重定向" class="headerlink" title="服务端重定向"></a>服务端重定向</h2><ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvSFRUUC9TdGF0dXM=">HTTP 状态码说明<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cDovL3NodWFpLmJlL2FyY2hpdmVzLzMwMS0zMDItcmVkaXJlY3Rpb24v">301 和 302<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvSFRUUC9TdGF0dXM=">HTTP 状态码说明</span></li>
+<li><span class="exturl" data-url="aHR0cDovL3NodWFpLmJlL2FyY2hpdmVzLzMwMS0zMDItcmVkaXJlY3Rpb24v">301 和 302</span></li>
 <li>说明：服务端可以通过 HTTP 状态码让浏览器中的页面重定向</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">res.writeHead(<span class="number">302</span>, &#123;</span><br><span class="line">  <span class="attr">Location</span>: <span class="string">&#x27;/&#x27;</span></span><br><span class="line">&#125;)</span><br><span class="line">res.end()</span><br></pre></td></tr></table></figure>
@@ -2051,13 +2052,13 @@
     
     <div class="post-body" itemprop="articleBody">
           <h1 id="ES6（ECMAScript）"><a href="#ES6（ECMAScript）" class="headerlink" title="ES6（ECMAScript）"></a>ES6（ECMAScript）</h1><p>ECMAScript 6.0（以下简称 ES6）是在 2015 年 6 月正式发布的标准。它的目标，是使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语言</p>
-<p><span class="exturl" data-url="aHR0cDovL2VzNi5ydWFueWlmZW5nLmNvbS8=">ECMAScript 6 入门 阮一峰<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cDovL2VzNi5ydWFueWlmZW5nLmNvbS8=">ECMAScript 6 入门 阮一峰</span></p>
 <h2 id="let-与-const"><a href="#let-与-const" class="headerlink" title="let 与 const"></a>let 与 const</h2><blockquote>
 <p>ES6 中提供了两个声明变量的关键字：const 和 let</p>
 </blockquote>
 <p>参考链接</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8yODE0MDQ1MA==">[知乎]我用了两个月的时间才理解 let<i class="fa fa-external-link-alt"></i></span></p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9HbG9zc2FyeS9Ib2lzdGluZw==">[MDN]变量提升<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8yODE0MDQ1MA==">[知乎]我用了两个月的时间才理解 let</span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9HbG9zc2FyeS9Ib2lzdGluZw==">[MDN]变量提升</span></p>
 <h3 id="let-的使用"><a href="#let-的使用" class="headerlink" title="let 的使用"></a>let 的使用</h3><p>ES6 新增了<code>let</code>命令，用来声明变量。它的用法类似于<code>var</code></p>
 <ul>
 <li>let 声明的变量只有在当前作用域(块作用域)有效</li>
@@ -2324,7 +2325,7 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">connect.server(&#123;</span><br><span class="line">  <span class="attr">host</span>: <span class="string">&#x27;0.0.0.0&#x27;</span></span><br><span class="line">  或</span><br><span class="line">  <span class="attr">host</span>: <span class="string">&#x27;::&#x27;</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 <p>在 gulp 3.x 版本中报错会暂停监听需重新开启任务，4.0 修复了此问题</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly93d3cudHVpY29vbC5jb20vYXJ0aWNsZXMvbkF6cWlhTg==">https://www.tuicool.com/articles/nAzqiaN<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cudHVpY29vbC5jb20vYXJ0aWNsZXMvbkF6cWlhTg==">https://www.tuicool.com/articles/nAzqiaN</span></p>
 
       
     </div>
@@ -2424,7 +2425,7 @@
 <p>防抖是 <code>debounced</code> 维护了一个计时器，规定在 <code>waitTime</code> 时间后触发 <code>callback</code>，但是在 <code>waitTime</code> 时间内再次触发 <code>debounced</code> 的话，会清除当前的 timer 然后重新计时，这样一来，只有最后一次<code>debounced</code> 操作才能触发 <code>callback</code>；</p>
 <p>节流是通过判断是否到达一定时间 (<code>waitTime</code>) 来再次触发 <code>callback</code> ， <code>func</code> 在 <code>waitTime</code> 时间内不能被再次触发。</p>
 <p>实现</p>
-<p>throttle-debounce 插件 <span class="exturl" data-url="aHR0cHM6Ly93d3cubnBtanMuY29tL3BhY2thZ2UvdGhyb3R0bGUtZGVib3VuY2U=">https://www.npmjs.com/package/throttle-debounce<i class="fa fa-external-link-alt"></i></span></p>
+<p>throttle-debounce 插件 <span class="exturl" data-url="aHR0cHM6Ly93d3cubnBtanMuY29tL3BhY2thZ2UvdGhyb3R0bGUtZGVib3VuY2U=">https://www.npmjs.com/package/throttle-debounce</span></p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;input&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">input.oninput = throttle(<span class="number">1000</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.value)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> a = debounce(<span class="number">1000</span>, b)</span><br><span class="line">a.call(&#123; <span class="attr">name</span>: <span class="string">&#x27;zs&#x27;</span> &#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 节流</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">delay, callback</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> timer = <span class="literal">null</span></span><br><span class="line">  <span class="keyword">let</span> lastExec = <span class="number">0</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> self = <span class="built_in">this</span></span><br><span class="line">    <span class="keyword">const</span> elapsed = <span class="built_in">Number</span>(<span class="keyword">new</span> <span class="built_in">Date</span>()) - lastExec</span><br><span class="line">    <span class="keyword">const</span> args = <span class="built_in">arguments</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">exec</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      callback.apply(self, args)</span><br><span class="line">      lastExec = <span class="built_in">Number</span>(<span class="keyword">new</span> <span class="built_in">Date</span>())</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">clearTimeout</span>(timer)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (elapsed &gt; delay) &#123;</span><br><span class="line">      exec()</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      timer = <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        exec()</span><br><span class="line">      &#125;, delay - elapsed)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 防抖</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">delay, callback</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> timer = <span class="literal">null</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> self = <span class="built_in">this</span></span><br><span class="line">    <span class="keyword">const</span> args = <span class="built_in">arguments</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">exec</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      callback.apply(self, args)</span><br><span class="line">      lastExec = <span class="built_in">Number</span>(<span class="keyword">new</span> <span class="built_in">Date</span>())</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">clearTimeout</span>(timer)</span><br><span class="line">    timer = <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      exec()</span><br><span class="line">    &#125;, delay)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -2507,7 +2508,7 @@
 <p>本质上，LESS 包含一套自定义的语法及一个解析器，用户根据这些语法定义自己的样式规则，这些规则最终会通过解析器，编译生成对应的 CSS 文件。LESS 并没有裁剪 CSS 原有的特性，更不是用来取代 CSS 的，而是在现有 CSS 语法的基础上，为 CSS 加入程序式语言的特性。</p>
 <p><strong>less 仅仅是写 css 的另一种方式，写出来的 less 文件浏览器也不识别，所以啊，我们写完了 less 文件，还需要通过 less 解析器解析成 css，最终浏览器引入的还是 css 文件。</strong></p>
 <p>学习网站：</p>
-<p><span class="exturl" data-url="aHR0cDovL2xlc3Njc3Mub3JnLw==">官网 http://lesscss.org/<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cDovL2xlc3Njc3MuY24v">中文网 http://lesscss.cn/<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cDovL2xlc3Njc3Mub3JnLw==">官网 http://lesscss.org/</span><br><span class="exturl" data-url="aHR0cDovL2xlc3Njc3MuY24v">中文网 http://lesscss.cn/</span></p>
 <h2 id="less-的编译"><a href="#less-的编译" class="headerlink" title="less 的编译"></a>less 的编译</h2><blockquote>
 <p>如何把 less 文件变成 css 文件</p>
 </blockquote>
@@ -2516,7 +2517,7 @@
 <h3 id="使用考拉"><a href="#使用考拉" class="headerlink" title="使用考拉"></a>使用考拉</h3><blockquote>
 <p>koala 是一个前端预处理器语言（less/sass）图形编译工具，支持 Less、Sass、Compass、CoffeeScript，帮助 web 开发者更高效地使用它们进行开发。跨平台运行，完美兼容 windows、linux、mac。</p>
 </blockquote>
-<p><span class="exturl" data-url="aHR0cDovL2tvYWxhLWFwcC5jb20vaW5kZXgtemguaHRtbA==">考拉官网<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cDovL2tvYWxhLWFwcC5jb20vaW5kZXgtemguaHRtbA==">考拉官网</span></p>
 <p>使用步骤：</p>
 <ol>
 <li>把<code>less</code>文件夹拖进去</li>
@@ -2552,7 +2553,7 @@
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">li &#123;</span><br><span class="line">  float: left;</span><br><span class="line">  width: round(100%/6, 2);</span><br><span class="line">  height: 100px + 100px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><span class="exturl" data-url="aHR0cDovL3d3dy4xMDI0aS5jb20vZGVtby9sZXNzL3JlZmVyZW5jZS5odG1s">http://www.1024i.com/demo/less/reference.html<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cDovL3d3dy4xMDI0aS5jb20vZGVtby9sZXNzL3JlZmVyZW5jZS5odG1s">http://www.1024i.com/demo/less/reference.html</span></p>
 
       
     </div>
@@ -2626,7 +2627,7 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>Bootstrap，来自 Twitter，是目前最受欢迎的前端框架。Bootstrap 是基于 HTML、CSS、JAVASCRIPT 的，它简洁灵活，使得 Web 开发更加快捷</p>
-<p><span class="exturl" data-url="aHR0cDovL3d3dy5ib290Y3NzLmNvbS8=">bootstrap 中文网<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cDovL3d3dy5ib290Y3NzLmNvbS8=">bootstrap 中文网</span></p>
 <p>特点：</p>
 <ul>
 <li>组件简洁大方、代码规范精简、界面自定义性强</li>
@@ -2659,7 +2660,7 @@
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>bootstrap基本模板<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 引入 bootstrap 的核心样式文件 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">&quot;lib/bootstrap/css/bootstrap.min.css&quot;</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- html5shiv 是用来解决 IE8 以下浏览器不支持 HTML5 语义化标签的问题 --&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- respond 是用来解决 IE8 以下浏览器不支持媒体查询的问题，注意：respond 不支持 file 协议打开 --&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 条件注释：IE浏览器专属 --&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--[if lt IE 9]&gt;</span></span><br><span class="line"><span class="comment">    &lt;script src=&quot;html5shiv.min.js&quot;&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="comment">    &lt;script src=&quot;respond.min.js&quot;&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="comment">  &lt;![endif]--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>你好，世界！<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- bootstrap 依赖于 jquery，因此需要在 bootstrap 之前引入jquery文件 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;lib/jquery/jquery-1.12.4.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 引入 bootstrap 的核心js文件 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;lib/bootstrap/js/bootstrap.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="全局样式"><a href="#全局样式" class="headerlink" title="全局样式"></a>全局样式</h2><h3 id="normalize-css"><a href="#normalize-css" class="headerlink" title="normalize.css"></a>normalize.css</h3><p>Normalize.css 是一种 CSS reset 的替代方案。经过@necolas 和@jon_neal 花了几百个小时来努力研究不同浏览器的默认样式的差异，这个项目终于变成了现在这样</p>
-<p><span class="exturl" data-url="aHR0cDovL25lY29sYXMuZ2l0aHViLmlvL25vcm1hbGl6ZS5jc3Mv">官网<i class="fa fa-external-link-alt"></i></span> <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25lY29sYXMvbm9ybWFsaXplLmNzcw==">github 网址<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cDovL25lY29sYXMuZ2l0aHViLmlvL25vcm1hbGl6ZS5jc3Mv">官网</span> <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25lY29sYXMvbm9ybWFsaXplLmNzcw==">github 网址</span></p>
 <p>normalize 的特点：</p>
 <ul>
 <li><strong>保护有用的浏览器默认样式</strong>而不是完全去掉它们</li>
@@ -2668,7 +2669,7 @@
 <li><strong>优化 CSS 可用性</strong>：用一些小技巧</li>
 </ul>
 <p><code>Normalize.css</code> 支持包括手机浏览器在内的超多浏览器，同时对 HTML5 元素、排版、列表、嵌入的内容、表单和表格都进行了一般化。尽管这个项目基于一般化的原则，但我们还是在合适的地方使用了更实用的默认值。</p>
-<p><span class="exturl" data-url="aHR0cDovL3d3dy5jbmJsb2dzLmNvbS93ZWJwdXNoL3AvNDk3NDA2My5odG1s">Normalize.css 与 CSS reset 区别<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cDovL3d3dy5jbmJsb2dzLmNvbS93ZWJwdXNoL3AvNDk3NDA2My5odG1s">Normalize.css 与 CSS reset 区别</span></p>
 <h3 id="布局容器"><a href="#布局容器" class="headerlink" title="布局容器"></a>布局容器</h3><p>Bootstrap 需要为页面内容和栅格系统包裹一个 .container 容器。默认带了 15px 的 padding 值</p>
 <p><code>.container</code> 类用于固定宽度并支持响应式布局的容器</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -2768,7 +2769,7 @@
 <p><code>*</code> -&gt; block inline inline-block</p>
 <p>推荐使用 hidden 相关的属性</p>
 <h2 id="bootstrap-validator-插件"><a href="#bootstrap-validator-插件" class="headerlink" title="bootstrap-validator 插件"></a>bootstrap-validator 插件</h2><p>基于 bootstrap 的前端校验插件</p>
-<p><span class="exturl" data-url="aHR0cDovL2Jvb3RzdHJhcHZhbGlkYXRvci52b3RpbnRzZXYucnUvYXBp">http://bootstrapvalidator.votintsev.ru/api<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cDovL2Jvb3RzdHJhcHZhbGlkYXRvci52b3RpbnRzZXYucnUvYXBp">http://bootstrapvalidator.votintsev.ru/api</span></p>
 <h3 id="引包"><a href="#引包" class="headerlink" title="引包"></a>引包</h3><p>引入 css 文件</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;lib/bootstrap/css/bootstrap.css&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;lib/bootstrap-validator/css/bootstrapValidator.css&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
 
@@ -2950,7 +2951,7 @@
 </ol>
 <p>总结：</p>
 <p>三种开发各有优缺点，具体用什么需要根据实际情况而定，比如预算，app 注重功能还是内容等</p>
-<h2 id="屏幕与分辨率"><a href="#屏幕与分辨率" class="headerlink" title="屏幕与分辨率"></a>屏幕与分辨率</h2><p><span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2EvMTE5MDAwMDAxMTc1Mzg1NQ==">理解设备像素、设备独立像素和 css 像素<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="屏幕与分辨率"><a href="#屏幕与分辨率" class="headerlink" title="屏幕与分辨率"></a>屏幕与分辨率</h2><p><span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2EvMTE5MDAwMDAxMTc1Mzg1NQ==">理解设备像素、设备独立像素和 css 像素</span></p>
 <blockquote>
 <p>移动设备与 PC 设备最大的差异在于屏幕，这主要体现在屏幕尺寸和屏幕分辨率两个方面</p>
 </blockquote>
@@ -3038,8 +3039,8 @@
 <p>!&gt; 使用 jquery 注册 touch 类事件时，获取手指使用 <code>e.originalEvent.touchs[0]</code> ，因为 jq 对事件对象进行了封装</p>
 <p>【案例：jdm-滑动轮播图】</p>
 <p>【案例：jdm-区域滚动】</p>
-<h2 id="iscroll-插件使用"><a href="#iscroll-插件使用" class="headerlink" title="iscroll 插件使用"></a>iscroll 插件使用</h2><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2N1YmlxL2lzY3JvbGw=">https://github.com/cubiq/iscroll<i class="fa fa-external-link-alt"></i></span></p>
-<p><span class="exturl" data-url="aHR0cDovL3d3dy5tYW1pY29kZS5jb20vaW5mby1kZXRhaWwtMzMxODI3Lmh0bWw=">iscroll 参考文档<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="iscroll-插件使用"><a href="#iscroll-插件使用" class="headerlink" title="iscroll 插件使用"></a>iscroll 插件使用</h2><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2N1YmlxL2lzY3JvbGw=">https://github.com/cubiq/iscroll</span></p>
+<p><span class="exturl" data-url="aHR0cDovL3d3dy5tYW1pY29kZS5jb20vaW5mby1kZXRhaWwtMzMxODI3Lmh0bWw=">iscroll 参考文档</span></p>
 <p><strong>注意</strong>：使用 iscroll 需要满足的条件</p>
 <ol>
 <li>父盒子嵌套了子盒子（一个）</li>
@@ -3052,8 +3053,8 @@
 <h1 id="zepto-框架"><a href="#zepto-框架" class="headerlink" title="zepto 框架"></a>zepto 框架</h1><blockquote>
 <p><strong>Zepto</strong>是一个轻量级的<strong>针对现代高级浏览器的 JavaScript 库， <strong>它与 jquery</strong>有着类似的 api</strong>。 如果你会用 jquery，那么你也会用 zepto</p>
 </blockquote>
-<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL21hZHJvYmJ5L3plcHRv">github 地址<i class="fa fa-external-link-alt"></i></span></p>
-<p><span class="exturl" data-url="aHR0cDovL3d3dy5jc3M4OC5jb20vZG9jL3plcHRvanNfYXBpLw==">中文文档<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL21hZHJvYmJ5L3plcHRv">github 地址</span></p>
+<p><span class="exturl" data-url="aHR0cDovL3d3dy5jc3M4OC5jb20vZG9jL3plcHRvanNfYXBpLw==">中文文档</span></p>
 <h2 id="zepto-与-jquery-的区别"><a href="#zepto-与-jquery-的区别" class="headerlink" title="zepto 与 jquery 的区别"></a>zepto 与 jquery 的区别</h2><ul>
 <li>jquery 针对 pc 端，主要用于解决浏览器兼容性问题，zepto 主要针对移动端</li>
 <li>zepto 比 jquery 轻量，文件体积更小</li>
@@ -3173,9 +3174,9 @@
 </blockquote>
 <p>由于市面上手机种类繁多，导致移动端的屏幕种类非常的混乱，比如有常见的<code>320px 360px 375px 384px 480px 640px</code>等。在开发中，美工一般只会提供 750px 或者是 640px 的设计稿，这就要求我们通过一张设计稿能够适配所有的屏幕。通常解决方案如下：</p>
 <ul>
-<li>流式布局：虽然可以让各种屏幕都适配，但是显示效果不是非常的友好，因为只有几个尺寸的手机能够完美的显示出来视觉设计师和交互最想要的效果。但是目前使用流式布局的公司非常多，比如 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYW1hem9uLmNuLw==">亚马逊<i class="fa fa-external-link-alt"></i></span> 、<span class="exturl" data-url="aHR0cHM6Ly9tLmpkLmNvbS8=">京东<i class="fa fa-external-link-alt"></i></span> 、<span class="exturl" data-url="aHR0cHM6Ly9tLmN0cmlwLmNvbS8=">携程<i class="fa fa-external-link-alt"></i></span></li>
+<li>流式布局：虽然可以让各种屏幕都适配，但是显示效果不是非常的友好，因为只有几个尺寸的手机能够完美的显示出来视觉设计师和交互最想要的效果。但是目前使用流式布局的公司非常多，比如 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYW1hem9uLmNuLw==">亚马逊</span> 、<span class="exturl" data-url="aHR0cHM6Ly9tLmpkLmNvbS8=">京东</span> 、<span class="exturl" data-url="aHR0cHM6Ly9tLmN0cmlwLmNvbS8=">携程</span></li>
 <li>响应式布局：响应式这种方式在国内很少有大型企业的复杂性的网站在移动端用这种方法去做，主要原因是<strong>工作大，维护性难</strong> 。所以一般都是中小型的门户或者博客类站点会采用响应式的方法从 PC 端页面到移动端页面以及 web app 直接一步到位，因为这样反而可以节约成本。</li>
-<li>rem 布局：rem 能够适配所有的屏幕，与 less 配合使用效果会更好。目前使用 rem 布局的有：<span class="exturl" data-url="aHR0cHM6Ly9tLnRhb2Jhby5jb20v">淘宝<i class="fa fa-external-link-alt"></i></span> 、 <span class="exturl" data-url="aHR0cHM6Ly9tLnN1bmluZy5jb20v">苏宁<i class="fa fa-external-link-alt"></i></span></li>
+<li>rem 布局：rem 能够适配所有的屏幕，与 less 配合使用效果会更好。目前使用 rem 布局的有：<span class="exturl" data-url="aHR0cHM6Ly9tLnRhb2Jhby5jb20v">淘宝</span> 、 <span class="exturl" data-url="aHR0cHM6Ly9tLnN1bmluZy5jb20v">苏宁</span></li>
 </ul>
 <h2 id="rem-布局"><a href="#rem-布局" class="headerlink" title="rem 布局"></a>rem 布局</h2><p>因为 rem 的基准点是根元素 html 的字体大小，因此我们只需要设置不同屏幕的 html 的 font-size 大小不一样就可以达到不同屏幕的适配了。</p>
 <h3 id="rem-配合媒体查询"><a href="#rem-配合媒体查询" class="headerlink" title="rem 配合媒体查询"></a>rem 配合媒体查询</h3><p>使用 rem 配合媒体查询可以适配多个终端</p>
@@ -3204,7 +3205,7 @@
 <h1 id="swiper-插件"><a href="#swiper-插件" class="headerlink" title="swiper 插件"></a>swiper 插件</h1><blockquote>
 <p>Swiper 是纯 javascript 打造的滑动特效插件，面向手机、平板电脑等移动终端</p>
 </blockquote>
-<p><span class="exturl" data-url="aHR0cDovL3d3dy5zd2lwZXIuY29tLmNuLw==">swiper 中文网<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cDovL3d3dy5zd2lwZXIuY29tLmNuLw==">swiper 中文网</span></p>
 <h1 id="other"><a href="#other" class="headerlink" title="other"></a>other</h1><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="comment">/* 取消链接高亮, 移动端特有的样式  */</span></span><br><span class="line">  -webkit-tap-highlight-<span class="attribute">color</span>: <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       

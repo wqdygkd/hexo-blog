@@ -32,7 +32,7 @@
 <meta property="og:description" content="04&#x2F;27 更新 解决 workers 无法正常访问 作者删除了 github 仓库， GoIndex 依赖的 js 资源加载失败，导致网页打开是一片空白 解决方法； 首先到 GitHub Fork 一份 goindex，可以直接 fork 我的， 登录 CF，打开 workers，选中项目，找到以下代码，我的是在 21 行，替换成有效的即可（可以是你 fork 的，也可以直接使用我的） &lt;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-04-22T00:00:45.000Z">
-<meta property="article:modified_time" content="2021-07-30T14:28:04.929Z">
+<meta property="article:modified_time" content="2021-07-31T17:29:43.555Z">
 <meta property="article:author" content="c">
 <meta name="twitter:card" content="summary">
 
@@ -105,6 +105,7 @@
         <li class="menu-item menu-item-前端"><a href="/c/frontend/" rel="section"><i class="fab fa-html5 fa-fw"></i>前端</a></li>
         <li class="menu-item menu-item-软件"><a href="/c/software/" rel="section"><i class="fas fa-th-large fa-fw"></i>软件</a></li>
         <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fas fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-面试"><span class="exturl" data-url="aHR0cHM6Ly9tcy53cWR5LnRvcA=="><i class="fas fa-archive fa-fw"></i>面试</span></li>
         <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
         <li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
       <li class="menu-item menu-item-search">
@@ -288,7 +289,7 @@
         <p>04/27 更新 解决 workers 无法正常访问</p>
 <p>作者删除了 github 仓库， GoIndex 依赖的 js 资源加载失败，导致网页打开是一片空白</p>
 <p>解决方法；</p>
-<p>首先到 GitHub Fork 一份 goindex，可以直接 fork <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2N1aWxvbmdqaW4vZ29pbmRleA==">我的<i class="fa fa-external-link-alt"></i></span>，</p>
+<p>首先到 GitHub Fork 一份 goindex，可以直接 fork <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2N1aWxvbmdqaW4vZ29pbmRleA==">我的</span>，</p>
 <p>登录 CF，打开 workers，选中项目，找到以下代码，我的是在 21 行，替换成有效的即可（可以是你 fork 的，也可以直接使用我的）</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;//cdn.jsdelivr.net/combine/gh/jquery/jquery@3.2/dist/jquery.min.js,gh/donwa/goindex@$&#123;authConfig.version&#125;/themes/$&#123;authConfig.theme&#125;/app.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
@@ -297,16 +298,16 @@
 
 <p>原文</p>
 <p>利用 GoIndex 程序，以及 CloudFlare，可以将 Google Drive 文件以目录形式（类似 OneIndex 部署 OneDrive 网盘）列出，可直链调用网盘图片、音频、视频文件等，也可以下载，流量走 CloudFlare ，网速由 CloudFlare 决定</p>
-<p>项目地址： <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RvbndhL2dvaW5kZXg=">https://github.com/donwa/goindex<i class="fa fa-external-link-alt"></i></span></p>
-<p>demo： <span class="exturl" data-url="aHR0cHM6Ly9pbmRleC5nZC53b3JrZXJzLmRldi8=">https://index.gd.workers.dev/<i class="fa fa-external-link-alt"></i></span></p>
+<p>项目地址： <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RvbndhL2dvaW5kZXg=">https://github.com/donwa/goindex</span></p>
+<p>demo： <span class="exturl" data-url="aHR0cHM6Ly9pbmRleC5nZC53b3JrZXJzLmRldi8=">https://index.gd.workers.dev/</span></p>
 <p>安装部署方案 1</p>
-<p>1、在本地安装 rclone<br>2、按照 <span class="exturl" data-url="aHR0cHM6Ly9yY2xvbmUub3JnL2RyaXZlLw==">https://rclone.org/drive/<i class="fa fa-external-link-alt"></i></span> 流程进行授权<br>3、执行 rclone config file 查看 rclone.conf 路径。找到 root_folder_id 和 refresh_token 记录下来<br>4、下载 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RvbndhL2dvaW5kZXg=">https://github.com/donwa/goindex<i class="fa fa-external-link-alt"></i></span> 中的 index.js 并填入 root 和 refresh_token<br>5、复制代码 到 CloudFlare 部署</p>
+<p>1、在本地安装 rclone<br>2、按照 <span class="exturl" data-url="aHR0cHM6Ly9yY2xvbmUub3JnL2RyaXZlLw==">https://rclone.org/drive/</span> 流程进行授权<br>3、执行 rclone config file 查看 rclone.conf 路径。找到 root_folder_id 和 refresh_token 记录下来<br>4、下载 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RvbndhL2dvaW5kZXg=">https://github.com/donwa/goindex</span> 中的 index.js 并填入 root 和 refresh_token<br>5、复制代码 到 CloudFlare 部署</p>
 <p>安装部署方案 2</p>
-<p>作者不会记录 refresh_token，但为避免纠纷，建议有条件的同学使用方案 1 进行部署<br>1、访问<span class="exturl" data-url="aHR0cHM6Ly9pbnN0YWxsLmdkLndvcmtlcnMuZGV2Lw==">https://install.gd.workers.dev/<i class="fa fa-external-link-alt"></i></span><br>2、授权认证后，生成部署代码<br>3、复制代码 到 CloudFlare 部署</p>
+<p>作者不会记录 refresh_token，但为避免纠纷，建议有条件的同学使用方案 1 进行部署<br>1、访问<span class="exturl" data-url="aHR0cHM6Ly9pbnN0YWxsLmdkLndvcmtlcnMuZGV2Lw==">https://install.gd.workers.dev/</span><br>2、授权认证后，生成部署代码<br>3、复制代码 到 CloudFlare 部署</p>
 <p>目录 id：例如 google 网盘链接为<code>https://drive.google.com/drive/folders/1rrDnupW_1qxRnQf-jy_0PN_GqNK8SEk2</code>，则目录 id 为 <code>1rrDnupW_1qxRnQf-jy_0PN_GqNK8SEk2</code></p>
 <p>部署 CloudFlare</p>
 <p>绑定自定义域名</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RvbndhL2dvaW5kZXgvaXNzdWVzLzQ=">https://github.com/donwa/goindex/issues/4<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RvbndhL2dvaW5kZXgvaXNzdWVzLzQ=">https://github.com/donwa/goindex/issues/4</span></p>
 
     </div>
 

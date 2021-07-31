@@ -32,7 +32,7 @@
 <meta property="og:description" content="支持 Windows、macOS、Linux、IOS、Android、Synology、QNAP、Western Digital MyCloud NAS等 使用官方根节点1、创建账号 https:&#x2F;&#x2F;my.zerotier.com 2、创建网络 进入 https:&#x2F;&#x2F;my.zerotier.com&#x2F;network 点击 Create 创建网络，点击进入已创建的网络 此时可以看到 Network I">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-03-07T00:00:00.000Z">
-<meta property="article:modified_time" content="2021-07-30T14:28:04.925Z">
+<meta property="article:modified_time" content="2021-07-31T17:29:43.555Z">
 <meta property="article:author" content="c">
 <meta property="article:tag" content="zerotier">
 <meta name="twitter:card" content="summary">
@@ -106,6 +106,7 @@
         <li class="menu-item menu-item-前端"><a href="/c/frontend/" rel="section"><i class="fab fa-html5 fa-fw"></i>前端</a></li>
         <li class="menu-item menu-item-软件"><a href="/c/software/" rel="section"><i class="fas fa-th-large fa-fw"></i>软件</a></li>
         <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fas fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-面试"><span class="exturl" data-url="aHR0cHM6Ly9tcy53cWR5LnRvcA=="><i class="fas fa-archive fa-fw"></i>面试</span></li>
         <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
         <li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
       <li class="menu-item menu-item-search">
@@ -280,9 +281,9 @@
     <div class="post-body" itemprop="articleBody">
         <p>支持 Windows、macOS、Linux、IOS、Android、Synology、QNAP、Western Digital MyCloud NAS等</p>
 <h2 id="使用官方根节点"><a href="#使用官方根节点" class="headerlink" title="使用官方根节点"></a>使用官方根节点</h2><p>1、创建账号</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9teS56ZXJvdGllci5jb20v">https://my.zerotier.com<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9teS56ZXJvdGllci5jb20v">https://my.zerotier.com</span></p>
 <p>2、创建网络</p>
-<p>进入 <span class="exturl" data-url="aHR0cHM6Ly9teS56ZXJvdGllci5jb20vbmV0d29yaw==">https://my.zerotier.com/network<i class="fa fa-external-link-alt"></i></span> 点击 Create 创建网络，点击进入已创建的网络 此时可以看到 Network ID，后续添加设备都会需要这个 ID</p>
+<p>进入 <span class="exturl" data-url="aHR0cHM6Ly9teS56ZXJvdGllci5jb20vbmV0d29yaw==">https://my.zerotier.com/network</span> 点击 Create 创建网络，点击进入已创建的网络 此时可以看到 Network ID，后续添加设备都会需要这个 ID</p>
 <p>Access Control，默认是Certificate (Private Network)，选择此模式表示每次在添加新的主机时，需要手动勾选是否允许连接，如果选择None (Public Network)模式，表示加入网络后自动分配IP并允许连接，从安全性来说建议使用默认选项Certificate (Private Network)，方便性来看None (Public Network)更方便，不用每次加入网络后手动勾选。</p>
 <p>好了，一个中转的ZeroTier就配置完成了，接下来只需要在其他设备安装所对应的客户端，然后加入到这个网络中就可以了。</p>
 <h2 id="搭建私有节点（moon）"><a href="#搭建私有节点（moon）" class="headerlink" title="搭建私有节点（moon）"></a>搭建私有节点（moon）</h2><blockquote>
@@ -300,8 +301,8 @@
 <p> 查看是否连接</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 在其他机子执行以下命令是否显示该 moon 节点</span></span><br><span class="line"><span class="comment"># 或在 moon 服务器上执行命令否显示 LEAF 节点</span></span><br><span class="line">zerotier-cli listpeers</span><br><span class="line"></span><br><span class="line">200 listpeers &lt;ztaddr&gt; &lt;path&gt; &lt;latency&gt; &lt;version&gt; &lt;role&gt;</span><br><span class="line">200 listpeers xxxxxxxxxx xx.xx.xx.xx/4532;1037;853 183 1.6.4 LEAF</span><br><span class="line">200 listpeers xxxxxxxxxx xx.xx.xx.xx/9993;19869;4337 0 - PLANET</span><br><span class="line">200 listpeers xxxxxxxxxx xx.xx.xx.xx/9993;4337;4167 170 - PLANET</span><br><span class="line">200 listpeers xxxxxxxxxx xx.xx.xx.xx/9993;363;4274 63 - PLANET</span><br><span class="line">200 listpeers xxxxxxxxxx xx.xx.xx.xx/9993;19508;4192 145 - PLANET</span><br></pre></td></tr></table></figure>
 
-<h2 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h2><p><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmRvY2tlci5jb20vZW5naW5lL3JlZmVyZW5jZS9idWlsZGVyLw==">https://docs.docker.com/engine/reference/builder/<i class="fa fa-external-link-alt"></i></span></p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3plcm90aWVyL1plcm9UaWVyT25lL3RyZWUvbWFzdGVyL2V4dC9pbnN0YWxsZmlsZXMvbGludXgvemVyb3RpZXItY29udGFpbmVyaXplZA==">https://github.com/zerotier/ZeroTierOne/tree/master/ext/installfiles/linux/zerotier-containerized<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h2><p><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmRvY2tlci5jb20vZW5naW5lL3JlZmVyZW5jZS9idWlsZGVyLw==">https://docs.docker.com/engine/reference/builder/</span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3plcm90aWVyL1plcm9UaWVyT25lL3RyZWUvbWFzdGVyL2V4dC9pbnN0YWxsZmlsZXMvbGludXgvemVyb3RpZXItY29udGFpbmVyaXplZA==">https://github.com/zerotier/ZeroTierOne/tree/master/ext/installfiles/linux/zerotier-containerized</span></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker build . -t zerotier</span><br></pre></td></tr></table></figure>
 
     </div>
