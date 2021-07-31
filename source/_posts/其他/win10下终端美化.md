@@ -1,5 +1,5 @@
 ---
-title: Window 10下终端美化
+title: Window 10 下终端配置与美化
 tags:
   - zsh
   - oh-my-zsh
@@ -10,39 +10,21 @@ id: 2017
 date: 2020-11-01
 ---
 
-WSL(Ubuntu)/MSYS2/Cygwin/PowerShell7
-Windows Terminal/Fluent Terminal
+[WSL](https://docs.microsoft.com/zh-cn/windows/wsl/install-win10) / [MSYS2](https://www.msys2.org/) / [Cygwin](http://www.cygwin.com/) / [PowerShell7](https://github.com/PowerShell/PowerShell/releases)
 
-## Fluent Terminal & PowerShell 7+ & oh-my-posh & posh-git
-[Fluent Terminal](https://github.com/felixse/FluentTerminal/releases)
-[PowerShell](https://github.com/PowerShell/PowerShell/releases)
+[Fluent Terminal](https://github.com/felixse/FluentTerminal/releases) / [Windows Terminal](https://github.com/microsoft/terminal/releases)
 
-https://zhuanlan.zhihu.com/p/137595941
-https://zhuanlan.zhihu.com/p/137251716
+## WSL 配置 zsh
 
-## MSYS2 + Windows Terminal
+wsl 下 git clone 报错：GnuTLS recv error (-110): The TLS connection was non-properly terminated.
 
-[MSYS2](https://www.msys2.org/)
-[Windows Terminal](https://github.com/microsoft/terminal/releases)
-
-### 配置
-
-#### 安装 zsh
-
-打开 MSYS2，
+### 安装 zsh
 
 ```bash
-pacman -Syu
-pacman -S zsh
+apt install -y zsh
 ```
 
-由于 msys2 指定 MSYSCON 为 defterm 时默认是执行bash.exe， 我们把 C:\msys64\msys2_shell.cmd 大概第5行的bash 改成 zsh 即可：
-
-```cmd
-set "LOGINSHELL=zsh"
-```
-
-#### 安装 oh-my-zsh
+### 安装 oh-my-zsh
 
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -51,70 +33,43 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 sh -c "$(curl -fsSL https://cdn.jsdelivr.net/gh/ohmyzsh/ohmyzsh@master/tools/install.sh)"
 ```
 
-#### 安装 Fira Code 字体
+### 配置插件
 
-[Fira Code](https://github.com/tonsky/FiraCode/releases)
+插件列表 https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins
 
-#### 配置到 Windows Terminal
+[zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
+[zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
+[zsh-proxy](https://github.com/SukkaW/zsh-proxy)
 
-在 settings.json 文件中加入MSYS2的配置
+```bash
+# 安装 zsh-syntax-highlighting 插件
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
-```json
-"profiles":
-{
-  "defaults":
-  {
-    // Put settings here that you want to apply to all profiles.
-  },
-  "list":
-  [
-    {
-      "guid": "{1c4de342-38b7-51cf-b940-2309a097f589}", // 唯一的标识，改成和其他的已有终端不一样
-      "hidden": false,
-      "name": "MSYS2",
-      "acrylicOpacity": 0, // 透明度
-      "closeOnExit": true, // 关闭的时候退出命令终端
-      "colorScheme": "Homebrew", // 样式配置
-      "commandline": "C:\\msys64\\msys2_shell.cmd -defterm -no-start -here -use-full-path  -mingw64", // 重点就是要用这个脚本启动，以及他的参数
-      "startingDirectory": "~",
-      "cursorColor": "#FFFFFF", // 光标颜色
-      "cursorShape": "bar", // 光标形状
-      "fontFace": "Fira Code", // 字体配置，选择你电脑上已安装的字体
-      "fontSize": 11, // 终端字体大小
-      "historySize": 9001, // 终端窗口记忆大小
-      "icon": "C:\\msys64\\msys2.ico" // git 的图
-    }
-  ]
-},
+# 安装 zsh-autosuggestions 插件
+git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
-// Add custom color schemes to this array.
-// To learn more about color schemes, visit https://aka.ms/terminal-color-schemes
-"schemes": [
-  {
-    "name": "Homebrew",
-    "black": "#000000",
-    "red": "#FC5275",
-    "green": "#00a600",
-    "yellow": "#999900",
-    "blue": "#6666e9",
-    "purple": "#b200b2",
-    "cyan": "#00a6b2",
-    "white": "#bfbfbf",
-    "brightBlack": "#666666",
-    "brightRed": "#e50000",
-    "brightGreen": "#00d900",
-    "brightYellow": "#e5e500",
-    "brightBlue": "#0000ff",
-    "brightPurple": "#e500e5",
-    "brightCyan": "#00e5e5",
-    "brightWhite": "#e5e5e5",
-    "background": "#283033",
-    "foreground": "#00ff00"
-  }
-]
+git clone https://github.com/sukkaw/zsh-proxy.git ~/.oh-my-zsh/custom/plugins/zsh-proxy
+
+# 安装 zsh-proxy 插件
+git clone https://github.com/sukkaw/zsh-proxy.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-proxy
 ```
 
-#### 安装 oh-my-zsh 主题
+修改 ~/.zshrc，在 plugins 中添加 zsh-syntax-highlighting
+
+```bash
+# 编辑 ~/.zshrc
+vim ~/.zshrc
+
+# 在 plugins 后括号里添加安装的插件名字
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
+
+# 刷新下配置
+source ~/.zshrc
+```
+
+[zsh-proxy](https://github.com/SukkaW/zsh-proxy)
+
+### 主题
 
 [主题列表](https://github.com/ohmyzsh/ohmyzsh/wiki/themes)
 
@@ -123,24 +78,11 @@ sh -c "$(curl -fsSL https://cdn.jsdelivr.net/gh/ohmyzsh/ohmyzsh@master/tools/ins
 [pure主题](https://github.com/sindresorhus/pure/)
 [agnoster](https://github.com/agnoster/agnoster-zsh-theme)
 
-#### 安装插件
+## PowerShell 7+ 配置 oh-my-posh & posh-git
 
-```bash
-cd ~/.oh-my-zsh/plugins
-git clone https://github.com/zsh-users/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
-```
+https://zhuanlan.zhihu.com/p/137595941
+https://zhuanlan.zhihu.com/p/137251716
 
-启用插件
+#### 安装 Fira Code 字体
 
-```bash
-# 编辑~/.zshrc
-vim ~/.zshrc
-# 在plugins后括号里添加安装的插件名字
-plugins=( git
-          zsh-autosuggestions
-          zsh-syntax-highlighting
-        )
-# 最后刷新
-source ~/.zshrc
-```
+[Fira Code](https://github.com/tonsky/FiraCode/releases)
