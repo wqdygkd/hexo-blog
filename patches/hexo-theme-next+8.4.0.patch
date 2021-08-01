@@ -1,8 +1,15 @@
 diff --git a/node_modules/hexo-theme-next/layout/_macro/post-collapse.njk b/node_modules/hexo-theme-next/layout/_macro/post-collapse.njk
-index 4c39119..0c5b367 100644
+index 4c39119..9cbde14 100644
 --- a/node_modules/hexo-theme-next/layout/_macro/post-collapse.njk
 +++ b/node_modules/hexo-theme-next/layout/_macro/post-collapse.njk
-@@ -33,6 +33,15 @@
+@@ -27,12 +27,21 @@
+           {%- set postText = post.title or post.link %}
+           {{ next_url(post.link, postText + postTitleIcon, {class: 'post-title-link post-title-link-external', itemprop: 'url'}) }}
+         {% else %}
+-          <a class="post-title-link" href="{{ url_for(post.path) }}" itemprop="url">
++          <a class="post-title-link" href="{{ config.url +  url_for(post.path) }}" itemprop="url">
+             <span itemprop="name">{{ post.title or __('post.untitled') }}</span>
+           </a>
          {%- endif %}
        </div>
  
