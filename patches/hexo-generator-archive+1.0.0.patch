@@ -1,0 +1,13 @@
+diff --git a/node_modules/hexo-generator-archive/lib/generator.js b/node_modules/hexo-generator-archive/lib/generator.js
+index 934e0a5..e9adae8 100644
+--- a/node_modules/hexo-generator-archive/lib/generator.js
++++ b/node_modules/hexo-generator-archive/lib/generator.js
+@@ -38,7 +38,7 @@ module.exports = function(locals) {
+ 
+   // Organize posts by date
+   allPosts.forEach(post => {
+-    const date = post.date;
++    const date = post[(config.archive_generator.order_by || '-date').substring(1)];
+     const year = date.year();
+     const month = date.month() + 1; // month is started from 0
+ 
