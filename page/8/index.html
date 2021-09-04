@@ -230,6 +230,91 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/554.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/554.html" class="post-title-link" itemprop="url">如何为 WordPress 文章中的链接自动添加 nofollow</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-02-18" itemprop="dateCreated datePublished" datetime="2020-02-18T15:50:28+00:00">2020-02-18</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/wordpress/" itemprop="url" rel="index"><span itemprop="name">wordpress</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在 SEO 的角度，我们不宜在网站中设置过多的外链，防止搜索引擎蜘蛛在爬虫你的网站时跳出到其他网站。因此，了解并为外链加上 nofollow 链接是非常有必要的（除非这些外链与你的网站有利益关系，比如是你的其他网站又或者是合作伙伴的网站）。</p>
+<h3 id="什么是-nofollow-链接"><a href="#什么是-nofollow-链接" class="headerlink" title="什么是 nofollow 链接"></a>什么是 nofollow 链接</h3><p>Nofollow 链接是带有 rel =”nofollow” HTML 标记的链接。 nofollow 标签可帮助搜索引擎了解要忽略目标链接，并且不会将网页（放置 nofollow 链接）的 PageRank 传递给此类链接。</p>
+<p>以下链接类型应该设置为 nofollow 链接：返利链接，赞助商链接，广告链接，社交媒体链接，不可信/不可靠网站内容链接</p>
+<h3 id="如何建立-Nofollow-链接"><a href="#如何建立-Nofollow-链接" class="headerlink" title="如何建立 Nofollow 链接"></a>如何建立 Nofollow 链接</h3><p>将下面的代码添加到主题的 <code>functions.php</code> 文件即可：</p>
+<p>如果不想直接修改 <code>functions.php</code> 文件，可以使用 <a href="https://wqdy.top/671.html">Code Snippets 插件</a></p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 文章外部链接加上nofollow</span></span><br><span class="line">add_filter( <span class="string">&#x27;the_content&#x27;</span>, <span class="string">&#x27;nf_url_parse&#x27;</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">nf_url_parse</span>(<span class="params"> <span class="variable">$content</span> </span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="variable">$regexp</span> = <span class="string">&quot;&lt;a\s[^&gt;]*href=(\&quot;??)([^\&quot; &gt;]*?)\\1[^&gt;]*&gt;&quot;</span>;</span><br><span class="line">  <span class="keyword">if</span>(preg_match_all(<span class="string">&quot;/<span class="subst">$regexp</span>/siU&quot;</span>, <span class="variable">$content</span>, <span class="variable">$matches</span>, PREG_SET_ORDER)) &#123;</span><br><span class="line">    <span class="keyword">if</span>( !<span class="keyword">empty</span>(<span class="variable">$matches</span>) ) &#123;</span><br><span class="line"></span><br><span class="line">      <span class="variable">$srcUrl</span> = get_option(<span class="string">&#x27;siteurl&#x27;</span>);</span><br><span class="line">      <span class="keyword">for</span> (<span class="variable">$i</span>=<span class="number">0</span>; <span class="variable">$i</span> &lt; count(<span class="variable">$matches</span>); <span class="variable">$i</span>++)</span><br><span class="line">      &#123;</span><br><span class="line"></span><br><span class="line">        <span class="variable">$tag</span> = <span class="variable">$matches</span>[<span class="variable">$i</span>][<span class="number">0</span>];</span><br><span class="line">        <span class="variable">$tag2</span> = <span class="variable">$matches</span>[<span class="variable">$i</span>][<span class="number">0</span>];</span><br><span class="line">        <span class="variable">$url</span> = <span class="variable">$matches</span>[<span class="variable">$i</span>][<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">        <span class="variable">$noFollow</span> = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// $pattern = &#x27;/target\s*=\s*&quot;\s*_blank\s*&quot;/&#x27;;</span></span><br><span class="line">        <span class="comment">// preg_match($pattern, $tag2, $match, PREG_OFFSET_CAPTURE);</span></span><br><span class="line">        <span class="comment">// if( count($match) &lt; 1 )</span></span><br><span class="line">        <span class="comment">//   $noFollow .= &#x27; target=&quot;_blank&quot; &#x27;;</span></span><br><span class="line"></span><br><span class="line">        <span class="variable">$pattern</span> = <span class="string">&#x27;/rel\s*=\s*&quot;\s*[n|d]ofollow\s*&quot;/&#x27;</span>;</span><br><span class="line">        preg_match(<span class="variable">$pattern</span>, <span class="variable">$tag2</span>, <span class="variable">$match</span>, PREG_OFFSET_CAPTURE);</span><br><span class="line">        <span class="keyword">if</span>( count(<span class="variable">$match</span>) &lt; <span class="number">1</span> )</span><br><span class="line">          <span class="variable">$noFollow</span> .= <span class="string">&#x27; rel=&quot;nofollow&quot; &#x27;</span>;</span><br><span class="line"></span><br><span class="line">        <span class="variable">$pos</span> = strpos(<span class="variable">$url</span>,<span class="variable">$srcUrl</span>);</span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$pos</span> === <span class="literal">false</span>) &#123;</span><br><span class="line">          <span class="variable">$tag</span> = rtrim (<span class="variable">$tag</span>,<span class="string">&#x27;&gt;&#x27;</span>);</span><br><span class="line">          <span class="variable">$tag</span> .= <span class="variable">$noFollow</span>.<span class="string">&#x27;&gt;&#x27;</span>;</span><br><span class="line">          <span class="variable">$content</span> = str_replace(<span class="variable">$tag2</span>,<span class="variable">$tag</span>,<span class="variable">$content</span>);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="variable">$content</span> = str_replace(<span class="string">&#x27;]]&gt;&#x27;</span>, <span class="string">&#x27;]]&gt;&#x27;</span>, <span class="variable">$content</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="variable">$content</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="检查-nofollow-链接是否生效"><a href="#检查-nofollow-链接是否生效" class="headerlink" title="检查 nofollow 链接是否生效"></a>检查 nofollow 链接是否生效</h3><p><strong>使用浏览器的 <code>检查</code> 功能查看 nofollow 链接</strong></p>
+<p>使用浏览器打开页面，移动鼠标光标至你想要检查的链接上方。</p>
+<p>右击鼠标按钮，选择 <code>检查</code> 选项 （以 Chrome 为例，不同浏览器选项叫法不太一样）</p>
+<p>代码查看窗口将在浏览器的底部/右侧打开。你可以通过查看 HTML 代码查看链接是否添加了 rel=”nofollow”。</p>
+<p><strong>使用 Chrome 扩展组件（插件）检查页面 nofollow 链接</strong></p>
+<p>下载名为<span class="exturl" data-url="aHR0cHM6Ly9jaHJvbWUuZ29vZ2xlLmNvbS93ZWJzdG9yZS9kZXRhaWwvbm9mb2xsb3cvZGZvZ2lkZ2hhaWdvb21qZGVhY25kYWZhcGRpam1paWQ/aGw9ZW4=">NoFollow</span>的 Chrome 扩展组件，安装该插件后重新加载页面，该网页上的所有 nofollow 链接都将会高亮突出显示。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://wqdy.top/504.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -254,7 +339,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-02-12 11:35:20" itemprop="dateCreated datePublished" datetime="2020-02-12T11:35:20+00:00">2020-02-12</time>
+      <date title="创建时间：2020-02-12" itemprop="dateCreated datePublished" datetime="2020-02-12T11:35:20+00:00">2020-02-12</date>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -335,7 +420,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-02-07 19:53:41" itemprop="dateCreated datePublished" datetime="2020-02-07T19:53:41+00:00">2020-02-07</time>
+      <date title="创建时间：2020-02-07" itemprop="dateCreated datePublished" datetime="2020-02-07T19:53:41+00:00">2020-02-07</date>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -411,7 +496,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-02-07 18:30:29" itemprop="dateCreated datePublished" datetime="2020-02-07T18:30:29+00:00">2020-02-07</time>
+      <date title="创建时间：2020-02-07" itemprop="dateCreated datePublished" datetime="2020-02-07T18:30:29+00:00">2020-02-07</date>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -496,7 +581,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-02-04 14:04:31" itemprop="dateCreated datePublished" datetime="2020-02-04T14:04:31+00:00">2020-02-04</time>
+      <date title="创建时间：2020-02-04" itemprop="dateCreated datePublished" datetime="2020-02-04T14:04:31+00:00">2020-02-04</date>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -586,7 +671,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-01-20 13:11:58" itemprop="dateCreated datePublished" datetime="2020-01-20T13:11:58+00:00">2020-01-20</time>
+      <date title="创建时间：2020-01-20" itemprop="dateCreated datePublished" datetime="2020-01-20T13:11:58+00:00">2020-01-20</date>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -665,7 +750,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-01-20 00:00:21" itemprop="dateCreated datePublished" datetime="2020-01-20T00:00:21+00:00">2020-01-20</time>
+      <date title="创建时间：2020-01-20" itemprop="dateCreated datePublished" datetime="2020-01-20T00:00:21+00:00">2020-01-20</date>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -688,109 +773,6 @@
     
     <div class="post-body" itemprop="articleBody">
           <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">monthOptions: &#123;</span><br><span class="line">  <span class="attr">color</span>: [<span class="string">&#x27;#FFD058&#x27;</span>], <span class="comment">// 设置柱的颜色 会被 series itemStyle color 覆盖</span></span><br><span class="line">  <span class="attr">xAxis</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">data</span>: [<span class="string">&#x27;报备组数&#x27;</span>, <span class="string">&#x27;来访组数&#x27;</span>, <span class="string">&#x27;大定套数&#x27;</span>, <span class="string">&#x27;草签套数&#x27;</span>, <span class="string">&#x27;正签套数&#x27;</span>], <span class="comment">// x轴</span></span><br><span class="line">      <span class="attr">axisLabel</span>: &#123;</span><br><span class="line">        <span class="attr">inside</span>: <span class="literal">false</span>, <span class="comment">// 在外部显示</span></span><br><span class="line">        <span class="attr">textStyle</span>: &#123; <span class="comment">// 设置样式</span></span><br><span class="line">          <span class="attr">color</span>: <span class="string">&#x27;rgba(255,255,255,0.5)&#x27;</span>,</span><br><span class="line">          <span class="attr">fontSize</span>: <span class="number">15</span>,</span><br><span class="line">          <span class="attr">fontFamily</span>: <span class="string">&#x27;PingFang-SC-Regular,PingFang-SC&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">axisTick</span>: &#123; <span class="attr">show</span>: <span class="literal">false</span> &#125;, <span class="comment">// x轴线上的分割点</span></span><br><span class="line">      <span class="attr">axisLine</span>: &#123; <span class="attr">show</span>: <span class="literal">false</span> &#125;<span class="comment">// x轴线</span></span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">yAxis</span>: &#123;</span><br><span class="line">    <span class="attr">axisLine</span>: &#123; <span class="attr">show</span>: <span class="literal">false</span> &#125;,</span><br><span class="line">    <span class="attr">axisTick</span>: &#123; <span class="attr">show</span>: <span class="literal">false</span> &#125;,</span><br><span class="line">    <span class="attr">axisLabel</span>: &#123;</span><br><span class="line">      <span class="attr">formatter</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="string">&#x27;&#x27;</span> &#125; <span class="comment">// 去掉y轴显示数字</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">splitLine</span>: &#123; <span class="attr">show</span>: <span class="literal">false</span> &#125; <span class="comment">// 水平线</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">grid</span>: &#123; <span class="comment">// 间距</span></span><br><span class="line">    <span class="attr">left</span>: <span class="string">&#x27;10%&#x27;</span>,</span><br><span class="line">    <span class="attr">right</span>: <span class="string">&#x27;10%&#x27;</span>,</span><br><span class="line">    <span class="attr">bottom</span>: <span class="string">&#x27;15%&#x27;</span>,</span><br><span class="line">    <span class="attr">top</span>: <span class="string">&#x27;15%&#x27;</span>,</span><br><span class="line">    <span class="attr">containLabel</span>: <span class="literal">true</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">series</span>: [</span><br><span class="line">    &#123; <span class="comment">// 用于显示阴影</span></span><br><span class="line">      <span class="attr">type</span>: <span class="string">&#x27;bar&#x27;</span>,</span><br><span class="line">      <span class="attr">itemStyle</span>: &#123;</span><br><span class="line">        <span class="attr">color</span>: <span class="string">&#x27;rgba(255,255,255,0.08)&#x27;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">barGap</span>: <span class="string">&#x27;-100%&#x27;</span>,</span><br><span class="line">      <span class="comment">// barCategoryGap: &#x27;25%&#x27;,</span></span><br><span class="line">      <span class="attr">barWidth</span>: <span class="string">&#x27;15%&#x27;</span>,</span><br><span class="line">      <span class="attr">data</span>: [<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>]</span><br><span class="line">      <span class="comment">// animation: false</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123; <span class="comment">// 正常数据</span></span><br><span class="line">      <span class="attr">name</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">      <span class="attr">type</span>: <span class="string">&#x27;bar&#x27;</span>,</span><br><span class="line">      <span class="attr">barWidth</span>: <span class="string">&#x27;15%&#x27;</span>,</span><br><span class="line">      <span class="attr">data</span>: [],</span><br><span class="line">      <span class="attr">itemStyle</span>: &#123; <span class="comment">// 上方显示数值</span></span><br><span class="line">        <span class="attr">normal</span>: &#123;</span><br><span class="line">          <span class="attr">label</span>: &#123;</span><br><span class="line">            <span class="attr">formatter</span>: <span class="function"><span class="keyword">function</span> (<span class="params">val</span>) </span>&#123;</span><br><span class="line">              <span class="keyword">return</span> formate(val.value)</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">show</span>: <span class="literal">true</span>, <span class="comment">// 开启显示</span></span><br><span class="line">            <span class="attr">position</span>: <span class="string">&#x27;top&#x27;</span>, <span class="comment">// 在上方显示</span></span><br><span class="line">            <span class="attr">textStyle</span>: &#123; <span class="comment">// 数值样式</span></span><br><span class="line">              <span class="attr">color</span>: <span class="string">&#x27;#FFD058&#x27;</span>,</span><br><span class="line">              <span class="attr">fontSize</span>: <span class="number">15</span>,</span><br><span class="line">              <span class="attr">fontFamily</span>: <span class="string">&#x27;PingFang-SC-Regular,PingFang-SC&#x27;</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">animationDuration</span>: <span class="number">2000</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/439.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/439.html" class="post-title-link" itemprop="url">nodejs 安装与版本管理工具</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-01-19 17:05:05" itemprop="dateCreated datePublished" datetime="2020-01-19T17:05:05+00:00">2020-01-19</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="服务器端"><a href="#服务器端" class="headerlink" title="服务器端"></a>服务器端</h2><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RqL24=">n</span><br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL252bS1zaC9udm0=">nvm</span><br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25vZGVzb3VyY2UvZGlzdHJpYnV0aW9ucw==">NodeSource</span></p>
-<p>安装 n</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g n</span><br></pre></td></tr></table></figure>
-
-<p>使用 n 管理 nodejs 版本</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">n --latest               <span class="comment"># Output the latest node version available</span></span><br><span class="line">n --lts                  <span class="comment">#  Output the latest LTS node version available</span></span><br><span class="line">n ls                     <span class="comment"># Output downloaded versions</span></span><br><span class="line">n ls-remote [version]    <span class="comment"># Output matching versions available for download</span></span><br><span class="line">n uninstall              <span class="comment"># Remove the installed node and npm</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装最新版</span></span><br><span class="line">n latest</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装长期支持版本</span></span><br><span class="line">n lts</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装指定版本</span></span><br><span class="line">n 12.4.1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换nodejs版本</span></span><br><span class="line">n</span><br><span class="line"><span class="comment"># 上下键选择已安装的版本，回车切换</span></span><br><span class="line">ο node/13.6.0</span><br><span class="line">  node/10.4.1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看当前版本 node -v</span></span><br><span class="line">node -v</span><br></pre></td></tr></table></figure>
-
-<h2 id="windows-端"><a href="#windows-端" class="headerlink" title="windows 端"></a>windows 端</h2><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2NvcmV5YnV0bGVyL252bS13aW5kb3dz">nvm-windows</span></p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>注意：1. 需要卸载已经安装的 nodejs 版本，并删除残留的 nodejs 程序目录（例如：”C:\Program Files\nodejs”）<br>2. 删除 npm 全局安装的包（”C:\Users&lt;user&gt;\AppData\Roaming\npm”</p>
-<ul>
-<li><p>安装 nvm-windows <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2NvcmV5YnV0bGVyL252bS13aW5kb3dzL3JlbGVhc2Vz">下载</span></p>
-</li>
-<li><p>重新安装全局包<br>  安装完成后，必须为每个安装版本的node重新安装全局工具</p>
-</li>
-</ul>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>nvm-windows runs in an Admin shell. You’ll need to start powershell or Command Prompt as Administrator to use nvm-windows</p>
-<p>NVM for Windows is a command line tool. Simply type nvm in the console for help. The basic commands are:</p>
-<ul>
-<li><code>nvm arch [32|64]</code>: Show if node is running in 32 or 64 bit mode. Specify 32 or 64 to override the default architecture.</li>
-<li><code>nvm install &lt;version&gt; [arch]</code>: The version can be a node.js version or “latest” for the latest stable version. Optionally specify whether to install the 32 or 64 bit version (defaults to system arch). Set [arch] to “all” to install 32 AND 64 bit versions.</li>
-<li><code>nvm list [available]</code>: List the node.js installations. Type available at the end to show a list of versions available for download.</li>
-<li><code>nvm on</code>: Enable node.js version management.</li>
-<li><code>nvm off</code>: Disable node.js version management (does not uninstall anything).</li>
-<li><code>nvm proxy [url]</code>: Set a proxy to use for downloads. Leave [url] blank to see the current proxy. Set [url] to “none” to remove the proxy.</li>
-<li><code>nvm uninstall &lt;version&gt;</code>: Uninstall a specific version.</li>
-<li><code>nvm use &lt;version&gt; [arch]</code>: Switch to use the specified version. Optionally specify 32/64bit architecture. nvm use <arch> will continue using the selected version, but switch to 32/64 bit mode based on the value supplied to <arch>. For information about using use in a specific directory (or using .nvmrc), please refer to issue #16.</li>
-<li><code>nvm root &lt;path&gt;</code>: Set the directory where nvm should store different versions of node.js. If <path> is not set, the current root will be displayed.</li>
-<li><code>nvm version</code>: Displays the current running version of NVM for Windows.</li>
-<li><code>nvm node_mirror &lt;node_mirror_url&gt;</code>: Set the node mirror.People in China can use <span class="exturl" data-url="aHR0cHM6Ly9ucG0udGFvYmFvLm9yZy9taXJyb3JzL25vZGUv">https://npm.taobao.org/mirrors/node/</span></li>
-<li><code>nvm npm_mirror &lt;npm_mirror_url&gt;</code>: Set the npm mirror.People in China can use <span class="exturl" data-url="aHR0cHM6Ly9ucG0udGFvYmFvLm9yZy9taXJyb3JzL25wbS8=">https://npm.taobao.org/mirrors/npm/</span></li>
-</ul>
 
       
     </div>
@@ -841,7 +823,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-01-13 17:42:46" itemprop="dateCreated datePublished" datetime="2020-01-13T17:42:46+00:00">2020-01-13</time>
+      <date title="创建时间：2020-01-13" itemprop="dateCreated datePublished" datetime="2020-01-13T17:42:46+00:00">2020-01-13</date>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -945,7 +927,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-01-10 00:00:29" itemprop="dateCreated datePublished" datetime="2020-01-10T00:00:29+00:00">2020-01-10</time>
+      <date title="创建时间：2020-01-10" itemprop="dateCreated datePublished" datetime="2020-01-10T00:00:29+00:00">2020-01-10</date>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1020,7 +1002,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-01-02 11:16:18" itemprop="dateCreated datePublished" datetime="2020-01-02T11:16:18+00:00">2020-01-02</time>
+      <date title="创建时间：2020-01-02" itemprop="dateCreated datePublished" datetime="2020-01-02T11:16:18+00:00">2020-01-02</date>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
