@@ -1,5 +1,5 @@
 ---
-title: nodejs 安装与版本管理工具
+title: nodejs 版本管理工具
 tags:
   - nodejs
 id: '439'
@@ -8,19 +8,19 @@ categories:
 date: 2020-01-19 17:05:05
 ---
 
-## 服务器端
+## n
 
-[n](https://github.com/tj/n)
-[nvm](https://github.com/nvm-sh/nvm)
-[NodeSource](https://github.com/nodesource/distributions)
+[github地址](https://github.com/tj/n)
 
-安装 n
+支持 macOS, Linux
+
+安装
 
 ```bash
 npm install -g n
 ```
 
-使用 n 管理 nodejs 版本
+使用
 
 ```bash
 n --latest               # Output the latest node version available
@@ -48,22 +48,35 @@ n
 node -v
 ```
 
-## windows 端
+## nvm
 
-[nvm-windows](https://github.com/coreybutler/nvm-windows)
+[github地址](https://github.com/nvm-sh/nvm)
 
-### 安装
+支持 macOS, Linux
+
+## NodeSource
+
+[github地址](https://github.com/nodesource/distributions)
+
+支持 Linux
+
+## nvm-windows
+
+支持 Windows
+
+[github地址](https://github.com/coreybutler/nvm-windows)
+
+安装
 
 注意：1. 需要卸载已经安装的 nodejs 版本，并删除残留的 nodejs 程序目录（例如："C:\Program Files\nodejs"）
-2. 删除 npm 全局安装的包（"C:\Users\<user>\AppData\Roaming\npm"
+1. 删除 npm 全局安装的包（"C:\Users\<user>\AppData\Roaming\npm"
 
 * 安装 nvm-windows [下载](https://github.com/coreybutler/nvm-windows/releases)
 
 * 重新安装全局包
 	安装完成后，必须为每个安装版本的node重新安装全局工具
 
-
-### 使用
+使用
 
 nvm-windows runs in an Admin shell. You'll need to start powershell or Command Prompt as Administrator to use nvm-windows
 
