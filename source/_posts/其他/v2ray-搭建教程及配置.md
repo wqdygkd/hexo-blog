@@ -4,25 +4,17 @@ tags: []
 id: 226
 categories:
   - 教程
-date: 2019-10-08 00:00:54
+date: 2019-10-08
+updated: 2021-09-05
 ---
 
 ## 相关链接
 
-[V2Ray 项目地址](https://github.com/v2ray/v2ray-core)
-
-[v2ray 用户手册](https://www.v2ray.com)
-
 [v2ray 用户手册](https://v2fly.org) [github](https://github.com/v2fly/v2fly-github-io)
-
 [V2Ray 白话文指南](https://guide.v2fly.org/) [github](https://github.com/v2fly/v2ray-step-by-step/tree/transifex/zh_CN)
-
 [在线配置生成](https://intmainreturn0.com/v2ray-config-gen/)
-
 [v2ray web面板 v2-ui](https://github.com/sprov065/v2-ui)
-
 [SSPanel-Uim](https://github.com/Anankke/SSPanel-Uim) 节点管理面板/用户管理系统
-
 [使用宝塔部署 SSPanel 魔改版](https://blog.anank.ke/w/SSPanel_with_DROP_DATABASE_BT)
 
 ## 安装
@@ -269,12 +261,4 @@ netstat -apn | grep v2ray
 
 ## 客户端
 
-更多客户端可以参考[这里](https://wqdy.top/228.html)
-
-macOS：[V2rayU](https://github.com/yanue/V2rayU) [V2RayX](https://github.com/Cenmrev/V2RayX)
-
-Windows：[v2rayN](https://github.com/2dust/v2rayN)
-
-Android：[V2RayNG](https://github.com/2dust/v2rayNG/releases)
-
-iOS：Shadowrocket
+客户端可以参考[这里](https://wqdy.top/228.html#客户端)
