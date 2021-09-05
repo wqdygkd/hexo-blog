@@ -230,6 +230,174 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/969.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/969.html" class="post-title-link" itemprop="url">微信小程序 canvas touchmove 事件实现手写签名并保存到相册</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-03-18" itemprop="dateCreated datePublished" datetime="2020-03-18T10:57:43+00:00">2020-03-18</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>2020-03-19<br>真机调试报错 <code>r.Canvas is not a constructor</code><br>原因：canvas 2d 和 webgl 暂不支持真机调试，请直接使用真机预览，真机预览模式下使用 vConsole 调试</p>
+</blockquote>
+<p>基础代码(使用 Canvas 2D 接口)</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Component(&#123;</span><br><span class="line">  <span class="attr">data</span>: &#123;</span><br><span class="line">    <span class="attr">ctx</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">    <span class="attr">image</span>: <span class="string">&#x27;&#x27;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">methods</span>: &#123;</span><br><span class="line">    <span class="attr">onLoad</span>: <span class="function"><span class="keyword">function</span>(<span class="params">options</span>) </span>&#123;&#125;,</span><br><span class="line">    <span class="attr">onReady</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">const</span> query = wx.createSelectorQuery()</span><br><span class="line">      query</span><br><span class="line">        .select(<span class="string">&#x27;#sign&#x27;</span>)</span><br><span class="line">        .fields(&#123; <span class="attr">node</span>: <span class="literal">true</span>, <span class="attr">size</span>: <span class="literal">true</span> &#125;)</span><br><span class="line">        .exec(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(res)</span><br><span class="line">          <span class="keyword">const</span> canvas = res[<span class="number">0</span>].node</span><br><span class="line">          <span class="keyword">const</span> ctx = canvas.getContext(<span class="string">&#x27;2d&#x27;</span>)</span><br><span class="line">          <span class="built_in">console</span>.log(ctx)</span><br><span class="line"></span><br><span class="line">          <span class="keyword">const</span> dpr = wx.getSystemInfoSync().pixelRatio</span><br><span class="line">          canvas.width = res[<span class="number">0</span>].width * dpr</span><br><span class="line">          canvas.height = res[<span class="number">0</span>].height * dpr</span><br><span class="line">          ctx.scale(dpr, dpr)</span><br><span class="line"></span><br><span class="line">          ctx.lineWidth = <span class="number">4</span> <span class="comment">//线条的宽度</span></span><br><span class="line">          ctx.strokeStyle = <span class="string">&#x27;#333&#x27;</span> <span class="comment">//线条的颜色</span></span><br><span class="line">          ctx.lineCap = <span class="string">&#x27;round&#x27;</span> <span class="comment">//定义线条开头和结尾处的形状</span></span><br><span class="line">          ctx.lineJoin = <span class="string">&#x27;bevel&#x27;</span> <span class="comment">// 线条与线条之间的连接方式，该属性有三个属性值：miter（默认值，尖角），bevel（衔接），round（圆角）。</span></span><br><span class="line">          <span class="built_in">this</span>.setData(&#123;</span><br><span class="line">            <span class="attr">ctx</span>: ctx</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>实现手写效果</p>
+<p>使用 catchtouchmove 绑定，默认会阻止页面跟着滑动</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">type</span>=<span class="string">&quot;2d&quot;</span> <span class="attr">id</span>=<span class="string">&quot;sign&quot;</span> <span class="attr">bindtouchstart</span>=<span class="string">&quot;bindtouchstartHandler&quot;</span> <span class="attr">catchtouchmove</span>=<span class="string">&quot;catchtouchmoveHandler&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">bindtouchstartHandler</span>(<span class="params">e</span>)</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (e.type != <span class="string">&#x27;touchstart&#x27;</span>) <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  <span class="keyword">let</span> ctx = <span class="built_in">this</span>.data.ctx</span><br><span class="line">  <span class="comment">//开始本次绘画</span></span><br><span class="line">  ctx.beginPath()</span><br><span class="line">  <span class="comment">//画笔起始点</span></span><br><span class="line">  ctx.moveTo(e.touches[<span class="number">0</span>].x, e.touches[<span class="number">0</span>].y)</span><br><span class="line">&#125;,</span><br><span class="line"><span class="function"><span class="title">catchtouchmoveHandler</span>(<span class="params">e</span>)</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> left = e.currentTarget.offsetLeft</span><br><span class="line">  <span class="keyword">let</span> top = e.currentTarget.offsetTop</span><br><span class="line">  <span class="keyword">let</span> pageX = e.touches[<span class="number">0</span>].pageX</span><br><span class="line">  <span class="keyword">let</span> pageY = e.touches[<span class="number">0</span>].pageY</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> ctx = <span class="built_in">this</span>.data.ctx</span><br><span class="line">  <span class="comment">//根据鼠标路径绘画</span></span><br><span class="line">  ctx.lineTo(pageX - left, pageY - top)</span><br><span class="line">  <span class="comment">//立即渲染</span></span><br><span class="line">  ctx.stroke()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用 <code>bindtouchmove</code>，需要单独处理页面跟着滚动的问题</p>
+<p>给 canvas 绑定 bindtouchmove=”touchmoveHandler” 然后绑定空的 catchtouchmove 事件<code>catchtouchmove=&quot;preventTouchmove&quot;</code> 或者直接 <code>catchtouchmove=&quot;ture&quot;</code></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">type</span>=<span class="string">&quot;2d&quot;</span> <span class="attr">id</span>=<span class="string">&quot;sign&quot;</span> <span class="attr">bindtouchstart</span>=<span class="string">&quot;bindtouchstartHandler&quot;</span> <span class="attr">bindtouchmove</span>=<span class="string">&quot;bindtouchmoveHandler&quot;</span> <span class="attr">catchtouchmove</span>=<span class="string">&quot;preventTouchmove&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">bindtouchstartHandler</span>(<span class="params">e</span>)</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (e.type != <span class="string">&#x27;touchstart&#x27;</span>) <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  <span class="keyword">let</span> ctx = <span class="built_in">this</span>.data.ctx</span><br><span class="line">  <span class="comment">//开始本次绘画</span></span><br><span class="line">  ctx.beginPath()</span><br><span class="line">  <span class="comment">//画笔起始点</span></span><br><span class="line">  ctx.moveTo(e.touches[<span class="number">0</span>].x, e.touches[<span class="number">0</span>].y)</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line"><span class="comment">// bind绑定的事件</span></span><br><span class="line">bindtouchmoveHandler (e) &#123;</span><br><span class="line">  <span class="keyword">let</span> ctx = <span class="built_in">this</span>.data.ctx</span><br><span class="line">  <span class="comment">//根据鼠标路径绘画</span></span><br><span class="line">  ctx.lineTo(e.touches[<span class="number">0</span>].x, e.touches[<span class="number">0</span>].y)</span><br><span class="line">  <span class="comment">//立即渲染</span></span><br><span class="line">  ctx.stroke()</span><br><span class="line">&#125;,</span><br><span class="line">preventTouchmove () &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>保存到相册</p>
+<p>wx.canvasToTempFilePath(Object object, Object this)<br><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXJzLndlaXhpbi5xcS5jb20vbWluaXByb2dyYW0vZGV2L2FwaS9jYW52YXMvd3guY2FudmFzVG9UZW1wRmlsZVBhdGguaHRtbA==">https://developers.weixin.qq.com/miniprogram/dev/api/canvas/wx.canvasToTempFilePath.html</span></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="comment">// 把当前画布指定区域的内容导出生成指定大小的图片。 canvas2d不需要使用draw方法</span></span><br><span class="line"><span class="function"><span class="title">canvasToTempFilePath</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> query = wx.createSelectorQuery()</span><br><span class="line">    query</span><br><span class="line">      .select(<span class="string">&#x27;#sign&#x27;</span>)</span><br><span class="line">      .fields(&#123; <span class="attr">node</span>: <span class="literal">true</span>, <span class="attr">size</span>: <span class="literal">true</span> &#125;)</span><br><span class="line">      .exec(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// console.log(res)</span></span><br><span class="line">        <span class="keyword">const</span> canvas = res[<span class="number">0</span>].node</span><br><span class="line">        wx.canvasToTempFilePath(&#123;</span><br><span class="line">          <span class="attr">x</span>: <span class="number">0</span>,</span><br><span class="line">          <span class="attr">y</span>: <span class="number">0</span>,</span><br><span class="line">          <span class="attr">fileType</span>: <span class="string">&#x27;jpg&#x27;</span>,</span><br><span class="line">          <span class="attr">canvas</span>: canvas,</span><br><span class="line">          <span class="function"><span class="title">success</span>(<span class="params">res</span>)</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(res.tempFilePath) <span class="comment">// 文件临时地址 可以保存到相册或上传</span></span><br><span class="line">            resolve(res.tempFilePath)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line"><span class="comment">// 保存本地</span></span><br><span class="line"><span class="function"><span class="title">saveToAlbum</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">  <span class="built_in">this</span>.canvasToTempFilePath().then(<span class="function"><span class="params">file</span> =&gt;</span> &#123;</span><br><span class="line">    wx.getSetting(&#123;</span><br><span class="line">      <span class="function"><span class="title">success</span>(<span class="params">res</span>)</span> &#123;</span><br><span class="line">        <span class="comment">// 如果没有则获取授权</span></span><br><span class="line">        <span class="keyword">if</span> (!res.authSetting[<span class="string">&#x27;scope.writePhotosAlbum&#x27;</span>]) &#123;</span><br><span class="line">          wx.authorize(&#123;</span><br><span class="line">            <span class="attr">scope</span>: <span class="string">&#x27;scope.writePhotosAlbum&#x27;</span>,</span><br><span class="line">            <span class="function"><span class="title">success</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">              wx.saveImageToPhotosAlbum(&#123;</span><br><span class="line">                <span class="attr">filePath</span>: file,</span><br><span class="line">                <span class="function"><span class="title">success</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">                  wx.showToast(&#123;</span><br><span class="line">                    <span class="attr">title</span>: <span class="string">&#x27;保存成功&#x27;</span></span><br><span class="line">                  &#125;)</span><br><span class="line">                &#125;,</span><br><span class="line">                <span class="function"><span class="title">fail</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">                  wx.showToast(&#123;</span><br><span class="line">                    <span class="attr">title</span>: <span class="string">&#x27;保存失败&#x27;</span>,</span><br><span class="line">                    <span class="attr">icon</span>: <span class="string">&#x27;none&#x27;</span></span><br><span class="line">                  &#125;)</span><br><span class="line">                &#125;</span><br><span class="line">              &#125;)</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="function"><span class="title">fail</span>(<span class="params"></span>)</span> &#123;&#125;</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="comment">// 有授权直接保存</span></span><br><span class="line">          wx.saveImageToPhotosAlbum(&#123;</span><br><span class="line">            <span class="attr">filePath</span>: file,</span><br><span class="line">            <span class="function"><span class="title">success</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">              wx.showToast(&#123;</span><br><span class="line">                <span class="attr">title</span>: <span class="string">&#x27;保存成功&#x27;</span></span><br><span class="line">              &#125;)</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="function"><span class="title">fail</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">              wx.showToast(&#123;</span><br><span class="line">                <span class="attr">title</span>: <span class="string">&#x27;保存失败&#x27;</span>,</span><br><span class="line">                <span class="attr">icon</span>: <span class="string">&#x27;none&#x27;</span></span><br><span class="line">              &#125;)</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/951.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/951.html" class="post-title-link" itemprop="url">解决 WordPress 'Briefly unavailable for scheduled maintenance. Check back in a minute.'</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-03-14" itemprop="dateCreated datePublished" datetime="2020-03-14T15:49:35+00:00">2020-03-14</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/wordpress/" itemprop="url" rel="index"><span itemprop="name">wordpress</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>WordPress 在升级程序、主题、插件时，都会先切换到维护模式，也就是显示 ‘Briefly unavailable for scheduled maintenance. Check back in a minute’，如果升级顺利，也就几秒左右就恢复正常；但是如果由于网速不佳等原因导致升级中断，WordPress 就会一直停留在维护模式，不论前台还是后台。</p>
+<p>如何解决这个问题呢？</p>
+<p>马上通过 FTP 登录你的网站，删除 WordPress 根目录下的 <code>.maintenance</code> ，刷新网页即可。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://wqdy.top/890.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1371,181 +1539,6 @@
 <li><code>WIN</code> + <code>R</code> 打开运行窗口，输入 <code>regedit</code> 回车</li>
 <li>找到路径 <code>HKEY_CLASSES_ROOT\MIME\Database\Content Type\image/jpeg</code>，把 <code>extension</code> 的值改成 .jpg，关闭注册表即可</li>
 </ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/650.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/650.html" class="post-title-link" itemprop="url">RoughJS -- JavaScript手绘风格的图形库</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2020-02-29" itemprop="dateCreated datePublished" datetime="2020-02-29T01:39:28+00:00">2020-02-29</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>RoughJS是一个轻量级的JavaScript图形库（压缩后约9KB），可以让你在网页上绘制素描风格、手绘样式般的图形。RoughJS定义了绘制直线，曲线，圆弧，多边形，圆和椭圆的图元，同时它还支持绘制SVG路径。</p>
-<p>Rough.js可同时用于<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvZW4tVVMvZG9jcy9XZWIvQVBJL0NhbnZhc19BUEk=">Canvas</span>和<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvZW4tVVMvZG9jcy9XZWIvU1ZH">SVG</span>。</p>
-<p>网站地址：<span class="exturl" data-url="aHR0cHM6Ly9yb3VnaGpzLmNvbS8=">https://roughjs.com/</span></p>
-<p>使用手册：<span class="exturl" data-url="aHR0cHM6Ly93d3cudHV0b3JpYWxkb2NzLmNvbS90dXRvcmlhbC9yb3VnaGpzL2dldC1zdGFydGVkLmh0bWw=">https://www.tutorialdocs.com/tutorial/roughjs/get-started.html</span></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/622.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/622.html" class="post-title-link" itemprop="url">移动端、PC端、小程序常用的UI框架</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2020-02-28" itemprop="dateCreated datePublished" datetime="2020-02-28T23:01:58+00:00">2020-02-28</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="移动端-UI-库"><a href="#移动端-UI-库" class="headerlink" title="移动端 UI 库"></a>移动端 UI 库</h3><h4 id="Vant-UI-vue"><a href="#Vant-UI-vue" class="headerlink" title="Vant UI (vue)"></a>Vant UI (vue)</h4><p>官方地址：<span class="exturl" data-url="aHR0cHM6Ly95b3V6YW4uZ2l0aHViLmlvL3ZhbnQvIy96aC1DTi8=">https://youzan.github.io/vant/#/zh-CN/</span></p>
-<p>github 地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3lvdXphbi92YW50">https://github.com/youzan/vant</span> 12.8k</p>
-<p>优点：用来做移动端商城很不错</p>
-<h3 id="PC-端-UI-库"><a href="#PC-端-UI-库" class="headerlink" title="PC 端 UI 库"></a>PC 端 UI 库</h3><h4 id="Element-UI-vue"><a href="#Element-UI-vue" class="headerlink" title="Element UI (vue)"></a>Element UI (vue)</h4><p>官方地址：<span class="exturl" data-url="aHR0cDovL2VsZW1lbnQtY24uZWxlbWUuaW8vIy96aC1DTi9jb21wb25lbnQvaW5zdGFsbGF0aW9u">http://element-cn.eleme.io/#/zh-CN/component/installation</span></p>
-<p>github 地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0VsZW1lRkUvZWxlbWVudA==">https://github.com/ElemeFE/element</span> 44k</p>
-<h4 id="iView-UI-vue"><a href="#iView-UI-vue" class="headerlink" title="iView UI (vue)"></a>iView UI (vue)</h4><p>官方地址：<span class="exturl" data-url="aHR0cDovL2l2aWV3LnRhbGtpbmdkYXRhLmNvbS8jL2NvbXBvbmVudHMvZ3VpZGUvaW5zdGFsbA==">http://iview.talkingdata.com/#/components/guide/install</span></p>
-<p>github 地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2l2aWV3L2l2aWV3">https://github.com/iview/iview</span> 23.1k</p>
-<h4 id="Ant-Design-react"><a href="#Ant-Design-react" class="headerlink" title="Ant Design (react)"></a>Ant Design (react)</h4><p>官方地址：<span class="exturl" data-url="aHR0cHM6Ly9hbnQuZGVzaWduL2RvY3MvcmVhY3QvaW50cm9kdWNlLWNu">https://ant.design/docs/react/introduce-cn</span></p>
-<p>github 地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FudC1kZXNpZ24vYW50LWRlc2lnbg==">https://github.com/ant-design/ant-design</span> 56.9k</p>
-<h3 id="小程序-UI-库"><a href="#小程序-UI-库" class="headerlink" title="小程序 UI 库"></a>小程序 UI 库</h3><h4 id="Vant-Weapp"><a href="#Vant-Weapp" class="headerlink" title="Vant Weapp"></a>Vant Weapp</h4><p>官方地址：<span class="exturl" data-url="aHR0cHM6Ly95b3V6YW4uZ2l0aHViLmlvL3ZhbnQtd2VhcHAvIy9pbnRybw==">https://youzan.github.io/vant-weapp/#/intro</span></p>
-<p>github 地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3lvdXphbi92YW50LXdlYXBw">https://github.com/youzan/vant-weapp</span> 11.9k</p>
-<p>优点：组件丰富，合适做商城类小程序</p>
-<h4 id="Color-UI"><a href="#Color-UI" class="headerlink" title="Color UI"></a>Color UI</h4><p>官方地址：<span class="exturl" data-url="aHR0cHM6Ly93d3cuY29sb3ItdWkuY29tLw==">https://www.color-ui.com/</span></p>
-<p>github 地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3dlaWxhbndsL0NvbG9yVUk=">https://github.com/weilanwl/ColorUI</span> 7.8k</p>
-<p>优点：样式好看</p>
-<h3 id="设计动效"><a href="#设计动效" class="headerlink" title="设计动效"></a>设计动效</h3><h4 id="Ant-Motion"><a href="#Ant-Motion" class="headerlink" title="Ant Motion"></a>Ant Motion</h4><p>官方地址：<span class="exturl" data-url="aHR0cHM6Ly9tb3Rpb24uYW50LmRlc2lnbi9pbmRleC1jbg==">https://motion.ant.design/index-cn</span></p>
-<p>github 地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FudC1kZXNpZ24vYW50LW1vdGlvbi8=">https://github.com/ant-design/ant-motion/</span> 3.6k</p>
-<h3 id="数据可视化"><a href="#数据可视化" class="headerlink" title="数据可视化"></a>数据可视化</h3><h4 id="DataV-Vue-组件库"><a href="#DataV-Vue-组件库" class="headerlink" title="DataV(Vue 组件库)"></a>DataV(Vue 组件库)</h4><p>官方地址：<span class="exturl" data-url="aHR0cDovL2RhdGF2LmppYW1pbmdoaS5jb20v">http://datav.jiaminghi.com/</span></p>
-<p>github 地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0RhdGFWLVRlYW0vRGF0YVY=">https://github.com/DataV-Team/DataV</span> 1.4k</p>
-<h4 id="Echarts-Vue-组件库"><a href="#Echarts-Vue-组件库" class="headerlink" title="Echarts(Vue 组件库)"></a>Echarts(Vue 组件库)</h4><p>github 地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FwYWNoZS9pbmN1YmF0b3ItZWNoYXJ0cw==">https://github.com/apache/incubator-echarts</span> 39.6k</p>
-<h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><h4 id="vue-element-admin-pc-后台管理-vue2-0-element"><a href="#vue-element-admin-pc-后台管理-vue2-0-element" class="headerlink" title="vue-element-admin(pc 后台管理 vue2.0+element)"></a>vue-element-admin(pc 后台管理 vue2.0+element)</h4><p>演示地址：<span class="exturl" data-url="aHR0cHM6Ly9wYW5qaWFjaGVuLmdpdGh1Yi5pby92dWUtZWxlbWVudC1hZG1pbi8=">https://panjiachen.github.io/vue-element-admin/</span></p>
-<p>github 地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1BhbkppYUNoZW4vdnVlLWVsZW1lbnQtYWRtaW4=">https://github.com/PanJiaChen/vue-element-admin</span> 49.8k</p>
-<p>使用文档：<span class="exturl" data-url="aHR0cHM6Ly9wYW5qaWFjaGVuLmdpdGh1Yi5pby92dWUtZWxlbWVudC1hZG1pbi1zaXRlL3poLw==">https://panjiachen.github.io/vue-element-admin-site/zh/</span></p>
-<p>博客系列教程地址：<span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2EvMTE5MDAwMDAwOTI3NTQyNA==">https://segmentfault.com/a/1190000009275424</span></p>
-<h4 id="iView-admin-pc-后台管理-vue2-0-iView"><a href="#iView-admin-pc-后台管理-vue2-0-iView" class="headerlink" title="iView-admin(pc 后台管理 vue2.0+iView)"></a>iView-admin(pc 后台管理 vue2.0+iView)</h4><p>演示地址：<span class="exturl" data-url="aHR0cHM6Ly9hZG1pbi5pdmlld3VpLmNvbS8=">https://admin.iviewui.com/</span></p>
-<p>github 地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2l2aWV3L2l2aWV3LWFkbWlu">https://github.com/iview/iview-admin</span> 14.2k</p>
-<p>使用文档：<span class="exturl" data-url="aHR0cHM6Ly9saXNvbjE2LmdpdGh1Yi5pby9pdmlldy1hZG1pbi1kb2Mv">https://lison16.github.io/iview-admin-doc/</span></p>
 
       
     </div>

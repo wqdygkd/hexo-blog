@@ -230,6 +230,182 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1424.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/1424.html" class="post-title-link" itemprop="url">Jellyfin开启硬件加速</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-05-16" itemprop="dateCreated datePublished" datetime="2020-05-16T17:09:01+00:00">2020-05-16</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/NAS/" itemprop="url" rel="index"><span itemprop="name">NAS</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>之前使用群晖 Docker 折腾 Jellyfin，解决了个人音视频收藏的基本需求，但仍有不足，比如说视频播放的时候，CPU 占用会很高（软解吃 CPU），并且会卡顿。</p>
+<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><p>1、查看系统是否支持显卡硬解转码</p>
+<p>使用 SSH 登录群晖系统，运行命令<code>ls /dev/dri</code>，若输出 card0、renderD128，则说明支持显卡硬解。</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202420.png"></p>
+<p>2、给容器提权</p>
+<p>在群群 Docker 容器中找到 Jellyfin 的容器，编辑容器的常规设置，必须勾选使用高权限执行容器。</p>
+<p>3、添加环境</p>
+<p>在环境中添加两项，分别是 <code>PUID</code> 值填写为 <code>0</code> ，<code>PGID</code> 值填写为 <code>0</code></p>
+<p>4、启用 <code>VAAPI</code> 硬件加速</p>
+<p>Docker 中启动容器，打开 Jellyfin 网页端，依次进入控制台-&gt;播放，在硬件选项中选择 VAAPI 保存设置即可。</p>
+<h4 id="使用效果"><a href="#使用效果" class="headerlink" title="使用效果"></a>使用效果</h4><p>前后对比：</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202439.png"></p>
+<p>可以看到 CPU 占用明显降低了，播放也不卡顿了，效果还是非常明显的。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1404.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/1404.html" class="post-title-link" itemprop="url">终端命令行下使用代理</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-05-16" itemprop="dateCreated datePublished" datetime="2020-05-16T12:13:13+00:00">2020-05-16</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h2><p>注意</p>
+<ul>
+<li>一定要加 <code>http://</code>，直接写域名或者 IP 不行</li>
+<li>http 和 https 都要设置</li>
+<li>cmd，Bash，PowerShell 设置的方式不同</li>
+<li>设置的代理只在当前 cmd 窗口下有效，窗口关闭后会失效，新建的窗口也不生效</li>
+</ul>
+<h3 id="cmd"><a href="#cmd" class="headerlink" title="cmd"></a>cmd</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># set http_proxy=http://IP:PORT</span></span><br><span class="line"><span class="built_in">set</span> http_proxy=http://127.0.0.1:1080</span><br><span class="line"><span class="built_in">set</span> https_proxy=http://127.0.0.1:1080</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果有用户名密码需要设置，否则不需要设置</span></span><br><span class="line"><span class="built_in">set</span> http_proxy_user=user</span><br><span class="line"><span class="built_in">set</span> http_proxy_pass=pass</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> https_proxy_user=user</span><br><span class="line"><span class="built_in">set</span> https_proxy_pass=pass</span><br><span class="line"></span><br><span class="line"><span class="comment"># 恢复</span></span><br><span class="line"><span class="built_in">set</span> http_proxy=</span><br><span class="line"><span class="built_in">set</span> https_proxy=</span><br></pre></td></tr></table></figure>
+
+<h3 id="Bash"><a href="#Bash" class="headerlink" title="Bash"></a>Bash</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Ubuntu 下命令为 export</span><br><span class="line">export http_proxy=http://127.0.0.1:1080</span><br></pre></td></tr></table></figure>
+
+<h3 id="PowerShell"><a href="#PowerShell" class="headerlink" title="PowerShell"></a>PowerShell</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$env:HTTP_PROXY=&quot;http://127.0.0.1:1080&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><ul>
+<li>如果想验证是否成功配置了代理的话，用 ping 命令是不可以的（ping的协议不是http，也不是https，是ICMP协议）</li>
+</ul>
+<p><code>curl -vv http://www.google.com</code>，用这条命令来验证，如果返回如下结果表示代理设置成功。</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102203731.png"></p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NoYWRvd3NvY2tzL3NoYWRvd3NvY2tzLXdpbmRvd3MvaXNzdWVzLzE0ODk=">https://github.com/shadowsocks/shadowsocks-windows/issues/1489</span><br><span class="exturl" data-url="aHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vZmFtb3VzZ2Fya2luL2M1MTM4YjFlMTNhYzQxOTIwZDIy">https://gist.github.com/famousgarkin/c5138b1e13ac41920d22</span></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://wqdy.top/1365.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -960,209 +1136,6 @@
 <ul>
 <li>从 G Suit 获取的无限空间<br>跟上面的教育网那个类似的，只是是商业的用途，按月交钱，不同档次支持的用户数不同。同样是把你拉进去就可以用无限空间了。这玩意儿人家只要不续费了你就完犊子了。管理员是可以随意查看账号中的内容</li>
 </ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1223.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/1223.html" class="post-title-link" itemprop="url">GoIndex 部署 CloudFlare Workers 实现无需科学上网访问 Google Drive 文件</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2020-04-22" itemprop="dateCreated datePublished" datetime="2020-04-22T00:00:45+00:00">2020-04-22</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>04/27 更新 解决 workers 无法正常访问</p>
-<p>作者删除了 github 仓库， GoIndex 依赖的 js 资源加载失败，导致网页打开是一片空白</p>
-<p>解决方法；</p>
-<p>首先到 GitHub Fork 一份 goindex，可以直接 fork <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2N1aWxvbmdqaW4vZ29pbmRleA==">我的</span>，</p>
-<p>登录 CF，打开 workers，选中项目，找到以下代码，我的是在 21 行，替换成有效的即可（可以是你 fork 的，也可以直接使用我的）</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;//cdn.jsdelivr.net/combine/gh/jquery/jquery@3.2/dist/jquery.min.js,gh/donwa/goindex@$&#123;authConfig.version&#125;/themes/$&#123;authConfig.theme&#125;/app.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>替换成</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;//cdn.jsdelivr.net/combine/gh/jquery/jquery@3.2/dist/jquery.min.js,gh/cuilongjin/goindex/themes/$&#123;authConfig.theme&#125;/app.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>原文</p>
-<p>利用 GoIndex 程序，以及 CloudFlare，可以将 Google Drive 文件以目录形式（类似 OneIndex 部署 OneDrive 网盘）列出，可直链调用网盘图片、音频、视频文件等，也可以下载，流量走 CloudFlare ，网速由 CloudFlare 决定</p>
-<p>项目地址： <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RvbndhL2dvaW5kZXg=">https://github.com/donwa/goindex</span></p>
-<p>demo： <span class="exturl" data-url="aHR0cHM6Ly9pbmRleC5nZC53b3JrZXJzLmRldi8=">https://index.gd.workers.dev/</span></p>
-<p>安装部署方案 1</p>
-<p>1、在本地安装 rclone<br>2、按照 <span class="exturl" data-url="aHR0cHM6Ly9yY2xvbmUub3JnL2RyaXZlLw==">https://rclone.org/drive/</span> 流程进行授权<br>3、执行 rclone config file 查看 rclone.conf 路径。找到 root_folder_id 和 refresh_token 记录下来<br>4、下载 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RvbndhL2dvaW5kZXg=">https://github.com/donwa/goindex</span> 中的 index.js 并填入 root 和 refresh_token<br>5、复制代码 到 CloudFlare 部署</p>
-<p>安装部署方案 2</p>
-<p>作者不会记录 refresh_token，但为避免纠纷，建议有条件的同学使用方案 1 进行部署<br>1、访问<span class="exturl" data-url="aHR0cHM6Ly9pbnN0YWxsLmdkLndvcmtlcnMuZGV2Lw==">https://install.gd.workers.dev/</span><br>2、授权认证后，生成部署代码<br>3、复制代码 到 CloudFlare 部署</p>
-<p>目录 id：例如 google 网盘链接为<code>https://drive.google.com/drive/folders/1rrDnupW_1qxRnQf-jy_0PN_GqNK8SEk2</code>，则目录 id 为 <code>1rrDnupW_1qxRnQf-jy_0PN_GqNK8SEk2</code></p>
-<p>部署 CloudFlare</p>
-<p>绑定自定义域名</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RvbndhL2dvaW5kZXgvaXNzdWVzLzQ=">https://github.com/donwa/goindex/issues/4</span></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1243.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/1243.html" class="post-title-link" itemprop="url">安装 rclone 并挂载 Google drive</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2020-04-22" itemprop="dateCreated datePublished" datetime="2020-04-22T00:00:05+00:00">2020-04-22</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">todo:</span><br><span class="line">https://www.cnblogs.com/mysummerday/p/12661263.html#_caption_1</span><br><span class="line"></span><br><span class="line">./rclone.exe mount secret:/  Q: --cache-dir G:\OneDrive --vfs-cache-mode writes &amp;</span><br><span class="line"></span><br><span class="line"> Fatal error: failed to mount FUSE fs: mount stopped before calling Init: mount failed: cgofuse: cannot find winfsp</span><br></pre></td></tr></table></figure>
-
-<h3 id="安装-rclone-并挂载-Googledrive"><a href="#安装-rclone-并挂载-Googledrive" class="headerlink" title="安装 rclone 并挂载 Googledrive"></a>安装 rclone 并挂载 Googledrive</h3><h3 id="安装-rclone"><a href="#安装-rclone" class="headerlink" title="安装 rclone"></a>安装 rclone</h3><p>Linux 环境</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl https://rclone.org/install.sh | sudo bash</span><br></pre></td></tr></table></figure>
-
-<p>Windows 环境</p>
-<p>直接去 rclone 官网下载 rclone，最好将 rclone.exe 所在目录加入系统环境变量</p>
-<h3 id="配置-rclone"><a href="#配置-rclone" class="headerlink" title="配置 rclone"></a>配置 rclone</h3><blockquote>
-<p>详细配置参考 <span class="exturl" data-url="aHR0cHM6Ly9yY2xvbmUub3JnL2RyaXZlLw==">https://rclone.org/drive/</span></p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rclone config</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">No remotes found - make a new one</span><br><span class="line">n) New remote</span><br><span class="line">s) Set configuration password</span><br><span class="line">q) Quit config</span><br><span class="line">n/s/q&gt; n # 新建</span><br><span class="line">name&gt; gdrive # 名称，后面要用到</span><br><span class="line">Type of storage to configure.</span><br><span class="line">Enter a string value. Press Enter for the default (&quot;&quot;).</span><br><span class="line">Choose a number from below, or type in your own value</span><br><span class="line"> 1 / 1Fichier</span><br><span class="line">   \ &quot;fichier&quot;</span><br><span class="line"> 2 / Alias for an existing remote</span><br><span class="line">   \ &quot;alias&quot;</span><br><span class="line"> 3 / Amazon Drive</span><br><span class="line">   \ &quot;amazon cloud drive&quot;</span><br><span class="line"> 4 / Amazon S3 Compliant Storage Provider (AWS, Alibaba, Ceph, Digital Ocean, Dreamhost, IBM COS, Minio, etc)</span><br><span class="line">   \ &quot;s3&quot;</span><br><span class="line"> 5 / Backblaze B2</span><br><span class="line">   \ &quot;b2&quot;</span><br><span class="line"> 6 / Box</span><br><span class="line">   \ &quot;box&quot;</span><br><span class="line"> 7 / Cache a remote</span><br><span class="line">   \ &quot;cache&quot;</span><br><span class="line"> 8 / Citrix Sharefile</span><br><span class="line">   \ &quot;sharefile&quot;</span><br><span class="line"> 9 / Dropbox</span><br><span class="line">   \ &quot;dropbox&quot;</span><br><span class="line">10 / Encrypt/Decrypt a remote</span><br><span class="line">   \ &quot;crypt&quot;</span><br><span class="line">11 / FTP Connection</span><br><span class="line">   \ &quot;ftp&quot;</span><br><span class="line">12 / Google Cloud Storage (this is not Google Drive)</span><br><span class="line">   \ &quot;google cloud storage&quot;</span><br><span class="line">13 / Google Drive</span><br><span class="line">   \ &quot;drive&quot;</span><br><span class="line">14 / Google Photos</span><br><span class="line">   \ &quot;google photos&quot;</span><br><span class="line">15 / Hubic</span><br><span class="line">   \ &quot;hubic&quot;</span><br><span class="line">16 / In memory object storage system.</span><br><span class="line">   \ &quot;memory&quot;</span><br><span class="line">17 / JottaCloud</span><br><span class="line">   \ &quot;jottacloud&quot;</span><br><span class="line">18 / Koofr</span><br><span class="line">   \ &quot;koofr&quot;</span><br><span class="line">19 / Local Disk</span><br><span class="line">   \ &quot;local&quot;</span><br><span class="line">20 / Mail.ru Cloud</span><br><span class="line">   \ &quot;mailru&quot;</span><br><span class="line">21 / Mega</span><br><span class="line">   \ &quot;mega&quot;</span><br><span class="line">22 / Microsoft Azure Blob Storage</span><br><span class="line">   \ &quot;azureblob&quot;</span><br><span class="line">23 / Microsoft OneDrive</span><br><span class="line">   \ &quot;onedrive&quot;</span><br><span class="line">24 / OpenDrive</span><br><span class="line">   \ &quot;opendrive&quot;</span><br><span class="line">25 / Openstack Swift (Rackspace Cloud Files, Memset Memstore, OVH)</span><br><span class="line">   \ &quot;swift&quot;</span><br><span class="line">26 / Pcloud</span><br><span class="line">   \ &quot;pcloud&quot;</span><br><span class="line">27 / Put.io</span><br><span class="line">   \ &quot;putio&quot;</span><br><span class="line">28 / QingCloud Object Storage</span><br><span class="line">   \ &quot;qingstor&quot;</span><br><span class="line">29 / SSH/SFTP Connection</span><br><span class="line">   \ &quot;sftp&quot;</span><br><span class="line">30 / Sugarsync</span><br><span class="line">   \ &quot;sugarsync&quot;</span><br><span class="line">31 / Transparently chunk/split large files</span><br><span class="line">   \ &quot;chunker&quot;</span><br><span class="line">32 / Union merges the contents of several remotes</span><br><span class="line">   \ &quot;union&quot;</span><br><span class="line">33 / Webdav</span><br><span class="line">   \ &quot;webdav&quot;</span><br><span class="line">34 / Yandex Disk</span><br><span class="line">   \ &quot;yandex&quot;</span><br><span class="line">35 / http Connection</span><br><span class="line">   \ &quot;http&quot;</span><br><span class="line">36 / premiumize.me</span><br><span class="line">   \ &quot;premiumizeme&quot;</span><br><span class="line">Storage&gt; 13 # 选择 13 google drive</span><br><span class="line">** See help for drive backend at: https://rclone.org/drive/ **</span><br><span class="line"></span><br><span class="line">Google Application Client Id</span><br><span class="line">Setting your own is recommended.</span><br><span class="line">See https://rclone.org/drive/#making-your-own-client-id for how to create your own.</span><br><span class="line">If you leave this blank, it will use an internal key which is low performance.</span><br><span class="line">Enter a string value. Press Enter for the default (&quot;&quot;).</span><br><span class="line">client_id&gt; # 默认</span><br><span class="line">Google Application Client Secret</span><br><span class="line">Setting your own is recommended.</span><br><span class="line">Enter a string value. Press Enter for the default (&quot;&quot;).</span><br><span class="line">client_secret&gt; # 默认</span><br><span class="line">Scope that rclone should use when requesting access from drive.</span><br><span class="line">Enter a string value. Press Enter for the default (&quot;&quot;).</span><br><span class="line">Choose a number from below, or type in your own value</span><br><span class="line"> 1 / Full access all files, excluding Application Data Folder.</span><br><span class="line">   \ &quot;drive&quot;</span><br><span class="line"> 2 / Read-only access to file metadata and file contents.</span><br><span class="line">   \ &quot;drive.readonly&quot;</span><br><span class="line">   / Access to files created by rclone only.</span><br><span class="line"> 3 | These are visible in the drive website.</span><br><span class="line">   | File authorization is revoked when the user deauthorizes the app.</span><br><span class="line">   \ &quot;drive.file&quot;</span><br><span class="line">   / Allows read and write access to the Application Data folder.</span><br><span class="line"> 4 | This is not visible in the drive website.</span><br><span class="line">   \ &quot;drive.appfolder&quot;</span><br><span class="line">   / Allows read-only access to file metadata but</span><br><span class="line"> 5 | does not allow any access to read or download file content.</span><br><span class="line">   \ &quot;drive.metadata.readonly&quot;</span><br><span class="line">scope&gt; 1 # 选1，所有权限</span><br><span class="line">ID of the root folder</span><br><span class="line">Leave blank normally.</span><br><span class="line"></span><br><span class="line">Fill in to access &quot;Computers&quot; folders (see docs), or for rclone to use</span><br><span class="line">a non root folder as its starting point.</span><br><span class="line"></span><br><span class="line">Note that if this is blank, the first time rclone runs it will fill it</span><br><span class="line">in with the ID of the root folder.</span><br><span class="line"></span><br><span class="line">Enter a string value. Press Enter for the default (&quot;&quot;).</span><br><span class="line">root_folder_id&gt; # 默认</span><br><span class="line">Service Account Credentials JSON file path</span><br><span class="line">Leave blank normally.</span><br><span class="line">Needed only if you want use SA instead of interactive login.</span><br><span class="line">Enter a string value. Press Enter for the default (&quot;&quot;).</span><br><span class="line">service_account_file&gt; # 默认</span><br><span class="line">Edit advanced config? (y/n)</span><br><span class="line">y) Yes</span><br><span class="line">n) No (default)</span><br><span class="line">y/n&gt; # 默认</span><br><span class="line">Remote config</span><br><span class="line">Use auto config?</span><br><span class="line"> * Say Y if not sure</span><br><span class="line"> * Say N if you are working on a remote or headless machine</span><br><span class="line">y) Yes (default)</span><br><span class="line">n) No</span><br><span class="line">y/n&gt; n # 如果在远程服务器上配置，记得选 n，否则可能无法正常授权</span><br><span class="line">If your browser doesn&#x27;t open automatically go to the following link: http://127.0.0.1:53682/auth</span><br><span class="line">Log in and authorize rclone for access</span><br><span class="line">Waiting for code...</span><br><span class="line">Got code</span><br><span class="line">Configure this as a team drive?</span><br><span class="line">y) Yes</span><br><span class="line">n) No</span><br><span class="line">y/n&gt; n</span><br><span class="line">--------------------</span><br><span class="line">[remote]</span><br><span class="line">client_id =</span><br><span class="line">client_secret =</span><br><span class="line">scope = drive</span><br><span class="line">root_folder_id =</span><br><span class="line">service_account_file =</span><br><span class="line">token = &#123;&quot;access_token&quot;:&quot;XXX&quot;,&quot;token_type&quot;:&quot;Bearer&quot;,&quot;refresh_token&quot;:&quot;XXX&quot;,&quot;expiry&quot;:&quot;2014-03-16T13:57:58.955387075Z&quot;&#125;</span><br><span class="line">--------------------</span><br><span class="line">y) Yes this is OK</span><br><span class="line">e) Edit this remote</span><br><span class="line">d) Delete this remote</span><br><span class="line">y/e/d&gt; y</span><br><span class="line">Current remotes:</span><br><span class="line">Name                 Type</span><br><span class="line">====                 ====</span><br><span class="line">gdrive               drive</span><br><span class="line"></span><br><span class="line">e) Edit existing remote</span><br><span class="line">n) New remote</span><br><span class="line">d) Delete remote</span><br><span class="line">r) Rename remote</span><br><span class="line">c) Copy remote</span><br><span class="line">s) Set configuration password</span><br><span class="line">q) Quit config</span><br><span class="line">e/n/d/r/c/s/q&gt; q</span><br></pre></td></tr></table></figure>
-
-<p><strong>注意：</strong>如果在远程 linux 安装，有些配置(涉及 oauth2 的配置)需要使用浏览器授权，可以使用一下方法配置</p>
-<blockquote>
-<p>参考：<span class="exturl" data-url="aHR0cHM6Ly9yY2xvbmUub3JnL3JlbW90ZV9zZXR1cC8=">https://rclone.org/remote_setup/</span></p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Remote config</span><br><span class="line">Use auto config?</span><br><span class="line"> * Say Y if not sure</span><br><span class="line"> * Say N if you are working on a remote or headless machine</span><br><span class="line">y) Yes</span><br><span class="line">n) No</span><br><span class="line">y/n&gt; n # 这里选择 n，授权链接会变成如下样式，而不再是 http://127.0.0.1</span><br><span class="line">Please go to the following link: https://accounts.google.com/o/oauth2/auth?access_type=offline&amp;client_id=202264815644.apps.googleusercontent.com&amp;redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob&amp;response_type=code&amp;scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive&amp;state=J17j_xVz3tAQmV3sMO0xxw</span><br><span class="line">Log in and authorize rclone for access</span><br><span class="line">Enter verification code&gt; # 打开链接登陆授权，将code粘贴到这里</span><br></pre></td></tr></table></figure>
-
-<h3 id="挂载"><a href="#挂载" class="headerlink" title="挂载"></a>挂载</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir -p /home/gdrive</span><br><span class="line"><span class="comment">#gdrive 为上面配置的 name</span></span><br><span class="line"><span class="comment">#/home/gdrive 为挂载到本地的目录</span></span><br><span class="line">/usr/bin/rclone mount gdrive: /home/gdrive \</span><br><span class="line"> --<span class="built_in">umask</span> 0000 \</span><br><span class="line"> --default-permissions \</span><br><span class="line"> --allow-non-empty \</span><br><span class="line"> --allow-other \</span><br><span class="line"> --buffer-size 32M \</span><br><span class="line"> --dir-cache-time 12h \</span><br><span class="line"> --vfs-cache-mode \</span><br><span class="line">  writes &amp;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>报错<br>Fatal error: failed to mount FUSE fs: fusermount: exec: “fusermount”: executable file not found in $PATH<br>解决：安装 fuse<br><code>apt-get install fuse -y</code></p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 卸载磁盘</span></span><br><span class="line">fusermount -qzu LocalFolder  <span class="comment"># LocalFolder 为本地挂载目录</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="查看挂载"><a href="#查看挂载" class="headerlink" title="查看挂载"></a>查看挂载</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">df -h</span><br><span class="line">Filesystem      Size  Used Avail Use% Mounted on</span><br><span class="line">gdrive:         1.0P     0  1.0P   0% /home/gdrive</span><br></pre></td></tr></table></figure>
-
-<p>自动挂载</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat &gt; /etc/systemd/system/rclone.service &lt;&lt;EOF</span><br><span class="line">[Unit]</span><br><span class="line">Description=Rclone</span><br><span class="line">AssertPathIsDirectory=LocalFolder</span><br><span class="line">After=network-online.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">ExecStart=/usr/bin/rclone mount emby: /home/gdrive \</span><br><span class="line"> --umask 0000 \</span><br><span class="line"> --default-permissions \</span><br><span class="line"> --allow-non-empty \</span><br><span class="line"> --allow-other \</span><br><span class="line"> --buffer-size 32M \</span><br><span class="line"> --dir-cache-time 12h \</span><br><span class="line"> --vfs-read-chunk-size 64M \</span><br><span class="line"> --vfs-read-chunk-size-limit 1G</span><br><span class="line">ExecStop=/bin/fusermount -u LocalFolder</span><br><span class="line">Restart=on-abort</span><br><span class="line">User=root</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=default.target</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
-
-<p>启动</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl start rclone</span><br></pre></td></tr></table></figure>
-
-<p>开启启动</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> rclone</span><br></pre></td></tr></table></figure>
 
       
     </div>

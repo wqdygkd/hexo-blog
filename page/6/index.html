@@ -230,6 +230,209 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1223.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/1223.html" class="post-title-link" itemprop="url">GoIndex 部署 CloudFlare Workers 实现无需科学上网访问 Google Drive 文件</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-04-22" itemprop="dateCreated datePublished" datetime="2020-04-22T00:00:45+00:00">2020-04-22</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>04/27 更新 解决 workers 无法正常访问</p>
+<p>作者删除了 github 仓库， GoIndex 依赖的 js 资源加载失败，导致网页打开是一片空白</p>
+<p>解决方法；</p>
+<p>首先到 GitHub Fork 一份 goindex，可以直接 fork <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2N1aWxvbmdqaW4vZ29pbmRleA==">我的</span>，</p>
+<p>登录 CF，打开 workers，选中项目，找到以下代码，我的是在 21 行，替换成有效的即可（可以是你 fork 的，也可以直接使用我的）</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;//cdn.jsdelivr.net/combine/gh/jquery/jquery@3.2/dist/jquery.min.js,gh/donwa/goindex@$&#123;authConfig.version&#125;/themes/$&#123;authConfig.theme&#125;/app.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>替换成</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;//cdn.jsdelivr.net/combine/gh/jquery/jquery@3.2/dist/jquery.min.js,gh/cuilongjin/goindex/themes/$&#123;authConfig.theme&#125;/app.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>原文</p>
+<p>利用 GoIndex 程序，以及 CloudFlare，可以将 Google Drive 文件以目录形式（类似 OneIndex 部署 OneDrive 网盘）列出，可直链调用网盘图片、音频、视频文件等，也可以下载，流量走 CloudFlare ，网速由 CloudFlare 决定</p>
+<p>项目地址： <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RvbndhL2dvaW5kZXg=">https://github.com/donwa/goindex</span></p>
+<p>demo： <span class="exturl" data-url="aHR0cHM6Ly9pbmRleC5nZC53b3JrZXJzLmRldi8=">https://index.gd.workers.dev/</span></p>
+<p>安装部署方案 1</p>
+<p>1、在本地安装 rclone<br>2、按照 <span class="exturl" data-url="aHR0cHM6Ly9yY2xvbmUub3JnL2RyaXZlLw==">https://rclone.org/drive/</span> 流程进行授权<br>3、执行 rclone config file 查看 rclone.conf 路径。找到 root_folder_id 和 refresh_token 记录下来<br>4、下载 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RvbndhL2dvaW5kZXg=">https://github.com/donwa/goindex</span> 中的 index.js 并填入 root 和 refresh_token<br>5、复制代码 到 CloudFlare 部署</p>
+<p>安装部署方案 2</p>
+<p>作者不会记录 refresh_token，但为避免纠纷，建议有条件的同学使用方案 1 进行部署<br>1、访问<span class="exturl" data-url="aHR0cHM6Ly9pbnN0YWxsLmdkLndvcmtlcnMuZGV2Lw==">https://install.gd.workers.dev/</span><br>2、授权认证后，生成部署代码<br>3、复制代码 到 CloudFlare 部署</p>
+<p>目录 id：例如 google 网盘链接为<code>https://drive.google.com/drive/folders/1rrDnupW_1qxRnQf-jy_0PN_GqNK8SEk2</code>，则目录 id 为 <code>1rrDnupW_1qxRnQf-jy_0PN_GqNK8SEk2</code></p>
+<p>部署 CloudFlare</p>
+<p>绑定自定义域名</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RvbndhL2dvaW5kZXgvaXNzdWVzLzQ=">https://github.com/donwa/goindex/issues/4</span></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1243.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/1243.html" class="post-title-link" itemprop="url">安装 rclone 并挂载 Google drive</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-04-22" itemprop="dateCreated datePublished" datetime="2020-04-22T00:00:05+00:00">2020-04-22</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">todo:</span><br><span class="line">https://www.cnblogs.com/mysummerday/p/12661263.html#_caption_1</span><br><span class="line"></span><br><span class="line">./rclone.exe mount secret:/  Q: --cache-dir G:\OneDrive --vfs-cache-mode writes &amp;</span><br><span class="line"></span><br><span class="line"> Fatal error: failed to mount FUSE fs: mount stopped before calling Init: mount failed: cgofuse: cannot find winfsp</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装-rclone-并挂载-Googledrive"><a href="#安装-rclone-并挂载-Googledrive" class="headerlink" title="安装 rclone 并挂载 Googledrive"></a>安装 rclone 并挂载 Googledrive</h3><h3 id="安装-rclone"><a href="#安装-rclone" class="headerlink" title="安装 rclone"></a>安装 rclone</h3><p>Linux 环境</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl https://rclone.org/install.sh | sudo bash</span><br></pre></td></tr></table></figure>
+
+<p>Windows 环境</p>
+<p>直接去 rclone 官网下载 rclone，最好将 rclone.exe 所在目录加入系统环境变量</p>
+<h3 id="配置-rclone"><a href="#配置-rclone" class="headerlink" title="配置 rclone"></a>配置 rclone</h3><blockquote>
+<p>详细配置参考 <span class="exturl" data-url="aHR0cHM6Ly9yY2xvbmUub3JnL2RyaXZlLw==">https://rclone.org/drive/</span></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rclone config</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">No remotes found - make a new one</span><br><span class="line">n) New remote</span><br><span class="line">s) Set configuration password</span><br><span class="line">q) Quit config</span><br><span class="line">n/s/q&gt; n # 新建</span><br><span class="line">name&gt; gdrive # 名称，后面要用到</span><br><span class="line">Type of storage to configure.</span><br><span class="line">Enter a string value. Press Enter for the default (&quot;&quot;).</span><br><span class="line">Choose a number from below, or type in your own value</span><br><span class="line"> 1 / 1Fichier</span><br><span class="line">   \ &quot;fichier&quot;</span><br><span class="line"> 2 / Alias for an existing remote</span><br><span class="line">   \ &quot;alias&quot;</span><br><span class="line"> 3 / Amazon Drive</span><br><span class="line">   \ &quot;amazon cloud drive&quot;</span><br><span class="line"> 4 / Amazon S3 Compliant Storage Provider (AWS, Alibaba, Ceph, Digital Ocean, Dreamhost, IBM COS, Minio, etc)</span><br><span class="line">   \ &quot;s3&quot;</span><br><span class="line"> 5 / Backblaze B2</span><br><span class="line">   \ &quot;b2&quot;</span><br><span class="line"> 6 / Box</span><br><span class="line">   \ &quot;box&quot;</span><br><span class="line"> 7 / Cache a remote</span><br><span class="line">   \ &quot;cache&quot;</span><br><span class="line"> 8 / Citrix Sharefile</span><br><span class="line">   \ &quot;sharefile&quot;</span><br><span class="line"> 9 / Dropbox</span><br><span class="line">   \ &quot;dropbox&quot;</span><br><span class="line">10 / Encrypt/Decrypt a remote</span><br><span class="line">   \ &quot;crypt&quot;</span><br><span class="line">11 / FTP Connection</span><br><span class="line">   \ &quot;ftp&quot;</span><br><span class="line">12 / Google Cloud Storage (this is not Google Drive)</span><br><span class="line">   \ &quot;google cloud storage&quot;</span><br><span class="line">13 / Google Drive</span><br><span class="line">   \ &quot;drive&quot;</span><br><span class="line">14 / Google Photos</span><br><span class="line">   \ &quot;google photos&quot;</span><br><span class="line">15 / Hubic</span><br><span class="line">   \ &quot;hubic&quot;</span><br><span class="line">16 / In memory object storage system.</span><br><span class="line">   \ &quot;memory&quot;</span><br><span class="line">17 / JottaCloud</span><br><span class="line">   \ &quot;jottacloud&quot;</span><br><span class="line">18 / Koofr</span><br><span class="line">   \ &quot;koofr&quot;</span><br><span class="line">19 / Local Disk</span><br><span class="line">   \ &quot;local&quot;</span><br><span class="line">20 / Mail.ru Cloud</span><br><span class="line">   \ &quot;mailru&quot;</span><br><span class="line">21 / Mega</span><br><span class="line">   \ &quot;mega&quot;</span><br><span class="line">22 / Microsoft Azure Blob Storage</span><br><span class="line">   \ &quot;azureblob&quot;</span><br><span class="line">23 / Microsoft OneDrive</span><br><span class="line">   \ &quot;onedrive&quot;</span><br><span class="line">24 / OpenDrive</span><br><span class="line">   \ &quot;opendrive&quot;</span><br><span class="line">25 / Openstack Swift (Rackspace Cloud Files, Memset Memstore, OVH)</span><br><span class="line">   \ &quot;swift&quot;</span><br><span class="line">26 / Pcloud</span><br><span class="line">   \ &quot;pcloud&quot;</span><br><span class="line">27 / Put.io</span><br><span class="line">   \ &quot;putio&quot;</span><br><span class="line">28 / QingCloud Object Storage</span><br><span class="line">   \ &quot;qingstor&quot;</span><br><span class="line">29 / SSH/SFTP Connection</span><br><span class="line">   \ &quot;sftp&quot;</span><br><span class="line">30 / Sugarsync</span><br><span class="line">   \ &quot;sugarsync&quot;</span><br><span class="line">31 / Transparently chunk/split large files</span><br><span class="line">   \ &quot;chunker&quot;</span><br><span class="line">32 / Union merges the contents of several remotes</span><br><span class="line">   \ &quot;union&quot;</span><br><span class="line">33 / Webdav</span><br><span class="line">   \ &quot;webdav&quot;</span><br><span class="line">34 / Yandex Disk</span><br><span class="line">   \ &quot;yandex&quot;</span><br><span class="line">35 / http Connection</span><br><span class="line">   \ &quot;http&quot;</span><br><span class="line">36 / premiumize.me</span><br><span class="line">   \ &quot;premiumizeme&quot;</span><br><span class="line">Storage&gt; 13 # 选择 13 google drive</span><br><span class="line">** See help for drive backend at: https://rclone.org/drive/ **</span><br><span class="line"></span><br><span class="line">Google Application Client Id</span><br><span class="line">Setting your own is recommended.</span><br><span class="line">See https://rclone.org/drive/#making-your-own-client-id for how to create your own.</span><br><span class="line">If you leave this blank, it will use an internal key which is low performance.</span><br><span class="line">Enter a string value. Press Enter for the default (&quot;&quot;).</span><br><span class="line">client_id&gt; # 默认</span><br><span class="line">Google Application Client Secret</span><br><span class="line">Setting your own is recommended.</span><br><span class="line">Enter a string value. Press Enter for the default (&quot;&quot;).</span><br><span class="line">client_secret&gt; # 默认</span><br><span class="line">Scope that rclone should use when requesting access from drive.</span><br><span class="line">Enter a string value. Press Enter for the default (&quot;&quot;).</span><br><span class="line">Choose a number from below, or type in your own value</span><br><span class="line"> 1 / Full access all files, excluding Application Data Folder.</span><br><span class="line">   \ &quot;drive&quot;</span><br><span class="line"> 2 / Read-only access to file metadata and file contents.</span><br><span class="line">   \ &quot;drive.readonly&quot;</span><br><span class="line">   / Access to files created by rclone only.</span><br><span class="line"> 3 | These are visible in the drive website.</span><br><span class="line">   | File authorization is revoked when the user deauthorizes the app.</span><br><span class="line">   \ &quot;drive.file&quot;</span><br><span class="line">   / Allows read and write access to the Application Data folder.</span><br><span class="line"> 4 | This is not visible in the drive website.</span><br><span class="line">   \ &quot;drive.appfolder&quot;</span><br><span class="line">   / Allows read-only access to file metadata but</span><br><span class="line"> 5 | does not allow any access to read or download file content.</span><br><span class="line">   \ &quot;drive.metadata.readonly&quot;</span><br><span class="line">scope&gt; 1 # 选1，所有权限</span><br><span class="line">ID of the root folder</span><br><span class="line">Leave blank normally.</span><br><span class="line"></span><br><span class="line">Fill in to access &quot;Computers&quot; folders (see docs), or for rclone to use</span><br><span class="line">a non root folder as its starting point.</span><br><span class="line"></span><br><span class="line">Note that if this is blank, the first time rclone runs it will fill it</span><br><span class="line">in with the ID of the root folder.</span><br><span class="line"></span><br><span class="line">Enter a string value. Press Enter for the default (&quot;&quot;).</span><br><span class="line">root_folder_id&gt; # 默认</span><br><span class="line">Service Account Credentials JSON file path</span><br><span class="line">Leave blank normally.</span><br><span class="line">Needed only if you want use SA instead of interactive login.</span><br><span class="line">Enter a string value. Press Enter for the default (&quot;&quot;).</span><br><span class="line">service_account_file&gt; # 默认</span><br><span class="line">Edit advanced config? (y/n)</span><br><span class="line">y) Yes</span><br><span class="line">n) No (default)</span><br><span class="line">y/n&gt; # 默认</span><br><span class="line">Remote config</span><br><span class="line">Use auto config?</span><br><span class="line"> * Say Y if not sure</span><br><span class="line"> * Say N if you are working on a remote or headless machine</span><br><span class="line">y) Yes (default)</span><br><span class="line">n) No</span><br><span class="line">y/n&gt; n # 如果在远程服务器上配置，记得选 n，否则可能无法正常授权</span><br><span class="line">If your browser doesn&#x27;t open automatically go to the following link: http://127.0.0.1:53682/auth</span><br><span class="line">Log in and authorize rclone for access</span><br><span class="line">Waiting for code...</span><br><span class="line">Got code</span><br><span class="line">Configure this as a team drive?</span><br><span class="line">y) Yes</span><br><span class="line">n) No</span><br><span class="line">y/n&gt; n</span><br><span class="line">--------------------</span><br><span class="line">[remote]</span><br><span class="line">client_id =</span><br><span class="line">client_secret =</span><br><span class="line">scope = drive</span><br><span class="line">root_folder_id =</span><br><span class="line">service_account_file =</span><br><span class="line">token = &#123;&quot;access_token&quot;:&quot;XXX&quot;,&quot;token_type&quot;:&quot;Bearer&quot;,&quot;refresh_token&quot;:&quot;XXX&quot;,&quot;expiry&quot;:&quot;2014-03-16T13:57:58.955387075Z&quot;&#125;</span><br><span class="line">--------------------</span><br><span class="line">y) Yes this is OK</span><br><span class="line">e) Edit this remote</span><br><span class="line">d) Delete this remote</span><br><span class="line">y/e/d&gt; y</span><br><span class="line">Current remotes:</span><br><span class="line">Name                 Type</span><br><span class="line">====                 ====</span><br><span class="line">gdrive               drive</span><br><span class="line"></span><br><span class="line">e) Edit existing remote</span><br><span class="line">n) New remote</span><br><span class="line">d) Delete remote</span><br><span class="line">r) Rename remote</span><br><span class="line">c) Copy remote</span><br><span class="line">s) Set configuration password</span><br><span class="line">q) Quit config</span><br><span class="line">e/n/d/r/c/s/q&gt; q</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：</strong>如果在远程 linux 安装，有些配置(涉及 oauth2 的配置)需要使用浏览器授权，可以使用一下方法配置</p>
+<blockquote>
+<p>参考：<span class="exturl" data-url="aHR0cHM6Ly9yY2xvbmUub3JnL3JlbW90ZV9zZXR1cC8=">https://rclone.org/remote_setup/</span></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Remote config</span><br><span class="line">Use auto config?</span><br><span class="line"> * Say Y if not sure</span><br><span class="line"> * Say N if you are working on a remote or headless machine</span><br><span class="line">y) Yes</span><br><span class="line">n) No</span><br><span class="line">y/n&gt; n # 这里选择 n，授权链接会变成如下样式，而不再是 http://127.0.0.1</span><br><span class="line">Please go to the following link: https://accounts.google.com/o/oauth2/auth?access_type=offline&amp;client_id=202264815644.apps.googleusercontent.com&amp;redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob&amp;response_type=code&amp;scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive&amp;state=J17j_xVz3tAQmV3sMO0xxw</span><br><span class="line">Log in and authorize rclone for access</span><br><span class="line">Enter verification code&gt; # 打开链接登陆授权，将code粘贴到这里</span><br></pre></td></tr></table></figure>
+
+<h3 id="挂载"><a href="#挂载" class="headerlink" title="挂载"></a>挂载</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir -p /home/gdrive</span><br><span class="line"><span class="comment">#gdrive 为上面配置的 name</span></span><br><span class="line"><span class="comment">#/home/gdrive 为挂载到本地的目录</span></span><br><span class="line">/usr/bin/rclone mount gdrive: /home/gdrive \</span><br><span class="line"> --<span class="built_in">umask</span> 0000 \</span><br><span class="line"> --default-permissions \</span><br><span class="line"> --allow-non-empty \</span><br><span class="line"> --allow-other \</span><br><span class="line"> --buffer-size 32M \</span><br><span class="line"> --dir-cache-time 12h \</span><br><span class="line"> --vfs-cache-mode \</span><br><span class="line">  writes &amp;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>报错<br>Fatal error: failed to mount FUSE fs: fusermount: exec: “fusermount”: executable file not found in $PATH<br>解决：安装 fuse<br><code>apt-get install fuse -y</code></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 卸载磁盘</span></span><br><span class="line">fusermount -qzu LocalFolder  <span class="comment"># LocalFolder 为本地挂载目录</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="查看挂载"><a href="#查看挂载" class="headerlink" title="查看挂载"></a>查看挂载</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">df -h</span><br><span class="line">Filesystem      Size  Used Avail Use% Mounted on</span><br><span class="line">gdrive:         1.0P     0  1.0P   0% /home/gdrive</span><br></pre></td></tr></table></figure>
+
+<p>自动挂载</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat &gt; /etc/systemd/system/rclone.service &lt;&lt;EOF</span><br><span class="line">[Unit]</span><br><span class="line">Description=Rclone</span><br><span class="line">AssertPathIsDirectory=LocalFolder</span><br><span class="line">After=network-online.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">ExecStart=/usr/bin/rclone mount emby: /home/gdrive \</span><br><span class="line"> --umask 0000 \</span><br><span class="line"> --default-permissions \</span><br><span class="line"> --allow-non-empty \</span><br><span class="line"> --allow-other \</span><br><span class="line"> --buffer-size 32M \</span><br><span class="line"> --dir-cache-time 12h \</span><br><span class="line"> --vfs-read-chunk-size 64M \</span><br><span class="line"> --vfs-read-chunk-size-limit 1G</span><br><span class="line">ExecStop=/bin/fusermount -u LocalFolder</span><br><span class="line">Restart=on-abort</span><br><span class="line">User=root</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=default.target</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+
+<p>启动</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl start rclone</span><br></pre></td></tr></table></figure>
+
+<p>开启启动</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> rclone</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://wqdy.top/1165.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -938,174 +1141,6 @@
 <p>使用：</p>
 <p>下载并安装插件后直接启用即可，无需设置，插件会自动接管所有 WP 访问境外服务器的流量。<br>插件不会更改你的 WordPress 程序，若不想使用大陆加速节点，直接停用插件即可。</p>
 <p>常见问题：<br>插件/主题更新缓慢甚至超时<br>这种情况在大型包更新的情况下偶尔会出现，原因是第一次访问资源，云存储中还未有相应的镜像，再试一次就会好了。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/969.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/969.html" class="post-title-link" itemprop="url">微信小程序 canvas touchmove 事件实现手写签名并保存到相册</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2020-03-18" itemprop="dateCreated datePublished" datetime="2020-03-18T10:57:43+00:00">2020-03-18</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p>2020-03-19<br>真机调试报错 <code>r.Canvas is not a constructor</code><br>原因：canvas 2d 和 webgl 暂不支持真机调试，请直接使用真机预览，真机预览模式下使用 vConsole 调试</p>
-</blockquote>
-<p>基础代码(使用 Canvas 2D 接口)</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Component(&#123;</span><br><span class="line">  <span class="attr">data</span>: &#123;</span><br><span class="line">    <span class="attr">ctx</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">    <span class="attr">image</span>: <span class="string">&#x27;&#x27;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">methods</span>: &#123;</span><br><span class="line">    <span class="attr">onLoad</span>: <span class="function"><span class="keyword">function</span>(<span class="params">options</span>) </span>&#123;&#125;,</span><br><span class="line">    <span class="attr">onReady</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">const</span> query = wx.createSelectorQuery()</span><br><span class="line">      query</span><br><span class="line">        .select(<span class="string">&#x27;#sign&#x27;</span>)</span><br><span class="line">        .fields(&#123; <span class="attr">node</span>: <span class="literal">true</span>, <span class="attr">size</span>: <span class="literal">true</span> &#125;)</span><br><span class="line">        .exec(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(res)</span><br><span class="line">          <span class="keyword">const</span> canvas = res[<span class="number">0</span>].node</span><br><span class="line">          <span class="keyword">const</span> ctx = canvas.getContext(<span class="string">&#x27;2d&#x27;</span>)</span><br><span class="line">          <span class="built_in">console</span>.log(ctx)</span><br><span class="line"></span><br><span class="line">          <span class="keyword">const</span> dpr = wx.getSystemInfoSync().pixelRatio</span><br><span class="line">          canvas.width = res[<span class="number">0</span>].width * dpr</span><br><span class="line">          canvas.height = res[<span class="number">0</span>].height * dpr</span><br><span class="line">          ctx.scale(dpr, dpr)</span><br><span class="line"></span><br><span class="line">          ctx.lineWidth = <span class="number">4</span> <span class="comment">//线条的宽度</span></span><br><span class="line">          ctx.strokeStyle = <span class="string">&#x27;#333&#x27;</span> <span class="comment">//线条的颜色</span></span><br><span class="line">          ctx.lineCap = <span class="string">&#x27;round&#x27;</span> <span class="comment">//定义线条开头和结尾处的形状</span></span><br><span class="line">          ctx.lineJoin = <span class="string">&#x27;bevel&#x27;</span> <span class="comment">// 线条与线条之间的连接方式，该属性有三个属性值：miter（默认值，尖角），bevel（衔接），round（圆角）。</span></span><br><span class="line">          <span class="built_in">this</span>.setData(&#123;</span><br><span class="line">            <span class="attr">ctx</span>: ctx</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>实现手写效果</p>
-<p>使用 catchtouchmove 绑定，默认会阻止页面跟着滑动</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">type</span>=<span class="string">&quot;2d&quot;</span> <span class="attr">id</span>=<span class="string">&quot;sign&quot;</span> <span class="attr">bindtouchstart</span>=<span class="string">&quot;bindtouchstartHandler&quot;</span> <span class="attr">catchtouchmove</span>=<span class="string">&quot;catchtouchmoveHandler&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">bindtouchstartHandler</span>(<span class="params">e</span>)</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (e.type != <span class="string">&#x27;touchstart&#x27;</span>) <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  <span class="keyword">let</span> ctx = <span class="built_in">this</span>.data.ctx</span><br><span class="line">  <span class="comment">//开始本次绘画</span></span><br><span class="line">  ctx.beginPath()</span><br><span class="line">  <span class="comment">//画笔起始点</span></span><br><span class="line">  ctx.moveTo(e.touches[<span class="number">0</span>].x, e.touches[<span class="number">0</span>].y)</span><br><span class="line">&#125;,</span><br><span class="line"><span class="function"><span class="title">catchtouchmoveHandler</span>(<span class="params">e</span>)</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> left = e.currentTarget.offsetLeft</span><br><span class="line">  <span class="keyword">let</span> top = e.currentTarget.offsetTop</span><br><span class="line">  <span class="keyword">let</span> pageX = e.touches[<span class="number">0</span>].pageX</span><br><span class="line">  <span class="keyword">let</span> pageY = e.touches[<span class="number">0</span>].pageY</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> ctx = <span class="built_in">this</span>.data.ctx</span><br><span class="line">  <span class="comment">//根据鼠标路径绘画</span></span><br><span class="line">  ctx.lineTo(pageX - left, pageY - top)</span><br><span class="line">  <span class="comment">//立即渲染</span></span><br><span class="line">  ctx.stroke()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>使用 <code>bindtouchmove</code>，需要单独处理页面跟着滚动的问题</p>
-<p>给 canvas 绑定 bindtouchmove=”touchmoveHandler” 然后绑定空的 catchtouchmove 事件<code>catchtouchmove=&quot;preventTouchmove&quot;</code> 或者直接 <code>catchtouchmove=&quot;ture&quot;</code></p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">type</span>=<span class="string">&quot;2d&quot;</span> <span class="attr">id</span>=<span class="string">&quot;sign&quot;</span> <span class="attr">bindtouchstart</span>=<span class="string">&quot;bindtouchstartHandler&quot;</span> <span class="attr">bindtouchmove</span>=<span class="string">&quot;bindtouchmoveHandler&quot;</span> <span class="attr">catchtouchmove</span>=<span class="string">&quot;preventTouchmove&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">bindtouchstartHandler</span>(<span class="params">e</span>)</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (e.type != <span class="string">&#x27;touchstart&#x27;</span>) <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  <span class="keyword">let</span> ctx = <span class="built_in">this</span>.data.ctx</span><br><span class="line">  <span class="comment">//开始本次绘画</span></span><br><span class="line">  ctx.beginPath()</span><br><span class="line">  <span class="comment">//画笔起始点</span></span><br><span class="line">  ctx.moveTo(e.touches[<span class="number">0</span>].x, e.touches[<span class="number">0</span>].y)</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line"><span class="comment">// bind绑定的事件</span></span><br><span class="line">bindtouchmoveHandler (e) &#123;</span><br><span class="line">  <span class="keyword">let</span> ctx = <span class="built_in">this</span>.data.ctx</span><br><span class="line">  <span class="comment">//根据鼠标路径绘画</span></span><br><span class="line">  ctx.lineTo(e.touches[<span class="number">0</span>].x, e.touches[<span class="number">0</span>].y)</span><br><span class="line">  <span class="comment">//立即渲染</span></span><br><span class="line">  ctx.stroke()</span><br><span class="line">&#125;,</span><br><span class="line">preventTouchmove () &#123;&#125;</span><br></pre></td></tr></table></figure>
-
-<p>保存到相册</p>
-<p>wx.canvasToTempFilePath(Object object, Object this)<br><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXJzLndlaXhpbi5xcS5jb20vbWluaXByb2dyYW0vZGV2L2FwaS9jYW52YXMvd3guY2FudmFzVG9UZW1wRmlsZVBhdGguaHRtbA==">https://developers.weixin.qq.com/miniprogram/dev/api/canvas/wx.canvasToTempFilePath.html</span></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="comment">// 把当前画布指定区域的内容导出生成指定大小的图片。 canvas2d不需要使用draw方法</span></span><br><span class="line"><span class="function"><span class="title">canvasToTempFilePath</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> query = wx.createSelectorQuery()</span><br><span class="line">    query</span><br><span class="line">      .select(<span class="string">&#x27;#sign&#x27;</span>)</span><br><span class="line">      .fields(&#123; <span class="attr">node</span>: <span class="literal">true</span>, <span class="attr">size</span>: <span class="literal">true</span> &#125;)</span><br><span class="line">      .exec(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// console.log(res)</span></span><br><span class="line">        <span class="keyword">const</span> canvas = res[<span class="number">0</span>].node</span><br><span class="line">        wx.canvasToTempFilePath(&#123;</span><br><span class="line">          <span class="attr">x</span>: <span class="number">0</span>,</span><br><span class="line">          <span class="attr">y</span>: <span class="number">0</span>,</span><br><span class="line">          <span class="attr">fileType</span>: <span class="string">&#x27;jpg&#x27;</span>,</span><br><span class="line">          <span class="attr">canvas</span>: canvas,</span><br><span class="line">          <span class="function"><span class="title">success</span>(<span class="params">res</span>)</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(res.tempFilePath) <span class="comment">// 文件临时地址 可以保存到相册或上传</span></span><br><span class="line">            resolve(res.tempFilePath)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line"><span class="comment">// 保存本地</span></span><br><span class="line"><span class="function"><span class="title">saveToAlbum</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">  <span class="built_in">this</span>.canvasToTempFilePath().then(<span class="function"><span class="params">file</span> =&gt;</span> &#123;</span><br><span class="line">    wx.getSetting(&#123;</span><br><span class="line">      <span class="function"><span class="title">success</span>(<span class="params">res</span>)</span> &#123;</span><br><span class="line">        <span class="comment">// 如果没有则获取授权</span></span><br><span class="line">        <span class="keyword">if</span> (!res.authSetting[<span class="string">&#x27;scope.writePhotosAlbum&#x27;</span>]) &#123;</span><br><span class="line">          wx.authorize(&#123;</span><br><span class="line">            <span class="attr">scope</span>: <span class="string">&#x27;scope.writePhotosAlbum&#x27;</span>,</span><br><span class="line">            <span class="function"><span class="title">success</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">              wx.saveImageToPhotosAlbum(&#123;</span><br><span class="line">                <span class="attr">filePath</span>: file,</span><br><span class="line">                <span class="function"><span class="title">success</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">                  wx.showToast(&#123;</span><br><span class="line">                    <span class="attr">title</span>: <span class="string">&#x27;保存成功&#x27;</span></span><br><span class="line">                  &#125;)</span><br><span class="line">                &#125;,</span><br><span class="line">                <span class="function"><span class="title">fail</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">                  wx.showToast(&#123;</span><br><span class="line">                    <span class="attr">title</span>: <span class="string">&#x27;保存失败&#x27;</span>,</span><br><span class="line">                    <span class="attr">icon</span>: <span class="string">&#x27;none&#x27;</span></span><br><span class="line">                  &#125;)</span><br><span class="line">                &#125;</span><br><span class="line">              &#125;)</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="function"><span class="title">fail</span>(<span class="params"></span>)</span> &#123;&#125;</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="comment">// 有授权直接保存</span></span><br><span class="line">          wx.saveImageToPhotosAlbum(&#123;</span><br><span class="line">            <span class="attr">filePath</span>: file,</span><br><span class="line">            <span class="function"><span class="title">success</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">              wx.showToast(&#123;</span><br><span class="line">                <span class="attr">title</span>: <span class="string">&#x27;保存成功&#x27;</span></span><br><span class="line">              &#125;)</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="function"><span class="title">fail</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">              wx.showToast(&#123;</span><br><span class="line">                <span class="attr">title</span>: <span class="string">&#x27;保存失败&#x27;</span>,</span><br><span class="line">                <span class="attr">icon</span>: <span class="string">&#x27;none&#x27;</span></span><br><span class="line">              &#125;)</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/951.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/951.html" class="post-title-link" itemprop="url">解决 WordPress 'Briefly unavailable for scheduled maintenance. Check back in a minute.'</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2020-03-14" itemprop="dateCreated datePublished" datetime="2020-03-14T15:49:35+00:00">2020-03-14</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/wordpress/" itemprop="url" rel="index"><span itemprop="name">wordpress</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>WordPress 在升级程序、主题、插件时，都会先切换到维护模式，也就是显示 ‘Briefly unavailable for scheduled maintenance. Check back in a minute’，如果升级顺利，也就几秒左右就恢复正常；但是如果由于网速不佳等原因导致升级中断，WordPress 就会一直停留在维护模式，不论前台还是后台。</p>
-<p>如何解决这个问题呢？</p>
-<p>马上通过 FTP 登录你的网站，删除 WordPress 根目录下的 <code>.maintenance</code> ，刷新网页即可。</p>
 
       
     </div>
