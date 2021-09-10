@@ -230,6 +230,227 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/405.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/405.html" class="post-title-link" itemprop="url">ES6（ECMAScript）</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2018-12-29" itemprop="dateCreated datePublished" datetime="2018-12-29T00:00:00+00:00">2018-12-29</date>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <date title="修改时间：2021-09-09" >2021-09-09</date>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="ES6（ECMAScript）"><a href="#ES6（ECMAScript）" class="headerlink" title="ES6（ECMAScript）"></a>ES6（ECMAScript）</h1><p>ECMAScript 6.0（以下简称 ES6）是在 2015 年 6 月正式发布的标准。它的目标，是使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语言</p>
+<p><span class="exturl" data-url="aHR0cDovL2VzNi5ydWFueWlmZW5nLmNvbS8=">ECMAScript 6 入门 阮一峰</span></p>
+<h2 id="let-与-const"><a href="#let-与-const" class="headerlink" title="let 与 const"></a>let 与 const</h2><blockquote>
+<p>ES6 中提供了两个声明变量的关键字：const 和 let</p>
+</blockquote>
+<p>参考链接</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8yODE0MDQ1MA==">[知乎]我用了两个月的时间才理解 let</span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9HbG9zc2FyeS9Ib2lzdGluZw==">[MDN]变量提升</span></p>
+<h3 id="let-的使用"><a href="#let-的使用" class="headerlink" title="let 的使用"></a>let 的使用</h3><p>ES6 新增了<code>let</code>命令，用来声明变量。它的用法类似于<code>var</code></p>
+<ul>
+<li>let 声明的变量只有在当前作用域(块作用域)有效</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line">  <span class="keyword">let</span> b = <span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(b) <span class="comment">// ReferenceError: b is not defined</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>不允许重复声明</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">2</span> <span class="comment">// SyntaxError: Identifier &#x27;a&#x27; has already been declared</span></span><br></pre></td></tr></table></figure>
+
+<p>谷歌浏览器控制台对重复声明已经不报错了，估计是为了方面调试</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt; let a = 1</span><br><span class="line">&lt; undefined</span><br><span class="line">&gt; let a = 2</span><br><span class="line">&lt; undefined</span><br><span class="line">&gt; const a = 3</span><br><span class="line">x VM331:1 Uncaught SyntaxError: Identifier &#x27;a&#x27; has already been declared</span><br><span class="line">&gt; const b = 1</span><br><span class="line">&lt; undefined</span><br><span class="line">&gt; const b = 2</span><br><span class="line">&lt; undefined</span><br><span class="line">&gt; let b = 3</span><br><span class="line">x VM378:1 Uncaught SyntaxError: Identifier &#x27;b&#x27; has already been declared</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><span class="red">使用 let 声明的全局变量，不会成为 window 的属性</span></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> c = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.c) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(c) <span class="comment">// 1</span></span><br><span class="line"><span class="keyword">let</span> c = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.c) <span class="comment">// undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(c) <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><span class="error">存在变量提升</span></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1</span></span><br><span class="line">&#123;</span><br><span class="line">  a = <span class="number">2</span></span><br><span class="line">  <span class="keyword">let</span> a</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 如果 let 不会提升，那么 a = 2 就会将外面的 a 由 1 变成 2</span></span><br><span class="line"><span class="comment">// 但运行发现 a = 2 报错：Uncaught ReferenceError: Cannot access &#x27;a&#x27; before initialization</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">a = <span class="number">1</span>; <span class="keyword">let</span> a  <span class="comment">// Uncaught ReferenceError: Cannot access &#x27;a&#x27; before initialization</span></span><br></pre></td></tr></table></figure>
+
+<p>总结：</p>
+<ul>
+<li>let/const 声明的「创建」过程被提升了，但是「初始化」没有提升，var 声明的「创建」和「初始化」都被提升了，但「赋值」没被提升，function 声明的「创建」、「初始化」和「赋值」都被提升了</li>
+<li>let 声明会提升到块顶部，从块顶部到该变量的初始化语句，这块区域叫做 TDZ（暂时死区），所谓暂时死区，就是不能在初始化之前，使用变量</li>
+<li>如果你在 TDZ 内使用该变量，JS 就会报错</li>
+</ul>
+<p>如果 let x 的初始化过程失败了，那么</p>
+<ul>
+<li>x 变量就将永远处于 created 状态</li>
+<li>你无法再次对 x 进行初始化（初始化只有一次机会，而那次机会你失败了）</li>
+<li>由于 x 无法被初始化，所以 x 永远处在暂时死区</li>
+</ul>
+<h3 id="const-的使用"><a href="#const-的使用" class="headerlink" title="const 的使用"></a>const 的使用</h3><p><code>const</code>声明一个常量。常量：代码执行的过程中，不可以修改常量里面的值</p>
+<ul>
+<li>const 声明的量不可以改变</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> PI = <span class="number">3.1415</span></span><br><span class="line">PI = <span class="number">3</span> <span class="comment">// TypeError: Assignment to constant variable</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>const 声明的变量必须赋值</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> num</span><br><span class="line"><span class="comment">// SyntaxError: Missing initializer in const declaration</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果 const 声明了一个对象，仅仅保证地址不变，可以修改对象的属性</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123; <span class="attr">name</span>: <span class="string">&#x27;zs&#x27;</span> &#125;</span><br><span class="line">obj.age = <span class="number">18</span> <span class="comment">// 正确</span></span><br><span class="line">obj = &#123;&#125; <span class="comment">// TypeError: Assignment to constant variable</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>其他用法和 let 一样</li>
+</ul>
+<h2 id="模板字符串-模板字面量"><a href="#模板字符串-模板字面量" class="headerlink" title="模板字符串(模板字面量)"></a>模板字符串(模板字面量)</h2><p>模板字面量 是允许嵌入表达式的字符串字面量。你可以使用多行字符串和字符串插值功能</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 通过``可以定义一个字符串</span></span><br><span class="line"><span class="keyword">let</span> str = <span class="string">`hello world`</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 模板字符串内部允许换行</span></span><br><span class="line"><span class="keyword">let</span> str = <span class="string">`</span></span><br><span class="line"><span class="string">  hello</span></span><br><span class="line"><span class="string">  world</span></span><br><span class="line"><span class="string">`</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 模板字符串内部可以使用表达式</span></span><br><span class="line"><span class="keyword">let</span> str = <span class="string">`</span></span><br><span class="line"><span class="string">	你好，我是<span class="subst">$&#123;name&#125;</span></span></span><br><span class="line"><span class="string">`</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h2><p>ES6 标准新增了一种新的函数：Arrow Function（箭头函数），为什么叫 Arrow Function？因为它的定义用的就是一个箭头</p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 语法： (参数列表) =&gt; &#123;函数体&#125;</span></span><br><span class="line"><span class="keyword">let</span> fn = <span class="function">(<span class="params">x, y</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(x + y)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>相当于</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> fn = <span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(x + y)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
+<li>不存在 prototype 这个属性</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="function">() =&gt;</span> &#123;&#125;</span><br><span class="line"><span class="built_in">console</span>.log(a.prototype) <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>没有自己的 this，arguments</li>
+</ul>
+<p>箭头函数的 this、arguments 都是在定义函数时绑定外层的 this 和 arguments，而不是在执行过程中绑定的，所以不会因为调用者不同而发生变化。<br>可以使用剩余参数(Rest 参数)表示法获得的自身入参列表</p>
+<p>因为箭头函数没有 this，因此箭头函数不能作为构造函数</p>
+<p>不能用 call()、apply()、bind() 这些方法改变 this 的指向</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">fn = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> arrow = <span class="function">(<span class="params">...args</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>) <span class="comment">// 外层的入参列表 -&gt; Arguments(3) [1, 2, 3, callee: ƒ, Symbol(Symbol.iterator): ƒ]</span></span><br><span class="line">    <span class="built_in">console</span>.log(args) <span class="comment">// 使用剩余参数表示法获得的自身入参列表 -&gt; (3) [4, 5, 6]</span></span><br><span class="line">  &#125;</span><br><span class="line">  arrow(<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(arrow.length) <span class="comment">// 0</span></span><br><span class="line">&#125;</span><br><span class="line">fn(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果函数体只有一行语句，并且需要返回这个值，那么可以省略 {} 和 return</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> fn = <span class="function">(<span class="params">n1, n2</span>) =&gt;</span> n1 + n2</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Rest 参数和 arguments 对象的区别：</li>
+</ul>
+<p>rest 参数只包括那些没有给出名称的参数，arguments 包含所有参数</p>
+<p>rest 参数之后不能再有其他参数，否则会报错</p>
+<p>函数的 length 属性，不包括 rest 参数</p>
+<p>arguments 对象不是真正的数组，而 rest 参数是数组实例，可以直接使用数组的方法</p>
+<h2 id="对象简化语法"><a href="#对象简化语法" class="headerlink" title="对象简化语法"></a>对象简化语法</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 当属性的 key 和变量的名相同时可以简写</span></span><br><span class="line"><span class="keyword">let</span> person = &#123; <span class="attr">name</span>: name &#125; ==&gt; <span class="keyword">let</span> person = &#123; name &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 声明函数</span></span><br><span class="line"><span class="keyword">let</span> cal = &#123;</span><br><span class="line">  <span class="attr">add</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 可以省略 `:function`</span></span><br><span class="line">  <span class="function"><span class="title">add</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="属性名表达式"><a href="#属性名表达式" class="headerlink" title="属性名表达式"></a>属性名表达式</h3><ul>
+<li>ES6 允许字面量定义对象时，用表达式作为对象的属性名，即把表达式放在方括号内。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> propKey = <span class="string">&#x27;foo&#x27;</span></span><br><span class="line"><span class="keyword">let</span> methodKey = <span class="string">&#x27;bar&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">  [propKey]: <span class="literal">true</span>, <span class="comment">// foo: true</span></span><br><span class="line">  [<span class="string">&#x27;a&#x27;</span> + <span class="string">&#x27;bc&#x27;</span>]: <span class="number">123</span>,  <span class="comment">// abc: 123</span></span><br><span class="line">  [methodKey]() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;hi&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="class-关键字"><a href="#class-关键字" class="headerlink" title="class 关键字"></a>class 关键字</h2><p>ES5 中通过 构造函数 + 原型 的方式来实现面向对象</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.name = <span class="string">&#x27;jack&#x27;</span></span><br><span class="line">  <span class="built_in">this</span>.age = <span class="number">18</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在原型中添加实例方法</span></span><br><span class="line">Person.prototype.say = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.name, <span class="built_in">this</span>.age)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建实例</span></span><br><span class="line"><span class="keyword">const</span> p = <span class="keyword">new</span> Person()</span><br><span class="line">p.say()</span><br></pre></td></tr></table></figure>
+
+<p>ES6 中出现了 class 关键字，用来实现面向对象</p>
+<p>class 声明不允许再次声明已经存在的类，否则将会抛出一个类型错误<br>class 声明不可以提升<br>class 仅仅是一个语法结构（语法糖），本质还是函数，实现继承本质上还是通过构造函数 + 原型的方式</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;&#125;</span><br><span class="line">Person <span class="keyword">instanceof</span> <span class="built_in">Function</span> <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>类声明</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 创建 Person 类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 类的构造函数 constructor 固定名称</span></span><br><span class="line">  <span class="function"><span class="title">constructor</span>(<span class="params">name, age</span>)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.name = name</span><br><span class="line">    <span class="built_in">this</span>.age = age</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 添加实例方法</span></span><br><span class="line">  <span class="function"><span class="title">say</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.name, <span class="built_in">this</span>.age)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建实例</span></span><br><span class="line"><span class="keyword">const</span> p = <span class="keyword">new</span> Person(<span class="string">&#x27;tom&#x27;</span>, <span class="number">18</span>)</span><br><span class="line"><span class="built_in">console</span>.log(p) <span class="comment">// Person &#123;name: &#x27;tom&#x27;, age: 18&#125;</span></span><br><span class="line">p.say() <span class="comment">// tom 18</span></span><br></pre></td></tr></table></figure>
+
+<p>类表达式</p>
+<p>赋予一个命名类表达式的名称是类的主体的本地名称</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 匿名类</span></span><br><span class="line"><span class="keyword">let</span> Person = <span class="class"><span class="keyword">class</span> </span>&#123;&#125;</span><br><span class="line"><span class="keyword">new</span> Person() <span class="comment">// Person &#123;&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 命名类</span></span><br><span class="line"><span class="keyword">let</span> Person = <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;&#125;</span><br><span class="line"><span class="keyword">new</span> Person() <span class="comment">// A &#123;&#125;</span></span><br><span class="line"><span class="keyword">new</span> A() <span class="comment">// Uncaught ReferenceError: A is not defined</span></span><br><span class="line"><span class="built_in">console</span>.log(Person) <span class="comment">// class A &#123;&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(A) <span class="comment">// Uncaught ReferenceError: A is not defined</span></span><br></pre></td></tr></table></figure>
+
+<p>类表达式也不存在提升</p>
+<p>static 关键字用来定义一个类的静态方法。调用静态方法不需要实例化该类，但不能通过一个类实例调用静态方法</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="title">constructor</span>(<span class="params">x, y</span>)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.x = x</span><br><span class="line">    <span class="built_in">this</span>.y = y</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">static</span> <span class="function"><span class="title">distance</span>(<span class="params">a, b</span>)</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> dx = a.x - b.x</span><br><span class="line">    <span class="keyword">const</span> dy = a.y - b.y</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.hypot(dx, dy)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> p1 = <span class="keyword">new</span> Point(<span class="number">5</span>, <span class="number">5</span>)</span><br><span class="line"><span class="keyword">const</span> p2 = <span class="keyword">new</span> Point(<span class="number">10</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(Point.distance(p1, p2))</span><br></pre></td></tr></table></figure>
+
+<p>继承：要实现至少需要两个 class（子类 和 父类），子类继承自父类，继承后，子类就可以使用父类中的属性或方法</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 继承</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 父类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="title">constructor</span>(<span class="params">name, age</span>)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.name = name</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="title">say</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;父类中的 say 方法&#x27;</span>, <span class="built_in">this</span>.name)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 子类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Chinese</span> <span class="keyword">extends</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="title">constructor</span>(<span class="params">name, age</span>)</span> &#123;</span><br><span class="line">    <span class="comment">// 子类中使用 constructor 必须手动调用 super</span></span><br><span class="line">    <span class="comment">// super 表示父类的构造函数</span></span><br><span class="line">    <span class="comment">// 先调用 super() 在使用 this</span></span><br><span class="line">    <span class="built_in">super</span>()</span><br><span class="line">    <span class="built_in">this</span>.name = name</span><br><span class="line">    <span class="built_in">this</span>.age = age</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建实例</span></span><br><span class="line"><span class="keyword">const</span> c = <span class="keyword">new</span> Chinese(<span class="string">&#x27;zs&#x27;</span>, <span class="number">18</span>)</span><br><span class="line"><span class="built_in">console</span>.log(c)</span><br><span class="line">c.say() <span class="comment">// 父类中的方法</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h2><p>ES6 允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构（Destructuring）</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 对象解构</span></span><br><span class="line"><span class="keyword">var</span> &#123; a, b &#125; = &#123; <span class="attr">a</span>: <span class="number">10</span>, <span class="attr">b</span>: <span class="number">20</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 同</span></span><br><span class="line">;(&#123; a, b &#125; = &#123; <span class="attr">a</span>: <span class="number">10</span>, <span class="attr">b</span>: <span class="number">20</span> &#125;) <span class="comment">// 使用没有声明的赋值，数组解构类似</span></span><br><span class="line"><span class="built_in">console</span>.log(a, b) <span class="comment">// 10 20</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 提取变量并赋值</span></span><br><span class="line"><span class="keyword">var</span> &#123; <span class="attr">a</span>: p, <span class="attr">b</span>: q &#125; = &#123; <span class="attr">a</span>: <span class="number">10</span>, <span class="attr">b</span>: <span class="number">20</span> &#125;</span><br><span class="line"><span class="built_in">console</span>.log(p, q) <span class="comment">// 10 20</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 将剩余属性赋值给一个变量</span></span><br><span class="line"><span class="keyword">var</span> &#123; a, b, ...rest &#125; = &#123; <span class="attr">a</span>: <span class="number">10</span>, <span class="attr">b</span>: <span class="number">20</span>, <span class="attr">c</span>: <span class="number">30</span>, <span class="attr">d</span>: <span class="number">40</span> &#125;</span><br><span class="line"><span class="built_in">console</span>.log(a, b, rest) <span class="comment">// 10 20 &#123;c: 30, d: 40&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 提供默认值</span></span><br><span class="line"><span class="keyword">var</span> &#123; a = <span class="number">1</span>, b = <span class="number">1</span> &#125; = &#123; <span class="attr">a</span>: <span class="number">10</span> &#125;</span><br><span class="line"><span class="built_in">console</span>.log(a, b) <span class="comment">// 10 1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 赋值并提供默认值</span></span><br><span class="line"><span class="keyword">var</span> &#123; <span class="attr">a</span>: aa = <span class="number">10</span>, <span class="attr">b</span>: bb = <span class="number">1</span> &#125; = &#123; <span class="attr">a</span>: <span class="number">10</span> &#125;</span><br><span class="line"><span class="built_in">console</span>.log(aa, bb) <span class="comment">// 10 1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 数组解构</span></span><br><span class="line"><span class="keyword">var</span> [a, b] = [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line"><span class="built_in">console</span>.log(a, b) <span class="comment">// 1 2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 将剩余数组赋值给一个变量</span></span><br><span class="line"><span class="keyword">var</span> [a, b, ...rest] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line"><span class="built_in">console</span>.log(a, b, rest) <span class="comment">// 1 2 [3, 4]</span></span><br><span class="line"><span class="comment">// ==&gt; var a = arr[0]; var b = arr[1]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 提供默认值</span></span><br><span class="line"><span class="keyword">var</span> [c = <span class="number">2</span>, d = <span class="number">2</span>] = [<span class="number">10</span>]</span><br><span class="line"><span class="built_in">console</span>.log(c, d) <span class="comment">// 10 2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 忽略某些值</span></span><br><span class="line"><span class="keyword">var</span> [a = <span class="number">2</span>, , b = <span class="number">2</span>] = [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>]</span><br><span class="line"><span class="built_in">console</span>.log(a, b) <span class="comment">// 10 30</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 函数参数的解构赋值</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">&#123; x &#125;</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(x) <span class="comment">// 1</span></span><br><span class="line">&#125;</span><br><span class="line">foo(&#123; <span class="attr">x</span>: <span class="number">1</span>, <span class="attr">y</span>: <span class="number">2</span> &#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数参数默认值</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">&#123; x = <span class="number">10</span> &#125;</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(x) <span class="comment">// 10</span></span><br><span class="line">&#125;</span><br><span class="line">foo()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. 解构的特殊应用</span></span><br><span class="line"><span class="comment">// 交换变量</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line"><span class="keyword">var</span> b = <span class="number">3</span></span><br><span class="line">;[a, b] = [b, a]</span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 3</span></span><br><span class="line"><span class="built_in">console</span>.log(b) <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 字符串解构</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;love&#x27;</span></span><br><span class="line"><span class="keyword">var</span> [a, b, c, d] = str</span><br><span class="line"><span class="built_in">console</span>.log(a, b, c, d) <span class="comment">// l o v e</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="扩展运算符"><a href="#扩展运算符" class="headerlink" title="扩展运算符"></a>扩展运算符</h2><p>扩展运算符（spread）是三个点（…）。作用：将一个数组转为用逗号分隔的参数序列</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>]</span><br><span class="line"><span class="built_in">console</span>.log(...arr) <span class="comment">// a b c</span></span><br></pre></td></tr></table></figure>
+
+<p>应用</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 数组深拷贝</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="keyword">var</span> arr1 = [...arr]</span><br><span class="line"><span class="built_in">console</span>.log(arr === arr1) <span class="comment">// false, 说明arr1和arr指向不同数组</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 把一个数组插入另一个数组字面量</span></span><br><span class="line"><span class="keyword">var</span> arr2 = [...arr, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br><span class="line"><span class="built_in">console</span>.log(arr2) <span class="comment">// [1, 2, 3, 4, 5, 6]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 字符串转数组</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;love&#x27;</span></span><br><span class="line"><span class="keyword">var</span> arr3 = [...str]</span><br><span class="line"><span class="built_in">console</span>.log(arr3) <span class="comment">// [ &#x27;l&#x27;, &#x27;o&#x27;, &#x27;v&#x27;, &#x27;e&#x27; ]</span></span><br></pre></td></tr></table></figure>
+
+<p>对象展开</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> defaults = &#123; <span class="attr">name</span>: <span class="string">&#x27;zs&#x27;</span>, <span class="attr">age</span>: <span class="number">18</span> &#125;</span><br><span class="line"><span class="keyword">let</span> search = &#123; ...defaults, <span class="attr">age</span>: <span class="number">12</span> &#125; <span class="comment">// &#123; name: &#x27;zs&#x27;, age: 12 &#125; 后面的属性会覆盖前面的属性</span></span><br></pre></td></tr></table></figure>
+
+<p>对象展开仅包含对象自身的可枚举属性</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span> </span>&#123;</span><br><span class="line">  p = <span class="number">12</span></span><br><span class="line">  <span class="function"><span class="title">m</span>(<span class="params"></span>)</span> &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> c = <span class="keyword">new</span> C()</span><br><span class="line"><span class="keyword">let</span> clone = &#123; ...c &#125;</span><br><span class="line">clone.p <span class="comment">// ok</span></span><br><span class="line">clone.m() <span class="comment">// error!</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="ES6-模块化"><a href="#ES6-模块化" class="headerlink" title="ES6 模块化"></a>ES6 模块化</h2>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://wqdy.top/226.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1024,94 +1245,6 @@
     <div class="post-body" itemprop="articleBody">
           <h3 id="越狱工具"><a href="#越狱工具" class="headerlink" title="越狱工具"></a>越狱工具</h3><p><span class="exturl" data-url="aHR0cHM6Ly9jaGVja3JhLmluLw==">checkra1n</span>  iPhone 5s -iPhone X, iOS 12.0 and up<br><span class="exturl" data-url="aHR0cHM6Ly91bmMwdmVyLmRldi8=">unc0ver</span>  iOS 11.0 - 13.5</p>
 <h3 id="软件源"><a href="#软件源" class="headerlink" title="软件源"></a>软件源</h3><p>Ai-小苹果：<span class="exturl" data-url="aHR0cDovL2FwdC5jeWRpYWJjLnRvcC8=">http://apt.cydiabc.top</span><br>雷锋源：<span class="exturl" data-url="aHR0cDovL2FwdC5hYmN5ZGlhLmNvbS8=">http://apt.abcydia.com</span><br>reprovision 作者源：<span class="exturl" data-url="aHR0cHM6Ly9yZXBvLmluY2VuZG8ud3Mv">https://repo.incendo.ws</span><br>Flex3官方源：<span class="exturl" data-url="aHR0cDovL2dldGRlbHRhLmNvLw==">http://getdelta.co</span><br>Filza官方源：<span class="exturl" data-url="aHR0cDovL3RpZ2lzb2Z0d2FyZS5jb20vY3lkaWE=">http://tigisoftware.com/cydia</span><br>AudioRecorder XS 通话录音官方源：<span class="exturl" data-url="aHR0cDovL2xpbW5lb3MubmV0L3JlcG8=">http://limneos.net/repo</span><br>Liberty Lire官方屏蔽越狱源：<span class="exturl" data-url="aHR0cDovL3J5bGV5YW5ndXMuY29tL3JlcG8=">http://ryleyangus.com/repo</span><br>多⽶米诺⻣骨牌：<span class="exturl" data-url="aHR0cDovL2FwdC53eGhidHMuY29tLw==">http://apt.wxhbts.com</span><br>Appsync官方源：<span class="exturl" data-url="aHR0cHM6Ly9jeWRpYS5ha2VtaS5haS8=">https://cydia.akemi.ai</span><br>snowboard官⽅方源：<span class="exturl" data-url="aHR0cDovL3NwYXJrZGV2Lm1lLw==">http://sparkdev.me</span><br>贴吧源：<span class="exturl" data-url="aHR0cHM6Ly9hcHQuY3lkaWFiYS5jbi8=">https://apt.cydiaba.cn</span><br>App Admin官⽅方源：<span class="exturl" data-url="aHR0cDovL2JldGEudW5saW1hcHBzLmNvbS8=">http://beta.unlimapps.com</span></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/2021.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021.html" class="post-title-link" itemprop="url">Adobe Zii 苹果Mac端Adobe软件通用破解工具</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2021-01-30" itemprop="dateCreated datePublished" datetime="2021-01-30T00:00:00+00:00">2021-01-30</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/software/" itemprop="url" rel="index"><span itemprop="name">软件</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>软件简介：</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuYWRvYmV6aWkuY29tLw==">Adobe Zii</span> 是一个苹果 Ma 端 Adobe 全家桶的通用破解程序，支持 CC 2019，CC 2020，CC 2021。</p>
-<p>安装说明：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1. 关闭您的互联网连接</span><br><span class="line">2. 安装 Adobe 软件，并点击试用</span><br><span class="line">3. 然后关闭所有 Adobe 软件，启动 Adobe Zii 最新版本</span><br><span class="line">4. 点击“PATCH或DRG”按钮，Zii Patcher 将扫描并修补 MAC 中已安装的所有可访问的 Adobe 软件程序</span><br></pre></td></tr></table></figure>
-
-<p>版本：</p>
-<p>Adobe Zii 6.0.6 版本可在 Adobe CC 2021 上运行，完美支持以下版本：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Adobe Acrobat DC v20.012.20048 – 20.013.20074</span><br><span class="line">Adobe After Effects 2020 v17.5-17.6</span><br><span class="line">Adobe Animate 2021 v21.0.0 – 21.0.2</span><br><span class="line">Adobe Audition 2020 v13.0.11 – 13.0.13</span><br><span class="line">Adobe Bridge 2021 v11.0.1</span><br><span class="line">Adobe Character Animator 2020 v3.4</span><br><span class="line">Adobe Dimension v3.4.1</span><br><span class="line">Adobe Dreamweaver 2021 v21.0.0 – 21.1.0</span><br><span class="line">Adobe Illustrator 2021 v25.0.0 – 25.1.0</span><br><span class="line">Adobe InCopy 2021 v16.0.0 – 16.0.2</span><br><span class="line">Adobe InDesign 2021 v16.0.0 – 16.0.2</span><br><span class="line">Adobe Lightroom Classic v10.0 – 10.1.1</span><br><span class="line">Adobe Media Encoder 2020 v14.5 – 14.8</span><br><span class="line">Adobe Photoshop 2021 v22.0.0 – 22.1.1</span><br><span class="line">Adobe Prelude 2020 v9.0.1 – 9.0.3</span><br><span class="line">Adobe Premiere Pro 2020 v14.5 – 14.8</span><br><span class="line">Adobe Premiere Rush v1.5.34 – 1.5.44</span><br><span class="line">Adobe XD v34.0.12 – 36.0.32</span><br><span class="line">Adobe Photoshop Elements 2021</span><br><span class="line">Adobe Premiere Elements 2021</span><br></pre></td></tr></table></figure>
-
-<p>Adobe Zii 5.3.1 版本可在 Adobe CC 2020 上运行，完美支持以下版本：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Adobe Acrobat DC v19.021.20047 – 20.012.20048</span><br><span class="line">Adobe Acrobat DC v19.021.20047 – 20.012.20048</span><br><span class="line">Adobe After Effects 2020 v17.0 – 17.1.4</span><br><span class="line">Adobe Animate 2020 v20.0 – 20.5.1</span><br><span class="line">Adobe Audition 2020 v13.0 – 13.0.10</span><br><span class="line">Adobe Bridge 2020 v10.0 – 10.1.1</span><br><span class="line">Adobe Character Animator 2020 v3.0 – 3.3.1</span><br><span class="line">Adobe Dimension v3.0 – 3.4</span><br><span class="line">Adobe Dreamweaver 2020 v20.0-20.2</span><br><span class="line">Adobe Illustrator 2020 v24.0-24.3</span><br><span class="line">Adobe InCopy 2020 v15.0-15.1.2</span><br><span class="line">Adobe InDesign 2020 v15.0-15.1.2</span><br><span class="line">Adobe Lightroom Classic v9.0 – 9.4</span><br><span class="line">Adobe Media Encoder 2020 v14.0 – 14.4</span><br><span class="line">Adobe Photoshop 2020 v21.0-21.2.4</span><br><span class="line">Adobe Prelude 2020 v9.0 – 9.0.1</span><br><span class="line">Adobe Premiere Pro 2020 v14.0-14.4</span><br><span class="line">Adobe Premiere Rush v1.2.12 – 1.5.29</span><br><span class="line">Adobe XD v24.0 – 33.1.12</span><br><span class="line">Adobe Photoshop Elements 2020 – 2020.1（内部版本20200120.m.139570）</span><br><span class="line">Adobe Premiere Elements 2020 – 2020.1</span><br></pre></td></tr></table></figure>
-
-<p>Adobe Zii 4.5.0 版本可在 Adobe CC 2019 上运行，完美支持以下版本：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">整个Adobe CC 2015 任何版本</span><br><span class="line">Adobe CC 2017 任何版本</span><br><span class="line">Adobe CC 2018 任何版本</span><br><span class="line">Adobe CC 2019 任何版本</span><br><span class="line">Adobe Acrobat DC 19.x – 19.021.20049</span><br><span class="line">Adobe Illustrator CC 2019 v23.1.1</span><br><span class="line">Adobe InCopy CC 2019 v14.0.2</span><br><span class="line">Adobe InDesign CC 2019 v14.0.3</span><br><span class="line">Adobe Prelude CC 2019 v8.1.1</span><br><span class="line">Adobe Premiere Pro CC 2019 v13.1.5</span><br><span class="line">Adobe Premiere Rush CC v1.2.8</span><br><span class="line">Adobe Photoshop CC 2019 v20.0.7</span><br><span class="line">Adobe After Effects CC 2019 v16.1.3</span><br><span class="line">Adobe Media Encoder CC 2019 v13.1.5</span><br><span class="line">Adobe Lightroom Classic CC 2019 v8.4.1</span><br><span class="line">Adobe Lightroom CC 2019 v2.3</span><br><span class="line">Adobe Audition CC 2019 v12.1.5</span><br><span class="line">Adobe Bridge CC 2019 v9.1.0.338</span><br><span class="line">Adobe Dreamweaver CC 2019 v19.2.1</span><br><span class="line">Adobe XD CC v23.1.32.2</span><br><span class="line">Adobe Character Animator CC 2019 v2.1.1</span><br><span class="line">Adobe Animate CC 2019 v19.2.1</span><br><span class="line">Acrobat DC v19.010.20099</span><br><span class="line">Adobe Dimension CC v2.1</span><br><span class="line">Adobe Premiere Rush CC v1.1</span><br></pre></td></tr></table></figure>
-
-<p>下载链接：<span class="exturl" data-url="aHR0cHM6Ly9wYW4uYmFpZHUuY29tL3MvMWtEWXRwSXBOaGMyZW1SWl96Ul92dmc=">百度云</span></p>
 
       
     </div>
