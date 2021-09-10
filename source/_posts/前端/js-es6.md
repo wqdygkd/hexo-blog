@@ -6,7 +6,8 @@ tags:
 id: '405'
 categories:
   - 前端
-date: 2018-12-29 22:17:58
+date: 2018-12-29
+updated: 2021-09-09
 ---
 
 # ES6（ECMAScript）
@@ -32,7 +33,7 @@ ES6 新增了`let`命令，用来声明变量。它的用法类似于`var`
 - let 声明的变量只有在当前作用域(块作用域)有效
 
 ```js
-if (true) {
+{
   var a = 1
   let b = 2
 }
@@ -44,13 +45,30 @@ console.log(b) // ReferenceError: b is not defined
 - 不允许重复声明
 
 ```js
-let a = 10
-let a = 1 // SyntaxError: Identifier 'a' has already been declared
+let a = 1
+let a = 2 // SyntaxError: Identifier 'a' has already been declared
+```
+
+谷歌浏览器控制台对重复声明已经不报错了，估计是为了方面调试
+
+```txt
+> let a = 1
+< undefined
+> let a = 2
+< undefined
+> const a = 3
+x VM331:1 Uncaught SyntaxError: Identifier 'a' has already been declared
+> const b = 1
+< undefined
+> const b = 2
+< undefined
+> let b = 3
+x VM378:1 Uncaught SyntaxError: Identifier 'b' has already been declared
 ```
 
 - <span class="red">使用 let 声明的全局变量，不会成为 window 的属性</span>
 
-```javascript
+```js
 var c = 1
 console.log(window.c) // 1
 console.log(c) // 1
@@ -61,7 +79,7 @@ console.log(c) // 1
 
 - <span class="error">存在变量提升</span>
 
-```javascript
+```js
 let a = 1
 {
   a = 2
@@ -71,26 +89,15 @@ let a = 1
 // 但运行发现 a = 2 报错：Uncaught ReferenceError: Cannot access 'a' before initialization
 ```
 
-总结 1：
-
-- let 声明会提升到块顶部
-- 从块顶部到该变量的初始化语句，这块区域叫做 TDZ（临时死区）
-- 如果你在 TDZ 内使用该变量，JS 就会报错
-
-总结 2：
-
-- let 的「创建」过程被提升了，但是初始化没有提升
-- var 的「创建」和「初始化」都被提升了
-- function 的「创建」「初始化」和「赋值」都被提升了
-
-所谓暂时死区，就是不能在初始化之前，使用变量
-
-总结 3：
-
 ```js
-(a = 1; let a) // （括号去掉） // Uncaught ReferenceError: Cannot access 'a' before initialization
-a // Uncaught ReferenceError: Cannot access 'a' before initialization
+a = 1; let a  // Uncaught ReferenceError: Cannot access 'a' before initialization
 ```
+
+总结：
+
+- let/const 声明的「创建」过程被提升了，但是「初始化」没有提升，var 声明的「创建」和「初始化」都被提升了，但「赋值」没被提升，function 声明的「创建」、「初始化」和「赋值」都被提升了
+- let 声明会提升到块顶部，从块顶部到该变量的初始化语句，这块区域叫做 TDZ（暂时死区），所谓暂时死区，就是不能在初始化之前，使用变量
+- 如果你在 TDZ 内使用该变量，JS 就会报错
 
 如果 let x 的初始化过程失败了，那么
 
@@ -126,10 +133,6 @@ obj = {} // TypeError: Assignment to constant variable
 
 - 其他用法和 let 一样
 
-只能在当前代码块中使用
-不能重复声明
-不绑定全局作用域
-
 ## 模板字符串(模板字面量)
 
 模板字面量 是允许嵌入表达式的字符串字面量。你可以使用多行字符串和字符串插值功能
@@ -152,94 +155,59 @@ let str = `
 
 ## 箭头函数
 
-ES6 标准新增了一种新的函数：Arrow Function（箭头函数）
+ES6 标准新增了一种新的函数：Arrow Function（箭头函数），为什么叫 Arrow Function？因为它的定义用的就是一个箭头
 
-为什么叫 Arrow Function？因为它的定义用的就是一个箭头
-
-### 基本使用
+### 使用
 
 ```js
-let fn = function(x, y) {
-  console.log(x + y)
-}
-
-相当于
 // 语法： (参数列表) => {函数体}
 let fn = (x, y) => {
   console.log(x + y)
 }
 ```
 
-### 参数详解
-
-- 如果没有参数列表，使用()表示参数列表
+相当于
 
 ```js
-let sum = function() {
-  console.log('哈哈')
-}
-// 等同于：
-let sum = () => {
-  console.log('哈哈')
+let fn = function(x, y) {
+  console.log(x + y)
 }
 ```
 
-- 如果只有一个参数，可以省略()
-
-```js
-let sum = function(n1) {
-  console.log('哈哈')
-}
-
-// 等同于：
-let sum = (n1) => {
-  console.log('哈哈')
-}
-```
-
-- 如果有多个参数，需要使用 () 把参数列表括起来
-
-```js
-let sum = function(n1, n2) {
-  console.log('哈哈')
-}
-
-// 等同于：
-let sum = (n1, n2) => {
-  console.log('哈哈')
-}
-```
-
-- 给参数指定默认值
-
-```javascript
-let a = (n = 1) => console.log(n)
-a() // 1
-a(3) // 3
-```
+### 特点
 
 - 不存在 prototype 这个属性
 
-```javascript
+```js
 let a = () => {}
 console.log(a.prototype) // undefined
 ```
 
-- 没有 arguments
+- 没有自己的 this，arguments
 
-  箭头函数没有自己的 arguments 对象，箭头函数可以访问外围函数的 arguments 对象
+箭头函数的 this、arguments 都是在定义函数时绑定外层的 this 和 arguments，而不是在执行过程中绑定的，所以不会因为调用者不同而发生变化。
+可以使用剩余参数(Rest 参数)表示法获得的自身入参列表
 
-```javascript
-function a() {
-  return () => arguments
+因为箭头函数没有 this，因此箭头函数不能作为构造函数
+
+不能用 call()、apply()、bind() 这些方法改变 this 的指向
+
+```js
+fn = function(){
+  let arrow = (...args) => {
+    console.log(arguments) // 外层的入参列表 -> Arguments(3) [1, 2, 3, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+    console.log(args) // 使用剩余参数表示法获得的自身入参列表 -> (3) [4, 5, 6]
+  }
+  arrow(4, 5, 6)
+  console.log(arrow.length) // 0
 }
-console.log(a(1, 2)()) // [Arguments] { '0': 1, '1': 2 }
+fn(1, 2, 3)
+```
 
-// 访问箭头函数的参数
-// Rest 参数接受函数的多余参数组成一个数组
-let a = (a, b, ...Args) => console.log(Args)
-a(1, 2, 3, 4, 5) // [3, 4, 5]
-console.log(a.length) // 2
+- 如果函数体只有一行语句，并且需要返回这个值，那么可以省略 {} 和 return
+
+```js
+let fn = (n1, n2) => n1 + n2
 ```
 
 - Rest 参数和 arguments 对象的区别：
@@ -252,60 +220,11 @@ rest 参数之后不能再有其他参数，否则会报错
 
 arguments 对象不是真正的数组，而 rest 参数是数组实例，可以直接使用数组的方法
 
-arguments 对象拥有一些自己额外的功能
-
-### 返回值详解
-
-- 如果箭头函数的代码块部分多于一条语句，就要使用大括号将它们括起来
-
-```js
-let sum = function(n1) {
-  console.log('哈哈')
-  return n1
-}
-// 等同于：
-let sum = (n1) => {
-  console.log('哈哈')
-  return n1
-}
-```
-
-- 如果函数体只有一行一句，并且需要返回这个值，那么可以省略 {} 和 return
-
-```js
-let fn = function(n1, n2) {
-  return n1 + n2
-}
-
-let fn = (n1, n2) => n1 + n2
-```
-
-### 箭头函数的注意点
-
-1. 箭头函数内部没有 this，因此箭头函数内部的 this 指向了外部的 this
-2. 因为箭头函数没有 this，因此箭头函数不能作为构造函数
-3. 不能用 call()、apply()、bind() 这些方法改变 this 的指向
-
-【定义一个对象，定时器打招呼】
-
-```javascript
-let obj = {
-  name: 'zs',
-  sayHi: function() {
-    setInterval(() => {
-      console.log('大家好，我是' + this.name)
-    }, 1000)
-  }
-}
-
-obj.sayHi()
-```
-
 ## 对象简化语法
 
-```javascript
+```js
 // 当属性的 key 和变量的名相同时可以简写
-let person = {name: name} ==> let person = {name}
+let person = { name: name } ==> let person = { name }
 
 // 声明函数
 let cal = {
@@ -328,10 +247,8 @@ let propKey = 'foo'
 let methodKey = 'bar'
 
 let obj = {
-  [propKey]: true,
-  // foo: true
-  ['a' + 'bc']: 123,
-  // abc: 123
+  [propKey]: true, // foo: true
+  ['a' + 'bc']: 123,  // abc: 123
   [methodKey]() {
     return 'hi'
   }
@@ -342,7 +259,7 @@ let obj = {
 
 ES5 中通过 构造函数 + 原型 的方式来实现面向对象
 
-```javascript
+```js
 // 构造函数
 function Person() {
   this.name = 'jack'
@@ -356,7 +273,6 @@ Person.prototype.say = function() {
 
 // 创建实例
 const p = new Person()
-
 p.say()
 ```
 
@@ -364,8 +280,7 @@ ES6 中出现了 class 关键字，用来实现面向对象
 
 class 声明不允许再次声明已经存在的类，否则将会抛出一个类型错误
 class 声明不可以提升
-
-class 仅仅是一个语法结构（语法糖），本质还是函数，实现继承本质上还是通过构造函数+原型的方式
+class 仅仅是一个语法结构（语法糖），本质还是函数，实现继承本质上还是通过构造函数 + 原型的方式
 
 ```js
 class Person {}
@@ -375,11 +290,9 @@ Person instanceof Function // true
 类声明
 
 ```js
-// 基本使用
 // 创建 Person 类
 class Person {
-  // 类的构造函数
-  // constructor 固定名称
+  // 类的构造函数 constructor 固定名称
   constructor(name, age) {
     this.name = name
     this.age = age
@@ -393,8 +306,8 @@ class Person {
 
 // 创建实例
 const p = new Person('tom', 18)
-console.log(p)
-p.say()
+console.log(p) // Person {name: 'tom', age: 18}
+p.say() // tom 18
 ```
 
 类表达式
@@ -409,9 +322,9 @@ new Person() // Person {}
 // 命名类
 let Person = class A {}
 new Person() // A {}
-new A() //A {}
+new A() // Uncaught ReferenceError: A is not defined
 console.log(Person) // class A {}
-console.log(A) // A is not defined
+console.log(A) // Uncaught ReferenceError: A is not defined
 ```
 
 类表达式也不存在提升
@@ -441,7 +354,7 @@ console.log(Point.distance(p1, p2))
 
 继承：要实现至少需要两个 class（子类 和 父类），子类继承自父类，继承后，子类就可以使用父类中的属性或方法
 
-```javascript
+```js
 // 继承
 
 // 父类
@@ -451,24 +364,24 @@ class Person {
   }
 
   say() {
-    console.log('父类中的 say 方法')
+    console.log('父类中的 say 方法', this.name)
   }
 }
 
 // 子类
 class Chinese extends Person {
-  constructor() {
+  constructor(name, age) {
     // 子类中使用 constructor 必须手动调用 super
     // super 表示父类的构造函数
     // 先调用 super() 在使用 this
     super()
-    this.name = 'ls'
-    this.age = 18
+    this.name = name
+    this.age = age
   }
 }
 
 // 创建实例
-const c = new Chinese()
+const c = new Chinese('zs', 18)
 console.log(c)
 c.say() // 父类中的方法
 ```
@@ -491,7 +404,6 @@ console.log(p, q) // 10 20
 
 // 将剩余属性赋值给一个变量
 var { a, b, ...rest } = { a: 10, b: 20, c: 30, d: 40 }
-// ;({ a, b, ...rest } = { a: 10, b: 20, c: 30, d: 40 })
 console.log(a, b, rest) // 10 20 {c: 30, d: 40}
 
 // 提供默认值
@@ -549,16 +461,14 @@ console.log(a, b, c, d) // l o v e
 
 扩展运算符（spread）是三个点（...）。作用：将一个数组转为用逗号分隔的参数序列
 
-```javascript
+```js
 var arr = ['a', 'b', 'c']
-console.log(...arr)
-// 上面这句代码相当于：
-console.log(arr[0], arr[1], arr[2])
+console.log(...arr) // a b c
 ```
 
 应用
 
-```javascript
+```js
 // 数组深拷贝
 var arr = [1, 2, 3]
 var arr1 = [...arr]
@@ -577,11 +487,11 @@ console.log(arr3) // [ 'l', 'o', 'v', 'e' ]
 对象展开
 
 ```js
-let defaults = { food: 'spicy', price: '$$', ambiance: 'noisy' }
-let search = { ...defaults, food: 'rich' } // { food: "rich", price: "$$", ambiance: "noisy" } 后面的属性会覆盖前面的属性
+let defaults = { name: 'zs', age: 18 }
+let search = { ...defaults, age: 12 } // { name: 'zs', age: 12 } 后面的属性会覆盖前面的属性
 ```
 
-对象展开仅包含对象自身的可枚举属性。 大体上是说当你展开一个对象实例时，你会丢失其方法
+对象展开仅包含对象自身的可枚举属性
 
 ```js
 class C {
