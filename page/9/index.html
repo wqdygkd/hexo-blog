@@ -177,7 +177,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">154</span>
+          <span class="site-state-item-count">156</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -221,6 +221,248 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/450.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/450.html" class="post-title-link" itemprop="url">网站配置SSL后无法访问解决办法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-02-04" itemprop="dateCreated datePublished" datetime="2020-02-04T14:04:31+00:00">2020-02-04</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/wordpress/" itemprop="url" rel="index"><span itemprop="name">wordpress</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ol>
+<li><p>开放 443 端口</p>
+</li>
+<li><p>域名证书有效且配置正确</p>
+</li>
+<li><p>ssl配置问题</p>
+</li>
+</ol>
+<p>正确启用HTTP/2支持，正确配置ssl_protocols和ssl_ciphers</p>
+<p>启用HTTP2并非只在 listen 443 ssl 配置中加入http2就行了，它主要需要两个地方的设置支持：ssl_protocols 和 ssl_ciphers 。</p>
+<p>修改如下配置以向后兼容</p>
+<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">listen 443 ssl http2;</span><br><span class="line"><span class="deletion">- ssl_protocols TLSv1.1 TLSv1.2 TLSv1.3;</span></span><br><span class="line"><span class="addition">+ ssl_protocols TLSv1 TLSv1.1 TLSv1.2 TLSv1.3;</span></span><br><span class="line">ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;</span><br></pre></td></tr></table></figure>
+
+<p>在线 http2 检测</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cucm9zZWhvc3RpbmcuY29tL25ldHdvcmstdG9vbHMvaHR0cDItc3VwcG9ydC5odG1s">https://www.rosehosting.com/network-tools/http2-support.html</span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9teXNzbC5jb20vaHR0cDJfY2hlY2suaHRtbA==">https://myssl.com/http2_check.html</span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuc3NsbGFicy5jb20vc3NsdGVzdC9hbmFseXplLmh0bWw=">https://www.ssllabs.com/ssltest/analyze.html</span></p>
+<p><img data-src="/wp-content/uploads/2020/03/HTTP2-test.png"><br><img data-src="/wp-content/uploads/2020/03/HTTP2-test-1.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1002.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/1002.html" class="post-title-link" itemprop="url">vue-awesome-swiper 设置 loop：true不会自动滚动的问题</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-01-20" itemprop="dateCreated datePublished" datetime="2020-01-20T13:11:58+00:00">2020-01-20</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>vue-awesome-swiper: 基于 Swiper4、适用于 Vue 的轮播组件，支持服务端渲染和单页应用</p>
+<p>github地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3N1cm1vbi1jaGluYS92dWUtYXdlc29tZS1zd2lwZXI=">https://github.com/surmon-china/vue-awesome-swiper</span></p>
+<p>官网：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuc3VybW9uLm1lL3Z1ZS1hd2Vzb21lLXN3aXBlci8=">https://github.surmon.me/vue-awesome-swiper/</span></p>
+<p>问题：</p>
+<p>设置loop：true， autoplay：2000 不会自动滚动</p>
+<p>解决<br>在 swiper 上添加 <code>v-if=&quot;swiperSlides.length&gt;0&quot;</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;swiper v-<span class="keyword">if</span>=<span class="string">&quot;swiperSlides.length&gt;0&quot;</span> :options=<span class="string">&quot;swiperOption&quot;</span> ref=<span class="string">&quot;mySwiper&quot;</span>&gt;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1145.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/1145.html" class="post-title-link" itemprop="url">echarts 柱状图基本配置</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-01-20" itemprop="dateCreated datePublished" datetime="2020-01-20T00:00:21+00:00">2020-01-20</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">monthOptions: &#123;</span><br><span class="line">  <span class="attr">color</span>: [<span class="string">&#x27;#FFD058&#x27;</span>], <span class="comment">// 设置柱的颜色 会被 series itemStyle color 覆盖</span></span><br><span class="line">  <span class="attr">xAxis</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">data</span>: [<span class="string">&#x27;报备组数&#x27;</span>, <span class="string">&#x27;来访组数&#x27;</span>, <span class="string">&#x27;大定套数&#x27;</span>, <span class="string">&#x27;草签套数&#x27;</span>, <span class="string">&#x27;正签套数&#x27;</span>], <span class="comment">// x轴</span></span><br><span class="line">      <span class="attr">axisLabel</span>: &#123;</span><br><span class="line">        <span class="attr">inside</span>: <span class="literal">false</span>, <span class="comment">// 在外部显示</span></span><br><span class="line">        <span class="attr">textStyle</span>: &#123; <span class="comment">// 设置样式</span></span><br><span class="line">          <span class="attr">color</span>: <span class="string">&#x27;rgba(255,255,255,0.5)&#x27;</span>,</span><br><span class="line">          <span class="attr">fontSize</span>: <span class="number">15</span>,</span><br><span class="line">          <span class="attr">fontFamily</span>: <span class="string">&#x27;PingFang-SC-Regular,PingFang-SC&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">axisTick</span>: &#123; <span class="attr">show</span>: <span class="literal">false</span> &#125;, <span class="comment">// x轴线上的分割点</span></span><br><span class="line">      <span class="attr">axisLine</span>: &#123; <span class="attr">show</span>: <span class="literal">false</span> &#125;<span class="comment">// x轴线</span></span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">yAxis</span>: &#123;</span><br><span class="line">    <span class="attr">axisLine</span>: &#123; <span class="attr">show</span>: <span class="literal">false</span> &#125;,</span><br><span class="line">    <span class="attr">axisTick</span>: &#123; <span class="attr">show</span>: <span class="literal">false</span> &#125;,</span><br><span class="line">    <span class="attr">axisLabel</span>: &#123;</span><br><span class="line">      <span class="attr">formatter</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="string">&#x27;&#x27;</span> &#125; <span class="comment">// 去掉y轴显示数字</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">splitLine</span>: &#123; <span class="attr">show</span>: <span class="literal">false</span> &#125; <span class="comment">// 水平线</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">grid</span>: &#123; <span class="comment">// 间距</span></span><br><span class="line">    <span class="attr">left</span>: <span class="string">&#x27;10%&#x27;</span>,</span><br><span class="line">    <span class="attr">right</span>: <span class="string">&#x27;10%&#x27;</span>,</span><br><span class="line">    <span class="attr">bottom</span>: <span class="string">&#x27;15%&#x27;</span>,</span><br><span class="line">    <span class="attr">top</span>: <span class="string">&#x27;15%&#x27;</span>,</span><br><span class="line">    <span class="attr">containLabel</span>: <span class="literal">true</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">series</span>: [</span><br><span class="line">    &#123; <span class="comment">// 用于显示阴影</span></span><br><span class="line">      <span class="attr">type</span>: <span class="string">&#x27;bar&#x27;</span>,</span><br><span class="line">      <span class="attr">itemStyle</span>: &#123;</span><br><span class="line">        <span class="attr">color</span>: <span class="string">&#x27;rgba(255,255,255,0.08)&#x27;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">barGap</span>: <span class="string">&#x27;-100%&#x27;</span>,</span><br><span class="line">      <span class="comment">// barCategoryGap: &#x27;25%&#x27;,</span></span><br><span class="line">      <span class="attr">barWidth</span>: <span class="string">&#x27;15%&#x27;</span>,</span><br><span class="line">      <span class="attr">data</span>: [<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>]</span><br><span class="line">      <span class="comment">// animation: false</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123; <span class="comment">// 正常数据</span></span><br><span class="line">      <span class="attr">name</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">      <span class="attr">type</span>: <span class="string">&#x27;bar&#x27;</span>,</span><br><span class="line">      <span class="attr">barWidth</span>: <span class="string">&#x27;15%&#x27;</span>,</span><br><span class="line">      <span class="attr">data</span>: [],</span><br><span class="line">      <span class="attr">itemStyle</span>: &#123; <span class="comment">// 上方显示数值</span></span><br><span class="line">        <span class="attr">normal</span>: &#123;</span><br><span class="line">          <span class="attr">label</span>: &#123;</span><br><span class="line">            <span class="attr">formatter</span>: <span class="function"><span class="keyword">function</span> (<span class="params">val</span>) </span>&#123;</span><br><span class="line">              <span class="keyword">return</span> formate(val.value)</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">show</span>: <span class="literal">true</span>, <span class="comment">// 开启显示</span></span><br><span class="line">            <span class="attr">position</span>: <span class="string">&#x27;top&#x27;</span>, <span class="comment">// 在上方显示</span></span><br><span class="line">            <span class="attr">textStyle</span>: &#123; <span class="comment">// 数值样式</span></span><br><span class="line">              <span class="attr">color</span>: <span class="string">&#x27;#FFD058&#x27;</span>,</span><br><span class="line">              <span class="attr">fontSize</span>: <span class="number">15</span>,</span><br><span class="line">              <span class="attr">fontFamily</span>: <span class="string">&#x27;PingFang-SC-Regular,PingFang-SC&#x27;</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">animationDuration</span>: <span class="number">2000</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -809,272 +1051,6 @@
 <p>此时 highlight 脚本已经生效，接下来就是应用 highlight 样式</p>
 <h3 id="应用-highlight-样式"><a href="#应用-highlight-样式" class="headerlink" title="应用 highlight 样式"></a>应用 highlight 样式</h3><p>你可以选择将下载好的 css 文件打开，将样式拷贝到 /libs/css/main.css 文件中</p>
 <p>也可以在 <code>wordpress后台-外观-自定义-添加额外css</code> 中为主题定义样式</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/249.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/249.html" class="post-title-link" itemprop="url">Date对象使用及常用的时间格式化代码块</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2019-12-10" itemprop="dateCreated datePublished" datetime="2019-12-10T16:16:04+00:00">2019-12-10</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="Date-对象"><a href="#Date-对象" class="headerlink" title="Date 对象"></a>Date 对象</h2><h2 id="整理一些时间格式化的方法"><a href="#整理一些时间格式化的方法" class="headerlink" title="整理一些时间格式化的方法"></a>整理一些时间格式化的方法</h2><p>1.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 时间格式化</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;date&#125;</span> </span>timeStamp 要格式化的时间对象</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;string&#125;</span> </span>2019年10月31日 16:22</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">format_date</span>(<span class="params">timeStamp</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>(timeStamp)</span><br><span class="line">  <span class="keyword">return</span> date.getFullYear() + <span class="string">&#x27;年&#x27;</span> + prefix_zero(date.getMonth() + <span class="number">1</span>) + <span class="string">&#x27;月&#x27;</span> + prefix_zero(date.getDate()) + <span class="string">&#x27;日 &#x27;</span> + prefix_zero(date.getHours()) + <span class="string">&#x27;:&#x27;</span> + prefix_zero(date.getMinutes())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 数字格式化</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> </span>num 要格式化的数值</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;string&#125;</span> </span>把小于10的数值前面加上0</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">prefix_zero</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> num &gt;= <span class="number">10</span> ? num : <span class="string">&#x27;0&#x27;</span> + num</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>2.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 昨天的字符串格式时间</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;string&#125;</span> </span>返回当前时间 - 1天</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getYesterday</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line">  d.setDate(d.getDate() - <span class="number">1</span>)</span><br><span class="line">  <span class="keyword">return</span> d.toLocaleString()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>3.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 明天的字符串格式时间</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;string&#125;</span> </span>返回当前时间 + 1天</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> getTomorrow = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line">  d.setDate(d.getDate() + <span class="number">1</span>)</span><br><span class="line">  <span class="keyword">return</span> d.toLocalString()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>4.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获得本周的开始日期</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> </span>start 不传默认一周以周日开始 1 表示以周一开始</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;date&#125;</span> </span>timeStamp 时间戳</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getWeekDate</span>(<span class="params">start = <span class="number">0</span></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">&#x27;2019-12-15&#x27;</span>)</span><br><span class="line">  <span class="keyword">let</span> D = d.getDate()</span><br><span class="line">  <span class="keyword">if</span> (start == <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> d.setDate(D - d.getDay())</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> W = d.getDay() || <span class="number">6</span></span><br><span class="line">    <span class="keyword">return</span> d.setDate(D - W + <span class="number">1</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>5.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获得最近一周时间段</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;date[]&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getLastWeek</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line">  <span class="keyword">let</span> D = d.getDate()</span><br><span class="line">  d.setDate(D - <span class="number">7</span>)</span><br><span class="line">  <span class="keyword">return</span> [d, <span class="keyword">new</span> <span class="built_in">Date</span>()]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>6.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获得某月的天数</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> </span>year 年</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> </span>month 月 从 0 开始</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span> </span>某月的天数, 不传参数为当月天数</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getMonthDays</span>(<span class="params">year, month</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line">  year = year || d.getFullYear()</span><br><span class="line">  month = month || d.getMonth()</span><br><span class="line">  <span class="keyword">var</span> monthStart = <span class="keyword">new</span> <span class="built_in">Date</span>(year, month, <span class="number">1</span>)</span><br><span class="line">  <span class="keyword">var</span> monthEnd = <span class="keyword">new</span> <span class="built_in">Date</span>(year, month + <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">  <span class="keyword">var</span> days = (monthEnd - monthStart) / (<span class="number">1000</span> * <span class="number">60</span> * <span class="number">60</span> * <span class="number">24</span>)</span><br><span class="line">  <span class="keyword">return</span> days</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>7.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获得本月的开始或结束日期</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> </span>isEnd 不传默认本周的开端日期 1 本周的结束日期</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;date&#125;</span> </span>timeStamp 时间戳</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getMonthDate</span>(<span class="params">isEnd = <span class="number">0</span></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line">  d.setDate(<span class="number">1</span>)</span><br><span class="line">  <span class="keyword">if</span> (isEnd) &#123;</span><br><span class="line">    d.setDate(d.getDate() + getMonthDays() - <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> d</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> d</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>8.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 倒计时时间格式化</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;date&#125;</span> </span>timeStamp 要格式化的时间对象</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;string&#125;</span></span></span></span><br><span class="line"><span class="comment"> * 若时间大于1天 返回 n天n小时n分钟</span></span><br><span class="line"><span class="comment"> * 若时间小于1天，大于1小时 返回 n小时n分钟n秒</span></span><br><span class="line"><span class="comment"> * 若时间小于1小时，大于1分钟 返回 n分钟n秒</span></span><br><span class="line"><span class="comment"> * 若时间小于1分钟 返回 n秒</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">format_time</span>(<span class="params">timeStamp</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> day = <span class="built_in">Math</span>.floor(timeStamp / (<span class="number">24</span> * <span class="number">3600</span> * <span class="number">1000</span>))</span><br><span class="line">  <span class="keyword">let</span> leave1 = timeStamp % (<span class="number">24</span> * <span class="number">3600</span> * <span class="number">1000</span>)</span><br><span class="line">  <span class="keyword">let</span> hours = <span class="built_in">Math</span>.floor(leave1 / (<span class="number">3600</span> * <span class="number">1000</span>))</span><br><span class="line">  <span class="keyword">let</span> leave2 = leave1 % (<span class="number">3600</span> * <span class="number">1000</span>)</span><br><span class="line">  <span class="keyword">let</span> minutes = <span class="built_in">Math</span>.floor(leave2 / (<span class="number">60</span> * <span class="number">1000</span>))</span><br><span class="line">  <span class="keyword">let</span> leave3 = leave2 % (<span class="number">60</span> * <span class="number">1000</span>)</span><br><span class="line">  <span class="keyword">let</span> seconds = <span class="built_in">Math</span>.floor(leave3 / <span class="number">1000</span>)</span><br><span class="line">  <span class="keyword">if</span> (day) <span class="keyword">return</span> day + <span class="string">&#x27;天&#x27;</span> + hours + <span class="string">&#x27;小时&#x27;</span> + minutes + <span class="string">&#x27;分&#x27;</span></span><br><span class="line">  <span class="keyword">if</span> (hours) <span class="keyword">return</span> hours + <span class="string">&#x27;小时&#x27;</span> + minutes + <span class="string">&#x27;分&#x27;</span> + seconds + <span class="string">&#x27;秒&#x27;</span></span><br><span class="line">  <span class="keyword">if</span> (minutes) <span class="keyword">return</span> minutes + <span class="string">&#x27;分&#x27;</span> + seconds + <span class="string">&#x27;秒&#x27;</span></span><br><span class="line">  <span class="keyword">if</span> (seconds) <span class="keyword">return</span> seconds + <span class="string">&#x27;秒&#x27;</span></span><br><span class="line">  <span class="keyword">return</span> <span class="string">&#x27;时间到！&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="dayjs-库"><a href="#dayjs-库" class="headerlink" title="dayjs 库"></a>dayjs 库</h2><p>轻量的处理时间和日期的 JavaScript 库</p>
-<p>参考文档 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2lhbWt1bi9kYXlqcy9ibG9iL2Rldi9kb2NzL3poLWNuL1JFQURNRS56aC1DTi5tZA==">github 中文文档</span></p>
-<p>在本页面打开控制台即可体验 dayjs 的 api</p>
-<script src="https://unpkg.com/dayjs"></script>
-
-<p>使用 dayjs 获取本周,上周,本月,上月,本季度,上季度,本年,去年时间</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// let date = dayjs(&#x27;2020-01-16&#x27;)</span></span><br><span class="line"><span class="keyword">let</span> date = dayjs()</span><br><span class="line"><span class="keyword">let</span> day = date.day() <span class="comment">// 1 星期</span></span><br><span class="line"><span class="keyword">let</span> currentWeekStart</span><br><span class="line"><span class="keyword">let</span> currentWeekEnd</span><br><span class="line"></span><br><span class="line"><span class="comment">// 本周</span></span><br><span class="line"><span class="keyword">if</span> (day &gt; <span class="number">0</span>) &#123;</span><br><span class="line">  currentWeekStart = date.startOf(<span class="string">&#x27;week&#x27;</span>).add(<span class="number">1</span>, <span class="string">&#x27;day&#x27;</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  currentWeekStart = date.startOf(<span class="string">&#x27;week&#x27;</span>).subtract(<span class="number">6</span>, <span class="string">&#x27;day&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line">currentWeekEnd = currentWeekStart.add(<span class="number">6</span>, <span class="string">&#x27;day&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 上周</span></span><br><span class="line"><span class="keyword">let</span> lastWeekStart = currentWeekStart.subtract(<span class="number">7</span>, <span class="string">&#x27;day&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> lastWeekEnd = currentWeekStart.subtract(<span class="number">1</span>, <span class="string">&#x27;day&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 本月 上月</span></span><br><span class="line"><span class="keyword">let</span> currentMonthStart = date.date(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">let</span> lastMonthStart = date.subtract(<span class="number">1</span>, <span class="string">&#x27;month&#x27;</span>).date(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">let</span> nextMonthStart = date.add(<span class="number">1</span>, <span class="string">&#x27;month&#x27;</span>).date(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">let</span> currentMonthEnd = nextMonthStart.subtract(<span class="number">1</span>, <span class="string">&#x27;day&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> lastMonthEnd = currentMonthStart.subtract(<span class="number">1</span>, <span class="string">&#x27;day&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 本季度,上季度</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 本年 去年</span></span><br><span class="line"><span class="keyword">let</span> currentYearStart = date.month(<span class="number">0</span>).date(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">let</span> currentYearEnd = date.month(<span class="number">11</span>).date(<span class="number">31</span>)</span><br><span class="line"><span class="keyword">let</span> lastYear = date.subtract(<span class="number">1</span>, <span class="string">&#x27;year&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> lastYearStart = date.subtract(<span class="number">1</span>, <span class="string">&#x27;year&#x27;</span>).month(<span class="number">0</span>).date(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">let</span> lastYearEnd = lastYearStart.month(<span class="number">11</span>).date(<span class="number">31</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> computedDate = &#123;</span><br><span class="line">  <span class="attr">currentWeekStart</span>: currentWeekStart.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  <span class="attr">currentWeekEnd</span>: currentWeekEnd.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  <span class="attr">lastWeekStart</span>: lastWeekStart.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  <span class="attr">lastWeekEnd</span>: lastWeekEnd.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  <span class="attr">currentMonthStart</span>: currentMonthStart.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  <span class="attr">currentMonthEnd</span>: currentMonthEnd.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  <span class="attr">lastMonthStart</span>: lastMonthStart.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  <span class="attr">lastMonthEnd</span>: lastMonthEnd.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  <span class="attr">currentYearStart</span>: currentYearStart.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  <span class="attr">currentYearEnd</span>: currentYearEnd.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  <span class="attr">lastYearStart</span>: lastYearStart.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  <span class="attr">lastYearEnd</span>: lastYearEnd.format(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(computedDate)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1656.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/1656.html" class="post-title-link" itemprop="url">js 不写行尾分号注意事项</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2019-11-01" itemprop="dateCreated datePublished" datetime="2019-11-01T14:36:34+00:00">2019-11-01</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>若行首为 <code>(</code>、<code>[</code>、<code>/</code>、<code>+</code>、<code>-</code>，会与上一行代码相接，此时需要在行首添加分号<br><code>++</code>、<code>--</code>在上下两行都不加分号的情况下，与下一行代码相接<br>return 语句在执行时会在末尾加分号</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/397.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/397.html" class="post-title-link" itemprop="url">+0 -0 Number.NaN NaN undefined null ''  相等性判断</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2019-10-28" itemprop="dateCreated datePublished" datetime="2019-10-28T22:12:33+00:00">2019-10-28</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="主要区分-0-和-0、NaN-和-NaN-在不同情况下的相等性区别"><a href="#主要区分-0-和-0、NaN-和-NaN-在不同情况下的相等性区别" class="headerlink" title="主要区分 +0 和 -0、NaN 和 NaN 在不同情况下的相等性区别"></a>主要区分 <code>+0</code> 和 <code>-0</code>、<code>NaN</code> 和 <code>NaN</code> 在不同情况下的相等性区别</h2><p><code>==</code> <code>===</code></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(+<span class="number">0</span> === -<span class="number">0</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">NaN</span> == <span class="literal">NaN</span>) <span class="comment">// false NaN 不与任何值相等，包括自身</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">undefined</span> == <span class="literal">null</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">undefined</span> === <span class="literal">null</span>) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">NaN</span> === <span class="literal">NaN</span>) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.NaN === <span class="literal">NaN</span>) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-
-<p>Object.is() 方法判断两个值是否是相同的值。比较时不会做类型转换，这与 <code>==</code> <code>===</code> 运算符的判定方式都不一样</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Object</span>.is(+<span class="number">0</span>, -<span class="number">0</span>) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">Object</span>.is(<span class="number">0</span>, -<span class="number">0</span>) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">Object</span>.is(<span class="number">0</span>, +<span class="number">0</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Object</span>.is(-<span class="number">0</span>, -<span class="number">0</span>) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.is(<span class="literal">undefined</span>, <span class="literal">undefined</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Object</span>.is(<span class="literal">null</span>, <span class="literal">null</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Object</span>.is(<span class="built_in">Number</span>.NaN, <span class="built_in">Number</span>.NaN) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Object</span>.is(<span class="built_in">Number</span>.NaN, <span class="literal">NaN</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Object</span>.is(<span class="literal">NaN</span>, <span class="literal">NaN</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Object</span>.is(<span class="literal">NaN</span>, <span class="number">0</span> / <span class="number">0</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-
-<p>在 Set， Map 内部，两个 NaN 是相等, +0 和 -0 也是相等的</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = [<span class="literal">NaN</span>, <span class="literal">NaN</span>, <span class="literal">undefined</span>, <span class="literal">undefined</span>, +<span class="number">0</span>, -<span class="number">0</span>, &#123;&#125;, &#123;&#125;]</span><br><span class="line"><span class="keyword">let</span> b = <span class="keyword">new</span> <span class="built_in">Set</span>(a) <span class="comment">// &#123;NaN, undefined, 0, &#123;&#125;, &#123;&#125;&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>总结：</p>
-<ul>
-<li>比较运算符中 <code>+0</code> 和 <code>-0</code> 是相等的、<code>NaN</code> 和 <code>NaN</code>是不等的</li>
-<li>Object.is() 方法中 <code>+0</code> 和 <code>-0</code> 是不相等的、<code>NaN</code> 和 <code>NaN</code>是相等的</li>
-<li>在 Set， Map 内部， <code>+0</code> 和 <code>-0</code> 是相等的、<code>NaN</code> 和 <code>NaN</code> 也是相等的</li>
-</ul>
 
       
     </div>

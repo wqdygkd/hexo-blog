@@ -177,7 +177,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">154</span>
+          <span class="site-state-item-count">156</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -221,6 +221,419 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1503.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/1503.html" class="post-title-link" itemprop="url">开启 windows 下 Ubuntu 子系统的 SSH 服务</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-05-25" itemprop="dateCreated datePublished" datetime="2020-05-25T00:00:00+00:00">2020-05-25</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 卸载openssh-client</span></span><br><span class="line">sudo apt-get remove openssh-client <span class="comment"># 卸载openssh-client并重新安装</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装ssh服务</span></span><br><span class="line">sudo apt-get install ssh</span><br><span class="line"><span class="comment"># 理论上包含了 openssh-server 和客户端 openssh-client，如果安装出现异常，请独立安装这两个</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改配置</span></span><br><span class="line">vi /etc/ssh/sshd_config</span><br><span class="line"></span><br><span class="line">Port = 22 <span class="comment"># 默认是22端口，如果和windows端口冲突或你想换成其他的否则不用动</span></span><br><span class="line"><span class="comment">#ListenAddress 0.0.0.0 # 如果需要指定监听的IP则去除最左侧的井号，并配置对应IP，默认即监听PC所有IP</span></span><br><span class="line">PermitRootLogin yes <span class="comment"># 如果你需要用 root 直接登录系统则此处改为 yes</span></span><br><span class="line">PasswordAuthentication yes <span class="comment"># 将 no 改为 yes 表示使用帐号密码方式登录</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置密码</span></span><br><span class="line">passwd root</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动 ssh 服务</span></span><br><span class="line">service ssh start</span><br><span class="line"><span class="comment"># sudo /etc/init.d/ssh start</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看 ssh 状态</span></span><br><span class="line">service ssh status</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>局域网内的其他终端无法连接: 不要忘了，还要配置防火墙开启端口才能被其他 PC 访问</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1472.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/1472.html" class="post-title-link" itemprop="url">AutoRclone 配合 Gclone 在 Google Drive 账号之间、谷歌团队盘之间快速拷贝、传输学习资料</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-05-23" itemprop="dateCreated datePublished" datetime="2020-05-23T19:00:56+00:00">2020-05-23</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="将实现的功能"><a href="#将实现的功能" class="headerlink" title="将实现的功能"></a>将实现的功能</h3><p>从本地服务器传输到 Google Team Drive<br>从他人分享的链接拷贝到 Google Team Drive<br>从一个 Google Team Drive 传输到另一个 Google Team Drive<br>以上都不受 750G 流量限制</p>
+<p>如果没有团队盘，可以参考<a href="https://wqdy.top/1207.html">这里</a>自助申请</p>
+<p>本文以 ubuntu 为例，当然直接在本地 Windows 上也是可以的</p>
+<h3 id="安装-Python3"><a href="#安装-Python3" class="headerlink" title="安装 Python3"></a>安装 Python3</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt-get install git python3 python3-pip -y</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>若出现如下问题</p>
+<p>Command “python setup.py egg_info” failed with error code 1 in /tmp/pip-build-bx50pf21/progress/<br>You are using pip version 8.1.1, however version 20.1.1 is available.<br>You should consider upgrading via the ‘pip install –upgrade pip’ command.</p>
+<p>解决：更新 pip3</p>
+<p><code>pip3 install --upgrade pip</code></p>
+</blockquote>
+<h3 id="安装-AutoRclone"><a href="#安装-AutoRclone" class="headerlink" title="安装 AutoRclone"></a>安装 AutoRclone</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/xyou365/AutoRclone &amp;&amp; <span class="built_in">cd</span> AutoRclone &amp;&amp; pip3 install -r requirements.txt</span><br></pre></td></tr></table></figure>
+
+<h3 id="生成-Service-Accounts"><a href="#生成-Service-Accounts" class="headerlink" title="生成 Service Accounts"></a>生成 Service Accounts</h3><p>打开链接：<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXJzLmdvb2dsZS5jb20vZHJpdmUvYXBpL3YzL3F1aWNrc3RhcnQvcHl0aG9u">https://developers.google.com/drive/api/v3/quickstart/python</span></p>
+<p>登陆 google 账号，点击 <code>Enable the Drive API</code>，在弹出的页面中勾选 yes ，点击 NEXT，</p>
+<p>稍等片刻，继续点击 CREATE，出现如下页面表示成功</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102201708.png"></p>
+<p>点击 <code>DOWNLOAD CLIENT CONFIGUTATION</code> 按钮，下载 <code>credentials.json</code> 文件，然后将下载的 <code>credentials.json</code> 放到 AutoRclone 目录下</p>
+<p>如果你用的是 Xshell 可以使用 rz 来上传文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt install lrzsz -y</span><br><span class="line">rz <span class="comment"># 回车会打开窗口，选择文件上传即可</span></span><br><span class="line">rz 文件 <span class="comment"># 下载文件</span></span><br></pre></td></tr></table></figure>
+
+<p>之后分三种情况</p>
+<p>1、之前没有创建过项目</p>
+<p>直接运行：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3 gen_sa_accounts.py --quick-setup 5</span><br></pre></td></tr></table></figure>
+
+<p>以上命令含义：创建 6 个项目（项目0到项目5），开启相关的服务，创建 600 个 service accounts，将 600 个 service accounts 的授权文件下载到 accounts 文件夹下面</p>
+<p>2、已有 N 个项目，需要创建新的</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3 gen_sa_accounts.py --quick-setup 2 --new-only</span><br></pre></td></tr></table></figure>
+
+<p>以上命令含义：额外创建 2 个项目（项目 N+1 到项目 N+2），开启相关的服务，创建 200 个 service accounts（2 个项目，每个项目 100 个），将 200 个 service accounts 的授权文件下载到 accounts 文件夹下面</p>
+<p>3、使用已有项目，不创建新的</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3 gen_sa_accounts.py --quick-setup -1</span><br></pre></td></tr></table></figure>
+
+<p>注意以上命令会覆盖掉已有的 service accounts</p>
+<p>我这里是第一种情况，运行 <code>python3 gen_sa_accounts.py --quick-setup 1</code>，创建两个项目</p>
+<blockquote>
+<p>出现如下报错</p>
+<p><code>/usr/local/lib/python3.5/dist-packages/requests/__init__.py:91: RequestsDependencyWarning: urllib3 (1.13.1) or chardet (3.0.4) doesn&#39;t match a supported version!</code></p>
+<p>解决方法，安装 requests 模块</p>
+<p><code>sudo pip3 install requests</code></p>
+</blockquote>
+<p>出现如下图</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102201740.png"></p>
+<p>打开链接，并登陆你的 Google 账号（提示不安全，不用管，一路允许）</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102201805.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102201823.png"></p>
+<p>得到授权代码</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102201844.png"></p>
+<p>复制生成的 code 到终端，回车</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102201900.png"></p>
+<p>如上图所示，显示<code>Press Enter to retry</code>, 原因是谷歌账号未开启 Service Usage API，复制提供的链接地址，到浏览器打开，开启 Service Usage API 服务</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102201955.png"></p>
+<p>启用成功后回车，等待完成</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202016.png"></p>
+<p>接着，你就会发现你的 AutoRclone 文件下面的 accounts 文件夹下会有很多的 json 文件。</p>
+<h3 id="将-service-accounts-加入-Google-Groups"><a href="#将-service-accounts-加入-Google-Groups" class="headerlink" title="将 service accounts 加入 Google Groups"></a>将 service accounts 加入 Google Groups</h3><blockquote>
+<p>可以直接将 service accounts 加入到Team Drive<br><code>python3 add_to_team_drive.py -d SharedTeamDriveSrcID</code><br>为了便于管理 service accounts，我们创建 Google Group，将 Google Group 邮箱添加到 Team Drive</p>
+</blockquote>
+<p>我们这一步需要将刚刚生成的数以百计的 Service Accounts 添加到 Google Group 中</p>
+<h4 id="创建-Google-Group"><a href="#创建-Google-Group" class="headerlink" title="创建 Google Group"></a>创建 Google Group</h4><p>打开链接：<span class="exturl" data-url="aHR0cHM6Ly9ncm91cHMuZ29vZ2xlLmNvbS8=">https://groups.google.com/</span> ，创建群组：</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202037.png"></p>
+<h4 id="批量提取-Service-Accounts"><a href="#批量提取-Service-Accounts" class="headerlink" title="批量提取 Service Accounts"></a>批量提取 Service Accounts</h4><blockquote>
+<p>如果是 GSuite Admin 账号，可以使用如下方式直接添加进群组</p>
+<ol>
+<li>将生成的json文件保存到 credentials 文件夹中</li>
+<li>在管理控制台中为您的组织创建组。创建群组后，您将拥有一个例如的地址<span class="exturl" data-url="bWFpbHRvOiYjeDczOyYjeDYxOyYjNjQ7JiMxMjE7JiN4NmY7JiMxMTc7JiN4NzI7JiMxMDA7JiMxMTE7JiN4NmQ7JiM5NzsmI3g2OTsmIzExMDsmIzQ2OyYjOTk7JiN4NmY7JiN4NmQ7">&#x73;&#x61;&#64;&#121;&#x6f;&#117;&#x72;&#100;&#111;&#x6d;&#97;&#x69;&#110;&#46;&#99;&#x6f;&#x6d;</span></li>
+<li>运行 <code>python3 add_to_google_group.py -g sa@yourdomain.com</code></li>
+</ol>
+</blockquote>
+<p>对于普通账号，生成 Service Accounts 后，直接运行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cat ~/AutoRclone/accounts/*.json | grep <span class="string">&quot;client_email&quot;</span> | awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span>| tr -d <span class="string">&#x27;,&quot;&#x27;</span> | sed <span class="string">&#x27;N;N;N;N;N;N;N;N;N;/^$/d;G&#x27;</span> &gt; ~/email.txt</span><br></pre></td></tr></table></figure>
+
+<p>运行后，会自动提取 Service Accounts 邮箱账户，并保存到 ~/email.txt 文件中，同时还很贴心地每 10 个邮箱账户就隔开一行，方便复制。</p>
+<h4 id="添加到-Google-Group"><a href="#添加到-Google-Group" class="headerlink" title="添加到 Google Group"></a>添加到 Google Group</h4><p>将 email.txt 文件下载到本地</p>
+<p>回到 Group 页面，右上角 管理成员：</p>
+<p>左侧 直接添加成员，将 Service Accounts 邮箱复制粘贴 10 个，点击 添加：<br>(注意每次只能添加 10 个，每 24 小时只能添加 100 个)</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202108.png"></p>
+<p>重复以上步骤，将 100 个邮箱添加进去</p>
+<h4 id="将-Google-Group-邮箱添加到-Team-Drive"><a href="#将-Google-Group-邮箱添加到-Team-Drive" class="headerlink" title="将 Google Group 邮箱添加到 Team Drive"></a>将 Google Group 邮箱添加到 Team Drive</h4><p>点击关于，找到群组邮箱：</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202125.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202138.png"></p>
+<p>复制下来，添加到 Google Team Drive 成员中</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202159.png"></p>
+<p>添加完成后，基本就完成所有设置了</p>
+<h3 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h3><p>首先将 service accounts 加入到目标 Team Drive</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/AutoRclone</span><br><span class="line"><span class="comment"># 将以下 SharedTeamDriveDstID 替换为你团队盘 ID</span></span><br><span class="line">python3 add_to_team_drive.py -d SharedTeamDriveDstID</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>查看团队盘 ID：</p>
+<p>打开你的团队盘，查看浏览器上的链接，比如：</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9kcml2ZS5nb29nbGUuY29tL2RyaXZlL3UvMi9mb2xkZXJzLzBBSUNZaDRYN0JralZVazlQVkE=">https://drive.google.com/drive/u/2/folders/0AICYh4X7BkjVUk9PVA</span></p>
+<p>以上链接中，0AICYh4X7BkjVUk9PVA 就是 ID</p>
+</blockquote>
+<p>回车后，再次回车：</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202221.png"></p>
+<h4 id="直接使用"><a href="#直接使用" class="headerlink" title="直接使用"></a>直接使用</h4><p>先安装 rclone</p>
+<p>rclone 安装教程可以参考 <a href="https://wqdy.top/1243.html">https://wqdy.top/1243.html</a></p>
+<ul>
+<li>Linux 环境</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl https://rclone.org/install.sh | sudo bash</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Windows 环境</li>
+</ul>
+<p>直接去 <span class="exturl" data-url="aHR0cHM6Ly9yY2xvbmUub3JnLw==">rclone 官网</span>下载 rclone，然后最好将 rclone.exe 所在目录加入系统环境变量</p>
+<p>如若将共享链接（<span class="exturl" data-url="aHR0cHM6Ly9kcml2ZS5nb29nbGUuY29tL2RyaXZlL3UvMi9mb2xkZXJzLzEwek92SWY4eUJtSXVaZ0JmQzNyY0RLV0hJbE9EWmpYRiVFRiVCQyU4OSVFOSU4NyU4QyVFNyU5QSU4NCVFNiU5NiU4NyVFNCVCQiVCNiVFNCVCRiU5RCVFNSVBRCU5OCVFNSU4OCVCMCVFOCU4NyVBQSVFNSVCNyVCMSVFNyU5QSU4NA==">https://drive.google.com/drive/u/2/folders/10zOvIf8yBmIuZgBfC3rcDKWHIlODZjXF）里的文件保存到自己的</span> Team Drive 中的 myfolder 文件夹中</p>
+<p>则命令为</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3 rclone_sa_magic.py -s 10zOvIf8yBmIuZgBfC3rcDKWHIlODZjXF -d 0AICYh4X7BkjVUk9PVA -dp myfolder -b 1 -e 600</span><br></pre></td></tr></table></figure>
+
+<p>详细的使用命令可以看这里：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3h5b3UzNjUvQXV0b1JjbG9uZSNzdGVwLTUtc3RhcnQteW91ci10YXNr">https://github.com/xyou365/AutoRclone#step-5-start-your-task</span></p>
+<h4 id="配合-Gclone-使用"><a href="#配合-Gclone-使用" class="headerlink" title="配合 Gclone 使用"></a>配合 Gclone 使用</h4><p>gclone 其实就是 rclone 的加强版，为 Google Drive 操作增加自动切换账户和命令行根目录 id 操作支持，其他功能与原版 rclone 相同</p>
+<h5 id="安装-gclone"><a href="#安装-gclone" class="headerlink" title="安装 gclone"></a>安装 gclone</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash &lt;(wget -qO- https://git.io/gclone.sh)</span><br></pre></td></tr></table></figure>
+
+<p>你可以选择将 gclone 重命名为 rclone，方便使用：cp /usr/bin/gclone /usr/bin/rclone</p>
+<p>以下内容都是以没有重命名为例，如果你进行了重命名，将以下命令中出现的 gclone 改为 rclone</p>
+<h5 id="配置-gclone"><a href="#配置-gclone" class="headerlink" title="配置 gclone"></a>配置 gclone</h5><p>首先需要先记下 /root/AutoRclone/accounts/ 中的其中一个文件：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ls /root/AutoRclone/accounts</span><br></pre></td></tr></table></figure>
+
+<p>回车后会显示很多 .json 后缀的文件名，复制其中一个文件名，记下文件路径，比如：</p>
+<p><code>/root/AutoRclone/accounts/0120894537c1c99c605fe240141af661b44d0c22.json</code></p>
+<p>然后进行 gclone 的配置</p>
+<p>gclone 在使用上跟 rclone 是一致的，配置过程也几乎一样，可以参考 <span class="exturl" data-url="aHR0cHM6Ly9yY2xvbmUub3JnL2RyaXZlLw==">https://rclone.org/drive/</span></p>
+<p>运行以下命令进行配置：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gclone config</span><br></pre></td></tr></table></figure>
+
+<p>配置过程中，需要注意的是，当出现 service_account_file 选项时，填入以上记下的 .json 文件</p>
+<p>当出现 service_account_file_path 时，填入 /root/AutoRclone/accounts/</p>
+<p>记住配置的 name：gdrive</p>
+<p>之后就配置完成了</p>
+<h5 id="使用-gclone-复制文件"><a href="#使用-gclone-复制文件" class="headerlink" title="使用 gclone 复制文件"></a>使用 gclone 复制文件</h5><p>作者 Github 提供的文档：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RvbndhL2djbG9uZS9ibG9iL21hc3Rlci9SRUFETUVfemgubWQ=">https://github.com/donwa/gclone/blob/master/README_zh.md</span></p>
+<p>复制共享链接文件到团队盘</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gclone copy gdrive:&#123;目录id&#125; gdrive:&#123;目录id&#125; --drive-server-side-across-configs -v</span><br></pre></td></tr></table></figure>
+
+<p>以上命令中:</p>
+<p>gdrive 是你配置 gclone 时设置的 name</p>
+<p>目录 id 是共享链接中链接中的最后部分，比如：<span class="exturl" data-url="aHR0cHM6Ly9kcml2ZS5nb29nbGUuY29tL2RyaXZlL3UvMi9mb2xkZXJzLzFnVkFQMjJVZzVmejBwU2U0VEhaVjEwMDc4VWJOYVRvYiVFRiVCQyU4QzFnVkFQMjJVZzVmejBwU2U0VEhaVjEwMDc4VWJOYVRvYg==">https://drive.google.com/drive/u/2/folders/1gVAP22Ug5fz0pSe4THZV10078UbNaTob，1gVAP22Ug5fz0pSe4THZV10078UbNaTob</span> 就是目录 id</p>
+<p>–drive-server-side-across-configs 用于谷歌盘之间传输时使用，不走服务器流量，传输速度也更快</p>
+<p>-v 用于查看传输过程的 ERROR，NOTICE 和 INFO 消息</p>
+<blockquote>
+<p> 日志级别<br>-q - 仅生成 ERROR 消息。<br>-v - 生成 ERROR，NOTICE 和 INFO 消息，推荐此项。<br>-vv - 生成 ERROR，NOTICE，INFO和 DEBUG 消息。<br>–log-level LEVEL - 标志控制日志级别。</p>
+<p>输出日志到文件<br>使用 –log-file=FILE 将 Error，Info 和 Debug 消息以及标准错误重定向到 FILE，这里的 FILE 是你指定的日志文件路径。</p>
+</blockquote>
+<p>命令使用示例：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gclone copy gdrive:&#123;18SukoSc0ni0nyU779w82eoo_deLKfbZR&#125; gdrive:&#123;1j4z3UH1thdNB8dOhTUgb0uRHxQaDYL1T&#125; --drive-server-side-across-configs -v</span><br></pre></td></tr></table></figure>
+
+<p>目标位置除了使用 id 外，也可以直接使用目录，比如：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gclone copy gdrive:&#123;18SukoSc0ni0nyU779w82eoo_deLKfbZR&#125; gdrive:movie/电影合集 --drive-server-side-across-configs -v</span><br></pre></td></tr></table></figure>
+
+<p>传输本地文件到团队盘</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gclone copy /root/Downloads/xxx gdrive:movie/电影合集 -v</span><br></pre></td></tr></table></figure>
+
+<h3 id="常见报错"><a href="#常见报错" class="headerlink" title="常见报错"></a>常见报错</h3><ul>
+<li>报错 <code>Failed to copy: failed to make directory: googleapi: Error 404: File not found: 1n-Ya6sagIrGskenJIzWcmKE1ATjxeqYx., notFound</code></li>
+</ul>
+<p>有可能是源日流量 10T 被榨干了</p>
+<ul>
+<li>报错 <code>googleapi: Error 403: The file limit for this shared drive has been exceeded., teamDriveFileLimitExceeded</code></li>
+</ul>
+<p>团队盘有限制 40w 文件/文件夹，回收站中的文件也计算在 40w 之内，可以新增团队盘，或删除小文件并删除回收站</p>
+<p>谷歌云端硬盘 API 不公开清空回收站的方法，但它有一个删除方法可以永久删除文件，而不经过回收站</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://developers.google.com/drive/v2/reference/files/delete</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1469.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/1469.html" class="post-title-link" itemprop="url">用 tMM 刮削影片信息，让 KODI、Jellyfin、PLEX、使用本地媒体电影墙！</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-05-20" itemprop="dateCreated datePublished" datetime="2020-05-20T23:09:12+00:00">2020-05-20</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/NAS/" itemprop="url" rel="index"><span itemprop="name">NAS</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/NAS/software/" itemprop="url" rel="index"><span itemprop="name">软件</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>当使用 pt 或者各种 bt 网站，下载了很多电影以后，使用 NAS 上的 plex 或者 jellyfin 刮削不出来海报怎么办？</p>
+<p>而今天就将推荐大家使用这款 tinyMediaManager 软件，该软件功能非常强大，可以刮削电影、电影系列、电视剧等，还可以重建nfo文件和批量重名文件、文件夹。支持Win/Mac/Linux。通过他自动匹配家里的电影资源库，让自己的，不论 KODI，还是 jellyfin，还是 emby、plex 都能用上完美的电影墙！</p>
+<h2 id="windows-下使用"><a href="#windows-下使用" class="headerlink" title="windows 下使用"></a>windows 下使用</h2><h3 id="下载和安装-tinyMediaManager"><a href="#下载和安装-tinyMediaManager" class="headerlink" title="下载和安装 tinyMediaManager"></a>下载和安装 tinyMediaManager</h3><p>下载地址 <span class="exturl" data-url="aHR0cHM6Ly93d3cudGlueW1lZGlhbWFuYWdlci5vcmcvZG93bmxvYWQv">https://www.tinymediamanager.org/download/</span></p>
+<p>如果提示需要 java 环境，下载安装即可</p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>打开软件</p>
+<p>当提示设置影片档案文件夹时，可以先不添加，直接下一步</p>
+<p>当提示元数据刮削的时候，选择 <code>themoviedb.org</code>，不管是电影和电视剧都选他即可</p>
+<p>打开设置，添加电影和电视剧目录，其他默认</p>
+<p>设置好了以后，点击更新</p>
+<p>全选已添加的影片信息，点击右键，搜索并刮削所选电影 - 自动匹配：会自动下载封面和影片信息</p>
+<p>其中有可能遇到需要您手动搜索的影片，手动搜索一下中文名字即可</p>
+<p>当影片完全搜索不出来的时候，也可以到豆瓣电影里面搜索一下这个影片，记住它的 imdb 链接的后面一串数字，比如：tt7286456</p>
+<p>直接搜索这个序列号，也是可以获取影片资料的</p>
+<p>电视剧的搜索方式和电影的搜索方式是一模一样的，而且电视剧会将每一集都进行信息整理和分类</p>
+<p>全部更新完毕后，可以看到影片的文件夹里观看，下载了 nfo 影片信息，海报封面图，logo 等</p>
+<h2 id="linux-下使用"><a href="#linux-下使用" class="headerlink" title="linux 下使用"></a>linux 下使用</h2><p>使用docker安装</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9odWIuZG9ja2VyLmNvbS9yL3JvbWFuY2luL3RpbnltZWRpYW1hbmFnZXI=">https://hub.docker.com/r/romancin/tinymediamanager</span></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker pull romancin/tinymediamanager</span><br><span class="line"></span><br><span class="line">docker run -d --name=tinymediamanager \</span><br><span class="line">-v /share/Container/tinymediamanager/config:/config \</span><br><span class="line">-v /home/gdrive:/media \</span><br><span class="line">-e GROUP_ID=0 -e USER_ID=0 -e TZ=Europe/Madrid \</span><br><span class="line">-p 5800:5800 \</span><br><span class="line">-p 5900:5900 \</span><br><span class="line">romancin/tinymediamanager:latest</span><br></pre></td></tr></table></figure>
+
+<p>浏览以 <code>http://your-host-ip:5800</code> 即可访问 TinyMediaManager GUI</p>
+<p>解决中文无法正常显示的问题</p>
+<p>添加 ENABLE_CJK_FONT=1 环境变量</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d --name=tinymediamanager \</span><br><span class="line">-v /share/Container/tinymediamanager/config:/config \</span><br><span class="line">-v /home/gdrive:/media \</span><br><span class="line">-e GROUP_ID=0 -e USER_ID=0 -e TZ=Europe/Madrid -e ENABLE_CJK_FONT=1 \</span><br><span class="line">-p 5800:5800 \</span><br><span class="line">-p 5900:5900 \</span><br><span class="line">romancin/tinymediamanager:latest</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用-Jellyfin-加载-tinyMediaManager-整理的影片"><a href="#使用-Jellyfin-加载-tinyMediaManager-整理的影片" class="headerlink" title="使用 Jellyfin 加载 tinyMediaManager 整理的影片"></a>使用 Jellyfin 加载 tinyMediaManager 整理的影片</h3><p>只需要设置 Jellyfin 媒体库，取消掉所有的刮削器即可（一定要取消掉，否则依然会无法显示影片信息，甚至连影片都可能不会出现在影视墙上）</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -927,259 +1340,6 @@
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line">define(<span class="string">&#x27;WP_SITEURL&#x27;</span>, <span class="string">&#x27;https://&#x27;</span> . <span class="variable">$_SERVER</span>[<span class="string">&#x27;HTTP_HOST&#x27;</span>]);</span><br><span class="line">define(<span class="string">&#x27;WP_HOME&#x27;</span>, <span class="string">&#x27;https://&#x27;</span> . <span class="variable">$_SERVER</span>[<span class="string">&#x27;HTTP_HOST&#x27;</span>]);</span><br></pre></td></tr></table></figure>
 
 <p>即可</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1289.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/1289.html" class="post-title-link" itemprop="url">magnetW一款开源的磁力链接聚合搜索工具--支持win/mac</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2020-04-25" itemprop="dateCreated datePublished" datetime="2020-04-25T14:01:16+00:00">2020-04-25</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/software/" itemprop="url" rel="index"><span itemprop="name">软件</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>开源地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3hpYW5kYW5pbi9tYWduZXRX">https://github.com/xiandanin/magnetW</span><br>下载地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3hpYW5kYW5pbi9tYWduZXRXL3JlbGVhc2Vz">https://github.com/xiandanin/magnetW/releases</span></p>
-<p>欢迎 star</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102203211.gif"></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1276.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/1276.html" class="post-title-link" itemprop="url">web 中媒体资源自动播放问题</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2020-04-23" itemprop="dateCreated datePublished" datetime="2020-04-23T18:40:33+00:00">2020-04-23</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>媒体资源 添加 autoplay 在移动端不会生效</p>
-<p>通过监听 scroll 事件 手动调用 play 方法会报如下错误：Uncaught (in promise) DOMException: play() failed because the user didn’t interact with the document first.</p>
-<p>ios 端报如下错误：Uncaught (in promise) NotAllowedError:The request is not allowed by the user agent or the platform in the current context, possibly because the user denied permission.</p>
-<h3 id="自动播放政策"><a href="#自动播放政策" class="headerlink" title="自动播放政策"></a>自动播放政策</h3><p>Chrome 浏览器的自动播放政策在 2018 年 4 月更改：</p>
-<ul>
-<li>始终允许静音自动播放。</li>
-<li>用户已与页面进行了交互（单击，点击等）。</li>
-</ul>
-<p>详细政策不一一列举了，访问 <code>https://goo.gl/xX8pDD</code> 查看详情</p>
-<h3 id="Web-开发人员的最佳做法"><a href="#Web-开发人员的最佳做法" class="headerlink" title="Web 开发人员的最佳做法"></a>Web 开发人员的最佳做法</h3><p>重点：永远不要假设视频会播放，并且在视频未实际播放时也不要显示暂停按钮。</p>
-<p>您应该始终查看 play 函数返回的 Promise，看它是否被拒绝：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> promise = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;video&#x27;</span>).play()</span><br><span class="line"><span class="keyword">if</span> (promise !== <span class="literal">undefined</span>) &#123;</span><br><span class="line">  promise</span><br><span class="line">    .then(<span class="function">(<span class="params">_</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// Autoplay started!</span></span><br><span class="line">    &#125;)</span><br><span class="line">    .catch(<span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// Autoplay was prevented.</span></span><br><span class="line">      <span class="comment">// Show a &quot;Play&quot; button so that user can start playback.</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>使用静音的自动播放功能，并让他们选择取消静音</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">id</span>=<span class="string">&quot;video&quot;</span> <span class="attr">muted</span> <span class="attr">autoplay</span>&gt;</span><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/936.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/936.html" class="post-title-link" itemprop="url">收集整理一些微软windows和office激活工具</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2020-04-22" itemprop="dateCreated datePublished" datetime="2020-04-22T22:34:05+00:00">2020-04-22</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/software/" itemprop="url" rel="index"><span itemprop="name">软件</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="HWIDGEN"><a href="#HWIDGEN" class="headerlink" title="HWIDGEN"></a>HWIDGEN</h2><p>是一款由国外 Nsane 论坛会员 s1ave77 制作的 Windows 10 数字权利激活工具，可以自动获取 Windows 10 数字许可证</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9zdXBwb3J0Lm1pY3Jvc29mdC5jb20vemgtY24vaGVscC8xMjQ0MC93aW5kb3dzLTEwLWFjdGl2YXRl">数字许可证</span>（在 Windows 10 版本 1511 中称为数字授权）是 Windows 10 的一种激活方法，该方法不需要输入产品密钥。在同一台电脑上主要硬件（应该是 CPU 和主板）不变化的情况下，重新安装系统时无需再次输入密钥，系统会在自动连接到微软服务器进行激活。</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102203303.png"></p>
-<h3 id="支持的-win10-版本："><a href="#支持的-win10-版本：" class="headerlink" title="支持的 win10 版本："></a>支持的 win10 版本：</h3><p>家庭版（HWID/KMS3）<br>家庭单语言版（HWID/KMS3）<br>专业版（HWID/KMS3）<br>专业教育版（HWID/KMS3）<br>专业工作站版（HWID/KMS3）<br>教育版（HWID/KMS3）<br>企业版（HWID/KMS3）<br>企业版 S 2015（HWID）<br>企业版 S 2016（HWID/KMS3）<br>企业版 S（KMS19™）</p>
-<h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuYWlvd2FyZXMuY29tL3Nob3d0aHJlYWQucGhwP3RpZD0yNDY=">https://www.aiowares.com/showthread.php?tid=246</span></p>
-<p>百度云：链接：<span class="exturl" data-url="aHR0cHM6Ly9wYW4uYmFpZHUuY29tL3MvMTExckpaSGFPRkpycE9kT0tYVzVWY3c=">https://pan.baidu.com/s/111rJZHaOFJrpOdOKXW5Vcw</span> 提取码：3o1c</p>
-<h2 id="W10-数字许可激活-C-版"><a href="#W10-数字许可激活-C-版" class="headerlink" title="W10 数字许可激活 C#版"></a>W10 数字许可激活 C#版</h2><p>是一款由吾爱破解论坛 angelkyo 编写的 Windows 10 数字权利激活工具，跟 HWIDGen 类似</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102203321.png"></p>
-<h3 id="下载地址-1"><a href="#下载地址-1" class="headerlink" title="下载地址"></a>下载地址</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuNTJwb2ppZS5jbi90aHJlYWQtNzQyODg0LTEtMS5odG1s">https://www.52pojie.cn/thread-742884-1-1.html</span></p>
-<p>百度云：链接：<span class="exturl" data-url="aHR0cHM6Ly9wYW4uYmFpZHUuY29tL3MvMU9zb1JfWnB1X0JGN20wUGx3OG1VRUE=">https://pan.baidu.com/s/1OsoR_Zpu_BF7m0Plw8mUEA</span> 提取码：a1ru</p>
-<h2 id="离线-KMS-激活工具-HEU-KMS-Activator-v19-6-2-正式版"><a href="#离线-KMS-激活工具-HEU-KMS-Activator-v19-6-2-正式版" class="headerlink" title="离线 KMS 激活工具 HEU KMS Activator v19.6.2 正式版"></a>离线 KMS 激活工具 HEU KMS Activator v19.6.2 正式版</h2><p>一款简洁高效的 KMS 激活工具，适用于 Windows、Office 及 VL 版本，无需联网即可一键激活，离线全自动激活软件，</p>
-<p>KMS 服务是微软公司对 Windows 以及 Office 等的批量授权服务，可以利用 KMS 激活局域网中的产品。而这款工具是利用在系统内部搭建 KMS 服务器，因此无论是 Windows 还是 Office 都可轻易进行激活。</p>
-<h3 id="功能："><a href="#功能：" class="headerlink" title="功能："></a>功能：</h3><p>Heu KMS 几乎支持所有 Vl 批量授权版本<br>可以通过搭建内置的 KMS 服务器进行手动激活产品<br>支持对 Windows 系统以及 Office 办公软件备份激活信息</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102203343.png"></p>
-<h3 id="下载地址-2"><a href="#下载地址-2" class="headerlink" title="下载地址"></a>下载地址</h3><p>百度云：链接：<span class="exturl" data-url="aHR0cHM6Ly9wYW4uYmFpZHUuY29tL3MvMWdBR3FFSEVNalVhNElEeDR0WU5YYWc=">https://pan.baidu.com/s/1gAGqEHEMjUa4IDx4tYNXag</span> 提取码：vrfc</p>
-<h2 id="Microsoft-激活脚本（MAS）："><a href="#Microsoft-激活脚本（MAS）：" class="headerlink" title="Microsoft 激活脚本（MAS）："></a>Microsoft 激活脚本（MAS）：</h2><p>一组脚本，用于使用 HWID / KMS38 /在线 KMS 激活方法激活 Microsoft 产品，重点是开放源代码，较少的防病毒检测和用户友好性。<br>原贴地址（需要登录）：<span class="exturl" data-url="aHR0cHM6Ly93d3cubnNhbmVmb3J1bXMuY29tL3RvcGljLzMxNjY2OC1taWNyb3NvZnQtYWN0aXZhdGlvbi1zY3JpcHRzLw==">https://www.nsaneforums.com/topic/316668-microsoft-activation-scripts/</span></p>
-<h3 id="开源地址"><a href="#开源地址" class="headerlink" title="开源地址"></a>开源地址</h3><p><span class="exturl" data-url="aHR0cHM6Ly9naXRsYWIuY29tL21hc3NncmF2ZS9taWNyb3NvZnQtYWN0aXZhdGlvbi1zY3JpcHRz">https://gitlab.com/massgrave/microsoft-activation-scripts</span><br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL21hc3NncmF2ZWwvTWljcm9zb2Z0LUFjdGl2YXRpb24tU2NyaXB0cw==">https://github.com/massgravel/Microsoft-Activation-Scripts</span></p>
-<h3 id="下载地址-3"><a href="#下载地址-3" class="headerlink" title="下载地址"></a>下载地址</h3><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL21hc3NncmF2ZWwvTWljcm9zb2Z0LUFjdGl2YXRpb24tU2NyaXB0cy9yZWxlYXNlcw==">https://github.com/massgravel/Microsoft-Activation-Scripts/releases</span></p>
-<p>百度云：链接：<span class="exturl" data-url="aHR0cHM6Ly9wYW4uYmFpZHUuY29tL3MvMUpLRVlBZmdKajltc2ZXODFiaGJLanc=">https://pan.baidu.com/s/1JKEYAfgJj9msfW81bhbKjw</span> 提取码：21di</p>
 
       
     </div>

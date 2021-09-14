@@ -177,7 +177,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">154</span>
+          <span class="site-state-item-count">156</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -221,6 +221,333 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/406.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/406.html" class="post-title-link" itemprop="url">input file 控件</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2019-09-27" itemprop="dateCreated datePublished" datetime="2019-09-27T22:18:32+00:00">2019-09-27</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="限制上传文件类型"><a href="#限制上传文件类型" class="headerlink" title="限制上传文件类型"></a>限制上传文件类型</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;File1&quot;</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">accept</span>=<span class="string">&quot;.xls,.doc,.txt,.pdf&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<details>
+<summary>文件类型</summary>
+<pre>
+.3gpp audio/3gpp， video/3gpp 3GPP Audio/Video
+.ac3 audio/ac3 AC3 Audio
+.asf allpication/vnd.ms-asf Advanced Streaming Format
+.au audio/basic AU Audio
+.css text/css Cascading Style Sheets
+.csv text/csv Comma Separated Values
+.doc application/msword MS Word Document
+.dot application/msword MS Word Template
+.dtd application/xml-dtd Document Type Definition
+.dwg image/vnd.dwg AutoCAD Drawing Database
+.dxf image/vnd.dxf AutoCAD Drawing Interchange Format
+.gif image/gif Graphic Interchange Format
+.htm text/html HyperText Markup Language
+.html text/html HyperText Markup Language
+.jp2 image/jp2 JPEG-2000
+.jpe image/jpeg JPEG
+.jpeg image/jpeg JPEG
+.jpg image/jpeg JPEG
+.js text/javascript， application/javascript JavaScript
+.json application/json JavaScript Object Notation
+.mp2 audio/mpeg， video/mpeg MPEG Audio/Video Stream， Layer II
+.mp3 audio/mpeg MPEG Audio Stream， Layer III
+.mp4 audio/mp4， video/mp4 MPEG-4 Audio/Video
+.mpeg video/mpeg MPEG Video Stream， Layer II
+.mpg video/mpeg MPEG Video Stream， Layer II
+.mpp application/vnd.ms-project MS Project Project
+.ogg application/ogg， audio/ogg Ogg Vorbis
+.pdf application/pdf Portable Document Format
+.png image/png Portable Network Graphics
+.pot application/vnd.ms-powerpoint MS PowerPoint Template
+.pps application/vnd.ms-powerpoint MS PowerPoint Slideshow
+.ppt application/vnd.ms-powerpoint MS PowerPoint Presentation
+.rtf application/rtf， text/rtf Rich Text Format
+.svf image/vnd.svf Simple Vector Format
+.tif image/tiff Tagged Image Format File
+.tiff image/tiff Tagged Image Format File
+.txt text/plain Plain Text
+.wdb application/vnd.ms-works MS Works Database
+.wps application/vnd.ms-works Works Text Document
+.xhtml application/xhtml+xml Extensible HyperText Markup Language
+.xlc application/vnd.ms-excel MS Excel Chart
+.xlm application/vnd.ms-excel MS Excel Macro
+.xls application/vnd.ms-excel MS Excel Spreadsheet
+.xlt application/vnd.ms-excel MS Excel Template
+.xlw application/vnd.ms-excel MS Excel Workspace
+.xml text/xml， application/xml Extensible Markup Language
+.zip aplication/zip Compressed Archive
+</pre>
+</details>
+
+<h2 id="清空-value"><a href="#清空-value" class="headerlink" title="清空 value"></a>清空 value</h2><p>使用 input file 进行文件上传时，重复选择相同文件时，change 事件不再触发<br>解决方式：手动将 file 的 value 值设置为空</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">id</span>=<span class="string">&quot;file&quot;</span> <span class="attr">accept</span>=<span class="string">&quot;image/gif,image/jpeg&quot;</span> @<span class="attr">change</span>=<span class="string">&quot;uploadFile($event)&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$event.target.value = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="comment">// 或</span></span><br><span class="line"><span class="keyword">var</span> file = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;file&#x27;</span>)</span><br><span class="line">file.value = <span class="string">&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/401.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/401.html" class="post-title-link" itemprop="url">浏览器切换标签离开当前页面时改变 title 提示</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2019-09-27" itemprop="dateCreated datePublished" datetime="2019-09-27T22:15:29+00:00">2019-09-27</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">&#x27;visibilitychange&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">document</span>.visibilityState == <span class="string">&#x27;hidden&#x27;</span>) &#123;</span><br><span class="line">    normal_title = <span class="built_in">document</span>.title</span><br><span class="line">    <span class="built_in">document</span>.title = <span class="string">&#x27;离开了&#x27;</span></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="built_in">document</span>.title = normal_title</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/419.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/419.html" class="post-title-link" itemprop="url">Chrome Developer Tools 使用技巧</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2019-08-25" itemprop="dateCreated datePublished" datetime="2019-08-25T22:27:03+00:00">2019-08-25</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="console-log"><a href="#console-log" class="headerlink" title="console.log()"></a>console.log()</h3><p>占位符 %o 它接受对象，%s 接受字符串，%d 表示小数或整数，%c CSS 值的占位符,对应的后面的参数必须是 CSS 语句</p>
+<p>如：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;%s 的价格是 %d 磅 %d 便士&#x27;</span>, <span class="string">&#x27;衬衫&#x27;</span>, <span class="number">9</span>, <span class="number">15</span>)</span><br></pre></td></tr></table></figure>
+
+<p>输出：衬衫的价格是 9 磅 15 便士</p>
+<p>如：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;I am a %cbutton&#x27;</span>, <span class="string">&#x27;color: white; background-color: orange; padding: 2px 5px; border-radius: 2px&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>输出：I am a <span style="color: white; background-color: orange; padding: 2px 5px; border-radius: 2px">button</span></p>
+<h3 id="console-dir"><a href="#console-dir" class="headerlink" title="console.dir()"></a>console.dir()</h3><h3 id="console-warn"><a href="#console-warn" class="headerlink" title="console.warn()"></a>console.warn()</h3><p>输出警告信息，字的颜色是黄色的，用于区分或过滤掉无用的输出</p>
+<h3 id="console-table"><a href="#console-table" class="headerlink" title="console.table()"></a>console.table()</h3><p>将数据以表格的形式输出，对于数据列表的输出更容易观察其数据结构，并且点击输出的表头可以对数据排序</p>
+<p>第二个可选参数是需要输出的字段。默认输出所有字段</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.table(data) <span class="comment">// 输出全部</span></span><br><span class="line"><span class="built_in">console</span>.table(data, [<span class="string">&#x27;id&#x27;</span>, <span class="string">&#x27;price&#x27;</span>]) <span class="comment">// 输出 data 中的 id price 字段</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="console-count"><a href="#console-count" class="headerlink" title="console.count()"></a>console.count()</h3><p>计数器，可以用来统计代码被执行的次数</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">  <span class="keyword">if</span> (i % <span class="number">2</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.count(<span class="string">&#x27;odds&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">odds: 1</span><br><span class="line">odds: 2</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.countReset() <span class="comment">// 可以使用它重置计数器。</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="console-time"><a href="#console-time" class="headerlink" title="console.time()"></a>console.time()</h3><p>是一个用于跟踪操作时间的专用函数，可以用来跟踪 js 的执行时间</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> a = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.time(<span class="string">&#x27;a&#x27;</span>)</span><br><span class="line">  <span class="comment">// do something</span></span><br><span class="line">  <span class="built_in">console</span>.timeEnd(<span class="string">&#x27;a&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.time()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">10</span>; ++i) &#123;</span><br><span class="line">  a()</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.timeEnd()</span><br></pre></td></tr></table></figure>
+
+<h3 id="选择-DOM-元素"><a href="#选择-DOM-元素" class="headerlink" title="选择 DOM 元素"></a>选择 DOM 元素</h3><ul>
+<li>在谷歌开发控制台中, 可以使用 <code>$(&#39;选择器&#39;)</code> 类似于 jquery 的方式选择 DOM 元素</li>
+</ul>
+<p><code>$(&#39;&#39;)</code> 等效于 <code>document.querySelector(&#39;&#39;)</code>，这将返回 DOM 中与选择器匹配的第一个元素，可以使用 <code>$$(tagName)</code> 或 <code>$$(.class)</code>，选择 DOM 的所有元素并返回一个数组。可以通过下标获取指定的元素，例如，<code>$$(&#39;.box&#39;)</code> 获取具有类 box 的所有元素，<code>$$(&#39;.box&#39;)[0]</code>和 <code>$$(&#39;.box&#39;)[1]</code>分别获取第一个和第二个元素</p>
+<ul>
+<li><code>inspect($(&#39;selector&#39;))</code> 将检查与选择器匹配的元素，并转到 Elements 选项卡</li>
+</ul>
+<ul>
+<li><code>$0</code>，<code>$1</code>，<code>$2</code> 等可以获取最近检查过的元素，即通过 <code>$0</code> 即可直接获取当前高亮的元素，<code>$1</code> 可以获取上一个高亮的元素</li>
+</ul>
+<h3 id="将页面转换为可编辑状态"><a href="#将页面转换为可编辑状态" class="headerlink" title="将页面转换为可编辑状态"></a>将页面转换为可编辑状态</h3><p>在 Console 中输入:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">document</span>.body.contentEditable = <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>之后页面中的内容即为可编辑状态，可以编辑 DOM 中的任何内容</p>
+<h3 id="查找与-DOM-中的元素关联的事件"><a href="#查找与-DOM-中的元素关联的事件" class="headerlink" title="查找与 DOM 中的元素关联的事件"></a>查找与 DOM 中的元素关联的事件</h3><p><code>getEventListeners($(&#39;selector&#39;))</code> 返回一个对象数组，其中包含绑定到该元素的所有事件。你可以展开对象来查看事件</p>
+<p>要找到特定事件的侦听器，可以这样做:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">getEventListeners($(<span class="string">&#x27;selector&#x27;</span>)).eventName[<span class="number">0</span>].listener</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将显示与 id 为 btn 的元素的单击事件关联的侦听器</span></span><br><span class="line">getEventListeners($(<span class="string">&#x27;btn&#x27;</span>)).click[<span class="number">0</span>].listener</span><br></pre></td></tr></table></figure>
+
+<p>或</p>
+<p>控制台 =&gt; Element =&gt; EventListeners</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL3EvMTAxMDAwMDAwMjg5Mjg5MA==">https://segmentfault.com/q/1010000002892890</span></p>
+<h3 id="监控事件"><a href="#监控事件" class="headerlink" title="监控事件"></a>监控事件</h3><p>监视绑定到 DOM 中特定元素的事件，然后在它们被触发后立即将它们记录在控制台中</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 监控绑定到 &#x27;#box&#x27; 元素的所有事件</span></span><br><span class="line">monitorEvents($(<span class="string">&#x27;#box&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">// 监控绑定到 &#x27;selector&#x27; 元素的 click 事件</span></span><br><span class="line">monitorEvents($(<span class="string">&#x27;#box&#x27;</span>), <span class="string">&#x27;click&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 监控绑定到 &#x27;selector&#x27; 元素的 click 和 focus 事件</span></span><br><span class="line">monitorEvents($(<span class="string">&#x27;#box&#x27;</span>), [<span class="string">&#x27;click&#x27;</span>, <span class="string">&#x27;focus&#x27;</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">// 停止监视</span></span><br><span class="line">unmonitorEvents($(<span class="string">&#x27;#box&#x27;</span>))</span><br></pre></td></tr></table></figure>
+
+<p>检索最后一个结果的值<br><code>$_</code> 表示控制台中最近一次返回的值</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1 + 1</span><br><span class="line">&gt; 2</span><br><span class="line"></span><br><span class="line">$_</span><br><span class="line">&gt; 2</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -936,273 +1263,6 @@
 <p>带参数的 Mixin</p>
 <p>mixin 还可以接受参数，这些参数在混合时传递给选择器块</p>
 <p>从上面的代码可以看出：mixin 其实就是一种嵌套，简单的讲，mixin 就是规则级别的复用。除了类选择器外，你也可以使用 id 选择器来定义 mixin。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/399.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/399.html" class="post-title-link" itemprop="url">高阶函数与柯里化</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2019-07-17" itemprop="dateCreated datePublished" datetime="2019-07-17T22:14:13+00:00">2019-07-17</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h2><p>高阶函数定义：将函数作为参数或者返回值是函数的函数<br>常见的 sort、reduce 等函数就是高阶函数</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">b</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a + b</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> sum = add(<span class="number">1</span>)(<span class="number">2</span>) <span class="comment">// 3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// es6写法</span></span><br><span class="line"><span class="keyword">let</span> add = <span class="function">(<span class="params">a</span>) =&gt;</span> <span class="function">(<span class="params">b</span>) =&gt;</span> a + b</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等价于</span></span><br><span class="line"><span class="keyword">let</span> add = <span class="function">(<span class="params">a, b</span>) =&gt;</span> a + b</span><br></pre></td></tr></table></figure>
-
-<h2 id="柯里化"><a href="#柯里化" class="headerlink" title="柯里化"></a>柯里化</h2><p>wiki 的柯里化定义: 把接受多个参数的函数变换成接受一个单一参数的函数，并且返回（接受余下的参数而且返回结果的）新函数的技术</p>
-<p>柯里化后，将第一个参数变量存在函数里面了(闭包)，然后本来需要 n 个参数的函数变成只需要剩下的（n - 1 个）参数就可以调用</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 形如</span></span><br><span class="line">;<span class="function">(<span class="params">a</span>) =&gt;</span> <span class="function">(<span class="params">b</span>) =&gt;</span> <span class="function">(<span class="params">c</span>) =&gt;</span> &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> add = <span class="function">(<span class="params">a</span>) =&gt;</span> <span class="function">(<span class="params">b</span>) =&gt;</span> a + b</span><br><span class="line"><span class="keyword">let</span> add1 = add(<span class="number">1</span>) <span class="comment">// a = 1; b =&gt; a + b</span></span><br><span class="line">add1(<span class="number">2</span>) <span class="comment">// 1 + 2 = 3</span></span><br></pre></td></tr></table></figure>
-
-<p>add1 函数等价于有了 a 这个闭包变量的 b = a + b</p>
-<p>add 函数按照 wiki 的定义可以理解成只柯里化了一次，n 个连续箭头组成的函数实际上就是柯里化了 n - 1 次<br>前 n - 1 次调用，其实是提前将参数传递进去，并没有调用最内层函数体，最后一次调用才会调用最内层函数体，并返回最内层函数体的返回值</p>
-<p>所以多个连续箭头函数就是多次柯里化的 es6 写法</p>
-<p><strong>应用：</strong></p>
-<p>函数懒执行<br>函数式编程</p>
-<p><strong>柯里化函数使用场景：</strong></p>
-<p>减少重复传递不变的参数</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">discount</span>(<span class="params">price, discount</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> price * discount</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 每次都要重复传入 discount 参数，可以将这个函数柯里化</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">discount</span>(<span class="params">price, discount</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">price</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> price * discount</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> tenPercentDiscount = discount(<span class="number">0.9</span>) <span class="comment">// 9折</span></span><br><span class="line"><span class="keyword">const</span> twentyPercentDiscount = discount(<span class="number">0.8</span>) <span class="comment">// 8折</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 现在每次计算价格只需要：</span></span><br><span class="line">tenPercentDiscount(<span class="number">500</span>) <span class="comment">// 500 * 0.9</span></span><br><span class="line">twentyPercentDiscount(<span class="number">1000</span>) <span class="comment">// 1000 * 0.8</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="柯里化实现"><a href="#柯里化实现" class="headerlink" title="柯里化实现"></a>柯里化实现</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">curry</span>(<span class="params">func</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">curried</span>(<span class="params">...args</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (args.length &gt;= func.length) &#123;</span><br><span class="line">      <span class="keyword">return</span> func.apply(<span class="built_in">this</span>, args)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">...args2</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> curried.apply(<span class="built_in">this</span>, args.concat(args2))</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a, b, c</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a + b + c</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> curriedSum = curry(sum)</span><br><span class="line"><span class="built_in">console</span>.log(curriedSum(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)) <span class="comment">// 6</span></span><br><span class="line"><span class="built_in">console</span>.log(curriedSum(<span class="number">1</span>)(<span class="number">2</span>, <span class="number">3</span>)) <span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="偏函数"><a href="#偏函数" class="headerlink" title="偏函数"></a>偏函数</h2>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/417.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/417.html" class="post-title-link" itemprop="url">常用命令</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2019-07-12" itemprop="dateCreated datePublished" datetime="2019-07-12T22:25:53+00:00">2019-07-12</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="快速删除-node-modules-文件夹"><a href="#快速删除-node-modules-文件夹" class="headerlink" title="快速删除 node_modules 文件夹"></a>快速删除 node_modules 文件夹</h2><p>系统命令</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># cmd</span></span><br><span class="line"><span class="comment"># /q 直接删除，不需要二次确认</span></span><br><span class="line"><span class="comment"># /s 允许删除非空目录</span></span><br><span class="line">rd /q/s node_modules</span><br><span class="line"></span><br><span class="line"><span class="comment"># powershell</span></span><br><span class="line">rmdir -r -Force node_modules</span><br><span class="line"><span class="comment"># 或</span></span><br><span class="line">rm -r -Force node_modules</span><br></pre></td></tr></table></figure>
-
-<p>使用 npm 包</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm i rimraf -g</span><br><span class="line">rimraf node_modules</span><br><span class="line"></span><br><span class="line">npm i -g dlf</span><br><span class="line">dlf node_modules</span><br></pre></td></tr></table></figure>
-
-<h2 id="一次执行多条命令"><a href="#一次执行多条命令" class="headerlink" title="一次执行多条命令"></a>一次执行多条命令</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># cmd 使用 &amp;&amp; 连接多个命令</span></span><br><span class="line"><span class="built_in">cd</span> vue &amp;&amp; npm i</span><br><span class="line"><span class="comment"># powershell 使用 | 连接多条命令</span></span><br><span class="line"><span class="built_in">cd</span> vue | npm i</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="删除一个文件夹内字节小于-10kb-的文件"><a href="#删除一个文件夹内字节小于-10kb-的文件" class="headerlink" title="删除一个文件夹内字节小于 10kb 的文件"></a>删除一个文件夹内字节小于 10kb 的文件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 输出所有大小小于10k的文件</span></span><br><span class="line"><span class="comment"># find ./ -size -10k &gt; NoNeedSite.txt</span></span><br><span class="line">find ./ -size -10k -<span class="built_in">exec</span> rm &#123;&#125; \</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/383.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/383.html" class="post-title-link" itemprop="url">Window.history 对象</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2019-07-12" itemprop="dateCreated datePublished" datetime="2019-07-12T13:38:26+00:00">2019-07-12</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Window.history 是一个只读属性，提供了操作浏览器会话历史（浏览器地址栏中访问的页面，以及当前页面中通过框架加载的页面）的接口。HTML5 引入了 history.pushState() 和 history.replaceState() 方法，它们分别可以添加和修改历史记录条目。这些方法通常与 window.onpopstate 配合使用。</p>
-<blockquote>
-<p>参考</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL0hpc3RvcnlfQVBJ">https://developer.mozilla.org/zh-CN/docs/Web/API/History_API</span></p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL1dpbmRvdy9oaXN0b3J5">https://developer.mozilla.org/zh-CN/docs/Web/API/Window/history</span></p>
-</blockquote>
-<p>在 history 中跳转</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">window</span>.history.back() <span class="comment">// 向后跳转 相当于点击浏览器回退按钮</span></span><br><span class="line"><span class="built_in">window</span>.history.forward() <span class="comment">// 向前跳转 相当于点击了前进按钮</span></span><br><span class="line"><span class="built_in">window</span>.history.go(-<span class="number">1</span>) <span class="comment">// 跳转 历史中的某一特定页面(go(-1) 等同于调用 back())</span></span><br></pre></td></tr></table></figure>
-
-<p>可以通过查看长度属性的值来确定的历史堆栈中页面的数量</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">window</span>.history.length</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">history.pushState(stateObject, title, url)</span><br></pre></td></tr></table></figure>
-
-<p>状态对象（stateObject）–stateObject 是一个 JavaScript 对象，通过 pushState 方法可以将 stateObject 内容传递到新页面中。</p>
-<p>标题（title）–几乎没有浏览器支持该参数，但是传一个空字符串会比较安全。</p>
-<p>地址（url）–新的历史记录条目的地址（可选，不指定的话则为文档当前 URL）；浏览器在调用 pushState()方法后不会加载该地址；传入的 URL 与当前 URL 应该是同源的，否则，pushState()会抛出异常。</p>
-<p>history.pushState()主要是在不刷新浏览器的情况下，创建新的浏览记录并插入浏览记录队列中</p>
-<p>假设在 <span class="exturl" data-url="aHR0cDovL21vemlsbGEub3JnL2Zvby5odG1s">http://mozilla.org/foo.html</span> 中执行了以下 JavaScript 代码:</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> stateObj = &#123;</span><br><span class="line">  <span class="attr">foo</span>: <span class="string">&#x27;bar&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">history.pushState(stateObj, <span class="string">&#x27;page 2&#x27;</span>, <span class="string">&#x27;bar.html&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>这将使浏览器地址栏显示为 <span class="exturl" data-url="aHR0cDovL21vemlsbGEub3JnL2Jhci5odG1sJUVGJUJDJThDJUU0JUJEJTg2JUU1JUI5JUI2JUU0JUI4JThEJUU0JUJDJTlBJUU1JUFGJUJDJUU4JTg3JUI0JUU2JUI1JThGJUU4JUE3JTg4JUU1JTk5JUE4JUU1JThBJUEwJUU4JUJEJUJE">http://mozilla.org/bar.html，但并不会导致浏览器加载</span> bar.html ，甚至不会检查 bar.html 是否存在</p>
-<p>history.replaceState() 的使用与 history.pushState() 非常相似，区别在于 replaceState() 是修改了当前的历史记录项而不是新建一个</p>
 
       
     </div>
