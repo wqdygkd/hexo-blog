@@ -53,8 +53,6 @@ date: 2018-09-12 22:28:19
 
 # Git
 
----
-
 [git 官方中文文档](https://git-scm.com/book/zh/v2)
 
 ## Git 核心概念
@@ -843,6 +841,28 @@ git bisect good
 ```
 
 参考：https://git-scm.com/book/zh/v2/Git-工具-使用-Git-调试
+
+
+## git filter-branch
+
+彻底删除不需要的文件
+
+```bash
+# 删除 ./node_modules 目录
+git filter-branch -f --prune-empty --index-filter "git rm --cached --ignore-unmatch -fr ./node_modules" -- --all
+```
+
+修改提交用户名
+
+```bash
+git filter-branch -f --env-filter "GIT_AUTHOR_NAME=your new author name" -- --all
+```
+
+修改提交邮箱
+
+```bash
+git filter-branch -f --env-filter "GIT_AUTHOR_EMAIL=your new author email" -- --all
+```
 
 ## other
 
