@@ -1821,8 +1821,7 @@
 <li>不需要网络就可以进行工作。</li>
 <li>当连接网络时，用户可以选择将自己的服务器与代码仓库进行同步。</li>
 </ol>
-<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><hr>
-<p><span class="exturl" data-url="aHR0cHM6Ly9naXQtc2NtLmNvbS9ib29rL3poL3Yy">git 官方中文文档</span></p>
+<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><p><span class="exturl" data-url="aHR0cHM6Ly9naXQtc2NtLmNvbS9ib29rL3poL3Yy">git 官方中文文档</span></p>
 <h2 id="Git-核心概念"><a href="#Git-核心概念" class="headerlink" title="Git 核心概念"></a>Git 核心概念</h2><ul>
 <li><p>**<code>WorkSpace</code>**：<br>工作区，即从仓库中 checkout 出来的，需要通过 Git 进行版本控制的目录和文件，可以简单的理解为在电脑里真实看到的文件</p>
 </li>
@@ -2073,6 +2072,15 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 开始二分查找问题</span></span><br><span class="line">git bisect start</span><br><span class="line"><span class="comment"># 标记当前有问题</span></span><br><span class="line">git bisect bad</span><br><span class="line"><span class="comment"># 标记哪个 commit 或 tag 时是没问题的</span></span><br><span class="line">git bisect good v1.0.0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 此时 git 会 checkout 两个点之间的某个 commit，</span></span><br><span class="line"><span class="comment"># 如果此时还是有问题：</span></span><br><span class="line">git bisect bad</span><br><span class="line"><span class="comment"># 如果此时没有问题：</span></span><br><span class="line">git bisect good</span><br><span class="line"><span class="comment"># 接着 git 会 checkout 下一个「有问题」和「没问题」之间的 commit</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 直到定位到问题，git 会提示：xxxxxxx is first bad commit</span></span><br></pre></td></tr></table></figure>
 
 <p>参考：<span class="exturl" data-url="aHR0cHM6Ly9naXQtc2NtLmNvbS9ib29rL3poL3YyL0dpdC0lRTUlQjclQTUlRTUlODUlQjctJUU0JUJEJUJGJUU3JTk0JUE4LUdpdC0lRTglQjAlODMlRTglQUYlOTU=">https://git-scm.com/book/zh/v2/Git-工具-使用-Git-调试</span></p>
+<h2 id="git-filter-branch"><a href="#git-filter-branch" class="headerlink" title="git filter-branch"></a>git filter-branch</h2><p>彻底删除不需要的文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 删除 ./node_modules 目录</span></span><br><span class="line">git filter-branch -f --prune-empty --index-filter <span class="string">&quot;git rm --cached --ignore-unmatch -fr ./node_modules&quot;</span> -- --all</span><br></pre></td></tr></table></figure>
+
+<p>修改提交用户名</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git filter-branch -f --env-filter <span class="string">&quot;GIT_AUTHOR_NAME=your new author name&quot;</span> -- --all</span><br></pre></td></tr></table></figure>
+
+<p>修改提交邮箱</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git filter-branch -f --env-filter <span class="string">&quot;GIT_AUTHOR_EMAIL=your new author email&quot;</span> -- --all</span><br></pre></td></tr></table></figure>
+
 <h2 id="other"><a href="#other" class="headerlink" title="other"></a>other</h2><h3 id="git-add-的时候遇到warning-LF-will-be-replaced-by-CRLF-in-……"><a href="#git-add-的时候遇到warning-LF-will-be-replaced-by-CRLF-in-……" class="headerlink" title="git add .的时候遇到warning: LF will be replaced by CRLF in ……`"></a>git add .<code>的时候遇到</code>warning: LF will be replaced by CRLF in ……`</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config core.autocrlf</span><br><span class="line">git config --global core.autocrlf <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># true：添加文件到git仓库时，git将其视为文本文件。他将把crlf变成lf</span></span><br><span class="line"><span class="comment"># false：line-endings将不做转换操作。文本文件保持原来的样子</span></span><br><span class="line"><span class="comment"># input：把crlf转成lf，当有人Check代码时还是lf方式。因此在window操作系统下，不要使用这个设置</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># CRLF (carriagereturnlinefeed)：表示句尾使用回车换行两个字符(即Windows编程时使用&quot;\r\n&quot;换行)</span></span><br><span class="line"><span class="comment"># LF(line feed)：表示句尾只使用换行(Unix Style)</span></span><br><span class="line"><span class="comment"># CR：表示只使用回车</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="Git-永久删除文件-包括历史记录"><a href="#Git-永久删除文件-包括历史记录" class="headerlink" title="Git 永久删除文件(包括历史记录)"></a>Git 永久删除文件(包括历史记录)</h3><p><span class="exturl" data-url="aHR0cHM6Ly9oZWxwLmdpdGh1Yi5jb20vYXJ0aWNsZXMvcmVtb3Zpbmctc2Vuc2l0aXZlLWRhdGEtZnJvbS1hLXJlcG9zaXRvcnkv">https://help.github.com/articles/removing-sensitive-data-from-a-repository/</span></p>
