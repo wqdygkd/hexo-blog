@@ -276,7 +276,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102204500.png"></p>
+          <p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102204500.png"></p>
 <h2 id="面向对象编程"><a href="#面向对象编程" class="headerlink" title="面向对象编程"></a>面向对象编程</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><blockquote>
 <p>Everything is object （万物皆对象）</p>
 </blockquote>
@@ -367,7 +367,7 @@
 <h3 id="构造函数、实例、原型三者之间的关系"><a href="#构造函数、实例、原型三者之间的关系" class="headerlink" title="构造函数、实例、原型三者之间的关系"></a>构造函数、实例、原型三者之间的关系</h3><p>构造函数：构造函数就是一个函数，配合 new 可以新建对象</p>
 <p>实例：通过构造函数实例化出来的对象我们把它叫做构造函数的实例。一个构造函数可以有很多实例</p>
 <p>原型：每一个构造函数都有一个属性<code>prototype</code>，函数的 prototype 属性值就是原型。通过构造函数创建出来的实例能够直接使用原型上的属性和方法</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102204519.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102204519.png"></p>
 <p>原型三角关系：</p>
 <ul>
 <li><p>构造函数和原型：配偶关系</p>
@@ -394,7 +394,7 @@
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> Person()</span><br><span class="line"><span class="comment">// p ==&gt; Person.prototype  ==&gt; Object.prototype ==&gt; null</span></span><br><span class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>()</span><br><span class="line"><span class="comment">// o ==&gt; Object.prototype ==&gt; null</span></span><br><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>()</span><br><span class="line"><span class="comment">// arr ==&gt; Array.prototype ==&gt; Object.prototype ==&gt; null</span></span><br><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line"><span class="comment">// date ==&gt; Date.prototype ==&gt; Object.prototype ==&gt; null</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Math 是个内置对象，不是个构造函数</span></span><br><span class="line"><span class="comment">// Math ==&gt; Object.prototype ==&gt; null</span></span><br></pre></td></tr></table></figure>
 
 <p>总结：Object.prototype 是原型链的尽头，Object.prototype 的原型是 null</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102204539.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102204539.png"></p>
 <h3 id="属性查找原则"><a href="#属性查找原则" class="headerlink" title="属性查找原则"></a>属性查找原则</h3><p><strong>属性搜索（查找）原则： 沿着原型链进行查找</strong></p>
 <ol>
 <li>首先在当前对象上查找是否有该属性，如果有，直接返回属性值</li>
@@ -634,7 +634,7 @@
 </blockquote>
 <h4 id="函数的原型链结构"><a href="#函数的原型链结构" class="headerlink" title="函数的原型链结构"></a>函数的原型链结构</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 内部：var Person = new Function()</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="comment">// Person 实例对象的原型链：</span></span><br><span class="line"><span class="comment">// Person ==&gt; Function.prototype ==&gt; Object.prototype ==&gt; null</span></span><br><span class="line"><span class="comment">// Function.prototype 原型类型是个函数</span></span><br><span class="line"><span class="built_in">console</span>.dir(<span class="built_in">Function</span>.prototype)</span><br></pre></td></tr></table></figure>
 
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102204558.jpeg"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102204558.jpeg"></p>
 <h4 id="Function-prototype-成员"><a href="#Function-prototype-成员" class="headerlink" title="Function.prototype 成员"></a>Function.prototype 成员</h4><ul>
 <li>arguments：获取函数的实参，已经被废弃了，现在推荐的做法是使用函数内部可用的  <code>arguments</code>对象来访问函数的实参<ul>
 <li>（废弃的意思：已经从 Web 标准中删除，虽然一些浏览器目前仍然支持它，但也许会在未来的某个时间停止支持，请尽量不要使用该特性）</li>
@@ -655,8 +655,8 @@
 <h4 id="完整版原型链"><a href="#完整版原型链" class="headerlink" title="完整版原型链"></a>完整版原型链</h4><blockquote>
 <p>绘制完整版原型链的目的是辅助大家理解 js 中对象的继承关系</p>
 </blockquote>
-<p>图一<br><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102204647.png"></p>
-<p>图二<br><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102204701.jpeg"></p>
+<p>图一<br><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102204647.png"></p>
+<p>图二<br><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102204701.jpeg"></p>
 <p>总结：</p>
 <ol>
 <li>所有函数都是 new Function 创建出来的，因此 <code>所有函数.__proto__</code> 都是 <code>Function.prototype</code></li>
@@ -2073,7 +2073,7 @@
 <h1 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h1><blockquote>
 <p>BOM（Browser Object Model）：浏览器对象模型，提供了一套操作浏览器功能的工具</p>
 </blockquote>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102205413.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102205413.png"></p>
 <p><strong>重点</strong> ：定时器、 offset 系列</p>
 <h2 id="window"><a href="#window" class="headerlink" title="window"></a><code>window</code></h2><ul>
 <li>window 对象是一个全局对象，也可以说是 JavaScript 中的顶级对象</li>
@@ -2218,7 +2218,7 @@
 </ul>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">document</span>.onmousemove = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(e.clientX, e.clientY)</span><br><span class="line">  <span class="built_in">console</span>.log(e.pageX, e.pageY)</span><br><span class="line">  <span class="built_in">console</span>.log(e.screenX, e.screenY)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102205438.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102205438.png"></p>
 <p><strong>[案例 : 拖拽案例]</strong></p>
 <h4 id="键盘码"><a href="#键盘码" class="headerlink" title="键盘码"></a>键盘码</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 键盘按下的那个键的键盘码</span></span><br><span class="line">e.keyCode</span><br></pre></td></tr></table></figure>
 
@@ -2319,7 +2319,7 @@
 <li>获取到的是字符串，需要转换</li>
 </ul>
 </blockquote>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102205502.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102205502.png"></p>
 <h3 id="scroll-系列"><a href="#scroll-系列" class="headerlink" title="scroll 系列"></a>scroll 系列</h3><blockquote>
 <p>scroll 系列是用来获取<strong>盒子内容的大小和位置</strong></p>
 <p>scroll 系列主要有 : scrollWidth、scrollHeight、scrollLeft、scrollTop</p>
@@ -2349,7 +2349,7 @@
 <li><p>scrollY：文档在垂直方向已滚动的像素值<br>pageYOffset 属性是 scrollY 属性的别名<br>为了跨浏览器兼容，请使用 window.pageYOffset 代替 window.scrollY</p>
 </li>
 </ul>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102205527.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102205527.png"></p>
 <p><strong>onscroll 事件</strong></p>
 <p>对于有滚动条的盒子，可以使用 onscroll 注册滚动事件，每滚动一像素，就会触发该事件</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> div = doucment.getElementById(<span class="string">&#x27;div&#x27;</span>)</span><br><span class="line">div.onscroll = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(div.scrollLeft)</span><br><span class="line">  <span class="built_in">console</span>.log(div.scrollTop)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -2371,7 +2371,7 @@
 <p>client 家族有 clientWidth、clientHeight、clientLeft、clientTop</p>
 </blockquote>
 <p><strong>clientWidth、clientHeight 可视区宽高</strong></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102205558.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102205558.png"></p>
 <p><strong>clientTop</strong> 与 <strong>clientLeft</strong> 完全没有用，他们就是 borderTop 与 borderLeft</p>
 <p><strong>onresize 事件：onresize 事件会在窗口被调整大小的时候发生。</strong></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">window</span>.onresize = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 事件处理程序</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -2728,19 +2728,19 @@
 </blockquote>
 <p>版本控制系统不仅可以应用于软件源代码的文本文件，而且可以对任何类型的文件进行版本控制。</p>
 <h2 id="版本控制系统的分类"><a href="#版本控制系统的分类" class="headerlink" title="版本控制系统的分类"></a>版本控制系统的分类</h2><p>参考文章：<span class="exturl" data-url="aHR0cHM6Ly9naXQtc2NtLmNvbS9ib29rL3poL3YxLyVFOCVCNSVCNyVFNiVBRCVBNS0lRTUlODUlQjMlRTQlQkElOEUlRTclODklODglRTYlOUMlQUMlRTYlOEUlQTclRTUlODglQjY=">关于版本控制的介绍</span></p>
-<h3 id="本地版本控制系统"><a href="#本地版本控制系统" class="headerlink" title="本地版本控制系统"></a>本地版本控制系统</h3><p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202248.png"></p>
+<h3 id="本地版本控制系统"><a href="#本地版本控制系统" class="headerlink" title="本地版本控制系统"></a>本地版本控制系统</h3><p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102202248.png"></p>
 <p>本地版本控制系统就是在一台机器上，记录版本的不同变化，保证内容不会丢失</p>
 <ol>
 <li>如果多人开发，每个人都在不同的系统和电脑上开发，没办法协同工作。</li>
 </ol>
-<h3 id="集中式版本控制系統"><a href="#集中式版本控制系統" class="headerlink" title="集中式版本控制系統"></a>集中式版本控制系統</h3><p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202303.png"></p>
+<h3 id="集中式版本控制系統"><a href="#集中式版本控制系統" class="headerlink" title="集中式版本控制系統"></a>集中式版本控制系統</h3><p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102202303.png"></p>
 <p><code>svn</code> 是集中式的版本控制系统，集中式版本控制系统都有一个单一的集中管理的服务器（中央服务器），保存所有文件的修订版本，而协同工作的人们都通过客户端连到这台服务器，取出最新的文件或者提交更新。</p>
 <ol>
 <li>需要一个中央服务器来管理代码的的版本和备份</li>
 <li>所有的用户电脑都是从中央服务器获取代码或者是将本地的代码提交到中央服务器</li>
 <li>依赖与网络环境，如果连不上中央服务器，就无法提交和获取代码。</li>
 </ol>
-<h3 id="分布式版本控制系统"><a href="#分布式版本控制系统" class="headerlink" title="分布式版本控制系统"></a>分布式版本控制系统</h3><p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202325.png"></p>
+<h3 id="分布式版本控制系统"><a href="#分布式版本控制系统" class="headerlink" title="分布式版本控制系统"></a>分布式版本控制系统</h3><p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102202325.png"></p>
 <p><code>git</code> 是分布式的版本控制系统。分布式版本控制系统的客户端并不只提取最新版本的文件快照，而是把代码仓库完整地镜像下来。这么一来，任何一处协同工作用的服务器发生故障，事后都可以用任何一个镜像出来的本地仓库恢复。因为每一次的提取操作，实际上都是一次对代码仓库的完整备份</p>
 <ol>
 <li>需要一台服务器作为代码仓库</li>
@@ -2759,8 +2759,8 @@
 <li><p>**<code>.git</code>**：存放 Git 管理信息的目录，初始化仓库的时候会自动创建</p>
 </li>
 </ul>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202341.jpeg"></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202402.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102202341.jpeg"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102202402.png"></p>
 <h2 id="Git-初始设置"><a href="#Git-初始设置" class="headerlink" title="Git 初始设置"></a>Git 初始设置</h2><h3 id="设置用户名和邮箱"><a href="#设置用户名和邮箱" class="headerlink" title="设置用户名和邮箱"></a>设置用户名和邮箱</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 用户名使用英文</span></span><br><span class="line"><span class="comment"># --global 全局设置</span></span><br><span class="line">git config --global user.name <span class="string">&#x27;your_name&#x27;</span></span><br><span class="line">git config --global user.email <span class="string">&#x27;your_email@example.com&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看账号信息</span></span><br><span class="line">git config --list</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重置信息</span></span><br><span class="line">git config --<span class="built_in">unset</span> -- user.name</span><br></pre></td></tr></table></figure>
 
 <p>全局设置会在 <code>~/.gitconfig</code> 中以如下形式输出设置文件，可以直接编辑这个文件来修改设置</p>
@@ -3578,7 +3578,7 @@
 <p><code>su</code> 不接用户名，可以切换到 <code>roo</code>，不推荐，不安全</p>
 </blockquote>
 <p>exit 示意图：</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102205719.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102205719.png"></p>
 <h4 id="修改文件权限"><a href="#修改文件权限" class="headerlink" title="修改文件权限"></a>修改文件权限</h4><p>chowm 修改拥有者</p>
 <p>chgrp 修改组</p>
 <p>chmod 修改权限</p>
@@ -3615,7 +3615,7 @@
 <li><p>源文件要使用绝对路径，可以方便移动链接文件后，仍然能够正常使用</p>
 </li>
 </ul>
-<h5 id="文件软硬链接示意图"><a href="#文件软硬链接示意图" class="headerlink" title="文件软硬链接示意图"></a>文件软硬链接示意图</h5><p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102205748.png"></p>
+<h5 id="文件软硬链接示意图"><a href="#文件软硬链接示意图" class="headerlink" title="文件软硬链接示意图"></a>文件软硬链接示意图</h5><p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102205748.png"></p>
 <ul>
 <li><p>在 linux 中<strong>文件名</strong>和<strong>文件的数据</strong>是分开存储的</p>
 </li>
@@ -3915,7 +3915,7 @@
 <blockquote>
 <p>注意 :<br>break 可以省略，如果省略，代码会继续执行下一个 case<br>switch 语句在比较值时使用的是 <strong>全等</strong> 操作符, 因此不会发生类型转换（例如，字符串’10’ 不等于数值 10）</p>
 </blockquote>
-<h1 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h1><h2 id="while-循环"><a href="#while-循环" class="headerlink" title="while 循环"></a>while 循环</h2><p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102205019.png"></p>
+<h1 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h1><h2 id="while-循环"><a href="#while-循环" class="headerlink" title="while 循环"></a>while 循环</h2><p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102205019.png"></p>
 <p>基本语法 :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 当循环条件为true时，执行循环体</span></span><br><span class="line"><span class="comment">// 当循环条件为false时，结束循环</span></span><br><span class="line"><span class="keyword">while</span> (循环条件) &#123;</span><br><span class="line">  <span class="comment">// 循环体：需要循环执行的语句</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -3925,14 +3925,14 @@
 <h2 id="do-while-循环"><a href="#do-while-循环" class="headerlink" title="do..while 循环"></a>do..while 循环</h2><blockquote>
 <p>do..while 循环和 while 循环非常像，二者经常可以相互替代，但是 do..while 的特点是不管条件成不成立，都会执行一次。</p>
 </blockquote>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102205045.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102205045.png"></p>
 <p>基础语法 :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">  <span class="comment">// 循环体</span></span><br><span class="line">&#125; <span class="keyword">while</span> (条件)</span><br></pre></td></tr></table></figure>
 
 <p>代码示例 :</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 初始化变量</span></span><br><span class="line"><span class="keyword">var</span> i = <span class="number">1</span></span><br><span class="line"><span class="keyword">var</span> sum = <span class="number">0</span></span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">  sum += i <span class="comment">// 循环体</span></span><br><span class="line">  i++ <span class="comment">// 自增</span></span><br><span class="line">&#125; <span class="keyword">while</span> (i &lt;= <span class="number">100</span>) <span class="comment">// 循环条件</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="for-循环"><a href="#for-循环" class="headerlink" title="for 循环"></a>for 循环</h2><p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102205112.png"></p>
+<h2 id="for-循环"><a href="#for-循环" class="headerlink" title="for 循环"></a>for 循环</h2><p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102205112.png"></p>
 <p>for 循环语法：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. for循环使用分号分隔</span></span><br><span class="line"><span class="comment">// 2. for循环有2个分号，两个分号不能少</span></span><br><span class="line"><span class="keyword">for</span> (初始化语句; 判断语句; 自增语句) &#123;</span><br><span class="line">  <span class="comment">// 循环体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -4083,9 +4083,9 @@
 <li>让所有的断点失效</li>
 <li>自动根据错误断点</li>
 </ol>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102205131.png"></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102205150.png"></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102205206.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102205131.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102205150.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102205206.png"></p>
 <h2 id="函数的重载"><a href="#函数的重载" class="headerlink" title="函数的重载"></a>函数的重载</h2><p>如果多个函数的函数名相同，但是参数或返回值不同，这些函数是不同的函数</p>
 <p>参数不同指 1. 参数的个数不同 2. 参数的数据类型不同</p>
 <p>js 中不允许函数的重载，即在 js 中，只要函数名一样，就是同一个函数，如果两个函数名相同，后边的会覆盖前边的</p>
@@ -4486,8 +4486,6 @@
   <footer class="footer">
     <div class="footer-inner">
 
-  <div class="beian"><span class="exturl" data-url="aHR0cHM6Ly9iZWlhbi5taWl0Lmdvdi5jbg==">皖ICP备20001070号 </span>
-  </div>
 
 <div class="copyright">
   &copy; 2015 – 

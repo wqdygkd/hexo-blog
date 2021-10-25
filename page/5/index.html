@@ -369,7 +369,7 @@
 <h3 id="生成-Service-Accounts"><a href="#生成-Service-Accounts" class="headerlink" title="生成 Service Accounts"></a>生成 Service Accounts</h3><p>打开链接：<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXJzLmdvb2dsZS5jb20vZHJpdmUvYXBpL3YzL3F1aWNrc3RhcnQvcHl0aG9u">https://developers.google.com/drive/api/v3/quickstart/python</span></p>
 <p>登陆 google 账号，点击 <code>Enable the Drive API</code>，在弹出的页面中勾选 yes ，点击 NEXT，</p>
 <p>稍等片刻，继续点击 CREATE，出现如下页面表示成功</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102201708.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102201708.png"></p>
 <p>点击 <code>DOWNLOAD CLIENT CONFIGUTATION</code> 按钮，下载 <code>credentials.json</code> 文件，然后将下载的 <code>credentials.json</code> 放到 AutoRclone 目录下</p>
 <p>如果你用的是 Xshell 可以使用 rz 来上传文件</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt install lrzsz -y</span><br><span class="line">rz <span class="comment"># 回车会打开窗口，选择文件上传即可</span></span><br><span class="line">rz 文件 <span class="comment"># 下载文件</span></span><br></pre></td></tr></table></figure>
@@ -396,30 +396,30 @@
 <p><code>sudo pip3 install requests</code></p>
 </blockquote>
 <p>出现如下图</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102201740.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102201740.png"></p>
 <p>打开链接，并登陆你的 Google 账号（提示不安全，不用管，一路允许）</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102201805.png"></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102201823.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102201805.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102201823.png"></p>
 <p>得到授权代码</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102201844.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102201844.png"></p>
 <p>复制生成的 code 到终端，回车</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102201900.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102201900.png"></p>
 <p>如上图所示，显示<code>Press Enter to retry</code>, 原因是谷歌账号未开启 Service Usage API，复制提供的链接地址，到浏览器打开，开启 Service Usage API 服务</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102201955.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102201955.png"></p>
 <p>启用成功后回车，等待完成</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202016.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102202016.png"></p>
 <p>接着，你就会发现你的 AutoRclone 文件下面的 accounts 文件夹下会有很多的 json 文件。</p>
 <h3 id="将-service-accounts-加入-Google-Groups"><a href="#将-service-accounts-加入-Google-Groups" class="headerlink" title="将 service accounts 加入 Google Groups"></a>将 service accounts 加入 Google Groups</h3><blockquote>
 <p>可以直接将 service accounts 加入到Team Drive<br><code>python3 add_to_team_drive.py -d SharedTeamDriveSrcID</code><br>为了便于管理 service accounts，我们创建 Google Group，将 Google Group 邮箱添加到 Team Drive</p>
 </blockquote>
 <p>我们这一步需要将刚刚生成的数以百计的 Service Accounts 添加到 Google Group 中</p>
 <h4 id="创建-Google-Group"><a href="#创建-Google-Group" class="headerlink" title="创建 Google Group"></a>创建 Google Group</h4><p>打开链接：<span class="exturl" data-url="aHR0cHM6Ly9ncm91cHMuZ29vZ2xlLmNvbS8=">https://groups.google.com/</span> ，创建群组：</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202037.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102202037.png"></p>
 <h4 id="批量提取-Service-Accounts"><a href="#批量提取-Service-Accounts" class="headerlink" title="批量提取 Service Accounts"></a>批量提取 Service Accounts</h4><blockquote>
 <p>如果是 GSuite Admin 账号，可以使用如下方式直接添加进群组</p>
 <ol>
 <li>将生成的json文件保存到 credentials 文件夹中</li>
-<li>在管理控制台中为您的组织创建组。创建群组后，您将拥有一个例如的地址<span class="exturl" data-url="bWFpbHRvOiYjMTE1OyYjOTc7JiM2NDsmIzEyMTsmI3g2ZjsmI3g3NTsmIzExNDsmIzEwMDsmIzExMTsmIzEwOTsmIzk3OyYjeDY5OyYjMTEwOyYjNDY7JiN4NjM7JiMxMTE7JiN4NmQ7">&#115;&#97;&#64;&#121;&#x6f;&#x75;&#114;&#100;&#111;&#109;&#97;&#x69;&#110;&#46;&#x63;&#111;&#x6d;</span></li>
+<li>在管理控制台中为您的组织创建组。创建群组后，您将拥有一个例如的地址<span class="exturl" data-url="bWFpbHRvOiYjeDczOyYjeDYxOyYjNjQ7JiN4Nzk7JiMxMTE7JiN4NzU7JiMxMTQ7JiMxMDA7JiN4NmY7JiMxMDk7JiN4NjE7JiMxMDU7JiN4NmU7JiM0NjsmI3g2MzsmIzExMTsmI3g2ZDs=">&#x73;&#x61;&#64;&#x79;&#111;&#x75;&#114;&#100;&#x6f;&#109;&#x61;&#105;&#x6e;&#46;&#x63;&#111;&#x6d;</span></li>
 <li>运行 <code>python3 add_to_google_group.py -g sa@yourdomain.com</code></li>
 </ol>
 </blockquote>
@@ -430,13 +430,13 @@
 <h4 id="添加到-Google-Group"><a href="#添加到-Google-Group" class="headerlink" title="添加到 Google Group"></a>添加到 Google Group</h4><p>将 email.txt 文件下载到本地</p>
 <p>回到 Group 页面，右上角 管理成员：</p>
 <p>左侧 直接添加成员，将 Service Accounts 邮箱复制粘贴 10 个，点击 添加：<br>(注意每次只能添加 10 个，每 24 小时只能添加 100 个)</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202108.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102202108.png"></p>
 <p>重复以上步骤，将 100 个邮箱添加进去</p>
 <h4 id="将-Google-Group-邮箱添加到-Team-Drive"><a href="#将-Google-Group-邮箱添加到-Team-Drive" class="headerlink" title="将 Google Group 邮箱添加到 Team Drive"></a>将 Google Group 邮箱添加到 Team Drive</h4><p>点击关于，找到群组邮箱：</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202125.png"></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202138.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102202125.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102202138.png"></p>
 <p>复制下来，添加到 Google Team Drive 成员中</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202159.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102202159.png"></p>
 <p>添加完成后，基本就完成所有设置了</p>
 <h3 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h3><p>首先将 service accounts 加入到目标 Team Drive</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/AutoRclone</span><br><span class="line"><span class="comment"># 将以下 SharedTeamDriveDstID 替换为你团队盘 ID</span></span><br><span class="line">python3 add_to_team_drive.py -d SharedTeamDriveDstID</span><br></pre></td></tr></table></figure>
@@ -448,7 +448,7 @@
 <p>以上链接中，0AICYh4X7BkjVUk9PVA 就是 ID</p>
 </blockquote>
 <p>回车后，再次回车：</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202221.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102202221.png"></p>
 <h4 id="直接使用"><a href="#直接使用" class="headerlink" title="直接使用"></a>直接使用</h4><p>先安装 rclone</p>
 <p>rclone 安装教程可以参考 <a href="https://wqdy.top/1243.html">https://wqdy.top/1243.html</a></p>
 <ul>
@@ -824,7 +824,7 @@
           <p>之前使用群晖 Docker 折腾 Jellyfin，解决了个人音视频收藏的基本需求，但仍有不足，比如说视频播放的时候，CPU 占用会很高（软解吃 CPU），并且会卡顿。</p>
 <h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><p>1、查看系统是否支持显卡硬解转码</p>
 <p>使用 SSH 登录群晖系统，运行命令<code>ls /dev/dri</code>，若输出 card0、renderD128，则说明支持显卡硬解。</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202420.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102202420.png"></p>
 <p>2、给容器提权</p>
 <p>在群群 Docker 容器中找到 Jellyfin 的容器，编辑容器的常规设置，必须勾选使用高权限执行容器。</p>
 <p>3、添加环境</p>
@@ -832,7 +832,7 @@
 <p>4、启用 <code>VAAPI</code> 硬件加速</p>
 <p>Docker 中启动容器，打开 Jellyfin 网页端，依次进入控制台-&gt;播放，在硬件选项中选择 VAAPI 保存设置即可。</p>
 <h4 id="使用效果"><a href="#使用效果" class="headerlink" title="使用效果"></a>使用效果</h4><p>前后对比：</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102202439.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102202439.png"></p>
 <p>可以看到 CPU 占用明显降低了，播放也不卡顿了，效果还是非常明显的。</p>
 
       
@@ -923,7 +923,7 @@
 <li>如果想验证是否成功配置了代理的话，用 ping 命令是不可以的（ping的协议不是http，也不是https，是ICMP协议）</li>
 </ul>
 <p><code>curl -vv http://www.google.com</code>，用这条命令来验证，如果返回如下结果表示代理设置成功。</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102203731.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102203731.png"></p>
 <h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NoYWRvd3NvY2tzL3NoYWRvd3NvY2tzLXdpbmRvd3MvaXNzdWVzLzE0ODk=">https://github.com/shadowsocks/shadowsocks-windows/issues/1489</span><br><span class="exturl" data-url="aHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vZmFtb3VzZ2Fya2luL2M1MTM4YjFlMTNhYzQxOTIwZDIy">https://gist.github.com/famousgarkin/c5138b1e13ac41920d22</span></p>
 
       
@@ -1014,11 +1014,11 @@
 <li><p>点击高级设置，然后点击卷，添加文件夹，将 jellyfin 和 video 文件夹都添加上：将<code>video</code>文件夹装载到 <code>/media</code>下，将<code>docker/jellyfin</code> 装载到 <code>/config</code></p>
 </li>
 </ul>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102184514.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102184514.png"></p>
 <ul>
 <li>点击端口设置，默认是 8096，设置一样的即可</li>
 </ul>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102184536.png"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102184536.png"></p>
 <ul>
 <li>设置完成后，点击应用 -&gt; 点下一步 -&gt; 点击应用 -&gt;点击容器，可以看到 jellyfin 服务已经运行成功了！</li>
 </ul>
@@ -1368,8 +1368,6 @@
   <footer class="footer">
     <div class="footer-inner">
 
-  <div class="beian"><span class="exturl" data-url="aHR0cHM6Ly9iZWlhbi5taWl0Lmdvdi5jbg==">皖ICP备20001070号 </span>
-  </div>
 
 <div class="copyright">
   &copy; 2015 – 
