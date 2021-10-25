@@ -27,7 +27,7 @@ https://github.com/cuilongjin/static/blob/main/test.txt
 则使用JSDelivr加速链接为
 
 ```
-https://cdn.jsdelivr.net/gh/cuilongjin/static@main/test.txt
+https://cdn.jsdelivr.net/gh/cuilongjin/static@img/test.txt
 ```
 
 3. 使用 picgo 进行图片上传
@@ -44,7 +44,7 @@ token 获取地址: https://github.com/settings/tokens，点击 `Generate new to
 存储路径为仓库目录，可以随意
 自定义域名根据需要设置，这里我们设置为 jsdelivr 加速域名，形式为 `https://cdn.jsdelivr.net/gh/{Github用户名}/{Github仓库名}@{版本名}`
 
-![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210101223210.png)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210101223210.png)
 
 
 ## 使用 npm+JSDelivr

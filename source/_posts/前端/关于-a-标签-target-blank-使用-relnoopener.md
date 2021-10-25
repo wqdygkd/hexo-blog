@@ -24,6 +24,6 @@ b.html
 
 其中在 `a.html` 中有个超链接，点击后在新标签页打开 `b.html`页面，但是发现原 `a.html` 页面已经变成了其他页面。原因是使用 `target=_blank` 打开新的窗口时，赋予了新的窗口一些权限可以操作原窗口，其中 `window.location` 就是一个。
 
-![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102203759.png)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102203759.png)
 
 为了防止 `window.opener` 被滥用，提高网站的安全性，在使用 `targrt=_blank` 时需要加上 `rel=noopener`，同时为了兼容也可以加上 `rel=noreferrer`。

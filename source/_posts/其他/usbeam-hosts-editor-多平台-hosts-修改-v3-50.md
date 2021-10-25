@@ -10,11 +10,11 @@ date: 2020-07-05 18:04:08
 
 UsbEAm Hosts Editor 是一款能够提升 origin、steam、uplay 等游戏平台下载速度的工具，同时也可以有效的解决一些游戏或者平台出现的各种网络错误，帮玩家能够顺利的登录平台，顺利进行游戏。
 
-![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102203606.png)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102203606.png)
 
 UsbEAm Hosts Editor 还可以为 github 加速，提高网页浏览的速度和代码下载的速度
 
-![](https://cdn.jsdelivr.net/gh/cuilongjin/static@main/img/20210102203624.png)
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102203624.png)
 
 使用方法：
 
