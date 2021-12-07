@@ -177,7 +177,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">156</span>
+          <span class="site-state-item-count">157</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -221,6 +221,86 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/2026.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026.html" class="post-title-link" itemprop="url">vue 中 hock 的使用</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2021-05-13" itemprop="dateCreated datePublished" datetime="2021-05-13T00:00:00+00:00">2021-05-13</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在 Vue 组件中，可以用过 <code>$on</code>, <code>$once</code> 去监听所有的生命周期钩子函数，如监听组件的 updated 钩子函数可以写成 this.$on(‘hook:updated’, () =&gt; {})</p>
+<h3 id="使用-once-‘hook-beforeDestory’-gt-清理定时器"><a href="#使用-once-‘hook-beforeDestory’-gt-清理定时器" class="headerlink" title="使用$.once(‘hook:beforeDestory’,() =&gt; {})清理定时器"></a>使用$.once(‘hook:beforeDestory’,() =&gt; {})清理定时器</h3><p><span class="exturl" data-url="aHR0cHM6Ly9jbi52dWVqcy5vcmcvdjIvZ3VpZGUvY29tcG9uZW50cy1lZGdlLWNhc2VzLmh0bWwjJUU3JUE4JThCJUU1JUJBJThGJUU1JThDJTk2JUU3JTlBJTg0JUU0JUJBJThCJUU0JUJCJUI2JUU0JUJFJUE2JUU1JTkwJUFDJUU1JTk5JUE4">https://cn.vuejs.org/v2/guide/components-edge-cases.html#程序化的事件侦听器</span></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> timer = <span class="built_in">setInterval</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;1&#x27;</span>)</span><br><span class="line">&#125;, <span class="number">1000</span>)</span><br><span class="line"><span class="comment">// 直接在需要定时器的方法或者生命周期函数中声明并销毁</span></span><br><span class="line"><span class="built_in">this</span>.$once(<span class="string">&#x27;hook:beforeDestory&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">clearInterval</span>(timer)</span><br><span class="line">  timer = <span class="literal">null</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="在父组件监听子组件的生命周期方法"><a href="#在父组件监听子组件的生命周期方法" class="headerlink" title="在父组件监听子组件的生命周期方法"></a>在父组件监听子组件的生命周期方法</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 父组件中 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">child-component</span> @<span class="attr">hook:mounted</span>=<span class="string">&quot;handleChildMounted&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>监听第三方组件数据的变化，但是组件又没有提供change事件，可以在外部监听组件的updated钩子函数</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">child-component</span> @<span class="attr">hook:updated</span>=<span class="string">&quot;handleChildUpdated&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -928,86 +1008,6 @@
 
 <p>配置 github action 自动发布</p>
 <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">npm</span> <span class="string">Package</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">main</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">publish-npm:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Setup</span> <span class="string">Node</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/setup-node@v2.1.2</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">node-version:</span> <span class="string">&#x27;12.x&#x27;</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">run:</span> <span class="string">npm</span> <span class="string">unpublish</span> <span class="string">@cuilongjin/static@1.0.0</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">run:</span> <span class="string">npm</span> <span class="string">publish</span></span><br><span class="line">        <span class="attr">env:</span></span><br><span class="line">          <span class="attr">NODE_AUTH_TOKEN:</span> <span class="string">$&#123;&#123;secrets.npm_token&#125;&#125;</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/2000.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2000.html" class="post-title-link" itemprop="url">在vue的template中如何使用scss变量</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2020-11-06" itemprop="dateCreated datePublished" datetime="2020-11-06T00:00:00+00:00">2020-11-06</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在 scss 中使用 <code>:export</code> 暴露变量</p>
-<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="variable">$color</span>: <span class="number">#009A61</span>;</span><br><span class="line"><span class="comment">//暴露css</span></span><br><span class="line">:export &#123;</span><br><span class="line">  color: <span class="variable">$color</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在 <code>script</code> 中引入变量</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> variables <span class="keyword">from</span> <span class="string">&#x27;@/assets/styles/variables.scss&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>在 <code>computed</code> 中缓存暴露变量</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">  <span class="function"><span class="title">variables</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> variables</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
