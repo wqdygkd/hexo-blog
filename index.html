@@ -276,14 +276,12 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>安卓7.0以后，系统不再信任用户级的证书，只信任系统级的证书，我们直接安装的证书是用户证书，造成https无法抓包。</p>
-<p>但是安装系统证书又需要root权限，成本太高</p>
-<p>发现有一个在安卓系统之上的 虚拟安卓系统 VMOS，官网: <span class="exturl" data-url="aHR0cDovL3d3dy52bW9zLmNuLw==">http://www.vmos.cn/</span></p>
-<p>vmos 设置wifi代理</p>
+          <p>安卓7.0以后，每个应用可以<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIuYW5kcm9pZC5jb20vdHJhaW5pbmcvYXJ0aWNsZXMvc2VjdXJpdHktY29uZmlnI0N1c3RvbVRydXN0">自定义可信 CA 集</span>，默认情况下，应用只会信任系统级的证书，不再信任用户级的证书，通过Fiddler/Charles安装的证书属于用户级的证书，因此会被视作不安全的证书</p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><h4 id="修改APP配置文件允许信任用户证书，但前提是可以获取到APP的源码"><a href="#修改APP配置文件允许信任用户证书，但前提是可以获取到APP的源码" class="headerlink" title="修改APP配置文件允许信任用户证书，但前提是可以获取到APP的源码"></a>修改APP配置文件允许信任用户证书，但前提是可以获取到APP的源码</h4><h4 id="将证书安装到系统证书中，但需要root权限"><a href="#将证书安装到系统证书中，但需要root权限" class="headerlink" title="将证书安装到系统证书中，但需要root权限"></a>将证书安装到系统证书中，但需要root权限</h4><h4 id="安卓虚拟机-VMOS，官网-http-www-vmos-cn-，该方案相对简单"><a href="#安卓虚拟机-VMOS，官网-http-www-vmos-cn-，该方案相对简单" class="headerlink" title="安卓虚拟机 VMOS，官网: http://www.vmos.cn/，该方案相对简单"></a>安卓虚拟机 VMOS，官网: <span class="exturl" data-url="aHR0cDovL3d3dy52bW9zLmNuLyVFRiVCQyU4QyVFOCVBRiVBNSVFNiU5NiVCOSVFNiVBMSU4OCVFNyU5QiVCOCVFNSVBRiVCOSVFNyVBRSU4MCVFNSU4RCU5NQ==">http://www.vmos.cn/，该方案相对简单</span></h4><p>vmos 设置wifi代理</p>
 <ol>
 <li>找到 vmos 主屏右下角的设置 — 其他设置 — 网络 adb (记录 ip+端口)</li>
-<li>连接vmos: adb connect ip+端口</li>
-<li>打开wlan设置: adb shell am start -a android.intent.action.MAIN -n  com.android.settings/.wifi.WifiSettings</li>
+<li>连接vmos: <code>adb connect ip+端口</code></li>
+<li>打开wlan设置: <code>adb shell am start -a android.intent.action.MAIN -n  com.android.settings/.wifi.WifiSettings</code></li>
 <li>长按 wifi，修改网络，添加代理</li>
 </ol>
 

@@ -24,12 +24,12 @@
   <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
 
 <script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;wqdy.top&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Pisces&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:true,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:true,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:true,&quot;pangu&quot;:true,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:false,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:true}}</script>
-<meta name="description" content="安卓7.0以后，系统不再信任用户级的证书，只信任系统级的证书，我们直接安装的证书是用户证书，造成https无法抓包。 但是安装系统证书又需要root权限，成本太高 发现有一个在安卓系统之上的 虚拟安卓系统 VMOS，官网: http:&#x2F;&#x2F;www.vmos.cn&#x2F; vmos 设置wifi代理  找到 vmos 主屏右下角的设置 — 其他设置 — 网络 adb (记录 ip+端口) 连接vmos: a">
+<meta name="description" content="安卓7.0以后，每个应用可以自定义可信 CA 集，默认情况下，应用只会信任系统级的证书，不再信任用户级的证书，通过Fiddler&#x2F;Charles安装的证书属于用户级的证书，因此会被视作不安全的证书 解决方案修改APP配置文件允许信任用户证书，但前提是可以获取到APP的源码将证书安装到系统证书中，但需要root权限安卓虚拟机 VMOS，官网: http:&#x2F;&#x2F;www.vmos.cn&#x2F;，该方案相对简单v">
 <meta property="og:type" content="article">
 <meta property="og:title" content="安卓手机高版本抓包方案">
 <meta property="og:url" content="https://wqdy.top/2031.html">
 <meta property="og:site_name" content="我全都要">
-<meta property="og:description" content="安卓7.0以后，系统不再信任用户级的证书，只信任系统级的证书，我们直接安装的证书是用户证书，造成https无法抓包。 但是安装系统证书又需要root权限，成本太高 发现有一个在安卓系统之上的 虚拟安卓系统 VMOS，官网: http:&#x2F;&#x2F;www.vmos.cn&#x2F; vmos 设置wifi代理  找到 vmos 主屏右下角的设置 — 其他设置 — 网络 adb (记录 ip+端口) 连接vmos: a">
+<meta property="og:description" content="安卓7.0以后，每个应用可以自定义可信 CA 集，默认情况下，应用只会信任系统级的证书，不再信任用户级的证书，通过Fiddler&#x2F;Charles安装的证书属于用户级的证书，因此会被视作不安全的证书 解决方案修改APP配置文件允许信任用户证书，但前提是可以获取到APP的源码将证书安装到系统证书中，但需要root权限安卓虚拟机 VMOS，官网: http:&#x2F;&#x2F;www.vmos.cn&#x2F;，该方案相对简单v">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-12-07T00:00:00.000Z">
 <meta property="article:modified_time" content="2021-12-07T00:00:00.000Z">
@@ -151,7 +151,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -164,6 +164,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-text">解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9APP%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%85%81%E8%AE%B8%E4%BF%A1%E4%BB%BB%E7%94%A8%E6%88%B7%E8%AF%81%E4%B9%A6%EF%BC%8C%E4%BD%86%E5%89%8D%E6%8F%90%E6%98%AF%E5%8F%AF%E4%BB%A5%E8%8E%B7%E5%8F%96%E5%88%B0APP%E7%9A%84%E6%BA%90%E7%A0%81"><span class="nav-text">修改APP配置文件允许信任用户证书，但前提是可以获取到APP的源码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B0%86%E8%AF%81%E4%B9%A6%E5%AE%89%E8%A3%85%E5%88%B0%E7%B3%BB%E7%BB%9F%E8%AF%81%E4%B9%A6%E4%B8%AD%EF%BC%8C%E4%BD%86%E9%9C%80%E8%A6%81root%E6%9D%83%E9%99%90"><span class="nav-text">将证书安装到系统证书中，但需要root权限</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E5%8D%93%E8%99%9A%E6%8B%9F%E6%9C%BA-VMOS%EF%BC%8C%E5%AE%98%E7%BD%91-http-www-vmos-cn-%EF%BC%8C%E8%AF%A5%E6%96%B9%E6%A1%88%E7%9B%B8%E5%AF%B9%E7%AE%80%E5%8D%95"><span class="nav-text">安卓虚拟机 VMOS，官网: http:&#x2F;&#x2F;www.vmos.cn&#x2F;，该方案相对简单</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -286,14 +287,12 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>安卓7.0以后，系统不再信任用户级的证书，只信任系统级的证书，我们直接安装的证书是用户证书，造成https无法抓包。</p>
-<p>但是安装系统证书又需要root权限，成本太高</p>
-<p>发现有一个在安卓系统之上的 虚拟安卓系统 VMOS，官网: <span class="exturl" data-url="aHR0cDovL3d3dy52bW9zLmNuLw==">http://www.vmos.cn/</span></p>
-<p>vmos 设置wifi代理</p>
+        <p>安卓7.0以后，每个应用可以<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIuYW5kcm9pZC5jb20vdHJhaW5pbmcvYXJ0aWNsZXMvc2VjdXJpdHktY29uZmlnI0N1c3RvbVRydXN0">自定义可信 CA 集</span>，默认情况下，应用只会信任系统级的证书，不再信任用户级的证书，通过Fiddler/Charles安装的证书属于用户级的证书，因此会被视作不安全的证书</p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><h4 id="修改APP配置文件允许信任用户证书，但前提是可以获取到APP的源码"><a href="#修改APP配置文件允许信任用户证书，但前提是可以获取到APP的源码" class="headerlink" title="修改APP配置文件允许信任用户证书，但前提是可以获取到APP的源码"></a>修改APP配置文件允许信任用户证书，但前提是可以获取到APP的源码</h4><h4 id="将证书安装到系统证书中，但需要root权限"><a href="#将证书安装到系统证书中，但需要root权限" class="headerlink" title="将证书安装到系统证书中，但需要root权限"></a>将证书安装到系统证书中，但需要root权限</h4><h4 id="安卓虚拟机-VMOS，官网-http-www-vmos-cn-，该方案相对简单"><a href="#安卓虚拟机-VMOS，官网-http-www-vmos-cn-，该方案相对简单" class="headerlink" title="安卓虚拟机 VMOS，官网: http://www.vmos.cn/，该方案相对简单"></a>安卓虚拟机 VMOS，官网: <span class="exturl" data-url="aHR0cDovL3d3dy52bW9zLmNuLyVFRiVCQyU4QyVFOCVBRiVBNSVFNiU5NiVCOSVFNiVBMSU4OCVFNyU5QiVCOCVFNSVBRiVCOSVFNyVBRSU4MCVFNSU4RCU5NQ==">http://www.vmos.cn/，该方案相对简单</span></h4><p>vmos 设置wifi代理</p>
 <ol>
 <li>找到 vmos 主屏右下角的设置 — 其他设置 — 网络 adb (记录 ip+端口)</li>
-<li>连接vmos: adb connect ip+端口</li>
-<li>打开wlan设置: adb shell am start -a android.intent.action.MAIN -n  com.android.settings/.wifi.WifiSettings</li>
+<li>连接vmos: <code>adb connect ip+端口</code></li>
+<li>打开wlan设置: <code>adb shell am start -a android.intent.action.MAIN -n  com.android.settings/.wifi.WifiSettings</code></li>
 <li>长按 wifi，修改网络，添加代理</li>
 </ol>
 
