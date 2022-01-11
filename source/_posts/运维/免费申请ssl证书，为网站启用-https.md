@@ -58,7 +58,7 @@ github：https://github.com/acmesh-official/acme.sh/wiki/说明
 
 ## FiloSottile/mkcert
 
-https://github.com/FiloSottile/mkcert A simple zero-config tool to make locally trusted development certificates with any names you'd like.
+https://github.com/FiloSottile/mkcert 生成本地 HTTPS 加密证书（localhost 127.0.0.1）
 
 ## 其他
 
