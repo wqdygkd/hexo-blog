@@ -237,6 +237,16 @@ server {
 
 https://github.com/wulabing/V2Ray_ws-tls_bash_onekey
 
+证书签发错误的原因是签发服务器已经不认默认的邮箱名:@example.com,
+
+```diff
+- curl https://get.acme.sh | sh
++ curl https://get.acme.sh | sh -s email=admin@youremail.com
+```
+添加-s 参数, 把你的邮箱放进去
+
+另外如果脚本全部正常跑完, 还是不能用的,请用这个网站 https://www.matools.com/port 检查下你的端口是不是已经被封了
+
 ## v2ray 配置好后无法连接解决办法
 
 ```bash
