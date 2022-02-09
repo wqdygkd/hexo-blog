@@ -177,7 +177,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">157</span>
+          <span class="site-state-item-count">158</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -221,6 +221,104 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/355.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/355.html" class="post-title-link" itemprop="url">将 html 内容转换成图片总结 html2canvas与dom-to-image</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2019-12-17" itemprop="dateCreated datePublished" datetime="2019-12-17T11:16:27+00:00">2019-12-17</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="html2canvas"><a href="#html2canvas" class="headerlink" title="html2canvas"></a>html2canvas</h3><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25pa2xhc3ZoL2h0bWwyY2FudmFz">html2canvas</span></p>
+<p>基本使用</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install html2canvas</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> html2canvas <span class="keyword">from</span> <span class="string">&#x27;html2canvas&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 语法</span></span><br><span class="line"><span class="comment">// html2canvas(element, options)</span></span><br><span class="line"></span><br><span class="line">html2canvas(<span class="built_in">document</span>.body).then(<span class="function"><span class="keyword">function</span>(<span class="params">canvas</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// document.body.appendChild(canvas)</span></span><br><span class="line">  <span class="keyword">let</span> dataURL = canvas.toDataURL(<span class="string">&#x27;image/png&#x27;</span>) <span class="comment">// dataURL 为 base64 图片</span></span><br><span class="line">  <span class="comment">// var img = new Image()</span></span><br><span class="line">  <span class="comment">// img.src = dataURL</span></span><br><span class="line">  <span class="comment">// document.body.appendChild(img)</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>常用配置使用示例</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> options = &#123;</span><br><span class="line">  <span class="attr">dpi</span>: <span class="number">192</span>,</span><br><span class="line">  <span class="attr">scale</span>: <span class="number">2</span>, <span class="comment">// 放大</span></span><br><span class="line">  <span class="comment">// logging: true, //日志开关，便于查看html2canvas的内部执行流程</span></span><br><span class="line">  <span class="attr">useCORS</span>: <span class="literal">true</span> <span class="comment">// 开启跨域配置, (跨域图片，转换的时候会将跨域图片识别为空白,因此需要开启此选项)</span></span><br><span class="line">&#125;</span><br><span class="line">html2canvas(<span class="built_in">document</span>.querySelector(<span class="string">&#x27;#app&#x27;</span>), options).then(<span class="function"><span class="params">canvas</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">document</span>.body.appendChild(canvas)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>html2canvas 生成图片模糊问题</p>
+<ol>
+<li>html2canvas 第二个参数配置 <code>scale</code> 和 <code>dpi</code>, <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25pa2xhc3ZoL2h0bWwyY2FudmFzL3B1bGwvMTA4Nw==">参考</span></li>
+<li>如果要生成的 dom 中有背景图片，将背景图片换成 div 包裹 img 标签形式，不要通过css设置成background</li>
+</ol>
+<h3 id="dom-to-image"><a href="#dom-to-image" class="headerlink" title="dom-to-image"></a>dom-to-image</h3><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RzYXllbi9kb20tdG8taW1hZ2U=">dom-to-image</span></p>
+<p>基本使用</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install dom-to-image</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* in ES 6 */</span></span><br><span class="line"><span class="keyword">import</span> domtoimage <span class="keyword">from</span> <span class="string">&#x27;dom-to-image&#x27;</span></span><br><span class="line"><span class="comment">/* in ES 5 */</span></span><br><span class="line"><span class="keyword">var</span> domtoimage = <span class="built_in">require</span>(<span class="string">&#x27;dom-to-image&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> node = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;my-node&#x27;</span>)</span><br><span class="line"></span><br><span class="line">domtoimage</span><br><span class="line">  .toPng(node)</span><br><span class="line">  .then(<span class="function"><span class="keyword">function</span>(<span class="params">dataUrl</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> img = <span class="keyword">new</span> Image()</span><br><span class="line">    img.src = dataUrl</span><br><span class="line">    <span class="built_in">document</span>.body.appendChild(img)</span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(<span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.error(<span class="string">&#x27;oops, something went wrong!&#x27;</span>, error)</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+
+<p>将 base64 转换成 file 对象用于上传到服务器</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">b64ToFile</span>(<span class="params">dataurl</span>)</span>  &#123;</span><br><span class="line">  <span class="keyword">let</span> arr = dataurl.split(<span class="string">&#x27;,&#x27;</span>)</span><br><span class="line">  <span class="keyword">let</span> mime = arr[<span class="number">0</span>].match(<span class="regexp">/:(.*?);/</span>)[<span class="number">1</span>]</span><br><span class="line">  <span class="keyword">let</span> bstr = atob(arr[<span class="number">1</span>])</span><br><span class="line">  <span class="keyword">let</span> n = bstr.length</span><br><span class="line">  <span class="keyword">let</span> u8arr = <span class="keyword">new</span> <span class="built_in">Uint8Array</span>(n)</span><br><span class="line">  <span class="keyword">while</span> (n--) &#123;</span><br><span class="line">      u8arr[n] = bstr.charCodeAt(n)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> file =  <span class="keyword">new</span> File([u8arr], <span class="string">&#x27;filename.png&#x27;</span>, &#123;<span class="attr">type</span>:mime&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1024,87 +1122,6 @@
 
 <p>也可以在图标管理中 我的项目 批量操作 批量去色 将默认颜色去除， 之后可以通过 css 自定义颜色</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line">svg &#123;</span><br><span class="line">  fill: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/402.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/402.html" class="post-title-link" itemprop="url">使用 axios 导致 cookie 丢失问题</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2019-10-11" itemprop="dateCreated datePublished" datetime="2019-10-11T22:16:07+00:00">2019-10-11</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>问题：使用 axios 发送请求会拦截响应头中的 set-cookie，导致 cookie 丢失</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2F4aW9zL2F4aW9zL2lzc3Vlcy85NTM=">https://github.com/axios/axios/issues/953</span></p>
-<p>在控制台中也找不到 cookie</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(res.headers[<span class="string">&#x27;set-cookie&#x27;</span>]) <span class="comment">// undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">document</span>.cookie) <span class="comment">// &#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>解决方式：修改 axios 配置</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">axios.defaults.withCredentials = <span class="literal">true</span> <span class="comment">// 默认是 false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Axios.interceptors.request.use(</span></span><br><span class="line"><span class="comment">//   config =&gt; &#123;</span></span><br><span class="line"><span class="comment">//     config.withCredentials = true // 添加</span></span><br><span class="line"><span class="comment">//     return config</span></span><br><span class="line"><span class="comment">//   &#125;)</span></span><br><span class="line"></span><br><span class="line">axios.create(&#123;</span><br><span class="line">  <span class="attr">withCredentials</span>: <span class="literal">true</span> <span class="comment">// 表示跨域请求时是否需要使用凭证 默认 false</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>设置 <code>withCredentials = true</code> 会造成跨域，需要使用代理解决跨域问题</p>
 
       
     </div>

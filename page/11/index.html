@@ -177,7 +177,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">157</span>
+          <span class="site-state-item-count">158</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -221,6 +221,87 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/402.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/402.html" class="post-title-link" itemprop="url">使用 axios 导致 cookie 丢失问题</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2019-10-11" itemprop="dateCreated datePublished" datetime="2019-10-11T22:16:07+00:00">2019-10-11</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>问题：使用 axios 发送请求会拦截响应头中的 set-cookie，导致 cookie 丢失</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2F4aW9zL2F4aW9zL2lzc3Vlcy85NTM=">https://github.com/axios/axios/issues/953</span></p>
+<p>在控制台中也找不到 cookie</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(res.headers[<span class="string">&#x27;set-cookie&#x27;</span>]) <span class="comment">// undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">document</span>.cookie) <span class="comment">// &#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>解决方式：修改 axios 配置</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">axios.defaults.withCredentials = <span class="literal">true</span> <span class="comment">// 默认是 false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Axios.interceptors.request.use(</span></span><br><span class="line"><span class="comment">//   config =&gt; &#123;</span></span><br><span class="line"><span class="comment">//     config.withCredentials = true // 添加</span></span><br><span class="line"><span class="comment">//     return config</span></span><br><span class="line"><span class="comment">//   &#125;)</span></span><br><span class="line"></span><br><span class="line">axios.create(&#123;</span><br><span class="line">  <span class="attr">withCredentials</span>: <span class="literal">true</span> <span class="comment">// 表示跨域请求时是否需要使用凭证 默认 false</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>设置 <code>withCredentials = true</code> 会造成跨域，需要使用代理解决跨域问题</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1114,130 +1195,6 @@
 
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">padding-top</span>: <span class="built_in">constant</span>(safe-area-inset-top); // 为导航栏+状态栏的高度 <span class="number">88px</span></span><br><span class="line">  <span class="attribute">padding-left</span>: <span class="built_in">constant</span>(safe-area-inset-left); // 如果未竖屏时为<span class="number">0</span></span><br><span class="line">  <span class="attribute">padding-right</span>: <span class="built_in">constant</span>(safe-area-inset-right); // 如果未竖屏时为<span class="number">0</span></span><br><span class="line">  <span class="attribute">padding-bottom</span>: <span class="built_in">constant</span>(safe-area-inset-bottom); // 为底下圆弧的高度 <span class="number">34px</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/382.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/382.html" class="post-title-link" itemprop="url">前端常用js代码段汇总</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2019-07-22" itemprop="dateCreated datePublished" datetime="2019-07-22T13:20:47+00:00">2019-07-22</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="类型识别"><a href="#类型识别" class="headerlink" title="类型识别"></a>类型识别</h2><h3 id="获取数据类型，返回结果为-Number、String、Object、Array-等"><a href="#获取数据类型，返回结果为-Number、String、Object、Array-等" class="headerlink" title="获取数据类型，返回结果为 Number、String、Object、Array 等"></a>获取数据类型，返回结果为 Number、String、Object、Array 等</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 返回数据类型</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getRawType</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(value).slice(<span class="number">8</span>, -<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 正则 =&gt; RegExp</span></span><br><span class="line"><span class="comment">// 时间对象 =&gt; Date</span></span><br><span class="line"><span class="comment">// 字符串 =&gt; String</span></span><br><span class="line"><span class="comment">// 对象 =&gt; Object</span></span><br><span class="line"><span class="comment">// 数组 =&gt; Array</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="判断变量是不是字符串类型"><a href="#判断变量是不是字符串类型" class="headerlink" title="判断变量是不是字符串类型"></a>判断变量是不是字符串类型</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="string">&#x27;str&#x27;</span>) <span class="comment">// &#x27;[object String]&#x27;</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="string">&#x27;str&#x27;</span> <span class="comment">// &#x27;string&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="判断变量是不是引用类型"><a href="#判断变量是不是引用类型" class="headerlink" title="判断变量是不是引用类型"></a>判断变量是不是引用类型</h3><p>例如： arrays, functions, objects, regexes, new Number(0),以及 new String(‘’)</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isObject</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> type = <span class="keyword">typeof</span> value</span><br><span class="line">  <span class="keyword">return</span> value != <span class="literal">null</span> &amp;&amp; (type == <span class="string">&#x27;object&#x27;</span> || type == <span class="string">&#x27;function&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="判断变量是不是-Object-类型的数据"><a href="#判断变量是不是-Object-类型的数据" class="headerlink" title="判断变量是不是 Object 类型的数据"></a>判断变量是不是 Object 类型的数据</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isPlainObject</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(value) === <span class="string">&#x27;[object Object]&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="判断变量是不是数组类型"><a href="#判断变量是不是数组类型" class="headerlink" title="判断变量是不是数组类型"></a>判断变量是不是数组类型</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isArray</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(arr) === <span class="string">&#x27;[object Array]&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isArray</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Array</span>.isArray(arr)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="将-isArray-挂载到-Array-上"><a href="#将-isArray-挂载到-Array-上" class="headerlink" title="将 isArray 挂载到 Array 上"></a>将 isArray 挂载到 Array 上</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Array</span>.isArray = <span class="built_in">Array</span>.isArray || isArray</span><br></pre></td></tr></table></figure>
-
-<h2 id="格式转换"><a href="#格式转换" class="headerlink" title="格式转换"></a>格式转换</h2><h3 id="数字格式化：小于-10-的数值前面加上-0"><a href="#数字格式化：小于-10-的数值前面加上-0" class="headerlink" title="数字格式化：小于 10 的数值前面加上 0"></a>数字格式化：小于 10 的数值前面加上 0</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> </span>num 要格式化的数值</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;string&#125;</span> </span>把小于10的数值前面加上0</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">prefix_zero</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> num &gt;= <span class="number">10</span> ? num : <span class="string">&#x27;0&#x27;</span> + num</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="价格格式化-1234567-gt-1-234-567-00"><a href="#价格格式化-1234567-gt-1-234-567-00" class="headerlink" title="价格格式化 (1234567 =&gt; 1,234,567.00)"></a>价格格式化 (1234567 =&gt; 1,234,567.00)</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> </span>price 价格</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@returns <span class="type">&#123;string&#125;</span> </span>1234567 =&gt; 1,234,567.00</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">formatPrice</span>(<span class="params">price</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> price !== <span class="string">&#x27;number&#x27;</span>) <span class="keyword">return</span> price</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">String</span>(<span class="built_in">Number</span>(price).toFixed(<span class="number">2</span>)).replace(<span class="regexp">/\B(?=(\d&#123;3&#125;)+(?!\d))/g</span>, <span class="string">&#x27;,&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// \b 匹配单词边界</span></span><br><span class="line"><span class="comment">// \B 匹配非单词边界</span></span><br></pre></td></tr></table></figure>
-
-<p>其他方式</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">123456789</span> <span class="comment">// a 为number类型</span></span><br><span class="line">a.toLocaleString(<span class="string">&#x27;en-US&#x27;</span>) <span class="comment">// &#x27;123,456,789&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> b = <span class="number">123456789</span> <span class="comment">// b 可为number类型或string类型</span></span><br><span class="line"><span class="built_in">Intl</span>.NumberFormat().format(b) <span class="comment">//&#x27;123,456,789&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="手机号格式化：隐藏中间四位数字"><a href="#手机号格式化：隐藏中间四位数字" class="headerlink" title="手机号格式化：隐藏中间四位数字"></a>手机号格式化：隐藏中间四位数字</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> </span>mobile 手机号</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@returns <span class="type">&#123;string&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">formatMobile</span>(<span class="params">mobile</span>) </span>&#123;</span><br><span class="line">  mobile = <span class="built_in">String</span>(mobile)</span><br><span class="line">  <span class="keyword">if</span> (!<span class="regexp">/\d&#123;11&#125;/</span>.test(mobile)) &#123;</span><br><span class="line">    <span class="keyword">return</span> mobile</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> mobile.replace(<span class="regexp">/(\d&#123;3&#125;)\d&#123;4&#125;(\d&#123;4&#125;)/</span>, <span class="string">&#x27;$1****$2&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="进制转换"><a href="#进制转换" class="headerlink" title="进制转换"></a>进制转换</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">parseInt</span>(str, radix) <span class="comment">// 任意进制转换为 10 进制整数值</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Number</span>.toString(radix) <span class="comment">//返回表示该数字的指定进制形式的字符串</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="常用正则"><a href="#常用正则" class="headerlink" title="常用正则"></a>常用正则</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 任意正负数字</span></span><br><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/(^[\-0-9][0-9]*(.[0-9]+)?)$/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 匹配邮箱</span></span><br><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]&#123;2,4&#125;)$/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 匹配手机号</span></span><br><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/^1[0-9]&#123;10&#125;$/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 匹配8-16位数字和字母密码的正则表达式</span></span><br><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]&#123;8,16&#125;$/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 匹配国内电话号码 0510-4305211</span></span><br><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/\d&#123;3&#125;-\d&#123;8&#125;|\d&#123;4&#125;-\d&#123;7&#125;/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 匹配身份证号码</span></span><br><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/(^\d&#123;15&#125;$)|(^\d&#123;18&#125;$)|(^\d&#123;17&#125;(\d|X|x)$)/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 匹配腾讯QQ号</span></span><br><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/[1-9][0-9]&#123;4,&#125;/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 匹配ip地址</span></span><br><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/\d+\.\d+\.\d+\.\d+/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 匹配中文</span></span><br><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/^[\u4e00-\u9fa5]*$/</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="检测平台（设备）类型"><a href="#检测平台（设备）类型" class="headerlink" title="检测平台（设备）类型"></a>检测平台（设备）类型</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">isWechat = <span class="regexp">/micromessenger/i</span>.test(navigator.userAgent)</span><br><span class="line">isWeibo = <span class="regexp">/weibo/i</span>.test(navigator.userAgent)</span><br><span class="line">isQQ = <span class="regexp">/qq/i</span>.test(navigator.userAgent)</span><br><span class="line">isIOS = <span class="regexp">/(iphone|ipod|ipad|ios)/i</span>.test(navigator.userAgent)</span><br><span class="line">isAndroid = <span class="regexp">/android/i</span>.test(navigator.userAgent)</span><br></pre></td></tr></table></figure>
-
-<h2 id="敏感符号转义"><a href="#敏感符号转义" class="headerlink" title="敏感符号转义"></a>敏感符号转义</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">entities</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> e = &#123;</span><br><span class="line">    <span class="string">&#x27;&quot;&#x27;</span>: <span class="string">&#x27;&quot;&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;&amp;&#x27;</span>: <span class="string">&#x27;&amp;&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;&lt;&#x27;</span>: <span class="string">&#x27;&lt;&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;&gt;&#x27;</span>: <span class="string">&#x27;&gt;&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> s.replace(<span class="regexp">/[&quot;&lt;&gt;&amp;]/g</span>, <span class="function">(<span class="params">m</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> e[m]</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">distinct</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> arr.filter(<span class="function">(<span class="params">v, i, array</span>) =&gt;</span> array.indexOf(v) === i)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 对象数组去重</span></span><br><span class="line"><span class="comment">// arr: 目标数组</span></span><br><span class="line"><span class="comment">// id: 唯一属性</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">distinct</span>(<span class="params">arr, id</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> object = &#123;&#125;</span><br><span class="line">  <span class="keyword">let</span> objres = arr.reduce(<span class="function">(<span class="params">item, next</span>) =&gt;</span> &#123;</span><br><span class="line">    object[next[id]] ? <span class="string">&#x27;&#x27;</span> : (object[next[id]] = <span class="literal">true</span> &amp;&amp; item.push(next))</span><br><span class="line">    <span class="keyword">return</span> item</span><br><span class="line">  &#125;, [])</span><br><span class="line">  <span class="keyword">return</span> objres</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="数组顺序上移下移"><a href="#数组顺序上移下移" class="headerlink" title="数组顺序上移下移"></a>数组顺序上移下移</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 对象数组顺序上移下移</span></span><br><span class="line"><span class="comment">// arr: 目标数组</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 上移</span></span><br><span class="line">arr[index] = arr.splice(index - <span class="number">1</span>, <span class="number">1</span>, arr[index])[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 下移</span></span><br><span class="line">arr[index] = arr.splice(index + <span class="number">1</span>, <span class="number">1</span>, arr[index])[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
-
-<h2 id="快速创建-a-标签"><a href="#快速创建-a-标签" class="headerlink" title="快速创建 a 标签"></a>快速创建 a 标签</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="string">&#x27;超链接&#x27;</span>.link(<span class="string">&#x27;https://wqdy.top&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// &lt;a href=&quot;https://wqdy.top&quot;&gt;超链接&lt;/a&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="正则进阶："><a href="#正则进阶：" class="headerlink" title="正则进阶："></a>正则进阶：</h2><p>捕获括号：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">匹配 &#x27;wqdy&#x27; 并且记住匹配项</span><br><span class="line">/(wqdy)/</span><br></pre></td></tr></table></figure>
-
-<p>非捕获括号：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">匹配 &#x27;wqdy&#x27; 但是不记住匹配项</span><br><span class="line">/(?:wqdy)/</span><br></pre></td></tr></table></figure>
-
-<p>先行断言：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">匹配&#x27;wqdy&#x27;仅仅当&#x27;wqdy&#x27;后面跟着&#x27;top&#x27;</span><br><span class="line">/wqdy(?=top)/</span><br></pre></td></tr></table></figure>
-
-<p>后行断言：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">匹配&#x27;top&#x27;仅仅当&#x27;top&#x27;前面是&#x27;wqdy&#x27;</span><br><span class="line">/(?&lt;=wqdy)top/</span><br></pre></td></tr></table></figure>
-
-<p>正向否定查找：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">匹配&#x27;wqdy&#x27;仅仅当&#x27;wqdy&#x27;后面不跟着&#x27;gkd&#x27;</span><br><span class="line">/wqdy(?!gkd)/</span><br></pre></td></tr></table></figure>
-
-<h2 id="判断是否有滚动条"><a href="#判断是否有滚动条" class="headerlink" title="判断是否有滚动条"></a>判断是否有滚动条</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isScroll</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">window</span>.innerWidth - $(<span class="built_in">document</span>).width() !== <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>

@@ -177,7 +177,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">157</span>
+          <span class="site-state-item-count">158</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -221,6 +221,126 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/2028.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2028.html" class="post-title-link" itemprop="url">Babel 入门</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2021-07-28" itemprop="dateCreated datePublished" datetime="2021-07-28T00:00:00+00:00">2021-07-28</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Babel与Polyfill的关系和区别<br>Babel 默认只转换新的 js 句法（syntax），而不转换新的 API，例如箭头函数等<br>Polyfill 用于实现浏览器并不支持的原生API的代码，如新增的方法等</p>
+<p>Babel</p>
+<p>Babel的安装，配置</p>
+<p>创建 <code>babel.config.js</code> 文件，内容如下</p>
+<blockquote>
+<p>babel.config.js 是Babel执行时会默认在当前目录寻找的Babel配置文件，除了babel.config.js，我们也可以选择用.babelrc或.babelrc.js这两种配置文件</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="attr">presets</span>: [<span class="string">&quot;@babel/env&quot;</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>安装如下包</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm i -D @babel/cli @babel/core @babel/preset-env</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>@babel/cli是Babel命令行转码工具，如果我们使用命令行进行Babel转码就需要安装它。</li>
+<li>@babel/cli依赖@babel/core，因此也需要安装@babel/core这个Babel核心npm包。</li>
+<li>@babel/preset-env这个npm包提供了ES6转换ES5的语法转换规则，我们在Babel配置文件里指定使用它。如果不使用的话，也可以完成转码，但转码后的代码仍然是ES6的，相当于没有转码。</li>
+</ul>
+<p>创建 <code>index.js</code> 文件，如下</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> fn = <span class="function">(<span class="params">num</span>) =&gt;</span> num + <span class="number">1</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">() =&gt;</span> &#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>执行命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npx babel index.js -o output.js</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> num + <span class="number">1</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">() =&gt;</span> &#123;&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>可以看到，ES6的箭头函数语法转换成了 ES5 的函数定义语法，但是并没有对ES6的Promise进行转换。因为Babel默认只转换新的 js 语法（箭头函数，解构…），而不转换新的 API。新的API分类两类，一类是Promise、Map、Symbol、Proxy、Iterator等全局对象及其对象自身的方法，例如Object.assign，Promise.resolve；另一类是新的实例方法，例如数组实例方法[1, 2, 3].find((item) =&gt; item &lt; 2)</p>
+<p>polyfill</p>
+<p>安装</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install --save @babel/polyfill</span><br></pre></td></tr></table></figure>
+
+<p>在 index.js 中引入 <code>import &#39;@babel/polyfill&#39;</code></p>
+<p>执行命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npx babel index.js -o output.js</span><br></pre></td></tr></table></figure>
+
+<p>输出结果</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">require</span>(<span class="string">&quot;@babel/polyfill&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> num + <span class="number">1</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果中 <code>require(&quot;@babel/polyfill&quot;);</code></p>
+<p>import被编译成了require，如果想要编译出来的模块引入规范还是import，则可以在preset-env的配置项中添加”modules”: false即可</p>
+<p>有时候我们项目里并没有用到那么多的新增API，但是 @babel/polyfill 会把所有浏览器环境的的polyfill都引入，整个包的体积就会很大，我们想要对目标环境按需引入相应的polyfill应该怎么办呢，这个时候我们就可以使用 preset-env 的配置项中的 useBuiltIns 属性来按需引入 polyfill。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="attr">presets</span>: [</span><br><span class="line">    [</span><br><span class="line">      <span class="string">&quot;@babel/preset-env&quot;</span>, &#123;</span><br><span class="line">        <span class="string">&quot;modules&quot;</span>: <span class="literal">false</span>, <span class="comment">// 用来设置是否把ES6的模块化语法改成其它模块化语法</span></span><br><span class="line">        <span class="string">&quot;useBuiltIns&quot;</span>: <span class="string">&quot;usage&quot;</span>,</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用useBuiltIns:”usage”后，Babel除了会考虑目标环境缺失的API模块，同时考虑我们项目代码里使用到的ES6特性，且不需要在项目入口处手动引入polyfill</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&quot;core-js/modules/es6.object.to-string.js&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;core-js/modules/es6.promise.js&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> num + <span class="number">1</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>可以看到 多了 <code>import &quot;core-js/...</code> 的引用，因为 @babel/polyfil 是由core-js2和regenerator-runtime组成的一个集成包，<br>Babel 7.4.0 之后已经弃用了 @babel/polyfill，所以core-js官方现在推荐我们使用polyfill的时候直接引入core-js和regenerator-runtime/runtime这两个包完全取代 @babel/polyfil</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3psb2lyb2NrL2NvcmUtanMjYmFiZWxwb2x5ZmlsbA==">core-js</span><br><span class="exturl" data-url="aHR0cHM6Ly93d3cuYmFiZWxqcy5jbi9kb2NzL2JhYmVsLXBvbHlmaWxs">babel-polyfill</span></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -905,109 +1025,6 @@
 
 <p>执行：<code>npm run postinstall</code></p>
 <p>该命令也会在每次 npm install 时自动执行</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/2007.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2007.html" class="post-title-link" itemprop="url">使用 github 仓库作为图床，并用 jsDelivr 加速</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2020-12-09" itemprop="dateCreated datePublished" datetime="2020-12-09T00:00:00+00:00">2020-12-09</date>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="github-JSDelivr"><a href="#github-JSDelivr" class="headerlink" title="github+JSDelivr"></a>github+JSDelivr</h2><ol>
-<li><p>创建一个仓库来存储需要存放的静态资源</p>
-</li>
-<li><p>使用JSDelivr加速加载Github资源</p>
-</li>
-</ol>
-<p>形式为 <code>https://cdn.jsdelivr.net/gh/&#123;Github用户名&#125;/&#123;Github仓库名&#125;@&#123;版本名&#125;/&#123;仓库下资源路径&#125;</code></p>
-<p>其中版本名可以是当前仓库的 Release 或分支名</p>
-<p>例如 github 链接为</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://github.com/cuilongjin/static/blob/main/test.txt</span><br></pre></td></tr></table></figure>
-
-<p>则使用JSDelivr加速链接为</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://cdn.jsdelivr.net/gh/cuilongjin/static@img/test.txt</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>使用 picgo 进行图片上传</li>
-</ol>
-<blockquote>
-<p>picgo 一款图片上传的工具，目前支持SM.MS图床，七牛图床，腾讯云COS，阿里云OSS，Imgur，又拍云，GitHub等图床<br>github地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL01vbHVuZXJmaW5uL1BpY0dv">https://github.com/Molunerfinn/PicGo</span><br>配置手册：<span class="exturl" data-url="aHR0cHM6Ly9waWNnby5naXRodWIuaW8vUGljR28tRG9jL3poL2d1aWRlLw==">https://picgo.github.io/PicGo-Doc/zh/guide/</span><br>插件：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1BpY0dvL0F3ZXNvbWUtUGljR28=">https://github.com/PicGo/Awesome-PicGo</span></p>
-</blockquote>
-<p>配置 github图床</p>
-<p>仓库名为第一步创建的仓库，分支名随意，我的为 main<br>token 获取地址: <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NldHRpbmdzL3Rva2VucyVFRiVCQyU4QyVFNyU4MiVCOSVFNSU4NyVCQg==">https://github.com/settings/tokens，点击</span> <code>Generate new token</code> ,复选框为你这个 token 的权限，勾选 <code>repo</code> 即可<br>存储路径为仓库目录，可以随意<br>自定义域名根据需要设置，这里我们设置为 jsdelivr 加速域名，形式为 <code>https://cdn.jsdelivr.net/gh/&#123;Github用户名&#125;/&#123;Github仓库名&#125;@&#123;版本名&#125;</code></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210101223210.png"></p>
-<h2 id="使用-npm-JSDelivr"><a href="#使用-npm-JSDelivr" class="headerlink" title="使用 npm+JSDelivr"></a>使用 npm+JSDelivr</h2><p>需要将当前仓库发布为npm包</p>
-<p>去 npm 官网注册个账号去,然后</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm login</span><br><span class="line">npm publish</span><br></pre></td></tr></table></figure>
-
-<p>如果你的包名为 <code>@your-name/your-package</code> 时需要 <code>--access public</code> 参数，原因是当包名以 <code>@your-name</code> 开头时，<code>npm publish</code> 会默认发布为私有包，但是 npm 的私有包需要付费</p>
-<p>请注意，如果你之前用过淘宝镜像，那么请先手动切回官方源 <code>npm config set registry https://registry.npmjs.org</code></p>
-<p>发布成功之后，可以通过以下方式访问文件</p>
-<p><code>https://cdn.jsdelivr.net/npm/(yourpackagename)@(version)/(file)</code></p>
-<blockquote>
-<p>其他一些镜像</p>
-<p>unpkg <span class="exturl" data-url="aHR0cHM6Ly93d3cudW5wa2cuY29tLw==">https://www.unpkg.com</span><br>知乎出品 <span class="exturl" data-url="aHR0cHM6Ly91bnBrZy56aGltZy5jb20v">https://unpkg.zhimg.com/</span><br>百度 <span class="exturl" data-url="aHR0cHM6Ly9jb2RlLmJkc3RhdGljLmNvbS9ucG0v">https://code.bdstatic.com/npm/</span><br>饿了么 <span class="exturl" data-url="aHR0cHM6Ly9zaGFkb3cuZWxlbWVjZG4uY29tL25wbS8=">https://shadow.elemecdn.com/npm/</span></p>
-</blockquote>
-<p>当文件有更新时，需要更新发布</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 删除指定的版本</span></span><br><span class="line">npm unpublish 包名@版本号</span><br><span class="line"><span class="comment"># 重新发布</span></span><br><span class="line">npm publish</span><br></pre></td></tr></table></figure>
-
-<p>配置 github action 自动发布</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">npm</span> <span class="string">Package</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">main</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">publish-npm:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Setup</span> <span class="string">Node</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/setup-node@v2.1.2</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">node-version:</span> <span class="string">&#x27;12.x&#x27;</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">run:</span> <span class="string">npm</span> <span class="string">unpublish</span> <span class="string">@cuilongjin/static@1.0.0</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">run:</span> <span class="string">npm</span> <span class="string">publish</span></span><br><span class="line">        <span class="attr">env:</span></span><br><span class="line">          <span class="attr">NODE_AUTH_TOKEN:</span> <span class="string">$&#123;&#123;secrets.npm_token&#125;&#125;</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
