@@ -177,7 +177,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">158</span>
+          <span class="site-state-item-count">160</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -221,6 +221,172 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/2012.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2012.html" class="post-title-link" itemprop="url">优秀的命令行工具</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-12-27" itemprop="dateCreated datePublished" datetime="2020-12-27T00:00:00+00:00">2020-12-27</date>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>tldr<br>快速查看命令的使用示例</p>
+<p>安装</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm i -g tldr</span><br></pre></td></tr></table></figure>
+
+<p>使用</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看git的使用示例</span></span><br><span class="line">tldr git</span><br></pre></td></tr></table></figure>
+
+<p>thefuck<br>快速修正命令行手误</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/2001.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2001.html" class="post-title-link" itemprop="url">使用 patch-package 来科学修改 node_modules 里的文件</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-12-15" itemprop="dateCreated datePublished" datetime="2020-12-15T00:00:00+00:00">2020-12-15</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>当我们使用npm包时，需要修改部分源码做自定义功能，但是直接修改node_modules里面的文件，重新安装包后做的修改就没有了。一般常用办法有两个：</p>
+<ol>
+<li>将代码下载到本地，修改后手动引入</li>
+<li>fork别人的代码到自己仓库，修改后，从自己仓库安装</li>
+</ol>
+<p>但是这样做比较麻烦，而且更新不方便。我们可以使用 patch-package 来管理修改</p>
+<p>以 hexo-theme-next 为例</p>
+<ol>
+<li><p>修改 node_modules 里面的代码</p>
+</li>
+<li><p>安装patch-package：<code>npm i patch-package --save-dev</code></p>
+</li>
+<li><p>执行命令：<code>npx patch-package hexo-theme-next</code></p>
+</li>
+</ol>
+<p>第一次使用 patch-package 会在项目根目录生成 patches 文件夹，里面有修改过的文件 diff 记录</p>
+<p>当这个包被重新安装后，可以使用如下方式让修改生效</p>
+<p>方式一：执行命令：<code>git apply --ignore-whitespace patches/hexo-theme-next+8.0.1.patch</code></p>
+<p>方式二：在 package.json，新增命令 postinstall:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">+  &quot;postinstall&quot;: &quot;patch-package&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>执行：<code>npm run postinstall</code></p>
+<p>该命令也会在每次 npm install 时自动执行</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -893,179 +1059,6 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/hosts</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加这一行内容</span></span><br><span class="line">获取到的ip raw.githubusercontent.com</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者直接添加下面这一行</span></span><br><span class="line">199.232.68.133 raw.githubusercontent.com</span><br></pre></td></tr></table></figure>
 
 <p>保存退出，ping 一下试试</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1909.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/1909.html" class="post-title-link" itemprop="url">免费申请SSL证书，为网站启用 HTTPS</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2020-07-22" itemprop="dateCreated datePublished" datetime="2020-07-22T17:30:04+00:00">2020-07-22</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="Let’s-Encrypt"><a href="#Let’s-Encrypt" class="headerlink" title="Let’s Encrypt"></a>Let’s Encrypt</h2><p>官方网站：<span class="exturl" data-url="aHR0cHM6Ly9sZXRzZW5jcnlwdC5vcmcv">https://letsencrypt.org/</span></p>
-<p>现提供通配符 SSL 证书，需使用 certbot 或 acme.sh 手动发行</p>
-<h3 id="certbot"><a href="#certbot" class="headerlink" title="certbot"></a>certbot</h3><p>github：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2NlcnRib3QvY2VydGJvdA==">https://github.com/certbot/certbot</span></p>
-<p>安装 EPEL</p>
-<p>EPEL (Extra Packages for Enterprise Linux)是由 Fedora 社区打造，为 RHEL 及衍生发行版如 CentOS、Scientific Linux 等提供额外的软件包</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum -y install epel-release</span><br></pre></td></tr></table></figure>
-
-<p>安装 certbot</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum -y install certbot</span><br></pre></td></tr></table></figure>
-
-<p>申请 SSL 证书</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">certbot certonly --standalone -d www.test.org</span><br></pre></td></tr></table></figure>
-
-<p>证书文件在 /etc/letsencrypt/ 文件夹下</p>
-<h3 id="acme-sh"><a href="#acme-sh" class="headerlink" title="acme.sh"></a>acme.sh</h3><p>acme.sh 实现了 acme 协议, 可以从 letsencrypt 生成免费的证书</p>
-<p>github：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FjbWVzaC1vZmZpY2lhbC9hY21lLnNoL3dpa2kvJUU4JUFGJUI0JUU2JTk4JThF">https://github.com/acmesh-official/acme.sh/wiki/说明</span></p>
-<h3 id="宝塔面板"><a href="#宝塔面板" class="headerlink" title="宝塔面板"></a>宝塔面板</h3><p>支持一键配置 <code>宝塔SSL</code>,<code>Let&#39;s Encrypt</code>免费证书</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102184437.png"></p>
-<h2 id="freessl"><a href="#freessl" class="headerlink" title="freessl"></a>freessl</h2><p>提供免费HTTPS证书申请 <span class="exturl" data-url="aHR0cHM6Ly9mcmVlc3NsLmNuLw==">https://freessl.cn/</span></p>
-<h2 id="FiloSottile-mkcert"><a href="#FiloSottile-mkcert" class="headerlink" title="FiloSottile/mkcert"></a>FiloSottile/mkcert</h2><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0ZpbG9Tb3R0aWxlL21rY2VydA==">https://github.com/FiloSottile/mkcert</span> 生成本地 HTTPS 加密证书（localhost 127.0.0.1）</p>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>HTTPS 网站检测 <span class="exturl" data-url="aHR0cHM6Ly9teXNzbC5jb20v">https://myssl.com/</span></p>
-<p>参考文章：</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly90ZWRkeXN1bi5jb20vNTI3Lmh0bWw=">https://teddysun.com/527.html</span></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1895.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/1895.html" class="post-title-link" itemprop="url">微信小程序中使用less</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2020-07-14" itemprop="dateCreated datePublished" datetime="2020-07-14T09:56:35+00:00">2020-07-14</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>安装</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g wxss-cli</span><br></pre></td></tr></table></figure>
-
-<p>然后在小程序目录，监听此目录以下所有 css 及 less 文件并实时保存文件后转换为 wxss</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 监听文件会自动将此目录下 css,less 文件编译为 wxss</span></span><br><span class="line">wxss ./pages</span><br></pre></td></tr></table></figure>
-<p>新建的 less 文件最终不会上传至小程序</p>
 
       
     </div>

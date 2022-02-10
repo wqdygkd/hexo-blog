@@ -177,7 +177,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">158</span>
+          <span class="site-state-item-count">160</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -221,6 +221,189 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/890.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/890.html" class="post-title-link" itemprop="url">github 下载加速--解决克隆 github 仓库时速度慢的问题</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-03-09" itemprop="dateCreated datePublished" datetime="2020-03-09T17:13:21+00:00">2020-03-09</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="修改-host-方式"><a href="#修改-host-方式" class="headerlink" title="修改 host 方式"></a>修改 host 方式</h2><p>访问 <span class="exturl" data-url="aHR0cDovL3Rvb2wuY2hpbmF6LmNvbS9kbnM=">http://tool.chinaz.com/dns</span> 或 <span class="exturl" data-url="aHR0cHM6Ly93d3cuaXBhZGRyZXNzLmNvbS8=">https://www.ipaddress.com/</span></p>
+<p>查询以下三个链接的 DNS 解析地址</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">github.com</span><br><span class="line">assets-cdn.github.com</span><br><span class="line">github.global.ssl.fastly.net</span><br></pre></td></tr></table></figure>
+
+<p>找到 TTL 值最小的 IP，修改系统 Hosts 文件</p>
+<p>之后刷新系统 DNS 缓存</p>
+<p>Windows+X 打开系统命令行（管理员身份）或 powershell</p>
+<p>运行 ipconfig /flushdns 手动刷新系统 DNS 缓存。</p>
+<h2 id="利用国内代码管理平台中转"><a href="#利用国内代码管理平台中转" class="headerlink" title="利用国内代码管理平台中转"></a>利用国内代码管理平台中转</h2><p>利用码云(gitee)</p>
+<p>新建仓库-导入已有仓库 将 github 仓库 clone 到 gitee 中</p>
+<p>如果项目中有子模块，同理也需要 clone 到 gitee 中，同时修改主仓库中的 .gitmodules 文件，将子模块的地址修改为 gitee 地址</p>
+<h2 id="使用-GitHubDesktop-客户端"><a href="#使用-GitHubDesktop-客户端" class="headerlink" title="使用 GitHubDesktop 客户端"></a>使用 GitHubDesktop 客户端</h2><h2 id="使用代理"><a href="#使用代理" class="headerlink" title="使用代理"></a>使用代理</h2><p>仅仅开代理是不行的，需要单独配置</p>
+<p>如果使用 HTTPS 协议克隆需要如下配置</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 设置代理</span></span><br><span class="line">git config --global http.proxy socks5://127.0.0.1:1080</span><br><span class="line">git config --global https.proxy socks5://127.0.0.1:1080</span><br><span class="line"></span><br><span class="line"><span class="comment">#取消代理</span></span><br><span class="line">git config --global --<span class="built_in">unset</span> http.proxy</span><br><span class="line">git config --global --<span class="built_in">unset</span> https.proxy</span><br></pre></td></tr></table></figure>
+
+<p>使用 SSH 协议克隆需要如下配置</p>
+<p>修改.ssh/config</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">Hostname github.com</span><br><span class="line">ProxyCommand connect -S 127.0.0.1:1080 %h %p</span><br></pre></td></tr></table></figure>
+
+<p>1080 端口换成你本地代理客户端的 socks 端口</p>
+<h2 id="github-com-cnpmjs-org-镜像站"><a href="#github-com-cnpmjs-org-镜像站" class="headerlink" title="github.com.cnpmjs.org 镜像站"></a>github.com.cnpmjs.org 镜像站</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/vuejs/vue.git</span><br><span class="line"><span class="comment"># 改为</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com.cnpmjs.org/vuejs/vue.git</span><br></pre></td></tr></table></figure>
+
+<h2 id="https-github-com-521xueweihan-GitHub520"><a href="#https-github-com-521xueweihan-GitHub520" class="headerlink" title="https://github.com/521xueweihan/GitHub520"></a><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tLzUyMXh1ZXdlaWhhbi9HaXRIdWI1MjA=">https://github.com/521xueweihan/GitHub520</span></h2><p>SwitchHosts v4.0.2<br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL29sZGovU3dpdGNoSG9zdHMvcmVsZWFzZXMvdGFnL3Y0LjAuMg==">https://github.com/oldj/SwitchHosts/releases/tag/v4.0.2</span></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/819.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/819.html" class="post-title-link" itemprop="url">ZeroTier 异地组网及私有 Moon 转发节点搭建</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-03-07" itemprop="dateCreated datePublished" datetime="2020-03-07T00:00:00+00:00">2020-03-07</date>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>支持 Windows、macOS、Linux、IOS、Android、Synology、QNAP、Western Digital MyCloud NAS等</p>
+<h2 id="使用官方根节点"><a href="#使用官方根节点" class="headerlink" title="使用官方根节点"></a>使用官方根节点</h2><p>1、创建账号</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9teS56ZXJvdGllci5jb20v">https://my.zerotier.com</span></p>
+<p>2、创建网络</p>
+<p>进入 <span class="exturl" data-url="aHR0cHM6Ly9teS56ZXJvdGllci5jb20vbmV0d29yaw==">https://my.zerotier.com/network</span> 点击 Create 创建网络，点击进入已创建的网络 此时可以看到 Network ID，后续添加设备都会需要这个 ID</p>
+<p>Access Control，默认是Certificate (Private Network)，选择此模式表示每次在添加新的主机时，需要手动勾选是否允许连接，如果选择None (Public Network)模式，表示加入网络后自动分配IP并允许连接，从安全性来说建议使用默认选项Certificate (Private Network)，方便性来看None (Public Network)更方便，不用每次加入网络后手动勾选。</p>
+<p>好了，一个中转的ZeroTier就配置完成了，接下来只需要在其他设备安装所对应的客户端，然后加入到这个网络中就可以了。</p>
+<h2 id="搭建私有节点（moon）"><a href="#搭建私有节点（moon）" class="headerlink" title="搭建私有节点（moon）"></a>搭建私有节点（moon）</h2><blockquote>
+<p>搭建私有节点是为了解决根节点在国外,速度慢, 且不稳定</p>
+</blockquote>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -s https://install.zerotier.com/ | sudo bash</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装成功后</span></span><br><span class="line"><span class="comment"># *** Success! You are ZeroTier address [ b32fxxxxxx ].</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="配置-Moon"><a href="#配置-Moon" class="headerlink" title="配置 Moon"></a>配置 Moon</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /var/lib/zerotier-one</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成 moon.json 配置文件</span></span><br><span class="line">zerotier-idtool initmoon identity.public &gt;&gt; moon.json</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编辑 moon.json 配置文件，修改 stableEndpoints</span></span><br><span class="line">vim moon.json</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;stableEndpoints&quot;</span>: [<span class="string">&quot;你服务器公网ip/9993&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成 .moon 文件 私有网络的 zerotier 标志性文件</span></span><br><span class="line">zerotier-idtool genmoon moon.json</span><br><span class="line"><span class="comment"># 此命令会生成一个签名文件在当前目录下，文件名如 000000b32fxxxxxx.moon （b32fxxxxxx 为 ZeroTier address)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 移动文件</span></span><br><span class="line"><span class="comment"># 将生成的 000000b32fxxxxxx.moon 移动到 moons.d 目录</span></span><br><span class="line">mkdir moons.d</span><br><span class="line">mv 000000b32fxxxxxx.moon moons.d</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启 zerotier-one 服务</span></span><br><span class="line">systemctl restart zerotier-one</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加入虚拟网络</span></span><br><span class="line"><span class="comment"># zerotier-cli join af415e486f26xxxx //  af415e486f26xxxx 为在 zerotier 官网创建的网络</span></span><br></pre></td></tr></table></figure>
+
+
+<p>将内网机器连接上 moon 节点</p>
+<p>执行命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># windows 在 C:\ProgramData\ZeroTier\One 目录下执行</span></span><br><span class="line">zerotier-cli orbit 000000b32fxxxxxx 000000b32fxxxxxx <span class="comment"># moon 服务器的ID值 输入2遍</span></span><br></pre></td></tr></table></figure>
+
+<p> 查看是否连接</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 在其他机子执行以下命令是否显示该 moon 节点</span></span><br><span class="line"><span class="comment"># 或在 moon 服务器上执行命令否显示 LEAF 节点</span></span><br><span class="line">zerotier-cli listpeers</span><br><span class="line"></span><br><span class="line">200 listpeers &lt;ztaddr&gt; &lt;path&gt; &lt;latency&gt; &lt;version&gt; &lt;role&gt;</span><br><span class="line">200 listpeers xxxxxxxxxx xx.xx.xx.xx/4532;1037;853 183 1.6.4 LEAF</span><br><span class="line">200 listpeers xxxxxxxxxx xx.xx.xx.xx/9993;19869;4337 0 - PLANET</span><br><span class="line">200 listpeers xxxxxxxxxx xx.xx.xx.xx/9993;4337;4167 170 - PLANET</span><br><span class="line">200 listpeers xxxxxxxxxx xx.xx.xx.xx/9993;363;4274 63 - PLANET</span><br><span class="line">200 listpeers xxxxxxxxxx xx.xx.xx.xx/9993;19508;4192 145 - PLANET</span><br></pre></td></tr></table></figure>
+
+<h2 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h2><p><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmRvY2tlci5jb20vZW5naW5lL3JlZmVyZW5jZS9idWlsZGVyLw==">https://docs.docker.com/engine/reference/builder/</span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3plcm90aWVyL1plcm9UaWVyT25lL3RyZWUvbWFzdGVyL2V4dC9pbnN0YWxsZmlsZXMvbGludXgvemVyb3RpZXItY29udGFpbmVyaXplZA==">https://github.com/zerotier/ZeroTierOne/tree/master/ext/installfiles/linux/zerotier-containerized</span></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker build . -t zerotier</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1363,172 +1546,6 @@
 <h4 id="iView-admin-pc-后台管理-vue2-0-iView"><a href="#iView-admin-pc-后台管理-vue2-0-iView" class="headerlink" title="iView-admin(pc 后台管理 vue2.0+iView)"></a>iView-admin(pc 后台管理 vue2.0+iView)</h4><p>演示地址：<span class="exturl" data-url="aHR0cHM6Ly9hZG1pbi5pdmlld3VpLmNvbS8=">https://admin.iviewui.com/</span></p>
 <p>github 地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2l2aWV3L2l2aWV3LWFkbWlu">https://github.com/iview/iview-admin</span> 14.2k</p>
 <p>使用文档：<span class="exturl" data-url="aHR0cHM6Ly9saXNvbjE2LmdpdGh1Yi5pby9pdmlldy1hZG1pbi1kb2Mv">https://lison16.github.io/iview-admin-doc/</span></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/554.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/554.html" class="post-title-link" itemprop="url">如何为 WordPress 文章中的链接自动添加 nofollow</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2020-02-18" itemprop="dateCreated datePublished" datetime="2020-02-18T15:50:28+00:00">2020-02-18</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/wordpress/" itemprop="url" rel="index"><span itemprop="name">wordpress</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在 SEO 的角度，我们不宜在网站中设置过多的外链，防止搜索引擎蜘蛛在爬虫你的网站时跳出到其他网站。因此，了解并为外链加上 nofollow 链接是非常有必要的（除非这些外链与你的网站有利益关系，比如是你的其他网站又或者是合作伙伴的网站）。</p>
-<h3 id="什么是-nofollow-链接"><a href="#什么是-nofollow-链接" class="headerlink" title="什么是 nofollow 链接"></a>什么是 nofollow 链接</h3><p>Nofollow 链接是带有 rel =”nofollow” HTML 标记的链接。 nofollow 标签可帮助搜索引擎了解要忽略目标链接，并且不会将网页（放置 nofollow 链接）的 PageRank 传递给此类链接。</p>
-<p>以下链接类型应该设置为 nofollow 链接：返利链接，赞助商链接，广告链接，社交媒体链接，不可信/不可靠网站内容链接</p>
-<h3 id="如何建立-Nofollow-链接"><a href="#如何建立-Nofollow-链接" class="headerlink" title="如何建立 Nofollow 链接"></a>如何建立 Nofollow 链接</h3><p>将下面的代码添加到主题的 <code>functions.php</code> 文件即可：</p>
-<p>如果不想直接修改 <code>functions.php</code> 文件，可以使用 <a href="https://wqdy.top/671.html">Code Snippets 插件</a></p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 文章外部链接加上nofollow</span></span><br><span class="line">add_filter( <span class="string">&#x27;the_content&#x27;</span>, <span class="string">&#x27;nf_url_parse&#x27;</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">nf_url_parse</span>(<span class="params"> <span class="variable">$content</span> </span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="variable">$regexp</span> = <span class="string">&quot;&lt;a\s[^&gt;]*href=(\&quot;??)([^\&quot; &gt;]*?)\\1[^&gt;]*&gt;&quot;</span>;</span><br><span class="line">  <span class="keyword">if</span>(preg_match_all(<span class="string">&quot;/<span class="subst">$regexp</span>/siU&quot;</span>, <span class="variable">$content</span>, <span class="variable">$matches</span>, PREG_SET_ORDER)) &#123;</span><br><span class="line">    <span class="keyword">if</span>( !<span class="keyword">empty</span>(<span class="variable">$matches</span>) ) &#123;</span><br><span class="line"></span><br><span class="line">      <span class="variable">$srcUrl</span> = get_option(<span class="string">&#x27;siteurl&#x27;</span>);</span><br><span class="line">      <span class="keyword">for</span> (<span class="variable">$i</span>=<span class="number">0</span>; <span class="variable">$i</span> &lt; count(<span class="variable">$matches</span>); <span class="variable">$i</span>++)</span><br><span class="line">      &#123;</span><br><span class="line"></span><br><span class="line">        <span class="variable">$tag</span> = <span class="variable">$matches</span>[<span class="variable">$i</span>][<span class="number">0</span>];</span><br><span class="line">        <span class="variable">$tag2</span> = <span class="variable">$matches</span>[<span class="variable">$i</span>][<span class="number">0</span>];</span><br><span class="line">        <span class="variable">$url</span> = <span class="variable">$matches</span>[<span class="variable">$i</span>][<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">        <span class="variable">$noFollow</span> = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// $pattern = &#x27;/target\s*=\s*&quot;\s*_blank\s*&quot;/&#x27;;</span></span><br><span class="line">        <span class="comment">// preg_match($pattern, $tag2, $match, PREG_OFFSET_CAPTURE);</span></span><br><span class="line">        <span class="comment">// if( count($match) &lt; 1 )</span></span><br><span class="line">        <span class="comment">//   $noFollow .= &#x27; target=&quot;_blank&quot; &#x27;;</span></span><br><span class="line"></span><br><span class="line">        <span class="variable">$pattern</span> = <span class="string">&#x27;/rel\s*=\s*&quot;\s*[n|d]ofollow\s*&quot;/&#x27;</span>;</span><br><span class="line">        preg_match(<span class="variable">$pattern</span>, <span class="variable">$tag2</span>, <span class="variable">$match</span>, PREG_OFFSET_CAPTURE);</span><br><span class="line">        <span class="keyword">if</span>( count(<span class="variable">$match</span>) &lt; <span class="number">1</span> )</span><br><span class="line">          <span class="variable">$noFollow</span> .= <span class="string">&#x27; rel=&quot;nofollow&quot; &#x27;</span>;</span><br><span class="line"></span><br><span class="line">        <span class="variable">$pos</span> = strpos(<span class="variable">$url</span>,<span class="variable">$srcUrl</span>);</span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$pos</span> === <span class="literal">false</span>) &#123;</span><br><span class="line">          <span class="variable">$tag</span> = rtrim (<span class="variable">$tag</span>,<span class="string">&#x27;&gt;&#x27;</span>);</span><br><span class="line">          <span class="variable">$tag</span> .= <span class="variable">$noFollow</span>.<span class="string">&#x27;&gt;&#x27;</span>;</span><br><span class="line">          <span class="variable">$content</span> = str_replace(<span class="variable">$tag2</span>,<span class="variable">$tag</span>,<span class="variable">$content</span>);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="variable">$content</span> = str_replace(<span class="string">&#x27;]]&gt;&#x27;</span>, <span class="string">&#x27;]]&gt;&#x27;</span>, <span class="variable">$content</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="variable">$content</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="检查-nofollow-链接是否生效"><a href="#检查-nofollow-链接是否生效" class="headerlink" title="检查 nofollow 链接是否生效"></a>检查 nofollow 链接是否生效</h3><p><strong>使用浏览器的 <code>检查</code> 功能查看 nofollow 链接</strong></p>
-<p>使用浏览器打开页面，移动鼠标光标至你想要检查的链接上方。</p>
-<p>右击鼠标按钮，选择 <code>检查</code> 选项 （以 Chrome 为例，不同浏览器选项叫法不太一样）</p>
-<p>代码查看窗口将在浏览器的底部/右侧打开。你可以通过查看 HTML 代码查看链接是否添加了 rel=”nofollow”。</p>
-<p><strong>使用 Chrome 扩展组件（插件）检查页面 nofollow 链接</strong></p>
-<p>下载名为<span class="exturl" data-url="aHR0cHM6Ly9jaHJvbWUuZ29vZ2xlLmNvbS93ZWJzdG9yZS9kZXRhaWwvbm9mb2xsb3cvZGZvZ2lkZ2hhaWdvb21qZGVhY25kYWZhcGRpam1paWQ/aGw9ZW4=">NoFollow</span>的 Chrome 扩展组件，安装该插件后重新加载页面，该网页上的所有 nofollow 链接都将会高亮突出显示。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/504.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/504.html" class="post-title-link" itemprop="url">dux主题修改记录</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2020-02-12" itemprop="dateCreated datePublished" datetime="2020-02-12T11:35:20+00:00">2020-02-12</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/wordpress/" itemprop="url" rel="index"><span itemprop="name">wordpress</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="给网站添加语言"><a href="#给网站添加语言" class="headerlink" title="给网站添加语言"></a>给网站添加语言</h2><p>打开 <code>theme/dux/header.php</code> 文件，修改如下内容</p>
-<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE HTML&gt;</span><br><span class="line"><span class="deletion">-&lt;html&gt;</span></span><br><span class="line"><span class="addition">+&lt;html lang=&quot;zh&quot;&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="修改面包屑导航位置"><a href="#修改面包屑导航位置" class="headerlink" title="修改面包屑导航位置"></a>修改面包屑导航位置</h2><p>打开 <code>theme/dux/single.php</code> 文件，修改如下内容</p>
-<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">&lt;?php get_header(); ?&gt;</span><br><span class="line"><span class="deletion">-&lt;?php if( _hui(&#x27;breadcrumbs_single_s&#x27;) )&#123; ?&gt;</span></span><br><span class="line"><span class="deletion">- &lt;div class=&quot;breadcrumbs&quot;&gt;</span></span><br><span class="line"><span class="deletion">-  &lt;div class=&quot;container&quot;&gt;&lt;?php echo hui_breadcrumbs() ?&gt;&lt;/div&gt;</span></span><br><span class="line"><span class="deletion">- &lt;/div&gt;</span></span><br><span class="line"><span class="deletion">-&lt;?php &#125; ?&gt;</span></span><br><span class="line">&lt;section class=&quot;container&quot;&gt;</span><br><span class="line"><span class="addition">+ &lt;?php if( _hui(&#x27;breadcrumbs_single_s&#x27;) )&#123; ?&gt;</span></span><br><span class="line"><span class="addition">+  &lt;div class=&quot;breadcrumbs&quot;&gt;</span></span><br><span class="line"><span class="addition">+   &lt;div class=&quot;container&quot;&gt;&lt;?php echo hui_breadcrumbs() ?&gt;&lt;/div&gt;</span></span><br><span class="line"><span class="addition">+  &lt;/div&gt;</span></span><br><span class="line"><span class="addition">+ &lt;?php &#125; ?&gt;</span></span><br><span class="line"> &lt;div class=&quot;content-wrap&quot;&gt;</span><br><span class="line"> &lt;div class=&quot;content&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>添加自定义样式</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 面包屑导航 */</span></span><br><span class="line"><span class="selector-class">.breadcrumbs</span> &#123;</span><br><span class="line">	<span class="attribute">box-shadow</span>: none;</span><br><span class="line">	<span class="attribute">background</span>: none;</span><br><span class="line">	<span class="attribute">margin-bottom</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>

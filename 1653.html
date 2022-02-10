@@ -188,7 +188,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">158</span>
+          <span class="site-state-item-count">160</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -847,99 +847,7 @@
 </ul>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> date = +<span class="keyword">new</span> <span class="built_in">Date</span>() <span class="comment">// 1970年01月01日00时00分00秒起至现在的总毫秒数</span></span><br><span class="line"><span class="comment">// 思考</span></span><br><span class="line"><span class="comment">// 如何统计一段代码的执行时间？</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="Array-对象"><a href="#Array-对象" class="headerlink" title="Array 对象"></a>Array 对象</h2><blockquote>
-<p>数组对象在 javascript 中非常的常用</p>
-</blockquote>
-<ul>
-<li>数组转换</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 语法：arr.join(separator)</span></span><br><span class="line"><span class="comment">// 作用：将数组的值拼接成字符串</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">arr.join() <span class="comment">// 不传参数，默认用逗号进行拼接，返回拼接好的字符串</span></span><br><span class="line">arr.join(<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">arr.join(<span class="string">&#x27;-&#x27;</span>) <span class="comment">// 用 - 进行拼接</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>数组的增删操作</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">arr.push() <span class="comment">// 从后面添加一个或多个元素，逗号隔开，返回新数组的 length</span></span><br><span class="line">arr.pop() <span class="comment">// 从数组的后面删除元素，返回删除的那个元素</span></span><br><span class="line">arr.unshift() <span class="comment">// 从数组的前面的添加元素，返回新数组的 length</span></span><br><span class="line">arr.shift() <span class="comment">// 从数组的最前面删除元素，返回删除的那个元素</span></span><br><span class="line">arr.push(arr1) <span class="comment">// 把 arr1 当成一个整体放到 arr 里</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 练习1</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="string">&#x27;刘备&#x27;</span>]</span><br><span class="line"><span class="comment">// 添加数据后变成：[&#x27;赵云&#x27;,&#x27;马超&#x27;,&#x27;刘备&#x27;,&#x27;关羽&#x27;,&#x27;张飞&#x27;]</span></span><br><span class="line"><span class="comment">// 删除数据后变成：[&#x27;关羽&#x27;,&#x27;张飞&#x27;]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 练习2</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="string">&#x27;赵云&#x27;</span>, <span class="string">&#x27;马超&#x27;</span>, <span class="string">&#x27;刘备&#x27;</span>, <span class="string">&#x27;关羽&#x27;</span>, <span class="string">&#x27;张飞&#x27;</span>]</span><br><span class="line"><span class="comment">// 把数组的最后一个元素变成数组的第一个元素</span></span><br><span class="line"><span class="comment">// 把数组的第一个元素变成数组的最后一个元素</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>数组的翻转与排序</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">arr.reverse() <span class="comment">// 翻转数组</span></span><br><span class="line">arr.sort() <span class="comment">// 数组的排序，按照首字符依次比较</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// sort 方法可以传递一个函数作为参数，这个参数用来控制数组如何进行排序</span></span><br><span class="line">arr.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 参数为 true 时，即返回值 &gt; 0 时，交换位置</span></span><br><span class="line">  <span class="comment">// return a - b // 从小到大排序</span></span><br><span class="line">  <span class="keyword">return</span> b - a <span class="comment">// 从大到小排序</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 思考：</span></span><br><span class="line"><span class="comment">// 将[3, 6, 1, 5, 10, 2,11]从小到大排列</span></span><br><span class="line"><span class="comment">// 将字符串数组按照字符长度从小到大排列 a.sort(function (a, b) &#123;return a.length - b.length&#125;)</span></span><br><span class="line"><span class="comment">// 将学生数组按照年龄从小到大排列</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>数组的拼接与截取</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// concat：数组合并，返回一个新数组，原数组不受影响</span></span><br><span class="line"><span class="keyword">var</span> newArr = arr.concat(arr2) <span class="comment">// 把 arr 和 arr2 中的所有元素放到 newArr 里</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// slice: 数组切分，复制数组的一部分到一个新数组，并返回这个新数组，原数组不受影响</span></span><br><span class="line"><span class="comment">// slice(begin, end) 包含 begin，不包含 end， begin 和 end 为下标</span></span><br><span class="line"><span class="comment">// slice(begin) 只有一个参数时，为开始参数，截取到末尾</span></span><br><span class="line"><span class="comment">// slice() 没有参数，全部截取</span></span><br><span class="line"><span class="comment">// 可以为负数，会将字符串的长度与对应的负数相加，结果作为参数，-1 表示从后数第一个</span></span><br><span class="line"><span class="keyword">var</span> newArr = arr.slice(begin, end)</span><br><span class="line"></span><br><span class="line"><span class="comment">// splice: 删除或者增加数组元素，修改原数组，返回删除的内容（数组形式）</span></span><br><span class="line"><span class="comment">// start: 开始位置  deletedCount: 删除的个数（如果不删除为 0）items: 替换的内容, 可为多个</span></span><br><span class="line">arr.splice(start) <span class="comment">// 删除原数组 start 位置之后的项（包含 start），返回删除的内容</span></span><br><span class="line">arr.splice(start, deletedCount, [items]) <span class="comment">// items 将作为 arr 的一项</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 练习：</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="string">&#x27;赵云&#x27;</span>, <span class="string">&#x27;马超&#x27;</span>, <span class="string">&#x27;刘备&#x27;</span>, <span class="string">&#x27;关羽&#x27;</span>, <span class="string">&#x27;张飞&#x27;</span>]</span><br><span class="line"><span class="comment">// 截取[&#x27;刘备&#x27;,&#x27;关羽&#x27;]</span></span><br><span class="line"><span class="comment">// 在马超后面增加马腾</span></span><br><span class="line">arr.splice(<span class="number">2</span>, <span class="number">0</span>, <span class="string">&#x27;马腾&#x27;</span>)</span><br><span class="line"><span class="comment">// 删除关羽</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>数组查找元素</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// indexOf 方法返回数组中某个元素第一次出现的位置，如果找不到，返回 -1</span></span><br><span class="line"><span class="comment">// 可以用来判断元素是否在数组中</span></span><br><span class="line"><span class="comment">// fromIndex 表示从 fromIndex 下标开始查找</span></span><br><span class="line">arr.indexOf(<span class="string">&#x27;zs&#x27;</span>, [fromIndex])</span><br><span class="line"></span><br><span class="line"><span class="comment">// lastIndexOf() 从后面开始查找数组中元素出现位置,即查找某元素最后一次出现的位置</span></span><br><span class="line"><span class="comment">// 如果找不到，返回 -1</span></span><br><span class="line">arr.lastIndexOf(<span class="string">&#x27;zs&#x27;</span>, [fromIndex])</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>清空数组</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. arr.splice(0,arr.length) // 删除数组中所有的元素</span></span><br><span class="line"><span class="comment">// 2．arr.length = 0 // 直接修改数组的长度</span></span><br><span class="line"><span class="comment">// 3．arr = [] // 将数组赋值为一个空数组，推荐</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>数组综合练习</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">&#x27;c&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;z&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;x&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;z&#x27;</span>, <span class="string">&#x27;c&#x27;</span>, <span class="string">&#x27;x&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;x&#x27;</span>]</span><br><span class="line"><span class="comment">// 1. 找到数组中第一个a出现的位置</span></span><br><span class="line"><span class="comment">// 2. 找到数组中最后一个a出现的位置</span></span><br><span class="line"><span class="comment">// 3. 找到数组中每一个a出现的位置</span></span><br><span class="line"><span class="comment">// 4. 数组去重，返回一个新数组</span></span><br><span class="line"><span class="comment">// 5. 获取数组中每个元素出现的次数</span></span><br></pre></td></tr></table></figure>
-
-<p>!&gt; 补充数组对象方法</p>
-<blockquote>
-<p><strong>forEach()</strong></p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 语法</span></span><br><span class="line">arr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item, index, arr</span>) </span>&#123;&#125;, thisArg)</span><br><span class="line"><span class="comment">// item 必需。数组中正在处理的当前元素</span></span><br><span class="line"><span class="comment">// index 可选。数组中正在处理的当前元素的索引</span></span><br><span class="line"><span class="comment">// arr 可选。当前数组</span></span><br><span class="line"><span class="comment">// thisArg 可选。当执行回调函数时用作this的值</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="string">&#x27;zs&#x27;</span>, <span class="string">&#x27;ls&#x27;</span>, <span class="string">&#x27;ww&#x27;</span>]</span><br><span class="line">arr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item, index, arr</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(item)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 返回值: undefined</span></span><br><span class="line"><span class="comment">// 不支持 return 操作输出，return 只用于控制循环是否跳出当前循环</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><strong>arr.map()</strong></p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 语法</span></span><br><span class="line"><span class="keyword">var</span> newArr = arr.map(<span class="function"><span class="keyword">function</span>(<span class="params">item, index</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// item 必需。数组中正在处理的当前元素</span></span><br><span class="line">  <span class="comment">// index 可选。数组中正在处理的当前元素的索引</span></span><br><span class="line">  <span class="comment">// arr 可选。当前数组</span></span><br><span class="line">  <span class="comment">// 使用 return 操作输出，会循环数组每一项，并返回新的每一项组成的数组</span></span><br><span class="line">  <span class="keyword">return</span> item * <span class="number">2</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 不修改原数组</span></span><br><span class="line"><span class="comment">// 返回一个新数组，新数组的每一项乘以 2</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><strong>arr.filter()</strong></p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 语法</span></span><br><span class="line"><span class="keyword">var</span> newArr = arr.filter(<span class="function"><span class="keyword">function</span>(<span class="params">item, index</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 参数同 map</span></span><br><span class="line">  <span class="comment">// 使用 return 操作输出，会循环数组每一项，并返回判断为 true 的每一项组成的数组</span></span><br><span class="line">  <span class="keyword">return</span> item &gt; <span class="number">2</span> &amp;&amp; item &lt; <span class="number">5</span> <span class="comment">// return 后是判断条件</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 不修改原数组</span></span><br><span class="line"><span class="comment">// 返回一个新数组，新数组每一项满足 2 &lt; item &lt; 5</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>arr.some()</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 语法</span></span><br><span class="line"><span class="keyword">var</span> newArr = arr.some(<span class="function"><span class="keyword">function</span>(<span class="params">item, index</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 参数同 map</span></span><br><span class="line">  <span class="comment">// 返回布尔值，只要有一项满足条件就返回 true，否则返回 false</span></span><br><span class="line">  <span class="keyword">return</span> item &gt; <span class="number">2</span> <span class="comment">// return 后是判断条件</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 不修改原数组</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>arr.every()</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 语法</span></span><br><span class="line"><span class="keyword">var</span> newArr = arr.every(<span class="function"><span class="keyword">function</span>(<span class="params">item, index</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 参数同 map</span></span><br><span class="line">  <span class="comment">// 返回布尔值，只有所有项都满足条件才返回 true，否则返回f alse</span></span><br><span class="line">  <span class="keyword">return</span> item &gt; <span class="number">2</span> <span class="comment">// return 后是判断条件</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 不修改原数组</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><strong>arr.includes()</strong></p>
-</blockquote>
-<p>判断数组是否含有某值，输出 true 或 false</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> new1 = arr.includes(<span class="number">5</span>)</span><br><span class="line"><span class="built_in">console</span>.log(new1)</span><br></pre></td></tr></table></figure>
-
-<p>必须完全匹配才会返回 flase（实用性不如正则）</p>
-<blockquote>
-<p><strong>arr.find()</strong></p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 语法</span></span><br><span class="line"><span class="keyword">var</span> newArr = arr.find(<span class="function"><span class="keyword">function</span>(<span class="params">item, index</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 参数同 map</span></span><br><span class="line">  <span class="comment">// 使用 return 操作输出，会循环数组每一项，当遍历循环到判断到一个为 true 则跳出循环，输出当前数组元素</span></span><br><span class="line">  <span class="keyword">return</span> item &gt; <span class="number">2</span> <span class="comment">// return 后是判断条件</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 不修改原数组</span></span><br><span class="line"><span class="comment">// 返回一个数组元素，如果全不满足返回 undefined</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>arr.findIndex()</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 语法</span></span><br><span class="line"><span class="keyword">var</span> newArr = arr.findIndex(<span class="function"><span class="keyword">function</span>(<span class="params">item, index</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 参数同 map</span></span><br><span class="line">  <span class="comment">// 使用 return 操作输出，会循环数组每一项，当遍历循环到判断到一个为 true 则跳出循环，输出当前数组元素的下标</span></span><br><span class="line">  <span class="keyword">return</span> item &gt; <span class="number">2</span> <span class="comment">// return 后是判断条件</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 不修改原数组</span></span><br><span class="line"><span class="comment">// 返回一个数组元素的下标，如果全不满足返回 -1</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><strong>arr.reduce()</strong></p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 语法</span></span><br><span class="line"><span class="keyword">var</span> new1 = arr.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">pre, next, index</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// pre 第一次为数组第一项，之后为上一操作的结果</span></span><br><span class="line">  <span class="comment">// next 数组的下一项</span></span><br><span class="line">  <span class="comment">// index next项的序列</span></span><br><span class="line">  <span class="comment">// arr 可选。当前数组</span></span><br><span class="line">  <span class="comment">// 使用 return 操作输出</span></span><br><span class="line">  <span class="keyword">return</span> pre + next <span class="comment">// 返回数组每一项的和</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 不修改原数组</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 扁平化数组</span></span><br><span class="line"><span class="keyword">var</span> arr2 = [</span><br><span class="line">  [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line">  [<span class="number">4</span>, <span class="number">5</span>],</span><br><span class="line">  [<span class="number">6</span>, <span class="number">7</span>]</span><br><span class="line">]</span><br><span class="line"><span class="keyword">var</span> new2 = arr2.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">pre, next, index</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> pre.concat(next) <span class="comment">// 前数组拼接后数组 .concat()</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 对象数组叠加计算</span></span><br><span class="line"><span class="keyword">var</span> arr3 = [</span><br><span class="line">  &#123; <span class="attr">price</span>: <span class="number">1</span>, <span class="attr">count</span>: <span class="number">1</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">price</span>: <span class="number">2</span>, <span class="attr">count</span>: <span class="number">2</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">price</span>: <span class="number">3</span>, <span class="attr">count</span>: <span class="number">3</span> &#125;</span><br><span class="line">]</span><br><span class="line"><span class="keyword">var</span> new3 = arr3.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">pre, next, index</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> pre + next.price * next.count</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 当需要操作第一项的时候，利用 reduce(callbreak()&#123;&#125;,往数组第一项前添加一项，如:0)</span></span><br><span class="line">&#125;, <span class="number">0</span>) <span class="comment">// 在原数组第一项添加为 0，不改变原数组</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="基本包装类型"><a href="#基本包装类型" class="headerlink" title="基本包装类型"></a>基本包装类型</h2><blockquote>
+<h2 id="Array-对象"><a href="#Array-对象" class="headerlink" title="Array 对象"></a>Array 对象</h2><h2 id="基本包装类型"><a href="#基本包装类型" class="headerlink" title="基本包装类型"></a>基本包装类型</h2><blockquote>
 <p><strong>简单数据类型是没有方法的</strong>。为了方便操作基本数据类型，JavaScript 还提供了三个特殊的引用类型：String/Number/Boolean</p>
 </blockquote>
 <p>基本包装类型：把基本类型包装成复杂类型</p>
@@ -955,53 +863,7 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line">toString() <span class="comment">// 转换成字符串并返回</span></span><br></pre></td></tr></table></figure>
 
 <p><strong>undefined 和 null 没有包装类型，所以调用 toString 方法会报错</strong></p>
-<h3 id="String-对象"><a href="#String-对象" class="headerlink" title="String 对象"></a>String 对象</h3><blockquote>
-<p>字符串可以看成是一个字符数组（伪数组）。因此字符串也有长度，也可以进行遍历。String 对象很多方法的名字和 Array 的一样。</p>
-<p>操作字符串的方法<strong>不会改变原来的字符串</strong>，需要新字符串去接收</p>
-</blockquote>
-<ul>
-<li>查找指定字符串</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">str.indexOf(‘‘) <span class="comment">// 获取某个字符串第一次出现的位置，如果没有，返回-1</span></span><br><span class="line">str.lastIndexOf(’’) <span class="comment">// 从后面开始查找第一次出现的位置。如果没有，返回-1</span></span><br><span class="line"></span><br><span class="line">str.search(regexp) <span class="comment">// 查找并输出索引位置,找不到输出-1</span></span><br><span class="line">str.match(regexp) <span class="comment">// 输出匹配到的第一个字符，匹配不到返回 null</span></span><br><span class="line">str.match(regexp/g) <span class="comment">// 全部输出</span></span><br><span class="line"></span><br><span class="line">str.startsWith(str1) <span class="comment">// 判断 str 字符串是否以 str1 字符串开头，若符合返回 true</span></span><br><span class="line">	<span class="comment">// 等价于判断 str.indexOf(str1) === 0</span></span><br><span class="line">str.endsWith(str1) <span class="comment">// 判断 str 字符串是否以 str1 字符串结尾，若符合返回 true</span></span><br><span class="line">	str.indexOf(str1) === str.length - str1.length</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>去除空白</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">str.trim() <span class="comment">// 去除字符串两边的空格，内部空格不会去除</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>大小写转换</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">str.toUpperCase() <span class="comment">// 全部转换成大写字母</span></span><br><span class="line">str.toLowerCase() <span class="comment">// 全部转换成小写字母</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>字符串拼接与截取</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 字符串拼接 可以用 concat，用法与数组一样，但是字符串拼串我们一般都用 +</span></span><br><span class="line"></span><br><span class="line">str.slice(start, end) <span class="comment">// 从 start 开始，end 结束，并且取不到 end，没有 end 则截取到末尾</span></span><br><span class="line"><span class="comment">// 可以为负数，会将字符串的长度与对应的负数相加，结果作为参数，-1 表示从后数第一个，一次为 -2、-3...</span></span><br><span class="line">str.slice(-<span class="number">3</span>) <span class="comment">// 截取字符串后三位</span></span><br><span class="line"><span class="comment">// str.slice() 与 str.slice(0) 等价 截取全部</span></span><br><span class="line"></span><br><span class="line">str.substring(start, end) <span class="comment">// 以两个参数中较小一个作为起始位置，较大的参数作为结束位置</span></span><br><span class="line"><span class="comment">// 负参数会被直接转换为 0</span></span><br><span class="line"><span class="comment">// str.substring() 与 str.substring(0) 等价 截取全部</span></span><br><span class="line"></span><br><span class="line">str.substr(start, length) <span class="comment">// 从 start 开始，截取 length 个字符，没有 length 则截取到末尾</span></span><br><span class="line"><span class="comment">// 第一个参数为负参数时，会将第一个参数与字符串长度相加后的结果作为第一个参数，</span></span><br><span class="line"><span class="comment">// 第二个参数为负数时，会被转化为 0 ，即截取长度为 0</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>字符串切割</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 将字符串分割成数组（很常用）</span></span><br><span class="line">str.split()</span><br><span class="line"><span class="comment">// 功能和数组的 join 正好相反</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;zs,ls,ww&#x27;</span></span><br><span class="line"><span class="keyword">var</span> arr = str.split(<span class="string">&#x27;,&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>字符串替换</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 语法</span><br><span class="line">str.replace(regexp/substr, replacement)</span><br><span class="line">// 参数：regexp/substr: 需要替换的内容    replacement: 替换文本或生成替换文本的函数  默认只替换第一个匹配子串</span><br><span class="line">str.replace(/regexp/g, replacement) // 全部替换</span><br><span class="line"></span><br><span class="line">str.replace(/ /g, &#x27;&#x27;) // 将全部空格去掉</span><br></pre></td></tr></table></figure>
-
-<p>replace() 方法的参数 replacement 可以是函数而不是字符串。在这种情况下，每个匹配都调用该函数，它返回的字符串将作为替换文本使用。该函数的第一个参数是匹配模式的字符串。接下来的参数是与模式中的子表达式匹配的字符串，可以有 0 个或多个这样的参数。接下来的参数是一个整数，声明了匹配在 stringObject 中出现的位置。最后一个参数是 stringObject 本身。</p>
-<ul>
-<li>访问</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">str[i]</span><br><span class="line">str.charAt(i)</span><br><span class="line"><span class="comment">// i 均为下标</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>练习</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1. 截取字符串’我爱中华人民共和国’，中的’中华’</span><br><span class="line">2. ’abcoefoxyozzopp’查找字符串中所有o出现的位置</span><br><span class="line">3. 把字符串中所有的o替换成!</span><br><span class="line">4. 把一个字符串中所有的空格全部去掉</span><br><span class="line">5. 统计一个字符串中每个字符出现的次数</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 寻找重复最多的字符以及个数</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;shdshdfjkfjfdgjkjdksgjskdjfsfsfsfjksjkfdkjf&#x27;</span></span><br><span class="line"><span class="keyword">var</span> arr = str.split(<span class="string">&#x27;&#x27;</span>).sort()</span><br><span class="line">str = arr.join(<span class="string">&#x27;&#x27;</span>)</span><br><span class="line"><span class="keyword">var</span> count = <span class="number">0</span></span><br><span class="line"><span class="keyword">var</span> char = <span class="number">0</span></span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/(\w)\1+/g</span></span><br><span class="line">str.replace(reg, <span class="function"><span class="keyword">function</span>(<span class="params">a, b, c, d</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a, b, c, d) <span class="comment">// a 匹配模式的字符串 b 与模式中的子表达式匹配的字符串 c 匹配在 str 中出现的位置 d  str 本身</span></span><br><span class="line">  <span class="keyword">if</span> (a.length &gt; count) &#123;</span><br><span class="line">    count = a.length</span><br><span class="line">    char = b</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(str)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;最多的字符为:&#x27;</span> + char + <span class="string">&#x27;;个数为:&#x27;</span> + count)</span><br></pre></td></tr></table></figure>
-
+<h3 id="String-对象"><a href="#String-对象" class="headerlink" title="String 对象"></a>String 对象</h3>
     </div>
 
     
