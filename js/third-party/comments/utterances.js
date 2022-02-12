@@ -11,7 +11,7 @@ document.addEventListener('page:loaded', () => {
         'repo'      : CONFIG.utterances.repo,
         'issue-term': CONFIG.utterances.issue_term,
         'theme'     : CONFIG.utterances.theme,
-        label       : CONFIG.utterances.label
+        'label'     : 'comment'
       },
       parentNode: document.querySelector('.utterances-container')
     }));

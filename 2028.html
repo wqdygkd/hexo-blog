@@ -2,9 +2,8 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.0.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-logo.png">
@@ -18,14 +17,13 @@
 
 
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
-  <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;wqdy.top&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Pisces&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:true,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:true,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:true,&quot;pangu&quot;:true,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:false,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:true}}</script>
-<meta name="description" content="Babel与Polyfill的关系和区别Babel 默认只转换新的 js 句法（syntax），而不转换新的 API，例如箭头函数等Polyfill 用于实现浏览器并不支持的原生API的代码，如新增的方法等 Babel Babel的安装，配置 创建 babel.config.js 文件，内容如下  babel.config.js 是Babel执行时会默认在当前目录寻找的Babel配置文件，除了ba">
-<meta property="og:type" content="article">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"wqdy.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.10.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+  <meta name="description" content="Babel与Polyfill的关系和区别Babel 默认只转换新的 js 句法（syntax），而不转换新的 API，例如箭头函数等Polyfill 用于实现浏览器并不支持的原生API的代码，如新增的方法等 Babel Babel的安装，配置 创建 babel.config.js 文件，内容如下  babel.config.js 是Babel执行时会默认在当前目录寻找的Babel配置文件，除了ba">
+<meta property="og:type" content="website">
 <meta property="og:title" content="Babel 入门">
 <meta property="og:url" content="https://wqdy.top/2028.html">
 <meta property="og:site_name" content="我全都要">
@@ -43,24 +41,25 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;wqdy.top&#x2F;2028.html&quot;,&quot;path&quot;:&quot;2028.html&quot;,&quot;title&quot;:&quot;Babel 入门&quot;}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://wqdy.top/2028.html","path":"2028.html","title":"Babel 入门"}</script>
 
-<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
-<title>Babel 入门 | 我全都要</title><script src="/js/config.js"></script>
-
-<!-- google 分析 -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9068539038073295"
-     crossorigin="anonymous"></script>
-
-
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Babel 入门 | 我全都要</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112496567-1"></script>
-  <script class="next-config" data-name="google_analytics" type="application/json">{&quot;tracking_id&quot;:&quot;UA-112496567-1&quot;,&quot;only_pageview&quot;:false}</script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-112496567-1","only_pageview":false}</script>
   <script src="/js/third-party/analytics/google-analytics.js"></script>
 
   <script src="/js/third-party/analytics/baidu-analytics.js"></script>
   <script async src="https://hm.baidu.com/hm.js?0a902dd83e2d4f1aebaeaa0bafe307a0"></script>
 
+
+
+
+
+<!-- google 分析 -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9068539038073295"
+     crossorigin="anonymous"></script>
 
 
   <noscript>
@@ -86,7 +85,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">我全都要</h1>
+      <p class="site-title">我全都要</p>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">搞快点</p>
@@ -179,8 +178,7 @@
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
+        <a href="/archives/">
           <span class="site-state-item-count">160</span>
           <span class="site-state-item-name">日志</span>
         </a>
@@ -190,7 +188,7 @@
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
-            <a href="/tags/">
+          <a href="/tags/">
         <span class="site-state-item-count">87</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
@@ -295,26 +293,26 @@
 <blockquote>
 <p>babel.config.js 是Babel执行时会默认在当前目录寻找的Babel配置文件，除了babel.config.js，我们也可以选择用.babelrc或.babelrc.js这两种配置文件</p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="attr">presets</span>: [<span class="string">&quot;@babel/env&quot;</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">presets</span>: [<span class="string">&quot;@babel/env&quot;</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>安装如下包</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm i -D @babel/cli @babel/core @babel/preset-env</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>@babel/cli是Babel命令行转码工具，如果我们使用命令行进行Babel转码就需要安装它。</li>
-<li>@babel/cli依赖@babel/core，因此也需要安装@babel/core这个Babel核心npm包。</li>
-<li>@babel/preset-env这个npm包提供了ES6转换ES5的语法转换规则，我们在Babel配置文件里指定使用它。如果不使用的话，也可以完成转码，但转码后的代码仍然是ES6的，相当于没有转码。</li>
+<li>@babel&#x2F;cli是Babel命令行转码工具，如果我们使用命令行进行Babel转码就需要安装它。</li>
+<li>@babel&#x2F;cli依赖@babel&#x2F;core，因此也需要安装@babel&#x2F;core这个Babel核心npm包。</li>
+<li>@babel&#x2F;preset-env这个npm包提供了ES6转换ES5的语法转换规则，我们在Babel配置文件里指定使用它。如果不使用的话，也可以完成转码，但转码后的代码仍然是ES6的，相当于没有转码。</li>
 </ul>
 <p>创建 <code>index.js</code> 文件，如下</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> fn = <span class="function">(<span class="params">num</span>) =&gt;</span> num + <span class="number">1</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">() =&gt;</span> &#123;&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">fn</span> = (<span class="params">num</span>) =&gt; num + <span class="number">1</span></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">() =&gt;</span> &#123;&#125;)</span><br></pre></td></tr></table></figure>
 
 <p>执行命令</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npx babel index.js -o output.js</span><br></pre></td></tr></table></figure>
 
 <p>输出结果为</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> num + <span class="number">1</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">() =&gt;</span> &#123;&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fn = <span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params">num</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> num + <span class="number">1</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">() =&gt;</span> &#123;&#125;);</span><br></pre></td></tr></table></figure>
 
-<p>可以看到，ES6的箭头函数语法转换成了 ES5 的函数定义语法，但是并没有对ES6的Promise进行转换。因为Babel默认只转换新的 js 语法（箭头函数，解构…），而不转换新的 API。新的API分类两类，一类是Promise、Map、Symbol、Proxy、Iterator等全局对象及其对象自身的方法，例如Object.assign，Promise.resolve；另一类是新的实例方法，例如数组实例方法[1, 2, 3].find((item) =&gt; item &lt; 2)</p>
+<p>可以看到，ES6的箭头函数语法转换成了 ES5 的函数定义语法，但是并没有对ES6的Promise进行转换。因为Babel默认只转换新的 js 语法（箭头函数，解构…），而不转换新的 API。新的API分类两类，一类是Promise、Map、Symbol、Proxy、Iterator等全局对象及其对象自身的方法，例如Object.assign，Promise.resolve；另一类是新的实例方法，例如数组实例方法[1, 2, 3].find((item) &#x3D;&gt; item &lt; 2)</p>
 <p>polyfill</p>
 <p>安装</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install --save @babel/polyfill</span><br></pre></td></tr></table></figure>
@@ -324,17 +322,17 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npx babel index.js -o output.js</span><br></pre></td></tr></table></figure>
 
 <p>输出结果</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">require</span>(<span class="string">&quot;@babel/polyfill&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> num + <span class="number">1</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">require</span>(<span class="string">&quot;@babel/polyfill&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fn = <span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params">num</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> num + <span class="number">1</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;&#125;);</span><br></pre></td></tr></table></figure>
 
 <p>输出结果中 <code>require(&quot;@babel/polyfill&quot;);</code></p>
 <p>import被编译成了require，如果想要编译出来的模块引入规范还是import，则可以在preset-env的配置项中添加”modules”: false即可</p>
-<p>有时候我们项目里并没有用到那么多的新增API，但是 @babel/polyfill 会把所有浏览器环境的的polyfill都引入，整个包的体积就会很大，我们想要对目标环境按需引入相应的polyfill应该怎么办呢，这个时候我们就可以使用 preset-env 的配置项中的 useBuiltIns 属性来按需引入 polyfill。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="attr">presets</span>: [</span><br><span class="line">    [</span><br><span class="line">      <span class="string">&quot;@babel/preset-env&quot;</span>, &#123;</span><br><span class="line">        <span class="string">&quot;modules&quot;</span>: <span class="literal">false</span>, <span class="comment">// 用来设置是否把ES6的模块化语法改成其它模块化语法</span></span><br><span class="line">        <span class="string">&quot;useBuiltIns&quot;</span>: <span class="string">&quot;usage&quot;</span>,</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>有时候我们项目里并没有用到那么多的新增API，但是 @babel&#x2F;polyfill 会把所有浏览器环境的的polyfill都引入，整个包的体积就会很大，我们想要对目标环境按需引入相应的polyfill应该怎么办呢，这个时候我们就可以使用 preset-env 的配置项中的 useBuiltIns 属性来按需引入 polyfill。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">presets</span>: [</span><br><span class="line">    [</span><br><span class="line">      <span class="string">&quot;@babel/preset-env&quot;</span>, &#123;</span><br><span class="line">        <span class="string">&quot;modules&quot;</span>: <span class="literal">false</span>, <span class="comment">// 用来设置是否把ES6的模块化语法改成其它模块化语法</span></span><br><span class="line">        <span class="string">&quot;useBuiltIns&quot;</span>: <span class="string">&quot;usage&quot;</span>,</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>使用useBuiltIns:”usage”后，Babel除了会考虑目标环境缺失的API模块，同时考虑我们项目代码里使用到的ES6特性，且不需要在项目入口处手动引入polyfill</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&quot;core-js/modules/es6.object.to-string.js&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;core-js/modules/es6.promise.js&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> num + <span class="number">1</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&quot;core-js/modules/es6.object.to-string.js&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;core-js/modules/es6.promise.js&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fn = <span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params">num</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> num + <span class="number">1</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;&#125;);</span><br></pre></td></tr></table></figure>
 
-<p>可以看到 多了 <code>import &quot;core-js/...</code> 的引用，因为 @babel/polyfil 是由core-js2和regenerator-runtime组成的一个集成包，<br>Babel 7.4.0 之后已经弃用了 @babel/polyfill，所以core-js官方现在推荐我们使用polyfill的时候直接引入core-js和regenerator-runtime/runtime这两个包完全取代 @babel/polyfil</p>
+<p>可以看到 多了 <code>import &quot;core-js/...</code> 的引用，因为 @babel&#x2F;polyfil 是由core-js2和regenerator-runtime组成的一个集成包，<br>Babel 7.4.0 之后已经弃用了 @babel&#x2F;polyfill，所以core-js官方现在推荐我们使用polyfill的时候直接引入core-js和regenerator-runtime&#x2F;runtime这两个包完全取代 @babel&#x2F;polyfil</p>
 <p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3psb2lyb2NrL2NvcmUtanMjYmFiZWxwb2x5ZmlsbA==">core-js</span><br><span class="exturl" data-url="aHR0cHM6Ly93d3cuYmFiZWxqcy5jbi9kb2NzL2JhYmVsLXBvbHlmaWxs">babel-polyfill</span></p>
 
     </div>
@@ -372,7 +370,7 @@
 
 
 
-    <div class="comments utterances-container"></div><script src="/js/comments.js"></script>
+    <div class="comments utterances-container"></div>
 </div>
   </main>
 
@@ -412,23 +410,22 @@
   </footer>
 
   
-  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.5.0/pjax.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
 
   
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
 <script src="/js/third-party/search/local-search.js"></script>
 
 
 
+  <script src="/js/third-party/fancybox.js"></script>
 
-
-  <script class="next-config" data-name="nprogress" type="application/json">{&quot;enable&quot;:true,&quot;spinner&quot;:true}</script>
-  <script src="/js/third-party/nprogress.js"></script>
 
   
   <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -436,7 +433,7 @@
 
 
 
-<script class="next-config" data-name="utterances" type="application/json">{&quot;enable&quot;:true,&quot;repo&quot;:&quot;cuilongjin&#x2F;hexo-blog&quot;,&quot;issue_term&quot;:&quot;pathname&quot;,&quot;theme&quot;:&quot;github-light&quot;,&quot;label&quot;:&quot;comment&quot;}</script>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"cuilongjin/hexo-blog","issue_term":"pathname","theme":"github-light"}</script>
 <script src="/js/third-party/comments/utterances.js"></script>
 
 </body>
