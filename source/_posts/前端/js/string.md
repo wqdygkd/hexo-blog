@@ -1,4 +1,14 @@
-常用JS——string字符串方法
+---
+title: 常用js —— string字符串操作
+tags:
+  - js
+id: 2032
+categories:
+  - 前端
+date: 2022-02-12
+updated: 2022-02-13
+---
+
 ### String 对象
 
 https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String
@@ -91,18 +101,13 @@ str.charAt() === str.charAt(0)
 
 如果pos小于0或者大于等于字符串的长度str.length，返回空字符串
 
-- 练习
+- **`padEnd() padStart()`**
 
-```
-1. 截取字符串’我爱中华人民共和国’，中的’中华’
-2. ’abcoefoxyozzopp’查找字符串中所有o出现的位置
-3. 把字符串中所有的o替换成!
-4. 把一个字符串中所有的空格全部去掉
-5. 统计一个字符串中每个字符出现的次数
-```
+padEnd() padStart() 方法用另一个字符串填充当前字符串(如果需要的话，会重复多次)，以便产生的字符串达到给定的长度。padStart()从当前字符串的左侧开始填充，padEnd()从当前字符串的右侧开始填充
+
+- 寻找重复最多的字符以及个数
 
 ```js
-// 寻找重复最多的字符以及个数
 var str = 'shdshdfjkfjfdgjkjdksgjskdjfsfsfsfjksjkfdkjf'
 var arr = str.split('').sort()
 str = arr.join('')
@@ -119,15 +124,4 @@ str.replace(reg, function(a, b, c, d) {
 console.log(str)
 
 console.log('最多的字符为:' + char + ';个数为:' + count)
-```
-
-padEnd() padStart() 方法用另一个字符串填充当前字符串(如果需要的话，会重复多次)，以便产生的字符串达到给定的长度。padStart()从当前字符串的左侧开始填充
-padEnd()从当前字符串的右侧开始填充
-
-
-```js
-var str = 'shdshdfjkfjfdgjkjdksgjskdjfsfsfsfjksjkfdkjf'
-let
-
-
 ```
