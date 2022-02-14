@@ -160,24 +160,6 @@ v-model 指令：数据双向绑定的指令
 - 作用：把 data 中的 num 值 和 input 上的值绑定到一起，一方的值发生了改变，另 一方也会跟着改变
 - 注意：v-model 只能用在表单控件上（input checkbox 等）
 
-### Object.defineProperty()
-
-```js
-let obj = {}
-let temp
-// 参数1：要给哪个对象设置属性
-// 参数2：给对象设置什么属性
-// 参数3：属性的修饰符
-Object.defineProperty(obj, 'name', {
-  set: function (newVal) {
-    console.log('赋值了', newVal)
-  },
-  get: function () {
-    console.log('取值了')
-    return temp
-  }
-})
-```
 
 ### 数据双向绑定的原理
 
