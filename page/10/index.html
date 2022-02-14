@@ -175,7 +175,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">160</span>
+          <span class="site-state-item-count">161</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -219,6 +219,80 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/386.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/386.html" class="post-title-link" itemprop="url">wordpress 站点更换域名</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-01-02" itemprop="dateCreated datePublished" datetime="2020-01-02T11:16:18+00:00">2020-01-02</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/wordpress/" itemprop="url" rel="index"><span itemprop="name">wordpress</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>假设旧域名是a.com，新域名为b.com，修改数据库 sql 如下</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> wp_options <span class="keyword">SET</span> option_value <span class="operator">=</span> REPLACE(option_value, <span class="string">&#x27;http://a.com&#x27;</span>, <span class="string">&#x27;http://b.com&#x27;</span>) <span class="keyword">WHERE</span> option_name <span class="operator">=</span> <span class="string">&#x27;home&#x27;</span> <span class="keyword">OR</span> option_name <span class="operator">=</span> <span class="string">&#x27;siteurl&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">UPDATE</span> wp_posts <span class="keyword">SET</span> post_content <span class="operator">=</span> REPLACE (post_content, <span class="string">&#x27;http://a.com&#x27;</span>, <span class="string">&#x27;http://b.com&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">UPDATE</span> wp_postmeta <span class="keyword">SET</span> meta_value <span class="operator">=</span> REPLACE (meta_value, <span class="string">&#x27;http://a.com&#x27;</span>,<span class="string">&#x27;http://b.com&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">UPDATE</span> wp_comments <span class="keyword">SET</span> comment_content <span class="operator">=</span> REPLACE (comment_content, <span class="string">&#x27;http://a.com&#x27;</span>, <span class="string">&#x27;http://b.com&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">UPDATE</span> wp_comments <span class="keyword">SET</span> comment_author_url <span class="operator">=</span> REPLACE (comment_author_url, <span class="string">&#x27;http://a.com&#x27;</span>, <span class="string">&#x27;http://b.com&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">UPDATE</span> wp_posts <span class="keyword">SET</span> guid <span class="operator">=</span> REPLACE (guid, <span class="string">&#x27;http://a.com&#x27;</span>, <span class="string">&#x27;http://b.com&#x27;</span>) <span class="keyword">WHERE</span> post_type <span class="operator">=</span> <span class="string">&#x27;attachment&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1006,98 +1080,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/391.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/391.html" class="post-title-link" itemprop="url">预解析, async, defer 以及 preload</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2019-10-24" itemprop="dateCreated datePublished" datetime="2019-10-24T22:07:18+00:00">2019-10-24</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="预解析"><a href="#预解析" class="headerlink" title="预解析"></a>预解析</h3><p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvSFRNTC9PcHRpbWl6aW5nX3lvdXJfcGFnZXNfZm9yX3NwZWN1bGF0aXZlX3BhcnNpbmc=">https://developer.mozilla.org/zh-CN/docs/Web/HTML/Optimizing_your_pages_for_speculative_parsing</span></p>
-<h3 id="link-标签-ref-属性值-prefetch-preload-用于预加载"><a href="#link-标签-ref-属性值-prefetch-preload-用于预加载" class="headerlink" title="link 标签 ref 属性值 prefetch preload 用于预加载"></a>link 标签 ref 属性值 prefetch preload 用于预加载</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">ref</span>=<span class="string">&quot;preload&quot;</span> <span class="attr">href</span>=<span class="string">&quot;*.js&quot;</span> <span class="attr">as</span>=<span class="string">&quot;script&quot;</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- preload需要写上正确的as属性,如果不写或错误，等同于XHR请求，优先级非常低 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;preload&quot;</span> <span class="attr">href</span>=<span class="string">&quot;font.woff&quot;</span> <span class="attr">as</span>=<span class="string">&quot;font&quot;</span> <span class="attr">crossorigin</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 预加载字体你还必须设置crossorigin 属性 --&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>preload 是用于预加载当前页的资源，浏览器会优先加载它们(加载后并不执行，在需要执行的时候再执行)</li>
-</ul>
-<p>将加载和执行分离开，可不阻塞渲染和 document 的 onload 事件<br>提前加载指定资源，不再出现依赖的 font 字体隔了一段时间才刷出</p>
-<ul>
-<li><p>prefetch 是用于预加载后续页面使用的资源，浏览器也会加载它们，但优先级不高</p>
-</li>
-<li><p>避免混用 preload 和 prefetch，混用的话，并不会复用资源，而是会重复加载</p>
-</li>
-</ul>
-<p>插入的脚本（无论在什么位置）在网络优先级中是很低级</p>
-<h3 id="script-标签的-defer-和-async-异步加载"><a href="#script-标签的-defer-和-async-异步加载" class="headerlink" title="script 标签的 defer 和 async 异步加载"></a>script 标签的 defer 和 async 异步加载</h3><p>这两个属性都告诉浏览器，它可以 “在后台” 加载脚本的同时继续解析 HTML，并在脚本加载完之后再执行。这样，脚本下载就不会阻塞 DOM 构建和页面渲染了</p>
-<p>defer 和 async 之间的不同是他们开始执行脚本的时机的不同</p>
-<p>async(H5) 一旦脚本可用，则会异步执行（仅适用于外部脚本） 脚本在它们完成下载完成后的第一时间执行，如果一个指定 async 的脚本很快就完成了下载，那么它的执行会阻塞 DOM 构建以及所有在之后才完成下载的同步脚本。</p>
-<p>defer 规定当页面已完成解析后，执行脚本（仅适用于外部脚本） 脚本会按照它在 HTML 中出现的顺序执行，并且不会阻塞解析。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 </div>
