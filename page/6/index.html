@@ -175,7 +175,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">161</span>
+          <span class="site-state-item-count">162</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -185,7 +185,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">87</span>
+        <span class="site-state-item-count">86</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -219,6 +219,223 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1449.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/1449.html" class="post-title-link" itemprop="url">Ubuntu 下关于 Transmission daemon 的安装与配置</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-05-19" itemprop="dateCreated datePublished" datetime="2020-05-19T20:46:55+00:00">2020-05-19</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>Transmission 是一个强大的 BitTorrent 开源客户端，<span class="exturl" data-url="aHR0cHM6Ly93d3cudHJhbnNtaXNzaW9uYnQuY29tLw==">官方网站</span>上提供了多个版本可以下载，包括：Mac、GTK+、QT、web 版本。</p>
+<p>Transmission 支持 DHT、Magnet Link、uTP 以及 PEX 等特性。尤其是支持 Magnet Link 磁力链接下载十分重要，因为目前网上很多资源都是采用这种方式来分享的，而不是传统的.torrent 文件</p>
+<p>在 Ubuntu 的发行版中，Transmission 软件包下面包含多个套件，这些套件的名字很容易搞混淆，它们分别是：</p>
+<ul>
+<li>transmission-gtk: GTK+界面的 Transmission BT 客户端。</li>
+<li>transmission-qt: QT 界面的 Transmission BT 客户端。</li>
+<li>transmission-cli: 命令行界面的 Transmission BT 客户端，与 QT、GTK+版本功能一样，是命令行下一个完备的 BT 客户端。</li>
+<li>transmission-daemon: 是一个 Transmission 的后台守护程序，本身不具备操作指令，只能通过 Web 客户端或者 transmission-remote-cli 来进行控制。这个程序特别适合安装在服务器上或者嵌入式系统中，以及一些没有显示器的设备上。</li>
+<li>transmission-remote-cli: 用来控制 transmission-daemon 的命令套件，本身不具备下载 BT 的功能，只能够配合 daemon 使用。</li>
+</ul>
+<p>这些套件不必都安装上，根据我的需求，只需要安装 transmission-daemon 即可</p>
+<h3 id="Transmission-的安装"><a href="#Transmission-的安装" class="headerlink" title="Transmission 的安装"></a>Transmission 的安装</h3><p>打开终端，输入以下命令安装：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install transmission-daemon</span><br></pre></td></tr></table></figure>
+
+<p>安装过程中会顺带把 transmission-cli 也安装上，安装完毕后系统会多出如下一些命令行工具</p>
+<ul>
+<li>transmission-cli： 独立的命令行客户端。</li>
+<li>transmission-create： 用来建立.torrent 种子文件的命令行工具。</li>
+<li>transmission-daemon： 后台守护程序。</li>
+<li>transmission-edit： 用来修改.torrent 种子文件的 announce URL。</li>
+<li>transmission-remote： 控制 daemon 的程序。</li>
+<li>transmission-show：查看.torrent 文件的信息。</li>
+</ul>
+<p>安装好后，Transmission-daemon 有一些默认设置(<span class="exturl" data-url="aHR0cHM6Ly90cmFjLnRyYW5zbWlzc2lvbmJ0LmNvbS93aWtpL1VuaXhTZXJ2ZXIvRGViaWFu">参考链接</span>)。</p>
+<p>默认配置目录清单</p>
+<p>启动初始化脚本 &#x2F;etc&#x2F;init.d&#x2F;transmission-daemon<br>基本配置文件 &#x2F;etc&#x2F;default&#x2F;transmission-daemon<br>详细配置文件目录 &#x2F;var&#x2F;lib&#x2F;transmsision-daemon&#x2F;info&#x2F;settings.json<br>下载存储目录 &#x2F;var&#x2F;lib&#x2F;transmission-daemon&#x2F;downloads</p>
+<p>settings.json： 主要的配置文件，设置 daemon 的各项参数，包括 RPC 的用户名密码配置。它实际上是一个符号链接，指向的原始文件是&#x2F;etc&#x2F;transmission-daemon&#x2F;settings.json。里面的参数解释可以参考官网的配置说明。<br>torrents&#x2F;： 用户存放.torrent 种子文件的目录,凡是添加到下载任务的种子，都存放在这里。.torrent 的命名包含,种子文件本身的名字和种子的 SHA1 HASH 值。<br>resume&#x2F;： 存放了.resume 文件，.resume 文件包含了一个种子的信息，例如该文件哪些部分被下载了，下载的数据存储的位置等等。<br>blocklists&#x2F;： 存储被屏蔽的 peer 的地址。<br>dht.dat： 存储 DHT 节点信息。</p>
+<p>如果使用另外一个用户来运行 transmission-daemon 的话，会在该用户的目录下，创建一个.config&#x2F;transmission-daemon 的文件夹，配置目录 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RyYW5zbWlzc2lvbi90cmFuc21pc3Npb24vd2lraS9Db25maWd1cmF0aW9uLUZpbGVz">https://github.com/transmission/transmission/wiki/Configuration-Files</span></p>
+<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 启动</span></span><br><span class="line">sudo service transmission-daemon start</span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止</span></span><br><span class="line">sudo service transmission-daemon stop</span><br></pre></td></tr></table></figure>
+
+<h3 id="Transmission-的配置"><a href="#Transmission-的配置" class="headerlink" title="Transmission 的配置"></a>Transmission 的配置</h3><p>配置主要是通过修改&#x2F;var&#x2F;lib&#x2F;transmission-daemon&#x2F;info&#x2F;settings.json 文件中的参数来实现的。<br>注意：在编辑 Transmission 的配置文件的时候，需要先关闭 daemon 进程，否则编辑的参数将会被恢复到原来的状态。</p>
+<h4 id="配置-RPC"><a href="#配置-RPC" class="headerlink" title="配置 RPC"></a>配置 RPC</h4><p>最关键的就是要配置 RPC，因为无论是 Web 界面还是 CLI 都是通过 RPC 协议和 daemon 来进行交互的。</p>
+<p>打开文件&#x2F;var&#x2F;lib&#x2F;transmission-daemon&#x2F;info&#x2F;settings.json，修改配置参数如下：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;rpc-authentication-required&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;rpc-bind-address&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0.0.0.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;rpc-enabled&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;rpc-host-whitelist&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span><span class="punctuation">,</span> <span class="comment">// rpc 主机白名单</span></span><br><span class="line">  <span class="attr">&quot;rpc-host-whitelist-enabled&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span><span class="punctuation">,</span> <span class="comment">//rpc 主机白名单是否开启，若需要任意主机都能访问，建议false</span></span><br><span class="line">  <span class="attr">&quot;rpc-password&quot;</span><span class="punctuation">:</span> <span class="string">&quot;123456&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;rpc-port&quot;</span><span class="punctuation">:</span> <span class="number">9091</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;rpc-url&quot;</span><span class="punctuation">:</span> <span class="string">&quot;/transmission/&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;rpc-username&quot;</span><span class="punctuation">:</span> <span class="string">&quot;transmission&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;rpc-whitelist&quot;</span><span class="punctuation">:</span> <span class="string">&quot;*&quot;</span><span class="punctuation">,</span> <span class="comment">// rpc 主机白名单</span></span><br><span class="line">  <span class="attr">&quot;rpc-whitelist-enabled&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span> <span class="comment">//rpc 主机白名单是否开启，若需要任意主机都能访问，建议false</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>我将用户名设置为了 transmission，密码设置为了 123456，whitelist 设置成了”*”，表示任何 IP 都可以通过 RPC 协议访问这个 daemon。需要注意的是 password 设置成了明文。当启动 daemon 之后，daemon 会自动检测密码设置。如果发现密码配置被修改了，daemon 会自动计算修改后的密码的 HASH 值，并用这个 HASH 值替换掉配置文件中的明文密码，这样会更安全。</p>
+<p>输入<code>service transmission-daemon start</code>启动程序后，打开 settings.json，会看到 rpc-password 一项被改为了 HASH 值。</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;rpc-password&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&#123;5f4bd5498bddd9aa2ad8f4d475dcebe23e9d8c8bsorspnUE&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>settings.json 里面还有很多参数可以配置，包括上传&#x2F;下载速度的限制、DHT 的配置、端口设置等等，详细的参数解释可以参考<span class="exturl" data-url="aHR0cHM6Ly90cmFjLnRyYW5zbWlzc2lvbmJ0LmNvbS93aWtpL0VkaXRDb25maWdGaWxlcw==">官网的配置说明</span></p>
+<h3 id="使用-Web-界面控制-Transmission-daemon"><a href="#使用-Web-界面控制-Transmission-daemon" class="headerlink" title="使用 Web 界面控制 Transmission daemon"></a>使用 Web 界面控制 Transmission daemon</h3><p>经过上述配置后，我们就可以通过 Web 界面来访问和控制 Transmission daemon 了。在浏览器里面输入以下地址</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://127.0.0.1:9091/transmission/web/</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>浏览器提示你输入刚才配置的用户名和密码，就可以成功登陆 Web 管理界面。界面和桌面版的 GUI 程序有点像，操作起来很方便。</p>
+<h3 id="其他问题"><a href="#其他问题" class="headerlink" title="其他问题"></a>其他问题</h3><p>在本机使用 <code>http://&lt;your.server.ip.addr&gt;:9091/transmission/web/</code> 访问出现 403:Forbidden 解决<br>修改配置</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;rpc-whitelist&quot;</span><span class="punctuation">:</span> <span class="string">&quot;127.0.0.1&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;rpc-whitelist-enabled&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>将 <code>rpc-whitelist</code>设置为 <code>&quot;*&quot;</code>或将 <code>rpc-whitelist-enabled</code> 设置为 <code>false</code></p>
+<p>在局域网其他机器上使用 <code>http://&lt;your.server.ip.addr&gt;:9091/transmission/web/</code> 访问时无法访问解决<br>修改配置</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;rpc-host-whitelist&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span><span class="punctuation">,</span> <span class="comment">// rpc 主机白名单</span></span><br><span class="line">  <span class="attr">&quot;rpc-host-whitelist-enabled&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span> <span class="comment">//rpc 主机白名单是否开启，若需要任意主机都能访问，建议false</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>将 <code>rpc-host-whitelist</code>设置为 <code>&quot;*&quot;</code>或将 <code>rpc-host-whitelist-enabled</code> 设置为 <code>false</code></p>
+<p>原始界面，没有汉化，也比较简单，可以使用 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3JvbmdnYW5nL3RyYW5zbWlzc2lvbi13ZWItY29udHJvbA==">transmission-web-control</span> 加强 Transmission Web 的操作能力</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget -N  https://github.com/ronggang/transmission-web-control/raw/master/release/install-tr-control-cn.sh</span><br><span class="line">bash install-tr-control-cn.sh</span><br></pre></td></tr></table></figure>
+
+<p>安装完成之后刷新浏览器即可看到新的 ui，如果没有看到可能是浏览器缓存，ctrl + f5 强制刷新一下，如果还是没有看到，<br>可以尝试使用 root 用户运行</p>
+<p>或尝试使用</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash install-tr-control-cn.sh /usr/share/transmission</span><br></pre></td></tr></table></figure>
+
+<p>&#x2F;usr&#x2F;share&#x2F;transmission 为 Transmission Web 所在目录</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1424.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/1424.html" class="post-title-link" itemprop="url">Jellyfin开启硬件加速</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-05-16" itemprop="dateCreated datePublished" datetime="2020-05-16T17:09:01+00:00">2020-05-16</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/NAS/" itemprop="url" rel="index"><span itemprop="name">NAS</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>之前使用群晖 Docker 折腾 Jellyfin，解决了个人音视频收藏的基本需求，但仍有不足，比如说视频播放的时候，CPU 占用会很高（软解吃 CPU），并且会卡顿。</p>
+<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><p>1、查看系统是否支持显卡硬解转码</p>
+<p>使用 SSH 登录群晖系统，运行命令<code>ls /dev/dri</code>，若输出 card0、renderD128，则说明支持显卡硬解。</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102202420.png"></p>
+<p>2、给容器提权</p>
+<p>在群群 Docker 容器中找到 Jellyfin 的容器，编辑容器的常规设置，必须勾选使用高权限执行容器。</p>
+<p>3、添加环境</p>
+<p>在环境中添加两项，分别是 <code>PUID</code> 值填写为 <code>0</code> ，<code>PGID</code> 值填写为 <code>0</code></p>
+<p>4、启用 <code>VAAPI</code> 硬件加速</p>
+<p>Docker 中启动容器，打开 Jellyfin 网页端，依次进入控制台-&gt;播放，在硬件选项中选择 VAAPI 保存设置即可。</p>
+<h4 id="使用效果"><a href="#使用效果" class="headerlink" title="使用效果"></a>使用效果</h4><p>前后对比：</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102202439.png"></p>
+<p>可以看到 CPU 占用明显降低了，播放也不卡顿了，效果还是非常明显的。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -961,188 +1178,6 @@
 <h3 id="开源地址"><a href="#开源地址" class="headerlink" title="开源地址"></a>开源地址</h3><p><span class="exturl" data-url="aHR0cHM6Ly9naXRsYWIuY29tL21hc3NncmF2ZS9taWNyb3NvZnQtYWN0aXZhdGlvbi1zY3JpcHRz">https://gitlab.com/massgrave/microsoft-activation-scripts</span><br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL21hc3NncmF2ZWwvTWljcm9zb2Z0LUFjdGl2YXRpb24tU2NyaXB0cw==">https://github.com/massgravel/Microsoft-Activation-Scripts</span></p>
 <h3 id="下载地址-3"><a href="#下载地址-3" class="headerlink" title="下载地址"></a>下载地址</h3><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL21hc3NncmF2ZWwvTWljcm9zb2Z0LUFjdGl2YXRpb24tU2NyaXB0cy9yZWxlYXNlcw==">https://github.com/massgravel/Microsoft-Activation-Scripts/releases</span></p>
 <p>百度云：链接：<span class="exturl" data-url="aHR0cHM6Ly9wYW4uYmFpZHUuY29tL3MvMUpLRVlBZmdKajltc2ZXODFiaGJLanc=">https://pan.baidu.com/s/1JKEYAfgJj9msfW81bhbKjw</span> 提取码：21di</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1207.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/1207.html" class="post-title-link" itemprop="url">google TeamDrive 免费无限容量团队盘申请</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2020-04-22" itemprop="dateCreated datePublished" datetime="2020-04-22T22:27:54+00:00">2020-04-22</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Google Drive 团队盘，不是增加你本身空间，是增加一个团队盘在你名下，你账号是 15G 依然是 15G，但是存在团队盘里的不算你的占用。</p>
-<p>申请地址：<br><span class="exturl" data-url="aHR0cDovL2xlb24uZWR1Y2F0aW9uaG9zdC5jbG91ZC8=">http://leon.educationhost.cloud/</span><br><span class="exturl" data-url="aHR0cHM6Ly90ZC5mYXN0aW8ubWUv">https://td.fastio.me/</span><br><span class="exturl" data-url="aHR0cHM6Ly9nZC56eGQud29ya2Vycy5kZXYv">https://gd.zxd.workers.dev/</span> All Saints CofE Junior School<br><span class="exturl" data-url="aHR0cHM6Ly90ZWFtZHJpdmUueGNweC53b3JrZXJzLmRldi8=">https://teamdrive.xcpx.workers.dev/</span> swccd.edu<br><span class="exturl" data-url="aHR0cHM6Ly9nZC40MDRlZHUud29ya2Vycy5kZXYv">https://gd.404edu.workers.dev/</span> 台灣教育部</p>
-<p>输入团队盘名称，随便你自己取，建议英文格式。Gmail 邮箱地址建议用自己的小号。弄好这两样后点击提交即可，等提示创建成功就 OK 了。</p>
-<p>登陆 Google Drive 后你会发现在 My Drive(我的云端硬盘) 下面多出了一个 Shared drives(共享云端硬盘) 的菜单按钮</p>
-<p>无限空间方式：</p>
-<ul>
-<li>教育版无限空间</li>
-</ul>
-<ol>
-<li>卖给你支持 GApps 的学校的邮箱账号密码，简单直接，没啥好说的，登上去就有了</li>
-<li>不给你邮箱，让你提供自己的 Gmail 账号，然后他给你拉进去。详细讲就是他新开一个“share drive”然后把你拉进去，你们俩就共享这个“share drive”的无限空间了。(记得将自己设置成管理员，并把拉你的人从 share drive 中删除)</li>
-</ol>
-<p>如果买了邮箱也建议自己按照上面方式 2 那样给自己的 Gmail 分配无限空间，因为买的教育邮箱可能来路不正，可能被封，而分配出去的 share drive 是不受影响的。</p>
-<ul>
-<li>从 G Suit 获取的无限空间<br>跟上面的教育网那个类似的，只是是商业的用途，按月交钱，不同档次支持的用户数不同。同样是把你拉进去就可以用无限空间了。这玩意儿人家只要不续费了你就完犊子了。管理员是可以随意查看账号中的内容</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1223.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/1223.html" class="post-title-link" itemprop="url">GoIndex 部署 CloudFlare Workers 实现无需科学上网访问 Google Drive 文件</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2020-04-22" itemprop="dateCreated datePublished" datetime="2020-04-22T00:00:45+00:00">2020-04-22</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>04&#x2F;27 更新 解决 workers 无法正常访问</p>
-<p>作者删除了 github 仓库， GoIndex 依赖的 js 资源加载失败，导致网页打开是一片空白</p>
-<p>解决方法；</p>
-<p>首先到 GitHub Fork 一份 goindex，可以直接 fork <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2N1aWxvbmdqaW4vZ29pbmRleA==">我的</span>，</p>
-<p>登录 CF，打开 workers，选中项目，找到以下代码，我的是在 21 行，替换成有效的即可（可以是你 fork 的，也可以直接使用我的）</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;//cdn.jsdelivr.net/combine/gh/jquery/jquery@3.2/dist/jquery.min.js,gh/donwa/goindex@$&#123;authConfig.version&#125;/themes/$&#123;authConfig.theme&#125;/app.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>替换成</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;//cdn.jsdelivr.net/combine/gh/jquery/jquery@3.2/dist/jquery.min.js,gh/cuilongjin/goindex/themes/$&#123;authConfig.theme&#125;/app.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>原文</p>
-<p>利用 GoIndex 程序，以及 CloudFlare，可以将 Google Drive 文件以目录形式（类似 OneIndex 部署 OneDrive 网盘）列出，可直链调用网盘图片、音频、视频文件等，也可以下载，流量走 CloudFlare ，网速由 CloudFlare 决定</p>
-<p>项目地址： <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RvbndhL2dvaW5kZXg=">https://github.com/donwa/goindex</span></p>
-<p>demo： <span class="exturl" data-url="aHR0cHM6Ly9pbmRleC5nZC53b3JrZXJzLmRldi8=">https://index.gd.workers.dev/</span></p>
-<p>安装部署方案 1</p>
-<p>1、在本地安装 rclone<br>2、按照 <span class="exturl" data-url="aHR0cHM6Ly9yY2xvbmUub3JnL2RyaXZlLw==">https://rclone.org/drive/</span> 流程进行授权<br>3、执行 rclone config file 查看 rclone.conf 路径。找到 root_folder_id 和 refresh_token 记录下来<br>4、下载 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RvbndhL2dvaW5kZXg=">https://github.com/donwa/goindex</span> 中的 index.js 并填入 root 和 refresh_token<br>5、复制代码 到 CloudFlare 部署</p>
-<p>安装部署方案 2</p>
-<p>作者不会记录 refresh_token，但为避免纠纷，建议有条件的同学使用方案 1 进行部署<br>1、访问<span class="exturl" data-url="aHR0cHM6Ly9pbnN0YWxsLmdkLndvcmtlcnMuZGV2Lw==">https://install.gd.workers.dev/</span><br>2、授权认证后，生成部署代码<br>3、复制代码 到 CloudFlare 部署</p>
-<p>目录 id：例如 google 网盘链接为<code>https://drive.google.com/drive/folders/1rrDnupW_1qxRnQf-jy_0PN_GqNK8SEk2</code>，则目录 id 为 <code>1rrDnupW_1qxRnQf-jy_0PN_GqNK8SEk2</code></p>
-<p>部署 CloudFlare</p>
-<p>绑定自定义域名</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RvbndhL2dvaW5kZXgvaXNzdWVzLzQ=">https://github.com/donwa/goindex/issues/4</span></p>
 
       
     </div>

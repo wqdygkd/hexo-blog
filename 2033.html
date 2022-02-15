@@ -164,7 +164,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%96%B9%E6%B3%95"><span class="nav-text">基本方法</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%96%B9%E6%B3%95"><span class="nav-text">基本方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%AA%E6%95%B0%E7%BB%84"><span class="nav-text">伪数组</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -179,7 +179,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">161</span>
+          <span class="site-state-item-count">162</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -189,7 +189,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">87</span>
+        <span class="site-state-item-count">86</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -415,6 +415,27 @@
 <p>扁平化数组<br>按照一个可指定的深度递归遍历数组，并将所有元素与遍历到的子数组中的元素合并为一个新数组返回</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> newArray = arr.<span class="title function_">flat</span>([depth])</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 Infinity，可展开任意深度的嵌套数组</span></span><br><span class="line"><span class="keyword">var</span> arr4 = [<span class="number">1</span>, <span class="number">2</span>, [<span class="number">3</span>, <span class="number">4</span>, [<span class="number">5</span>, <span class="number">6</span>, [<span class="number">7</span>, <span class="number">8</span>, [<span class="number">9</span>, <span class="number">10</span>]]]]]</span><br><span class="line">arr4.<span class="title function_">flat</span>(<span class="title class_">Infinity</span>) <span class="comment">// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 会移除数组中的空项</span></span><br><span class="line"><span class="keyword">var</span> arr4 = [<span class="number">1</span>, <span class="number">2</span>, , <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">arr4.<span class="title function_">flat</span>() <span class="comment">// [1, 2, 4, 5]</span></span><br></pre></td></tr></table></figure>
 
+
+<h3 id="伪数组"><a href="#伪数组" class="headerlink" title="伪数组"></a>伪数组</h3><blockquote>
+<p>伪数组也叫类数组</p>
+</blockquote>
+<ol>
+<li>伪数组其实就是一个对象，但是跟数组一样，伪数组也会有<code>length</code>属性，也有<code>0, 1, 2, 3</code>等属性</li>
+<li>伪数组并没有数组的方法，不能使用<code>push/pop</code>等方法</li>
+<li>伪数组可以跟数组一样进行遍历，通过下标操作</li>
+<li>常见的伪数组：<code>arguments</code>、<code>document.getElementsByTagName的返回值</code>、<code>jQuery对象</code></li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="number">0</span>: <span class="string">&#x27;zs&#x27;</span>,</span><br><span class="line">  <span class="number">1</span>: <span class="string">&#x27;ls&#x27;</span>,</span><br><span class="line">  <span class="number">2</span>: <span class="string">&#x27;ww&#x27;</span>,</span><br><span class="line">  <span class="attr">length</span>: <span class="number">3</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>伪数组借用数组的方法</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 给 obj 添加一项</span></span><br><span class="line"><span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">push</span>.<span class="title function_">call</span>(obj, <span class="string">&#x27;zl&#x27;</span>)</span><br><span class="line"><span class="comment">// 把 obj 中的每一项使用 &#x27;-&#x27; 拼接起来返回一个字符串</span></span><br><span class="line"><span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">join</span>.<span class="title function_">call</span>(obj, <span class="string">&#x27;-&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>将伪数组转换成真数组</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 借用数组的方法</span></span><br><span class="line"><span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">slice</span>.<span class="title function_">call</span>(obj)</span><br><span class="line">[].<span class="property">slice</span>.<span class="title function_">call</span>(obj)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用es6中数组的from方法：从一个类似数组或可迭代对象中创建一个新的数组实例</span></span><br><span class="line"><span class="title class_">Array</span>.<span class="title function_">from</span>(obj)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 对于函数的arguments参数可以使用扩展运算符</span></span><br><span class="line">[...<span class="variable language_">arguments</span>]</span><br></pre></td></tr></table></figure>
 
     </div>
 

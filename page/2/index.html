@@ -175,7 +175,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">161</span>
+          <span class="site-state-item-count">162</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -185,7 +185,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">87</span>
+        <span class="site-state-item-count">86</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -219,6 +219,345 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/405.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/405.html" class="post-title-link" itemprop="url">ES6（ECMAScript）</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2018-12-29" itemprop="dateCreated datePublished" datetime="2018-12-29T00:00:00+00:00">2018-12-29</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <date title="修改时间：2021-09-09">2021-09-09</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="ES6（ECMAScript）"><a href="#ES6（ECMAScript）" class="headerlink" title="ES6（ECMAScript）"></a>ES6（ECMAScript）</h1><p>ECMAScript 6.0（以下简称 ES6）是在 2015 年 6 月正式发布的标准。它的目标，是使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语言</p>
+<p><span class="exturl" data-url="aHR0cDovL2VzNi5ydWFueWlmZW5nLmNvbS8=">ECMAScript 6 入门 阮一峰</span></p>
+<h2 id="let-与-const"><a href="#let-与-const" class="headerlink" title="let 与 const"></a>let 与 const</h2><blockquote>
+<p>ES6 中提供了两个声明变量的关键字：const 和 let</p>
+</blockquote>
+<p>参考链接</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8yODE0MDQ1MA==">[知乎]我用了两个月的时间才理解 let</span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9HbG9zc2FyeS9Ib2lzdGluZw==">[MDN]变量提升</span></p>
+<h3 id="let-的使用"><a href="#let-的使用" class="headerlink" title="let 的使用"></a>let 的使用</h3><p>ES6 新增了<code>let</code>命令，用来声明变量。它的用法类似于<code>var</code></p>
+<ul>
+<li>let 声明的变量只有在当前作用域(块作用域)有效</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line">  <span class="keyword">let</span> b = <span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a) <span class="comment">// 1</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b) <span class="comment">// ReferenceError: b is not defined</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>不允许重复声明</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">2</span> <span class="comment">// SyntaxError: Identifier &#x27;a&#x27; has already been declared</span></span><br></pre></td></tr></table></figure>
+
+<p>谷歌浏览器控制台对重复声明已经不报错了，估计是为了方面调试</p>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">&gt; let a = 1</span><br><span class="line">&lt; undefined</span><br><span class="line">&gt; let a = 2</span><br><span class="line">&lt; undefined</span><br><span class="line">&gt; const a = 3</span><br><span class="line">x VM331:1 Uncaught SyntaxError: Identifier &#x27;a&#x27; has already been declared</span><br><span class="line">&gt; const b = 1</span><br><span class="line">&lt; undefined</span><br><span class="line">&gt; const b = 2</span><br><span class="line">&lt; undefined</span><br><span class="line">&gt; let b = 3</span><br><span class="line">x VM378:1 Uncaught SyntaxError: Identifier &#x27;b&#x27; has already been declared</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><span class="red">使用 let 声明的全局变量，不会成为 window 的属性</span></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> c = <span class="number">1</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">window</span>.<span class="property">c</span>) <span class="comment">// 1</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(c) <span class="comment">// 1</span></span><br><span class="line"><span class="keyword">let</span> c = <span class="number">1</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">window</span>.<span class="property">c</span>) <span class="comment">// undefined</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(c) <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><span class="error">存在变量提升</span></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1</span></span><br><span class="line">&#123;</span><br><span class="line">  a = <span class="number">2</span></span><br><span class="line">  <span class="keyword">let</span> a</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 如果 let 不会提升，那么 a = 2 就会将外面的 a 由 1 变成 2</span></span><br><span class="line"><span class="comment">// 但运行发现 a = 2 报错：Uncaught ReferenceError: Cannot access &#x27;a&#x27; before initialization</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">a = <span class="number">1</span>; <span class="keyword">let</span> a  <span class="comment">// Uncaught ReferenceError: Cannot access &#x27;a&#x27; before initialization</span></span><br></pre></td></tr></table></figure>
+
+<p>总结：</p>
+<ul>
+<li>let&#x2F;const 声明的「创建」过程被提升了，但是「初始化」没有提升，var 声明的「创建」和「初始化」都被提升了，但「赋值」没被提升，function 声明的「创建」、「初始化」和「赋值」都被提升了</li>
+<li>let 声明会提升到块顶部，从块顶部到该变量的初始化语句，这块区域叫做 TDZ（暂时死区），所谓暂时死区，就是不能在初始化之前，使用变量</li>
+<li>如果你在 TDZ 内使用该变量，JS 就会报错</li>
+</ul>
+<p>如果 let x 的初始化过程失败了，那么</p>
+<ul>
+<li>x 变量就将永远处于 created 状态</li>
+<li>你无法再次对 x 进行初始化（初始化只有一次机会，而那次机会你失败了）</li>
+<li>由于 x 无法被初始化，所以 x 永远处在暂时死区</li>
+</ul>
+<h3 id="const-的使用"><a href="#const-的使用" class="headerlink" title="const 的使用"></a>const 的使用</h3><p><code>const</code>声明一个常量。常量：代码执行的过程中，不可以修改常量里面的值</p>
+<ul>
+<li>const 声明的量不可以改变</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="variable constant_">PI</span> = <span class="number">3.1415</span></span><br><span class="line"><span class="variable constant_">PI</span> = <span class="number">3</span> <span class="comment">// TypeError: Assignment to constant variable</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>const 声明的变量必须赋值</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> num</span><br><span class="line"><span class="comment">// SyntaxError: Missing initializer in const declaration</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果 const 声明了一个对象，仅仅保证地址不变，可以修改对象的属性</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123; <span class="attr">name</span>: <span class="string">&#x27;zs&#x27;</span> &#125;</span><br><span class="line">obj.<span class="property">age</span> = <span class="number">18</span> <span class="comment">// 正确</span></span><br><span class="line">obj = &#123;&#125; <span class="comment">// TypeError: Assignment to constant variable</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>其他用法和 let 一样</li>
+</ul>
+<h2 id="模板字符串-模板字面量"><a href="#模板字符串-模板字面量" class="headerlink" title="模板字符串(模板字面量)"></a>模板字符串(模板字面量)</h2><p>模板字面量 是允许嵌入表达式的字符串字面量。你可以使用多行字符串和字符串插值功能</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 通过``可以定义一个字符串</span></span><br><span class="line"><span class="keyword">let</span> str = <span class="string">`hello world`</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 模板字符串内部允许换行</span></span><br><span class="line"><span class="keyword">let</span> str = <span class="string">`</span></span><br><span class="line"><span class="string">  hello</span></span><br><span class="line"><span class="string">  world</span></span><br><span class="line"><span class="string">`</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 模板字符串内部可以使用表达式</span></span><br><span class="line"><span class="keyword">let</span> str = <span class="string">`</span></span><br><span class="line"><span class="string">	你好，我是<span class="subst">$&#123;name&#125;</span></span></span><br><span class="line"><span class="string">`</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h2><p>ES6 标准新增了一种新的函数：Arrow Function（箭头函数），为什么叫 Arrow Function？因为它的定义用的就是一个箭头</p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 语法： (参数列表) =&gt; &#123;函数体&#125;</span></span><br><span class="line"><span class="keyword">let</span> <span class="title function_">fn</span> = (<span class="params">x, y</span>) =&gt; &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(x + y)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>相当于</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> fn = <span class="keyword">function</span>(<span class="params">x, y</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(x + y)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
+<li>不存在 prototype 这个属性</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="title function_">a</span> = (<span class="params"></span>) =&gt; &#123;&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a.<span class="property"><span class="keyword">prototype</span></span>) <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>没有自己的 this，arguments</li>
+</ul>
+<p>箭头函数的 this、arguments 都是在定义函数时绑定外层的 this 和 arguments，而不是在执行过程中绑定的，所以不会因为调用者不同而发生变化。<br>可以使用剩余参数(Rest 参数)表示法获得的自身入参列表</p>
+<p>因为箭头函数没有 this，因此箭头函数不能作为构造函数</p>
+<p>不能用 call()、apply()、bind() 这些方法改变 this 的指向</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">fn = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">let</span> <span class="title function_">arrow</span> = (<span class="params">...args</span>) =&gt; &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">arguments</span>) <span class="comment">// 外层的入参列表 -&gt; Arguments(3) [1, 2, 3, callee: ƒ, Symbol(Symbol.iterator): ƒ]</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(args) <span class="comment">// 使用剩余参数表示法获得的自身入参列表 -&gt; (3) [4, 5, 6]</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="title function_">arrow</span>(<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>)</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(arrow.<span class="property">length</span>) <span class="comment">// 0</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">fn</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果函数体只有一行语句，并且需要返回这个值，那么可以省略 {} 和 return</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="title function_">fn</span> = (<span class="params">n1, n2</span>) =&gt; n1 + n2</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Rest 参数和 arguments 对象的区别：</li>
+</ul>
+<p>rest 参数只包括那些没有给出名称的参数，arguments 包含所有参数</p>
+<p>rest 参数之后不能再有其他参数，否则会报错</p>
+<p>函数的 length 属性，不包括 rest 参数</p>
+<p>arguments 对象不是真正的数组，而 rest 参数是数组实例，可以直接使用数组的方法</p>
+<h2 id="对象简化语法"><a href="#对象简化语法" class="headerlink" title="对象简化语法"></a>对象简化语法</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 当属性的 key 和变量的名相同时可以简写</span></span><br><span class="line"><span class="keyword">let</span> person = &#123; <span class="attr">name</span>: name &#125; ==&gt; <span class="keyword">let</span> person = &#123; name &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 声明函数</span></span><br><span class="line"><span class="keyword">let</span> cal = &#123;</span><br><span class="line">  <span class="attr">add</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 可以省略 `:function`</span></span><br><span class="line">  <span class="title function_">add</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="属性名表达式"><a href="#属性名表达式" class="headerlink" title="属性名表达式"></a>属性名表达式</h3><ul>
+<li>ES6 允许字面量定义对象时，用表达式作为对象的属性名，即把表达式放在方括号内。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> propKey = <span class="string">&#x27;foo&#x27;</span></span><br><span class="line"><span class="keyword">let</span> methodKey = <span class="string">&#x27;bar&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">  [propKey]: <span class="literal">true</span>, <span class="comment">// foo: true</span></span><br><span class="line">  [<span class="string">&#x27;a&#x27;</span> + <span class="string">&#x27;bc&#x27;</span>]: <span class="number">123</span>,  <span class="comment">// abc: 123</span></span><br><span class="line">  [methodKey]() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;hi&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="class-关键字"><a href="#class-关键字" class="headerlink" title="class 关键字"></a>class 关键字</h2><p>ES5 中通过 构造函数 + 原型 的方式来实现面向对象</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 构造函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Person</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">name</span> = <span class="string">&#x27;jack&#x27;</span></span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">age</span> = <span class="number">18</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在原型中添加实例方法</span></span><br><span class="line"><span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">say</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span>, <span class="variable language_">this</span>.<span class="property">age</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建实例</span></span><br><span class="line"><span class="keyword">const</span> p = <span class="keyword">new</span> <span class="title class_">Person</span>()</span><br><span class="line">p.<span class="title function_">say</span>()</span><br></pre></td></tr></table></figure>
+
+<p>ES6 中出现了 class 关键字，用来实现面向对象</p>
+<p>class 声明不允许再次声明已经存在的类，否则将会抛出一个类型错误<br>class 声明不可以提升<br>class 仅仅是一个语法结构（语法糖），本质还是函数，实现继承本质上还是通过构造函数 + 原型的方式</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span> &#123;&#125;</span><br><span class="line"><span class="title class_">Person</span> <span class="keyword">instanceof</span> <span class="title class_">Function</span> <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>类声明</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 创建 Person 类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">  <span class="comment">// 类的构造函数 constructor 固定名称</span></span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">name, age</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">name</span> = name</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">age</span> = age</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 添加实例方法</span></span><br><span class="line">  <span class="title function_">say</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span>, <span class="variable language_">this</span>.<span class="property">age</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建实例</span></span><br><span class="line"><span class="keyword">const</span> p = <span class="keyword">new</span> <span class="title class_">Person</span>(<span class="string">&#x27;tom&#x27;</span>, <span class="number">18</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(p) <span class="comment">// Person &#123;name: &#x27;tom&#x27;, age: 18&#125;</span></span><br><span class="line">p.<span class="title function_">say</span>() <span class="comment">// tom 18</span></span><br></pre></td></tr></table></figure>
+
+<p>类表达式</p>
+<p>赋予一个命名类表达式的名称是类的主体的本地名称</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 匿名类</span></span><br><span class="line"><span class="keyword">let</span> <span class="title class_">Person</span> = <span class="keyword">class</span> &#123;&#125;</span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Person</span>() <span class="comment">// Person &#123;&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 命名类</span></span><br><span class="line"><span class="keyword">let</span> <span class="title class_">Person</span> = <span class="keyword">class</span> <span class="title class_">A</span> &#123;&#125;</span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Person</span>() <span class="comment">// A &#123;&#125;</span></span><br><span class="line"><span class="keyword">new</span> <span class="title function_">A</span>() <span class="comment">// Uncaught ReferenceError: A is not defined</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Person</span>) <span class="comment">// class A &#123;&#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(A) <span class="comment">// Uncaught ReferenceError: A is not defined</span></span><br></pre></td></tr></table></figure>
+
+<p>类表达式也不存在提升</p>
+<p>static 关键字用来定义一个类的静态方法。调用静态方法不需要实例化该类，但不能通过一个类实例调用静态方法</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Point</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">x, y</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">x</span> = x</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">y</span> = y</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">static</span> <span class="title function_">distance</span>(<span class="params">a, b</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> dx = a.<span class="property">x</span> - b.<span class="property">x</span></span><br><span class="line">    <span class="keyword">const</span> dy = a.<span class="property">y</span> - b.<span class="property">y</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">Math</span>.<span class="title function_">hypot</span>(dx, dy)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> p1 = <span class="keyword">new</span> <span class="title class_">Point</span>(<span class="number">5</span>, <span class="number">5</span>)</span><br><span class="line"><span class="keyword">const</span> p2 = <span class="keyword">new</span> <span class="title class_">Point</span>(<span class="number">10</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Point</span>.<span class="title function_">distance</span>(p1, p2))</span><br></pre></td></tr></table></figure>
+
+<p>继承：要实现至少需要两个 class（子类 和 父类），子类继承自父类，继承后，子类就可以使用父类中的属性或方法</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 继承</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 父类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">name, age</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">name</span> = name</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">say</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;父类中的 say 方法&#x27;</span>, <span class="variable language_">this</span>.<span class="property">name</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 子类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Chinese</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Person</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">name, age</span>) &#123;</span><br><span class="line">    <span class="comment">// 子类中使用 constructor 必须手动调用 super</span></span><br><span class="line">    <span class="comment">// super 表示父类的构造函数</span></span><br><span class="line">    <span class="comment">// 先调用 super() 在使用 this</span></span><br><span class="line">    <span class="variable language_">super</span>()</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">name</span> = name</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">age</span> = age</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建实例</span></span><br><span class="line"><span class="keyword">const</span> c = <span class="keyword">new</span> <span class="title class_">Chinese</span>(<span class="string">&#x27;zs&#x27;</span>, <span class="number">18</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(c)</span><br><span class="line">c.<span class="title function_">say</span>() <span class="comment">// 父类中的方法</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h2><p>ES6 允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构（Destructuring）</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 对象解构</span></span><br><span class="line"><span class="keyword">var</span> &#123; a, b &#125; = &#123; <span class="attr">a</span>: <span class="number">10</span>, <span class="attr">b</span>: <span class="number">20</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 同</span></span><br><span class="line">;(&#123; a, b &#125; = &#123; <span class="attr">a</span>: <span class="number">10</span>, <span class="attr">b</span>: <span class="number">20</span> &#125;) <span class="comment">// 使用没有声明的赋值，数组解构类似</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a, b) <span class="comment">// 10 20</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 提取变量并赋值</span></span><br><span class="line"><span class="keyword">var</span> &#123; <span class="attr">a</span>: p, <span class="attr">b</span>: q &#125; = &#123; <span class="attr">a</span>: <span class="number">10</span>, <span class="attr">b</span>: <span class="number">20</span> &#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(p, q) <span class="comment">// 10 20</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 将剩余属性赋值给一个变量</span></span><br><span class="line"><span class="keyword">var</span> &#123; a, b, ...rest &#125; = &#123; <span class="attr">a</span>: <span class="number">10</span>, <span class="attr">b</span>: <span class="number">20</span>, <span class="attr">c</span>: <span class="number">30</span>, <span class="attr">d</span>: <span class="number">40</span> &#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a, b, rest) <span class="comment">// 10 20 &#123;c: 30, d: 40&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 提供默认值</span></span><br><span class="line"><span class="keyword">var</span> &#123; a = <span class="number">1</span>, b = <span class="number">1</span> &#125; = &#123; <span class="attr">a</span>: <span class="number">10</span> &#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a, b) <span class="comment">// 10 1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 赋值并提供默认值</span></span><br><span class="line"><span class="keyword">var</span> &#123; <span class="attr">a</span>: aa = <span class="number">10</span>, <span class="attr">b</span>: bb = <span class="number">1</span> &#125; = &#123; <span class="attr">a</span>: <span class="number">10</span> &#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(aa, bb) <span class="comment">// 10 1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 数组解构</span></span><br><span class="line"><span class="keyword">var</span> [a, b] = [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a, b) <span class="comment">// 1 2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 将剩余数组赋值给一个变量</span></span><br><span class="line"><span class="keyword">var</span> [a, b, ...rest] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a, b, rest) <span class="comment">// 1 2 [3, 4]</span></span><br><span class="line"><span class="comment">// ==&gt; var a = arr[0]; var b = arr[1]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 提供默认值</span></span><br><span class="line"><span class="keyword">var</span> [c = <span class="number">2</span>, d = <span class="number">2</span>] = [<span class="number">10</span>]</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(c, d) <span class="comment">// 10 2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 忽略某些值</span></span><br><span class="line"><span class="keyword">var</span> [a = <span class="number">2</span>, , b = <span class="number">2</span>] = [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>]</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a, b) <span class="comment">// 10 30</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 函数参数的解构赋值</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params">&#123; x &#125;</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(x) <span class="comment">// 1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">foo</span>(&#123; <span class="attr">x</span>: <span class="number">1</span>, <span class="attr">y</span>: <span class="number">2</span> &#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数参数默认值</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params">&#123; x = <span class="number">10</span> &#125;</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(x) <span class="comment">// 10</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">foo</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. 解构的特殊应用</span></span><br><span class="line"><span class="comment">// 交换变量</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line"><span class="keyword">var</span> b = <span class="number">3</span></span><br><span class="line">;[a, b] = [b, a]</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a) <span class="comment">// 3</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b) <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 字符串解构</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;love&#x27;</span></span><br><span class="line"><span class="keyword">var</span> [a, b, c, d] = str</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a, b, c, d) <span class="comment">// l o v e</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="扩展运算符"><a href="#扩展运算符" class="headerlink" title="扩展运算符"></a>扩展运算符</h2><p>扩展运算符（spread）是三个点（…）。作用：将一个数组转为用逗号分隔的参数序列</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>]</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(...arr) <span class="comment">// a b c</span></span><br></pre></td></tr></table></figure>
+
+<p>应用</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 数组深拷贝</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="keyword">var</span> arr1 = [...arr]</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr === arr1) <span class="comment">// false, 说明arr1和arr指向不同数组</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 把一个数组插入另一个数组字面量</span></span><br><span class="line"><span class="keyword">var</span> arr2 = [...arr, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr2) <span class="comment">// [1, 2, 3, 4, 5, 6]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 字符串转数组</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;love&#x27;</span></span><br><span class="line"><span class="keyword">var</span> arr3 = [...str]</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr3) <span class="comment">// [ &#x27;l&#x27;, &#x27;o&#x27;, &#x27;v&#x27;, &#x27;e&#x27; ]</span></span><br></pre></td></tr></table></figure>
+
+<p>对象展开</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> defaults = &#123; <span class="attr">name</span>: <span class="string">&#x27;zs&#x27;</span>, <span class="attr">age</span>: <span class="number">18</span> &#125;</span><br><span class="line"><span class="keyword">let</span> search = &#123; ...defaults, <span class="attr">age</span>: <span class="number">12</span> &#125; <span class="comment">// &#123; name: &#x27;zs&#x27;, age: 12 &#125; 后面的属性会覆盖前面的属性</span></span><br></pre></td></tr></table></figure>
+
+<p>对象展开仅包含对象自身的可枚举属性</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">C</span> &#123;</span><br><span class="line">  p = <span class="number">12</span></span><br><span class="line">  <span class="title function_">m</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> c = <span class="keyword">new</span> <span class="title function_">C</span>()</span><br><span class="line"><span class="keyword">let</span> clone = &#123; ...c &#125;</span><br><span class="line">clone.<span class="property">p</span> <span class="comment">// ok</span></span><br><span class="line">clone.<span class="title function_">m</span>() <span class="comment">// error!</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="ES6-模块化"><a href="#ES6-模块化" class="headerlink" title="ES6 模块化"></a>ES6 模块化</h2>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/226.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/226.html" class="post-title-link" itemprop="url">v2ray 搭建配置教程</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2019-10-08" itemprop="dateCreated datePublished" datetime="2019-10-08T00:00:00+00:00">2019-10-08</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <date title="修改时间：2021-09-05">2021-09-05</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h2><p><span class="exturl" data-url="aHR0cHM6Ly92MmZseS5vcmcv">v2ray 用户手册</span> <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3YyZmx5L3YyZmx5LWdpdGh1Yi1pbw==">github</span><br><span class="exturl" data-url="aHR0cHM6Ly9ndWlkZS52MmZseS5vcmcv">V2Ray 白话文指南</span> <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3YyZmx5L3YycmF5LXN0ZXAtYnktc3RlcC90cmVlL3RyYW5zaWZleC96aF9DTg==">github</span><br><span class="exturl" data-url="aHR0cHM6Ly9pbnRtYWlucmV0dXJuMC5jb20vdjJyYXktY29uZmlnLWdlbi8=">在线配置生成</span><br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Nwcm92MDY1L3YyLXVp">v2ray web面板 v2-ui</span><br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0FuYW5ra2UvU1NQYW5lbC1VaW0=">SSPanel-Uim</span> 节点管理面板&#x2F;用户管理系统<br><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmFuYW5rLmtlL3cvU1NQYW5lbF93aXRoX0RST1BfREFUQUJBU0VfQlQ=">使用宝塔部署 SSPanel 魔改版</span></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="一键脚本安装"><a href="#一键脚本安装" class="headerlink" title="一键脚本安装"></a>一键脚本安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash &lt;(curl -s -L https://git.io/v2ray.sh)</span><br></pre></td></tr></table></figure>
+
+<p>安装完成后，输入 v2ray 即可管理 V2Ray</p>
+<p>管理命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">v2ray info <span class="comment"># 查看 V2Ray 配置信息</span></span><br><span class="line">v2ray config <span class="comment"># 修改 V2Ray 配置</span></span><br><span class="line">v2ray <span class="built_in">link</span> <span class="comment"># 生成 V2Ray 配置文件链接</span></span><br><span class="line">v2ray infolink <span class="comment"># 生成 V2Ray 配置信息链接</span></span><br><span class="line">v2ray qr <span class="comment"># 生成 V2Ray 配置二维码链接</span></span><br><span class="line">v2ray ss <span class="comment"># 修改 Shadowsocks 配置</span></span><br><span class="line">v2ray ssinfo <span class="comment"># 查看 Shadowsocks 配置信息</span></span><br><span class="line">v2ray ssqr <span class="comment"># 生成 Shadowsocks 配置二维码链接</span></span><br><span class="line">v2ray status <span class="comment"># 查看 V2Ray 运行状态</span></span><br><span class="line">v2ray start <span class="comment"># 启动 V2Ray</span></span><br><span class="line">v2ray stop <span class="comment"># 停止 V2Ray</span></span><br><span class="line">v2ray restart <span class="comment"># 重启 V2Ray</span></span><br><span class="line">v2ray <span class="built_in">log</span> <span class="comment"># 查看 V2Ray 运行日志</span></span><br><span class="line">v2ray update <span class="comment"># 更新 V2Ray</span></span><br><span class="line">v2ray update.sh <span class="comment"># 更新 V2Ray 管理脚本</span></span><br><span class="line">v2ray uninstall <span class="comment"># 卸载 V2Ray</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="官方脚本"><a href="#官方脚本" class="headerlink" title="官方脚本"></a>官方脚本</h3><p><span class="exturl" data-url="aHR0cHM6Ly92MnJheS5jb20vY2hhcHRlcl8wMC9pbnN0YWxsLmh0bWw=">官方脚本</span></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装</span></span><br><span class="line">bash &lt;(curl -L -s https://install.direct/go.sh)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装完成后记住 PORT UUID，忘记也没关系可以使用下面命令查看</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动</span></span><br><span class="line">systemctl start v2ray</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看端口 Port</span></span><br><span class="line"><span class="built_in">cat</span> /etc/v2ray/config.json | grep port</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看 id (UUID)</span></span><br><span class="line"><span class="built_in">cat</span> /etc/v2ray/config.json | grep <span class="built_in">id</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h3><p>如果脚本不支持卸载，可使用以下方法手动卸载</p>
+<p>其中 systemd 和 sysv 二选一，取决于你的系统</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#停用并卸载服务(systemd)</span></span><br><span class="line">systemctl stop v2ray</span><br><span class="line">systemctl <span class="built_in">disable</span> v2ray</span><br><span class="line"></span><br><span class="line"><span class="comment">#停用并卸载服务(sysv)</span></span><br><span class="line">service v2ray stop</span><br><span class="line">update-rc.d -f v2ray remove</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除文件</span></span><br><span class="line"><span class="comment"># 配置文件</span></span><br><span class="line"><span class="built_in">rm</span> -rf /etc/v2ray/*</span><br><span class="line"><span class="comment"># 程序</span></span><br><span class="line"><span class="built_in">rm</span> -rf /usr/bin/v2ray/*</span><br><span class="line"><span class="comment"># 日志</span></span><br><span class="line"><span class="built_in">rm</span> -rf /var/log/v2ray/*</span><br><span class="line"><span class="comment"># systemd 启动项</span></span><br><span class="line"><span class="built_in">rm</span> -rf /lib/systemd/system/v2ray.service</span><br><span class="line"><span class="comment"># sysv 启动项</span></span><br><span class="line"><span class="built_in">rm</span> -rf /etc/init.d/v2ray</span><br></pre></td></tr></table></figure>
+
+<h3 id="Nginx-WebSocket-TLS"><a href="#Nginx-WebSocket-TLS" class="headerlink" title="Nginx + WebSocket + TLS"></a>Nginx + WebSocket + TLS</h3><p>参考：<span class="exturl" data-url="aHR0cHM6Ly9ndWlkZS52MmZseS5vcmcvYWR2YW5jZWQvd3NzX2FuZF93ZWIuaHRtbA==">https://guide.v2fly.org/advanced/wss_and_web.html</span></p>
+<p>V2Ray 脚本可直接使用 Caddy 配置 WebSocket + TLS 传输协议，但是如果想在 vps 上同时使用 nginx 跑一个小博客，那么会导致 caddy 和 nginx 监听端口时发生冲突，这显然不是我们想要的</p>
+<p>所以就要将 TLS 部分放到 nginx 程序里面去实现</p>
+<h4 id="首先使用官方脚本安装好服务端程序"><a href="#首先使用官方脚本安装好服务端程序" class="headerlink" title="首先使用官方脚本安装好服务端程序"></a>首先使用官方脚本安装好服务端程序</h4><h4 id="申请-SSL-证书"><a href="#申请-SSL-证书" class="headerlink" title="申请 SSL 证书"></a>申请 SSL 证书</h4><blockquote>
+<p>如果使用宝塔面板，可以通过面板一键生成 ssl 证书，快速配置 <code>nginx+ssl</code></p>
+</blockquote>
+<p>申请免费 SSL 证书参考<a href="https://wqdy.top/1909.html">这里</a></p>
+<h4 id="nginx-配置"><a href="#nginx-配置" class="headerlink" title="nginx 配置"></a>nginx 配置</h4><blockquote>
+<p>如果使用宝塔面板，可以通过面板一键生成 ssl 证书，快速配置 <code>nginx+ssl</code></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen 443 ssl;</span><br><span class="line">  listen [::]:443 ssl;</span><br><span class="line">  server_name           aaa.com; # 域名</span><br><span class="line"></span><br><span class="line">  # 配置ssl</span><br><span class="line">  ssl_certificate       /etc/letsencrypt/aaa.com.crt; # 证书</span><br><span class="line">  ssl_certificate_key   /etc/letsencrypt/aaa.com.key; # 密钥</span><br><span class="line">  ssl_session_timeout 1d;</span><br><span class="line">  ssl_session_cache shared:MozSSL:10m;</span><br><span class="line">  ssl_session_tickets off;</span><br><span class="line">  ssl_protocols         TLSv1.2 TLSv1.3;</span><br><span class="line">  ssl_ciphers           ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384;</span><br><span class="line">  ssl_prefer_server_ciphers off;</span><br><span class="line">  #</span><br><span class="line"></span><br><span class="line">  location /ray &#123; # 与 V2Ray 服务端配置中的 path 保持一致</span><br><span class="line">    if ($http_upgrade != &quot;websocket&quot;) &#123; # WebSocket协商失败时返回404</span><br><span class="line">      return 404;</span><br><span class="line">    &#125;</span><br><span class="line">    proxy_redirect off;</span><br><span class="line">    proxy_pass http://127.0.0.1:2333; # 假设 WebSocket 监听在环回地址的 2333 端口上</span><br><span class="line">    proxy_http_version 1.1;</span><br><span class="line">    proxy_set_header Upgrade $http_upgrade;</span><br><span class="line">    proxy_set_header Connection &quot;upgrade&quot;;</span><br><span class="line">    proxy_set_header Host $host;</span><br><span class="line">    # Show real IP in v2ray access.log</span><br><span class="line">    proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="v2ray-服务端配置"><a href="#v2ray-服务端配置" class="headerlink" title="v2ray 服务端配置"></a>v2ray 服务端配置</h4><p>&#x2F;etc&#x2F;v2ray&#x2F;config.json</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;inbounds&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;port&quot;</span><span class="punctuation">:</span> <span class="number">2333</span><span class="punctuation">,</span> <span class="comment">// WebSocket 监听端口</span></span><br><span class="line">      <span class="attr">&quot;listen&quot;</span><span class="punctuation">:</span> <span class="string">&quot;127.0.0.1&quot;</span><span class="punctuation">,</span> <span class="comment">// 只监听 127.0.0.1，避免除本机外的机器探测到开放了 22445 端口</span></span><br><span class="line">      <span class="attr">&quot;protocol&quot;</span><span class="punctuation">:</span> <span class="string">&quot;vmess&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;settings&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;clients&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">          <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;alterId&quot;</span><span class="punctuation">:</span> <span class="number">32</span></span><br><span class="line">          <span class="punctuation">&#125;</span></span><br><span class="line">        <span class="punctuation">]</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;streamSettings&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;network&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ws&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;wsSettings&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">          <span class="attr">&quot;path&quot;</span><span class="punctuation">:</span> <span class="string">&quot;/ray&quot;</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;outbounds&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;protocol&quot;</span><span class="punctuation">:</span> <span class="string">&quot;freedom&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;settings&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span><span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="客户端配置"><a href="#客户端配置" class="headerlink" title="客户端配置"></a>客户端配置</h4><figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;inbounds&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;port&quot;</span><span class="punctuation">:</span> <span class="number">1080</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;listen&quot;</span><span class="punctuation">:</span> <span class="string">&quot;127.0.0.1&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;protocol&quot;</span><span class="punctuation">:</span> <span class="string">&quot;socks&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;sniffing&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;enabled&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;destOverride&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;http&quot;</span><span class="punctuation">,</span> <span class="string">&quot;tls&quot;</span><span class="punctuation">]</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;settings&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;auth&quot;</span><span class="punctuation">:</span> <span class="string">&quot;noauth&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;udp&quot;</span><span class="punctuation">:</span> <span class="keyword">false</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;outbounds&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;protocol&quot;</span><span class="punctuation">:</span> <span class="string">&quot;vmess&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;settings&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;vnext&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">          <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;address&quot;</span><span class="punctuation">:</span> <span class="string">&quot;aaa.com&quot;</span><span class="punctuation">,</span> <span class="comment">// nginx server_name</span></span><br><span class="line">            <span class="attr">&quot;port&quot;</span><span class="punctuation">:</span> <span class="number">443</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;users&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">              <span class="punctuation">&#123;</span></span><br><span class="line">                <span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx&quot;</span><span class="punctuation">,</span> <span class="comment">// 同服务端配合</span></span><br><span class="line">                <span class="attr">&quot;alterId&quot;</span><span class="punctuation">:</span> <span class="number">32</span> <span class="comment">// 同服务端配合</span></span><br><span class="line">              <span class="punctuation">&#125;</span></span><br><span class="line">            <span class="punctuation">]</span></span><br><span class="line">          <span class="punctuation">&#125;</span></span><br><span class="line">        <span class="punctuation">]</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;streamSettings&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;network&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ws&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;security&quot;</span><span class="punctuation">:</span> <span class="string">&quot;tls&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;wsSettings&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">          <span class="attr">&quot;path&quot;</span><span class="punctuation">:</span> <span class="string">&quot;/ray&quot;</span> <span class="comment">// 与 V2Ray 服务端配置中的 path 保持一致</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Nginx-vmess-ws-tls-x2F-http2-over-tls-一键安装脚本"><a href="#Nginx-vmess-ws-tls-x2F-http2-over-tls-一键安装脚本" class="headerlink" title="Nginx+vmess+ws+tls&#x2F; http2 over tls 一键安装脚本"></a>Nginx+vmess+ws+tls&#x2F; http2 over tls 一键安装脚本</h3><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3d1bGFiaW5nL1YyUmF5X3dzLXRsc19iYXNoX29uZWtleQ==">https://github.com/wulabing/V2Ray_ws-tls_bash_onekey</span></p>
+<p>证书签发错误的原因是签发服务器已经不认默认的邮箱名:@example.com,</p>
+<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line"><span class="deletion">- curl https://get.acme.sh | sh</span></span><br><span class="line"><span class="addition">+ curl https://get.acme.sh | sh -s email=admin@youremail.com</span></span><br></pre></td></tr></table></figure>
+<p>添加-s 参数, 把你的邮箱放进去</p>
+<p>另外如果脚本全部正常跑完, 还是不能用的,请用这个网站 <span class="exturl" data-url="aHR0cHM6Ly93d3cubWF0b29scy5jb20vcG9ydA==">https://www.matools.com/port</span> 检查下你的端口是不是已经被封了</p>
+<h2 id="v2ray-配置好后无法连接解决办法"><a href="#v2ray-配置好后无法连接解决办法" class="headerlink" title="v2ray 配置好后无法连接解决办法"></a>v2ray 配置好后无法连接解决办法</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 检查端口占用情况</span></span><br><span class="line">yum install net-tools</span><br><span class="line">netstat -apn | grep v2ray</span><br><span class="line"></span><br><span class="line"><span class="comment"># 发现v2ray并没有监听我们的公网IP，只监听了一个IPV6：</span></span><br><span class="line"><span class="comment"># tcp6       0      0 :::40682                :::*                    LISTEN      19553/v2ray</span></span><br><span class="line"><span class="comment"># unix  3      [ ]         STREAM     CONNECTED     80938    19553/v2ray</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改配置文件添加 listen 字段</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># v2ray默认配置文件在/etc/v2ray/conf.json</span></span><br><span class="line"><span class="string">&quot;inbound&quot;</span>: &#123;</span><br><span class="line">  <span class="string">&quot;listen&quot;</span>:<span class="string">&quot;12.34.56.78&quot;</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># v2ray 测试配置文件是否正确</span></span><br><span class="line">/usr/bin/v2ray/v2ray --<span class="built_in">test</span> --config /etc/v2ray/config.json</span><br></pre></td></tr></table></figure>
+
+<h2 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h2><p>客户端可以参考<a href="https://wqdy.top/228.html#%E5%AE%A2%E6%88%B7%E7%AB%AF">这里</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -410,6 +749,126 @@
 <li><code>nvm node_mirror &lt;node_mirror_url&gt;</code>: Set the node mirror.People in China can use <span class="exturl" data-url="aHR0cHM6Ly9ucG0udGFvYmFvLm9yZy9taXJyb3JzL25vZGUv">https://npm.taobao.org/mirrors/node/</span></li>
 <li><code>nvm npm_mirror &lt;npm_mirror_url&gt;</code>: Set the npm mirror.People in China can use <span class="exturl" data-url="aHR0cHM6Ly9ucG0udGFvYmFvLm9yZy9taXJyb3JzL25wbS8=">https://npm.taobao.org/mirrors/npm/</span></li>
 </ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/2028.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2028.html" class="post-title-link" itemprop="url">Babel 入门</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2021-07-28" itemprop="dateCreated datePublished" datetime="2021-07-28T00:00:00+00:00">2021-07-28</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Babel与Polyfill的关系和区别<br>Babel 默认只转换新的 js 句法（syntax），而不转换新的 API，例如箭头函数等<br>Polyfill 用于实现浏览器并不支持的原生API的代码，如新增的方法等</p>
+<p>Babel</p>
+<p>Babel的安装，配置</p>
+<p>创建 <code>babel.config.js</code> 文件，内容如下</p>
+<blockquote>
+<p>babel.config.js 是Babel执行时会默认在当前目录寻找的Babel配置文件，除了babel.config.js，我们也可以选择用.babelrc或.babelrc.js这两种配置文件</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">presets</span>: [<span class="string">&quot;@babel/env&quot;</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>安装如下包</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm i -D @babel/cli @babel/core @babel/preset-env</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>@babel&#x2F;cli是Babel命令行转码工具，如果我们使用命令行进行Babel转码就需要安装它。</li>
+<li>@babel&#x2F;cli依赖@babel&#x2F;core，因此也需要安装@babel&#x2F;core这个Babel核心npm包。</li>
+<li>@babel&#x2F;preset-env这个npm包提供了ES6转换ES5的语法转换规则，我们在Babel配置文件里指定使用它。如果不使用的话，也可以完成转码，但转码后的代码仍然是ES6的，相当于没有转码。</li>
+</ul>
+<p>创建 <code>index.js</code> 文件，如下</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">fn</span> = (<span class="params">num</span>) =&gt; num + <span class="number">1</span></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">() =&gt;</span> &#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>执行命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npx babel index.js -o output.js</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fn = <span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params">num</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> num + <span class="number">1</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">() =&gt;</span> &#123;&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>可以看到，ES6的箭头函数语法转换成了 ES5 的函数定义语法，但是并没有对ES6的Promise进行转换。因为Babel默认只转换新的 js 语法（箭头函数，解构…），而不转换新的 API。新的API分类两类，一类是Promise、Map、Symbol、Proxy、Iterator等全局对象及其对象自身的方法，例如Object.assign，Promise.resolve；另一类是新的实例方法，例如数组实例方法[1, 2, 3].find((item) &#x3D;&gt; item &lt; 2)</p>
+<p>polyfill</p>
+<p>安装</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install --save @babel/polyfill</span><br></pre></td></tr></table></figure>
+
+<p>在 index.js 中引入 <code>import &#39;@babel/polyfill&#39;</code></p>
+<p>执行命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npx babel index.js -o output.js</span><br></pre></td></tr></table></figure>
+
+<p>输出结果</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">require</span>(<span class="string">&quot;@babel/polyfill&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fn = <span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params">num</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> num + <span class="number">1</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果中 <code>require(&quot;@babel/polyfill&quot;);</code></p>
+<p>import被编译成了require，如果想要编译出来的模块引入规范还是import，则可以在preset-env的配置项中添加”modules”: false即可</p>
+<p>有时候我们项目里并没有用到那么多的新增API，但是 @babel&#x2F;polyfill 会把所有浏览器环境的的polyfill都引入，整个包的体积就会很大，我们想要对目标环境按需引入相应的polyfill应该怎么办呢，这个时候我们就可以使用 preset-env 的配置项中的 useBuiltIns 属性来按需引入 polyfill。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">presets</span>: [</span><br><span class="line">    [</span><br><span class="line">      <span class="string">&quot;@babel/preset-env&quot;</span>, &#123;</span><br><span class="line">        <span class="string">&quot;modules&quot;</span>: <span class="literal">false</span>, <span class="comment">// 用来设置是否把ES6的模块化语法改成其它模块化语法</span></span><br><span class="line">        <span class="string">&quot;useBuiltIns&quot;</span>: <span class="string">&quot;usage&quot;</span>,</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用useBuiltIns:”usage”后，Babel除了会考虑目标环境缺失的API模块，同时考虑我们项目代码里使用到的ES6特性，且不需要在项目入口处手动引入polyfill</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&quot;core-js/modules/es6.object.to-string.js&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;core-js/modules/es6.promise.js&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fn = <span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params">num</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> num + <span class="number">1</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>可以看到 多了 <code>import &quot;core-js/...</code> 的引用，因为 @babel&#x2F;polyfil 是由core-js2和regenerator-runtime组成的一个集成包，<br>Babel 7.4.0 之后已经弃用了 @babel&#x2F;polyfill，所以core-js官方现在推荐我们使用polyfill的时候直接引入core-js和regenerator-runtime&#x2F;runtime这两个包完全取代 @babel&#x2F;polyfil</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3psb2lyb2NrL2NvcmUtanMjYmFiZWxwb2x5ZmlsbA==">core-js</span><br><span class="exturl" data-url="aHR0cHM6Ly93d3cuYmFiZWxqcy5jbi9kb2NzL2JhYmVsLXBvbHlmaWxs">babel-polyfill</span></p>
 
       
     </div>
@@ -648,126 +1107,6 @@
 <p>CommonJS 模块是运行时加载，ES6 模块是编译时输出接口<br>CommonJS和 ES 模块都可以对导出对象内部属性的值进行改变<br>CommonJS 模块输出的是一个值的拷贝，类似浅拷贝<br>ES 模块输出的 不论是基本类还是引用类型的数据，都是值的引用<br>ES 模块对导出的数据不可以重新赋值（只读状态），重新赋值会编译报错（即导出的数据指针指向不能变），但可以改变对象的属性，类似 const 声明的变量<br>CommonJS 模块的require()是同步加载模块，ES6 模块的import命令是异步加载，有一个独立的模块依赖的解析阶段。</p>
 <p>CommonJS 加载的是一个对象（即module.exports属性），该对象只有在脚本运行完才会生成。而 ES6 Modules不是对象，它的对外接口只是一种静态定义，在代码静态解析阶段就会生成。</p>
 <p>运行时加载: CommonJS 模块就是对象；即在输入时是先加载整个模块，生成一个对象，然后再从这个对象上面读取方法，这种加载称为“运行时加载”<br>编译时加载: ES6 模块不是对象，而是通过 export 命令显式指定输出的代码，import 时采用静态命令的形式。即在 import 时可以指定加载某个输出值，而不是加载整个模块，这种加载称为“编译时加载”</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/2028.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2028.html" class="post-title-link" itemprop="url">Babel 入门</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2021-07-28" itemprop="dateCreated datePublished" datetime="2021-07-28T00:00:00+00:00">2021-07-28</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Babel与Polyfill的关系和区别<br>Babel 默认只转换新的 js 句法（syntax），而不转换新的 API，例如箭头函数等<br>Polyfill 用于实现浏览器并不支持的原生API的代码，如新增的方法等</p>
-<p>Babel</p>
-<p>Babel的安装，配置</p>
-<p>创建 <code>babel.config.js</code> 文件，内容如下</p>
-<blockquote>
-<p>babel.config.js 是Babel执行时会默认在当前目录寻找的Babel配置文件，除了babel.config.js，我们也可以选择用.babelrc或.babelrc.js这两种配置文件</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">presets</span>: [<span class="string">&quot;@babel/env&quot;</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>安装如下包</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm i -D @babel/cli @babel/core @babel/preset-env</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>@babel&#x2F;cli是Babel命令行转码工具，如果我们使用命令行进行Babel转码就需要安装它。</li>
-<li>@babel&#x2F;cli依赖@babel&#x2F;core，因此也需要安装@babel&#x2F;core这个Babel核心npm包。</li>
-<li>@babel&#x2F;preset-env这个npm包提供了ES6转换ES5的语法转换规则，我们在Babel配置文件里指定使用它。如果不使用的话，也可以完成转码，但转码后的代码仍然是ES6的，相当于没有转码。</li>
-</ul>
-<p>创建 <code>index.js</code> 文件，如下</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">fn</span> = (<span class="params">num</span>) =&gt; num + <span class="number">1</span></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">() =&gt;</span> &#123;&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>执行命令</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npx babel index.js -o output.js</span><br></pre></td></tr></table></figure>
-
-<p>输出结果为</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fn = <span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params">num</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> num + <span class="number">1</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">() =&gt;</span> &#123;&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>可以看到，ES6的箭头函数语法转换成了 ES5 的函数定义语法，但是并没有对ES6的Promise进行转换。因为Babel默认只转换新的 js 语法（箭头函数，解构…），而不转换新的 API。新的API分类两类，一类是Promise、Map、Symbol、Proxy、Iterator等全局对象及其对象自身的方法，例如Object.assign，Promise.resolve；另一类是新的实例方法，例如数组实例方法[1, 2, 3].find((item) &#x3D;&gt; item &lt; 2)</p>
-<p>polyfill</p>
-<p>安装</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install --save @babel/polyfill</span><br></pre></td></tr></table></figure>
-
-<p>在 index.js 中引入 <code>import &#39;@babel/polyfill&#39;</code></p>
-<p>执行命令</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npx babel index.js -o output.js</span><br></pre></td></tr></table></figure>
-
-<p>输出结果</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">require</span>(<span class="string">&quot;@babel/polyfill&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fn = <span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params">num</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> num + <span class="number">1</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>输出结果中 <code>require(&quot;@babel/polyfill&quot;);</code></p>
-<p>import被编译成了require，如果想要编译出来的模块引入规范还是import，则可以在preset-env的配置项中添加”modules”: false即可</p>
-<p>有时候我们项目里并没有用到那么多的新增API，但是 @babel&#x2F;polyfill 会把所有浏览器环境的的polyfill都引入，整个包的体积就会很大，我们想要对目标环境按需引入相应的polyfill应该怎么办呢，这个时候我们就可以使用 preset-env 的配置项中的 useBuiltIns 属性来按需引入 polyfill。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">presets</span>: [</span><br><span class="line">    [</span><br><span class="line">      <span class="string">&quot;@babel/preset-env&quot;</span>, &#123;</span><br><span class="line">        <span class="string">&quot;modules&quot;</span>: <span class="literal">false</span>, <span class="comment">// 用来设置是否把ES6的模块化语法改成其它模块化语法</span></span><br><span class="line">        <span class="string">&quot;useBuiltIns&quot;</span>: <span class="string">&quot;usage&quot;</span>,</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>使用useBuiltIns:”usage”后，Babel除了会考虑目标环境缺失的API模块，同时考虑我们项目代码里使用到的ES6特性，且不需要在项目入口处手动引入polyfill</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&quot;core-js/modules/es6.object.to-string.js&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;core-js/modules/es6.promise.js&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fn = <span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params">num</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> num + <span class="number">1</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>可以看到 多了 <code>import &quot;core-js/...</code> 的引用，因为 @babel&#x2F;polyfil 是由core-js2和regenerator-runtime组成的一个集成包，<br>Babel 7.4.0 之后已经弃用了 @babel&#x2F;polyfill，所以core-js官方现在推荐我们使用polyfill的时候直接引入core-js和regenerator-runtime&#x2F;runtime这两个包完全取代 @babel&#x2F;polyfil</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3psb2lyb2NrL2NvcmUtanMjYmFiZWxwb2x5ZmlsbA==">core-js</span><br><span class="exturl" data-url="aHR0cHM6Ly93d3cuYmFiZWxqcy5jbi9kb2NzL2JhYmVsLXBvbHlmaWxs">babel-polyfill</span></p>
 
       
     </div>
@@ -1065,159 +1404,6 @@
     <div class="post-body" itemprop="articleBody">
           <h3 id="越狱工具"><a href="#越狱工具" class="headerlink" title="越狱工具"></a>越狱工具</h3><p><span class="exturl" data-url="aHR0cHM6Ly9jaGVja3JhLmluLw==">checkra1n</span>  iPhone 5s -iPhone X, iOS 12.0 and up<br><span class="exturl" data-url="aHR0cHM6Ly91bmMwdmVyLmRldi8=">unc0ver</span>  iOS 11.0 - 13.5</p>
 <h3 id="软件源"><a href="#软件源" class="headerlink" title="软件源"></a>软件源</h3><p>Ai-小苹果：<span class="exturl" data-url="aHR0cDovL2FwdC5jeWRpYWJjLnRvcC8=">http://apt.cydiabc.top</span><br>雷锋源：<span class="exturl" data-url="aHR0cDovL2FwdC5hYmN5ZGlhLmNvbS8=">http://apt.abcydia.com</span><br>reprovision 作者源：<span class="exturl" data-url="aHR0cHM6Ly9yZXBvLmluY2VuZG8ud3Mv">https://repo.incendo.ws</span><br>Flex3官方源：<span class="exturl" data-url="aHR0cDovL2dldGRlbHRhLmNvLw==">http://getdelta.co</span><br>Filza官方源：<span class="exturl" data-url="aHR0cDovL3RpZ2lzb2Z0d2FyZS5jb20vY3lkaWE=">http://tigisoftware.com/cydia</span><br>AudioRecorder XS 通话录音官方源：<span class="exturl" data-url="aHR0cDovL2xpbW5lb3MubmV0L3JlcG8=">http://limneos.net/repo</span><br>Liberty Lire官方屏蔽越狱源：<span class="exturl" data-url="aHR0cDovL3J5bGV5YW5ndXMuY29tL3JlcG8=">http://ryleyangus.com/repo</span><br>多⽶米诺⻣骨牌：<span class="exturl" data-url="aHR0cDovL2FwdC53eGhidHMuY29tLw==">http://apt.wxhbts.com</span><br>Appsync官方源：<span class="exturl" data-url="aHR0cHM6Ly9jeWRpYS5ha2VtaS5haS8=">https://cydia.akemi.ai</span><br>snowboard官⽅方源：<span class="exturl" data-url="aHR0cDovL3NwYXJrZGV2Lm1lLw==">http://sparkdev.me</span><br>贴吧源：<span class="exturl" data-url="aHR0cHM6Ly9hcHQuY3lkaWFiYS5jbi8=">https://apt.cydiaba.cn</span><br>App Admin官⽅方源：<span class="exturl" data-url="aHR0cDovL2JldGEudW5saW1hcHBzLmNvbS8=">http://beta.unlimapps.com</span></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/2021.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021.html" class="post-title-link" itemprop="url">Adobe Zii 苹果Mac端Adobe软件通用破解工具</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2021-01-30" itemprop="dateCreated datePublished" datetime="2021-01-30T00:00:00+00:00">2021-01-30</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/software/" itemprop="url" rel="index"><span itemprop="name">软件</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>软件简介：</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuYWRvYmV6aWkuY29tLw==">Adobe Zii</span> 是一个苹果 Ma 端 Adobe 全家桶的通用破解程序，支持 CC 2019，CC 2020，CC 2021。</p>
-<p>安装说明：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1. 关闭您的互联网连接</span><br><span class="line">2. 安装 Adobe 软件，并点击试用</span><br><span class="line">3. 然后关闭所有 Adobe 软件，启动 Adobe Zii 最新版本</span><br><span class="line">4. 点击“PATCH或DRG”按钮，Zii Patcher 将扫描并修补 MAC 中已安装的所有可访问的 Adobe 软件程序</span><br></pre></td></tr></table></figure>
-
-<p>版本：</p>
-<p>Adobe Zii 6.0.6 版本可在 Adobe CC 2021 上运行，完美支持以下版本：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Adobe Acrobat DC v20.012.20048 – 20.013.20074</span><br><span class="line">Adobe After Effects 2020 v17.5-17.6</span><br><span class="line">Adobe Animate 2021 v21.0.0 – 21.0.2</span><br><span class="line">Adobe Audition 2020 v13.0.11 – 13.0.13</span><br><span class="line">Adobe Bridge 2021 v11.0.1</span><br><span class="line">Adobe Character Animator 2020 v3.4</span><br><span class="line">Adobe Dimension v3.4.1</span><br><span class="line">Adobe Dreamweaver 2021 v21.0.0 – 21.1.0</span><br><span class="line">Adobe Illustrator 2021 v25.0.0 – 25.1.0</span><br><span class="line">Adobe InCopy 2021 v16.0.0 – 16.0.2</span><br><span class="line">Adobe InDesign 2021 v16.0.0 – 16.0.2</span><br><span class="line">Adobe Lightroom Classic v10.0 – 10.1.1</span><br><span class="line">Adobe Media Encoder 2020 v14.5 – 14.8</span><br><span class="line">Adobe Photoshop 2021 v22.0.0 – 22.1.1</span><br><span class="line">Adobe Prelude 2020 v9.0.1 – 9.0.3</span><br><span class="line">Adobe Premiere Pro 2020 v14.5 – 14.8</span><br><span class="line">Adobe Premiere Rush v1.5.34 – 1.5.44</span><br><span class="line">Adobe XD v34.0.12 – 36.0.32</span><br><span class="line">Adobe Photoshop Elements 2021</span><br><span class="line">Adobe Premiere Elements 2021</span><br></pre></td></tr></table></figure>
-
-<p>Adobe Zii 5.3.1 版本可在 Adobe CC 2020 上运行，完美支持以下版本：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Adobe Acrobat DC v19.021.20047 – 20.012.20048</span><br><span class="line">Adobe Acrobat DC v19.021.20047 – 20.012.20048</span><br><span class="line">Adobe After Effects 2020 v17.0 – 17.1.4</span><br><span class="line">Adobe Animate 2020 v20.0 – 20.5.1</span><br><span class="line">Adobe Audition 2020 v13.0 – 13.0.10</span><br><span class="line">Adobe Bridge 2020 v10.0 – 10.1.1</span><br><span class="line">Adobe Character Animator 2020 v3.0 – 3.3.1</span><br><span class="line">Adobe Dimension v3.0 – 3.4</span><br><span class="line">Adobe Dreamweaver 2020 v20.0-20.2</span><br><span class="line">Adobe Illustrator 2020 v24.0-24.3</span><br><span class="line">Adobe InCopy 2020 v15.0-15.1.2</span><br><span class="line">Adobe InDesign 2020 v15.0-15.1.2</span><br><span class="line">Adobe Lightroom Classic v9.0 – 9.4</span><br><span class="line">Adobe Media Encoder 2020 v14.0 – 14.4</span><br><span class="line">Adobe Photoshop 2020 v21.0-21.2.4</span><br><span class="line">Adobe Prelude 2020 v9.0 – 9.0.1</span><br><span class="line">Adobe Premiere Pro 2020 v14.0-14.4</span><br><span class="line">Adobe Premiere Rush v1.2.12 – 1.5.29</span><br><span class="line">Adobe XD v24.0 – 33.1.12</span><br><span class="line">Adobe Photoshop Elements 2020 – 2020.1（内部版本20200120.m.139570）</span><br><span class="line">Adobe Premiere Elements 2020 – 2020.1</span><br></pre></td></tr></table></figure>
-
-<p>Adobe Zii 4.5.0 版本可在 Adobe CC 2019 上运行，完美支持以下版本：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">整个Adobe CC 2015 任何版本</span><br><span class="line">Adobe CC 2017 任何版本</span><br><span class="line">Adobe CC 2018 任何版本</span><br><span class="line">Adobe CC 2019 任何版本</span><br><span class="line">Adobe Acrobat DC 19.x – 19.021.20049</span><br><span class="line">Adobe Illustrator CC 2019 v23.1.1</span><br><span class="line">Adobe InCopy CC 2019 v14.0.2</span><br><span class="line">Adobe InDesign CC 2019 v14.0.3</span><br><span class="line">Adobe Prelude CC 2019 v8.1.1</span><br><span class="line">Adobe Premiere Pro CC 2019 v13.1.5</span><br><span class="line">Adobe Premiere Rush CC v1.2.8</span><br><span class="line">Adobe Photoshop CC 2019 v20.0.7</span><br><span class="line">Adobe After Effects CC 2019 v16.1.3</span><br><span class="line">Adobe Media Encoder CC 2019 v13.1.5</span><br><span class="line">Adobe Lightroom Classic CC 2019 v8.4.1</span><br><span class="line">Adobe Lightroom CC 2019 v2.3</span><br><span class="line">Adobe Audition CC 2019 v12.1.5</span><br><span class="line">Adobe Bridge CC 2019 v9.1.0.338</span><br><span class="line">Adobe Dreamweaver CC 2019 v19.2.1</span><br><span class="line">Adobe XD CC v23.1.32.2</span><br><span class="line">Adobe Character Animator CC 2019 v2.1.1</span><br><span class="line">Adobe Animate CC 2019 v19.2.1</span><br><span class="line">Acrobat DC v19.010.20099</span><br><span class="line">Adobe Dimension CC v2.1</span><br><span class="line">Adobe Premiere Rush CC v1.1</span><br></pre></td></tr></table></figure>
-
-<p>下载链接：<span class="exturl" data-url="aHR0cHM6Ly9wYW4uYmFpZHUuY29tL3MvMWtEWXRwSXBOaGMyZW1SWl96Ul92dmc=">百度云</span></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/2016.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2016.html" class="post-title-link" itemprop="url">JetBrains 系列产品激活工具</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2021-01-09" itemprop="dateCreated datePublished" datetime="2021-01-09T00:00:00+00:00">2021-01-09</date>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>下载地址：</p>
-<p>适用于2020.3.1及以下版本<br>链接：<span class="exturl" data-url="aHR0cHM6Ly9wYW4uYmFpZHUuY29tL3MvMVZYVEhhQzJDaHZYYjZsNVlBOWlBcHc=">https://pan.baidu.com/s/1VXTHaC2ChvXb6l5YA9iApw</span><br>提取码：wqdy</p>
 
       
     </div>
