@@ -35,7 +35,7 @@ str.endsWith(str1) // 判断 str 字符串是否以 str1 字符串结尾，若�
 str.includes(searchString[, position]) 用于判断一个字符串是否包含在另一个字符串中，根据情况返回 true 或 false
 
 - **str.trim()**
--
+
 去除字符串两边的空格，内部空格不会去除
 
 - **大小写转换**

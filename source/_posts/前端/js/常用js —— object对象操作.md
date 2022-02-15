@@ -198,8 +198,8 @@ date.valueOf() // 时间戳
 `Object.getPrototypeOf()`
 `Object.is()`
 `Object.isFrozen()`
-`Object.keys(obj)`
-`Object.values(obj)`
+`Object.keys()`
+`Object.values()`
 
 > **`Object.assign(target, ...sources)`**
 

@@ -262,3 +262,44 @@ var arr4 = [1, 2, , 4, 5]
 arr4.flat() // [1, 2, 4, 5]
 ```
 
+
+### 伪数组
+
+> 伪数组也叫类数组
+
+1. 伪数组其实就是一个对象，但是跟数组一样，伪数组也会有`length`属性，也有`0, 1, 2, 3`等属性
+2. 伪数组并没有数组的方法，不能使用`push/pop`等方法
+3. 伪数组可以跟数组一样进行遍历，通过下标操作
+4. 常见的伪数组：`arguments`、`document.getElementsByTagName的返回值`、`jQuery对象`
+
+```js
+var obj = {
+  0: 'zs',
+  1: 'ls',
+  2: 'ww',
+  length: 3
+}
+```
+
+- 伪数组借用数组的方法
+
+```js
+// 给 obj 添加一项
+Array.prototype.push.call(obj, 'zl')
+// 把 obj 中的每一项使用 '-' 拼接起来返回一个字符串
+Array.prototype.join.call(obj, '-')
+```
+
+- 将伪数组转换成真数组
+
+```js
+// 借用数组的方法
+Array.prototype.slice.call(obj)
+[].slice.call(obj)
+
+// 使用es6中数组的from方法：从一个类似数组或可迭代对象中创建一个新的数组实例
+Array.from(obj)
+
+// 对于函数的arguments参数可以使用扩展运算符
+[...arguments]
+```
