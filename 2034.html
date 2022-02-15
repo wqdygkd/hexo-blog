@@ -164,7 +164,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#object-valueOf"><span class="nav-text">object.valueOf()</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-prototype-%E6%88%90%E5%91%98"><span class="nav-text">Object.prototype 成员</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95"><span class="nav-text">Object 静态方法</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -292,7 +292,6 @@
 <p>如果删除成功，返回true，删除失败，返回false<br>var 声明的全局变量不能被删除</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">delete</span> obj.<span class="property">name</span> <span class="comment">// 删除obj的name属性</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// var 声明的全局变量不能被删除</span></span><br><span class="line"><span class="keyword">var</span> num = <span class="number">12</span></span><br><span class="line">str = <span class="string">&#x27;hello&#x27;</span></span><br><span class="line"><span class="keyword">delete</span> <span class="variable language_">window</span>.<span class="property">num</span> <span class="comment">// false 删除失败</span></span><br><span class="line"><span class="keyword">delete</span> <span class="variable language_">window</span>.<span class="property">str</span> <span class="comment">// true 删除成功</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(num) <span class="comment">// 12</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str) <span class="comment">// 报错 str is not undefined</span></span><br></pre></td></tr></table></figure>
 
-
 <blockquote>
 <p><strong>判断一个属性是否是对象的一个属性</strong></p>
 </blockquote>
@@ -304,39 +303,52 @@
 <p>会枚举原型链中的属性</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 遍历对象</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> obj) &#123;</span><br><span class="line">  <span class="keyword">if</span> (obj.<span class="title function_">hasOwnProperty</span>(key)) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(key) <span class="comment">// 键</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(obj[key]) <span class="comment">// 值</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h3 id="Object-prototype-成员"><a href="#Object-prototype-成员" class="headerlink" title="Object.prototype 成员"></a>Object.prototype 成员</h3><p>constructor: 指向了构造函数 Object<br><code>hasOwnProperty()</code>: 返回一个布尔值，判断对象自身是否具有该属性<br><code>isPrototypeOf()</code>: 返回一个布尔值，用于测试一个对象是否存在于另一个对象的原型链上<br><code>propertyIsEnumerable()</code>: 返回一个布尔值，表明指定的属性名是否是当前对象可枚举的自身属性<br><code>toString()/toLocaleString()</code>: 返回对象的字符串格式<br><code>valueOf()</code>: 返回对象的原始值</p>
 <blockquote>
-<p><strong><code>Object.keys(obj)</code></strong></p>
+<p><strong><code>hasOwnProperty</code></strong></p>
 </blockquote>
-<p>返回一个由一个给定对象的自身可枚举属性组成的数组</p>
-<blockquote>
-<p><strong><code>Object.values(obj)</code></strong></p>
-</blockquote>
-<p>返回一个给定对象自身的所有可枚举属性值的数组</p>
-<blockquote>
-<p><strong><code>Object.entries(obj)</code></strong></p>
-</blockquote>
-<p>返回一个给定对象自身可枚举属性的键值对数组</p>
-<p>将Object转换为Map <code>new Map(Object.entries(obj))</code></p>
-<blockquote>
-<p><strong><code>Object.create(proto, [propertiesObject])</code></strong></p>
-</blockquote>
-<p>创建一个新对象，使用现有的对象来提供新创建的对象的<code>__proto__</code></p>
-<blockquote>
-<p><strong><code>Object.defineProperty(obj, prop, descriptor)</code></strong></p>
-</blockquote>
-<p>在一个对象上定义一个新属性，或者修改一个对象的现有属性，并返回此对象。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;&#125;</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(obj, <span class="string">&#x27;name&#x27;</span>, &#123;</span><br><span class="line">  <span class="attr">configurable</span>: <span class="literal">true</span>, <span class="comment">// 表示对象的属性是否可以被删除，以及除 value 和 writable 特性外的其他特性是否可以被修改。默认为 false</span></span><br><span class="line">  <span class="attr">value</span>: <span class="string">&#x27;c&#x27;</span>, <span class="comment">// 配置该属性的默认值 默认为 undefined</span></span><br><span class="line">  <span class="attr">writable</span>: <span class="literal">true</span>, <span class="comment">// 配置该属性是否可以被修改， 默认值是false， 不可修改</span></span><br><span class="line">  <span class="attr">enumerable</span>: <span class="literal">true</span> <span class="comment">// 配置该属性是否可枚举， 默认值是false， 不可枚举</span></span><br><span class="line">  <span class="comment">// 默认为 undefined</span></span><br><span class="line">  <span class="comment">// set: function (newVal) &#123;</span></span><br><span class="line">  <span class="comment">//   console.log(&#x27;赋值了&#x27;, newVal)</span></span><br><span class="line">  <span class="comment">// &#125;,</span></span><br><span class="line">  <span class="comment">// 默认为 undefined</span></span><br><span class="line">  <span class="comment">// get: function () &#123;</span></span><br><span class="line">  <span class="comment">//   console.log(&#x27;取值了&#x27;)</span></span><br><span class="line">  <span class="comment">// &#125;</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">name</span>: <span class="string">&#x27;zs&#x27;</span> &#125;</span><br><span class="line"><span class="comment">// 判断name属性是不是obj自己提供的</span></span><br><span class="line">obj.<span class="title function_">hasOwnProperty</span>(<span class="string">&#x27;name&#x27;</span>) <span class="comment">// true</span></span><br><span class="line">obj.<span class="title function_">hasOwnProperty</span>(<span class="string">&#x27;toString&#x27;</span>) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
 
-<p>如果一个描述符同时拥有 value 或 writable 和 get 或 set 键，则会产生一个异常</p>
+<p><strong><code>hasOwnProperty</code> 与 <code>in</code> 的区别</strong></p>
+<ol>
+<li><p><code>in</code> 操作符：判断对象能否访问到该属性（不管这个属性是自己提供的，还是从原型上继承来的），如果可以访问到，都会返回 true</p>
+</li>
+<li><p><code>hasOwnProperty</code>：该属性必须是自己提供，才返回 true，否则返回 false</p>
+</li>
+</ol>
 <blockquote>
-<p><strong><code>Object.assign(target, ...sources)</code></strong></p>
+<p><strong><code>isPrototypeOf</code></strong></p>
 </blockquote>
-<p>用于将所有<strong>可枚举属性</strong>的值从一个或多个源对象分配到目标对象。它将返回目标对象</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> o1 = &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;</span><br><span class="line"><span class="keyword">const</span> o2 = &#123; <span class="attr">b</span>: <span class="number">2</span> &#125;</span><br><span class="line"><span class="keyword">const</span> o3 = &#123; <span class="attr">c</span>: <span class="number">3</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> obj = <span class="title class_">Object</span>.<span class="title function_">assign</span>(o1, o2, o3)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj) <span class="comment">// &#123; a: 1, b: 2, c: 3 &#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(o1)  <span class="comment">// &#123; a: 1, b: 2, c: 3 &#125;</span></span><br><span class="line">obj === o1 <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 判断 A 对象是否在 B 对象的原型链上 ,回一个布尔值</span></span><br><span class="line">A.<span class="title function_">isPrototetypeOf</span>(B)</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Person</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> <span class="title class_">Person</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">// p 的原型链：</span></span><br><span class="line"><span class="comment">// p ==&gt; Person.prototype ==&gt; Object.prototype ==&gt; null</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Person</span>.<span class="title function_">isPrototypeOf</span>(p) <span class="comment">// false Person 是构造函数</span></span><br><span class="line"><span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="title function_">isPrototypeOf</span>(p) <span class="comment">// true</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="title function_">isPrototypeOf</span>(p) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> v1 = <span class="string">&quot;abc&quot;</span></span><br><span class="line"><span class="keyword">const</span> v2 = <span class="literal">true</span></span><br><span class="line"><span class="keyword">const</span> v3 = <span class="number">10</span></span><br><span class="line"><span class="keyword">const</span> v4 = <span class="title class_">Symbol</span>(<span class="string">&quot;foo&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> obj = <span class="title class_">Object</span>.<span class="title function_">assign</span>(&#123;&#125;, v1, <span class="literal">null</span>, v2, <span class="literal">undefined</span>, v3, v4)</span><br><span class="line"><span class="comment">// 原始类型会被包装，null 和 undefined 会被忽略。</span></span><br><span class="line"><span class="comment">// 注意，只有字符串的包装对象才可能有自身可枚举属性。</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj) <span class="comment">// &#123; &quot;0&quot;: &quot;a&quot;, &quot;1&quot;: &quot;b&quot;, &quot;2&quot;: &quot;c&quot; &#125;</span></span><br></pre></td></tr></table></figure>
+<p><strong><code>isPropertyOf</code> 与 <code>instanceof</code> 运算符的区别</strong></p>
+<p><code>instanceof</code> 运算符用来测试一个对象的原型链中是否存在一个构造函数的 <code>prototype</code> 属性。作用和 isPrototypeOf 类似</p>
+<p>语法： 实例对象 instanceof 构造函数</p>
+<p>作用：构造函数的 prototype 属性是否在实例对象的原型链上</p>
+<ul>
+<li>A.isPrototypeOf(B) 判断 A 是否在 B 的原型链上 A： 是一个原型对象</li>
+<li>B instanceof A 判断 A 的 prototype 是否在 B 的原型链上 A：是一个构造函数</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title class_">Array</span>.<span class="title function_">isPrototypeOf</span>([]) <span class="comment">// false</span></span><br><span class="line"><span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="title function_">isPrototypeOf</span>([]) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">[] <span class="keyword">instanceof</span> <span class="title class_">Array</span> <span class="comment">// true</span></span><br><span class="line">[] <span class="keyword">instanceof</span> <span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span> <span class="comment">// 语法错误</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="object-valueOf"><a href="#object-valueOf" class="headerlink" title="object.valueOf()"></a>object.valueOf()</h2><p>返回值为该对象的原始值，如果对象没有原始值，则 <code>valueOf</code> 将返回对象本身</p>
+<blockquote>
+<p><strong><code>propertyIsEnumerable</code></strong></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Person</span>(<span class="params">name</span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">name</span> = name</span><br><span class="line">&#125;</span><br><span class="line"><span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">age</span> = <span class="number">19</span></span><br><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> <span class="title class_">Person</span>(<span class="string">&#x27;lw&#x27;</span>)</span><br><span class="line"></span><br><span class="line">p.<span class="title function_">propertyIsEnumerable</span>(<span class="string">&#x27;name&#x27;</span>) <span class="comment">// true</span></span><br><span class="line">p.<span class="title function_">propertyIsEnumerable</span>(<span class="string">&#x27;age&#x27;</span>) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong><code>toString/toLocaleString</code></strong></p>
+</blockquote>
+<p>返回对象的字符串格式</p>
+<blockquote>
+<p><strong>每个内置对象</strong>的原型上都有属于自己的 toString 方法</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">name</span>: <span class="string">&#x27;zs&#x27;</span> &#125;</span><br><span class="line"><span class="comment">// obj ==&gt; Object.prototype ==&gt; null</span></span><br><span class="line">obj.<span class="title function_">toString</span>() <span class="comment">// &#x27;[object Object]&#x27;</span></span><br><span class="line">obj.<span class="title function_">toLocaleString</span>() <span class="comment">// &#x27;[object Object]&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="comment">// arr ==&gt;  Array.prototype ==&gt; Object.prototype ==&gt; null</span></span><br><span class="line"><span class="comment">//           toString()         toString()</span></span><br><span class="line"><span class="comment">// Array.prototype 含有自己的 toString 方法</span></span><br><span class="line">arr.<span class="title function_">toString</span>() <span class="comment">// &#x27;1,2,3&#x27;</span></span><br><span class="line">arr.<span class="title function_">toLocaleString</span>() <span class="comment">// &#x27;1,2,3&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="title class_">Date</span>()</span><br><span class="line"><span class="comment">//  date ==&gt; Date.prototype ==&gt; Object.prototype ==&gt; null</span></span><br><span class="line"><span class="comment">//           toString()          toString()</span></span><br><span class="line"><span class="comment">// Date.prototype 含有自己的 toString 方法</span></span><br><span class="line">date.<span class="title function_">toString</span>() <span class="comment">// Wed Oct 10 2018 16:00:51 GMT+0800 (中国标准时间)</span></span><br><span class="line">date.<span class="title function_">toLocaleString</span>() <span class="comment">// 2018/10/10 下午4:00:51 得到的是本地时间格式</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong><code>valueOf()</code></strong></p>
+</blockquote>
+<p>返回值为该对象的原始值，如果对象没有原始值，则 <code>valueOf</code> 将返回对象本身</p>
 <table>
 <thead>
 <tr>
@@ -354,7 +366,7 @@
 </tr>
 <tr>
 <td>Date</td>
-<td>存储的时间是从 1970 年 1 月 1 日午夜开始计的毫秒数 UTC</td>
+<td>时间戳</td>
 </tr>
 <tr>
 <td>Function</td>
@@ -372,11 +384,74 @@
 <td>String</td>
 <td>字符串值</td>
 </tr>
-<tr>
-<td></td>
-<td>Math 和 Error 对象没有 valueOf 方法</td>
-</tr>
 </tbody></table>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">name</span>: <span class="string">&#x27;zs&#x27;</span> &#125;</span><br><span class="line"><span class="comment">// obj ==&gt; Object.prototype ==&gt; null</span></span><br><span class="line">obj.<span class="title function_">valueOf</span>() <span class="comment">// &#123; name: &#x27;zs&#x27; &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="comment">// arr ==&gt;  Array.prototype ==&gt; Object.prototype ==&gt; null</span></span><br><span class="line">arr.<span class="title function_">valueOf</span>() <span class="comment">// [1, 2, 3]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="title class_">Date</span>()</span><br><span class="line"><span class="comment">// date ==&gt; Date.prototype ==&gt; Object.prototype ==&gt; null</span></span><br><span class="line"><span class="comment">// Date.prototype 含有 valueOf 方法</span></span><br><span class="line">date.<span class="title function_">valueOf</span>() <span class="comment">// 时间戳</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>valueOf 和 toString 的应用</p>
+</blockquote>
+<p>当对象在参与运算和比较的时候，js 内部会自动的调用 valueOf 和 toString 方法</p>
+<p>调用规则：</p>
+<ol>
+<li><p>默认先调用 vauleOf， 尝试将对象转成简单数据类型， 如果没有转成简单数据类型， 会继续在调用 toString 方法</p>
+</li>
+<li><p>如果 valueOf 和 toString 方法都没有转成简单数据类型，会报错</p>
+</li>
+</ol>
+<h3 id="Object-静态方法"><a href="#Object-静态方法" class="headerlink" title="Object 静态方法"></a>Object 静态方法</h3><p><code>Object.assign()</code><br><code>Object.create()</code><br><code>Object.defineProperty()</code><br><code>Object.entries()</code><br><code>Object.freeze()</code><br><code>Object.getPrototypeOf()</code><br><code>Object.is()</code><br><code>Object.isFrozen()</code><br><code>Object.keys(obj)</code><br><code>Object.values(obj)</code></p>
+<blockquote>
+<p><strong><code>Object.assign(target, ...sources)</code></strong></p>
+</blockquote>
+<p>用于将所有<strong>可枚举属性</strong>的值从一个或多个源对象分配到目标对象。它将返回目标对象</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> o1 = &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;</span><br><span class="line"><span class="keyword">const</span> o2 = &#123; <span class="attr">b</span>: <span class="number">2</span> &#125;</span><br><span class="line"><span class="keyword">const</span> o3 = &#123; <span class="attr">c</span>: <span class="number">3</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> obj = <span class="title class_">Object</span>.<span class="title function_">assign</span>(o1, o2, o3)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj) <span class="comment">// &#123; a: 1, b: 2, c: 3 &#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(o1)  <span class="comment">// &#123; a: 1, b: 2, c: 3 &#125;</span></span><br><span class="line">obj === o1 <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> v1 = <span class="string">&quot;abc&quot;</span></span><br><span class="line"><span class="keyword">const</span> v2 = <span class="literal">true</span></span><br><span class="line"><span class="keyword">const</span> v3 = <span class="number">10</span></span><br><span class="line"><span class="keyword">const</span> v4 = <span class="title class_">Symbol</span>(<span class="string">&quot;foo&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> obj = <span class="title class_">Object</span>.<span class="title function_">assign</span>(&#123;&#125;, v1, <span class="literal">null</span>, v2, <span class="literal">undefined</span>, v3, v4)</span><br><span class="line"><span class="comment">// 原始类型会被包装，null 和 undefined 会被忽略。</span></span><br><span class="line"><span class="comment">// 注意，只有字符串的包装对象才可能有自身可枚举属性。</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj) <span class="comment">// &#123; &quot;0&quot;: &quot;a&quot;, &quot;1&quot;: &quot;b&quot;, &quot;2&quot;: &quot;c&quot; &#125;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong><code>Object.create(proto, [propertiesObject])</code></strong></p>
+</blockquote>
+<p>创建一个新对象，使用现有的对象来提供新创建的对象的<code>__proto__</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 语法</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">create</span>(proto[, propertiesObject])</span><br><span class="line"><span class="comment">// 参数：proto 一个对象,新创建对象的原型对象</span></span><br><span class="line"><span class="comment">// 参数：propertiesObject 要添加到新创建对象的可枚举属性</span></span><br><span class="line"><span class="comment">// 返回值：一个新对象，带着指定的原型对象和属性</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = <span class="title class_">Object</span>.<span class="title function_">create</span>(proto)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong><code>Object.defineProperty(obj, prop, descriptor)</code></strong></p>
+</blockquote>
+<p>在一个对象上定义一个新属性，或者修改一个对象的现有属性，并返回此对象。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;&#125;</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(obj, <span class="string">&#x27;name&#x27;</span>, &#123;</span><br><span class="line">  <span class="attr">configurable</span>: <span class="literal">true</span>, <span class="comment">// 表示对象的属性是否可以被删除，以及除 value 和 writable 特性外的其他特性是否可以被修改。默认为 false</span></span><br><span class="line">  <span class="attr">value</span>: <span class="string">&#x27;c&#x27;</span>, <span class="comment">// 配置该属性的默认值 默认为 undefined</span></span><br><span class="line">  <span class="attr">writable</span>: <span class="literal">true</span>, <span class="comment">// 配置该属性是否可以被修改， 默认值是false， 不可修改</span></span><br><span class="line">  <span class="attr">enumerable</span>: <span class="literal">true</span> <span class="comment">// 配置该属性是否可枚举， 默认值是false， 不可枚举</span></span><br><span class="line">  <span class="comment">// 默认为 undefined</span></span><br><span class="line">  <span class="comment">// set: function (newVal) &#123;</span></span><br><span class="line">  <span class="comment">//   console.log(&#x27;赋值了&#x27;, newVal)</span></span><br><span class="line">  <span class="comment">// &#125;,</span></span><br><span class="line">  <span class="comment">// 默认为 undefined</span></span><br><span class="line">  <span class="comment">// get: function () &#123;</span></span><br><span class="line">  <span class="comment">//   console.log(&#x27;取值了&#x27;)</span></span><br><span class="line">  <span class="comment">// &#125;</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>如果一个描述符同时拥有 value 或 writable 和 get 或 set 键，则会产生一个异常</p>
+<blockquote>
+<p><strong><code>Object.entries(obj)</code></strong></p>
+</blockquote>
+<p>返回一个给定对象自身可枚举属性的键值对数组</p>
+<p>将Object转换为Map <code>new Map(Object.entries(obj))</code></p>
+<blockquote>
+<p><strong><code>Object.freeze()</code></strong></p>
+</blockquote>
+<p>接受一个对象作为参数，并返回一个相同的不可变的对象，冻结一个对象后该对象的原型也不能被修改</p>
+<p>可以阻止修改对象的值，但是不能阻止引用的修改</p>
+<p>只是做了层浅冻结，具有嵌套属性的对象实际上并未冻结</p>
+<blockquote>
+<p><strong><code>Object.getPrototypeOf</code></strong></p>
+</blockquote>
+<p>返回指定对象的原型</p>
+<blockquote>
+<p><strong><code>Object.is()</code></strong></p>
+</blockquote>
+<p>Object.is() 方法判断两个值是否是相同的值。比较时不会做类型转换，这与 <code>==</code> <code>===</code> 运算符的判定方式都不一样</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(+<span class="number">0</span>, -<span class="number">0</span>) <span class="comment">// false</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="number">0</span>, -<span class="number">0</span>) <span class="comment">// false</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="number">0</span>, +<span class="number">0</span>) <span class="comment">// true</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(-<span class="number">0</span>, -<span class="number">0</span>) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="literal">undefined</span>, <span class="literal">undefined</span>) <span class="comment">// true</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="literal">null</span>, <span class="literal">null</span>) <span class="comment">// true</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="title class_">Number</span>.<span class="property">NaN</span>, <span class="title class_">Number</span>.<span class="property">NaN</span>) <span class="comment">// true</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="title class_">Number</span>.<span class="property">NaN</span>, <span class="title class_">NaN</span>) <span class="comment">// true</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="title class_">NaN</span>, <span class="title class_">NaN</span>) <span class="comment">// true</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="title class_">NaN</span>, <span class="number">0</span> / <span class="number">0</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong><code>Object.isFrozen()</code></strong></p>
+</blockquote>
+<blockquote>
+<p><strong><code>Object.keys(obj)</code></strong></p>
+</blockquote>
+<p>返回一个由一个给定对象的自身可枚举属性组成的数组</p>
+<blockquote>
+<p><strong><code>Object.values(obj)</code></strong></p>
+</blockquote>
+<p>返回一个给定对象自身的所有可枚举属性值的数组</p>
 
     </div>
 
@@ -398,7 +473,7 @@
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/ckzmlw2l100ic0oox16ne46hy.html" rel="next" title="">
+                <a href="/ckzo17sro00fu40oz0tyed5u7.html" rel="next" title="">
                    <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
