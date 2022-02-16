@@ -175,7 +175,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">159</span>
+          <span class="site-state-item-count">160</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -219,6 +219,79 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/401.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/401.html" class="post-title-link" itemprop="url">浏览器切换标签离开当前页面时改变 title 提示</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2019-09-27" itemprop="dateCreated datePublished" datetime="2019-09-27T22:15:29+00:00">2019-09-27</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;visibilitychange&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="variable language_">document</span>.<span class="property">visibilityState</span> == <span class="string">&#x27;hidden&#x27;</span>) &#123;</span><br><span class="line">    normal_title = <span class="variable language_">document</span>.<span class="property">title</span></span><br><span class="line">    <span class="variable language_">document</span>.<span class="property">title</span> = <span class="string">&#x27;离开了&#x27;</span></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="variable language_">document</span>.<span class="property">title</span> = normal_title</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1159,88 +1232,6 @@
 <h2 id="柯里化实现"><a href="#柯里化实现" class="headerlink" title="柯里化实现"></a>柯里化实现</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">curry</span>(<span class="params">func</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">function</span> <span class="title function_">curried</span>(<span class="params">...args</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (args.<span class="property">length</span> &gt;= func.<span class="property">length</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> func.<span class="title function_">apply</span>(<span class="variable language_">this</span>, args)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params">...args2</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> curried.<span class="title function_">apply</span>(<span class="variable language_">this</span>, args.<span class="title function_">concat</span>(args2))</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">sum</span>(<span class="params">a, b, c</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> a + b + c</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> curriedSum = <span class="title function_">curry</span>(sum)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">curriedSum</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)) <span class="comment">// 6</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">curriedSum</span>(<span class="number">1</span>)(<span class="number">2</span>, <span class="number">3</span>)) <span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="偏函数"><a href="#偏函数" class="headerlink" title="偏函数"></a>偏函数</h2>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/417.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/417.html" class="post-title-link" itemprop="url">常用命令</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2019-07-12" itemprop="dateCreated datePublished" datetime="2019-07-12T22:25:53+00:00">2019-07-12</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="快速删除-node-modules-文件夹"><a href="#快速删除-node-modules-文件夹" class="headerlink" title="快速删除 node_modules 文件夹"></a>快速删除 node_modules 文件夹</h2><p>系统命令</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># cmd</span></span><br><span class="line"><span class="comment"># /q 直接删除，不需要二次确认</span></span><br><span class="line"><span class="comment"># /s 允许删除非空目录</span></span><br><span class="line">rd /q/s node_modules</span><br><span class="line"></span><br><span class="line"><span class="comment"># powershell</span></span><br><span class="line"><span class="built_in">rmdir</span> -r -Force node_modules</span><br><span class="line"><span class="comment"># 或</span></span><br><span class="line"><span class="built_in">rm</span> -r -Force node_modules</span><br></pre></td></tr></table></figure>
-
-<p>使用 npm 包</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm i rimraf -g</span><br><span class="line">rimraf node_modules</span><br><span class="line"></span><br><span class="line">npm i -g dlf</span><br><span class="line">dlf node_modules</span><br></pre></td></tr></table></figure>
-
-<h2 id="一次执行多条命令"><a href="#一次执行多条命令" class="headerlink" title="一次执行多条命令"></a>一次执行多条命令</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># cmd 使用 &amp;&amp; 连接多个命令</span></span><br><span class="line"><span class="built_in">cd</span> vue &amp;&amp; npm i</span><br><span class="line"><span class="comment"># powershell 使用 | 连接多条命令</span></span><br><span class="line"><span class="built_in">cd</span> vue | npm i</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="删除一个文件夹内字节小于-10kb-的文件"><a href="#删除一个文件夹内字节小于-10kb-的文件" class="headerlink" title="删除一个文件夹内字节小于 10kb 的文件"></a>删除一个文件夹内字节小于 10kb 的文件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 输出所有大小小于10k的文件</span></span><br><span class="line"><span class="comment"># find ./ -size -10k &gt; NoNeedSite.txt</span></span><br><span class="line">find ./ -size -10k -<span class="built_in">exec</span> <span class="built_in">rm</span> &#123;&#125; \</span><br></pre></td></tr></table></figure>
-
       
     </div>
 

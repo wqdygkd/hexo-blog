@@ -175,7 +175,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">159</span>
+          <span class="site-state-item-count">160</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -424,6 +424,90 @@
 <td>[1, ‘123’, [], undefined, null, NaN, true ] &#x3D;&gt; “1,123,,,,NaN,true”</td>
 </tr>
 </tbody></table>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/2030.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2030.html" class="post-title-link" itemprop="url">parseInt 和 parseFloat</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2021-09-12" itemprop="dateCreated datePublished" datetime="2021-09-12T00:00:00+00:00">2021-09-12</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><blockquote>
+<p><code>parseInt()</code> 函数解析一个字符串参数，指定该字符串为指定基数的进制值，并返回一个 10 进制的整数，如果被解析参数的第一个字符无法被转化成数值类型，则返回 <code>NaN</code></p>
+<p>参考 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvSmF2YVNjcmlwdC9SZWZlcmVuY2UvR2xvYmFsX09iamVjdHMvcGFyc2VJbnQ=">parseInt</span></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 语法</span></span><br><span class="line"><span class="built_in">parseInt</span>(string, radix)</span><br><span class="line"><span class="comment">// string 要被解析的值，如果参数不是一个字符串，则将其转换为字符串</span></span><br><span class="line"><span class="comment">// radix 基数,表示进制，介于 2 和 36 之间的整数，参数 radix 的值为 0，或没有设置该参数时，parseInt() 会根据 string 来判断数字的基数。如果输入的 string 以 &quot;0x&quot;或 &quot;0x&quot;（一个0，后面是小写或大写的X）开头，那么radix被假定为16，字符串的其余部分被解析为十六进制数。如果输入的 string以 &quot;0&quot;（0）开头， radix被假定为10（十进制）。如果输入的 string 以任何其他值开头， radix 是 10 (十进制)。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 返回解析后的整数值。 如果被解析参数的第一个字符无法被转化成数值类型，则返回 NaN</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">&#x27;123&#x27;</span>, <span class="number">5</span>) <span class="comment">// 将 &#x27;123&#x27; 看作 5 进制数，返回十进制数 38</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">&#x27;4215213&#x27;</span>, <span class="number">5</span>)   <span class="comment">// 4 * 5^2 + 2 * 5^1 + 1 * 5^0 = 111 返回 111</span></span><br><span class="line"><span class="comment">// [1, 2, 3].map(parseInt) // [1, NaN, NaN]</span></span><br><span class="line"><span class="comment">// [1, 2, 3].map(parseInt(item, index))</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>parseFloat()</code> 函数解析一个字符串参数并返回一个浮点数，如果给定值不能被转换成数值，则会返回 NaN</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 语法</span></span><br><span class="line"><span class="built_in">parseFloat</span>(value) <span class="comment">// value 需要被解析成为浮点数的值</span></span><br><span class="line"><span class="built_in">parseFloat</span>(<span class="string">&#x27;3.14&#x27;</span>) <span class="comment">// 3.14</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// [1, 2, 3].map(parseFloat) // [1, 2, 3]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">parseInt</span>(<span class="number">0.0000005</span>) === <span class="number">5</span></span><br><span class="line"><span class="comment">// 如果 parseInt 第一个参数不是字符串，会将其转换成字符串，之后在解析</span></span><br><span class="line"><span class="comment">// 小于 10-6 的浮点数以指数表示</span></span><br><span class="line"><span class="comment">// parseint 从 float 的指数法中提取整数</span></span><br><span class="line"><span class="title class_">String</span>(<span class="number">0.0000005</span>) <span class="comment">// =&gt; &#x27;5e-7&#x27;</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="number">5e-7</span>) <span class="comment">// =&gt; 5</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">&#x27;5e-7&#x27;</span>) <span class="comment">// =&gt; 5</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="number">1111111111111111111111</span>) <span class="comment">// =&gt; 1</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="number">999999999999999999999</span>) <span class="comment">// =&gt; 1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">parseInt</span>((<span class="number">5e-7</span>).<span class="title function_">toFixed</span>()) <span class="comment">// =&gt; 0</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">parseFloat</span>(<span class="number">9999999999999999</span>) <span class="comment">// 10000000000000000</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -1476,91 +1560,6 @@
 <p>参考链接：<span class="exturl" data-url="aHR0cHM6Ly93d3cubW9lcmF0cy5jb20vYXJjaGl2ZXMvMTAyOC8=">https://www.moerats.com/archives/1028/</span></p>
 <h2 id="sharelist"><a href="#sharelist" class="headerlink" title="sharelist"></a>sharelist</h2><p>sharelist是reruin大佬node.js开发的云盘目录程序，前端页面简洁美观<br>可挂载：Google Drive，One Drive，天翼云，和彩云，蓝奏云，本地文件，WebDAV，SFTP，Teambition，Baidu，Aliyun Drive</p>
 <p>项目地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3JlcnVpbi9zaGFyZWxpc3Q=">https://github.com/reruin/sharelist</span></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/2023.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023.html" class="post-title-link" itemprop="url">使用 github actions 将 github 项目自动同步到 gitee 并自动部署 Gitee Pages</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2021-03-03" itemprop="dateCreated datePublished" datetime="2021-03-03T00:00:00+00:00">2021-03-03</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>由于 github Pages 和 netlify 的访问速度慢，所以现在将博客部署到 Gitee Pages</p>
-<p>先使用 wearerequired&#x2F;git-mirror-action 将 GitHub 仓库同步到 Gitee 仓库，再使用 yanglbme&#x2F;gitee-pages-action 实现 Gitee Pages 的自动部署。</p>
-<h3 id="配置秘钥"><a href="#配置秘钥" class="headerlink" title="配置秘钥"></a>配置秘钥</h3><ul>
-<li><p>使用命令 <code>ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</code> 生成 SSH Key(⚠️注意此处不要设置密码)</p>
-</li>
-<li><p>在 GitHub 项目的「​Settings -&gt; Secrets」路径下配置好命名为 <code>GITEE_RSA_PRIVATE_KEY</code> 和 <code>GITEE_PASSWORD</code> 的两个密钥。其中：<code>GITEE_RSA_PRIVATE_KEY</code> 存放 <code>id_rsa</code> 私钥；<code>GITEE_PASSWORD</code> 存放 <code>Gitee</code> 帐号的密码</p>
-</li>
-<li><p>在 GitHub 的个人设置页面「Settings -&gt; SSH and GPG keys」​ 配置 SSH 公钥（即：id_rsa.pub），命名随意</p>
-</li>
-<li><p>在 Gitee 的个人设置页面「安全设置 -&gt; SSH 公钥」​ 配置 SSH 公钥（即：id_rsa.pub），命名随意</p>
-</li>
-</ul>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Sync</span> <span class="string">to</span> <span class="string">Gitee</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span> [<span class="string">main</span>, <span class="string">gh-pages</span>]</span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">build:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Sync</span> <span class="string">to</span> <span class="string">Gitee</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">wearerequired/git-mirror-action@master</span></span><br><span class="line">        <span class="attr">env:</span></span><br><span class="line">          <span class="comment"># 注意在 Settings-&gt;Secrets 配置 GITEE_RSA_PRIVATE_KEY</span></span><br><span class="line">          <span class="attr">SSH_PRIVATE_KEY:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.GITEE_RSA_PRIVATE_KEY</span> <span class="string">&#125;&#125;</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="comment"># 注意替换为你的 GitHub 源仓库地址</span></span><br><span class="line">          <span class="attr">source-repo:</span> <span class="string">git@github.com:cuilongjin/hexo-blog.git</span></span><br><span class="line">          <span class="comment"># 注意替换为你的 Gitee 目标仓库地址</span></span><br><span class="line">          <span class="attr">destination-repo:</span> <span class="string">git@gitee.com:cuilongjin/hexo-blog.git</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Build</span> <span class="string">Gitee</span> <span class="string">Pages</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">yanglbme/gitee-pages-action@main</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="comment"># 注意替换为你的 Gitee 用户名</span></span><br><span class="line">          <span class="attr">gitee-username:</span> <span class="string">cuilongjin</span></span><br><span class="line">          <span class="comment"># 注意在 Settings-&gt;Secrets 配置 GITEE_PASSWORD</span></span><br><span class="line">          <span class="attr">gitee-password:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.GITEE_PASSWORD</span> <span class="string">&#125;&#125;</span></span><br><span class="line">          <span class="comment"># 注意替换为你的 Gitee 仓库，仓库名严格区分大小写，请准确填写，否则会出错</span></span><br><span class="line">          <span class="attr">gitee-repo:</span> <span class="string">cuilongjin/hexo-blog</span></span><br><span class="line">          <span class="comment"># 要部署的分支，默认是 master，若是其他分支，则需要指定（指定的分支必须存在）</span></span><br><span class="line">          <span class="attr">branch:</span> <span class="string">gh-pages</span></span><br></pre></td></tr></table></figure>
 
       
     </div>

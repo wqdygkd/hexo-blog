@@ -22,15 +22,18 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"wqdy.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.10.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
 
-  <meta name="description" content="原型原型基本概念Javascript 规定，每一个函数都有一个 prototype 属性，属性值是一个对象，这个对象就叫做原型（原型对象），这个对象的所有属性和方法，都会被构造函数的实例继承 这也就意味着，我们可以把所有对象实例需要共享的属性和方法直接定义在 prototype 对象上 function Person (name, age) &amp;#123;  this.name &#x3D; name  th">
+  <meta name="description" content="原型Javascript 规定，每一个函数都有一个 prototype 属性，属性值是一个对象，这个对象就叫做原型（原型对象），这个对象的所有属性和方法，都会被构造函数的实例继承 这也就意味着，我们可以把所有对象实例需要共享的属性和方法直接定义在 prototype 对象上 function Person (name, age) &amp;#123;  this.name &#x3D; name  this.age">
 <meta property="og:type" content="website">
 <meta property="og:title" content="常用js —— 原型">
 <meta property="og:url" content="https://wqdy.top/2036.html">
 <meta property="og:site_name" content="我全都要">
-<meta property="og:description" content="原型原型基本概念Javascript 规定，每一个函数都有一个 prototype 属性，属性值是一个对象，这个对象就叫做原型（原型对象），这个对象的所有属性和方法，都会被构造函数的实例继承 这也就意味着，我们可以把所有对象实例需要共享的属性和方法直接定义在 prototype 对象上 function Person (name, age) &amp;#123;  this.name &#x3D; name  th">
+<meta property="og:description" content="原型Javascript 规定，每一个函数都有一个 prototype 属性，属性值是一个对象，这个对象就叫做原型（原型对象），这个对象的所有属性和方法，都会被构造函数的实例继承 这也就意味着，我们可以把所有对象实例需要共享的属性和方法直接定义在 prototype 对象上 function Person (name, age) &amp;#123;  this.name &#x3D; name  this.age">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102204519.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102204539.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102204558.jpeg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102204647.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102204701.jpeg">
 <meta property="article:published_time" content="2022-02-15T00:00:00.000Z">
 <meta property="article:modified_time" content="2022-02-15T00:00:00.000Z">
 <meta property="article:author" content="c">
@@ -167,7 +170,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E5%9E%8B"><span class="nav-text">原型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E5%9E%8B%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">原型基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#proto"><span class="nav-text">__proto__</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#constructor-%E5%B1%9E%E6%80%A7"><span class="nav-text">constructor 属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E3%80%81%E5%AE%9E%E4%BE%8B%E3%80%81%E5%8E%9F%E5%9E%8B%E4%B8%89%E8%80%85%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-text">构造函数、实例、原型三者之间的关系</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E5%9E%8B%E9%93%BE"><span class="nav-text">原型链</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E5%9E%8B%E9%93%BE%E6%A6%82%E5%BF%B5"><span class="nav-text">原型链概念</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E5%9E%8B"><span class="nav-text">原型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#proto"><span class="nav-text">__proto__</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#constructor-%E5%B1%9E%E6%80%A7"><span class="nav-text">constructor 属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E3%80%81%E5%AE%9E%E4%BE%8B%E3%80%81%E5%8E%9F%E5%9E%8B%E4%B8%89%E8%80%85%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-text">构造函数、实例、原型三者之间的关系</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E5%9E%8B%E9%93%BE"><span class="nav-text">原型链</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E7%9A%84%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%BB%93%E6%9E%84"><span class="nav-text">函数的原型链结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%8C%E6%95%B4%E7%89%88%E5%8E%9F%E5%9E%8B%E9%93%BE"><span class="nav-text">完整版原型链</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -182,7 +185,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">159</span>
+          <span class="site-state-item-count">160</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -289,7 +292,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h2><h3 id="原型基本概念"><a href="#原型基本概念" class="headerlink" title="原型基本概念"></a>原型基本概念</h3><p>Javascript 规定，每一个函数都有一个 <code>prototype</code> 属性，属性值是一个对象，这个对象就叫做原型（原型对象），这个对象的所有属性和方法，都会被构造函数的实例继承</p>
+        <h2 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h2><p>Javascript 规定，每一个函数都有一个 <code>prototype</code> 属性，属性值是一个对象，这个对象就叫做原型（原型对象），这个对象的所有属性和方法，都会被构造函数的实例继承</p>
 <p>这也就意味着，我们可以把所有对象实例需要共享的属性和方法直接定义在 <code>prototype</code> 对象上</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Person</span> (name, age) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">name</span> = name</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">age</span> = age</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>)</span><br><span class="line"><span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">sayName</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> p1 = <span class="keyword">new</span> <span class="title class_">Person</span>(...)</span><br><span class="line"><span class="keyword">var</span> p2 = <span class="keyword">new</span> <span class="title class_">Person</span>(...)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(p1.<span class="property">sayName</span> === p2.<span class="property">sayName</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 
@@ -330,12 +333,23 @@
 </ul>
 </li>
 </ul>
-<h2 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h2><h3 id="原型链概念"><a href="#原型链概念" class="headerlink" title="原型链概念"></a>原型链概念</h3><p>任何一个对象，都有原型对象，原型对象本身又是一个对象，所以原型对象也有自己的原型对象，这样形成的链式结构，就是原型链</p>
+<h2 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h2><p>任何一个对象，都有原型对象，原型对象本身又是一个对象，所以原型对象也有自己的原型对象，这样形成的链式结构，就是原型链</p>
 <p>绘制对象的原型链结构：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> <span class="title class_">Person</span>()</span><br><span class="line"><span class="comment">// p ==&gt; Person.prototype  ==&gt; Object.prototype ==&gt; null</span></span><br><span class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> <span class="title class_">Object</span>()</span><br><span class="line"><span class="comment">// o ==&gt; Object.prototype ==&gt; null</span></span><br><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="title class_">Array</span>()</span><br><span class="line"><span class="comment">// arr ==&gt; Array.prototype ==&gt; Object.prototype ==&gt; null</span></span><br><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="title class_">Date</span>()</span><br><span class="line"><span class="comment">// date ==&gt; Date.prototype ==&gt; Object.prototype ==&gt; null</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Math 是个内置对象，不是个构造函数</span></span><br><span class="line"><span class="comment">// Math ==&gt; Object.prototype ==&gt; null</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> <span class="title class_">Person</span>()</span><br><span class="line"><span class="comment">// p ==&gt; Person.prototype  ==&gt; Object.prototype ==&gt; null</span></span><br><span class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> <span class="title class_">Object</span>()</span><br><span class="line"><span class="comment">// o ==&gt; Object.prototype ==&gt; null</span></span><br><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="title class_">Array</span>()</span><br><span class="line"><span class="comment">// arr ==&gt; Array.prototype ==&gt; Object.prototype ==&gt; null</span></span><br><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="title class_">Date</span>()</span><br><span class="line"><span class="comment">// date ==&gt; Date.prototype ==&gt; Object.prototype ==&gt; null</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Math 是个内置对象，不是个构造函数</span></span><br><span class="line"><span class="comment">// Math ==&gt; Object.prototype ==&gt; null</span></span><br></pre></td></tr></table></figure>
 
 <p>总结：Object.prototype 是原型链的尽头，Object.prototype 的原型是 null</p>
 <p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102204539.png"></p>
+<h3 id="函数的原型链结构"><a href="#函数的原型链结构" class="headerlink" title="函数的原型链结构"></a>函数的原型链结构</h3><p>函数是由 new Function 创建出来的，因此函数也是一个对象，<code>所有的函数都是 Function 的实例</code></p>
+<p>Person &#x3D;&#x3D;&gt; Function.prototype &#x3D;&#x3D;&gt; Object.prototype &#x3D;&#x3D;&gt; null</p>
+<p>Function.prototype 类型是个函数</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102204558.jpeg"></p>
+<h2 id="完整版原型链"><a href="#完整版原型链" class="headerlink" title="完整版原型链"></a>完整版原型链</h2><p>图一<br><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102204647.png"></p>
+<p>图二<br><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102204701.jpeg"></p>
+<ol>
+<li>所有函数都是 new Function 创建出来的，因此 <code>所有函数.__proto__</code> 都是 <code>Function.prototype</code></li>
+<li>所有对象都是 new Object 创建出来的，因此 <code>所有对象.__proto__</code> 都是 <code>Object.prototype</code></li>
+</ol>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2NyZWVwZXJ5YW5nL2Jsb2cvaXNzdWVzLzk=">参考链接</span></p>
 
     </div>
 

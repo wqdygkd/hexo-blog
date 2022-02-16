@@ -175,7 +175,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">159</span>
+          <span class="site-state-item-count">160</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -219,6 +219,85 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1002.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/1002.html" class="post-title-link" itemprop="url">vue-awesome-swiper 设置 loop：true不会自动滚动的问题</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-01-20" itemprop="dateCreated datePublished" datetime="2020-01-20T13:11:58+00:00">2020-01-20</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>vue-awesome-swiper: 基于 Swiper4、适用于 Vue 的轮播组件，支持服务端渲染和单页应用</p>
+<p>github地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3N1cm1vbi1jaGluYS92dWUtYXdlc29tZS1zd2lwZXI=">https://github.com/surmon-china/vue-awesome-swiper</span></p>
+<p>官网：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuc3VybW9uLm1lL3Z1ZS1hd2Vzb21lLXN3aXBlci8=">https://github.surmon.me/vue-awesome-swiper/</span></p>
+<p>问题：</p>
+<p>设置loop：true， autoplay：2000 不会自动滚动</p>
+<p>解决<br>在 swiper 上添加 <code>v-if=&quot;swiperSlides.length&gt;0&quot;</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;swiper v-<span class="keyword">if</span>=<span class="string">&quot;swiperSlides.length&gt;0&quot;</span> :options=<span class="string">&quot;swiperOption&quot;</span> ref=<span class="string">&quot;mySwiper&quot;</span>&gt;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1002,79 +1081,6 @@
 
 <p>使用 dayjs 获取本周,上周,本月,上月,本季度,上季度,本年,去年时间</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// let date = dayjs(&#x27;2020-01-16&#x27;)</span></span><br><span class="line"><span class="keyword">let</span> date = <span class="title function_">dayjs</span>()</span><br><span class="line"><span class="keyword">let</span> day = date.<span class="title function_">day</span>() <span class="comment">// 1 星期</span></span><br><span class="line"><span class="keyword">let</span> currentWeekStart</span><br><span class="line"><span class="keyword">let</span> currentWeekEnd</span><br><span class="line"></span><br><span class="line"><span class="comment">// 本周</span></span><br><span class="line"><span class="keyword">if</span> (day &gt; <span class="number">0</span>) &#123;</span><br><span class="line">  currentWeekStart = date.<span class="title function_">startOf</span>(<span class="string">&#x27;week&#x27;</span>).<span class="title function_">add</span>(<span class="number">1</span>, <span class="string">&#x27;day&#x27;</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  currentWeekStart = date.<span class="title function_">startOf</span>(<span class="string">&#x27;week&#x27;</span>).<span class="title function_">subtract</span>(<span class="number">6</span>, <span class="string">&#x27;day&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line">currentWeekEnd = currentWeekStart.<span class="title function_">add</span>(<span class="number">6</span>, <span class="string">&#x27;day&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 上周</span></span><br><span class="line"><span class="keyword">let</span> lastWeekStart = currentWeekStart.<span class="title function_">subtract</span>(<span class="number">7</span>, <span class="string">&#x27;day&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> lastWeekEnd = currentWeekStart.<span class="title function_">subtract</span>(<span class="number">1</span>, <span class="string">&#x27;day&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 本月 上月</span></span><br><span class="line"><span class="keyword">let</span> currentMonthStart = date.<span class="title function_">date</span>(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">let</span> lastMonthStart = date.<span class="title function_">subtract</span>(<span class="number">1</span>, <span class="string">&#x27;month&#x27;</span>).<span class="title function_">date</span>(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">let</span> nextMonthStart = date.<span class="title function_">add</span>(<span class="number">1</span>, <span class="string">&#x27;month&#x27;</span>).<span class="title function_">date</span>(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">let</span> currentMonthEnd = nextMonthStart.<span class="title function_">subtract</span>(<span class="number">1</span>, <span class="string">&#x27;day&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> lastMonthEnd = currentMonthStart.<span class="title function_">subtract</span>(<span class="number">1</span>, <span class="string">&#x27;day&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 本季度,上季度</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 本年 去年</span></span><br><span class="line"><span class="keyword">let</span> currentYearStart = date.<span class="title function_">month</span>(<span class="number">0</span>).<span class="title function_">date</span>(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">let</span> currentYearEnd = date.<span class="title function_">month</span>(<span class="number">11</span>).<span class="title function_">date</span>(<span class="number">31</span>)</span><br><span class="line"><span class="keyword">let</span> lastYear = date.<span class="title function_">subtract</span>(<span class="number">1</span>, <span class="string">&#x27;year&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> lastYearStart = date.<span class="title function_">subtract</span>(<span class="number">1</span>, <span class="string">&#x27;year&#x27;</span>).<span class="title function_">month</span>(<span class="number">0</span>).<span class="title function_">date</span>(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">let</span> lastYearEnd = lastYearStart.<span class="title function_">month</span>(<span class="number">11</span>).<span class="title function_">date</span>(<span class="number">31</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> computedDate = &#123;</span><br><span class="line">  <span class="attr">currentWeekStart</span>: currentWeekStart.<span class="title function_">format</span>(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  <span class="attr">currentWeekEnd</span>: currentWeekEnd.<span class="title function_">format</span>(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  <span class="attr">lastWeekStart</span>: lastWeekStart.<span class="title function_">format</span>(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  <span class="attr">lastWeekEnd</span>: lastWeekEnd.<span class="title function_">format</span>(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  <span class="attr">currentMonthStart</span>: currentMonthStart.<span class="title function_">format</span>(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  <span class="attr">currentMonthEnd</span>: currentMonthEnd.<span class="title function_">format</span>(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  <span class="attr">lastMonthStart</span>: lastMonthStart.<span class="title function_">format</span>(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  <span class="attr">lastMonthEnd</span>: lastMonthEnd.<span class="title function_">format</span>(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  <span class="attr">currentYearStart</span>: currentYearStart.<span class="title function_">format</span>(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  <span class="attr">currentYearEnd</span>: currentYearEnd.<span class="title function_">format</span>(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  <span class="attr">lastYearStart</span>: lastYearStart.<span class="title function_">format</span>(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  <span class="attr">lastYearEnd</span>: lastYearEnd.<span class="title function_">format</span>(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(computedDate)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1656.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/1656.html" class="post-title-link" itemprop="url">js 不写行尾分号注意事项</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2019-11-01" itemprop="dateCreated datePublished" datetime="2019-11-01T14:36:34+00:00">2019-11-01</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>若行首为 <code>(</code>、<code>[</code>、<code>/</code>、<code>+</code>、<code>-</code>，会与上一行代码相接，此时需要在行首添加分号<br><code>++</code>、<code>--</code>在上下两行都不加分号的情况下，与下一行代码相接<br>return 语句在执行时会在末尾加分号</p>
 
       
     </div>
