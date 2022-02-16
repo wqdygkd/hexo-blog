@@ -153,3 +153,19 @@ unmonitorEvents($('#box'))
 $_
 > 2
 ```
+
+### 断点调试
+
+1. 跳到下个断点, 如果后面没有断点了,那么代码直接执行完
+2. 单步调试 : 下一步 没有断点的话,函数就直接跳过
+3. 单步调试 : 进入函数
+4. 单步调试 : 跳出函数
+5. 单步调试 : 下一步 不管有没有断点,都会一步一步的走,纯碎的下一步
+6. 让所有的断点失效
+7. 自动根据错误断点
+
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102205131.png)
+
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102205150.png)
+
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102205206.png)
