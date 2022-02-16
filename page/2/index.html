@@ -175,7 +175,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">162</span>
+          <span class="site-state-item-count">159</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -185,7 +185,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">86</span>
+        <span class="site-state-item-count">84</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -219,6 +219,228 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/2029.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2029.html" class="post-title-link" itemprop="url">js 中的数据类型转换</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2021-09-12" itemprop="dateCreated datePublished" datetime="2021-09-12T00:00:00+00:00">2021-09-12</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id=""><a href="#" class="headerlink" title=""></a></h1><h2 id="转换成字符串"><a href="#转换成字符串" class="headerlink" title="转换成字符串"></a>转换成字符串</h2><ul>
+<li>调用 <code>toString()</code> 方法 （显式转换）</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line">a.<span class="title function_">toString</span>() <span class="comment">// &#x27;1&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>null 、undefined 没有 toString() 方法</p>
+<ul>
+<li>调用 <code>String()</code> 构造函数（显式转换）</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title class_">String</span>(<span class="number">1</span>) <span class="comment">// &#x27;1&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>直接和字符串做加法运算（隐式转换）</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 任意数据类型的变量和字符串做加法运算结果都是字符串</span></span><br><span class="line"><span class="number">1</span> + <span class="string">&#x27;&#x27;</span> <span class="comment">// &#x27;1&#x27;</span></span><br><span class="line"><span class="literal">true</span> + <span class="string">&#x27;&#x27;</span> <span class="comment">// &#x27;true&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>引用类型转换成字符串</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">[].<span class="title function_">toString</span>() <span class="comment">// &#x27;&#x27;</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>].<span class="title function_">toString</span>() <span class="comment">// &#x27;1,2&#x27;</span></span><br><span class="line">(&#123;&#125;).<span class="title function_">toString</span>() <span class="comment">// &quot;[object Object]&quot;</span></span><br><span class="line"></span><br><span class="line">[<span class="number">1</span>, <span class="string">&#x27;123&#x27;</span>, [], <span class="literal">undefined</span>, <span class="literal">null</span>, <span class="title class_">NaN</span>, <span class="literal">true</span> ].<span class="title function_">toString</span>() <span class="comment">// &quot;1,123,,,,NaN,true&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="转换成数值"><a href="#转换成数值" class="headerlink" title="转换成数值"></a>转换成数值</h2><ul>
+<li><code>Number()</code></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title class_">Number</span>(<span class="string">&#x27;123&#x27;</span>) <span class="comment">// 123</span></span><br><span class="line"><span class="title class_">Number</span>(<span class="string">&#x27;123c&#x27;</span>) <span class="comment">// NaN</span></span><br><span class="line"><span class="comment">// 如果字符串不能转换成合法数字，转换结果为 NaN</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用 <code>parseInt()</code></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">parseInt</span>(<span class="string">&#x27;12.3&#x27;</span>) <span class="comment">// 12 只保留整数</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">&#x27;15xyz&#x27;</span>) <span class="comment">// 15</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">&#x27;15x6yz&#x27;</span>) <span class="comment">// 15</span></span><br><span class="line"><span class="comment">// 如果字符串里有非法的数字，会逐个转换，直到遇到无法转化的字符串为止</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用 <code>parseFloat()</code> 完成</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">parseFloat</span>(<span class="string">&#x27;12.34&#x27;</span>) <span class="comment">// 12.34 可以保留小数位</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>让字符串和数字做除了加法以外的运算（隐式转换）</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="string">&#x27;345&#x27;</span></span><br><span class="line">+d === <span class="number">345</span> <span class="comment">// true</span></span><br><span class="line">d - <span class="number">0</span> === <span class="number">345</span> <span class="comment">// true</span></span><br><span class="line">d * <span class="number">1</span> === <span class="number">345</span> <span class="comment">// true</span></span><br><span class="line">d / <span class="number">1</span> === <span class="number">345</span> <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>引用类型转换成数值</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 空数组为 0，存在一个元素且可转换成数字，则转换成该数字，其他情况为 NaN</span></span><br><span class="line">+[] <span class="comment">// 0</span></span><br><span class="line">+[<span class="string">&#x27;2&#x27;</span>] <span class="comment">// 2</span></span><br><span class="line">+[<span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;2&#x27;</span>] <span class="comment">// NaN</span></span><br><span class="line">+&#123;&#125; <span class="comment">// NaN</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="转换成布尔值"><a href="#转换成布尔值" class="headerlink" title="转换成布尔值"></a>转换成布尔值</h2><p><strong>0, NaN, 空字符串，undefined, null, false 会被转换成为 false</strong></p>
+<ul>
+<li>使用 <code>Boolean()</code> 完成</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title class_">Boolean</span>(<span class="number">123</span>) <span class="comment">// true</span></span><br><span class="line"><span class="comment">// 对于数字类型来说：一般的数字都转换成为 true，0、NaN 会被转换成为 false</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Boolean</span>(<span class="string">&#x27;123&#x27;</span>) <span class="comment">// true</span></span><br><span class="line"><span class="title class_">Boolean</span>(<span class="string">&#x27; &#x27;</span>) <span class="comment">// true</span></span><br><span class="line"><span class="title class_">Boolean</span>(<span class="string">&#x27;&#x27;</span>) <span class="comment">// false</span></span><br><span class="line"><span class="comment">// 字符串中只有空的字符串会被转换成为 false</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Boolean</span>(<span class="literal">undefined</span>) <span class="comment">// false</span></span><br><span class="line"><span class="title class_">Boolean</span>(<span class="literal">null</span>) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用 <code>!!</code></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">!!<span class="number">2</span> <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>自动转换</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="string">&#x27;&#x27;</span>) &#123; <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;哈哈&#x27;</span>) &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="变量转换表"><a href="#变量转换表" class="headerlink" title="变量转换表"></a>变量转换表</h2><table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Boolean</th>
+<th>Number</th>
+<th>String</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>undefined</td>
+<td>false</td>
+<td><strong>NaN</strong></td>
+<td>“undefined”</td>
+</tr>
+<tr>
+<td>null</td>
+<td>false</td>
+<td><strong>0</strong></td>
+<td>“null”</td>
+</tr>
+<tr>
+<td>true</td>
+<td>true</td>
+<td>1</td>
+<td>“true”</td>
+</tr>
+<tr>
+<td>false</td>
+<td>false</td>
+<td>0</td>
+<td>“false”</td>
+</tr>
+<tr>
+<td>“”</td>
+<td>false</td>
+<td>0</td>
+<td>“”</td>
+</tr>
+<tr>
+<td>“123”</td>
+<td>true</td>
+<td>123</td>
+<td>“123”</td>
+</tr>
+<tr>
+<td>“1a”</td>
+<td>true</td>
+<td>NaN</td>
+<td>“1a”</td>
+</tr>
+<tr>
+<td>0</td>
+<td>false</td>
+<td>0</td>
+<td>“0”</td>
+</tr>
+<tr>
+<td>1</td>
+<td>true</td>
+<td>1</td>
+<td>“1”</td>
+</tr>
+<tr>
+<td>Infinity</td>
+<td>true</td>
+<td>Infinity</td>
+<td>“Infinity”</td>
+</tr>
+<tr>
+<td>NaN</td>
+<td>false</td>
+<td>NaN</td>
+<td>“NaN”</td>
+</tr>
+<tr>
+<td>{}</td>
+<td><strong>true</strong></td>
+<td>NaN</td>
+<td>“[object Object]”</td>
+</tr>
+<tr>
+<td>数组</td>
+<td>true</td>
+<td>空数组为 0，存在一个元素且为数字转数字，其他 NaN</td>
+<td>[1, ‘123’, [], undefined, null, NaN, true ] &#x3D;&gt; “1,123,,,,NaN,true”</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -775,126 +997,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/2028.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2028.html" class="post-title-link" itemprop="url">Babel 入门</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2021-07-28" itemprop="dateCreated datePublished" datetime="2021-07-28T00:00:00+00:00">2021-07-28</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Babel与Polyfill的关系和区别<br>Babel 默认只转换新的 js 句法（syntax），而不转换新的 API，例如箭头函数等<br>Polyfill 用于实现浏览器并不支持的原生API的代码，如新增的方法等</p>
-<p>Babel</p>
-<p>Babel的安装，配置</p>
-<p>创建 <code>babel.config.js</code> 文件，内容如下</p>
-<blockquote>
-<p>babel.config.js 是Babel执行时会默认在当前目录寻找的Babel配置文件，除了babel.config.js，我们也可以选择用.babelrc或.babelrc.js这两种配置文件</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">presets</span>: [<span class="string">&quot;@babel/env&quot;</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>安装如下包</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm i -D @babel/cli @babel/core @babel/preset-env</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>@babel&#x2F;cli是Babel命令行转码工具，如果我们使用命令行进行Babel转码就需要安装它。</li>
-<li>@babel&#x2F;cli依赖@babel&#x2F;core，因此也需要安装@babel&#x2F;core这个Babel核心npm包。</li>
-<li>@babel&#x2F;preset-env这个npm包提供了ES6转换ES5的语法转换规则，我们在Babel配置文件里指定使用它。如果不使用的话，也可以完成转码，但转码后的代码仍然是ES6的，相当于没有转码。</li>
-</ul>
-<p>创建 <code>index.js</code> 文件，如下</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">fn</span> = (<span class="params">num</span>) =&gt; num + <span class="number">1</span></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">() =&gt;</span> &#123;&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>执行命令</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npx babel index.js -o output.js</span><br></pre></td></tr></table></figure>
-
-<p>输出结果为</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fn = <span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params">num</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> num + <span class="number">1</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">() =&gt;</span> &#123;&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>可以看到，ES6的箭头函数语法转换成了 ES5 的函数定义语法，但是并没有对ES6的Promise进行转换。因为Babel默认只转换新的 js 语法（箭头函数，解构…），而不转换新的 API。新的API分类两类，一类是Promise、Map、Symbol、Proxy、Iterator等全局对象及其对象自身的方法，例如Object.assign，Promise.resolve；另一类是新的实例方法，例如数组实例方法[1, 2, 3].find((item) &#x3D;&gt; item &lt; 2)</p>
-<p>polyfill</p>
-<p>安装</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install --save @babel/polyfill</span><br></pre></td></tr></table></figure>
-
-<p>在 index.js 中引入 <code>import &#39;@babel/polyfill&#39;</code></p>
-<p>执行命令</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npx babel index.js -o output.js</span><br></pre></td></tr></table></figure>
-
-<p>输出结果</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">require</span>(<span class="string">&quot;@babel/polyfill&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fn = <span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params">num</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> num + <span class="number">1</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>输出结果中 <code>require(&quot;@babel/polyfill&quot;);</code></p>
-<p>import被编译成了require，如果想要编译出来的模块引入规范还是import，则可以在preset-env的配置项中添加”modules”: false即可</p>
-<p>有时候我们项目里并没有用到那么多的新增API，但是 @babel&#x2F;polyfill 会把所有浏览器环境的的polyfill都引入，整个包的体积就会很大，我们想要对目标环境按需引入相应的polyfill应该怎么办呢，这个时候我们就可以使用 preset-env 的配置项中的 useBuiltIns 属性来按需引入 polyfill。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">presets</span>: [</span><br><span class="line">    [</span><br><span class="line">      <span class="string">&quot;@babel/preset-env&quot;</span>, &#123;</span><br><span class="line">        <span class="string">&quot;modules&quot;</span>: <span class="literal">false</span>, <span class="comment">// 用来设置是否把ES6的模块化语法改成其它模块化语法</span></span><br><span class="line">        <span class="string">&quot;useBuiltIns&quot;</span>: <span class="string">&quot;usage&quot;</span>,</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>使用useBuiltIns:”usage”后，Babel除了会考虑目标环境缺失的API模块，同时考虑我们项目代码里使用到的ES6特性，且不需要在项目入口处手动引入polyfill</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&quot;core-js/modules/es6.object.to-string.js&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;core-js/modules/es6.promise.js&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fn = <span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params">num</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> num + <span class="number">1</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>可以看到 多了 <code>import &quot;core-js/...</code> 的引用，因为 @babel&#x2F;polyfil 是由core-js2和regenerator-runtime组成的一个集成包，<br>Babel 7.4.0 之后已经弃用了 @babel&#x2F;polyfill，所以core-js官方现在推荐我们使用polyfill的时候直接引入core-js和regenerator-runtime&#x2F;runtime这两个包完全取代 @babel&#x2F;polyfil</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3psb2lyb2NrL2NvcmUtanMjYmFiZWxwb2x5ZmlsbA==">core-js</span><br><span class="exturl" data-url="aHR0cHM6Ly93d3cuYmFiZWxqcy5jbi9kb2NzL2JhYmVsLXBvbHlmaWxs">babel-polyfill</span></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://wqdy.top/407.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1107,6 +1209,126 @@
 <p>CommonJS 模块是运行时加载，ES6 模块是编译时输出接口<br>CommonJS和 ES 模块都可以对导出对象内部属性的值进行改变<br>CommonJS 模块输出的是一个值的拷贝，类似浅拷贝<br>ES 模块输出的 不论是基本类还是引用类型的数据，都是值的引用<br>ES 模块对导出的数据不可以重新赋值（只读状态），重新赋值会编译报错（即导出的数据指针指向不能变），但可以改变对象的属性，类似 const 声明的变量<br>CommonJS 模块的require()是同步加载模块，ES6 模块的import命令是异步加载，有一个独立的模块依赖的解析阶段。</p>
 <p>CommonJS 加载的是一个对象（即module.exports属性），该对象只有在脚本运行完才会生成。而 ES6 Modules不是对象，它的对外接口只是一种静态定义，在代码静态解析阶段就会生成。</p>
 <p>运行时加载: CommonJS 模块就是对象；即在输入时是先加载整个模块，生成一个对象，然后再从这个对象上面读取方法，这种加载称为“运行时加载”<br>编译时加载: ES6 模块不是对象，而是通过 export 命令显式指定输出的代码，import 时采用静态命令的形式。即在 import 时可以指定加载某个输出值，而不是加载整个模块，这种加载称为“编译时加载”</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/2028.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2028.html" class="post-title-link" itemprop="url">Babel 入门</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2021-07-28" itemprop="dateCreated datePublished" datetime="2021-07-28T00:00:00+00:00">2021-07-28</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Babel与Polyfill的关系和区别<br>Babel 默认只转换新的 js 句法（syntax），而不转换新的 API，例如箭头函数等<br>Polyfill 用于实现浏览器并不支持的原生API的代码，如新增的方法等</p>
+<p>Babel</p>
+<p>Babel的安装，配置</p>
+<p>创建 <code>babel.config.js</code> 文件，内容如下</p>
+<blockquote>
+<p>babel.config.js 是Babel执行时会默认在当前目录寻找的Babel配置文件，除了babel.config.js，我们也可以选择用.babelrc或.babelrc.js这两种配置文件</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">presets</span>: [<span class="string">&quot;@babel/env&quot;</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>安装如下包</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm i -D @babel/cli @babel/core @babel/preset-env</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>@babel&#x2F;cli是Babel命令行转码工具，如果我们使用命令行进行Babel转码就需要安装它。</li>
+<li>@babel&#x2F;cli依赖@babel&#x2F;core，因此也需要安装@babel&#x2F;core这个Babel核心npm包。</li>
+<li>@babel&#x2F;preset-env这个npm包提供了ES6转换ES5的语法转换规则，我们在Babel配置文件里指定使用它。如果不使用的话，也可以完成转码，但转码后的代码仍然是ES6的，相当于没有转码。</li>
+</ul>
+<p>创建 <code>index.js</code> 文件，如下</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">fn</span> = (<span class="params">num</span>) =&gt; num + <span class="number">1</span></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">() =&gt;</span> &#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>执行命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npx babel index.js -o output.js</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fn = <span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params">num</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> num + <span class="number">1</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">() =&gt;</span> &#123;&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>可以看到，ES6的箭头函数语法转换成了 ES5 的函数定义语法，但是并没有对ES6的Promise进行转换。因为Babel默认只转换新的 js 语法（箭头函数，解构…），而不转换新的 API。新的API分类两类，一类是Promise、Map、Symbol、Proxy、Iterator等全局对象及其对象自身的方法，例如Object.assign，Promise.resolve；另一类是新的实例方法，例如数组实例方法[1, 2, 3].find((item) &#x3D;&gt; item &lt; 2)</p>
+<p>polyfill</p>
+<p>安装</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install --save @babel/polyfill</span><br></pre></td></tr></table></figure>
+
+<p>在 index.js 中引入 <code>import &#39;@babel/polyfill&#39;</code></p>
+<p>执行命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npx babel index.js -o output.js</span><br></pre></td></tr></table></figure>
+
+<p>输出结果</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">require</span>(<span class="string">&quot;@babel/polyfill&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fn = <span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params">num</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> num + <span class="number">1</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>输出结果中 <code>require(&quot;@babel/polyfill&quot;);</code></p>
+<p>import被编译成了require，如果想要编译出来的模块引入规范还是import，则可以在preset-env的配置项中添加”modules”: false即可</p>
+<p>有时候我们项目里并没有用到那么多的新增API，但是 @babel&#x2F;polyfill 会把所有浏览器环境的的polyfill都引入，整个包的体积就会很大，我们想要对目标环境按需引入相应的polyfill应该怎么办呢，这个时候我们就可以使用 preset-env 的配置项中的 useBuiltIns 属性来按需引入 polyfill。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">presets</span>: [</span><br><span class="line">    [</span><br><span class="line">      <span class="string">&quot;@babel/preset-env&quot;</span>, &#123;</span><br><span class="line">        <span class="string">&quot;modules&quot;</span>: <span class="literal">false</span>, <span class="comment">// 用来设置是否把ES6的模块化语法改成其它模块化语法</span></span><br><span class="line">        <span class="string">&quot;useBuiltIns&quot;</span>: <span class="string">&quot;usage&quot;</span>,</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用useBuiltIns:”usage”后，Babel除了会考虑目标环境缺失的API模块，同时考虑我们项目代码里使用到的ES6特性，且不需要在项目入口处手动引入polyfill</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&quot;core-js/modules/es6.object.to-string.js&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;core-js/modules/es6.promise.js&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fn = <span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params">num</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> num + <span class="number">1</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>可以看到 多了 <code>import &quot;core-js/...</code> 的引用，因为 @babel&#x2F;polyfil 是由core-js2和regenerator-runtime组成的一个集成包，<br>Babel 7.4.0 之后已经弃用了 @babel&#x2F;polyfill，所以core-js官方现在推荐我们使用polyfill的时候直接引入core-js和regenerator-runtime&#x2F;runtime这两个包完全取代 @babel&#x2F;polyfil</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3psb2lyb2NrL2NvcmUtanMjYmFiZWxwb2x5ZmlsbA==">core-js</span><br><span class="exturl" data-url="aHR0cHM6Ly93d3cuYmFiZWxqcy5jbi9kb2NzL2JhYmVsLXBvbHlmaWxs">babel-polyfill</span></p>
 
       
     </div>
@@ -1357,73 +1579,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/2022.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022.html" class="post-title-link" itemprop="url">苹果手机越狱相关资源</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2021-02-26" itemprop="dateCreated datePublished" datetime="2021-02-26T00:00:00+00:00">2021-02-26</date>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="越狱工具"><a href="#越狱工具" class="headerlink" title="越狱工具"></a>越狱工具</h3><p><span class="exturl" data-url="aHR0cHM6Ly9jaGVja3JhLmluLw==">checkra1n</span>  iPhone 5s -iPhone X, iOS 12.0 and up<br><span class="exturl" data-url="aHR0cHM6Ly91bmMwdmVyLmRldi8=">unc0ver</span>  iOS 11.0 - 13.5</p>
-<h3 id="软件源"><a href="#软件源" class="headerlink" title="软件源"></a>软件源</h3><p>Ai-小苹果：<span class="exturl" data-url="aHR0cDovL2FwdC5jeWRpYWJjLnRvcC8=">http://apt.cydiabc.top</span><br>雷锋源：<span class="exturl" data-url="aHR0cDovL2FwdC5hYmN5ZGlhLmNvbS8=">http://apt.abcydia.com</span><br>reprovision 作者源：<span class="exturl" data-url="aHR0cHM6Ly9yZXBvLmluY2VuZG8ud3Mv">https://repo.incendo.ws</span><br>Flex3官方源：<span class="exturl" data-url="aHR0cDovL2dldGRlbHRhLmNvLw==">http://getdelta.co</span><br>Filza官方源：<span class="exturl" data-url="aHR0cDovL3RpZ2lzb2Z0d2FyZS5jb20vY3lkaWE=">http://tigisoftware.com/cydia</span><br>AudioRecorder XS 通话录音官方源：<span class="exturl" data-url="aHR0cDovL2xpbW5lb3MubmV0L3JlcG8=">http://limneos.net/repo</span><br>Liberty Lire官方屏蔽越狱源：<span class="exturl" data-url="aHR0cDovL3J5bGV5YW5ndXMuY29tL3JlcG8=">http://ryleyangus.com/repo</span><br>多⽶米诺⻣骨牌：<span class="exturl" data-url="aHR0cDovL2FwdC53eGhidHMuY29tLw==">http://apt.wxhbts.com</span><br>Appsync官方源：<span class="exturl" data-url="aHR0cHM6Ly9jeWRpYS5ha2VtaS5haS8=">https://cydia.akemi.ai</span><br>snowboard官⽅方源：<span class="exturl" data-url="aHR0cDovL3NwYXJrZGV2Lm1lLw==">http://sparkdev.me</span><br>贴吧源：<span class="exturl" data-url="aHR0cHM6Ly9hcHQuY3lkaWFiYS5jbi8=">https://apt.cydiaba.cn</span><br>App Admin官⽅方源：<span class="exturl" data-url="aHR0cDovL2JldGEudW5saW1hcHBzLmNvbS8=">http://beta.unlimapps.com</span></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 </div>

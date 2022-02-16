@@ -175,7 +175,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">162</span>
+          <span class="site-state-item-count">159</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -185,7 +185,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">86</span>
+        <span class="site-state-item-count">84</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -219,6 +219,98 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1018.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/1018.html" class="post-title-link" itemprop="url">微信小程序中使用 async/await 语法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-03-24" itemprop="dateCreated datePublished" datetime="2020-03-24T15:47:04+00:00">2020-03-24</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>旧文章害死人</p>
+<p>研究了半天，突然发现开发工具在 1.02.1904282 以及之后版本中，增加了<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXJzLndlaXhpbi5xcS5jb20vbWluaXByb2dyYW0vZGV2L2RldnRvb2xzL2NvZGVjb21waWxlLmh0bWwjJUU1JUEyJTlFJUU1JUJDJUJBJUU3JUJDJTk2JUU4JUFGJTkx">增强编译</span>已支持 Async&#x2F;Await 语法</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXJzLndlaXhpbi5xcS5jb20vbWluaXByb2dyYW0vZGV2L2RldnRvb2xzL3VwbG9nLmh0bWwjXzIwMTktMDUtMDg=">2019-05-08更新日志</span>第一条</p>
+<p>已下内容已过期(文章刚发布一小时)</p>
+<blockquote>
+<p>微信小程序中原生支持 async await 语法，前提是需要关闭 ES6 转 ES5 后</p>
+</blockquote>
+<p>在开启 ES6 转 ES5 后 async 函数无法使用，可以使用 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ZhY2Vib29rL3JlZ2VuZXJhdG9y">regenerator</span> 包来解决。新版本的 regenerator 在小程序中无法使用，会报如下错误：<br><img data-src="/wp-content/uploads/2020/03/regenerator.png" alt="regenerator"></p>
+<p>原因是 regenerator 包更新了 Function 函数，具体可参考：<br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ZhY2Vib29rL3JlZ2VuZXJhdG9yL3B1bGwvMzY5">https://github.com/facebook/regenerator/pull/369</span><br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ZhY2Vib29rL3JlZ2VuZXJhdG9yL2NvbW1pdC8wNjNmMTRlZjdmMDFiYjI5ODMwZTNmMTdlOWVmMTUxZTdhNWNiMmYz">https://github.com/facebook/regenerator/commit/063f14ef7f01bb29830e3f17e9ef151e7a5cb2f3</span></p>
+<p>可以直接使用老版本来解决这个问题，或者修改源码，把 Function 改回去</p>
+<p>直接使用老版本</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install regenerator@0.13.1</span><br></pre></td></tr></table></figure>
+
+<p>如果使用了 npm 模块，之后在需要使用 async 语法的 js 中直接引入即可</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> regeneratorRuntime = <span class="built_in">require</span>(<span class="string">&#x27;regenerator-runtime&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>如果没有使用 npm 模块，不能直接 require 包名，需要将包提取出来，并引入完整路径</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> regeneratorRuntime = <span class="built_in">require</span>(<span class="string">&#x27;../../libs/regenerator-runtime&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>参考：<a href="https://wqdy.top/1041.html">微信小程序中使用 npm 包</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1478,90 +1570,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/671.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/671.html" class="post-title-link" itemprop="url">wordpress 插件 Code Snippets - 无需修改 functions.php 文件向站点添加自定义代码</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2020-03-01" itemprop="dateCreated datePublished" datetime="2020-03-01T16:03:48+00:00">2020-03-01</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/wordpress/" itemprop="url" rel="index"><span itemprop="name">wordpress</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="插件介绍"><a href="#插件介绍" class="headerlink" title="插件介绍"></a>插件介绍</h3><p>Code Snippets 是一款可以简单、干净、安全添加 php 代码到你网站的插件，就跟直接写入 functions.php 文件里面的效果一样。</p>
-<blockquote>
-<p>使用 Code Snippets 添加代码还有一个优点就是添加的代码不会因为你主题文件升级而丢失，而直接写入 functions.php 文件里面升级会被覆盖，还需要手动备份一次。</p>
-</blockquote>
-<p>直接在后台搜索该插件安装即可</p>
-<h3 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h3><h4 id="添加-php-代码"><a href="#添加-php-代码" class="headerlink" title="添加 php 代码"></a>添加 php 代码</h4><p>直接新建一个 snippets 将 php 代码站填进去即可</p>
-<h4 id="添加-css-代码"><a href="#添加-css-代码" class="headerlink" title="添加 css 代码"></a>添加 css 代码</h4><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="title function_ invoke__">add_action</span>( <span class="string">&#x27;wp_head&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="meta">?&gt;</span></span><br><span class="line">&lt;style&gt;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/* write your CSS code here */</span></span><br><span class="line"></span><br><span class="line">&lt;/style&gt;</span><br><span class="line"><span class="meta">&lt;?php</span> &#125; );</span><br></pre></td></tr></table></figure>
-
-<h4 id="添加-js-代码"><a href="#添加-js-代码" class="headerlink" title="添加 js 代码"></a>添加 js 代码</h4><p>默认示例添加 js 代码使用的是 <code>wp_head</code> 函数，这里推荐使用 <code>wp_footer</code>，你可以根据 js 作用自行选择</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 在底部添加js代码，</span></span><br><span class="line"><span class="title function_ invoke__">add_action</span>( <span class="string">&#x27;wp_footer&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="meta">?&gt;</span></span><br><span class="line">&lt;script&gt;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/* write your JavaScript code here */</span></span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br><span class="line"><span class="meta">&lt;?php</span> &#125; );</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 </div>
