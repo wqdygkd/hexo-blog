@@ -11,8 +11,6 @@ updated: 2022-02-15
 
 ## 原型
 
-### 原型基本概念
-
 Javascript 规定，每一个函数都有一个 `prototype` 属性，属性值是一个对象，这个对象就叫做原型（原型对象），这个对象的所有属性和方法，都会被构造函数的实例继承
 
 这也就意味着，我们可以把所有对象实例需要共享的属性和方法直接定义在 `prototype` 对象上
@@ -90,13 +88,11 @@ console.log(p.constructor == Person.prototype.constructor) // true
 
 ## 原型链
 
-### 原型链概念
-
 任何一个对象，都有原型对象，原型对象本身又是一个对象，所以原型对象也有自己的原型对象，这样形成的链式结构，就是原型链
 
 绘制对象的原型链结构：
 
-```javascript
+```js
 var p = new Person()
 // p ==> Person.prototype  ==> Object.prototype ==> null
 var o = new Object()
@@ -113,3 +109,26 @@ var date = new Date()
 总结：Object.prototype 是原型链的尽头，Object.prototype 的原型是 null
 
 ![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102204539.png)
+
+### 函数的原型链结构
+
+函数是由 new Function 创建出来的，因此函数也是一个对象，`所有的函数都是 Function 的实例`
+
+Person ==> Function.prototype ==> Object.prototype ==> null
+
+Function.prototype 类型是个函数
+
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102204558.jpeg)
+
+## 完整版原型链
+
+图一
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102204647.png)
+
+图二
+![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102204701.jpeg)
+
+1. 所有函数都是 new Function 创建出来的，因此 `所有函数.__proto__` 都是 `Function.prototype`
+2. 所有对象都是 new Object 创建出来的，因此 `所有对象.__proto__` 都是 `Object.prototype`
+
+[参考链接](https://github.com/creeperyang/blog/issues/9)

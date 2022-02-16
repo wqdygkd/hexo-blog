@@ -1,3 +1,9 @@
+2038
+
+call apply bind 手动实现
+多次bind
+完整原型链
+
 keep-alive缓存页面使用$destroy后不能在次缓存 https://github.com/vuejs/vue/issues/6509
 
 js  比较两个日期大小。格式：2018-8-12 12:30
@@ -35,3 +41,9 @@ const compareTime3 = (t1, t2) => {
 
 高性能渲染十万条数据（虚拟列表） https://juejin.cn/post/6844903982742110216
 https://tu.lingtings.com/jd.html
+
+
+js compose
+
+gsudo - a sudo for Windows
+https://github.com/gerardog/gsudo
