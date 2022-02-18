@@ -10,6 +10,8 @@ updated: 2019/03/22 02:35:00
 
 # Vue
 
+[插槽](https://cn.vuejs.org/v2/guide/components-slots.html)
+
 - [vue 中文网](https://cn.vuejs.org/)
 
 - [github 下载地址](https://github.com/vuejs/vue)
@@ -1969,54 +1971,3 @@ computed: {
   }
 }
 ```
-
-### 数据持久化
-
-- 存储数据
-  - 监听 list 数据的改变，只要 list 数据变了，就调用保存数据的方法
-  - 使用 vue 的 watch 监听 list 的数据改变
-  - 保存值，记得把对象转化为字符串(存的快省空间)
-
-```js
-watch: {
-  // 监听 todoList
-  todoList: {
-    deep: true,
-    handler (newVal) {
-   		localStorage.setItem('todoList', JSON.stringify(newVal))
-  	}
-  }
-}
-```
-
-- 获取数据
-
-```js
-// 在 data 中可以初始值
-// 设置一个默认值 空数组 []
-todoList: JSON.parse(localStorage.getItem('todoList')) || []
-```
-
-### 使用钩子函数来完善数据存储
-
-```js
-created () {
-  this.todoList = JSON.parse(localStorage.getItem('todoList')) || []
-}
-```
-
-### 获取接口数据
-
-[json-server](https://github.com/typicode/json-server) 提供假数据接口
-
-[axios](https://github.com/axios/axios) 发送请求
-
-```bash
-npm i -g json-server
-npm i axios
-json-server data.json
-```
-
-### 组件化 TODOMVC
-
-https://github.com/cuilongjin/todomvc-app-template/tree/zujianhua

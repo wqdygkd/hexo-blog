@@ -31,10 +31,6 @@ vue 组件之间的样式有自动复用的问题，给一个类设置样式，�
 
 动态添加的组件/标签，在 `.vue`文件里添加一个 style 标签，在标签里设置该样式属性，或者在选择器前添加`/deep/`
 
-vm.\$nextTick( [callback\] )：将回调延迟到下次 DOM 更新循环之后执行
-
-如果没有提供回调且在支持 Promise 的环境中，则返回一个 Promise：`await this.$nextTick()`
-
 插槽
 
 ```vue

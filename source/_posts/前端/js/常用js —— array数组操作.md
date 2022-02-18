@@ -195,7 +195,7 @@ var newArr = arr.find(function(item, index) {
 如果全不满足返回 -1
 
 ```js
-var newArr = arr.findIndex(function(item, index) {
+var index = arr.findIndex(function(item, index) {
   return item > 2
 })
 // 不修改原数组
