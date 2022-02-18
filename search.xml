@@ -1155,6 +1155,20 @@
       </tags>
   </entry>
   <entry>
+    <title>浏览器中图片另存为时默认保存为jfif格式问题</title>
+    <url>/660.html</url>
+    <content><![CDATA[<p><span class="exturl" data-url="aHR0cHM6Ly9iYWlrZS5iYWlkdS5jb20vaXRlbS9qZmlm">jfif（JPEG File Interchange Format，JPEG 档案交换格式）</span>格式是一种图片存储格式之一，由 JPEG 格式衍生而来</p>
+<p>win10 中，在浏览器中通过图片另存为时发现默认保存为该格式时，说明系统把 JPEG 格式默认为了该格式，可以通过修改注册表还原，具体操作步骤如下：</p>
+<ul>
+<li><code>WIN</code> + <code>R</code> 打开运行窗口，输入 <code>regedit</code> 回车</li>
+<li>找到路径 <code>HKEY_CLASSES_ROOT\MIME\Database\Content Type\image/jpeg</code>，把 <code>extension</code> 的值改成 .jpg，关闭注册表即可</li>
+</ul>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+  </entry>
+  <entry>
     <title>用 tMM 刮削影片信息，让 KODI、Jellyfin、PLEX、使用本地媒体电影墙！</title>
     <url>/1469.html</url>
     <content><![CDATA[<p>当使用 pt 或者各种 bt 网站，下载了很多电影以后，使用 NAS 上的 plex 或者 jellyfin 刮削不出来海报怎么办？</p>
@@ -1191,20 +1205,6 @@
         <tag>jellyfin</tag>
         <tag>plex</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>浏览器中图片另存为时默认保存为jfif格式问题</title>
-    <url>/660.html</url>
-    <content><![CDATA[<p><span class="exturl" data-url="aHR0cHM6Ly9iYWlrZS5iYWlkdS5jb20vaXRlbS9qZmlm">jfif（JPEG File Interchange Format，JPEG 档案交换格式）</span>格式是一种图片存储格式之一，由 JPEG 格式衍生而来</p>
-<p>win10 中，在浏览器中通过图片另存为时发现默认保存为该格式时，说明系统把 JPEG 格式默认为了该格式，可以通过修改注册表还原，具体操作步骤如下：</p>
-<ul>
-<li><code>WIN</code> + <code>R</code> 打开运行窗口，输入 <code>regedit</code> 回车</li>
-<li>找到路径 <code>HKEY_CLASSES_ROOT\MIME\Database\Content Type\image/jpeg</code>，把 <code>extension</code> 的值改成 .jpg，关闭注册表即可</li>
-</ul>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
   </entry>
   <entry>
     <title>神级代码注释</title>
@@ -2216,25 +2216,6 @@
       </tags>
   </entry>
   <entry>
-    <title>关于 a 标签 target_blank 使用 rel=noopener</title>
-    <url>/798.html</url>
-    <content><![CDATA[<p>为什么要使用rel&#x3D;’noopener’？</p>
-<p>举个例子: a.html 和 b.html 两个页面</p>
-<p>a.html</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;b.html&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span>&gt;</span>da<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>b.html</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"><span class="variable language_">window</span>.<span class="property">opener</span>.<span class="property">location</span>.<span class="property">href</span> =<span class="string">&quot;http://wqdy.top&quot;</span></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>其中在 <code>a.html</code> 中有个超链接，点击后在新标签页打开 <code>b.html</code>页面，但是发现原 <code>a.html</code> 页面已经变成了其他页面。原因是使用 <code>target=_blank</code> 打开新的窗口时，赋予了新的窗口一些权限可以操作原窗口，其中 <code>window.location</code> 就是一个。</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102203759.png"></p>
-<p>为了防止 <code>window.opener</code> 被滥用，提高网站的安全性，在使用 <code>targrt=_blank</code> 时需要加上 <code>rel=noopener</code>，同时为了兼容也可以加上 <code>rel=noreferrer</code>。</p>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-  </entry>
-  <entry>
     <title>web 中媒体资源自动播放问题</title>
     <url>/1276.html</url>
     <content><![CDATA[<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>媒体资源 添加 autoplay 在移动端不会生效</p>
@@ -2252,6 +2233,25 @@
 
 <p>使用静音的自动播放功能，并让他们选择取消静音</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">id</span>=<span class="string">&quot;video&quot;</span> <span class="attr">muted</span> <span class="attr">autoplay</span>&gt;</span><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>关于 a 标签 target_blank 使用 rel=noopener</title>
+    <url>/798.html</url>
+    <content><![CDATA[<p>为什么要使用rel&#x3D;’noopener’？</p>
+<p>举个例子: a.html 和 b.html 两个页面</p>
+<p>a.html</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;b.html&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span>&gt;</span>da<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>b.html</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"><span class="variable language_">window</span>.<span class="property">opener</span>.<span class="property">location</span>.<span class="property">href</span> =<span class="string">&quot;http://wqdy.top&quot;</span></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>其中在 <code>a.html</code> 中有个超链接，点击后在新标签页打开 <code>b.html</code>页面，但是发现原 <code>a.html</code> 页面已经变成了其他页面。原因是使用 <code>target=_blank</code> 打开新的窗口时，赋予了新的窗口一些权限可以操作原窗口，其中 <code>window.location</code> 就是一个。</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102203759.png"></p>
+<p>为了防止 <code>window.opener</code> 被滥用，提高网站的安全性，在使用 <code>targrt=_blank</code> 时需要加上 <code>rel=noopener</code>，同时为了兼容也可以加上 <code>rel=noreferrer</code>。</p>
 ]]></content>
       <categories>
         <category>前端</category>
@@ -2822,563 +2822,6 @@
       <categories>
         <category>前端</category>
       </categories>
-  </entry>
-  <entry>
-    <title>PHP</title>
-    <url>/1663.html</url>
-    <content><![CDATA[<h2 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h2><h3 id="什么是服务器？"><a href="#什么是服务器？" class="headerlink" title="什么是服务器？"></a>什么是服务器？</h3><blockquote>
-<p>通过安装服务器软件，<strong>提供服务</strong> 的计算机</p>
-</blockquote>
-<p>服务器可以从硬件、软件(系统软件、应用软件)几个角度描述。</p>
-<p>按硬件描述： 服务器就是一台超级计算机(配置很高)。<br>按操作系统划分： 在硬件上安装了什么操作系统，就可以称为该系统的服务器<br>​ 例如: linux 服务器、windows 服务器、unix 服务器等。<br>按软件划分： 在操作系统中安装了什么软件，就可以称作该软件的服务器 iis tomcat<br>​ 例如: <strong>web 服务器</strong>、数据库服务器、邮件服务器等。</p>
-<h3 id="什么是-Web-服务器"><a href="#什么是-Web-服务器" class="headerlink" title="什么是 Web 服务器"></a>什么是 Web 服务器</h3><p>Web 服务器就是安装了 Web 服务软件，web 服务器的作用是能够提供网站服务的服务器。淘宝、京东、新浪等等</p>
-<p>常见的 Web 软件：<br><strong>Apache</strong>、Nginx、IIS、Tomcat、Node 等。<br>Apache 服务器、Nginx 服务器、IIS 服务器、Tomcat 服务器、Node 服务器</p>
-<p>Apache 是世界使用排名第一的 Web 服务器软件。我们将编写好的 html、css、js 等文件存入 apache，就能够通过网络来访问这些文件了</p>
-<p>PS: web 服务器又叫做 http&#x2F;httpd 服务器</p>
-<h2 id="phpStudy-介绍"><a href="#phpStudy-介绍" class="headerlink" title="phpStudy 介绍"></a>phpStudy 介绍</h2><blockquote>
-<p>phpStudy 是一个 PHP 调试环境的程序集成包</p>
-<p>该程序包集成最新的 Apache+PHP+MySQL</p>
-<p>安装 phpStudy，一定不能有中文，否则肯定启动不起来</p>
-</blockquote>
-<p>**注意: **将要访问的文件(html,php,img 等)，放到安装路径下的 <code>www</code> 目录下，通过浏览器就可以访问到了</p>
-<h3 id="phpStudy-的错误解决"><a href="#phpStudy-的错误解决" class="headerlink" title="phpStudy 的错误解决"></a>phpStudy 的错误解决</h3><p>如果 phpStudy 启动发生错误，参数下列几点。</p>
-<ul>
-<li><p>一是防火墙拦截</p>
-</li>
-<li><p>二是 80 端口已经被别的程序占用，如 IIS 等</p>
-</li>
-<li><p>三是没有安装 VC9 运行库,php 和 apache 都是 VC9 编译</p>
-</li>
-</ul>
-<h2 id="PHP-基础-重点"><a href="#PHP-基础-重点" class="headerlink" title="PHP 基础(重点)"></a>PHP 基础(重点)</h2><h3 id="PHP-简介"><a href="#PHP-简介" class="headerlink" title="PHP 简介"></a>PHP 简介</h3><p>PHP（外文名:PHP: Hypertext Preprocessor，中文名：“超文本预处理器”）是一种通用开源脚本语言。主要适用于 <strong>Web 领域的开发</strong> ，能够完成 <strong>动态网页</strong> 的制作</p>
-<h3 id="PHP-特点"><a href="#PHP-特点" class="headerlink" title="PHP 特点"></a>PHP 特点</h3><ul>
-<li>PHP 是目前最流行的网站开发语言（B&#x2F;S 结构）之一</li>
-<li>PHP 是一种在服务器端执行的嵌入 HTML 文档的脚本语言</li>
-<li>支持几乎所有流行的 <strong>数据库</strong> 以及操作系统</li>
-<li>源码开放、免费（free)</li>
-<li>php 是世界上最好的语言</li>
-</ul>
-<h3 id="动态网站与静态网站-了解"><a href="#动态网站与静态网站-了解" class="headerlink" title="动态网站与静态网站(了解)"></a>动态网站与静态网站(了解)</h3><ul>
-<li><p>静态网站：使用浏览器端语言进行编程，网站由静态代码（HTML,CSS,JS）组成。</p>
-</li>
-<li><p>动态网站  ：网页通过服务器的程序(php 等)动态生成。用户可以和服务器进行交互（可以根据用户输入的不同信息，返回不同的运行结果）</p>
-</li>
-</ul>
-<p><strong>总结</strong></p>
-<p>动态网站的 <strong>动</strong> 指的是网站 <strong>数据的动</strong> 而不是 <strong>视觉上的动</strong></p>
-<h3 id="软件架构-了解"><a href="#软件架构-了解" class="headerlink" title="软件架构(了解)"></a>软件架构(了解)</h3><blockquote>
-<p>软件架构可以分为 BS 架构与 CS 架构</p>
-</blockquote>
-<h4 id="C-x2F-S-架构"><a href="#C-x2F-S-架构" class="headerlink" title="C&#x2F;S 架构"></a>C&#x2F;S 架构</h4><p>Client&#x2F;Server 架构，即客户端&#x2F;服务器架构。需要安装对应的客户端软件，才能获取服务器的服务</p>
-<p>常见的 CS 架构：QQ、LOL、微信等</p>
-<p>特点：</p>
-<ul>
-<li><p>需要安装才能使用</p>
-</li>
-<li><p>性能高效，使用更加稳定和流畅</p>
-</li>
-</ul>
-<h4 id="B-x2F-S-架构"><a href="#B-x2F-S-架构" class="headerlink" title="B&#x2F;S 架构"></a>B&#x2F;S 架构</h4><p>Broswer&#x2F;Server 架构，即浏览器&#x2F;服务器架构。随着 Internet 的兴起，无需安装专门客户端软件，通过浏览器去请求服务器</p>
-<ul>
-<li>不需要安装，只需要浏览器即可。</li>
-<li>相比 CS 架构，性能相对较差，没有那么流畅和稳定</li>
-</ul>
-<h2 id="php-基本语法结构"><a href="#php-基本语法结构" class="headerlink" title="php 基本语法结构"></a>php 基本语法结构</h2><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 避免使用中文目录和中文文件名</span></span><br><span class="line"><span class="comment">// 文件以.php后缀结尾，所有程序包含在&lt;?php 这里是代码 ?&gt;</span></span><br><span class="line"><span class="comment">// php页面无法直接打开需要运行在服务器环境当中</span></span><br><span class="line"><span class="comment">// 末尾必须加分号，不然就报错了（最后一行可以不加分号）</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">  <span class="keyword">echo</span> <span class="string">&quot;hello world&quot;</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>输出中文乱码问题：如果使用 echo 输出中文，可能会乱码</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">  <span class="comment">// 解决中文乱码的问题</span></span><br><span class="line">  <span class="title function_ invoke__">header</span>(<span class="string">&quot;content-Type:text/html;charset=utf-8&quot;</span>); <span class="comment">// 返回HTML文档文本并设置编码集</span></span><br><span class="line">  <span class="keyword">echo</span> <span class="string">&quot;hello world&quot;</span>;</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">&quot;&lt;br/&gt;&quot;</span>;</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">&quot;大家好，我是一名摄影工作者&quot;</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="PHP-运行原理"><a href="#PHP-运行原理" class="headerlink" title="PHP 运行原理"></a>PHP 运行原理</h2><h3 id="HTML-运行原理"><a href="#HTML-运行原理" class="headerlink" title="HTML 运行原理"></a>HTML 运行原理</h3><p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102205640.png"></p>
-<ol>
-<li>在浏览器的 URL 地址栏中输入 <span class="exturl" data-url="aHR0cDovL3d3dy5iYWlkdS5jb20vaW5kZXguaHRtbA==">www.baidu.com/index.html</span> 地址，点回车。请求就发送给百度服务器。</li>
-<li>百度服务器找到 index.html 文件，并将文件的内容返回给浏览器</li>
-<li>浏览器接收到 index.html 中的内容，渲染到页面上。</li>
-</ol>
-<p>同理: localhost&#x2F;a.html , 则会返回 本机 web 服务器根目录下 a.html 文件的内容。浏览器拿到内容后进行渲染。</p>
-<h3 id="PHP-运行原理-1"><a href="#PHP-运行原理-1" class="headerlink" title="PHP 运行原理"></a>PHP 运行原理</h3><p>apache 不认识 php<br>浏览器也不认识 php</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102205658.png"></p>
-<ol>
-<li>在浏览器地址栏中输入 localhost&#x2F;index.php ,点回车之后。将请求发送给 apache 服务器</li>
-<li>服务器找到 index.php 文件之后，转发给 php 解释器</li>
-<li>php 解释器将 index.php 文件中的 php 代码全部转为字符串，再返回给 apache</li>
-<li>apache 将处理好的字符串返回给浏览器，浏览器渲染后就可以看到页面</li>
-</ol>
-<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><blockquote>
-<p>php 是一门弱类型语法，变量的类型可以随意改变。<br>变量其实就是存储数据的容器</p>
-</blockquote>
-<p><strong>变量的命名规则</strong></p>
-<ul>
-<li>不需要关键字进行声明，变量在第一次赋值的时候被创建</li>
-<li>必须以 <code>$</code> 符号开始</li>
-<li><code>$</code> 后面的命名规则与 js 的变量命名规则一致</li>
-</ul>
-<h3 id="变量操作"><a href="#变量操作" class="headerlink" title="变量操作"></a>变量操作</h3><p><strong>声明变量</strong></p>
-<p>声明变量的时候也一定要同时赋值,否则变量无法声明成功</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 变量在声明的时候一定要同时赋值,否则变量无法声明成功</span></span><br><span class="line"><span class="variable">$name</span> = <span class="string">&quot;呵呵&quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$name</span>;</span><br></pre></td></tr></table></figure>
-
-<p><strong>删除变量 unset()</strong></p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">unset</span>(<span class="variable">$name</span>); <span class="comment">// 销毁指定的变量</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>判断变量是否设置值 isset()</strong></p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">isset</span>(<span class="variable">$name</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="keyword">isset</span>(<span class="variable">$name</span>); <span class="comment">// 用 echo 打印，如果为 true 会打印出 1 ， 如果为 false 打印空</span></span><br><span class="line"><span class="title function_ invoke__">var_dump</span>(<span class="keyword">isset</span>(<span class="variable">$name</span>)); <span class="comment">// 会打印出 bool(true)/bool(false)</span></span><br></pre></td></tr></table></figure>
-
-<p>变量未设置或者设置为 null，返回 false（认为变量没有设置），其余情况全部为 true。一般用来判断变量是否设置，因为变量未设置，无法直接使用。(变量先赋值，在使用！）</p>
-<p><strong>判断变量是否为空 empty()</strong></p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="title function_ invoke__">var_dump</span>(<span class="keyword">empty</span>(<span class="variable">$name</span>)); <span class="comment">// 为空打印出 bool(true)，不为空则打印 bool(false)</span></span><br></pre></td></tr></table></figure>
-
-<p>PHP 中认为变量的值为：<code>&quot;&quot;</code>、<code>0</code>、<code>&quot;0&quot;</code>、<code>null</code>、<code>false</code>、<code>[]</code> 时，变量虽然赋值了，但是无实际的意义，为空。</p>
-<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><blockquote>
-<p>php 数据类型: 8 种数据类型</p>
-<p>基本数据类型: 布尔, 字符串, 整数, 浮点数</p>
-<p>复合数据类型:数组, 对象</p>
-<p>特殊的类型:resource(资源) null</p>
-</blockquote>
-<h3 id="简单数据类型"><a href="#简单数据类型" class="headerlink" title="简单数据类型"></a>简单数据类型</h3><h4 id="输出语句"><a href="#输出语句" class="headerlink" title="输出语句"></a>输出语句</h4><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">//1. echo 输出简单数据类型</span></span><br><span class="line"><span class="comment">//2. print_r 输出数据结构，一般用于输出复杂类型。</span></span><br><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="variable">$arr</span>); <span class="comment">// print_r 是一个函数，不要忘记小括号</span></span><br><span class="line"><span class="comment">//3. var_dump 输出完整的数据结构，包括类型，一般用于精准调试</span></span><br><span class="line"><span class="title function_ invoke__">var_dump</span>(<span class="variable">$arr</span>);</span><br></pre></td></tr></table></figure>
-
-<h4 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h4><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$str</span> = <span class="string">&quot;php是世界上是最好的语言&quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$str</span>;</span><br></pre></td></tr></table></figure>
-
-<p><strong>字符串连接符</strong></p>
-<p>php 中，<code>+</code> 号只有算数的功能，并不能拼串，拼串使用 <code>.</code></p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$name</span> = <span class="string">&quot;大象&quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;大家好，我是&quot;</span> . <span class="variable">$name</span> . <span class="string">&quot;，今年18岁&quot;</span>;</span><br></pre></td></tr></table></figure>
-
-<p><strong>php 中的单引号与双引号</strong></p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">//1. 字符串的定义可以使用单引号，也可以使用双引号</span></span><br><span class="line"><span class="comment">//2. 双引号可以解析变量</span></span><br><span class="line"><span class="comment">//3. 单引号的性能会高于双引号（了解）</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$name</span> = <span class="string">&quot;大象&quot;</span>;</span><br><span class="line"><span class="variable">$desc</span> = <span class="string">&#x27;很帅&#x27;</span>;</span><br><span class="line"><span class="variable">$str</span> = <span class="string">&#x27;$name 很帅&#x27;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$str</span>; <span class="comment">// $name 很帅</span></span><br><span class="line"><span class="variable">$str</span> = <span class="string">&quot;<span class="subst">$name</span> 很帅&quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$str</span>; <span class="comment">// 大象 很帅</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="整数"><a href="#整数" class="headerlink" title="整数"></a>整数</h4><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$num</span> = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$num</span>;</span><br></pre></td></tr></table></figure>
-
-<h4 id="浮点型"><a href="#浮点型" class="headerlink" title="浮点型"></a>浮点型</h4><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$float</span> = <span class="number">11.11</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$float</span>;</span><br></pre></td></tr></table></figure>
-
-<h4 id="布尔类型"><a href="#布尔类型" class="headerlink" title="布尔类型"></a>布尔类型</h4><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$flag</span> = <span class="literal">true</span>;</span><br><span class="line"><span class="comment">// 当布尔类型值为true时，输出1</span></span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$flag</span>;</span><br><span class="line"><span class="variable">$flag</span> = <span class="literal">false</span>;</span><br><span class="line"><span class="comment">// 当布尔类型为false时，输出空字符串</span></span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$flag</span>;</span><br></pre></td></tr></table></figure>
-
-<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><blockquote>
-<p>在 php 中，数组分为两种，<strong>索引数组</strong> 和 <strong>关联数组</strong></p>
-<p>计算数组长度的方法：count(数组名)；</p>
-</blockquote>
-<p><strong>索引数组（类似与 JS 中的数组）</strong></p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$arr</span> = <span class="keyword">array</span>(<span class="string">&quot;张飞&quot;</span>,<span class="string">&quot;赵云&quot;</span>,<span class="string">&quot;马超&quot;</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$arr</span>; <span class="comment">// Array // echo 只能打印基本数据类型</span></span><br><span class="line"><span class="comment">// 使用 print_r() 打印</span></span><br><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="variable">$arr</span>); <span class="comment">// Array ([0] =&gt; 张飞 [1] =&gt; 赵云 [2] =&gt; 马超)</span></span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$arr</span>[<span class="number">0</span>]; <span class="comment">// 张飞</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>关联数组（类似与 JS 中的对象）</strong></p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 属性名必须用引号引起来</span></span><br><span class="line"><span class="variable">$arr</span> = <span class="keyword">array</span>(<span class="string">&quot;name&quot;</span>=&gt;<span class="string">&quot;zhangsan&quot;</span>, <span class="string">&quot;age&quot;</span>=&gt;<span class="number">18</span>);</span><br><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="variable">$arr</span>); <span class="comment">// Array ( [name] =&gt; zhangsan [age] =&gt; 18 )</span></span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$arr</span>[<span class="string">&quot;name&quot;</span>];</span><br></pre></td></tr></table></figure>
-
-<p><strong>二维数组与多维数组</strong></p>
-<p>数组中的每个元素又是一个数组<br>二维数组的存取元素，需要两次访问，依次确定行和列 <code>$arr[x][y]</code>;</p>
-<blockquote>
-<p>多维数组数组里面嵌套了两层以上的数组</p>
-</blockquote>
-<h3 id="对象-了解"><a href="#对象-了解" class="headerlink" title="对象(了解)"></a>对象(了解)</h3><blockquote>
-<p>在 php 以及其他高级语言中，都有类的概念，表示一类对象，跟 js 中构造函数类似。</p>
-</blockquote>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">//定义一个类（类似js的构造函数）</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="variable">$name</span> = <span class="string">&quot;小明&quot;</span>;</span><br><span class="line">  <span class="keyword">private</span> <span class="variable">$sex</span> = <span class="string">&quot;男&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$zs</span> = <span class="keyword">new</span> Person;</span><br><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="variable">$zs</span>);</span><br><span class="line"><span class="comment">//打印对象的结构信息 Person Object ([name] =&gt; 小明[sex:Person:private] =&gt; 男 )</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$zs</span>-&gt;name; <span class="comment">// 对象中取值用 -&gt;</span></span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$zs</span>-&gt;sex; <span class="comment">// 私有属性，无法获取</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h2><h3 id="分支结构-if-x2F-switch"><a href="#分支结构-if-x2F-switch" class="headerlink" title="分支结构(if&#x2F;switch)"></a>分支结构(if&#x2F;switch)</h3><p>基本上来说，所有语言的 if..else 语法都是一样</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$age</span> = <span class="number">17</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$age</span> &gt;= <span class="number">18</span>) &#123;</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">&quot;终于可以抽烟喝酒烫头了&quot;</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">&quot;哎......&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//===================</span></span><br><span class="line"><span class="keyword">switch</span>(变量)&#123;</span><br><span class="line">	<span class="keyword">case</span> 值<span class="number">1</span>:</span><br><span class="line">		程序块<span class="number">1</span>；</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">case</span> 值<span class="number">2</span>:</span><br><span class="line">		程序块<span class="number">2</span>；</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	...</span><br><span class="line">	<span class="keyword">default</span>:</span><br><span class="line">		程序块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="循环结构-while-x2F-for-x2F-do…while"><a href="#循环结构-while-x2F-for-x2F-do…while" class="headerlink" title="循环结构(while &#x2F; for &#x2F; do…while)"></a>循环结构(while &#x2F; for &#x2F; do…while)</h3><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span>(判断表达式)&#123;</span><br><span class="line">	程序块;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(赋值表达式; 判断表达式; 步进表达式)&#123;</span><br><span class="line">	程序块;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">do</span>&#123;</span><br><span class="line">	程序块</span><br><span class="line">&#125; <span class="keyword">while</span>(判断表达式)</span><br></pre></td></tr></table></figure>
-
-<p><strong>遍历索引数组</strong></p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$arr</span> = <span class="keyword">array</span>(<span class="string">&quot;张三&quot;</span>, <span class="string">&quot;李四&quot;</span>, <span class="string">&quot;王五&quot;</span>, <span class="string">&quot;赵六&quot;</span>, <span class="string">&quot;田七&quot;</span>, <span class="string">&quot;王八&quot;</span>);</span><br><span class="line"><span class="comment">// 获取数组的长度： count($arr)</span></span><br><span class="line"><span class="keyword">for</span>(<span class="variable">$i</span> = <span class="number">0</span>; <span class="variable">$i</span> &lt; <span class="title function_ invoke__">count</span>(<span class="variable">$arr</span>); <span class="variable">$i</span>++) &#123;</span><br><span class="line">  <span class="keyword">echo</span> <span class="variable">$arr</span>[<span class="variable">$i</span>];</span><br><span class="line">  <span class="keyword">echo</span> <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="foreach-语句结构"><a href="#foreach-语句结构" class="headerlink" title="foreach 语句结构"></a>foreach 语句结构</h3><blockquote>
-<p>用来遍历数组(关联数组和索引数组均可)。</p>
-</blockquote>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">foreach</span>(<span class="variable">$arr</span> <span class="keyword">as</span> <span class="variable">$key</span> =&gt; <span class="variable">$value</span>)&#123;</span><br><span class="line">	程序体</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$arr</span> <span class="keyword">as</span> <span class="variable">$value</span>)&#123;</span><br><span class="line">	程序体</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><code>$arr</code> : 要遍历的数组</p>
-<p><code>$key</code>: 键，可以是任意变量名</p>
-<p><code>$value</code>: 值，可以是任意变量名</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">//遍历关联数组</span></span><br><span class="line"><span class="variable">$arr</span> = <span class="keyword">array</span>(</span><br><span class="line">  <span class="string">&quot;name&quot;</span>=&gt;<span class="string">&quot;zs&quot;</span>,</span><br><span class="line">  <span class="string">&quot;age&quot;</span>=&gt;<span class="number">18</span>,</span><br><span class="line">  <span class="string">&quot;sex&quot;</span>=&gt;<span class="number">20</span></span><br><span class="line">);</span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$arr</span> <span class="keyword">as</span> <span class="variable">$k</span> =&gt; <span class="variable">$v</span>) &#123;</span><br><span class="line">  <span class="keyword">echo</span> <span class="variable">$k</span> . <span class="string">&quot;=&quot;</span> . <span class="variable">$v</span> . <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><blockquote>
-<p>注意，在 php 中函数不能重复声明</p>
-</blockquote>
-<p>php 中函数的语法与 js 中函数的语法基本一样，不同点在于</p>
-<ol>
-<li>函数名大小写不敏感</li>
-<li>函数的形参可以设置默认值</li>
-</ol>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="title function_ invoke__">header</span>(<span class="string">&quot;content-Type:text/html;charset=utf-8&quot;</span>);</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">sayHello</span> (<span class="params"><span class="variable">$name</span>=<span class="string">&quot;周杰伦&quot;</span></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;大家好，我是<span class="subst">$name</span>&quot;</span>;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line">        [<span class="keyword">return</span> 返回值;]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_ invoke__">sayHello</span>(); <span class="comment">// 不传参数，会使用默认值</span></span><br><span class="line">    <span class="title function_ invoke__">sayHello</span>(<span class="string">&quot;大象&quot;</span>); <span class="comment">// 传参数，默认值不生效</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>在 php 中函数不能重复声明</li>
-<li>函数体内的变量只在函数体内有效</li>
-<li>函数体外的变量只在函数体外有效</li>
-</ol>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="variable">$age</span> = <span class="number">18</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    	<span class="variable">$name</span> = <span class="string">&#x27;大象&#x27;</span>;</span><br><span class="line">    	<span class="keyword">echo</span> <span class="variable">$name</span>;  <span class="comment">// 有效</span></span><br><span class="line">    	<span class="keyword">echo</span> <span class="variable">$age</span>;  <span class="comment">// 无效</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">fn</span>(<span class="params"></span>)</span>;</span><br><span class="line">	<span class="keyword">echo</span> <span class="variable">$name</span>;  <span class="comment">// 无效</span></span><br><span class="line">  <span class="keyword">echo</span> <span class="variable">$age</span>; <span class="comment">// 有效</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h2><p>保存不会发生改变的数据(如：3.1415， 路径等)时，最好使用常量。</p>
-<p>常量的使用方法：</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="title function_ invoke__">define</span>(常量名, 常量值, [是否区分大小写]);</span><br><span class="line"><span class="comment">// 默认 false 区分大小写， true 不区分大小写</span></span><br><span class="line"><span class="title function_ invoke__">define</span>(<span class="string">&quot;PI&quot;</span>, <span class="number">3.1415</span>, <span class="literal">true</span>);</span><br><span class="line"><span class="keyword">echo</span> PI;</span><br><span class="line"><span class="keyword">echo</span> pi;</span><br></pre></td></tr></table></figure>
-
-<p><strong>注意:</strong> 一般在实际工作中，常量都用大写，<strong>常量不能被重新赋值</strong></p>
-<h2 id="PHP-内置函数"><a href="#PHP-内置函数" class="headerlink" title="PHP 内置函数"></a>PHP 内置函数</h2><h3 id="数学函数"><a href="#数学函数" class="headerlink" title="数学函数"></a>数学函数</h3><ul>
-<li>max(),min() 分别返回一组数的最大值及最小值；</li>
-<li>abs() 返回绝对值。</li>
-<li>floor() 向下取整。</li>
-<li>ceil() 向上取整。</li>
-<li>round() 四舍五入。</li>
-<li>rand()  返回随机整数，可以取到两端的值。</li>
-</ul>
-<h3 id="日期函数"><a href="#日期函数" class="headerlink" title="日期函数"></a>日期函数</h3><ul>
-<li><p><code>time()</code> 返回当前的时间戳 (1970 到现在的时间的秒数)</p>
-</li>
-<li><p><code>date(format,time)</code> 格式化一个本地时间或日期</p>
-<p>格式：Y(年) m(月) d(日) H(时) i(分) s 秒</p>
-</li>
-</ul>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$time</span> = <span class="title function_ invoke__">time</span>(); <span class="comment">// 获取时间戳</span></span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">date</span>(<span class="string">&#x27;Y-m-d H:i:s&#x27;</span>,<span class="variable">$time</span>); <span class="comment">// 格式化时间戳</span></span><br><span class="line"><span class="comment">// Y, m, d, H, i, s 分别代表 年 月 日 时 分 秒</span></span><br></pre></td></tr></table></figure>
-
-<p>默认时区会不太正确, 我们在东八区, 比 0 时区会多八小时</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">路径: D:\phpStudy\php\php-<span class="number">5.4</span>.<span class="number">45</span></span><br><span class="line">在php.ini里加上找到date.timezone项，设置date.timezone = <span class="string">&quot;PRC&quot;</span>，重启环境就ok了。</span><br><span class="line">PRC: 中华人民共和国</span><br></pre></td></tr></table></figure>
-
-<h3 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a>字符串函数</h3><ul>
-<li><code>str_replace(查找的值，替换的值，执行替换操作的字符)</code> 字符串替换（会把符合的值全部替换）</li>
-<li><code>trim(字符串);</code> 去除首尾空白字符</li>
-<li><code>explode(分割符，执行分割的字符串);</code> 使用一个字符分割一个字符串，返回一个数组(类似 split)</li>
-<li><code>implode(连接符，执行连接的数组);</code> 将数组根据连接符拼接成字符串(类似 join)</li>
-<li><code>substr(字符串，起始索引，截取长度);</code> 截取字符串，注意中文占 3 个字节长度</li>
-<li><code>strchr(字符串，标识字符);</code> 从左向右找标识字符，返回该字符后全部字符(包括该字符)</li>
-<li><code>strrchr(字符串，标识字符);</code> 从右向左找标识字符，返回该字符后全部字符(包括该字符) <strong>主要用于获取后缀名</strong></li>
-</ul>
-<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p><strong>查找数组中是否含有指定内容</strong></p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// in_array(查找的内容, 数组)   如果查找到返回 true ，查找不到返回 false</span></span><br><span class="line">result = <span class="title function_ invoke__">in_array</span>(<span class="variable">$uname</span>, <span class="variable">$arr</span>);</span><br><span class="line"><span class="comment">// 可用来判断用户名是否已存在数据库中</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>从数组中随机获取数据</strong></p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// array_rand(被操作的数据, 数据长度) 返回一个随机的下标</span></span><br><span class="line"><span class="variable">$arr</span> = <span class="title function_ invoke__">array_rand</span>(<span class="variable">$results</span>, <span class="number">2</span>); <span class="comment">// 返回一个数组，随机两个下标</span></span><br><span class="line"><span class="variable">$index</span> = <span class="title function_ invoke__">array_rand</span>(<span class="variable">$results</span>, <span class="number">1</span>); <span class="comment">// 返回一个随机的下标</span></span><br><span class="line"><span class="variable">$results</span>[<span class="variable">$index</span>]; <span class="comment">// 用来随机获取数组中的一项</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="页面动态渲染"><a href="#页面动态渲染" class="headerlink" title="页面动态渲染"></a>页面动态渲染</h2><ul>
-<li><p>PHP 本身支持与 HTML 混编</p>
-</li>
-<li><p>混编的文件后缀必须为 .php， Apache 才会调用 PHP 解析</p>
-</li>
-<li><p>PHP 与 HTML 混编时，服务器中的 PHP 引擎 只会执行 php 标签内部的 PHP 代码，非 PHP 的代码(PHP 标签外部的内容)直接忽略，最后会将 PHP 的执行结果和非 PHP 代码 一起返回给浏览器,由浏览器进行解析</p>
-</li>
-<li><p>一个 php 页面当中,可以写多个 php 语法结构,但是 php 语法结构 <strong>不能嵌套</strong></p>
-</li>
-</ul>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">  <span class="title function_ invoke__">header</span>(<span class="string">&#x27;content-type:text/html;charset=utf-8&#x27;</span>);</span><br><span class="line">  <span class="keyword">echo</span> <span class="number">2</span>+<span class="number">3</span>;</span><br><span class="line">  <span class="comment">// php的引擎 只会执行php代码块中代码，代码块外面的代码会被忽略最后 服务器会将php执行的结果和代码块外面的内容一起返回给浏览器，由浏览器进行解析</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"><span class="comment">// 在php语法结构外面， 可以写 html ，会直接在浏览器中渲染</span></span><br><span class="line">&lt;a href=<span class="string">&quot;http://www.baidu.com&quot;</span>&gt;百度一下&lt;/a&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="include-文件引入"><a href="#include-文件引入" class="headerlink" title="include 文件引入"></a>include 文件引入</h2><p><strong>介绍</strong>：不同的页面中有相同的代码部分，可以将其分离为单个文件。需要调用时，<strong>include 引入对应的文件即可调用</strong>。提高代码的复用率。类似于 js 中 script 标签导入, 可以用于函数复用</p>
-<p><strong>语法</strong></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 可以是html、php或其他类型的页面</span></span><br><span class="line">include | include_once   <span class="string">&quot;文件的路径&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>include 与 include_once 区别</strong></p>
-<ul>
-<li>include 可以重复引入文件</li>
-<li>include_once 只引入一次，防止多次引入文件</li>
-<li>如果文件中有函数，include 重复引入会报错，include_once 不会报错</li>
-</ul>
-<h2 id="PHP-数据读写到文件-数据持久化"><a href="#PHP-数据读写到文件-数据持久化" class="headerlink" title="PHP 数据读写到文件(数据持久化)"></a>PHP 数据读写到文件(数据持久化)</h2><p>程序运行过程中，数据存储在内存中的，程序结束, 数据会销毁</p>
-<p>如果希望可以永久存储某些数据，可以将数据存储在硬盘上（存储在文件中）</p>
-<p>将数据由内存存储到硬盘的过程，称为数据持久化；</p>
-<ul>
-<li><p><code>file_get_contents(path)</code>   根据路径读取文件内容, 返回一个字符串</p>
-</li>
-<li><p><code>file_put_contents(path,$str)</code>   将一个字符串写入到一个文件中。(只能存储字符串)</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="title function_ invoke__">file_put_contents</span>(<span class="keyword">string</span> <span class="variable">$file</span>, <span class="keyword">string</span> <span class="variable">$data</span>[, constants flag]);</span><br><span class="line">参数<span class="number">1</span>: 文件路径</span><br><span class="line">参数<span class="number">2</span>: 要写入文件的字符串</span><br><span class="line">参数<span class="number">3</span>: 可选参数，默认不写，新内容覆盖原文件中的内容；FILE_APPEND 是向文件中追加内容</span><br><span class="line">返回值: 写入文件的字符串长度(不用记)</span><br></pre></td></tr></table></figure></li>
-</ul>
-<p>使用 <code>file_put_contents</code> 存储数组的时候，会丢失数据</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$arr</span> = [<span class="string">&#x27;zs&#x27;</span>, <span class="string">&#x27;ls&#x27;</span>, <span class="string">&#x27;ww&#x27;</span>];</span><br><span class="line"><span class="variable">$arr1</span> = [<span class="string">&#x27;name&#x27;</span>=&gt;<span class="string">&#x27;zs&#x27;</span>, <span class="string">&#x27;age&#x27;</span>=&gt;<span class="number">18</span>];</span><br><span class="line"><span class="title function_ invoke__">file_put_contents</span>(<span class="string">&quot;02-test.txt&quot;</span>, <span class="variable">$arr</span>); <span class="comment">// zslsww</span></span><br><span class="line"><span class="title function_ invoke__">file_put_contents</span>(<span class="string">&quot;02-test.txt&quot;</span>, <span class="variable">$arr1</span>); <span class="comment">// zs18</span></span><br></pre></td></tr></table></figure>
-
-<p>把一个数组，转成一个 json 格式的字符串</p>
-<ul>
-<li><code>json_encode($data)</code> 将 PHP 数组转成 JSON 格式字符串。</li>
-<li><code>json_decode($str,true)</code> 将 JSON 字符串, 转换为 PHP 数组。（不传 true, 有可能转完之后是个对象, 传了 true,一定是数组）</li>
-</ul>
-<h2 id="表单处理"><a href="#表单处理" class="headerlink" title="表单处理"></a>表单处理</h2><blockquote>
-<p>表单（form）：表单用于收集用户输入信息，并将数据提交给服务器。是一种常见的与服务端数据交互的一种方式</p>
-</blockquote>
-<ol>
-<li><code>action</code>: 指定表单的提交地址（如果提交到当前页面，action 可以为空）</li>
-<li><code>method</code>: 指定表单的提交方式，get&#x2F;post，默认 get</li>
-<li><code>input</code> 的数据想要提交到后台，必须指定 name 属性，后台通过 name 属性获取值</li>
-<li>想要提交表单，不能使用 <code>input:button</code> 必须使用 <code>input:submit</code></li>
-</ol>
-<h3 id="php-获取表单数据"><a href="#php-获取表单数据" class="headerlink" title="php 获取表单数据"></a>php 获取表单数据</h3><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// $_GET 是 PHP 系统提供的一个超全局变量，是一个数组，里面存放了表单通过 get 方式提交的数据</span></span><br><span class="line"><span class="comment">// $_POST 是 PHP 系统提供的一个超全局变量，是一个数组，里面存放了表单通过 post 方式提交的数据</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>get 与 post 的区别</strong></p>
-<ul>
-<li><code>get</code> 方式<br>数据会拼接在 url 地址的后面 (?username&#x3D;pp&amp;password&#x3D;123456)<br>地址栏有长度限制，因此 get 方式提交数据大小不会超过 4k</li>
-<li><code>post</code> 方式<br>数据不会在 url 中显示，相比 get 方式，post 更安全<br>提交的数据没有大小限制，可用于文件上传</li>
-</ul>
-<h3 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h3><p><strong>html 要求</strong></p>
-<ul>
-<li><p>文件上传的提交方式必须是 <code>post</code> 方式</p>
-</li>
-<li><p>需要给 <code>form</code> 指定 <code>enctype=&quot;multipart/form-data&quot;</code></p>
-</li>
-<li><p>指定 <code>name</code> 属性，后台才能获取到</p>
-</li>
-</ul>
-<p><strong>php 相关</strong></p>
-<ul>
-<li>文件上传时，通过 <code>$_FILES</code> 才能获取到，这是一个二维数组。</li>
-</ul>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="title function_ invoke__">Array</span></span><br><span class="line">(</span><br><span class="line">  [photo] =&gt; <span class="title function_ invoke__">Array</span></span><br><span class="line">    (</span><br><span class="line">      [name] =&gt; <span class="number">001</span>.jpg   <span class="comment">// 文件名字</span></span><br><span class="line">      [type] =&gt; image/jpeg  <span class="comment">// 文件类型</span></span><br><span class="line">      <span class="comment">// 上传图片保存的位置</span></span><br><span class="line">      [tmp_name] =&gt; C:\Users\Jepson\AppData\Local\Temp\phpF2A0.tmp</span><br><span class="line">      [error] =&gt; <span class="number">0</span>     <span class="comment">// 上传错误码, 错误码为 0 表示没有错误</span></span><br><span class="line">      [size] =&gt; <span class="number">6000</span>   <span class="comment">// 文件大小, 单位字节, 大小 6kb 左右</span></span><br><span class="line">    )</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>上传文件时，文件会临时保存在服务器上，如果文件最终没有保存，那么临时文件会被删除，保证服务器安全。</p>
-</li>
-<li><p><code>sleep(10)</code> 可以让代码延迟 10 秒钟才执行。</p>
-</li>
-<li><p><code>move_uploaded_file($path, $newPath);</code> 可以转存临时文件，真正把文件存储起来</p>
-</li>
-<li><p><code>unlink(filename,context)</code> 删除文件，若成功，则返回 true，失败则返回 false</p>
-</li>
-</ul>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 保存图片的完整代码</span></span><br><span class="line"><span class="comment">// 思路:</span></span><br><span class="line"><span class="comment">// 1. 在文件上传成功的情况下, 进行图片的保存   error == 0</span></span><br><span class="line"><span class="comment">// 2. 获取临时文件路径</span></span><br><span class="line"><span class="comment">// 3. 随机生成新的文件名, 注意文件中后缀名是不能改变的</span></span><br><span class="line"><span class="comment">// 4. 根据新的文件名, 转移临时文件</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$file</span> = <span class="variable">$_FILES</span>[<span class="string">&#x27;photo&#x27;</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 判断上传是否成功</span></span><br><span class="line"><span class="keyword">if</span> ( <span class="variable">$file</span>[<span class="string">&#x27;error&#x27;</span>] == <span class="number">0</span> ) &#123; <span class="comment">// 上传成功</span></span><br><span class="line">  <span class="comment">// 1. 获取临时文件路径</span></span><br><span class="line">  <span class="variable">$ftemp</span> = <span class="variable">$file</span>[<span class="string">&#x27;tmp_name&#x27;</span>];</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 2. 随机生成新的文件名, 后缀不能随便起, 要获取一下</span></span><br><span class="line">  <span class="variable">$name</span> = <span class="variable">$file</span>[<span class="string">&#x27;name&#x27;</span>];</span><br><span class="line">  <span class="variable">$text</span> = <span class="title function_ invoke__">strrchr</span>(<span class="variable">$name</span>, <span class="string">&#x27;.&#x27;</span>);</span><br><span class="line">  <span class="comment">// 为了防止重复, 生成随机的文件名以当前时间秒数+随机数组成</span></span><br><span class="line">  <span class="variable">$newName</span> = <span class="title function_ invoke__">time</span>().<span class="title function_ invoke__">rand</span>(<span class="number">10000</span>,<span class="number">99990</span>).<span class="variable">$text</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 3. 进行转存</span></span><br><span class="line">  <span class="title function_ invoke__">move_uploaded_file</span>(<span class="variable">$ftemp</span>, <span class="string">&quot;./upload/<span class="subst">$newName</span>&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="学生信息管理系统-1-0"><a href="#学生信息管理系统-1-0" class="headerlink" title="学生信息管理系统 1.0"></a>学生信息管理系统 1.0</h2><h3 id="基本功能"><a href="#基本功能" class="headerlink" title="基本功能"></a>基本功能</h3><ul>
-<li>学生添加功能</li>
-<li>展示学生信息功能</li>
-<li>删除学生信息</li>
-</ul>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// array_splice(数组, 开始的下标, 截取长度) 将匹配到的数据截取掉，会改变原来的数组</span></span><br><span class="line"><span class="title function_ invoke__">array_splice</span>(<span class="variable">$arr</span>, <span class="variable">$_GET</span>[<span class="string">&quot;index&quot;</span>], <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加内容到数组：将 $stuArr 添加到数组 $arr 中</span></span><br><span class="line"><span class="variable">$arr</span>[] = <span class="variable">$stuArr</span>;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Mysql-数据库"><a href="#Mysql-数据库" class="headerlink" title="Mysql 数据库"></a>Mysql 数据库</h2><h3 id="数据库概念"><a href="#数据库概念" class="headerlink" title="数据库概念"></a>数据库概念</h3><p>专门用来存储、管理数据的仓库 英文：Database, DB。</p>
-<h3 id="数据库的分类"><a href="#数据库的分类" class="headerlink" title="数据库的分类"></a>数据库的分类</h3><ul>
-<li><p>关系型数据库: 基于表，表与表之间可以存在关系，可以进行多表查询的存储方式，适合较为复杂的存储</p>
-<p>如: MySQL, SQL Server, oracle</p>
-<p>表结构:</p>
-<p>每一行代表一条数据 — <strong>记录</strong></p>
-<p>每一列都是一类数据 — <strong>字段</strong></p>
-<table>
-<thead>
-<tr>
-<th><strong>订单编号</strong></th>
-<th><strong>商品名称</strong></th>
-<th><strong>价格</strong></th>
-<th><strong>数量</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>100123</td>
-<td>华为 mate10</td>
-<td>4999</td>
-<td>2</td>
-</tr>
-<tr>
-<td>100124</td>
-<td>花裙子</td>
-<td>499</td>
-<td>1</td>
-</tr>
-</tbody></table>
-</li>
-<li><table>
-<thead>
-<tr>
-<th>订单编号</th>
-<th>用户</th>
-<th>配送地址</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>100123</td>
-<td>隔壁老王</td>
-<td>北京市京顺路 99 号</td>
-</tr>
-<tr>
-<td>100124</td>
-<td>隔壁老宋</td>
-<td>北京市清华大学 1 号楼</td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-<ul>
-<li><p>非关系型数据库: 基于键值对的存储方式，数据之间没有耦合性，特点执行效率高</p>
-<p>如：mongodb</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 类似对象的键值对形式</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;username&quot;</span>: <span class="string">&quot;gblw&quot;</span>,</span><br><span class="line">    <span class="string">&quot;password&quot;</span>: <span class="number">123456</span>,</span><br><span class="line">    <span class="string">&quot;uid&quot;</span>: <span class="number">007</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="MySQL-数据库软件"><a href="#MySQL-数据库软件" class="headerlink" title="MySQL 数据库软件"></a>MySQL 数据库软件</h3><blockquote>
-<p>MySQL 数据库软件中可以有多个数据库,每一个数据库中可以有多个表</p>
-</blockquote>
-<h4 id="可视化工具-navicat"><a href="#可视化工具-navicat" class="headerlink" title="可视化工具 navicat"></a>可视化工具 navicat</h4><blockquote>
-<p>MySQL 只是一个数据库软件，如果我们要创建数据库，或对数据库进行增删改查，刚开始可以用可视化工具来操作，让我们更加直观的了解数据库</p>
-</blockquote>
-<h5 id="安装-navicat"><a href="#安装-navicat" class="headerlink" title="安装 navicat"></a>安装 navicat</h5><h5 id="让-navicat-和-MySQL-建立连接"><a href="#让-navicat-和-MySQL-建立连接" class="headerlink" title="让 navicat 和 MySQL 建立连接"></a>让 navicat 和 MySQL 建立连接</h5><p>点击左上角 连接 &#x3D;&gt; MySQL &#x3D;&gt; 常规 &#x3D;&gt; 端口 3306 &#x3D;&gt;</p>
-<h4 id="数据库表的操作"><a href="#数据库表的操作" class="headerlink" title="数据库表的操作"></a>数据库表的操作</h4><h5 id="数据库的数据类型"><a href="#数据库的数据类型" class="headerlink" title="数据库的数据类型"></a>数据库的数据类型</h5><blockquote>
-<p>也就是数据库中可以存储的数据类型(又叫做字段类型)</p>
-</blockquote>
-<p><strong>字段类型</strong></p>
-<ul>
-<li><p>整型 <code>int</code></p>
-<p>​ 存储如年龄，产品数量，编号等。</p>
-</li>
-<li><p>小数类型 <code>float</code> , <code>decimal</code></p>
-<blockquote>
-<p>重量，工资，奖金，价格等使用 decimal 类型，实现小数的精确存储,一般用来存储与钱有关的数字。3.333333331</p>
-</blockquote>
-</li>
-<li><p>字符串型 <code>varchar(M)</code>，<code>char(M)</code></p>
-<ul>
-<li><p>M 为该字段可以存储的最多字符数(字节) ，如 varchar(10)最大可以存储 10 个字节</p>
-</li>
-<li><p>varchar 一般用来存储长度变化比较大的字符串，如文章标题，商品名称</p>
-</li>
-<li><p>char 存储长度比较固定的字符串，如手机号，身份证号，序列号，邮编</p>
-</li>
-<li><p>此外可以使用 text 类型，存储较长的字符串，无需指定字符串的具体长度</p>
-</li>
-</ul>
-</li>
-<li><p>日期时间型 <code>datetime</code>, <code>date(年月日)</code>，<code>time(时分秒)</code></p>
-</li>
-</ul>
-<p><strong>字段约束</strong></p>
-<p>字段约束: 字段数据的属性规则（特征）</p>
-<ol>
-<li><p><code>not null</code> 不为空，可以限制字段值不能为空</p>
-</li>
-<li><p><code>default</code> 默认值，可以设置字段的默认值，在没有录入时自动使用默认值填充。</p>
-</li>
-<li><p><code>primary key</code> 主键 ：唯一标识，不能重复，不能为空</p>
-<p>设置字段为主键，主键字段的值不能重复，不能为空。而且一个数据表中只能设置一个字段为主键，作为每行记录的唯一身份信息（索引）。</p>
-</li>
-<li><p><code>auto_increment</code> 自动增长</p>
-<p>设置字段为自动增长，默认从 1 开始自动分配编号。自增长字段必须为一个 key（索引，数据结构，便于快速查找数据，相当于书的目录），一般与 primary key 结合使用。类型必须为整型。</p>
-</li>
-<li><p><code>unique key</code> 不能重复</p>
-<p>唯一键，设置字段的值为唯一的，可以设置多个字段为唯一键。唯一键字段的值可以为空。</p>
-</li>
-</ol>
-<h5 id="创建数据表"><a href="#创建数据表" class="headerlink" title="创建数据表"></a>创建数据表</h5><blockquote>
-<p>注意 创建表时，每个表必须有一个主键</p>
-</blockquote>
-<h2 id="SQL-操作数据库的语言"><a href="#SQL-操作数据库的语言" class="headerlink" title="SQL-操作数据库的语言"></a>SQL-操作数据库的语言</h2><blockquote>
-<p>SQL：structured Query Language 结构化查询语言。</p>
-</blockquote>
-<ul>
-<li>通过这个语言可以对数据库进行增删改查</li>
-</ul>
-<p>SQL 编写注意点: 注释用 <code>--</code> , 语句结束加分号 <code>;</code></p>
-<h3 id="基本用法：增删改查"><a href="#基本用法：增删改查" class="headerlink" title="基本用法：增删改查"></a>基本用法：增删改查</h3><ol>
-<li>插入数据 <code>insert</code></li>
-</ol>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- insert into 表名 (字段列表) values (值列表)</span></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> book (name, age, sex) <span class="keyword">values</span> (<span class="string">&#x27;zs&#x27;</span>,<span class="string">&#x27;18&#x27;</span>,<span class="string">&#x27;m&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>修改数据 <code>update</code></li>
-</ol>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- update 表名 set 字段名称1=值1,字段名称2=值2,... where 条件</span></span><br><span class="line"><span class="comment">-- 如果不加条件会修改表中所有对应的字段</span></span><br><span class="line"><span class="keyword">update</span> book <span class="keyword">set</span> name<span class="operator">=</span><span class="string">&#x27;ls&#x27;</span>, age<span class="operator">=</span><span class="string">&#x27;30&#x27;</span> <span class="keyword">where</span> id<span class="operator">=</span><span class="number">10</span>;</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>删除数据 <code>delete</code></li>
-</ol>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- delete from 表名 where 条件</span></span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> book <span class="comment">-- 会删除所有数据</span></span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> book <span class="keyword">where</span> id<span class="operator">=</span><span class="number">10</span>;</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>查询数据 select</li>
-</ol>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- select 字段列表 from 表名</span></span><br><span class="line"><span class="keyword">select</span> name, age <span class="keyword">from</span> book <span class="comment">-- 只查询表中 name 和 author 的信息</span></span><br><span class="line"><span class="comment">-- select * from 表名 where 条件  * 表示所有字段</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> book <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">2</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> book <span class="keyword">where</span> name<span class="operator">=</span><span class="string">&#x27;zs&#x27;</span> <span class="keyword">and</span> age<span class="operator">=</span><span class="number">20</span>;</span><br></pre></td></tr></table></figure>
-
-<h3 id="高级用法"><a href="#高级用法" class="headerlink" title="高级用法"></a>高级用法</h3><ul>
-<li><p><code>where</code> 条件</p>
-<p>查询时，不添加 where 条件, 返回数据表所有行。需要添加限定条件，只返回需要的行。</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- select  字段列表 from  表名 where 条件；</span></span><br><span class="line"><span class="comment">-- 条件 : =, &gt;, &lt;, &gt;=, &lt;=, and, or</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>like</code> 模糊匹配  % 通配符</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 查找姓张的人</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> 表名 <span class="keyword">where</span> name <span class="keyword">like</span> <span class="string">&#x27;张%&#x27;</span>;​</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>in</code> 语法：一次查询多个符合条件的数据</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- select * from 表名 where 字段 in (value1,value2,value3);</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> stu <span class="keyword">where</span> name <span class="keyword">in</span> (<span class="string">&#x27;zs&#x27;</span>, <span class="string">&#x27;ls&#x27;</span>, <span class="string">&#x27;ww&#x27;</span>); <span class="comment">-- 查找name值为zs, ls, ww 的数据</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>count()</code> 获取返回数据的总条数</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 查询满足条件数据的总条数</span></span><br><span class="line"><span class="comment">-- select count(*) from 表名 where 条件</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>order</code> 排序</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- select * from 表名 order by  字段名称;   	  	默认升序</span></span><br><span class="line"><span class="comment">-- select * from 表名 order by  age;  -- 按照年龄来排序</span></span><br><span class="line"><span class="comment">-- select * from 表名 order by 字段名称 desc;      desc 表示降序</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>limit</code> 对结果集进行截取 一般用于取数据的前几条</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- select *  from  表名  limit 截取的起始索引，截取的长度</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>联合查询（多个表联合查询）</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> 字段列表 <span class="keyword">from</span> 表A <span class="keyword">join</span> 表B <span class="keyword">on</span> 表A.字段<span class="operator">=</span>表B.字段 <span class="keyword">where</span> 条件</span><br><span class="line"><span class="keyword">join</span> 将表A和表B联合起来</span><br><span class="line"><span class="keyword">on</span> 根据什么字段把表A和表B联合起来</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span>  <span class="keyword">from</span>  teacher  <span class="keyword">join</span> class  <span class="keyword">on</span> class.id<span class="operator">=</span>teacher.classid;  <span class="comment">-- 老师表和班级表联合查询</span></span><br><span class="line"><span class="keyword">select</span> teacher.<span class="operator">*</span>, class.classname  <span class="keyword">from</span>  teacher  <span class="keyword">join</span> class  <span class="keyword">on</span> class.id<span class="operator">=</span>teacher.classid;   <span class="comment">-- 老师表和班级表联合查询,但只显示老师表的全部内容和班级表的名称</span></span><br><span class="line"><span class="comment">-- 注意: 多表联合查询时,字段要写明是那个表的字段 如  表.字段名</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="PHP-操作数据库"><a href="#PHP-操作数据库" class="headerlink" title="PHP 操作数据库"></a>PHP 操作数据库</h2><h3 id="连接数据库基本步骤"><a href="#连接数据库基本步骤" class="headerlink" title="连接数据库基本步骤"></a>连接数据库基本步骤</h3><ol>
-<li>连接数据库</li>
-<li>准备 sql 语句</li>
-<li>执行 sql 语句</li>
-<li>获取执行的结果并分析</li>
-<li>关闭数据库</li>
-</ol>
-<h3 id="操作数据库常用-API"><a href="#操作数据库常用-API" class="headerlink" title="操作数据库常用 API"></a>操作数据库常用 API</h3><ul>
-<li><p><code>mysqli_connect(IP, 用户名，密码，数据库名)，端口号</code> 连接数据库</p>
-</li>
-<li><p><code>mysqli_query($link, $sql)</code> 执行 SQL 语句</p>
-</li>
-<li><p><code>mysqli_error($link);</code> 返回错误描述</p>
-</li>
-<li><p><code>mysqli_close($link);</code> 关闭连接</p>
-</li>
-<li><p><code>mysqli_fetch_assoc($res);</code> 从结果集中取得一行作为关联数组返回</p>
-</li>
-<li><p><code>mysqli_num_rows($res);</code> 返回结果集的行数</p>
-</li>
-</ul>
-<h3 id="sql-操作"><a href="#sql-操作" class="headerlink" title="sql 操作"></a>sql 操作</h3><ul>
-<li>使用 PHP 发送 SQL 语句前，可以先打印 SQL 语句，检查语句的正确性。</li>
-<li>修改数据库的数据时, 使用变量拼接 SQL 语句&#x3D;，字段的值为字符串类型时，需要在变量的两侧使用单、双引号包裹。可以将所有的字段外面都使用双引号包含。</li>
-</ul>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 连接数据库</span></span><br><span class="line"><span class="comment">// mysqli_connect(ip地址, 用户名, 密码, 数据库的名称, 端口号);</span></span><br><span class="line"><span class="comment">// 执行结果</span></span><br><span class="line"><span class="comment">//    1. 连接成功, 返回一个数据库连接对象</span></span><br><span class="line"><span class="comment">//    2. 连接失败, 返回 false</span></span><br><span class="line"><span class="comment">// @ 表示错误抑制符, 可以抑制错误的输出</span></span><br><span class="line"><span class="variable">$link</span> = @ <span class="title function_ invoke__">mysqli_connect</span>(<span class="string">&#x27;127.0.0.1&#x27;</span>, <span class="string">&#x27;root&#x27;</span>, <span class="string">&#x27;root&#x27;</span>, <span class="string">&#x27;study&#x27;</span>, <span class="number">3306</span>);</span><br><span class="line"><span class="comment">// var_dump($link);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果数据库连接失败</span></span><br><span class="line"><span class="keyword">if</span> ( !<span class="variable">$link</span> ) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;数据库连接失败&quot;</span>；</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 程序结束, die 方法, 终止当前程序执行, 输出一段语句</span></span><br><span class="line">	<span class="keyword">die</span>(<span class="string">&quot;数据库连接失败&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;数据库连接成功&lt;br&gt;&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 准备 sql 语句: 删除一条数据</span></span><br><span class="line"><span class="variable">$sql</span> = <span class="string">&quot;delete from stu where id = 14&quot;</span>;</span><br><span class="line"><span class="variable">$name</span> = <span class="string">&quot;gblw&quot;</span>;</span><br><span class="line"><span class="variable">$age</span> = <span class="number">31</span>;</span><br><span class="line"><span class="variable">$sq2</span> = <span class="string">&quot;insert into stu (name, age) values (&#x27;<span class="subst">$name</span>&#x27;, <span class="subst">$age</span>)&quot;</span>;</span><br><span class="line"><span class="comment">// sql 语句一般用双引号包裹</span></span><br><span class="line"><span class="comment">// 如果语句中含有拼接的变量，需要用单引号包裹</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 让数据库执行 sql 语句, 并分析结果</span></span><br><span class="line"><span class="comment">// mysqli_query(数据库连接对象, 要执行的sql语句)</span></span><br><span class="line"><span class="comment">// 非查询语句：执行成功返回 true, 执行失败返回 false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. 根据结果不同做逻辑判断</span></span><br><span class="line"><span class="keyword">if</span> ( <span class="title function_ invoke__">mysqli_query</span>( <span class="variable">$link</span>, <span class="variable">$sql</span> ) ) &#123;</span><br><span class="line">    <span class="comment">// 如果删除的数据不存在，也会返回 true，</span></span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;删除成功&quot;</span>;</span><br><span class="line">&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// sql 语句错误，才会返回 false</span></span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;删除失败&quot;</span>;</span><br><span class="line">    <span class="comment">// mysqli_error 可以查看错误消息</span></span><br><span class="line">    <span class="keyword">echo</span> <span class="title function_ invoke__">mysqli_error</span>(<span class="variable">$link</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 查询语句： 成功返回结果集, 失败返回 false</span></span><br><span class="line"><span class="comment">// 数据查询不到也会返回结果集，只是数据条数为 0，sql 语句有错误才会返回 false</span></span><br><span class="line"><span class="variable">$res2</span> = <span class="title function_ invoke__">mysqli_query</span>( <span class="variable">$link</span>, <span class="variable">$sq2</span> );</span><br><span class="line"><span class="comment">// $res2 是返回的结果集,是一个对象，表面上看没有我们要的数据,如果我们想要数据,需要调用mysqli_fetch_assoc($res2)去获取</span></span><br><span class="line"><span class="comment">// 结果集中 field_count 表示字段数，num_rows 表示查询到的数据条数</span></span><br><span class="line"><span class="comment">// 注意: mysqli_fetch_assoc($res2)执行一次,只会从结果集中拿一条数据出来(执行几次就拿出几条数据)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. 根据结果不同做逻辑判断</span></span><br><span class="line"><span class="keyword">if</span> ( !<span class="variable">$res</span> ) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="title function_ invoke__">mysqli_error</span>( <span class="variable">$link</span> );</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">&#x27;数据库查询失败&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// mysqli_fetch_assoc 查询成功, 从结果集中取数据, 以关联数组的形式返回</span></span><br><span class="line"><span class="comment">// 一次只取一条数据, 如果没取到, 返回 null</span></span><br><span class="line"><span class="variable">$arr</span> = [];</span><br><span class="line"><span class="keyword">while</span>( <span class="variable">$row</span> = <span class="title function_ invoke__">mysqli_fetch_assoc</span>( <span class="variable">$res</span> ) ) &#123;</span><br><span class="line">    <span class="comment">// 将值推到数组中</span></span><br><span class="line">    <span class="variable">$arr</span>[] = <span class="variable">$row</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 也可以采用 for 循环遍历</span></span><br><span class="line"><span class="comment">// mysqli_num_rows($res) 方法返回获取到的数据条数 ，</span></span><br><span class="line"><span class="keyword">for</span>(<span class="variable">$i</span> = <span class="number">0</span>; <span class="variable">$i</span> &lt; <span class="title function_ invoke__">mysqli_num_rows</span>(<span class="variable">$res</span>); <span class="variable">$i</span>++)&#123;</span><br><span class="line">    <span class="comment">// echo $i;</span></span><br><span class="line">    <span class="variable">$arr</span>[] =  <span class="title function_ invoke__">mysqli_fetch_assoc</span>(<span class="variable">$res</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// echo &#x27;&lt;pre&gt;&#x27;;</span></span><br><span class="line"><span class="comment">// print_r($arr);</span></span><br><span class="line"><span class="comment">// echo &#x27;&lt;/pre&gt;&#x27;;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 5. 关闭数据库连接 (挂电话)</span></span><br><span class="line"><span class="title function_ invoke__">mysqli_close</span>( <span class="variable">$link</span> );</span><br></pre></td></tr></table></figure>
-
-<h3 id="数据库工具函数的封装"><a href="#数据库工具函数的封装" class="headerlink" title="数据库工具函数的封装"></a>数据库工具函数的封装</h3><blockquote>
-<p>为了提高代码的复用性，把数据增删改的操作封装成一个方法</p>
-</blockquote>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义常量</span></span><br><span class="line"><span class="title function_ invoke__">define</span>( <span class="string">&#x27;HOST&#x27;</span>, <span class="string">&#x27;127.0.0.1&#x27;</span> );</span><br><span class="line"><span class="title function_ invoke__">define</span>( <span class="string">&#x27;UNAME&#x27;</span>, <span class="string">&#x27;root&#x27;</span> );</span><br><span class="line"><span class="title function_ invoke__">define</span>( <span class="string">&#x27;PWD&#x27;</span>, <span class="string">&#x27;root&#x27;</span> );</span><br><span class="line"><span class="title function_ invoke__">define</span>( <span class="string">&#x27;DB&#x27;</span>, <span class="string">&#x27;test02&#x27;</span> );</span><br><span class="line"><span class="title function_ invoke__">define</span>( <span class="string">&#x27;PORT&#x27;</span>, <span class="number">3306</span> );</span><br><span class="line"></span><br><span class="line"><span class="comment">// 非查询语句封装</span></span><br><span class="line"><span class="comment">// 封装一个执行非查询语句的方法, 提高代码的复用性</span></span><br><span class="line"><span class="comment">// 参数: $sql 要执行的 sql 语句</span></span><br><span class="line"><span class="comment">// 返回值: true / false</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">my_exec</span>(<span class="params"> <span class="variable">$sql</span> </span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 1. 连接数据库</span></span><br><span class="line">  <span class="variable">$link</span> = @ <span class="title function_ invoke__">mysqli_connect</span>( HOST, UNAME, PWD, DB, PORT);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>( !<span class="variable">$link</span> ) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&#x27;数据库连接失败&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 2. 准备 sql 语句, 就是传递过来的 $sql</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 3. 执行 sql 语句, 分析结果</span></span><br><span class="line">  <span class="keyword">if</span> ( <span class="title function_ invoke__">mysqli_query</span>( <span class="variable">$link</span>, <span class="variable">$sql</span> ) ) &#123;</span><br><span class="line">    <span class="comment">// 执行成功</span></span><br><span class="line">    <span class="title function_ invoke__">mysqli_close</span>( <span class="variable">$link</span> ); <span class="comment">// 关闭数据库</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 执行失败</span></span><br><span class="line">    <span class="title function_ invoke__">mysqli_close</span>( <span class="variable">$link</span> ); <span class="comment">// 关闭数据库</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 查询语句的封装</span></span><br><span class="line"><span class="comment">// 参数: $sql 要执行的 sql 语句</span></span><br><span class="line"><span class="comment">// 返回值:</span></span><br><span class="line"><span class="comment">//    (1) 成功, 返回数据(二维数组)</span></span><br><span class="line"><span class="comment">//    (2) 失败, 返回 false</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">my_query</span>(<span class="params"> <span class="variable">$sql</span> </span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 1. 建立连接</span></span><br><span class="line">  <span class="variable">$link</span> = @ <span class="title function_ invoke__">mysqli_connect</span>( HOST, UNAME, PWD, DB, PORT );</span><br><span class="line">  <span class="keyword">if</span> ( !<span class="variable">$link</span> ) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;数据库连接失败&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 2. 准备 sql 语句 $sql</span></span><br><span class="line">  <span class="comment">// 3. 执行 sql 语句, 分析结果</span></span><br><span class="line">  <span class="variable">$res</span> = <span class="title function_ invoke__">mysqli_query</span>( <span class="variable">$link</span>, <span class="variable">$sql</span> );  <span class="comment">// 结果集 或者 false</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> ( !<span class="variable">$res</span> ) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;获取数据失败&lt;br&gt;&quot;</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="title function_ invoke__">mysqli_error</span>(<span class="variable">$link</span>);</span><br><span class="line">    <span class="title function_ invoke__">mysqli_close</span>( <span class="variable">$link</span> );</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 得到结果集, 将结果集的所有内容取出到数组中</span></span><br><span class="line">  <span class="variable">$arr</span> = [];</span><br><span class="line">  <span class="keyword">while</span> ( <span class="variable">$row</span> = <span class="title function_ invoke__">mysqli_fetch_assoc</span>(<span class="variable">$res</span>) ) &#123;</span><br><span class="line">    <span class="variable">$arr</span>[] = <span class="variable">$row</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_ invoke__">mysqli_close</span>( <span class="variable">$link</span> );</span><br><span class="line">  <span class="keyword">return</span> <span class="variable">$arr</span>; <span class="comment">// 返回结果数组</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="学生管理系统-2-0"><a href="#学生管理系统-2-0" class="headerlink" title="学生管理系统 2.0"></a>学生管理系统 2.0</h2><h3 id="基本功能-1"><a href="#基本功能-1" class="headerlink" title="基本功能"></a>基本功能</h3><ul>
-<li>添加学生功能</li>
-<li>展示学生列表功能</li>
-<li>删除学生功能</li>
-<li>查看学生详情</li>
-<li>更新学生数据</li>
-</ul>
-<h3 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h3><p><strong>注册功能思路：</strong></p>
-<ol>
-<li>表单设计，点击提交按钮向服务器提交表单数据</li>
-<li>在后台获取表单提交的数据，保存到数据库中<ul>
-<li>先获取表单的标签的数据</li>
-<li>保存上传的图片（并保存图片存储的路径）</li>
-<li>将表单的数据和图片的路径一起保存到数据库中</li>
-</ul>
-</li>
-<li>保存完成，跳转到列表页，查看新添加的数据</li>
-</ol>
-<p><strong>展示功能思路：</strong></p>
-<ol>
-<li>先从数据库中获取数据（二维数组 arr）</li>
-<li>遍历二维数组，将数组中数据渲染到页面中</li>
-</ol>
-<p><strong>删除功能思路：</strong></p>
-<ol>
-<li>获取要删除数据的 id</li>
-<li>根据 id 删除数据库中指定的数据</li>
-<li>删除完毕，返回列表页</li>
-</ol>
-<p><strong>详情展示功能</strong></p>
-<ol>
-<li>获取要查看详情数据的 id</li>
-<li>根据 id 通过联合查询，获取到需要用数据</li>
-<li>把数据显示在页面中</li>
-<li>点击返回按钮，可以返回到列表页</li>
-</ol>
-<p><strong>更新数据思路：</strong><br>更新数据的思路&#x3D;先渲染再提交</p>
-<ol>
-<li>获取要查看详情数据的 id</li>
-<li>把对应 id 的数据填充到修改页面中</li>
-<li>点击修改按钮，获取表单的数据，提交给服务器</li>
-<li>在服务器更新数据</li>
-<li>更新完成后跳转到列表页</li>
-</ol>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">隐藏域表单：和其他表单标签一样，只是看不到而已</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;hidden&quot;</span> <span class="attr">name</span>=<span class="string">&quot;id&quot;</span> <span class="attr">value</span>=<span class="string">&quot;&lt;?php echo $data[&#x27;id&#x27;] ?&gt;&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>php</tag>
-      </tags>
   </entry>
   <entry>
     <title>pm2 - node 进程管理工具</title>
@@ -4392,6 +3835,30 @@
       </tags>
   </entry>
   <entry>
+    <title>Jellyfin开启硬件加速</title>
+    <url>/1424.html</url>
+    <content><![CDATA[<p>之前使用群晖 Docker 折腾 Jellyfin，解决了个人音视频收藏的基本需求，但仍有不足，比如说视频播放的时候，CPU 占用会很高（软解吃 CPU），并且会卡顿。</p>
+<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><p>1、查看系统是否支持显卡硬解转码</p>
+<p>使用 SSH 登录群晖系统，运行命令<code>ls /dev/dri</code>，若输出 card0、renderD128，则说明支持显卡硬解。</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102202420.png"></p>
+<p>2、给容器提权</p>
+<p>在群群 Docker 容器中找到 Jellyfin 的容器，编辑容器的常规设置，必须勾选使用高权限执行容器。</p>
+<p>3、添加环境</p>
+<p>在环境中添加两项，分别是 <code>PUID</code> 值填写为 <code>0</code> ，<code>PGID</code> 值填写为 <code>0</code></p>
+<p>4、启用 <code>VAAPI</code> 硬件加速</p>
+<p>Docker 中启动容器，打开 Jellyfin 网页端，依次进入控制台-&gt;播放，在硬件选项中选择 VAAPI 保存设置即可。</p>
+<h4 id="使用效果"><a href="#使用效果" class="headerlink" title="使用效果"></a>使用效果</h4><p>前后对比：</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102202439.png"></p>
+<p>可以看到 CPU 占用明显降低了，播放也不卡顿了，效果还是非常明显的。</p>
+]]></content>
+      <categories>
+        <category>NAS</category>
+      </categories>
+      <tags>
+        <tag>jellyfin</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用群晖Docker安装Jellyfin家庭影院</title>
     <url>/1365.html</url>
     <content><![CDATA[<blockquote>
@@ -4469,30 +3936,6 @@
         <tag>jellyfin</tag>
         <tag>docker</tag>
         <tag>群辉</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Jellyfin开启硬件加速</title>
-    <url>/1424.html</url>
-    <content><![CDATA[<p>之前使用群晖 Docker 折腾 Jellyfin，解决了个人音视频收藏的基本需求，但仍有不足，比如说视频播放的时候，CPU 占用会很高（软解吃 CPU），并且会卡顿。</p>
-<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><p>1、查看系统是否支持显卡硬解转码</p>
-<p>使用 SSH 登录群晖系统，运行命令<code>ls /dev/dri</code>，若输出 card0、renderD128，则说明支持显卡硬解。</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102202420.png"></p>
-<p>2、给容器提权</p>
-<p>在群群 Docker 容器中找到 Jellyfin 的容器，编辑容器的常规设置，必须勾选使用高权限执行容器。</p>
-<p>3、添加环境</p>
-<p>在环境中添加两项，分别是 <code>PUID</code> 值填写为 <code>0</code> ，<code>PGID</code> 值填写为 <code>0</code></p>
-<p>4、启用 <code>VAAPI</code> 硬件加速</p>
-<p>Docker 中启动容器，打开 Jellyfin 网页端，依次进入控制台-&gt;播放，在硬件选项中选择 VAAPI 保存设置即可。</p>
-<h4 id="使用效果"><a href="#使用效果" class="headerlink" title="使用效果"></a>使用效果</h4><p>前后对比：</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102202439.png"></p>
-<p>可以看到 CPU 占用明显降低了，播放也不卡顿了，效果还是非常明显的。</p>
-]]></content>
-      <categories>
-        <category>NAS</category>
-      </categories>
-      <tags>
-        <tag>jellyfin</tag>
       </tags>
   </entry>
   <entry>
@@ -4798,7 +4241,7 @@
 <p>如果是 GSuite Admin 账号，可以使用如下方式直接添加进群组</p>
 <ol>
 <li>将生成的json文件保存到 credentials 文件夹中</li>
-<li>在管理控制台中为您的组织创建组。创建群组后，您将拥有一个例如的地址<span class="exturl" data-url="bWFpbHRvOiYjMTE1OyYjOTc7JiN4NDA7JiMxMjE7JiN4NmY7JiMxMTc7JiMxMTQ7JiN4NjQ7JiMxMTE7JiN4NmQ7JiN4NjE7JiMxMDU7JiN4NmU7JiM0NjsmIzk5OyYjeDZmOyYjMTA5Ow==">&#115;&#97;&#x40;&#121;&#x6f;&#117;&#114;&#x64;&#111;&#x6d;&#x61;&#105;&#x6e;&#46;&#99;&#x6f;&#109;</span></li>
+<li>在管理控制台中为您的组织创建组。创建群组后，您将拥有一个例如的地址<span class="exturl" data-url="bWFpbHRvOiYjMTE1OyYjeDYxOyYjNjQ7JiMxMjE7JiMxMTE7JiMxMTc7JiN4NzI7JiN4NjQ7JiMxMTE7JiMxMDk7JiM5NzsmI3g2OTsmIzExMDsmIzQ2OyYjeDYzOyYjMTExOyYjMTA5Ow==">&#115;&#x61;&#64;&#121;&#111;&#117;&#x72;&#x64;&#111;&#109;&#97;&#x69;&#110;&#46;&#x63;&#111;&#109;</span></li>
 <li>运行 <code>python3 add_to_google_group.py -g sa@yourdomain.com</code></li>
 </ol>
 </blockquote>
@@ -5206,6 +4649,32 @@
       </tags>
   </entry>
   <entry>
+    <title>【学习强国】</title>
+    <url>/228.html</url>
+    <content><![CDATA[<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NoYWRvd3NvY2tz">shadowsocks</span><br><span class="exturl" data-url="aHR0cHM6Ly93d3cudjJmbHkub3JnLw==">v2ray</span> <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3YyZmx5">github</span><br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Ryb2phbi1nZncvdHJvamFu">trojan</span><br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0RyZWFtYWNyby9jbGFzaA==">clash</span></p>
+<h2 id="搭建"><a href="#搭建" class="headerlink" title="搭建"></a>搭建</h2><p><a href="/226.html">v2ray 搭建配置教程</a></p>
+<h2 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h2><blockquote>
+<p>仅仅拥有客户端并不能 FQ，还需要在客户端中添加可用的节点，客户端并不提供节点</p>
+</blockquote>
+<p><strong>iOS</strong></p>
+<p>Shadowrocket(小火箭) <span class="exturl" data-url="aHR0cHM6Ly9pb3NpcGEubWwv">在线安装</span> <span class="exturl" data-url="aHR0cHM6Ly9pb3MuZWVlZS5vb28v">在线安装</span> <span class="exturl" data-url="aHR0cHM6Ly93b2hhb2JhbmcuY24v">共享账号</span> 支持 ss、ssr、vmess 协议</p>
+<p><strong>macOS</strong></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3lpY2hlbmdjaGVuL2NsYXNoWC9yZWxlYXNlcw==">clashX</span><br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3lhbnVlL1YycmF5VS9yZWxlYXNlcw==">V2rayU</span><br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NoYWRvd3NvY2tzL1NoYWRvd3NvY2tzWC1ORy9yZWxlYXNlcw==">ShadowsocksX-NG</span><br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0ZuZHJvaWQvY2xhc2hfZm9yX3dpbmRvd3NfcGtnL3JlbGVhc2Vz">Clash.for.Windows</span></p>
+<p><strong>Windows</strong></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NoYWRvd3NvY2tzL3NoYWRvd3NvY2tzLXdpbmRvd3MvcmVsZWFzZXM=">Shadowsocks</span><br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NoYWRvd3NvY2tzL3YycmF5LXBsdWdpbi9yZWxlYXNlcw==">shadowsockes v2ray插件</span><br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NoYWRvd3NvY2tzci1iYWNrdXAvc2hhZG93c29ja3NyLWNzaGFycC9yZWxlYXNlcw==">ShadowsocksR</span><br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tLzJkdXN0L3YycmF5Tg==">v2rayN</span><br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0ZuZHJvaWQvY2xhc2hfZm9yX3dpbmRvd3NfcGtnL3JlbGVhc2Vz">Clash.for.Windows</span></p>
+<p><strong>Android</strong></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tLzJkdXN0L3YycmF5TkcvcmVsZWFzZXM=">V2RayNG</span><br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NoYWRvd3NvY2tzL3NoYWRvd3NvY2tzLWFuZHJvaWQvcmVsZWFzZXM=">Shadowsocks</span><br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NoYWRvd3NvY2tzL3YycmF5LXBsdWdpbi1hbmRyb2lkL3JlbGVhc2VzLw==">shadowsockes v2ray插件</span><br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2V5Y29yc2ljYW4va2l0c3VuZWJpLWFuZHJvaWQvcmVsZWFzZXM=">Kitsunebi</span><br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0tyMzI4L0NsYXNoRm9yQW5kcm9pZA==">ClashForAndroid</span></p>
+<h2 id="免费节点订阅"><a href="#免费节点订阅" class="headerlink" title="免费节点订阅"></a>免费节点订阅</h2><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NzcnN1Yi9zc3IvdHJlZS9tYXN0ZXI=">ssrsub&#x2F;ssr</span></p>
+<p>参考链接 <span class="exturl" data-url="aHR0cHM6Ly9jb25nY29uZzA4MDYuZ2l0aHViLmlvLzIwMTgvMDQvMjAvU1Mv">https://congcong0806.github.io/2018/04/20/SS/</span></p>
+<h2 id="订阅转换"><a href="#订阅转换" class="headerlink" title="订阅转换"></a>订阅转换</h2><p><span class="exturl" data-url="aHR0cHM6Ly9iaWFueXVhbi54eXov">边缘@订阅转换API</span><br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RpbmR5MjAxMy9zdWJjb252ZXJ0ZXI=">subconverter</span></p>
+<h2 id="规则"><a href="#规则" class="headerlink" title="规则"></a>规则</h2><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0hhY2tsMHVzL1NTLVJ1bGUtU25pcHBldA==">Hackl0us&#x2F;SS-Rule-Snippet</span> 搜集、整理、维护 Surge &#x2F; Quantumult (X) &#x2F; Shadowrocket &#x2F; Surfboard &#x2F; clash (Premium) 实用规则。<br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2dmd2xpc3QvZ2Z3bGlzdA==">gfwlist&#x2F;gfwlist</span><br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2xoaWUxL1J1bGVzL3RyZWUvbWFzdGVy">lhie1&#x2F;Rules</span><br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0FDTDRTU1IvQUNMNFNTUi90cmVlL21hc3Rlcg==">ACL4SSR&#x2F;ACL4SSR</span> SSR 去广告ACL规则&#x2F;SS完整GFWList规则&#x2F;Clash规则碎片</p>
+<h2 id="TG"><a href="#TG" class="headerlink" title="TG"></a>TG</h2><p><span class="exturl" data-url="aHR0cHM6Ly90Lm1lL25nY3Nz">ChinaG（几鸡）</span></p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Adobe Zii 苹果Mac端Adobe软件通用破解工具</title>
     <url>/2021.html</url>
     <content><![CDATA[<p>软件简介：</p>
@@ -5233,32 +4702,6 @@
         <tag>软件</tag>
         <tag>破解</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>【学习强国】</title>
-    <url>/228.html</url>
-    <content><![CDATA[<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NoYWRvd3NvY2tz">shadowsocks</span><br><span class="exturl" data-url="aHR0cHM6Ly93d3cudjJmbHkub3JnLw==">v2ray</span> <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3YyZmx5">github</span><br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Ryb2phbi1nZncvdHJvamFu">trojan</span><br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0RyZWFtYWNyby9jbGFzaA==">clash</span></p>
-<h2 id="搭建"><a href="#搭建" class="headerlink" title="搭建"></a>搭建</h2><p><a href="/226.html">v2ray 搭建配置教程</a></p>
-<h2 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h2><blockquote>
-<p>仅仅拥有客户端并不能 FQ，还需要在客户端中添加可用的节点，客户端并不提供节点</p>
-</blockquote>
-<p><strong>iOS</strong></p>
-<p>Shadowrocket(小火箭) <span class="exturl" data-url="aHR0cHM6Ly9pb3NpcGEubWwv">在线安装</span> <span class="exturl" data-url="aHR0cHM6Ly9pb3MuZWVlZS5vb28v">在线安装</span> <span class="exturl" data-url="aHR0cHM6Ly93b2hhb2JhbmcuY24v">共享账号</span> 支持 ss、ssr、vmess 协议</p>
-<p><strong>macOS</strong></p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3lpY2hlbmdjaGVuL2NsYXNoWC9yZWxlYXNlcw==">clashX</span><br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3lhbnVlL1YycmF5VS9yZWxlYXNlcw==">V2rayU</span><br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NoYWRvd3NvY2tzL1NoYWRvd3NvY2tzWC1ORy9yZWxlYXNlcw==">ShadowsocksX-NG</span><br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0ZuZHJvaWQvY2xhc2hfZm9yX3dpbmRvd3NfcGtnL3JlbGVhc2Vz">Clash.for.Windows</span></p>
-<p><strong>Windows</strong></p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NoYWRvd3NvY2tzL3NoYWRvd3NvY2tzLXdpbmRvd3MvcmVsZWFzZXM=">Shadowsocks</span><br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NoYWRvd3NvY2tzL3YycmF5LXBsdWdpbi9yZWxlYXNlcw==">shadowsockes v2ray插件</span><br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NoYWRvd3NvY2tzci1iYWNrdXAvc2hhZG93c29ja3NyLWNzaGFycC9yZWxlYXNlcw==">ShadowsocksR</span><br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tLzJkdXN0L3YycmF5Tg==">v2rayN</span><br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0ZuZHJvaWQvY2xhc2hfZm9yX3dpbmRvd3NfcGtnL3JlbGVhc2Vz">Clash.for.Windows</span></p>
-<p><strong>Android</strong></p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tLzJkdXN0L3YycmF5TkcvcmVsZWFzZXM=">V2RayNG</span><br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NoYWRvd3NvY2tzL3NoYWRvd3NvY2tzLWFuZHJvaWQvcmVsZWFzZXM=">Shadowsocks</span><br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NoYWRvd3NvY2tzL3YycmF5LXBsdWdpbi1hbmRyb2lkL3JlbGVhc2VzLw==">shadowsockes v2ray插件</span><br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2V5Y29yc2ljYW4va2l0c3VuZWJpLWFuZHJvaWQvcmVsZWFzZXM=">Kitsunebi</span><br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0tyMzI4L0NsYXNoRm9yQW5kcm9pZA==">ClashForAndroid</span></p>
-<h2 id="免费节点订阅"><a href="#免费节点订阅" class="headerlink" title="免费节点订阅"></a>免费节点订阅</h2><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NzcnN1Yi9zc3IvdHJlZS9tYXN0ZXI=">ssrsub&#x2F;ssr</span></p>
-<p>参考链接 <span class="exturl" data-url="aHR0cHM6Ly9jb25nY29uZzA4MDYuZ2l0aHViLmlvLzIwMTgvMDQvMjAvU1Mv">https://congcong0806.github.io/2018/04/20/SS/</span></p>
-<h2 id="订阅转换"><a href="#订阅转换" class="headerlink" title="订阅转换"></a>订阅转换</h2><p><span class="exturl" data-url="aHR0cHM6Ly9iaWFueXVhbi54eXov">边缘@订阅转换API</span><br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RpbmR5MjAxMy9zdWJjb252ZXJ0ZXI=">subconverter</span></p>
-<h2 id="规则"><a href="#规则" class="headerlink" title="规则"></a>规则</h2><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0hhY2tsMHVzL1NTLVJ1bGUtU25pcHBldA==">Hackl0us&#x2F;SS-Rule-Snippet</span> 搜集、整理、维护 Surge &#x2F; Quantumult (X) &#x2F; Shadowrocket &#x2F; Surfboard &#x2F; clash (Premium) 实用规则。<br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2dmd2xpc3QvZ2Z3bGlzdA==">gfwlist&#x2F;gfwlist</span><br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2xoaWUxL1J1bGVzL3RyZWUvbWFzdGVy">lhie1&#x2F;Rules</span><br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0FDTDRTU1IvQUNMNFNTUi90cmVlL21hc3Rlcg==">ACL4SSR&#x2F;ACL4SSR</span> SSR 去广告ACL规则&#x2F;SS完整GFWList规则&#x2F;Clash规则碎片</p>
-<h2 id="TG"><a href="#TG" class="headerlink" title="TG"></a>TG</h2><p><span class="exturl" data-url="aHR0cHM6Ly90Lm1lL25nY3Nz">ChinaG（几鸡）</span></p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
   </entry>
   <entry>
     <title>JetBrains 系列产品激活工具</title>
@@ -5426,20 +4869,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Fixed 定位脱离 Viewport 的 bug</title>
-    <url>/393.html</url>
-    <content><![CDATA[<h3 id="Fixed-定位脱离-Viewport-的-bug"><a href="#Fixed-定位脱离-Viewport-的-bug" class="headerlink" title="Fixed 定位脱离 Viewport 的 bug"></a>Fixed 定位脱离 Viewport 的 bug</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">  <span class="selector-class">.outer</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">overflow</span>: hidden;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">width</span>: <span class="number">300px</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">height</span>: <span class="number">300px</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">background</span>: yellow;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css">  <span class="selector-class">.mid</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">margin</span>: <span class="number">20px</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">transform</span>: <span class="built_in">translate</span>(<span class="number">0</span>, <span class="number">0</span>);</span></span><br><span class="line"><span class="language-css">    <span class="attribute">background</span>: greenyellow;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css">  <span class="selector-class">.inner</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">position</span>: fixed;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">top</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">left</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">width</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">height</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">background</span>: pink;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">z-index</span>: <span class="number">1</span></span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;outer&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;mid&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;inner&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>对于声明 transfrom 值非 none 元素，其子元素中若存在 position: fixed 将以声明 transform 的最近祖先作为基准而定位，这是因为 transfrom 值非 none 的元素<span class="exturl" data-url="aHR0cDovL3d3dy53My5vcmcvVFIvY3NzMy0yZC10cmFuc2Zvcm1zLyN0cmFuc2Zvcm0tcmVuZGVyaW5n">定义了一个局部坐标系统</span>，导致 postion: fixed 以此坐标系统计算布局。</p>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>常用软件及破解资源合集</title>
     <url>/691.html</url>
     <content><![CDATA[<p>部分破解软件可在<span class="exturl" data-url="aHR0cHM6Ly90Lm1lL3dxZHlfY2hhbm5lbA==">TG频道</span>里下载</p>
@@ -5554,6 +4983,20 @@
       <tags>
         <tag>软件</tag>
         <tag>破解</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Fixed 定位脱离 Viewport 的 bug</title>
+    <url>/393.html</url>
+    <content><![CDATA[<h3 id="Fixed-定位脱离-Viewport-的-bug"><a href="#Fixed-定位脱离-Viewport-的-bug" class="headerlink" title="Fixed 定位脱离 Viewport 的 bug"></a>Fixed 定位脱离 Viewport 的 bug</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">  <span class="selector-class">.outer</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">overflow</span>: hidden;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">width</span>: <span class="number">300px</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">height</span>: <span class="number">300px</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">background</span>: yellow;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css">  <span class="selector-class">.mid</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">margin</span>: <span class="number">20px</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">transform</span>: <span class="built_in">translate</span>(<span class="number">0</span>, <span class="number">0</span>);</span></span><br><span class="line"><span class="language-css">    <span class="attribute">background</span>: greenyellow;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css">  <span class="selector-class">.inner</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">position</span>: fixed;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">top</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">left</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">width</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">height</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">background</span>: pink;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">z-index</span>: <span class="number">1</span></span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;outer&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;mid&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;inner&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>对于声明 transfrom 值非 none 元素，其子元素中若存在 position: fixed 将以声明 transform 的最近祖先作为基准而定位，这是因为 transfrom 值非 none 的元素<span class="exturl" data-url="aHR0cDovL3d3dy53My5vcmcvVFIvY3NzMy0yZC10cmFuc2Zvcm1zLyN0cmFuc2Zvcm0tcmVuZGVyaW5n">定义了一个局部坐标系统</span>，导致 postion: fixed 以此坐标系统计算布局。</p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -11497,6 +10940,15 @@
       </tags>
   </entry>
   <entry>
+    <title>浏览器切换标签离开当前页面时改变 title 提示</title>
+    <url>/401.html</url>
+    <content><![CDATA[<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;visibilitychange&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="variable language_">document</span>.<span class="property">visibilityState</span> == <span class="string">&#x27;hidden&#x27;</span>) &#123;</span><br><span class="line">    normal_title = <span class="variable language_">document</span>.<span class="property">title</span></span><br><span class="line">    <span class="variable language_">document</span>.<span class="property">title</span> = <span class="string">&#x27;离开了&#x27;</span></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="variable language_">document</span>.<span class="property">title</span> = normal_title</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+  </entry>
+  <entry>
     <title>js 中编码（encode）和解码（decode）的三种方法</title>
     <url>/408.html</url>
     <content><![CDATA[<h3 id="js-中编码（encode）和解码（decode）的三种方法"><a href="#js-中编码（encode）和解码（decode）的三种方法" class="headerlink" title="js 中编码（encode）和解码（decode）的三种方法"></a>js 中编码（encode）和解码（decode）的三种方法</h3><p>js 对文字进行编码涉及 3 个函数：escape、encodeURI、encodeURIComponent，相应 3 个解码函数：unescape、decodeURI、decodeURIComponent</p>
@@ -11526,15 +10978,6 @@
       <tags>
         <tag>js</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>浏览器切换标签离开当前页面时改变 title 提示</title>
-    <url>/401.html</url>
-    <content><![CDATA[<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;visibilitychange&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="variable language_">document</span>.<span class="property">visibilityState</span> == <span class="string">&#x27;hidden&#x27;</span>) &#123;</span><br><span class="line">    normal_title = <span class="variable language_">document</span>.<span class="property">title</span></span><br><span class="line">    <span class="variable language_">document</span>.<span class="property">title</span> = <span class="string">&#x27;离开了&#x27;</span></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="variable language_">document</span>.<span class="property">title</span> = normal_title</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
   </entry>
   <entry>
     <title>获取页面向左、向上卷动的距离</title>
@@ -11850,6 +11293,344 @@
 <h2 id="柯里化实现"><a href="#柯里化实现" class="headerlink" title="柯里化实现"></a>柯里化实现</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">curry</span>(<span class="params">func</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">function</span> <span class="title function_">curried</span>(<span class="params">...args</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (args.<span class="property">length</span> &gt;= func.<span class="property">length</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> func.<span class="title function_">apply</span>(<span class="variable language_">this</span>, args)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params">...args2</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> curried.<span class="title function_">apply</span>(<span class="variable language_">this</span>, args.<span class="title function_">concat</span>(args2))</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">sum</span>(<span class="params">a, b, c</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> a + b + c</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> curriedSum = <span class="title function_">curry</span>(sum)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">curriedSum</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)) <span class="comment">// 6</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">curriedSum</span>(<span class="number">1</span>)(<span class="number">2</span>, <span class="number">3</span>)) <span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="偏函数"><a href="#偏函数" class="headerlink" title="偏函数"></a>偏函数</h2>]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>常用js —— array数组操作</title>
+    <url>/2033.html</url>
+    <content><![CDATA[<h3 id="基本方法"><a href="#基本方法" class="headerlink" title="基本方法"></a>基本方法</h3><blockquote>
+<p><strong><code>arr.join()</code></strong></p>
+</blockquote>
+<p>将数组的值拼接成字符串 不传参数，默认用逗号进行拼接，返回拼接好的字符串</p>
+<blockquote>
+<p><strong><code>arr.push()</code></strong></p>
+</blockquote>
+<p>从后面添加一个或多个元素，多个参数逗号隔开，返回新数组的 length</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">arr.<span class="title function_">push</span>(arr1) <span class="comment">// 把 arr1 当成一个整体放到 arr 里</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong><code>arr.pop()</code></strong></p>
+</blockquote>
+<p>从数组的后面删除元素，返回删除的那个元素</p>
+<blockquote>
+<p><strong><code>arr.unshift()</code></strong></p>
+</blockquote>
+<p>从数组的前面的添加元素，，多个参数逗号隔开，返回新数组的 length</p>
+<blockquote>
+<p><strong><code>arr.shift()</code></strong></p>
+</blockquote>
+<p>从数组的最前面删除元素，返回删除的那个元素</p>
+<blockquote>
+<p><strong><code>arr.reverse()</code></strong></p>
+</blockquote>
+<p>翻转数组</p>
+<blockquote>
+<p><strong><code>arr.sort()</code></strong></p>
+</blockquote>
+<p>排序</p>
+<p>sort 方法可以传递一个函数作为参数，这个参数用来控制数组如何进行排序</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">arr.<span class="title function_">sort</span>(<span class="keyword">function</span>(<span class="params">a, b</span>) &#123;</span><br><span class="line">  <span class="comment">// 参数为 true 时，即返回值 &gt; 0 时，交换位置</span></span><br><span class="line">  <span class="comment">// return a - b // 从小到大排序</span></span><br><span class="line">  <span class="keyword">return</span> b - a <span class="comment">// 从大到小排序</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong><code>arr.concat()</code></strong></p>
+</blockquote>
+<p>数组合并，返回一个新数组，原数组不受影响</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">a.<span class="title function_">concat</span>(b) <span class="comment">// [...a, ...b]</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong><code>arr.slice()</code></strong></p>
+</blockquote>
+<p>数组切分，复制数组的一部分到一个新数组，并返回这个新数组，原数组不受影响</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// slice(begin, end) 包含 begin，不包含 end， begin 和 end 为下标</span></span><br><span class="line"><span class="comment">// slice(begin) 只有一个参数时，为开始参数，截取到末尾</span></span><br><span class="line"><span class="comment">// slice() 没有参数，全部截取</span></span><br><span class="line"><span class="comment">// 可以为负数，会将字符串的长度与对应的负数相加，结果作为参数，-1 表示从后数第一个</span></span><br><span class="line"><span class="keyword">var</span> newArr = arr.<span class="title function_">slice</span>(begin, end)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong><code>arr.splice()</code></strong></p>
+</blockquote>
+<p>删除或者增加数组元素，修改原数组，返回删除的内容（数组形式）</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// start: 开始位置  deletedCount: 删除的个数（如果不删除为 0）items: 替换的内容, 可为多个</span></span><br><span class="line">arr.<span class="title function_">splice</span>(start) <span class="comment">// 删除原数组 start 位置之后的项（包含 start），返回删除的内容</span></span><br><span class="line">arr.<span class="title function_">splice</span>(start, deletedCount, [items]) <span class="comment">// items 将作为 arr 的一项</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong><code>arr.indexOf()</code></strong></p>
+</blockquote>
+<p>返回数组中某个元素第一次出现的位置，如果找不到，返回 -1</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// fromIndex 表示从 fromIndex 下标开始查找</span></span><br><span class="line">arr.<span class="title function_">indexOf</span>(<span class="string">&#x27;zs&#x27;</span>[, fromIndex])</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong><code>arr.lastIndexOf()</code></strong></p>
+</blockquote>
+<p>从后面开始查找数组中元素出现位置,即查找某元素最后一次出现的位置，如果找不到，返回 -1</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">arr.<span class="title function_">lastIndexOf</span>(<span class="string">&#x27;zs&#x27;</span>[, fromIndex])</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong><code>arr.forEach()</code></strong></p>
+</blockquote>
+<p>返回值: undefined<br>除了抛出异常以外，没有办法中止或跳出 forEach() 循环<br>不支持 return 操作输出，return 只用于控制循环是否跳出当前循环</p>
+<p>遍历时会自动忽略 empty 值</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">arr.<span class="title function_">forEach</span>(<span class="keyword">function</span>(<span class="params">item, index, arr</span>) &#123;&#125;, thisArg)</span><br><span class="line"><span class="comment">// item 必需。数组中正在处理的当前元素</span></span><br><span class="line"><span class="comment">// index 可选。数组中正在处理的当前元素的索引</span></span><br><span class="line"><span class="comment">// arr 可选。当前数组</span></span><br><span class="line"><span class="comment">// thisArg 可选。当执行回调函数时用作this的值</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="string">&#x27;zs&#x27;</span>, <span class="string">&#x27;ls&#x27;</span>, <span class="string">&#x27;ww&#x27;</span>]</span><br><span class="line">arr.<span class="title function_">forEach</span>(<span class="keyword">function</span>(<span class="params">item, index, arr</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(item)</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong><code>arr.map()</code></strong></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> newArr = arr.<span class="title function_">map</span>(<span class="keyword">function</span>(<span class="params">item, index</span>) &#123;</span><br><span class="line">  <span class="comment">// item 必需。数组中正在处理的当前元素</span></span><br><span class="line">  <span class="comment">// index 可选。数组中正在处理的当前元素的索引</span></span><br><span class="line">  <span class="comment">// arr 可选。当前数组</span></span><br><span class="line">  <span class="comment">// 使用 return 操作输出，会循环数组每一项，并返回新的每一项组成的数组</span></span><br><span class="line">  <span class="keyword">return</span> item * <span class="number">2</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 不修改原数组</span></span><br><span class="line"><span class="comment">// 返回一个新数组，新数组的每一项乘以 2</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong><code>arr.filter()</code></strong></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> newArr = arr.<span class="title function_">filter</span>(<span class="keyword">function</span>(<span class="params">item, index</span>) &#123;</span><br><span class="line">  <span class="comment">// 参数同 map</span></span><br><span class="line">  <span class="comment">// 使用 return 操作输出，会循环数组每一项，并返回判断为 true 的每一项组成的数组</span></span><br><span class="line">  <span class="keyword">return</span> item &gt; <span class="number">2</span> &amp;&amp; item &lt; <span class="number">5</span> <span class="comment">// return 后是判断条件</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 不修改原数组</span></span><br><span class="line"><span class="comment">// 返回一个新数组，新数组每一项满足 2 &lt; item &lt; 5</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong><code>arr.some()</code></strong></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> newArr = arr.<span class="title function_">some</span>(<span class="keyword">function</span>(<span class="params">item, index</span>) &#123;</span><br><span class="line">  <span class="comment">// 参数同 map</span></span><br><span class="line">  <span class="comment">// 返回布尔值，只要有一项满足条件就返回 true，否则返回 false</span></span><br><span class="line">  <span class="keyword">return</span> item &gt; <span class="number">2</span> <span class="comment">// return 后是判断条件</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 不修改原数组</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong><code>arr.every()</code></strong></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> newArr = arr.<span class="title function_">every</span>(<span class="keyword">function</span>(<span class="params">item, index</span>) &#123;</span><br><span class="line">  <span class="comment">// 参数同 map</span></span><br><span class="line">  <span class="comment">// 返回布尔值，只有所有项都满足条件才返回 true，否则返回f alse</span></span><br><span class="line">  <span class="keyword">return</span> item &gt; <span class="number">2</span> <span class="comment">// return 后是判断条件</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 不修改原数组</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong><code>arr.includes()</code></strong></p>
+</blockquote>
+<p>判断数组是否含有某值，输出 true 或 false</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> flag = arr.<span class="title function_">includes</span>(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong><code>arr.find()</code></strong></p>
+</blockquote>
+<p>使用 return 操作输出，会循环数组每一项，当循环到满足条件时则跳出循环，输出当前数组元素<br>如果全不满足返回 undefined</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> newArr = arr.<span class="title function_">find</span>(<span class="keyword">function</span>(<span class="params">item, index</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> item &gt; <span class="number">2</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 不修改原数组</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong><code>arr.findIndex()</code></strong></p>
+</blockquote>
+<p>使用 return 操作输出，会循环数组每一项，当循环到满足条件时则跳出循环，输出当前数组元素的下标<br>如果全不满足返回 -1</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> index = arr.<span class="title function_">findIndex</span>(<span class="keyword">function</span>(<span class="params">item, index</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> item &gt; <span class="number">2</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 不修改原数组</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong><code>arr.reduce()</code></strong></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> new1 = arr.<span class="title function_">reduce</span>(<span class="keyword">function</span>(<span class="params">accumulator, current, index, array</span>) &#123;</span><br><span class="line">  <span class="comment">// accumulator 第一次为数组第一项，之后为上一操作的结果</span></span><br><span class="line">  <span class="comment">// current 数组的当前项</span></span><br><span class="line">  <span class="comment">// index 当前项的序列</span></span><br><span class="line">  <span class="comment">// array 可选。当前数组</span></span><br><span class="line">  <span class="comment">// initialValue 可选。作为第一次调用 callback函数时的第一个参数的值。 如果没有提供初始值，则将使用数组中的第一个元素。 在没有初始值的空数组上调用 reduce 将报错</span></span><br><span class="line">  <span class="comment">// 使用 return 操作输出</span></span><br><span class="line">  <span class="keyword">return</span> accumulator + current <span class="comment">// 返回数组每一项的和</span></span><br><span class="line">&#125;[, initialValue])</span><br><span class="line"><span class="comment">// 不修改原数组</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 扁平化数组</span></span><br><span class="line"><span class="keyword">var</span> arr2 = [ [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>], [<span class="number">6</span>, <span class="number">7</span>] ]</span><br><span class="line"><span class="keyword">var</span> new2 = arr2.<span class="title function_">reduce</span>(<span class="keyword">function</span>(<span class="params">accumulator, current, index</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> accumulator.<span class="title function_">concat</span>(current)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 对象数组叠加计算</span></span><br><span class="line"><span class="keyword">var</span> arr3 = [</span><br><span class="line">  &#123; <span class="attr">price</span>: <span class="number">1</span>, <span class="attr">count</span>: <span class="number">1</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">price</span>: <span class="number">2</span>, <span class="attr">count</span>: <span class="number">2</span> &#125;</span><br><span class="line">]</span><br><span class="line"><span class="keyword">var</span> new3 = arr3.<span class="title function_">reduce</span>(<span class="keyword">function</span>(<span class="params">accumulator, current, index</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> accumulator + current.<span class="property">price</span> * current.<span class="property">count</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 当需要操作第一项的时候，利用 reduce(callbreak()&#123;&#125;,往数组第一项前添加一项，如:0)</span></span><br><span class="line">&#125;, <span class="number">0</span>) <span class="comment">// 在原数组第一项添加为 0，不改变原数组</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong><code>arr.fill()</code></strong></p>
+</blockquote>
+<p>用一个固定值填充一个数组中从起始索引到终止索引内的全部元素。不包括终止索引</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">arr.<span class="title function_">fill</span>(value[, start[, end]])</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong><code>arr.flat()</code></strong></p>
+</blockquote>
+<p>扁平化数组<br>按照一个可指定的深度递归遍历数组，并将所有元素与遍历到的子数组中的元素合并为一个新数组返回</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> newArray = arr.<span class="title function_">flat</span>([depth])</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 Infinity，可展开任意深度的嵌套数组</span></span><br><span class="line"><span class="keyword">var</span> arr4 = [<span class="number">1</span>, <span class="number">2</span>, [<span class="number">3</span>, <span class="number">4</span>, [<span class="number">5</span>, <span class="number">6</span>, [<span class="number">7</span>, <span class="number">8</span>, [<span class="number">9</span>, <span class="number">10</span>]]]]]</span><br><span class="line">arr4.<span class="title function_">flat</span>(<span class="title class_">Infinity</span>) <span class="comment">// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 会移除数组中的空项</span></span><br><span class="line"><span class="keyword">var</span> arr4 = [<span class="number">1</span>, <span class="number">2</span>, , <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">arr4.<span class="title function_">flat</span>() <span class="comment">// [1, 2, 4, 5]</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="伪数组"><a href="#伪数组" class="headerlink" title="伪数组"></a>伪数组</h3><blockquote>
+<p>伪数组也叫类数组</p>
+</blockquote>
+<ol>
+<li>伪数组其实就是一个对象，但是跟数组一样，伪数组也会有<code>length</code>属性，也有<code>0, 1, 2, 3</code>等属性</li>
+<li>伪数组并没有数组的方法，不能使用<code>push/pop</code>等方法</li>
+<li>伪数组可以跟数组一样进行遍历，通过下标操作</li>
+<li>常见的伪数组：<code>arguments</code>、<code>document.getElementsByTagName的返回值</code>、<code>jQuery对象</code></li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="number">0</span>: <span class="string">&#x27;zs&#x27;</span>,</span><br><span class="line">  <span class="number">1</span>: <span class="string">&#x27;ls&#x27;</span>,</span><br><span class="line">  <span class="number">2</span>: <span class="string">&#x27;ww&#x27;</span>,</span><br><span class="line">  <span class="attr">length</span>: <span class="number">3</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>伪数组借用数组的方法</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 给 obj 添加一项</span></span><br><span class="line"><span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">push</span>.<span class="title function_">call</span>(obj, <span class="string">&#x27;zl&#x27;</span>)</span><br><span class="line"><span class="comment">// 把 obj 中的每一项使用 &#x27;-&#x27; 拼接起来返回一个字符串</span></span><br><span class="line"><span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">join</span>.<span class="title function_">call</span>(obj, <span class="string">&#x27;-&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>将伪数组转换成真数组</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 借用数组的方法</span></span><br><span class="line"><span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">slice</span>.<span class="title function_">call</span>(obj)</span><br><span class="line">[].<span class="property">slice</span>.<span class="title function_">call</span>(obj)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用es6中数组的from方法：从一个类似数组或可迭代对象中创建一个新的数组实例</span></span><br><span class="line"><span class="title class_">Array</span>.<span class="title function_">from</span>(obj)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 对于函数的arguments参数可以使用扩展运算符</span></span><br><span class="line">[...<span class="variable language_">arguments</span>]</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>常用js —— object对象操作</title>
+    <url>/2034.html</url>
+    <content><![CDATA[<blockquote>
+<p><strong>删除对象属性</strong></p>
+</blockquote>
+<p>如果删除成功，返回true，删除失败，返回false<br>var 声明的全局变量不能被删除</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">delete</span> obj.<span class="property">name</span> <span class="comment">// 删除obj的name属性</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// var 声明的全局变量不能被删除</span></span><br><span class="line"><span class="keyword">var</span> num = <span class="number">12</span></span><br><span class="line">str = <span class="string">&#x27;hello&#x27;</span></span><br><span class="line"><span class="keyword">delete</span> <span class="variable language_">window</span>.<span class="property">num</span> <span class="comment">// false 删除失败</span></span><br><span class="line"><span class="keyword">delete</span> <span class="variable language_">window</span>.<span class="property">str</span> <span class="comment">// true 删除成功</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(num) <span class="comment">// 12</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str) <span class="comment">// 报错 str is not undefined</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>判断一个属性是否是对象的一个属性</strong></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">key <span class="keyword">in</span> obj <span class="comment">// 返回布尔值 从原型链继承的属性会返回 true</span></span><br><span class="line"></span><br><span class="line">obj.<span class="title function_">hasOwnProperty</span>(key) <span class="comment">// 判断某个key是否是这个对象本身的属性</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong><code>for..in</code></strong> 遍历对象</p>
+</blockquote>
+<p>会枚举原型链中的属性</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 遍历对象</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> obj) &#123;</span><br><span class="line">  <span class="keyword">if</span> (obj.<span class="title function_">hasOwnProperty</span>(key)) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(key) <span class="comment">// 键</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(obj[key]) <span class="comment">// 值</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Object-prototype-成员"><a href="#Object-prototype-成员" class="headerlink" title="Object.prototype 成员"></a>Object.prototype 成员</h3><p>constructor: 指向了构造函数 Object<br><code>hasOwnProperty()</code>: 返回一个布尔值，判断对象自身是否具有该属性<br><code>isPrototypeOf()</code>: 返回一个布尔值，用于测试一个对象是否存在于另一个对象的原型链上<br><code>propertyIsEnumerable()</code>: 返回一个布尔值，表明指定的属性名是否是当前对象可枚举的自身属性<br><code>toString()/toLocaleString()</code>: 返回对象的字符串格式<br><code>valueOf()</code>: 返回对象的原始值</p>
+<blockquote>
+<p><strong><code>hasOwnProperty</code></strong></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">name</span>: <span class="string">&#x27;zs&#x27;</span> &#125;</span><br><span class="line"><span class="comment">// 判断name属性是不是obj自己提供的</span></span><br><span class="line">obj.<span class="title function_">hasOwnProperty</span>(<span class="string">&#x27;name&#x27;</span>) <span class="comment">// true</span></span><br><span class="line">obj.<span class="title function_">hasOwnProperty</span>(<span class="string">&#x27;toString&#x27;</span>) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<p><strong><code>hasOwnProperty</code> 与 <code>in</code> 的区别</strong></p>
+<ol>
+<li><p><code>in</code> 操作符：判断对象能否访问到该属性（不管这个属性是自己提供的，还是从原型上继承来的），如果可以访问到，都会返回 true</p>
+</li>
+<li><p><code>hasOwnProperty</code>：该属性必须是自己提供，才返回 true，否则返回 false</p>
+</li>
+</ol>
+<blockquote>
+<p><strong><code>isPrototypeOf</code></strong></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 判断 A 对象是否在 B 对象的原型链上 ,回一个布尔值</span></span><br><span class="line">A.<span class="title function_">isPrototetypeOf</span>(B)</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Person</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> <span class="title class_">Person</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">// p 的原型链：</span></span><br><span class="line"><span class="comment">// p ==&gt; Person.prototype ==&gt; Object.prototype ==&gt; null</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Person</span>.<span class="title function_">isPrototypeOf</span>(p) <span class="comment">// false Person 是构造函数</span></span><br><span class="line"><span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="title function_">isPrototypeOf</span>(p) <span class="comment">// true</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="title function_">isPrototypeOf</span>(p) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p><strong><code>isPropertyOf</code> 与 <code>instanceof</code> 运算符的区别</strong></p>
+<p><code>instanceof</code> 运算符用来测试一个对象的原型链中是否存在一个构造函数的 <code>prototype</code> 属性。作用和 isPrototypeOf 类似</p>
+<p>语法： 实例对象 instanceof 构造函数</p>
+<p>作用：构造函数的 prototype 属性是否在实例对象的原型链上</p>
+<ul>
+<li>A.isPrototypeOf(B) 判断 A 是否在 B 的原型链上 A： 是一个原型对象</li>
+<li>B instanceof A 判断 A 的 prototype 是否在 B 的原型链上 A：是一个构造函数</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title class_">Array</span>.<span class="title function_">isPrototypeOf</span>([]) <span class="comment">// false</span></span><br><span class="line"><span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="title function_">isPrototypeOf</span>([]) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">[] <span class="keyword">instanceof</span> <span class="title class_">Array</span> <span class="comment">// true</span></span><br><span class="line">[] <span class="keyword">instanceof</span> <span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span> <span class="comment">// 语法错误</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong><code>propertyIsEnumerable</code></strong></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Person</span>(<span class="params">name</span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">name</span> = name</span><br><span class="line">&#125;</span><br><span class="line"><span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">age</span> = <span class="number">19</span></span><br><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> <span class="title class_">Person</span>(<span class="string">&#x27;lw&#x27;</span>)</span><br><span class="line"></span><br><span class="line">p.<span class="title function_">propertyIsEnumerable</span>(<span class="string">&#x27;name&#x27;</span>) <span class="comment">// true</span></span><br><span class="line">p.<span class="title function_">propertyIsEnumerable</span>(<span class="string">&#x27;age&#x27;</span>) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong><code>toString/toLocaleString</code></strong></p>
+</blockquote>
+<p>返回对象的字符串格式</p>
+<blockquote>
+<p><strong>每个内置对象</strong>的原型上都有属于自己的 toString 方法</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">name</span>: <span class="string">&#x27;zs&#x27;</span> &#125;</span><br><span class="line"><span class="comment">// obj ==&gt; Object.prototype ==&gt; null</span></span><br><span class="line">obj.<span class="title function_">toString</span>() <span class="comment">// &#x27;[object Object]&#x27;</span></span><br><span class="line">obj.<span class="title function_">toLocaleString</span>() <span class="comment">// &#x27;[object Object]&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="comment">// arr ==&gt;  Array.prototype ==&gt; Object.prototype ==&gt; null</span></span><br><span class="line"><span class="comment">//           toString()         toString()</span></span><br><span class="line"><span class="comment">// Array.prototype 含有自己的 toString 方法</span></span><br><span class="line">arr.<span class="title function_">toString</span>() <span class="comment">// &#x27;1,2,3&#x27;</span></span><br><span class="line">arr.<span class="title function_">toLocaleString</span>() <span class="comment">// &#x27;1,2,3&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="title class_">Date</span>()</span><br><span class="line"><span class="comment">//  date ==&gt; Date.prototype ==&gt; Object.prototype ==&gt; null</span></span><br><span class="line"><span class="comment">//           toString()          toString()</span></span><br><span class="line"><span class="comment">// Date.prototype 含有自己的 toString 方法</span></span><br><span class="line">date.<span class="title function_">toString</span>() <span class="comment">// Wed Oct 10 2018 16:00:51 GMT+0800 (中国标准时间)</span></span><br><span class="line">date.<span class="title function_">toLocaleString</span>() <span class="comment">// 2018/10/10 下午4:00:51 得到的是本地时间格式</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong><code>valueOf()</code></strong></p>
+</blockquote>
+<p>返回值为该对象的原始值，如果对象没有原始值，则 <code>valueOf</code> 将返回对象本身</p>
+<table>
+<thead>
+<tr>
+<th><strong>对象</strong></th>
+<th><strong>返回值</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Array</td>
+<td>返回数组对象本身</td>
+</tr>
+<tr>
+<td>Boolean</td>
+<td>布尔值</td>
+</tr>
+<tr>
+<td>Date</td>
+<td>时间戳</td>
+</tr>
+<tr>
+<td>Function</td>
+<td>函数本身</td>
+</tr>
+<tr>
+<td>Number</td>
+<td>数字值</td>
+</tr>
+<tr>
+<td>Object</td>
+<td>对象本身 （这是默认情况）</td>
+</tr>
+<tr>
+<td>String</td>
+<td>字符串值</td>
+</tr>
+</tbody></table>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">name</span>: <span class="string">&#x27;zs&#x27;</span> &#125;</span><br><span class="line"><span class="comment">// obj ==&gt; Object.prototype ==&gt; null</span></span><br><span class="line">obj.<span class="title function_">valueOf</span>() <span class="comment">// &#123; name: &#x27;zs&#x27; &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="comment">// arr ==&gt;  Array.prototype ==&gt; Object.prototype ==&gt; null</span></span><br><span class="line">arr.<span class="title function_">valueOf</span>() <span class="comment">// [1, 2, 3]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="title class_">Date</span>()</span><br><span class="line"><span class="comment">// date ==&gt; Date.prototype ==&gt; Object.prototype ==&gt; null</span></span><br><span class="line"><span class="comment">// Date.prototype 含有 valueOf 方法</span></span><br><span class="line">date.<span class="title function_">valueOf</span>() <span class="comment">// 时间戳</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>valueOf 和 toString 的应用</p>
+</blockquote>
+<p>当对象在参与运算和比较的时候，js 内部会自动的调用 valueOf 和 toString 方法</p>
+<p>调用规则：</p>
+<ol>
+<li><p>默认先调用 vauleOf， 尝试将对象转成简单数据类型， 如果没有转成简单数据类型， 会继续在调用 toString 方法</p>
+</li>
+<li><p>如果 valueOf 和 toString 方法都没有转成简单数据类型，会报错</p>
+</li>
+</ol>
+<h3 id="Object-静态方法"><a href="#Object-静态方法" class="headerlink" title="Object 静态方法"></a>Object 静态方法</h3><p><code>Object.assign()</code><br><code>Object.create()</code><br><code>Object.defineProperty()</code><br><code>Object.entries()</code><br><code>Object.freeze()</code><br><code>Object.getPrototypeOf()</code><br><code>Object.is()</code><br><code>Object.isFrozen()</code><br><code>Object.keys()</code><br><code>Object.values()</code></p>
+<blockquote>
+<p><strong><code>Object.assign(target, ...sources)</code></strong></p>
+</blockquote>
+<p>用于将所有<strong>可枚举属性</strong>的值从一个或多个源对象分配到目标对象。它将返回目标对象</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> o1 = &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;</span><br><span class="line"><span class="keyword">const</span> o2 = &#123; <span class="attr">b</span>: <span class="number">2</span> &#125;</span><br><span class="line"><span class="keyword">const</span> o3 = &#123; <span class="attr">c</span>: <span class="number">3</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> obj = <span class="title class_">Object</span>.<span class="title function_">assign</span>(o1, o2, o3)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj) <span class="comment">// &#123; a: 1, b: 2, c: 3 &#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(o1)  <span class="comment">// &#123; a: 1, b: 2, c: 3 &#125;</span></span><br><span class="line">obj === o1 <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> v1 = <span class="string">&quot;abc&quot;</span></span><br><span class="line"><span class="keyword">const</span> v2 = <span class="literal">true</span></span><br><span class="line"><span class="keyword">const</span> v3 = <span class="number">10</span></span><br><span class="line"><span class="keyword">const</span> v4 = <span class="title class_">Symbol</span>(<span class="string">&quot;foo&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> obj = <span class="title class_">Object</span>.<span class="title function_">assign</span>(&#123;&#125;, v1, <span class="literal">null</span>, v2, <span class="literal">undefined</span>, v3, v4)</span><br><span class="line"><span class="comment">// 原始类型会被包装，null 和 undefined 会被忽略。</span></span><br><span class="line"><span class="comment">// 注意，只有字符串的包装对象才可能有自身可枚举属性。</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj) <span class="comment">// &#123; &quot;0&quot;: &quot;a&quot;, &quot;1&quot;: &quot;b&quot;, &quot;2&quot;: &quot;c&quot; &#125;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong><code>Object.create(proto, [propertiesObject])</code></strong></p>
+</blockquote>
+<p>创建一个新对象，使用现有的对象来提供新创建的对象的<code>__proto__</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 语法</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">create</span>(proto[, propertiesObject])</span><br><span class="line"><span class="comment">// 参数：proto 一个对象,新创建对象的原型对象</span></span><br><span class="line"><span class="comment">// 参数：propertiesObject 要添加到新创建对象的可枚举属性</span></span><br><span class="line"><span class="comment">// 返回值：一个新对象，带着指定的原型对象和属性</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = <span class="title class_">Object</span>.<span class="title function_">create</span>(proto)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong><code>Object.defineProperty(obj, prop, descriptor)</code></strong></p>
+</blockquote>
+<p>在一个对象上定义一个新属性，或者修改一个对象的现有属性，并返回此对象。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;&#125;</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(obj, <span class="string">&#x27;name&#x27;</span>, &#123;</span><br><span class="line">  <span class="attr">configurable</span>: <span class="literal">true</span>, <span class="comment">// 表示对象的属性是否可以被删除，以及除 value 和 writable 特性外的其他特性是否可以被修改。默认为 false</span></span><br><span class="line">  <span class="attr">value</span>: <span class="string">&#x27;c&#x27;</span>, <span class="comment">// 配置该属性的默认值 默认为 undefined</span></span><br><span class="line">  <span class="attr">writable</span>: <span class="literal">true</span>, <span class="comment">// 配置该属性是否可以被修改， 默认值是false， 不可修改</span></span><br><span class="line">  <span class="attr">enumerable</span>: <span class="literal">true</span> <span class="comment">// 配置该属性是否可枚举， 默认值是false， 不可枚举</span></span><br><span class="line">  <span class="comment">// 默认为 undefined</span></span><br><span class="line">  <span class="comment">// set: function (newVal) &#123;</span></span><br><span class="line">  <span class="comment">//   console.log(&#x27;赋值了&#x27;, newVal)</span></span><br><span class="line">  <span class="comment">// &#125;,</span></span><br><span class="line">  <span class="comment">// 默认为 undefined</span></span><br><span class="line">  <span class="comment">// get: function () &#123;</span></span><br><span class="line">  <span class="comment">//   console.log(&#x27;取值了&#x27;)</span></span><br><span class="line">  <span class="comment">// &#125;</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>如果一个描述符同时拥有 value 或 writable 和 get 或 set 键，则会产生一个异常</p>
+<blockquote>
+<p><strong><code>Object.entries(obj)</code></strong></p>
+</blockquote>
+<p>返回一个给定对象自身可枚举属性的键值对数组</p>
+<p>将Object转换为Map <code>new Map(Object.entries(obj))</code></p>
+<blockquote>
+<p><strong><code>Object.freeze()</code></strong></p>
+</blockquote>
+<p>接受一个对象作为参数，并返回一个相同的不可变的对象，冻结一个对象后该对象的原型也不能被修改</p>
+<p>可以阻止修改对象的值，但是不能阻止引用的修改</p>
+<p>只是做了层浅冻结，具有嵌套属性的对象实际上并未冻结</p>
+<blockquote>
+<p><strong><code>Object.getPrototypeOf</code></strong></p>
+</blockquote>
+<p>返回指定对象的原型</p>
+<blockquote>
+<p><strong><code>Object.is()</code></strong></p>
+</blockquote>
+<p>Object.is() 方法判断两个值是否是相同的值。比较时不会做类型转换，这与 <code>==</code> <code>===</code> 运算符的判定方式都不一样</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(+<span class="number">0</span>, -<span class="number">0</span>) <span class="comment">// false</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="number">0</span>, -<span class="number">0</span>) <span class="comment">// false</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="number">0</span>, +<span class="number">0</span>) <span class="comment">// true</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(-<span class="number">0</span>, -<span class="number">0</span>) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="literal">undefined</span>, <span class="literal">undefined</span>) <span class="comment">// true</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="literal">null</span>, <span class="literal">null</span>) <span class="comment">// true</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="title class_">Number</span>.<span class="property">NaN</span>, <span class="title class_">Number</span>.<span class="property">NaN</span>) <span class="comment">// true</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="title class_">Number</span>.<span class="property">NaN</span>, <span class="title class_">NaN</span>) <span class="comment">// true</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="title class_">NaN</span>, <span class="title class_">NaN</span>) <span class="comment">// true</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="title class_">NaN</span>, <span class="number">0</span> / <span class="number">0</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong><code>Object.isFrozen()</code></strong></p>
+</blockquote>
+<blockquote>
+<p><strong><code>Object.keys(obj)</code></strong></p>
+</blockquote>
+<p>返回一个由一个给定对象的自身可枚举属性组成的数组</p>
+<blockquote>
+<p><strong><code>Object.values(obj)</code></strong></p>
+</blockquote>
+<p>返回一个给定对象自身的所有可枚举属性值的数组</p>
+]]></content>
       <categories>
         <category>前端</category>
       </categories>
@@ -12193,7 +11974,7 @@
   </entry>
   <entry>
     <title></title>
-    <url>/ckzps2eyx00hm23n6cb6yamz2.html</url>
+    <url>/ckzs9xpbv00f435okcfnfc1bs.html</url>
     <content><![CDATA[<h2 id="常用正则"><a href="#常用正则" class="headerlink" title="常用正则"></a>常用正则</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">. - 除换行符以外的所有字符。</span><br><span class="line">^ - 字符串开头。</span><br><span class="line">$ - 字符串结尾。</span><br><span class="line">\d,\w,\s - 匹配数字、字符、空格。</span><br><span class="line">\D,\W,\S - 匹配非数字、非字符、非空格。</span><br><span class="line">[abc] - 匹配 a、b 或 c 中的一个字母。</span><br><span class="line">[a-z] - 匹配 a 到 z 中的一个字母。</span><br><span class="line">[^abc] - 匹配除了 a、b 或 c 中的其他字母。</span><br><span class="line">aa|bb - 匹配 aa 或 bb。</span><br><span class="line">? - 0 次或 1 次匹配。</span><br><span class="line">* - 匹配 0 次或多次。</span><br><span class="line">+ - 匹配 1 次或多次。</span><br><span class="line">&#123;n&#125; - 匹配 n次。</span><br><span class="line">&#123;n,&#125; - 匹配 n次以上。</span><br><span class="line">&#123;m,n&#125; - 最少 m 次，最多 n 次匹配。</span><br><span class="line">(expr) - 捕获 expr 子模式,以 \1 使用它。</span><br><span class="line">(?:expr) - 忽略捕获的子模式。</span><br><span class="line">(?=expr) - 正向预查模式 expr。</span><br><span class="line">(?!expr) - 负向预查模式 expr。</span><br></pre></td></tr></table></figure>
 
 <p>任意正负数字  <code>^(\-|\+)?\d+(\.\d+)?$</code><br>邮箱 <code>^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$</code><br>最多保留2位小数的非负数字<br>匹配中文 <code>^[\u4e00-\u9fa5]*$</code></p>
@@ -12429,7 +12210,8 @@
   <entry>
     <title>Vue</title>
     <url>/2010.html</url>
-    <content><![CDATA[<h1 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h1><ul>
+    <content><![CDATA[<h1 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h1><p><span class="exturl" data-url="aHR0cHM6Ly9jbi52dWVqcy5vcmcvdjIvZ3VpZGUvY29tcG9uZW50cy1zbG90cy5odG1s">插槽</span></p>
+<ul>
 <li><p><span class="exturl" data-url="aHR0cHM6Ly9jbi52dWVqcy5vcmcv">vue 中文网</span></p>
 </li>
 <li><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Z1ZWpzL3Z1ZQ==">github 下载地址</span></p>
@@ -13298,29 +13080,6 @@
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">footer</span> <span class="attr">class</span>=<span class="string">&quot;footer&quot;</span> <span class="attr">v-show</span>=<span class="string">&quot;isFooter&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">computed</span>: &#123;</span><br><span class="line">  <span class="comment">// 计算属性 判断底部是否显示</span></span><br><span class="line">  <span class="comment">// 1. 计算属性只会跟着相关属性的值发生变化而变化</span></span><br><span class="line">  <span class="comment">// 2. 一定要有返回值</span></span><br><span class="line">  <span class="comment">// 3. 一定要写在 computed 里面</span></span><br><span class="line">  <span class="comment">// 4. 写起来像一个方法，用起来像一个属性</span></span><br><span class="line">  isFooter () &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">todoList</span>.<span class="property">length</span> &gt; <span class="number">0</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="数据持久化"><a href="#数据持久化" class="headerlink" title="数据持久化"></a>数据持久化</h3><ul>
-<li>存储数据<ul>
-<li>监听 list 数据的改变，只要 list 数据变了，就调用保存数据的方法</li>
-<li>使用 vue 的 watch 监听 list 的数据改变</li>
-<li>保存值，记得把对象转化为字符串(存的快省空间)</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">watch</span>: &#123;</span><br><span class="line">  <span class="comment">// 监听 todoList</span></span><br><span class="line">  <span class="attr">todoList</span>: &#123;</span><br><span class="line">    <span class="attr">deep</span>: <span class="literal">true</span>,</span><br><span class="line">    handler (newVal) &#123;</span><br><span class="line">   		<span class="variable language_">localStorage</span>.<span class="title function_">setItem</span>(<span class="string">&#x27;todoList&#x27;</span>, <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(newVal))</span><br><span class="line">  	&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>获取数据</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 在 data 中可以初始值</span></span><br><span class="line"><span class="comment">// 设置一个默认值 空数组 []</span></span><br><span class="line"><span class="attr">todoList</span>: <span class="title class_">JSON</span>.<span class="title function_">parse</span>(<span class="variable language_">localStorage</span>.<span class="title function_">getItem</span>(<span class="string">&#x27;todoList&#x27;</span>)) || []</span><br></pre></td></tr></table></figure>
-
-<h3 id="使用钩子函数来完善数据存储"><a href="#使用钩子函数来完善数据存储" class="headerlink" title="使用钩子函数来完善数据存储"></a>使用钩子函数来完善数据存储</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">created () &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">todoList</span> = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(<span class="variable language_">localStorage</span>.<span class="title function_">getItem</span>(<span class="string">&#x27;todoList&#x27;</span>)) || []</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="获取接口数据"><a href="#获取接口数据" class="headerlink" title="获取接口数据"></a>获取接口数据</h3><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3R5cGljb2RlL2pzb24tc2VydmVy">json-server</span> 提供假数据接口</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2F4aW9zL2F4aW9z">axios</span> 发送请求</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm i -g json-server</span><br><span class="line">npm i axios</span><br><span class="line">json-server data.json</span><br></pre></td></tr></table></figure>
-
-<h3 id="组件化-TODOMVC"><a href="#组件化-TODOMVC" class="headerlink" title="组件化 TODOMVC"></a>组件化 TODOMVC</h3><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2N1aWxvbmdqaW4vdG9kb212Yy1hcHAtdGVtcGxhdGUvdHJlZS96dWppYW5odWE=">https://github.com/cuilongjin/todomvc-app-template/tree/zujianhua</span></p>
 ]]></content>
       <categories>
         <category>vue</category>
@@ -14663,341 +14422,30 @@
       </tags>
   </entry>
   <entry>
-    <title>常用js —— array数组操作</title>
-    <url>/2033.html</url>
-    <content><![CDATA[<h3 id="基本方法"><a href="#基本方法" class="headerlink" title="基本方法"></a>基本方法</h3><blockquote>
-<p><strong><code>arr.join()</code></strong></p>
-</blockquote>
-<p>将数组的值拼接成字符串 不传参数，默认用逗号进行拼接，返回拼接好的字符串</p>
-<blockquote>
-<p><strong><code>arr.push()</code></strong></p>
-</blockquote>
-<p>从后面添加一个或多个元素，多个参数逗号隔开，返回新数组的 length</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">arr.<span class="title function_">push</span>(arr1) <span class="comment">// 把 arr1 当成一个整体放到 arr 里</span></span><br></pre></td></tr></table></figure>
+    <title></title>
+    <url>/ckzs9xpct00i535oke0ggdl6p.html</url>
+    <content><![CDATA[<p>数组去重</p>
+<details>
+<summary>查看</summary>
+1. 新建一个数组，遍历去要重的数组，当值不在新数组的时候（indexOf 为-1 或 includes 为false）就加入该新数组中
 
-<blockquote>
-<p><strong><code>arr.pop()</code></strong></p>
-</blockquote>
-<p>从数组的后面删除元素，返回删除的那个元素</p>
-<blockquote>
-<p><strong><code>arr.unshift()</code></strong></p>
-</blockquote>
-<p>从数组的前面的添加元素，，多个参数逗号隔开，返回新数组的 length</p>
-<blockquote>
-<p><strong><code>arr.shift()</code></strong></p>
-</blockquote>
-<p>从数组的最前面删除元素，返回删除的那个元素</p>
-<blockquote>
-<p><strong><code>arr.reverse()</code></strong></p>
-</blockquote>
-<p>翻转数组</p>
-<blockquote>
-<p><strong><code>arr.sort()</code></strong></p>
-</blockquote>
-<p>排序</p>
-<p>sort 方法可以传递一个函数作为参数，这个参数用来控制数组如何进行排序</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">arr.<span class="title function_">sort</span>(<span class="keyword">function</span>(<span class="params">a, b</span>) &#123;</span><br><span class="line">  <span class="comment">// 参数为 true 时，即返回值 &gt; 0 时，交换位置</span></span><br><span class="line">  <span class="comment">// return a - b // 从小到大排序</span></span><br><span class="line">  <span class="keyword">return</span> b - a <span class="comment">// 从大到小排序</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">unique</span>(<span class="params">arr</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> newArr = []</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.<span class="property">length</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (newArr.<span class="title function_">indexOf</span>(arr[i]) === -<span class="number">1</span>) &#123;</span><br><span class="line">      newArr.<span class="title function_">push</span>(arr[i])</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> newArr</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p><strong><code>arr.concat()</code></strong></p>
-</blockquote>
-<p>数组合并，返回一个新数组，原数组不受影响</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">a.<span class="title function_">concat</span>(b) <span class="comment">// [...a, ...b]</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><strong><code>arr.slice()</code></strong></p>
-</blockquote>
-<p>数组切分，复制数组的一部分到一个新数组，并返回这个新数组，原数组不受影响</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// slice(begin, end) 包含 begin，不包含 end， begin 和 end 为下标</span></span><br><span class="line"><span class="comment">// slice(begin) 只有一个参数时，为开始参数，截取到末尾</span></span><br><span class="line"><span class="comment">// slice() 没有参数，全部截取</span></span><br><span class="line"><span class="comment">// 可以为负数，会将字符串的长度与对应的负数相加，结果作为参数，-1 表示从后数第一个</span></span><br><span class="line"><span class="keyword">var</span> newArr = arr.<span class="title function_">slice</span>(begin, end)</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><strong><code>arr.splice()</code></strong></p>
-</blockquote>
-<p>删除或者增加数组元素，修改原数组，返回删除的内容（数组形式）</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// start: 开始位置  deletedCount: 删除的个数（如果不删除为 0）items: 替换的内容, 可为多个</span></span><br><span class="line">arr.<span class="title function_">splice</span>(start) <span class="comment">// 删除原数组 start 位置之后的项（包含 start），返回删除的内容</span></span><br><span class="line">arr.<span class="title function_">splice</span>(start, deletedCount, [items]) <span class="comment">// items 将作为 arr 的一项</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><strong><code>arr.indexOf()</code></strong></p>
-</blockquote>
-<p>返回数组中某个元素第一次出现的位置，如果找不到，返回 -1</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// fromIndex 表示从 fromIndex 下标开始查找</span></span><br><span class="line">arr.<span class="title function_">indexOf</span>(<span class="string">&#x27;zs&#x27;</span>[, fromIndex])</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><strong><code>arr.lastIndexOf()</code></strong></p>
-</blockquote>
-<p>从后面开始查找数组中元素出现位置,即查找某元素最后一次出现的位置，如果找不到，返回 -1</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">arr.<span class="title function_">lastIndexOf</span>(<span class="string">&#x27;zs&#x27;</span>[, fromIndex])</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><strong><code>arr.forEach()</code></strong></p>
-</blockquote>
-<p>返回值: undefined<br>除了抛出异常以外，没有办法中止或跳出 forEach() 循环<br>不支持 return 操作输出，return 只用于控制循环是否跳出当前循环</p>
-<p>遍历时会自动忽略 empty 值</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">arr.<span class="title function_">forEach</span>(<span class="keyword">function</span>(<span class="params">item, index, arr</span>) &#123;&#125;, thisArg)</span><br><span class="line"><span class="comment">// item 必需。数组中正在处理的当前元素</span></span><br><span class="line"><span class="comment">// index 可选。数组中正在处理的当前元素的索引</span></span><br><span class="line"><span class="comment">// arr 可选。当前数组</span></span><br><span class="line"><span class="comment">// thisArg 可选。当执行回调函数时用作this的值</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="string">&#x27;zs&#x27;</span>, <span class="string">&#x27;ls&#x27;</span>, <span class="string">&#x27;ww&#x27;</span>]</span><br><span class="line">arr.<span class="title function_">forEach</span>(<span class="keyword">function</span>(<span class="params">item, index, arr</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(item)</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><strong><code>arr.map()</code></strong></p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> newArr = arr.<span class="title function_">map</span>(<span class="keyword">function</span>(<span class="params">item, index</span>) &#123;</span><br><span class="line">  <span class="comment">// item 必需。数组中正在处理的当前元素</span></span><br><span class="line">  <span class="comment">// index 可选。数组中正在处理的当前元素的索引</span></span><br><span class="line">  <span class="comment">// arr 可选。当前数组</span></span><br><span class="line">  <span class="comment">// 使用 return 操作输出，会循环数组每一项，并返回新的每一项组成的数组</span></span><br><span class="line">  <span class="keyword">return</span> item * <span class="number">2</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 不修改原数组</span></span><br><span class="line"><span class="comment">// 返回一个新数组，新数组的每一项乘以 2</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><strong><code>arr.filter()</code></strong></p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> newArr = arr.<span class="title function_">filter</span>(<span class="keyword">function</span>(<span class="params">item, index</span>) &#123;</span><br><span class="line">  <span class="comment">// 参数同 map</span></span><br><span class="line">  <span class="comment">// 使用 return 操作输出，会循环数组每一项，并返回判断为 true 的每一项组成的数组</span></span><br><span class="line">  <span class="keyword">return</span> item &gt; <span class="number">2</span> &amp;&amp; item &lt; <span class="number">5</span> <span class="comment">// return 后是判断条件</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 不修改原数组</span></span><br><span class="line"><span class="comment">// 返回一个新数组，新数组每一项满足 2 &lt; item &lt; 5</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><strong><code>arr.some()</code></strong></p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> newArr = arr.<span class="title function_">some</span>(<span class="keyword">function</span>(<span class="params">item, index</span>) &#123;</span><br><span class="line">  <span class="comment">// 参数同 map</span></span><br><span class="line">  <span class="comment">// 返回布尔值，只要有一项满足条件就返回 true，否则返回 false</span></span><br><span class="line">  <span class="keyword">return</span> item &gt; <span class="number">2</span> <span class="comment">// return 后是判断条件</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 不修改原数组</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><strong><code>arr.every()</code></strong></p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> newArr = arr.<span class="title function_">every</span>(<span class="keyword">function</span>(<span class="params">item, index</span>) &#123;</span><br><span class="line">  <span class="comment">// 参数同 map</span></span><br><span class="line">  <span class="comment">// 返回布尔值，只有所有项都满足条件才返回 true，否则返回f alse</span></span><br><span class="line">  <span class="keyword">return</span> item &gt; <span class="number">2</span> <span class="comment">// return 后是判断条件</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 不修改原数组</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><strong><code>arr.includes()</code></strong></p>
-</blockquote>
-<p>判断数组是否含有某值，输出 true 或 false</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> flag = arr.<span class="title function_">includes</span>(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><strong><code>arr.find()</code></strong></p>
-</blockquote>
-<p>使用 return 操作输出，会循环数组每一项，当循环到满足条件时则跳出循环，输出当前数组元素<br>如果全不满足返回 undefined</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> newArr = arr.<span class="title function_">find</span>(<span class="keyword">function</span>(<span class="params">item, index</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> item &gt; <span class="number">2</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 不修改原数组</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><strong><code>arr.findIndex()</code></strong></p>
-</blockquote>
-<p>使用 return 操作输出，会循环数组每一项，当循环到满足条件时则跳出循环，输出当前数组元素的下标<br>如果全不满足返回 -1</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> newArr = arr.<span class="title function_">findIndex</span>(<span class="keyword">function</span>(<span class="params">item, index</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> item &gt; <span class="number">2</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 不修改原数组</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><strong><code>arr.reduce()</code></strong></p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> new1 = arr.<span class="title function_">reduce</span>(<span class="keyword">function</span>(<span class="params">accumulator, current, index, array</span>) &#123;</span><br><span class="line">  <span class="comment">// accumulator 第一次为数组第一项，之后为上一操作的结果</span></span><br><span class="line">  <span class="comment">// current 数组的当前项</span></span><br><span class="line">  <span class="comment">// index 当前项的序列</span></span><br><span class="line">  <span class="comment">// array 可选。当前数组</span></span><br><span class="line">  <span class="comment">// initialValue 可选。作为第一次调用 callback函数时的第一个参数的值。 如果没有提供初始值，则将使用数组中的第一个元素。 在没有初始值的空数组上调用 reduce 将报错</span></span><br><span class="line">  <span class="comment">// 使用 return 操作输出</span></span><br><span class="line">  <span class="keyword">return</span> accumulator + current <span class="comment">// 返回数组每一项的和</span></span><br><span class="line">&#125;[, initialValue])</span><br><span class="line"><span class="comment">// 不修改原数组</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 扁平化数组</span></span><br><span class="line"><span class="keyword">var</span> arr2 = [ [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>], [<span class="number">6</span>, <span class="number">7</span>] ]</span><br><span class="line"><span class="keyword">var</span> new2 = arr2.<span class="title function_">reduce</span>(<span class="keyword">function</span>(<span class="params">accumulator, current, index</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> accumulator.<span class="title function_">concat</span>(current)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 对象数组叠加计算</span></span><br><span class="line"><span class="keyword">var</span> arr3 = [</span><br><span class="line">  &#123; <span class="attr">price</span>: <span class="number">1</span>, <span class="attr">count</span>: <span class="number">1</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">price</span>: <span class="number">2</span>, <span class="attr">count</span>: <span class="number">2</span> &#125;</span><br><span class="line">]</span><br><span class="line"><span class="keyword">var</span> new3 = arr3.<span class="title function_">reduce</span>(<span class="keyword">function</span>(<span class="params">accumulator, current, index</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> accumulator + current.<span class="property">price</span> * current.<span class="property">count</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 当需要操作第一项的时候，利用 reduce(callbreak()&#123;&#125;,往数组第一项前添加一项，如:0)</span></span><br><span class="line">&#125;, <span class="number">0</span>) <span class="comment">// 在原数组第一项添加为 0，不改变原数组</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><strong><code>arr.fill()</code></strong></p>
-</blockquote>
-<p>用一个固定值填充一个数组中从起始索引到终止索引内的全部元素。不包括终止索引</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">arr.<span class="title function_">fill</span>(value[, start[, end]])</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><strong><code>arr.flat()</code></strong></p>
-</blockquote>
-<p>扁平化数组<br>按照一个可指定的深度递归遍历数组，并将所有元素与遍历到的子数组中的元素合并为一个新数组返回</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> newArray = arr.<span class="title function_">flat</span>([depth])</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 Infinity，可展开任意深度的嵌套数组</span></span><br><span class="line"><span class="keyword">var</span> arr4 = [<span class="number">1</span>, <span class="number">2</span>, [<span class="number">3</span>, <span class="number">4</span>, [<span class="number">5</span>, <span class="number">6</span>, [<span class="number">7</span>, <span class="number">8</span>, [<span class="number">9</span>, <span class="number">10</span>]]]]]</span><br><span class="line">arr4.<span class="title function_">flat</span>(<span class="title class_">Infinity</span>) <span class="comment">// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 会移除数组中的空项</span></span><br><span class="line"><span class="keyword">var</span> arr4 = [<span class="number">1</span>, <span class="number">2</span>, , <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">arr4.<span class="title function_">flat</span>() <span class="comment">// [1, 2, 4, 5]</span></span><br></pre></td></tr></table></figure>
-
-
-<h3 id="伪数组"><a href="#伪数组" class="headerlink" title="伪数组"></a>伪数组</h3><blockquote>
-<p>伪数组也叫类数组</p>
-</blockquote>
-<ol>
-<li>伪数组其实就是一个对象，但是跟数组一样，伪数组也会有<code>length</code>属性，也有<code>0, 1, 2, 3</code>等属性</li>
-<li>伪数组并没有数组的方法，不能使用<code>push/pop</code>等方法</li>
-<li>伪数组可以跟数组一样进行遍历，通过下标操作</li>
-<li>常见的伪数组：<code>arguments</code>、<code>document.getElementsByTagName的返回值</code>、<code>jQuery对象</code></li>
+<ol start="2">
+<li>数组下标判断：如果当前数组的第 i 项在当前数组中第一次出现的位置不是 i，那么表示第 i 项是重复的，忽略掉。否则存入结果数组</li>
 </ol>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="number">0</span>: <span class="string">&#x27;zs&#x27;</span>,</span><br><span class="line">  <span class="number">1</span>: <span class="string">&#x27;ls&#x27;</span>,</span><br><span class="line">  <span class="number">2</span>: <span class="string">&#x27;ww&#x27;</span>,</span><br><span class="line">  <span class="attr">length</span>: <span class="number">3</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">unique</span>(<span class="params">arr</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> newArr = []</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.<span class="property">length</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (arr.<span class="title function_">indexOf</span>(arr[i]) === i) &#123;</span><br><span class="line">      newArr.<span class="title function_">push</span>(arr[i])</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> newArr</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>伪数组借用数组的方法</li>
+<li>hash去重<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Deduplication</span>(<span class="params">arr</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> result = []</span><br><span class="line">  <span class="keyword">var</span> hashMap = &#123;&#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.<span class="property">length</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">var</span> temp = arr[i]</span><br><span class="line">    <span class="keyword">if</span> (!hashMap[temp]) &#123;</span><br><span class="line">      hashMap[temp] = <span class="literal">true</span></span><br><span class="line">      result.<span class="title function_">push</span>(temp)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 给 obj 添加一项</span></span><br><span class="line"><span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">push</span>.<span class="title function_">call</span>(obj, <span class="string">&#x27;zl&#x27;</span>)</span><br><span class="line"><span class="comment">// 把 obj 中的每一项使用 &#x27;-&#x27; 拼接起来返回一个字符串</span></span><br><span class="line"><span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">join</span>.<span class="title function_">call</span>(obj, <span class="string">&#x27;-&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>ES6 实现</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">unique</span>(<span class="params">arr</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> x = <span class="keyword">new</span> <span class="title class_">Set</span>(arr)</span><br><span class="line">  <span class="keyword">return</span> [...x]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</details>
 
-<ul>
-<li>将伪数组转换成真数组</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 借用数组的方法</span></span><br><span class="line"><span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">slice</span>.<span class="title function_">call</span>(obj)</span><br><span class="line">[].<span class="property">slice</span>.<span class="title function_">call</span>(obj)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用es6中数组的from方法：从一个类似数组或可迭代对象中创建一个新的数组实例</span></span><br><span class="line"><span class="title class_">Array</span>.<span class="title function_">from</span>(obj)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 对于函数的arguments参数可以使用扩展运算符</span></span><br><span class="line">[...<span class="variable language_">arguments</span>]</span><br></pre></td></tr></table></figure>
+
 ]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>常用js —— object对象操作</title>
-    <url>/2034.html</url>
-    <content><![CDATA[<blockquote>
-<p><strong>删除对象属性</strong></p>
-</blockquote>
-<p>如果删除成功，返回true，删除失败，返回false<br>var 声明的全局变量不能被删除</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">delete</span> obj.<span class="property">name</span> <span class="comment">// 删除obj的name属性</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// var 声明的全局变量不能被删除</span></span><br><span class="line"><span class="keyword">var</span> num = <span class="number">12</span></span><br><span class="line">str = <span class="string">&#x27;hello&#x27;</span></span><br><span class="line"><span class="keyword">delete</span> <span class="variable language_">window</span>.<span class="property">num</span> <span class="comment">// false 删除失败</span></span><br><span class="line"><span class="keyword">delete</span> <span class="variable language_">window</span>.<span class="property">str</span> <span class="comment">// true 删除成功</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(num) <span class="comment">// 12</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str) <span class="comment">// 报错 str is not undefined</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><strong>判断一个属性是否是对象的一个属性</strong></p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">key <span class="keyword">in</span> obj <span class="comment">// 返回布尔值 从原型链继承的属性会返回 true</span></span><br><span class="line"></span><br><span class="line">obj.<span class="title function_">hasOwnProperty</span>(key) <span class="comment">// 判断某个key是否是这个对象本身的属性</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><strong><code>for..in</code></strong> 遍历对象</p>
-</blockquote>
-<p>会枚举原型链中的属性</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 遍历对象</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> obj) &#123;</span><br><span class="line">  <span class="keyword">if</span> (obj.<span class="title function_">hasOwnProperty</span>(key)) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(key) <span class="comment">// 键</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(obj[key]) <span class="comment">// 值</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="Object-prototype-成员"><a href="#Object-prototype-成员" class="headerlink" title="Object.prototype 成员"></a>Object.prototype 成员</h3><p>constructor: 指向了构造函数 Object<br><code>hasOwnProperty()</code>: 返回一个布尔值，判断对象自身是否具有该属性<br><code>isPrototypeOf()</code>: 返回一个布尔值，用于测试一个对象是否存在于另一个对象的原型链上<br><code>propertyIsEnumerable()</code>: 返回一个布尔值，表明指定的属性名是否是当前对象可枚举的自身属性<br><code>toString()/toLocaleString()</code>: 返回对象的字符串格式<br><code>valueOf()</code>: 返回对象的原始值</p>
-<blockquote>
-<p><strong><code>hasOwnProperty</code></strong></p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">name</span>: <span class="string">&#x27;zs&#x27;</span> &#125;</span><br><span class="line"><span class="comment">// 判断name属性是不是obj自己提供的</span></span><br><span class="line">obj.<span class="title function_">hasOwnProperty</span>(<span class="string">&#x27;name&#x27;</span>) <span class="comment">// true</span></span><br><span class="line">obj.<span class="title function_">hasOwnProperty</span>(<span class="string">&#x27;toString&#x27;</span>) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-
-<p><strong><code>hasOwnProperty</code> 与 <code>in</code> 的区别</strong></p>
-<ol>
-<li><p><code>in</code> 操作符：判断对象能否访问到该属性（不管这个属性是自己提供的，还是从原型上继承来的），如果可以访问到，都会返回 true</p>
-</li>
-<li><p><code>hasOwnProperty</code>：该属性必须是自己提供，才返回 true，否则返回 false</p>
-</li>
-</ol>
-<blockquote>
-<p><strong><code>isPrototypeOf</code></strong></p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 判断 A 对象是否在 B 对象的原型链上 ,回一个布尔值</span></span><br><span class="line">A.<span class="title function_">isPrototetypeOf</span>(B)</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Person</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> <span class="title class_">Person</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">// p 的原型链：</span></span><br><span class="line"><span class="comment">// p ==&gt; Person.prototype ==&gt; Object.prototype ==&gt; null</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Person</span>.<span class="title function_">isPrototypeOf</span>(p) <span class="comment">// false Person 是构造函数</span></span><br><span class="line"><span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="title function_">isPrototypeOf</span>(p) <span class="comment">// true</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="title function_">isPrototypeOf</span>(p) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-
-<p><strong><code>isPropertyOf</code> 与 <code>instanceof</code> 运算符的区别</strong></p>
-<p><code>instanceof</code> 运算符用来测试一个对象的原型链中是否存在一个构造函数的 <code>prototype</code> 属性。作用和 isPrototypeOf 类似</p>
-<p>语法： 实例对象 instanceof 构造函数</p>
-<p>作用：构造函数的 prototype 属性是否在实例对象的原型链上</p>
-<ul>
-<li>A.isPrototypeOf(B) 判断 A 是否在 B 的原型链上 A： 是一个原型对象</li>
-<li>B instanceof A 判断 A 的 prototype 是否在 B 的原型链上 A：是一个构造函数</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title class_">Array</span>.<span class="title function_">isPrototypeOf</span>([]) <span class="comment">// false</span></span><br><span class="line"><span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="title function_">isPrototypeOf</span>([]) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">[] <span class="keyword">instanceof</span> <span class="title class_">Array</span> <span class="comment">// true</span></span><br><span class="line">[] <span class="keyword">instanceof</span> <span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span> <span class="comment">// 语法错误</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><strong><code>propertyIsEnumerable</code></strong></p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Person</span>(<span class="params">name</span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">name</span> = name</span><br><span class="line">&#125;</span><br><span class="line"><span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">age</span> = <span class="number">19</span></span><br><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> <span class="title class_">Person</span>(<span class="string">&#x27;lw&#x27;</span>)</span><br><span class="line"></span><br><span class="line">p.<span class="title function_">propertyIsEnumerable</span>(<span class="string">&#x27;name&#x27;</span>) <span class="comment">// true</span></span><br><span class="line">p.<span class="title function_">propertyIsEnumerable</span>(<span class="string">&#x27;age&#x27;</span>) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><strong><code>toString/toLocaleString</code></strong></p>
-</blockquote>
-<p>返回对象的字符串格式</p>
-<blockquote>
-<p><strong>每个内置对象</strong>的原型上都有属于自己的 toString 方法</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">name</span>: <span class="string">&#x27;zs&#x27;</span> &#125;</span><br><span class="line"><span class="comment">// obj ==&gt; Object.prototype ==&gt; null</span></span><br><span class="line">obj.<span class="title function_">toString</span>() <span class="comment">// &#x27;[object Object]&#x27;</span></span><br><span class="line">obj.<span class="title function_">toLocaleString</span>() <span class="comment">// &#x27;[object Object]&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="comment">// arr ==&gt;  Array.prototype ==&gt; Object.prototype ==&gt; null</span></span><br><span class="line"><span class="comment">//           toString()         toString()</span></span><br><span class="line"><span class="comment">// Array.prototype 含有自己的 toString 方法</span></span><br><span class="line">arr.<span class="title function_">toString</span>() <span class="comment">// &#x27;1,2,3&#x27;</span></span><br><span class="line">arr.<span class="title function_">toLocaleString</span>() <span class="comment">// &#x27;1,2,3&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="title class_">Date</span>()</span><br><span class="line"><span class="comment">//  date ==&gt; Date.prototype ==&gt; Object.prototype ==&gt; null</span></span><br><span class="line"><span class="comment">//           toString()          toString()</span></span><br><span class="line"><span class="comment">// Date.prototype 含有自己的 toString 方法</span></span><br><span class="line">date.<span class="title function_">toString</span>() <span class="comment">// Wed Oct 10 2018 16:00:51 GMT+0800 (中国标准时间)</span></span><br><span class="line">date.<span class="title function_">toLocaleString</span>() <span class="comment">// 2018/10/10 下午4:00:51 得到的是本地时间格式</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><strong><code>valueOf()</code></strong></p>
-</blockquote>
-<p>返回值为该对象的原始值，如果对象没有原始值，则 <code>valueOf</code> 将返回对象本身</p>
-<table>
-<thead>
-<tr>
-<th><strong>对象</strong></th>
-<th><strong>返回值</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Array</td>
-<td>返回数组对象本身</td>
-</tr>
-<tr>
-<td>Boolean</td>
-<td>布尔值</td>
-</tr>
-<tr>
-<td>Date</td>
-<td>时间戳</td>
-</tr>
-<tr>
-<td>Function</td>
-<td>函数本身</td>
-</tr>
-<tr>
-<td>Number</td>
-<td>数字值</td>
-</tr>
-<tr>
-<td>Object</td>
-<td>对象本身 （这是默认情况）</td>
-</tr>
-<tr>
-<td>String</td>
-<td>字符串值</td>
-</tr>
-</tbody></table>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">name</span>: <span class="string">&#x27;zs&#x27;</span> &#125;</span><br><span class="line"><span class="comment">// obj ==&gt; Object.prototype ==&gt; null</span></span><br><span class="line">obj.<span class="title function_">valueOf</span>() <span class="comment">// &#123; name: &#x27;zs&#x27; &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="comment">// arr ==&gt;  Array.prototype ==&gt; Object.prototype ==&gt; null</span></span><br><span class="line">arr.<span class="title function_">valueOf</span>() <span class="comment">// [1, 2, 3]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="title class_">Date</span>()</span><br><span class="line"><span class="comment">// date ==&gt; Date.prototype ==&gt; Object.prototype ==&gt; null</span></span><br><span class="line"><span class="comment">// Date.prototype 含有 valueOf 方法</span></span><br><span class="line">date.<span class="title function_">valueOf</span>() <span class="comment">// 时间戳</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>valueOf 和 toString 的应用</p>
-</blockquote>
-<p>当对象在参与运算和比较的时候，js 内部会自动的调用 valueOf 和 toString 方法</p>
-<p>调用规则：</p>
-<ol>
-<li><p>默认先调用 vauleOf， 尝试将对象转成简单数据类型， 如果没有转成简单数据类型， 会继续在调用 toString 方法</p>
-</li>
-<li><p>如果 valueOf 和 toString 方法都没有转成简单数据类型，会报错</p>
-</li>
-</ol>
-<h3 id="Object-静态方法"><a href="#Object-静态方法" class="headerlink" title="Object 静态方法"></a>Object 静态方法</h3><p><code>Object.assign()</code><br><code>Object.create()</code><br><code>Object.defineProperty()</code><br><code>Object.entries()</code><br><code>Object.freeze()</code><br><code>Object.getPrototypeOf()</code><br><code>Object.is()</code><br><code>Object.isFrozen()</code><br><code>Object.keys()</code><br><code>Object.values()</code></p>
-<blockquote>
-<p><strong><code>Object.assign(target, ...sources)</code></strong></p>
-</blockquote>
-<p>用于将所有<strong>可枚举属性</strong>的值从一个或多个源对象分配到目标对象。它将返回目标对象</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> o1 = &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;</span><br><span class="line"><span class="keyword">const</span> o2 = &#123; <span class="attr">b</span>: <span class="number">2</span> &#125;</span><br><span class="line"><span class="keyword">const</span> o3 = &#123; <span class="attr">c</span>: <span class="number">3</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> obj = <span class="title class_">Object</span>.<span class="title function_">assign</span>(o1, o2, o3)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj) <span class="comment">// &#123; a: 1, b: 2, c: 3 &#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(o1)  <span class="comment">// &#123; a: 1, b: 2, c: 3 &#125;</span></span><br><span class="line">obj === o1 <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> v1 = <span class="string">&quot;abc&quot;</span></span><br><span class="line"><span class="keyword">const</span> v2 = <span class="literal">true</span></span><br><span class="line"><span class="keyword">const</span> v3 = <span class="number">10</span></span><br><span class="line"><span class="keyword">const</span> v4 = <span class="title class_">Symbol</span>(<span class="string">&quot;foo&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> obj = <span class="title class_">Object</span>.<span class="title function_">assign</span>(&#123;&#125;, v1, <span class="literal">null</span>, v2, <span class="literal">undefined</span>, v3, v4)</span><br><span class="line"><span class="comment">// 原始类型会被包装，null 和 undefined 会被忽略。</span></span><br><span class="line"><span class="comment">// 注意，只有字符串的包装对象才可能有自身可枚举属性。</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj) <span class="comment">// &#123; &quot;0&quot;: &quot;a&quot;, &quot;1&quot;: &quot;b&quot;, &quot;2&quot;: &quot;c&quot; &#125;</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><strong><code>Object.create(proto, [propertiesObject])</code></strong></p>
-</blockquote>
-<p>创建一个新对象，使用现有的对象来提供新创建的对象的<code>__proto__</code></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 语法</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">create</span>(proto[, propertiesObject])</span><br><span class="line"><span class="comment">// 参数：proto 一个对象,新创建对象的原型对象</span></span><br><span class="line"><span class="comment">// 参数：propertiesObject 要添加到新创建对象的可枚举属性</span></span><br><span class="line"><span class="comment">// 返回值：一个新对象，带着指定的原型对象和属性</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = <span class="title class_">Object</span>.<span class="title function_">create</span>(proto)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj)</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><strong><code>Object.defineProperty(obj, prop, descriptor)</code></strong></p>
-</blockquote>
-<p>在一个对象上定义一个新属性，或者修改一个对象的现有属性，并返回此对象。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;&#125;</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(obj, <span class="string">&#x27;name&#x27;</span>, &#123;</span><br><span class="line">  <span class="attr">configurable</span>: <span class="literal">true</span>, <span class="comment">// 表示对象的属性是否可以被删除，以及除 value 和 writable 特性外的其他特性是否可以被修改。默认为 false</span></span><br><span class="line">  <span class="attr">value</span>: <span class="string">&#x27;c&#x27;</span>, <span class="comment">// 配置该属性的默认值 默认为 undefined</span></span><br><span class="line">  <span class="attr">writable</span>: <span class="literal">true</span>, <span class="comment">// 配置该属性是否可以被修改， 默认值是false， 不可修改</span></span><br><span class="line">  <span class="attr">enumerable</span>: <span class="literal">true</span> <span class="comment">// 配置该属性是否可枚举， 默认值是false， 不可枚举</span></span><br><span class="line">  <span class="comment">// 默认为 undefined</span></span><br><span class="line">  <span class="comment">// set: function (newVal) &#123;</span></span><br><span class="line">  <span class="comment">//   console.log(&#x27;赋值了&#x27;, newVal)</span></span><br><span class="line">  <span class="comment">// &#125;,</span></span><br><span class="line">  <span class="comment">// 默认为 undefined</span></span><br><span class="line">  <span class="comment">// get: function () &#123;</span></span><br><span class="line">  <span class="comment">//   console.log(&#x27;取值了&#x27;)</span></span><br><span class="line">  <span class="comment">// &#125;</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>如果一个描述符同时拥有 value 或 writable 和 get 或 set 键，则会产生一个异常</p>
-<blockquote>
-<p><strong><code>Object.entries(obj)</code></strong></p>
-</blockquote>
-<p>返回一个给定对象自身可枚举属性的键值对数组</p>
-<p>将Object转换为Map <code>new Map(Object.entries(obj))</code></p>
-<blockquote>
-<p><strong><code>Object.freeze()</code></strong></p>
-</blockquote>
-<p>接受一个对象作为参数，并返回一个相同的不可变的对象，冻结一个对象后该对象的原型也不能被修改</p>
-<p>可以阻止修改对象的值，但是不能阻止引用的修改</p>
-<p>只是做了层浅冻结，具有嵌套属性的对象实际上并未冻结</p>
-<blockquote>
-<p><strong><code>Object.getPrototypeOf</code></strong></p>
-</blockquote>
-<p>返回指定对象的原型</p>
-<blockquote>
-<p><strong><code>Object.is()</code></strong></p>
-</blockquote>
-<p>Object.is() 方法判断两个值是否是相同的值。比较时不会做类型转换，这与 <code>==</code> <code>===</code> 运算符的判定方式都不一样</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(+<span class="number">0</span>, -<span class="number">0</span>) <span class="comment">// false</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="number">0</span>, -<span class="number">0</span>) <span class="comment">// false</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="number">0</span>, +<span class="number">0</span>) <span class="comment">// true</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(-<span class="number">0</span>, -<span class="number">0</span>) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="literal">undefined</span>, <span class="literal">undefined</span>) <span class="comment">// true</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="literal">null</span>, <span class="literal">null</span>) <span class="comment">// true</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="title class_">Number</span>.<span class="property">NaN</span>, <span class="title class_">Number</span>.<span class="property">NaN</span>) <span class="comment">// true</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="title class_">Number</span>.<span class="property">NaN</span>, <span class="title class_">NaN</span>) <span class="comment">// true</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="title class_">NaN</span>, <span class="title class_">NaN</span>) <span class="comment">// true</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="title class_">NaN</span>, <span class="number">0</span> / <span class="number">0</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><strong><code>Object.isFrozen()</code></strong></p>
-</blockquote>
-<blockquote>
-<p><strong><code>Object.keys(obj)</code></strong></p>
-</blockquote>
-<p>返回一个由一个给定对象的自身可枚举属性组成的数组</p>
-<blockquote>
-<p><strong><code>Object.values(obj)</code></strong></p>
-</blockquote>
-<p>返回一个给定对象自身的所有可枚举属性值的数组</p>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
-      </tags>
   </entry>
 </search>

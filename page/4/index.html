@@ -185,7 +185,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">84</span>
+        <span class="site-state-item-count">83</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -219,6 +219,89 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/2017.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017.html" class="post-title-link" itemprop="url">Window 10 下终端配置与美化</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-11-01" itemprop="dateCreated datePublished" datetime="2020-11-01T00:00:00+00:00">2020-11-01</date>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm1pY3Jvc29mdC5jb20vemgtY24vd2luZG93cy93c2wvaW5zdGFsbC13aW4xMA==">WSL</span> &#x2F; <span class="exturl" data-url="aHR0cHM6Ly93d3cubXN5czIub3JnLw==">MSYS2</span> &#x2F; <span class="exturl" data-url="aHR0cDovL3d3dy5jeWd3aW4uY29tLw==">Cygwin</span> &#x2F; <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1Bvd2VyU2hlbGwvUG93ZXJTaGVsbC9yZWxlYXNlcw==">PowerShell7</span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ZlbGl4c2UvRmx1ZW50VGVybWluYWwvcmVsZWFzZXM=">Fluent Terminal</span> &#x2F; <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL21pY3Jvc29mdC90ZXJtaW5hbC9yZWxlYXNlcw==">Windows Terminal</span></p>
+<h2 id="WSL-配置-zsh"><a href="#WSL-配置-zsh" class="headerlink" title="WSL 配置 zsh"></a>WSL 配置 zsh</h2><p>wsl 下 git clone 报错：GnuTLS recv error (-110): The TLS connection was non-properly terminated.</p>
+<h3 id="安装-zsh"><a href="#安装-zsh" class="headerlink" title="安装 zsh"></a>安装 zsh</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt install -y zsh</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装-oh-my-zsh"><a href="#安装-oh-my-zsh" class="headerlink" title="安装 oh-my-zsh"></a>安装 oh-my-zsh</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果无法安装，使用下面这种方式</span></span><br><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://cdn.jsdelivr.net/gh/ohmyzsh/ohmyzsh@master/tools/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="配置插件"><a href="#配置插件" class="headerlink" title="配置插件"></a>配置插件</h3><p>插件列表 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL29obXl6c2gvb2hteXpzaC93aWtpL1BsdWdpbnM=">https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins</span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3pzaC11c2Vycy96c2gtc3ludGF4LWhpZ2hsaWdodGluZw==">zsh-syntax-highlighting</span><br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3pzaC11c2Vycy96c2gtYXV0b3N1Z2dlc3Rpb25z">zsh-autosuggestions</span><br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1N1a2thVy96c2gtcHJveHk=">zsh-proxy</span></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装 zsh-syntax-highlighting 插件</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-syntax-highlighting.git <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-syntax-highlighting</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 zsh-autosuggestions 插件</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions.git <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-autosuggestions</span><br><span class="line"></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/sukkaw/zsh-proxy.git ~/.oh-my-zsh/custom/plugins/zsh-proxy</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 zsh-proxy 插件</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/sukkaw/zsh-proxy.git <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-proxy</span><br></pre></td></tr></table></figure>
+
+<p>修改 ~&#x2F;.zshrc，在 plugins 中添加 zsh-syntax-highlighting</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 编辑 ~/.zshrc</span></span><br><span class="line">vim ~/.zshrc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在 plugins 后括号里添加安装的插件名字</span></span><br><span class="line">plugins=(git zsh-syntax-highlighting zsh-autosuggestions)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 刷新下配置</span></span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1N1a2thVy96c2gtcHJveHk=">zsh-proxy</span></p>
+<h3 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h3><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL29obXl6c2gvb2hteXpzaC93aWtpL3RoZW1lcw==">主题列表</span></p>
+<p>推荐两款主题</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NpbmRyZXNvcmh1cy9wdXJlLw==">pure主题</span><br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2Fnbm9zdGVyL2Fnbm9zdGVyLXpzaC10aGVtZQ==">agnoster</span></p>
+<h2 id="PowerShell-7-配置-oh-my-posh-amp-posh-git"><a href="#PowerShell-7-配置-oh-my-posh-amp-posh-git" class="headerlink" title="PowerShell 7+ 配置 oh-my-posh &amp; posh-git"></a>PowerShell 7+ 配置 oh-my-posh &amp; posh-git</h2><p><span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8xMzc1OTU5NDE=">https://zhuanlan.zhihu.com/p/137595941</span><br><span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8xMzcyNTE3MTY=">https://zhuanlan.zhihu.com/p/137251716</span></p>
+<h4 id="安装-Fira-Code-字体"><a href="#安装-Fira-Code-字体" class="headerlink" title="安装 Fira Code 字体"></a>安装 Fira Code 字体</h4><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RvbnNreS9GaXJhQ29kZS9yZWxlYXNlcw==">Fira Code</span></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -968,96 +1051,6 @@
 <p>github地址 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Jsdi1kYW4vU25hcDJIVE1M">https://github.com/rlv-dan/Snap2HTML</span></p>
 <p>官网地址 <span class="exturl" data-url="aHR0cHM6Ly93d3cucmx2aXNpb24uY29tL3NuYXAyaHRtbC9hYm91dC5waHA=">https://www.rlvision.com/snap2html/about.php</span></p>
 <p>百度云链接: <span class="exturl" data-url="aHR0cHM6Ly9wYW4uYmFpZHUuY29tL3MvMVhWdmdNWDRUS1RPWlN2RWF5OHh2blE=">https://pan.baidu.com/s/1XVvgMX4TKTOZSvEay8xvnQ</span> 提取码: pbi3</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1853.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/1853.html" class="post-title-link" itemprop="url">UsbEAm Hosts Editor [多平台 hosts 修改] V3.50</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2020-07-05" itemprop="dateCreated datePublished" datetime="2020-07-05T18:04:08+00:00">2020-07-05</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/software/" itemprop="url" rel="index"><span itemprop="name">软件</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>UsbEAm Hosts Editor 是一款能够提升 origin、steam、uplay 等游戏平台下载速度的工具，同时也可以有效的解决一些游戏或者平台出现的各种网络错误，帮玩家能够顺利的登录平台，顺利进行游戏。</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102203606.png"></p>
-<p>UsbEAm Hosts Editor 还可以为 github 加速，提高网页浏览的速度和代码下载的速度</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102203624.png"></p>
-<p>使用方法：</p>
-<ul>
-<li><p>点击左下角的游戏手柄（或者点击鼠标右键），弹出菜单</p>
-</li>
-<li><p>在弹出的菜单上选择要检测的项目。里面包含了多个流行的游戏平台，每个平台还有下载、浏览等子菜单</p>
-</li>
-<li><p>接着会出现一大堆 IP，先别急着去用，先点击 <code>检测延迟</code>，然后选择延迟最低的地址，点击应用选中即可</p>
-</li>
-<li><p>也可以点击 <code>编辑Hosts</code>，手工对 Hosts 进行编辑</p>
-</li>
-</ul>
-<p>如果某些安全软件弹出阻止情况，请忽略放过，不然无法修改</p>
-<p>软件下载</p>
-<p>百度云：<span class="exturl" data-url="aHR0cHM6Ly9wYW4uYmFpZHUuY29tL3MvMUNZTkVicXhrSC04dnpkeFdET09FMmc=">https://pan.baidu.com/s/1CYNEbqxkH-8vzdxWDOOE2g</span> 提取码：p1ee</p>
 
       
     </div>

@@ -185,7 +185,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">84</span>
+        <span class="site-state-item-count">83</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -219,6 +219,128 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/249.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/249.html" class="post-title-link" itemprop="url">Date对象使用及常用的时间格式化代码块</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2019-12-10" itemprop="dateCreated datePublished" datetime="2019-12-10T16:16:04+00:00">2019-12-10</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Date-对象"><a href="#Date-对象" class="headerlink" title="Date 对象"></a>Date 对象</h2><h2 id="整理一些时间格式化的方法"><a href="#整理一些时间格式化的方法" class="headerlink" title="整理一些时间格式化的方法"></a>整理一些时间格式化的方法</h2><ol>
+<li></li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 时间格式化</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">date</span>&#125; timeStamp 要格式化的时间对象</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> &#123;<span class="type">string</span>&#125; 2019年10月31日 16:22</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">format_date</span>(<span class="params">timeStamp</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> date = <span class="keyword">new</span> <span class="title class_">Date</span>(timeStamp)</span><br><span class="line">  <span class="keyword">return</span> date.<span class="title function_">getFullYear</span>() + <span class="string">&#x27;年&#x27;</span> + <span class="title function_">prefix_zero</span>(date.<span class="title function_">getMonth</span>() + <span class="number">1</span>) + <span class="string">&#x27;月&#x27;</span> + <span class="title function_">prefix_zero</span>(date.<span class="title function_">getDate</span>()) + <span class="string">&#x27;日 &#x27;</span> + <span class="title function_">prefix_zero</span>(date.<span class="title function_">getHours</span>()) + <span class="string">&#x27;:&#x27;</span> + <span class="title function_">prefix_zero</span>(date.<span class="title function_">getMinutes</span>())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 数字格式化</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number</span>&#125; num 要格式化的数值</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> &#123;<span class="type">string</span>&#125; 把小于10的数值前面加上0</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">prefix_zero</span>(<span class="params">num</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> num &gt;= <span class="number">10</span> ? num : <span class="string">&#x27;0&#x27;</span> + num</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li></li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 昨天的字符串格式时间</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> &#123;<span class="type">string</span>&#125; 返回当前时间 - 1天</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">getYesterday</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> d = <span class="keyword">new</span> <span class="title class_">Date</span>()</span><br><span class="line">  d.<span class="title function_">setDate</span>(d.<span class="title function_">getDate</span>() - <span class="number">1</span>)</span><br><span class="line">  <span class="keyword">return</span> d.<span class="title function_">toLocaleString</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li></li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 明天的字符串格式时间</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> &#123;<span class="type">string</span>&#125; 返回当前时间 + 1天</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">getTomorrow</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">let</span> d = <span class="keyword">new</span> <span class="title class_">Date</span>()</span><br><span class="line">  d.<span class="title function_">setDate</span>(d.<span class="title function_">getDate</span>() + <span class="number">1</span>)</span><br><span class="line">  <span class="keyword">return</span> d.<span class="title function_">toLocalString</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li></li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获得本周的开始日期</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number</span>&#125; start 不传默认一周以周日开始 1 表示以周一开始</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> &#123;<span class="type">date</span>&#125; timeStamp 时间戳</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">getWeekDate</span>(<span class="params">start = <span class="number">0</span></span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> d = <span class="keyword">new</span> <span class="title class_">Date</span>(<span class="string">&#x27;2019-12-15&#x27;</span>)</span><br><span class="line">  <span class="keyword">let</span> D = d.<span class="title function_">getDate</span>()</span><br><span class="line">  <span class="keyword">if</span> (start == <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> d.<span class="title function_">setDate</span>(D - d.<span class="title function_">getDay</span>())</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> W = d.<span class="title function_">getDay</span>() || <span class="number">6</span></span><br><span class="line">    <span class="keyword">return</span> d.<span class="title function_">setDate</span>(D - W + <span class="number">1</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li></li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获得最近一周时间段</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> &#123;<span class="type">date[]</span>&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">getLastWeek</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> d = <span class="keyword">new</span> <span class="title class_">Date</span>()</span><br><span class="line">  <span class="keyword">let</span> D = d.<span class="title function_">getDate</span>()</span><br><span class="line">  d.<span class="title function_">setDate</span>(D - <span class="number">7</span>)</span><br><span class="line">  <span class="keyword">return</span> [d, <span class="keyword">new</span> <span class="title class_">Date</span>()]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li></li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获得某月的天数</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number</span>&#125; year 年</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number</span>&#125; month 月 从 0 开始</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> &#123;<span class="type">number</span>&#125; 某月的天数, 不传参数为当月天数</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">getMonthDays</span>(<span class="params">year, month</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> d = <span class="keyword">new</span> <span class="title class_">Date</span>()</span><br><span class="line">  year = year || d.<span class="title function_">getFullYear</span>()</span><br><span class="line">  month = month || d.<span class="title function_">getMonth</span>()</span><br><span class="line">  <span class="keyword">var</span> monthStart = <span class="keyword">new</span> <span class="title class_">Date</span>(year, month, <span class="number">1</span>)</span><br><span class="line">  <span class="keyword">var</span> monthEnd = <span class="keyword">new</span> <span class="title class_">Date</span>(year, month + <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">  <span class="keyword">var</span> days = (monthEnd - monthStart) / (<span class="number">1000</span> * <span class="number">60</span> * <span class="number">60</span> * <span class="number">24</span>)</span><br><span class="line">  <span class="keyword">return</span> days</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li></li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获得本月的开始或结束日期</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number</span>&#125; isEnd 不传默认本周的开端日期 1 本周的结束日期</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> &#123;<span class="type">date</span>&#125; timeStamp 时间戳</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">getMonthDate</span>(<span class="params">isEnd = <span class="number">0</span></span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> d = <span class="keyword">new</span> <span class="title class_">Date</span>()</span><br><span class="line">  d.<span class="title function_">setDate</span>(<span class="number">1</span>)</span><br><span class="line">  <span class="keyword">if</span> (isEnd) &#123;</span><br><span class="line">    d.<span class="title function_">setDate</span>(d.<span class="title function_">getDate</span>() + <span class="title function_">getMonthDays</span>() - <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> d</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> d</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="8">
+<li></li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 倒计时时间格式化</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">date</span>&#125; timeStamp 要格式化的时间对象</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> &#123;<span class="type">string</span>&#125;</span></span><br><span class="line"><span class="comment"> * 若时间大于1天 返回 n天n小时n分钟</span></span><br><span class="line"><span class="comment"> * 若时间小于1天，大于1小时 返回 n小时n分钟n秒</span></span><br><span class="line"><span class="comment"> * 若时间小于1小时，大于1分钟 返回 n分钟n秒</span></span><br><span class="line"><span class="comment"> * 若时间小于1分钟 返回 n秒</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">format_time</span>(<span class="params">timeStamp</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> day = <span class="title class_">Math</span>.<span class="title function_">floor</span>(timeStamp / (<span class="number">24</span> * <span class="number">3600</span> * <span class="number">1000</span>))</span><br><span class="line">  <span class="keyword">let</span> leave1 = timeStamp % (<span class="number">24</span> * <span class="number">3600</span> * <span class="number">1000</span>)</span><br><span class="line">  <span class="keyword">let</span> hours = <span class="title class_">Math</span>.<span class="title function_">floor</span>(leave1 / (<span class="number">3600</span> * <span class="number">1000</span>))</span><br><span class="line">  <span class="keyword">let</span> leave2 = leave1 % (<span class="number">3600</span> * <span class="number">1000</span>)</span><br><span class="line">  <span class="keyword">let</span> minutes = <span class="title class_">Math</span>.<span class="title function_">floor</span>(leave2 / (<span class="number">60</span> * <span class="number">1000</span>))</span><br><span class="line">  <span class="keyword">let</span> leave3 = leave2 % (<span class="number">60</span> * <span class="number">1000</span>)</span><br><span class="line">  <span class="keyword">let</span> seconds = <span class="title class_">Math</span>.<span class="title function_">floor</span>(leave3 / <span class="number">1000</span>)</span><br><span class="line">  <span class="keyword">if</span> (day) <span class="keyword">return</span> day + <span class="string">&#x27;天&#x27;</span> + hours + <span class="string">&#x27;小时&#x27;</span> + minutes + <span class="string">&#x27;分&#x27;</span></span><br><span class="line">  <span class="keyword">if</span> (hours) <span class="keyword">return</span> hours + <span class="string">&#x27;小时&#x27;</span> + minutes + <span class="string">&#x27;分&#x27;</span> + seconds + <span class="string">&#x27;秒&#x27;</span></span><br><span class="line">  <span class="keyword">if</span> (minutes) <span class="keyword">return</span> minutes + <span class="string">&#x27;分&#x27;</span> + seconds + <span class="string">&#x27;秒&#x27;</span></span><br><span class="line">  <span class="keyword">if</span> (seconds) <span class="keyword">return</span> seconds + <span class="string">&#x27;秒&#x27;</span></span><br><span class="line">  <span class="keyword">return</span> <span class="string">&#x27;时间到！&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="dayjs-库"><a href="#dayjs-库" class="headerlink" title="dayjs 库"></a>dayjs 库</h2><p>轻量的处理时间和日期的 JavaScript 库</p>
+<p>参考文档 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2lhbWt1bi9kYXlqcy9ibG9iL2Rldi9kb2NzL3poLWNuL1JFQURNRS56aC1DTi5tZA==">github 中文文档</span></p>
+<p>在本页面打开控制台即可体验 dayjs 的 api</p>
+<script src="https://unpkg.com/dayjs"></script>
+
+<p>使用 dayjs 获取本周,上周,本月,上月,本季度,上季度,本年,去年时间</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// let date = dayjs(&#x27;2020-01-16&#x27;)</span></span><br><span class="line"><span class="keyword">let</span> date = <span class="title function_">dayjs</span>()</span><br><span class="line"><span class="keyword">let</span> day = date.<span class="title function_">day</span>() <span class="comment">// 1 星期</span></span><br><span class="line"><span class="keyword">let</span> currentWeekStart</span><br><span class="line"><span class="keyword">let</span> currentWeekEnd</span><br><span class="line"></span><br><span class="line"><span class="comment">// 本周</span></span><br><span class="line"><span class="keyword">if</span> (day &gt; <span class="number">0</span>) &#123;</span><br><span class="line">  currentWeekStart = date.<span class="title function_">startOf</span>(<span class="string">&#x27;week&#x27;</span>).<span class="title function_">add</span>(<span class="number">1</span>, <span class="string">&#x27;day&#x27;</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  currentWeekStart = date.<span class="title function_">startOf</span>(<span class="string">&#x27;week&#x27;</span>).<span class="title function_">subtract</span>(<span class="number">6</span>, <span class="string">&#x27;day&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line">currentWeekEnd = currentWeekStart.<span class="title function_">add</span>(<span class="number">6</span>, <span class="string">&#x27;day&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 上周</span></span><br><span class="line"><span class="keyword">let</span> lastWeekStart = currentWeekStart.<span class="title function_">subtract</span>(<span class="number">7</span>, <span class="string">&#x27;day&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> lastWeekEnd = currentWeekStart.<span class="title function_">subtract</span>(<span class="number">1</span>, <span class="string">&#x27;day&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 本月 上月</span></span><br><span class="line"><span class="keyword">let</span> currentMonthStart = date.<span class="title function_">date</span>(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">let</span> lastMonthStart = date.<span class="title function_">subtract</span>(<span class="number">1</span>, <span class="string">&#x27;month&#x27;</span>).<span class="title function_">date</span>(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">let</span> nextMonthStart = date.<span class="title function_">add</span>(<span class="number">1</span>, <span class="string">&#x27;month&#x27;</span>).<span class="title function_">date</span>(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">let</span> currentMonthEnd = nextMonthStart.<span class="title function_">subtract</span>(<span class="number">1</span>, <span class="string">&#x27;day&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> lastMonthEnd = currentMonthStart.<span class="title function_">subtract</span>(<span class="number">1</span>, <span class="string">&#x27;day&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 本季度,上季度</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 本年 去年</span></span><br><span class="line"><span class="keyword">let</span> currentYearStart = date.<span class="title function_">month</span>(<span class="number">0</span>).<span class="title function_">date</span>(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">let</span> currentYearEnd = date.<span class="title function_">month</span>(<span class="number">11</span>).<span class="title function_">date</span>(<span class="number">31</span>)</span><br><span class="line"><span class="keyword">let</span> lastYear = date.<span class="title function_">subtract</span>(<span class="number">1</span>, <span class="string">&#x27;year&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> lastYearStart = date.<span class="title function_">subtract</span>(<span class="number">1</span>, <span class="string">&#x27;year&#x27;</span>).<span class="title function_">month</span>(<span class="number">0</span>).<span class="title function_">date</span>(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">let</span> lastYearEnd = lastYearStart.<span class="title function_">month</span>(<span class="number">11</span>).<span class="title function_">date</span>(<span class="number">31</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> computedDate = &#123;</span><br><span class="line">  <span class="attr">currentWeekStart</span>: currentWeekStart.<span class="title function_">format</span>(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  <span class="attr">currentWeekEnd</span>: currentWeekEnd.<span class="title function_">format</span>(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  <span class="attr">lastWeekStart</span>: lastWeekStart.<span class="title function_">format</span>(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  <span class="attr">lastWeekEnd</span>: lastWeekEnd.<span class="title function_">format</span>(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  <span class="attr">currentMonthStart</span>: currentMonthStart.<span class="title function_">format</span>(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  <span class="attr">currentMonthEnd</span>: currentMonthEnd.<span class="title function_">format</span>(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  <span class="attr">lastMonthStart</span>: lastMonthStart.<span class="title function_">format</span>(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  <span class="attr">lastMonthEnd</span>: lastMonthEnd.<span class="title function_">format</span>(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  <span class="attr">currentYearStart</span>: currentYearStart.<span class="title function_">format</span>(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  <span class="attr">currentYearEnd</span>: currentYearEnd.<span class="title function_">format</span>(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  <span class="attr">lastYearStart</span>: lastYearStart.<span class="title function_">format</span>(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>),</span><br><span class="line">  <span class="attr">lastYearEnd</span>: lastYearEnd.<span class="title function_">format</span>(<span class="string">&#x27;YYYY-MM-DD&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(computedDate)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -987,137 +1109,6 @@
 <h4 id="方式二-zip"><a href="#方式二-zip" class="headerlink" title="方式二 .zip"></a>方式二 <code>.zip</code></h4><p>将 .crx 插件后缀改成 .zip，或下载 .zip 格式插件</p>
 <p>扩展程序管理页面，开启开发者模式，再按 F5 刷新一下，将 .zip 格式插件拖入浏览器，或者将 .zip 格式插件解压，点击加载已解压的扩展程序</p>
 <h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><p>禁用 Chrome 的“请停用以开发者模式运行的扩展程序”提示的<span class="exturl" data-url="aHR0cHM6Ly9tcC53ZWl4aW4ucXEuY29tL3M/X19iaXo9TXpBd09UazNNamc0TWc9PSZtaWQ9MTAwMDAwMDg1JmlkeD0xJnNuPTE3ZTZmYjVjNGRiMGY0ZGMzZmJlODQwZDcxZmQwNGQ4JmNoa3NtPTFiNTYzY2E4MmMyMWI1YmU4NWUzMzdjOTRhNzQ3NDg1Nzg0N2ZkYzJhZjk2ODQ1MTY1MjA2ZGYxMWFjZDY5YTQ1NGQwOGY4ZWNiZDUjcmQ=">方法</span></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/406.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/406.html" class="post-title-link" itemprop="url">input file 控件</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2019-09-27" itemprop="dateCreated datePublished" datetime="2019-09-27T22:18:32+00:00">2019-09-27</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="限制上传文件类型"><a href="#限制上传文件类型" class="headerlink" title="限制上传文件类型"></a>限制上传文件类型</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;File1&quot;</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">accept</span>=<span class="string">&quot;.xls,.doc,.txt,.pdf&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-
-<details>
-<summary>文件类型</summary>
-<pre>
-.3gpp audio/3gpp， video/3gpp 3GPP Audio/Video
-.ac3 audio/ac3 AC3 Audio
-.asf allpication/vnd.ms-asf Advanced Streaming Format
-.au audio/basic AU Audio
-.css text/css Cascading Style Sheets
-.csv text/csv Comma Separated Values
-.doc application/msword MS Word Document
-.dot application/msword MS Word Template
-.dtd application/xml-dtd Document Type Definition
-.dwg image/vnd.dwg AutoCAD Drawing Database
-.dxf image/vnd.dxf AutoCAD Drawing Interchange Format
-.gif image/gif Graphic Interchange Format
-.htm text/html HyperText Markup Language
-.html text/html HyperText Markup Language
-.jp2 image/jp2 JPEG-2000
-.jpe image/jpeg JPEG
-.jpeg image/jpeg JPEG
-.jpg image/jpeg JPEG
-.js text/javascript， application/javascript JavaScript
-.json application/json JavaScript Object Notation
-.mp2 audio/mpeg， video/mpeg MPEG Audio/Video Stream， Layer II
-.mp3 audio/mpeg MPEG Audio Stream， Layer III
-.mp4 audio/mp4， video/mp4 MPEG-4 Audio/Video
-.mpeg video/mpeg MPEG Video Stream， Layer II
-.mpg video/mpeg MPEG Video Stream， Layer II
-.mpp application/vnd.ms-project MS Project Project
-.ogg application/ogg， audio/ogg Ogg Vorbis
-.pdf application/pdf Portable Document Format
-.png image/png Portable Network Graphics
-.pot application/vnd.ms-powerpoint MS PowerPoint Template
-.pps application/vnd.ms-powerpoint MS PowerPoint Slideshow
-.ppt application/vnd.ms-powerpoint MS PowerPoint Presentation
-.rtf application/rtf， text/rtf Rich Text Format
-.svf image/vnd.svf Simple Vector Format
-.tif image/tiff Tagged Image Format File
-.tiff image/tiff Tagged Image Format File
-.txt text/plain Plain Text
-.wdb application/vnd.ms-works MS Works Database
-.wps application/vnd.ms-works Works Text Document
-.xhtml application/xhtml+xml Extensible HyperText Markup Language
-.xlc application/vnd.ms-excel MS Excel Chart
-.xlm application/vnd.ms-excel MS Excel Macro
-.xls application/vnd.ms-excel MS Excel Spreadsheet
-.xlt application/vnd.ms-excel MS Excel Template
-.xlw application/vnd.ms-excel MS Excel Workspace
-.xml text/xml， application/xml Extensible Markup Language
-.zip aplication/zip Compressed Archive
-</pre>
-</details>
-
-<h2 id="清空-value"><a href="#清空-value" class="headerlink" title="清空 value"></a>清空 value</h2><p>使用 input file 进行文件上传时，重复选择相同文件时，change 事件不再触发<br>解决方式：手动将 file 的 value 值设置为空</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">id</span>=<span class="string">&quot;file&quot;</span> <span class="attr">accept</span>=<span class="string">&quot;image/gif,image/jpeg&quot;</span> @<span class="attr">change</span>=<span class="string">&quot;uploadFile($event)&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$event.<span class="property">target</span>.<span class="property">value</span> = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="comment">// 或</span></span><br><span class="line"><span class="keyword">var</span> file = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;file&#x27;</span>)</span><br><span class="line">file.<span class="property">value</span> = <span class="string">&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
