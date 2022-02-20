@@ -175,7 +175,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">160</span>
+          <span class="site-state-item-count">161</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -219,6 +219,234 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/398.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/398.html" class="post-title-link" itemprop="url">防抖和节流</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2018-12-12" itemprop="dateCreated datePublished" datetime="2018-12-12T22:13:29+00:00">2018-12-12</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>防抖和节流都是为了解决<strong>短时间内大量触发某函数</strong>而导致的<strong>性能问题，</strong>比如触发频率过高导致的响应速度跟不上触发频率，出现延迟，假死或卡顿的现象</p>
+</blockquote>
+<h2 id="防抖（debounce）"><a href="#防抖（debounce）" class="headerlink" title="防抖（debounce）"></a>防抖（debounce）</h2><p>在事件被触发 n 秒后再执行回调函数，如果在这 n 秒内又被触发，则重新计时（只会触发最后一次）</p>
+<p>应用场景</p>
+<ul>
+<li><p>用户在输入框中连续输入一串字符后，只会在输入完后去执行最后一次的查询 ajax 请求，这样可以有效减少请求次数，节约请求资源</p>
+</li>
+<li><p>window 的 resize、scroll 事件，不断地调整浏览器的窗口大小、或者滚动时会触发对应事件，防抖让其只触发一次</p>
+</li>
+</ul>
+<h2 id="节流（throttle）"><a href="#节流（throttle）" class="headerlink" title="节流（throttle）"></a>节流（throttle）</h2><p>规定一个单位时间 n，在这个单位时间内，只能有一次触发事件的回调函数执行，如果在同一个单位时间内事件被触发多次，只有一次能生效（每 n 秒触发一次）</p>
+<p>应用场景</p>
+<ul>
+<li><p>鼠标连续不断地触发某事件（如点击），只在单位时间内只触发一次</p>
+</li>
+<li><p>在页面的无限加载场景下，需要用户在滚动页面时，每隔一段时间发一次 ajax 请求，而不是在用户停下滚动页面操作时才去请求数据</p>
+</li>
+<li><p>监听滚动事件，比如是否滑到底部自动加载更多，用 throttle 来判断</p>
+</li>
+</ul>
+<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><p>防抖的作用是将多个连续的<code>debounced</code>调用合并为一次<code>callback</code>调用。防抖是基于最近次 <code>debounced</code> 调用来重置 <code>waitTime</code>，如果<code>debounced</code>事件触发间隔小于 <code>waitTime</code>，<code>callback</code>就不会执行；</p>
+<p>节流的作用是限制<code>callback</code>调用的频率（每<code>waitTime</code>调用一次）。是基于上次 <code>callback</code> 调用来计算 <code>waitTime</code> 的，不管<code>callback</code> 事件触发有多频繁，只要距离上次 <code>callback</code> 调用超过了 <code>waitTime</code>，就一定会进行下次 <code>callback</code> 调用。</p>
+<p>– 原理：</p>
+<p>防抖是 <code>debounced</code> 维护了一个计时器，规定在 <code>waitTime</code> 时间后触发 <code>callback</code>，但是在 <code>waitTime</code> 时间内再次触发 <code>debounced</code> 的话，会清除当前的 timer 然后重新计时，这样一来，只有最后一次<code>debounced</code> 操作才能触发 <code>callback</code>；</p>
+<p>节流是通过判断是否到达一定时间 (<code>waitTime</code>) 来再次触发 <code>callback</code> ， <code>func</code> 在 <code>waitTime</code> 时间内不能被再次触发。</p>
+<p>实现</p>
+<p>throttle-debounce 插件 <span class="exturl" data-url="aHR0cHM6Ly93d3cubnBtanMuY29tL3BhY2thZ2UvdGhyb3R0bGUtZGVib3VuY2U=">https://www.npmjs.com/package/throttle-debounce</span></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;input&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">input.<span class="property">oninput</span> = <span class="title function_">throttle</span>(<span class="number">1000</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">value</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">b</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> a = <span class="title function_">debounce</span>(<span class="number">1000</span>, b)</span><br><span class="line">a.<span class="title function_">call</span>(&#123; <span class="attr">name</span>: <span class="string">&#x27;zs&#x27;</span> &#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 节流</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">throttle</span>(<span class="params">delay, callback</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> timer = <span class="literal">null</span></span><br><span class="line">  <span class="keyword">let</span> lastExec = <span class="number">0</span></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> self = <span class="variable language_">this</span></span><br><span class="line">    <span class="keyword">const</span> elapsed = <span class="title class_">Number</span>(<span class="keyword">new</span> <span class="title class_">Date</span>()) - lastExec</span><br><span class="line">    <span class="keyword">const</span> args = <span class="variable language_">arguments</span></span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">exec</span>(<span class="params"></span>) &#123;</span><br><span class="line">      callback.<span class="title function_">apply</span>(self, args)</span><br><span class="line">      lastExec = <span class="title class_">Number</span>(<span class="keyword">new</span> <span class="title class_">Date</span>())</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">clearTimeout</span>(timer)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (elapsed &gt; delay) &#123;</span><br><span class="line">      <span class="title function_">exec</span>()</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      timer = <span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="title function_">exec</span>()</span><br><span class="line">      &#125;, delay - elapsed)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 防抖</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">debounce</span>(<span class="params">delay, callback</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> timer = <span class="literal">null</span></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> self = <span class="variable language_">this</span></span><br><span class="line">    <span class="keyword">const</span> args = <span class="variable language_">arguments</span></span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">exec</span>(<span class="params"></span>) &#123;</span><br><span class="line">      callback.<span class="title function_">apply</span>(self, args)</span><br><span class="line">      lastExec = <span class="title class_">Number</span>(<span class="keyword">new</span> <span class="title class_">Date</span>())</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">clearTimeout</span>(timer)</span><br><span class="line">    timer = <span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="title function_">exec</span>()</span><br><span class="line">    &#125;, delay)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/425.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/425.html" class="post-title-link" itemprop="url">LESS 基本使用</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2018-12-11" itemprop="dateCreated datePublished" datetime="2018-12-11T22:30:46+00:00">2018-12-11</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Less-简介"><a href="#Less-简介" class="headerlink" title="Less 简介"></a>Less 简介</h2><blockquote>
+<p><strong><em>Less</em>  是一门 CSS 预处理语言（预先处理）,它扩展了 CSS 语言，增加了变量、Mixin、函数等特性</strong></p>
+<p>浏览器不直接识别 less 文件，浏览器只识别 css 文件，所以我们写了 less 文件之后，我们需要预先把 less 文件转换成 css 文件。</p>
+</blockquote>
+<p>本质上，LESS 包含一套自定义的语法及一个解析器，用户根据这些语法定义自己的样式规则，这些规则最终会通过解析器，编译生成对应的 CSS 文件。LESS 并没有裁剪 CSS 原有的特性，更不是用来取代 CSS 的，而是在现有 CSS 语法的基础上，为 CSS 加入程序式语言的特性。</p>
+<p><strong>less 仅仅是写 css 的另一种方式，写出来的 less 文件浏览器也不识别，所以啊，我们写完了 less 文件，还需要通过 less 解析器解析成 css，最终浏览器引入的还是 css 文件。</strong></p>
+<p>学习网站：</p>
+<p><span class="exturl" data-url="aHR0cDovL2xlc3Njc3Mub3JnLw==">官网 http://lesscss.org/</span><br><span class="exturl" data-url="aHR0cDovL2xlc3Njc3MuY24v">中文网 http://lesscss.cn/</span></p>
+<h2 id="less-的编译"><a href="#less-的编译" class="headerlink" title="less 的编译"></a>less 的编译</h2><blockquote>
+<p>如何把 less 文件变成 css 文件</p>
+</blockquote>
+<h3 id="使用打包工具"><a href="#使用打包工具" class="headerlink" title="使用打包工具"></a>使用打包工具</h3><p><code>gulp</code></p>
+<p><code>webpack</code></p>
+<h3 id="使用考拉"><a href="#使用考拉" class="headerlink" title="使用考拉"></a>使用考拉</h3><blockquote>
+<p>koala 是一个前端预处理器语言（less&#x2F;sass）图形编译工具，支持 Less、Sass、Compass、CoffeeScript，帮助 web 开发者更高效地使用它们进行开发。跨平台运行，完美兼容 windows、linux、mac。</p>
+</blockquote>
+<p><span class="exturl" data-url="aHR0cDovL2tvYWxhLWFwcC5jb20vaW5kZXgtemguaHRtbA==">考拉官网</span></p>
+<p>使用步骤：</p>
+<ol>
+<li>把<code>less</code>文件夹拖进去</li>
+<li>会在当前目录生成一个<code>css</code>目录</li>
+</ol>
+<p>优点：不用 node 环境，不用 less 环境，koala 内置了</p>
+<h3 id="使用插件"><a href="#使用插件" class="headerlink" title="使用插件"></a>使用插件</h3><p>easy less</p>
+<h2 id="Less-语法"><a href="#Less-语法" class="headerlink" title="Less 语法"></a>Less 语法</h2><h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p><strong>注释</strong></p>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 这是CSS中的注释，因此会编译到css中 */</span></span><br><span class="line"><span class="comment">// 这是less的注释，css不能识别这个注释， 最后不会编译到css文件</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>变量</strong></p>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="comment">// @变量名: 变量值;</span></span><br><span class="line"><span class="variable">@color:</span> <span class="number">#ccc</span>;</span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="variable">@color</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="mixin-函数"><a href="#mixin-函数" class="headerlink" title="mixin 函数"></a>mixin 函数</h3><p><strong>混入函数</strong></p>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义一个函数：不带参数</span></span><br><span class="line"><span class="selector-class">.btn</span>() &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 调用函数</span></span><br><span class="line"><span class="selector-class">.my_btn</span> &#123;</span><br><span class="line">  <span class="selector-class">.btn</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义一个函数：带参数</span></span><br><span class="line"><span class="selector-class">.btn_border</span>(<span class="variable">@width</span>) &#123;</span><br><span class="line">  <span class="attribute">border</span>: <span class="variable">@width</span> solid <span class="number">#000</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.my_btn</span> &#123;</span><br><span class="line">  <span class="comment">// 如果函数定义了参数，调用的时候必须传入参数，否则会报错</span></span><br><span class="line">  <span class="selector-class">.btn_border</span>(<span class="number">10px</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义一个函数：带参数默认值</span></span><br><span class="line"><span class="selector-class">.btn_border</span>(<span class="variable">@width</span>: <span class="number">1px</span>) &#123;</span><br><span class="line">  <span class="attribute">border</span>: <span class="variable">@width</span> solid <span class="number">#000</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.my_btn</span> &#123;</span><br><span class="line">  <span class="comment">// 因为有默认值，所以不会报错</span></span><br><span class="line">  <span class="selector-class">.btn_border</span>();</span><br><span class="line">  <span class="selector-class">.btn_border</span>(<span class="number">10px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>应用：定义兼容多浏览器的圆角</p>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.border_radius</span>(<span class="variable">@value</span>: <span class="number">5px</span>) &#123;</span><br><span class="line">  -webkit-<span class="attribute">border-radius</span>: <span class="variable">@value</span>;</span><br><span class="line">  -moz-<span class="attribute">border-radius</span>: <span class="variable">@value</span>;</span><br><span class="line">  -ms-<span class="attribute">border-radius</span>: <span class="variable">@value</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="variable">@value</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="selector-class">.border_radius</span>(<span class="number">10px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h3><blockquote>
+<p>我们可以在一个选择器中嵌套另一个选择器来实现继承，这样很大程度减少了代码量，并且代码看起来更加的清晰。</p>
+</blockquote>
+<ul>
+<li>使用伪类的时候 可以使用<code>&amp;</code> 表示自己</li>
+</ul>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.father</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="comment">// 子代</span></span><br><span class="line">  <span class="selector-class">.son1</span> &#123;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 后代</span></span><br><span class="line">  &gt; <span class="selector-class">.son2</span> &#123;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 交集： &amp; 表示本身</span></span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-class">.now</span> &#123;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h3><figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 可以省略后缀名</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">&#x27;variable&#x27;</span>;</span><br><span class="line"><span class="keyword">@import</span> <span class="string">&#x27;maxin&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>模块化的思想，分模块进行管理这些 less 文件，最终只需要使用 import 将 less 引入到一起即可</p>
+<h3 id="函数（运算）"><a href="#函数（运算）" class="headerlink" title="函数（运算）"></a>函数（运算）</h3><blockquote>
+<p>在我们的 CSS 中充斥着大量的数值型的 value，less 可以直接支持运算，也提供了一系列的函数提供给我们使用。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">li &#123;</span><br><span class="line">  float: left;</span><br><span class="line">  width: round(100%/6, 2);</span><br><span class="line">  height: 100px + 100px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><span class="exturl" data-url="aHR0cDovL3d3dy4xMDI0aS5jb20vZGVtby9sZXNzL3JlZmVyZW5jZS5odG1s">http://www.1024i.com/demo/less/reference.html</span></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1462,125 +1690,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/396.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/396.html" class="post-title-link" itemprop="url">循环、遍历总结</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2018-11-04" itemprop="dateCreated datePublished" datetime="2018-11-04T22:11:35+00:00">2018-11-04</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="原生-js-中-for-语句"><a href="#原生-js-中-for-语句" class="headerlink" title="原生 js 中 for 语句"></a>原生 js 中 for 语句</h1><blockquote>
-<p>循环 、遍历数组</p>
-</blockquote>
-<p><span class='red'>可使用 continue 跳出当前循环， break 跳出整个循环</span></p>
-<p>如果 for 语句在函数中，使用 return 可以结束 for 循环，同时也会结束函数后续代码的执行</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 语法：</span></span><br><span class="line"><span class="comment">// 1. for循环使用分号分隔</span></span><br><span class="line"><span class="comment">// 2. for循环有2个分号，两个分号不能少</span></span><br><span class="line"><span class="keyword">for</span> (初始化语句; 判断语句; 自增语句) &#123;</span><br><span class="line">  <span class="comment">// 循环体</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 普通循环</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt;= <span class="number">5</span>; i++) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(i)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 遍历数组</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.<span class="property">length</span>; i++) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(arr[i])</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 遍历函数的参数(arguments)</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="variable language_">arguments</span>.<span class="property">length</span>; i++) &#123;&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="原生-js-中数组的-forEach-方法"><a href="#原生-js-中数组的-forEach-方法" class="headerlink" title="原生 js 中数组的 forEach 方法"></a>原生 js 中数组的 forEach 方法</h1><blockquote>
-<p>遍历数组</p>
-</blockquote>
-<p><span class="red">不能用 break continue 语句跳出整个循环</span><br><span class="red">可使用 return 语句跳出当前循环</span></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 语法</span></span><br><span class="line"><span class="comment">// array.forEach (function(item, index, arr), thisArg)</span></span><br><span class="line"><span class="comment">// item 必需。数组中正在处理的当前元素</span></span><br><span class="line"><span class="comment">// index 可选。数组中正在处理的当前元素的索引</span></span><br><span class="line"><span class="comment">// arr 可选。forEach()方法正在操作的数组，就是当前数组</span></span><br><span class="line"><span class="comment">// thisArg 可选。当执行回调函数时用作this的值</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="string">&#x27;zs&#x27;</span>, <span class="string">&#x27;ls&#x27;</span>, <span class="string">&#x27;ww&#x27;</span>]</span><br><span class="line">arr.<span class="title function_">forEach</span>(<span class="keyword">function</span>(<span class="params">item, index, arr</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(item)</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 返回值: undefined</span></span><br><span class="line"><span class="comment">// 不支持 return 操作输出，return 只用于控制循环是否跳出当前循环</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="原生-js-中-for…in-语句"><a href="#原生-js-中-for…in-语句" class="headerlink" title="原生 js 中 for…in 语句"></a>原生 js 中 for…in 语句</h1><blockquote>
-<p>遍历对象</p>
-</blockquote>
-<p>支持 <code>break</code>, <code>continue</code> 跳出循环</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 语法：</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> obj) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(key) <span class="comment">// 键</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(obj[key]) <span class="comment">// 值</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(key + <span class="string">&#x27;==&#x27;</span> + obj[key])</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// in 操作符：判断对象能否访问到该属性（不管这个属性是自己提供的，还是从原型上继承来的），如果可以访问到， 都会返回 true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// console.log(&#x27;name&#x27; in obj) 返回布尔值</span></span><br><span class="line"><span class="keyword">if</span> (<span class="string">&#x27;name&#x27;</span> <span class="keyword">in</span> obj) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;是&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>如果使用 for in 遍历数组，会产生一些问题</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>]</span><br><span class="line">a.<span class="property">name</span> = <span class="string">&#x27;d&#x27;</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> index <span class="keyword">in</span> arr) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(index) <span class="comment">// &#x27;0&#x27;, &#x27;1&#x27;, &#x27;2&#x27;, &#x27;name&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>数组的索引值 index 是 String 类型</li>
-<li>会将 expando 属性也遍历出来</li>
-<li>在某些情况下，在遍历数组元素时顺序是任意的</li>
-</ol>
-<p><span class="red">for-in 语法是被设计来遍历普通的“键值对”对象的，不适合用在数组上</span></p>
-<h1 id="es6-for…of-方法"><a href="#es6-for…of-方法" class="headerlink" title="es6 for…of 方法"></a>es6 for…of 方法</h1><p>遍历类数组集合(Array, Map, Set, String, Arguments)</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">const</span> item <span class="keyword">of</span> arr) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(item)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>支持 <code>break</code>, <code>continue</code> 和 <code>throw</code></p>
-<h1 id="for…of-与-for…in-的区别"><a href="#for…of-与-for…in-的区别" class="headerlink" title="for…of 与 for…in 的区别"></a>for…of 与 for…in 的区别</h1><p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvSmF2YVNjcmlwdC9SZWZlcmVuY2UvU3RhdGVtZW50cy9mb3IuLi5vZg==">参考 MDN</span></p>
-<p>无论是 for…in 还是 for…of 语句都是迭代一些东西。它们之间的主要区别在于它们的迭代方式。</p>
-<p>for…in 语句以任意顺序迭代对象的可枚举属性。</p>
-<p>for…of 语句遍历可迭代对象定义要迭代的数据。</p>
-<h1 id="jquery-中的-each-方法"><a href="#jquery-中的-each-方法" class="headerlink" title="jquery 中的 each 方法"></a>jquery 中的 each 方法</h1><blockquote>
-<p>遍历 jQuery 对象集合，为每个匹配的元素执行一个函数</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 语法：</span></span><br><span class="line">$(selector).<span class="title function_">each</span>(<span class="keyword">function</span>(<span class="params">index, element</span>) &#123;</span><br><span class="line">  <span class="comment">// index 表示当前元素在所有匹配元素中的索引号</span></span><br><span class="line">  <span class="comment">// element 表示当前元素 dom 对象</span></span><br><span class="line">  <span class="comment">// this 在函数内部，this指向了element</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">$(<span class="string">&#x27;li&#x27;</span>).<span class="title function_">each</span>(<span class="keyword">function</span>(<span class="params">index, ele</span>) &#123;</span><br><span class="line">  <span class="comment">// $(ele).css(&quot;backgroundColor&quot;, arr[index])</span></span><br><span class="line">  $(<span class="variable language_">this</span>).<span class="title function_">css</span>(<span class="string">&#x27;backgroundColor&#x27;</span>, arr[index])</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h1 id="php-中-foreach-语句"><a href="#php-中-foreach-语句" class="headerlink" title="php 中 foreach 语句"></a>php 中 foreach 语句</h1><blockquote>
-<p>用来遍历数组(关联数组和索引数组均可)。</p>
-</blockquote>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 语法</span></span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$arr</span> <span class="keyword">as</span> <span class="variable">$key</span> =&gt; <span class="variable">$value</span>) &#123;</span><br><span class="line">  <span class="comment">// $arr: 要遍历的数组</span></span><br><span class="line">  <span class="comment">// $key: 键，可以是任意变量名</span></span><br><span class="line">  <span class="comment">// $value: 值，可以是任意变量名</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$arr</span> <span class="keyword">as</span> <span class="variable">$value</span>) &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 遍历关联数组</span></span><br><span class="line"><span class="variable">$arr</span> = <span class="keyword">array</span>(</span><br><span class="line">  <span class="string">&quot;name&quot;</span>=&gt;<span class="string">&quot;zs&quot;</span>,</span><br><span class="line">  <span class="string">&quot;age&quot;</span>=&gt;<span class="number">18</span>,</span><br><span class="line">  <span class="string">&quot;sex&quot;</span>=&gt;<span class="number">20</span></span><br><span class="line">);</span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$arr</span> <span class="keyword">as</span> <span class="variable">$k</span> =&gt; <span class="variable">$v</span>) &#123;</span><br><span class="line">  <span class="keyword">echo</span> <span class="variable">$k</span> . <span class="string">&quot;=&quot;</span> . <span class="variable">$v</span> . <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://wqdy.top/1646.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2202,55 +2311,6 @@
 <li>不能使用保留字作为变量名称：<code>implements, interface, let, package, private, protected, public, static, yield</code></li>
 <li>如果不符合上述规范，会直接报错</li>
 </ul>
-<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><h3 id="闭包的基本概念"><a href="#闭包的基本概念" class="headerlink" title="闭包的基本概念"></a>闭包的基本概念</h3><p><code>闭包（closure）</code>是 JavaScript 语言的一个难点，也是 JavaScript 的一个特色，很多高级的应用都要依靠闭包来实现</p>
-<blockquote>
-<p>闭包是函数和声明该函数的词法环境的组合</p>
-</blockquote>
-<p>在 JavaScript 中，在函数中可以（嵌套）定义另一个函数时，如果内部的函数引用了外部的函数的变量，产生闭包</p>
-<p>**闭包中包含了内部函数的代码，以及所需外部函数中的变量的引用 **</p>
-<p>产生闭包的条件：有两个函数，是嵌套关系，内部函数引用了外部函数的变量，这样就会形成闭包</p>
-<p>闭包的作用：</p>
-<ul>
-<li>私有变量，保护数据安全</li>
-<li>持久化维持数据</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 闭包的基本模型</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">outer</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> num = <span class="number">10</span></span><br><span class="line">  <span class="comment">// function inner () &#123;</span></span><br><span class="line">  <span class="comment">//   num++</span></span><br><span class="line">  <span class="comment">//   console.log(num)</span></span><br><span class="line">  <span class="comment">// &#125;</span></span><br><span class="line">  <span class="comment">// return inner  // 把inner函数给返回出去，让外部能够调用inner函数</span></span><br><span class="line">  <span class="comment">// 上面的简写</span></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    num++</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(num)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 并不一定是有返回函数才算是产生了闭包</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> f3</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">f1</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">2</span></span><br><span class="line">  f3 = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(a)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">f1</span>()</span><br><span class="line"><span class="title function_">f3</span>() <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="闭包的应用"><a href="#闭包的应用" class="headerlink" title="闭包的应用"></a>闭包的应用</h3><h4 id="计数器"><a href="#计数器" class="headerlink" title="计数器"></a>计数器</h4><p>需求：统计一个函数的调用次数</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> count = <span class="number">0</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params"></span>) &#123;</span><br><span class="line">  count++</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;我被调用了，调用次数是&#x27;</span> + count)</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">fn</span>()</span><br><span class="line"><span class="title function_">fn</span>()</span><br><span class="line"><span class="title function_">fn</span>()</span><br><span class="line"><span class="comment">// 缺点：count是全局变量，不安全</span></span><br></pre></td></tr></table></figure>
-
-<p>使用闭包解决这个问题！！！！</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">outer</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> count = <span class="number">0</span> <span class="comment">// 私有变量, 将 count 保护起来了</span></span><br><span class="line">  <span class="keyword">function</span> <span class="title function_">add</span>(<span class="params"></span>) &#123;</span><br><span class="line">    count++</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;当前count&#x27;</span> + count)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> add</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> result = <span class="title function_">outer</span>()</span><br><span class="line"><span class="title function_">result</span>()</span><br></pre></td></tr></table></figure>
-
-<p>【案例：银行存钱取钱】</p>
-<h4 id="缓存的私有化"><a href="#缓存的私有化" class="headerlink" title="缓存的私有化"></a>缓存的私有化</h4><blockquote>
-<p>缓存（cache）：数据的缓冲区，当要读取数据时，先从缓冲中获取数据，如果找到了，直接获取，如果找不到，重新去请求数据。</p>
-</blockquote>
-<p>计算斐波那契数列，会有很大的性能问题，因为重复的计算了很多次，因此我们可以使用缓存来解决这个性能问题。</p>
-<p>缺点：既然使用缓存，就需要保证缓存的数据的安全，不能被别人修改，因此，需要使用闭包来实现缓存的私有化。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">outer</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">// 缓存</span></span><br><span class="line">  <span class="keyword">var</span> arr = []</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> fbi = <span class="keyword">function</span>(<span class="params">n</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">1</span> || n == <span class="number">2</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (arr[n]) &#123;</span><br><span class="line">      <span class="keyword">return</span> arr[n]</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">var</span> temp = <span class="title function_">fbi</span>(n - <span class="number">1</span>) + <span class="title function_">fbi</span>(n - <span class="number">2</span>)</span><br><span class="line">      arr[n] = temp <span class="comment">//存入缓存</span></span><br><span class="line">      <span class="keyword">return</span> temp</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> fbi</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> fbi = <span class="title function_">outer</span>()</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">fbi</span>(<span class="number">40</span>))</span><br></pre></td></tr></table></figure>
-
-<h3 id="闭包存在的问题"><a href="#闭包存在的问题" class="headerlink" title="闭包存在的问题"></a>闭包存在的问题</h3><blockquote>
-<p>正常情况下：函数在调用的时候，去开辟一块内存空间用来执行内部的代码，当函数调用结束的时候，要销毁开辟的空间，节省内存</p>
-<p>闭包占用的内存是不会被释放的，因此，如果滥用闭包，会造成内存泄漏的问题。闭包很强大，但是只有在必须使用闭包的时候才使用</p>
-</blockquote>
-<h4 id="js-的垃圾回收机制-了解"><a href="#js-的垃圾回收机制-了解" class="headerlink" title="js 的垃圾回收机制(了解)"></a>js 的垃圾回收机制(了解)</h4><ul>
-<li>内存：计算机中所有程序的运行都是在<code>内存</code> 中进行的，因此内存的性能对计算机的影响非常大，运行程序需要消耗内存，当程序结束时，内存会得到释放。</li>
-<li>javascript 分配内存：当我们定义变量，javascript 自动分配内存存储数据。无论是值类型或者是引用类型，都需要存储在内存中。</li>
-<li>垃圾回收：当代码执行结束，分配的内存已经不需要了，这时候需要将内存进行回收，在 javascript 语言中，<code>垃圾回收机器</code>会帮我们回收<code>不再需要使用</code>的内存。</li>
-</ul>
-<h5 id="引用记数法清除"><a href="#引用记数法清除" class="headerlink" title="引用记数法清除"></a>引用记数法清除</h5><p>引用记数垃圾收集：如果没有引用指向某个对象（或者是函数作用域），那么这个对象或者函数作用域就会被垃圾回收机制回收。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;zs&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 对象被 o 变量引用，引用记数 1</span></span><br><span class="line"><span class="keyword">var</span> obj = o <span class="comment">// 变量被 o 和 obj 引用，引用记数 2</span></span><br><span class="line">o = <span class="number">1</span> <span class="comment">// o 不在引用对象了，引用记数 1</span></span><br><span class="line">obj = <span class="literal">null</span> <span class="comment">// obj 不在引用对象了，引用记数 0，可以被垃圾回收了</span></span><br></pre></td></tr></table></figure>
-
-<p>引用计数法无法解决循环引用导致的内存泄露</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> obj1 = &#123;&#125; <span class="comment">// 引用计数为 2</span></span><br><span class="line">  <span class="keyword">var</span> obj2 = &#123;&#125; <span class="comment">// 引用计数为 2</span></span><br><span class="line">  obj1.<span class="property">a</span> = obj2</span><br><span class="line">  obj2.<span class="property">b</span> = obj1</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">fn</span>() <span class="comment">// 销毁fn调用开辟的空间， 但是由于引用计数考虑到两个对象都不是零引用的对象，就不能够被垃圾回收机制给回收掉</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="标记清除法清除"><a href="#标记清除法清除" class="headerlink" title="标记清除法清除"></a>标记清除法清除</h5><p>使用引用计数法进行垃圾回收的时候，会出现循环引用导致内存泄漏的问题。因此现代的浏览器都采用标记清除法来进行垃圾回收。</p>
-<p>这个算法假定设置一个叫做根（root）的对象（在 Javascript 里，根是全局对象 Window）。定期的，垃圾回收器将从根开始，找所有从根开始引用的对象，然后找这些对象引用的对象……从根开始，垃圾回收器将找到所有可以获得的对象和所有不能获得的对象。</p>
-<p><strong>从 2012 年起，所有现代浏览器都使用了标记 - 清除垃圾回收算法。</strong></p>
-<h4 id="闭包占用内存释放"><a href="#闭包占用内存释放" class="headerlink" title="闭包占用内存释放"></a>闭包占用内存释放</h4><p>当闭包的功能不在需要使用了，将这个变量指向 <code>null</code>， 这样闭包占用的内存就可以被回收掉了</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">outer</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> count = <span class="number">0</span></span><br><span class="line">  <span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params"></span>) &#123;</span><br><span class="line">    count++</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;执行次数&#x27;</span> + count)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> fn</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> result = <span class="title function_">outer</span>()</span><br><span class="line"><span class="title function_">result</span>()</span><br><span class="line">result = <span class="literal">null</span> <span class="comment">// 当函数 fn 没有被变量引用了，那么函数 fn 就会被回收，函数 fn 一旦被回收，那么 outer调用形成的作用域也就得到了释放</span></span><br></pre></td></tr></table></figure>
-
 <h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><blockquote>
 <p>正则表达式(regular expression)描述了一种字符串匹配的模式（pattern），可以用来检查一个串是否含有某种子串（数据验证）、将匹配的子串替换（数据删除或替换）或者从某个串中取出符合某个条件的子串等（数据提取）</p>
 </blockquote>
@@ -3109,147 +3169,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/428.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/428.html" class="post-title-link" itemprop="url">sublime 插件、快捷键</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2018-09-12" itemprop="dateCreated datePublished" datetime="2018-09-12T22:32:42+00:00">2018-09-12</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><ul>
-<li><p><span class="exturl" data-url="aHR0cHM6Ly9wYWNrYWdlY29udHJvbC5pby9wYWNrYWdlcy9TdWJsaW1lJTIwVHV0b3I=">Sublime Tutor</span> ：键盘快捷方式教程<br>Help &gt; Sublime Tutor</p>
-</li>
-<li><p>AlignTab ：自定义快捷键</p>
-</li>
-</ul>
-<h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><ul>
-<li><code>Ctrl + X</code> 如果已经选中文本，则剪切该文本。如果未选中任何文本，则剪切光标所在行</li>
-<li><code>Ctrl + Z</code> 撤消</li>
-<li><code>Ctrl + Shift + V</code> 缩进粘贴</li>
-<li><code>Ctrl + Shift + Z</code> 或 <code>Ctrl + Y</code> 恢复</li>
-<li><code>Ctrl + L</code> Select line - Repeat to select next lines</li>
-<li><code>Ctrl + D</code> Select word - Repeat select others occurrences</li>
-<li><code>Ctrl + Shift + D</code> 如果已经选中文本，则复制该文本。如果未选中任何文本，则复制光标所在行</li>
-<li><code>Ctrl + Enter</code> Insert line after</li>
-<li><code>Ctrl + Shift + Enter</code> Insert line before</li>
-<li><code>Alt + F3</code> 选择所有相同单词的实例</li>
-<li><code>Tab</code> 或 <code>Ctrl + ]</code> 缩进</li>
-<li><code>Shift + Tab</code> 或 <code>Ctrl + [</code> 取消缩进</li>
-<li><code>Ctrl + Shift + K</code> Delete Line</li>
-<li><code>Ctrl + KK</code> Delete from cursor to end of line</li>
-<li><code>Ctrl + K + Backspace</code> Delete from cursor to start of line</li>
-<li><code>Alt + Shift + W</code> 使用标签包裹选中部分</li>
-<li><code>Ctrl + ←</code> 移动光标至上一个词</li>
-<li><code>Ctrl + →</code> 移动光标至下一个词</li>
-<li><code>Ctrl + Shift + ↓</code> Move line&#x2F;selection down</li>
-<li><code>Ctrl + Shift + ↑</code> Move line&#x2F;selection up</li>
-<li><code>Home</code> 移动光标至行首</li>
-<li><code>End</code> 移动光标至行尾</li>
-<li><code>Ctrl + Home</code> 移动光标至文档开头</li>
-<li><code>Ctrl + End</code> 移动光标至文档结尾</li>
-<li><code>Ctrl + M</code> 跳转到左&#x2F;右圆括号、方括号、大括号</li>
-<li><code>Ctrl + Shift + M</code> 选择括号内的内容</li>
-<li><code>Ctrl + R</code> 跳转到定义</li>
-<li><code>Ctrl + /</code> Comment&#x2F;un-comment current line</li>
-<li><code>Ctrl + Shift + /</code> Block comment current selection</li>
-<li><code>Ctrl + N</code> 新建标签</li>
-<li><code>Ctrl + PgUp</code> 向左切换标签</li>
-<li><code>Ctrl + PgDn</code> 向右切换标签</li>
-<li><code>Ctrl + W</code> 关闭标签</li>
-<li><code>Ctrl + Shift + T</code> 重新打开标签</li>
-<li><code>Shift + 鼠标右键</code> 竖向选择</li>
-<li><code>Ctrl + Shift + &#39;</code> 选择与光标关联的开始和结束标签</li>
-<li><code>Ctrl + Shift + A</code> 选择容器内内容</li>
-<li><code>Ctrl + Shift + ;</code> 移除与你的光标相关的父标签(清除标记)</li>
-<li><code>Ctrl + Shift + Y</code> 计算数学表达式</li>
-<li><code>Alt + ↓&amp;↑</code> 以 0.1 的步长改变数字</li>
-<li><code>Alt + Shift + ↓&amp;↑</code> 以 10 的步长改变数字</li>
-<li><code>Ctrl + ↓&amp;↑</code> 以 1 的步长改变数字</li>
-<li><code>Ctrl+K+U</code> <code>Ctrl+K+L</code> 改变大小写</li>
-</ul>
-<p><span class="exturl" data-url="aHR0cDovL3N1YmxpbWUuZW1wdHlzdGFjay5uZXQv">http://sublime.emptystack.net/</span></p>
-<h2 id="issues"><a href="#issues" class="headerlink" title="issues"></a>issues</h2><ol>
-<li></li>
-</ol>
-<blockquote>
-<p>“Error: 404 Not Found<br>Sorry, the requested URL ‘<span class="exturl" data-url="aHR0cDovLzEyNy4wLjAuMTo1MTAwNC92aWV3LzI5Jw==">http://127.0.0.1:51004/view/29&#39;</span> caused an error:<br>‘buffer_id(29) is not valid (closed or unsupported file format)’<br>NOTE: If you run multiple instances of Sublime Text, you may want to adjust the server_port option in order to get this plugin work again.”</p>
-</blockquote>
-<p>Quick Fix 1: Remove Strikethrough Extension</p>
-<p><code>Sublime Text &gt; Preferences &gt; Package Settings &gt; OmniMarkupPreviewer &gt; Settings - User</code><br>paste the following to remove the strikeout package.</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"> &#123;</span><br><span class="line">  &#x27;renderer_options-markdownrenderer&#x27;: &#123;</span><br><span class="line">    &quot;extensions&quot;:[<span class="string">&quot;tables&quot;</span>,<span class="string">&quot;fenced_code&quot;</span>,<span class="string">&quot;codehilite&quot;</span>] ;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Quick Fix 2: Fix the Strikethrough Extension (if you need it)</p>
-<p>Find the python-markdown sublime package.</p>
-<p><code>/Packages/OmniMarkupPreviewer/OmniMarkupLib/Renderers/libs/mdx_strikeout.py</code></p>
-<p>Replace the makeExtension() method with the following:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">makeExtension</span>(<span class="params">*args, **kwargs</span>):</span><br><span class="line">    <span class="keyword">return</span> StrikeoutExtension(*args, **kwargs)</span><br><span class="line">Save, quit <span class="keyword">and</span> reload Sublime Text.</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/14/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/16/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/14/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/">16</a><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/16/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 </div>

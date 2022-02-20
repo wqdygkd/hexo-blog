@@ -175,7 +175,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">160</span>
+          <span class="site-state-item-count">161</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -219,6 +219,202 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/427.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/427.html" class="post-title-link" itemprop="url">npm 包管理工具的使用</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2019-07-03" itemprop="dateCreated datePublished" datetime="2019-07-03T22:32:09+00:00">2019-07-03</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="解决某些-npm-包无法下载的问题"><a href="#解决某些-npm-包无法下载的问题" class="headerlink" title="解决某些 npm 包无法下载的问题"></a>解决某些 npm 包无法下载的问题</h3><p>如 electron sass</p>
+<p>修改 <code>~/.npmrc</code>，或当前项目下的<code>.npmrc</code> 文件（如果没有可以新建）增加如下内容</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">registry=https://registry.npm.taobao.org</span><br><span class="line">sass_binary_site=https://npm.taobao.org/mirrors/node-sass/</span><br><span class="line">phantomjs_cdnurl=http://npm.taobao.org/mirrors/phantomjs</span><br><span class="line">electron_mirror=http://npm.taobao.org/mirrors/electron/</span><br><span class="line">chromedriver_cdnurl=http://npm.taobao.org/mirrors/chromedriver</span><br></pre></td></tr></table></figure>
+
+<p>淘宝 npm 镜像 <span class="exturl" data-url="aHR0cHM6Ly9ucG0udGFvYmFvLm9yZy8=">https://npm.taobao.org/</span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9ucG1qcy5jb20v">npm 官网</span><br><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm5wbWpzLmNvbS8=">npm 文档</span><br><span class="exturl" data-url="aHR0cHM6Ly93d3cubnBtanMuY24v">npm 中文文档</span></p>
+<h3 id="npm-基本命令"><a href="#npm-基本命令" class="headerlink" title="npm 基本命令"></a>npm 基本命令</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 更新 npm</span></span><br><span class="line">npm -v|--version</span><br><span class="line">npm install npm@latest -g</span><br><span class="line"></span><br><span class="line"><span class="comment"># nvm : npm Version Manager</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 搜索包</span></span><br><span class="line">npm search &lt;pkg&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装包</span></span><br><span class="line">npm install [&lt;@scope&gt;/]&lt;pkg&gt; <span class="comment"># [&lt;@scope&gt;/] 安装限定范围的包</span></span><br><span class="line">npm install [&lt;@scope&gt;/]&lt;pkg&gt;@&lt;tag&gt;</span><br><span class="line">npm install [&lt;@scope&gt;/]&lt;pkg&gt;@&lt;version&gt;</span><br><span class="line">npm install [&lt;@scope&gt;/]&lt;pkg&gt;@&lt;version range&gt;</span><br><span class="line">npm install &lt;folder&gt;</span><br><span class="line">npm install &lt;tarball file&gt;  <span class="comment"># .tar, .tar.gz, or .tgz</span></span><br><span class="line">npm install &lt;tarball url&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 公有仓库</span></span><br><span class="line">npm install user/project <span class="comment"># 默认 github</span></span><br><span class="line">npm install bitbucket:user/project</span><br><span class="line">npm install gitlab:user/project<span class="comment">#semver:^5.0 # semver 版本</span></span><br><span class="line">npm install git+https://git@github.com/user/project.git</span><br><span class="line">npm install git+ssh://git@github.com/user/project.git</span><br><span class="line">npm install git://github.com/user/project.git</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">npm install &lt;pkg&gt; -S|--save <span class="comment"># 安装到 dependencies</span></span><br><span class="line">npm install &lt;pkg&gt; -D|--save-dev <span class="comment"># 安装到 devDependencies</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># --verbose 参数 显示安装的详细信息</span></span><br><span class="line">npm i --verbose</span><br><span class="line"></span><br><span class="line"><span class="comment"># --production 参数 只会安装 dependencies 依赖，而忽略 devDependencies 依赖，用于生产环境</span></span><br><span class="line">npm i --production</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装全局包</span></span><br><span class="line">npm install -g &lt;pkg&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新包</span></span><br><span class="line">npm outdated <span class="comment"># 检查可以更新的模块</span></span><br><span class="line">npm update <span class="comment"># 更新全部本地包</span></span><br><span class="line"><span class="comment"># 更新全局安装的包</span></span><br><span class="line">npm update -g <span class="comment"># 更新全部</span></span><br><span class="line">npm update -g| --global &lt;pkg&gt; <span class="comment"># 更新指定包</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新方式 1</span></span><br><span class="line"><span class="comment"># 手动修改 package.json 中依赖包版本，之后执行</span></span><br><span class="line">npm install --force</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新方式 2 使用第三方插件：</span></span><br><span class="line">npm install -g npm-check-updates</span><br><span class="line">ncu <span class="comment"># 查看可更新包</span></span><br><span class="line">ncu -u <span class="comment"># 更新 package.json</span></span><br><span class="line">npm install <span class="comment"># 升级到最新版本</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除本地包</span></span><br><span class="line">npm uninstall &lt;pkg&gt;</span><br><span class="line">npm uninstall --save &lt;pkg&gt; <span class="comment"># 从 `package.json` 文件中删除依赖</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载全局安装的包</span></span><br><span class="line">npm uninstall -g &lt;pkg&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开官网</span></span><br><span class="line">npm docs|home [&lt;pkg&gt;]</span><br><span class="line"><span class="comment"># 打开源码仓库页面</span></span><br><span class="line">npm repo [&lt;pkg&gt;]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化一个项目，创建一个 package.json 文件，项目名不能为中文</span></span><br><span class="line">npm init</span><br><span class="line"><span class="comment"># 创建默认 package.json 文件 快速的初始化一个项目，会使用文件夹名称作为项目名</span></span><br><span class="line">npm init --<span class="built_in">yes</span> or -y</span><br></pre></td></tr></table></figure>
+
+<p>简写</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install  可简写成 npm i</span><br><span class="line"></span><br><span class="line">npm uninstall 可简写成 npm uni</span><br></pre></td></tr></table></figure>
+
+<h3 id="npm-修改源"><a href="#npm-修改源" class="headerlink" title="npm 修改源"></a>npm 修改源</h3><p><strong>修改全局配置</strong></p>
+<ul>
+<li>进入~&#x2F;.npmrc 增加 <code>registry=https://registry.npm.taobao.org</code></li>
+<li>通过命令 <code>npm config set registry https://registry.npm.taobao.org</code></li>
+</ul>
+<p><strong>修改当前项目的 npm 源</strong></p>
+<p>在 <code>package.json</code> 同级目录下创建 <code>.npmrc</code> 文件，增加 <code>registry=https://registry.npm.taobao.org</code></p>
+<p><strong>临时使用指定源下载</strong> <code>npm install jquery --registry=https://registry.npm.taobao.org</code></p>
+<p><strong>使用 nrm 管理源</strong></p>
+<h3 id="npm-配置文件"><a href="#npm-配置文件" class="headerlink" title="npm 配置文件"></a>npm 配置文件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># .npmrc 配置文件位置（~/.npmrc）</span></span><br><span class="line">npm config list</span><br><span class="line"></span><br><span class="line"><span class="comment"># npm 缓存目录，默认 C:\Users\&lt;username&gt;\AppData\Roaming\npm-cache</span></span><br><span class="line">npm config get cache</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除 npm 缓存：注意：如果网速慢的话，会导致下载失败。 再重新下载之前，建议使用该命令，清除刚才下载的缓存，否则有可能一直无法下载成功</span></span><br><span class="line">npm cache clean --force | -f</span><br><span class="line"></span><br><span class="line"><span class="comment"># npm 全局 node 包位置：  默认在 C:\Users\用户名\AppData\Roaming\npm目录下</span></span><br><span class="line">npm config get prefix</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">npm root -g</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改 npm 全局文件位置及缓存文件位置</span></span><br><span class="line">npm config <span class="built_in">set</span> prefix <span class="string">&quot;&lt;new_path&gt;&quot;</span></span><br><span class="line">npm config <span class="built_in">set</span> cache <span class="string">&quot;&lt;new_path&gt;&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="版本号"><a href="#版本号" class="headerlink" title="版本号"></a>版本号</h3><p>使用 NPM 下载和发布代码时都会接触到版本号。NPM 使用语义版本号来管理代码</p>
+<p>语义版本号分为 X.Y.Z 三位，分别代表主版本号、次版本号和补丁版本号。当代码变更时，版本号按以下原则更新。</p>
+<ul>
+<li>如果只是修复 bug，需要更新 Z 位</li>
+<li>如果是新增了功能，但是向下兼容，需要更新 Y 位</li>
+<li>如果有大变动，向下不兼容，需要更新 X 位</li>
+</ul>
+<h3 id="nrm-使用"><a href="#nrm-使用" class="headerlink" title="nrm 使用"></a>nrm 使用</h3><p>nrm：npm registry manager（npm 仓库地址管理工具）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看配置列表，带 `*` 号即为当前使用的配置</span></span><br><span class="line">nrm <span class="built_in">ls</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换源</span></span><br><span class="line">nrm use 源的别名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加源</span></span><br><span class="line">nrm add 别名 地址</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测速</span></span><br><span class="line">nrm <span class="built_in">test</span> 别名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除源</span></span><br><span class="line">nrm del 别名</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看项目安装了那些包"><a href="#查看项目安装了那些包" class="headerlink" title="查看项目安装了那些包"></a>查看项目安装了那些包</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm list --depth=0 [--dev | --production]</span><br><span class="line">npm list --depth=0</span><br></pre></td></tr></table></figure>
+
+<p>–depth 表示深度，我们使用的模块会有依赖，深度为零的时候，不会显示依赖模块</p>
+<h3 id="查看全局安装的包"><a href="#查看全局安装的包" class="headerlink" title="查看全局安装的包"></a>查看全局安装的包</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm list --depth=0 --global</span><br></pre></td></tr></table></figure>
+
+<h3 id="package-json-文件"><a href="#package-json-文件" class="headerlink" title="package.json 文件"></a>package.json 文件</h3><p>package.json 文件，包（项目）描述文件，用来管理组织一个包（项目），它是一个纯 JSON 格式的</p>
+<ul>
+<li>作用：描述当前项目（包）的信息，描述当前包（项目）的依赖项</li>
+<li>如何生成：<code>npm init</code>或者<code>npm init -y</code></li>
+<li>作用<ul>
+<li>作为一个标准的包，必须要有<code>package.json</code>文件进行描述</li>
+<li>一个项目的 node_modules 目录通常都会很大，不用拷贝 node_modules 目录，可以通过 package.json 文件配合<code>npm install</code> 直接安装项目所有的依赖项</li>
+</ul>
+</li>
+<li>描述内容</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;myproject&quot;</span><span class="punctuation">,</span> <span class="comment">// 描述了包的名字，不能有中文</span></span><br><span class="line">  <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1.0.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span><span class="punctuation">,</span> <span class="comment">// 包的描述信息</span></span><br><span class="line">  <span class="attr">&quot;main&quot;</span><span class="punctuation">:</span> <span class="string">&quot;index.js&quot;</span><span class="punctuation">,</span> <span class="comment">// 入口文件</span></span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="comment">// 配置一些脚本</span></span><br><span class="line">    <span class="attr">&quot;test&quot;</span><span class="punctuation">:</span> <span class="string">&quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;keywords&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span> <span class="comment">// 关键字（方便搜索）</span></span><br><span class="line">  <span class="attr">&quot;author&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span><span class="punctuation">,</span> <span class="comment">// 作者信息</span></span><br><span class="line">  <span class="attr">&quot;license&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ISC&quot;</span><span class="punctuation">,</span> <span class="comment">// 许可证，开源协议</span></span><br><span class="line">  <span class="attr">&quot;dependencies&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="comment">// 项目依赖</span></span><br><span class="line">    <span class="attr">&quot;bootstrap&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^3.3.7&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;jquery&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^3.3.1&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：一个合法的 package.json，必须要有 name 和 version 两个属性</strong></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/236.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/236.html" class="post-title-link" itemprop="url">telegram ss ip 名单</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2019-06-30" itemprop="dateCreated datePublished" datetime="2019-06-30T00:00:49+00:00">2019-06-30</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">91.108.56.0/22</span><br><span class="line">91.108.4.0/22</span><br><span class="line">109.239.140.0/24</span><br><span class="line">149.154.160.0/20</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -2482,236 +2678,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/398.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/398.html" class="post-title-link" itemprop="url">防抖和节流</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2018-12-12" itemprop="dateCreated datePublished" datetime="2018-12-12T22:13:29+00:00">2018-12-12</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p>防抖和节流都是为了解决<strong>短时间内大量触发某函数</strong>而导致的<strong>性能问题，</strong>比如触发频率过高导致的响应速度跟不上触发频率，出现延迟，假死或卡顿的现象</p>
-</blockquote>
-<h2 id="防抖（debounce）"><a href="#防抖（debounce）" class="headerlink" title="防抖（debounce）"></a>防抖（debounce）</h2><p>在事件被触发 n 秒后再执行回调函数，如果在这 n 秒内又被触发，则重新计时（只会触发最后一次）</p>
-<p>应用场景</p>
-<ul>
-<li><p>用户在输入框中连续输入一串字符后，只会在输入完后去执行最后一次的查询 ajax 请求，这样可以有效减少请求次数，节约请求资源</p>
-</li>
-<li><p>window 的 resize、scroll 事件，不断地调整浏览器的窗口大小、或者滚动时会触发对应事件，防抖让其只触发一次</p>
-</li>
-</ul>
-<h2 id="节流（throttle）"><a href="#节流（throttle）" class="headerlink" title="节流（throttle）"></a>节流（throttle）</h2><p>规定一个单位时间 n，在这个单位时间内，只能有一次触发事件的回调函数执行，如果在同一个单位时间内事件被触发多次，只有一次能生效（每 n 秒触发一次）</p>
-<p>应用场景</p>
-<ul>
-<li><p>鼠标连续不断地触发某事件（如点击），只在单位时间内只触发一次</p>
-</li>
-<li><p>在页面的无限加载场景下，需要用户在滚动页面时，每隔一段时间发一次 ajax 请求，而不是在用户停下滚动页面操作时才去请求数据</p>
-</li>
-<li><p>监听滚动事件，比如是否滑到底部自动加载更多，用 throttle 来判断</p>
-</li>
-</ul>
-<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><p>防抖的作用是将多个连续的<code>debounced</code>调用合并为一次<code>callback</code>调用。防抖是基于最近次 <code>debounced</code> 调用来重置 <code>waitTime</code>，如果<code>debounced</code>事件触发间隔小于 <code>waitTime</code>，<code>callback</code>就不会执行；</p>
-<p>节流的作用是限制<code>callback</code>调用的频率（每<code>waitTime</code>调用一次）。是基于上次 <code>callback</code> 调用来计算 <code>waitTime</code> 的，不管<code>callback</code> 事件触发有多频繁，只要距离上次 <code>callback</code> 调用超过了 <code>waitTime</code>，就一定会进行下次 <code>callback</code> 调用。</p>
-<p>– 原理：</p>
-<p>防抖是 <code>debounced</code> 维护了一个计时器，规定在 <code>waitTime</code> 时间后触发 <code>callback</code>，但是在 <code>waitTime</code> 时间内再次触发 <code>debounced</code> 的话，会清除当前的 timer 然后重新计时，这样一来，只有最后一次<code>debounced</code> 操作才能触发 <code>callback</code>；</p>
-<p>节流是通过判断是否到达一定时间 (<code>waitTime</code>) 来再次触发 <code>callback</code> ， <code>func</code> 在 <code>waitTime</code> 时间内不能被再次触发。</p>
-<p>实现</p>
-<p>throttle-debounce 插件 <span class="exturl" data-url="aHR0cHM6Ly93d3cubnBtanMuY29tL3BhY2thZ2UvdGhyb3R0bGUtZGVib3VuY2U=">https://www.npmjs.com/package/throttle-debounce</span></p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;input&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">input.<span class="property">oninput</span> = <span class="title function_">throttle</span>(<span class="number">1000</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">value</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">b</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> a = <span class="title function_">debounce</span>(<span class="number">1000</span>, b)</span><br><span class="line">a.<span class="title function_">call</span>(&#123; <span class="attr">name</span>: <span class="string">&#x27;zs&#x27;</span> &#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 节流</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">throttle</span>(<span class="params">delay, callback</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> timer = <span class="literal">null</span></span><br><span class="line">  <span class="keyword">let</span> lastExec = <span class="number">0</span></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> self = <span class="variable language_">this</span></span><br><span class="line">    <span class="keyword">const</span> elapsed = <span class="title class_">Number</span>(<span class="keyword">new</span> <span class="title class_">Date</span>()) - lastExec</span><br><span class="line">    <span class="keyword">const</span> args = <span class="variable language_">arguments</span></span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">exec</span>(<span class="params"></span>) &#123;</span><br><span class="line">      callback.<span class="title function_">apply</span>(self, args)</span><br><span class="line">      lastExec = <span class="title class_">Number</span>(<span class="keyword">new</span> <span class="title class_">Date</span>())</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">clearTimeout</span>(timer)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (elapsed &gt; delay) &#123;</span><br><span class="line">      <span class="title function_">exec</span>()</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      timer = <span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="title function_">exec</span>()</span><br><span class="line">      &#125;, delay - elapsed)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 防抖</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">debounce</span>(<span class="params">delay, callback</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> timer = <span class="literal">null</span></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> self = <span class="variable language_">this</span></span><br><span class="line">    <span class="keyword">const</span> args = <span class="variable language_">arguments</span></span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">exec</span>(<span class="params"></span>) &#123;</span><br><span class="line">      callback.<span class="title function_">apply</span>(self, args)</span><br><span class="line">      lastExec = <span class="title class_">Number</span>(<span class="keyword">new</span> <span class="title class_">Date</span>())</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">clearTimeout</span>(timer)</span><br><span class="line">    timer = <span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="title function_">exec</span>()</span><br><span class="line">    &#125;, delay)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/425.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/425.html" class="post-title-link" itemprop="url">LESS 基本使用</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2018-12-11" itemprop="dateCreated datePublished" datetime="2018-12-11T22:30:46+00:00">2018-12-11</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="Less-简介"><a href="#Less-简介" class="headerlink" title="Less 简介"></a>Less 简介</h2><blockquote>
-<p><strong><em>Less</em>  是一门 CSS 预处理语言（预先处理）,它扩展了 CSS 语言，增加了变量、Mixin、函数等特性</strong></p>
-<p>浏览器不直接识别 less 文件，浏览器只识别 css 文件，所以我们写了 less 文件之后，我们需要预先把 less 文件转换成 css 文件。</p>
-</blockquote>
-<p>本质上，LESS 包含一套自定义的语法及一个解析器，用户根据这些语法定义自己的样式规则，这些规则最终会通过解析器，编译生成对应的 CSS 文件。LESS 并没有裁剪 CSS 原有的特性，更不是用来取代 CSS 的，而是在现有 CSS 语法的基础上，为 CSS 加入程序式语言的特性。</p>
-<p><strong>less 仅仅是写 css 的另一种方式，写出来的 less 文件浏览器也不识别，所以啊，我们写完了 less 文件，还需要通过 less 解析器解析成 css，最终浏览器引入的还是 css 文件。</strong></p>
-<p>学习网站：</p>
-<p><span class="exturl" data-url="aHR0cDovL2xlc3Njc3Mub3JnLw==">官网 http://lesscss.org/</span><br><span class="exturl" data-url="aHR0cDovL2xlc3Njc3MuY24v">中文网 http://lesscss.cn/</span></p>
-<h2 id="less-的编译"><a href="#less-的编译" class="headerlink" title="less 的编译"></a>less 的编译</h2><blockquote>
-<p>如何把 less 文件变成 css 文件</p>
-</blockquote>
-<h3 id="使用打包工具"><a href="#使用打包工具" class="headerlink" title="使用打包工具"></a>使用打包工具</h3><p><code>gulp</code></p>
-<p><code>webpack</code></p>
-<h3 id="使用考拉"><a href="#使用考拉" class="headerlink" title="使用考拉"></a>使用考拉</h3><blockquote>
-<p>koala 是一个前端预处理器语言（less&#x2F;sass）图形编译工具，支持 Less、Sass、Compass、CoffeeScript，帮助 web 开发者更高效地使用它们进行开发。跨平台运行，完美兼容 windows、linux、mac。</p>
-</blockquote>
-<p><span class="exturl" data-url="aHR0cDovL2tvYWxhLWFwcC5jb20vaW5kZXgtemguaHRtbA==">考拉官网</span></p>
-<p>使用步骤：</p>
-<ol>
-<li>把<code>less</code>文件夹拖进去</li>
-<li>会在当前目录生成一个<code>css</code>目录</li>
-</ol>
-<p>优点：不用 node 环境，不用 less 环境，koala 内置了</p>
-<h3 id="使用插件"><a href="#使用插件" class="headerlink" title="使用插件"></a>使用插件</h3><p>easy less</p>
-<h2 id="Less-语法"><a href="#Less-语法" class="headerlink" title="Less 语法"></a>Less 语法</h2><h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p><strong>注释</strong></p>
-<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 这是CSS中的注释，因此会编译到css中 */</span></span><br><span class="line"><span class="comment">// 这是less的注释，css不能识别这个注释， 最后不会编译到css文件</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>变量</strong></p>
-<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="comment">// @变量名: 变量值;</span></span><br><span class="line"><span class="variable">@color:</span> <span class="number">#ccc</span>;</span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="variable">@color</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="mixin-函数"><a href="#mixin-函数" class="headerlink" title="mixin 函数"></a>mixin 函数</h3><p><strong>混入函数</strong></p>
-<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义一个函数：不带参数</span></span><br><span class="line"><span class="selector-class">.btn</span>() &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 调用函数</span></span><br><span class="line"><span class="selector-class">.my_btn</span> &#123;</span><br><span class="line">  <span class="selector-class">.btn</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义一个函数：带参数</span></span><br><span class="line"><span class="selector-class">.btn_border</span>(<span class="variable">@width</span>) &#123;</span><br><span class="line">  <span class="attribute">border</span>: <span class="variable">@width</span> solid <span class="number">#000</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.my_btn</span> &#123;</span><br><span class="line">  <span class="comment">// 如果函数定义了参数，调用的时候必须传入参数，否则会报错</span></span><br><span class="line">  <span class="selector-class">.btn_border</span>(<span class="number">10px</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义一个函数：带参数默认值</span></span><br><span class="line"><span class="selector-class">.btn_border</span>(<span class="variable">@width</span>: <span class="number">1px</span>) &#123;</span><br><span class="line">  <span class="attribute">border</span>: <span class="variable">@width</span> solid <span class="number">#000</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.my_btn</span> &#123;</span><br><span class="line">  <span class="comment">// 因为有默认值，所以不会报错</span></span><br><span class="line">  <span class="selector-class">.btn_border</span>();</span><br><span class="line">  <span class="selector-class">.btn_border</span>(<span class="number">10px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>应用：定义兼容多浏览器的圆角</p>
-<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.border_radius</span>(<span class="variable">@value</span>: <span class="number">5px</span>) &#123;</span><br><span class="line">  -webkit-<span class="attribute">border-radius</span>: <span class="variable">@value</span>;</span><br><span class="line">  -moz-<span class="attribute">border-radius</span>: <span class="variable">@value</span>;</span><br><span class="line">  -ms-<span class="attribute">border-radius</span>: <span class="variable">@value</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="variable">@value</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="selector-class">.border_radius</span>(<span class="number">10px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h3><blockquote>
-<p>我们可以在一个选择器中嵌套另一个选择器来实现继承，这样很大程度减少了代码量，并且代码看起来更加的清晰。</p>
-</blockquote>
-<ul>
-<li>使用伪类的时候 可以使用<code>&amp;</code> 表示自己</li>
-</ul>
-<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.father</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="comment">// 子代</span></span><br><span class="line">  <span class="selector-class">.son1</span> &#123;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 后代</span></span><br><span class="line">  &gt; <span class="selector-class">.son2</span> &#123;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 交集： &amp; 表示本身</span></span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-class">.now</span> &#123;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h3><figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 可以省略后缀名</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">&#x27;variable&#x27;</span>;</span><br><span class="line"><span class="keyword">@import</span> <span class="string">&#x27;maxin&#x27;</span>;</span><br></pre></td></tr></table></figure>
-
-<p>模块化的思想，分模块进行管理这些 less 文件，最终只需要使用 import 将 less 引入到一起即可</p>
-<h3 id="函数（运算）"><a href="#函数（运算）" class="headerlink" title="函数（运算）"></a>函数（运算）</h3><blockquote>
-<p>在我们的 CSS 中充斥着大量的数值型的 value，less 可以直接支持运算，也提供了一系列的函数提供给我们使用。</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">li &#123;</span><br><span class="line">  float: left;</span><br><span class="line">  width: round(100%/6, 2);</span><br><span class="line">  height: 100px + 100px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><span class="exturl" data-url="aHR0cDovL3d3dy4xMDI0aS5jb20vZGVtby9sZXNzL3JlZmVyZW5jZS5odG1s">http://www.1024i.com/demo/less/reference.html</span></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 </div>

@@ -175,7 +175,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">160</span>
+          <span class="site-state-item-count">161</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -219,6 +219,229 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/382.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/382.html" class="post-title-link" itemprop="url">前端常用js代码段汇总</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2019-07-22" itemprop="dateCreated datePublished" datetime="2019-07-22T13:20:47+00:00">2019-07-22</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="类型识别"><a href="#类型识别" class="headerlink" title="类型识别"></a>类型识别</h2><h3 id="获取数据类型，返回结果为-Number、String、Object、Array-等"><a href="#获取数据类型，返回结果为-Number、String、Object、Array-等" class="headerlink" title="获取数据类型，返回结果为 Number、String、Object、Array 等"></a>获取数据类型，返回结果为 Number、String、Object、Array 等</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 返回数据类型</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">getRawType</span>(<span class="params">value</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(value).<span class="title function_">slice</span>(<span class="number">8</span>, -<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 正则 =&gt; RegExp</span></span><br><span class="line"><span class="comment">// 时间对象 =&gt; Date</span></span><br><span class="line"><span class="comment">// 字符串 =&gt; String</span></span><br><span class="line"><span class="comment">// 对象 =&gt; Object</span></span><br><span class="line"><span class="comment">// 数组 =&gt; Array</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="判断变量是不是字符串类型"><a href="#判断变量是不是字符串类型" class="headerlink" title="判断变量是不是字符串类型"></a>判断变量是不是字符串类型</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(<span class="string">&#x27;str&#x27;</span>) <span class="comment">// &#x27;[object String]&#x27;</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="string">&#x27;str&#x27;</span> <span class="comment">// &#x27;string&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="判断变量是不是引用类型"><a href="#判断变量是不是引用类型" class="headerlink" title="判断变量是不是引用类型"></a>判断变量是不是引用类型</h3><p>例如： arrays, functions, objects, regexes, new Number(0),以及 new String(‘’)</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">isObject</span>(<span class="params">value</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> type = <span class="keyword">typeof</span> value</span><br><span class="line">  <span class="keyword">return</span> value != <span class="literal">null</span> &amp;&amp; (type == <span class="string">&#x27;object&#x27;</span> || type == <span class="string">&#x27;function&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="判断变量是不是-Object-类型的数据"><a href="#判断变量是不是-Object-类型的数据" class="headerlink" title="判断变量是不是 Object 类型的数据"></a>判断变量是不是 Object 类型的数据</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">isPlainObject</span>(<span class="params">value</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(value) === <span class="string">&#x27;[object Object]&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="判断变量是不是数组类型"><a href="#判断变量是不是数组类型" class="headerlink" title="判断变量是不是数组类型"></a>判断变量是不是数组类型</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">isArray</span>(<span class="params">arr</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(arr) === <span class="string">&#x27;[object Array]&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">isArray</span>(<span class="params">arr</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="title class_">Array</span>.<span class="title function_">isArray</span>(arr)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="将-isArray-挂载到-Array-上"><a href="#将-isArray-挂载到-Array-上" class="headerlink" title="将 isArray 挂载到 Array 上"></a>将 isArray 挂载到 Array 上</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title class_">Array</span>.<span class="property">isArray</span> = <span class="title class_">Array</span>.<span class="property">isArray</span> || isArray</span><br></pre></td></tr></table></figure>
+
+<h2 id="格式转换"><a href="#格式转换" class="headerlink" title="格式转换"></a>格式转换</h2><h3 id="数字格式化：小于-10-的数值前面加上-0"><a href="#数字格式化：小于-10-的数值前面加上-0" class="headerlink" title="数字格式化：小于 10 的数值前面加上 0"></a>数字格式化：小于 10 的数值前面加上 0</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number</span>&#125; num 要格式化的数值</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> &#123;<span class="type">string</span>&#125; 把小于10的数值前面加上0</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">prefix_zero</span>(<span class="params">num</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> num &gt;= <span class="number">10</span> ? num : <span class="string">&#x27;0&#x27;</span> + num</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="价格格式化-1234567-x3D-gt-1-234-567-00"><a href="#价格格式化-1234567-x3D-gt-1-234-567-00" class="headerlink" title="价格格式化 (1234567 &#x3D;&gt; 1,234,567.00)"></a>价格格式化 (1234567 &#x3D;&gt; 1,234,567.00)</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number</span>&#125; price 价格</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@returns</span> &#123;<span class="type">string</span>&#125; 1234567 =&gt; 1,234,567.00</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">formatPrice</span>(<span class="params">price</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> price !== <span class="string">&#x27;number&#x27;</span>) <span class="keyword">return</span> price</span><br><span class="line">  <span class="keyword">return</span> <span class="title class_">String</span>(<span class="title class_">Number</span>(price).<span class="title function_">toFixed</span>(<span class="number">2</span>)).<span class="title function_">replace</span>(<span class="regexp">/\B(?=(\d&#123;3&#125;)+(?!\d))/g</span>, <span class="string">&#x27;,&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// \b 匹配单词边界</span></span><br><span class="line"><span class="comment">// \B 匹配非单词边界</span></span><br></pre></td></tr></table></figure>
+
+<p>其他方式</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">123456789</span> <span class="comment">// a 为number类型</span></span><br><span class="line">a.<span class="title function_">toLocaleString</span>(<span class="string">&#x27;en-US&#x27;</span>) <span class="comment">// &#x27;123,456,789&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> b = <span class="number">123456789</span> <span class="comment">// b 可为number类型或string类型</span></span><br><span class="line"><span class="title class_">Intl</span>.<span class="title class_">NumberFormat</span>().<span class="title function_">format</span>(b) <span class="comment">//&#x27;123,456,789&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="手机号格式化：隐藏中间四位数字"><a href="#手机号格式化：隐藏中间四位数字" class="headerlink" title="手机号格式化：隐藏中间四位数字"></a>手机号格式化：隐藏中间四位数字</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">string</span>&#125; mobile 手机号</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@returns</span> &#123;<span class="type">string</span>&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">formatMobile</span>(<span class="params">mobile</span>) &#123;</span><br><span class="line">  mobile = <span class="title class_">String</span>(mobile)</span><br><span class="line">  <span class="keyword">if</span> (!<span class="regexp">/\d&#123;11&#125;/</span>.<span class="title function_">test</span>(mobile)) &#123;</span><br><span class="line">    <span class="keyword">return</span> mobile</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> mobile.<span class="title function_">replace</span>(<span class="regexp">/(\d&#123;3&#125;)\d&#123;4&#125;(\d&#123;4&#125;)/</span>, <span class="string">&#x27;$1****$2&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="进制转换"><a href="#进制转换" class="headerlink" title="进制转换"></a>进制转换</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">parseInt</span>(str, radix) <span class="comment">// 任意进制转换为 10 进制整数值</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Number</span>.<span class="title function_">toString</span>(radix) <span class="comment">//返回表示该数字的指定进制形式的字符串</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="检测平台（设备）类型"><a href="#检测平台（设备）类型" class="headerlink" title="检测平台（设备）类型"></a>检测平台（设备）类型</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">isWechat = <span class="regexp">/micromessenger/i</span>.<span class="title function_">test</span>(navigator.<span class="property">userAgent</span>)</span><br><span class="line">isWeibo = <span class="regexp">/weibo/i</span>.<span class="title function_">test</span>(navigator.<span class="property">userAgent</span>)</span><br><span class="line">isQQ = <span class="regexp">/qq/i</span>.<span class="title function_">test</span>(navigator.<span class="property">userAgent</span>)</span><br><span class="line">isIOS = <span class="regexp">/(iphone|ipod|ipad|ios)/i</span>.<span class="title function_">test</span>(navigator.<span class="property">userAgent</span>)</span><br><span class="line">isAndroid = <span class="regexp">/android/i</span>.<span class="title function_">test</span>(navigator.<span class="property">userAgent</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">distinct</span>(<span class="params">arr</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> arr.<span class="title function_">filter</span>(<span class="function">(<span class="params">v, i, array</span>) =&gt;</span> array.<span class="title function_">indexOf</span>(v) === i)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 对象数组去重</span></span><br><span class="line"><span class="comment">// arr: 目标数组</span></span><br><span class="line"><span class="comment">// id: 唯一属性</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">distinct</span>(<span class="params">arr, id</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> object = &#123;&#125;</span><br><span class="line">  <span class="keyword">let</span> objres = arr.<span class="title function_">reduce</span>(<span class="function">(<span class="params">item, next</span>) =&gt;</span> &#123;</span><br><span class="line">    object[next[id]] ? <span class="string">&#x27;&#x27;</span> : (object[next[id]] = <span class="literal">true</span> &amp;&amp; item.<span class="title function_">push</span>(next))</span><br><span class="line">    <span class="keyword">return</span> item</span><br><span class="line">  &#125;, [])</span><br><span class="line">  <span class="keyword">return</span> objres</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="数组顺序上移下移"><a href="#数组顺序上移下移" class="headerlink" title="数组顺序上移下移"></a>数组顺序上移下移</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 对象数组顺序上移下移</span></span><br><span class="line"><span class="comment">// arr: 目标数组</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 上移</span></span><br><span class="line">arr[index] = arr.<span class="title function_">splice</span>(index - <span class="number">1</span>, <span class="number">1</span>, arr[index])[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 下移</span></span><br><span class="line">arr[index] = arr.<span class="title function_">splice</span>(index + <span class="number">1</span>, <span class="number">1</span>, arr[index])[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+
+<h2 id="快速创建-a-标签"><a href="#快速创建-a-标签" class="headerlink" title="快速创建 a 标签"></a>快速创建 a 标签</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="string">&#x27;超链接&#x27;</span>.<span class="title function_">link</span>(<span class="string">&#x27;https://wqdy.top&#x27;</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a) <span class="comment">// &lt;a href=&quot;https://wqdy.top&quot;&gt;超链接&lt;/a&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="正则进阶："><a href="#正则进阶：" class="headerlink" title="正则进阶："></a>正则进阶：</h2><p>捕获括号：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">匹配 &#x27;wqdy&#x27; 并且记住匹配项</span><br><span class="line">/(wqdy)/</span><br></pre></td></tr></table></figure>
+
+<p>非捕获括号：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">匹配 &#x27;wqdy&#x27; 但是不记住匹配项</span><br><span class="line">/(?:wqdy)/</span><br></pre></td></tr></table></figure>
+
+<p>先行断言：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">匹配&#x27;wqdy&#x27;仅仅当&#x27;wqdy&#x27;后面跟着&#x27;top&#x27;</span><br><span class="line">/wqdy(?=top)/</span><br></pre></td></tr></table></figure>
+
+<p>后行断言：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">匹配&#x27;top&#x27;仅仅当&#x27;top&#x27;前面是&#x27;wqdy&#x27;</span><br><span class="line">/(?&lt;=wqdy)top/</span><br></pre></td></tr></table></figure>
+
+<p>正向否定查找：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">匹配&#x27;wqdy&#x27;仅仅当&#x27;wqdy&#x27;后面不跟着&#x27;gkd&#x27;</span><br><span class="line">/wqdy(?!gkd)/</span><br></pre></td></tr></table></figure>
+
+<h2 id="判断是否有滚动条"><a href="#判断是否有滚动条" class="headerlink" title="判断是否有滚动条"></a>判断是否有滚动条</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">isScroll</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="variable language_">window</span>.<span class="property">innerWidth</span> - $(<span class="variable language_">document</span>).<span class="title function_">width</span>() !== <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/424.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/424.html" class="post-title-link" itemprop="url">less 使用 - mixin 混合</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2019-07-21" itemprop="dateCreated datePublished" datetime="2019-07-21T22:30:10+00:00">2019-07-21</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="mixin-混合"><a href="#mixin-混合" class="headerlink" title="mixin 混合"></a>mixin 混合</h3><p>可以在 mixin 中使用类选择器和 id 选择器</p>
+<p>.bgc 定义了一个属性集，在任何需要使用 .bgc 属性集的选择器中，只需像下面这样调用：(小括号是可选的)</p>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.bgc</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#f00</span>;</span><br><span class="line">  <span class="selector-class">.bgc</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编译后的 CSS 代码为：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.bgc</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#f00</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>总结：mixin 其实就是一种嵌套，简单的讲，mixin 就是规则级别的复用</p>
+<p>mixin 的定义也会被原封不动的输出到编译生成的 CSS 代码中</p>
+<p>如果希望编译生成的 CSS 代码中不包含 mixin 的定义，在定义 mixin 时，只需在 class、id 的后面添加一对小括号即可。如：</p>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.bgc</span>() &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="selector-class">.bgc</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编译后的 CSS 代码为：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>mixin 可以包含选择器</p>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.hover</span>() &#123;</span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="selector-class">.hover</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编译后的 CSS 代码为：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="命令空间-Namespaces"><a href="#命令空间-Namespaces" class="headerlink" title="命令空间 Namespaces"></a>命令空间 Namespaces</h3><p>如果想要在一个更复杂的选择器中混合属性，可以堆叠多个 id 或类</p>
+<p>可以将 mixin 置于 id 选择器之下，这样可以确保它不会和另一个库冲突</p>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-id">#bgc</span> &#123;</span><br><span class="line">  <span class="selector-class">.inner</span>() &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="selector-id">#bgc</span><span class="selector-class">.inner</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="important-关键字"><a href="#important-关键字" class="headerlink" title="!important 关键字"></a>!important 关键字</h3><p>在 mixin 后使用 !important 关键字，将会标记调用所有继承的属性为!important</p>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.bgc</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="selector-class">.bgc</span> !important;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 编译后 css 为</span></span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#ccc</span> <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>带参数的 Mixin</p>
+<p>mixin 还可以接受参数，这些参数在混合时传递给选择器块</p>
+<p>从上面的代码可以看出：mixin 其实就是一种嵌套，简单的讲，mixin 就是规则级别的复用。除了类选择器外，你也可以使用 id 选择器来定义 mixin。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1057,204 +1280,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/427.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/427.html" class="post-title-link" itemprop="url">npm 包管理工具的使用</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2019-07-03" itemprop="dateCreated datePublished" datetime="2019-07-03T22:32:09+00:00">2019-07-03</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="解决某些-npm-包无法下载的问题"><a href="#解决某些-npm-包无法下载的问题" class="headerlink" title="解决某些 npm 包无法下载的问题"></a>解决某些 npm 包无法下载的问题</h3><p>如 electron sass</p>
-<p>修改 <code>~/.npmrc</code>，或当前项目下的<code>.npmrc</code> 文件（如果没有可以新建）增加如下内容</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">registry=https://registry.npm.taobao.org</span><br><span class="line">sass_binary_site=https://npm.taobao.org/mirrors/node-sass/</span><br><span class="line">phantomjs_cdnurl=http://npm.taobao.org/mirrors/phantomjs</span><br><span class="line">electron_mirror=http://npm.taobao.org/mirrors/electron/</span><br><span class="line">chromedriver_cdnurl=http://npm.taobao.org/mirrors/chromedriver</span><br></pre></td></tr></table></figure>
-
-<p>淘宝 npm 镜像 <span class="exturl" data-url="aHR0cHM6Ly9ucG0udGFvYmFvLm9yZy8=">https://npm.taobao.org/</span></p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9ucG1qcy5jb20v">npm 官网</span><br><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm5wbWpzLmNvbS8=">npm 文档</span><br><span class="exturl" data-url="aHR0cHM6Ly93d3cubnBtanMuY24v">npm 中文文档</span></p>
-<h3 id="npm-基本命令"><a href="#npm-基本命令" class="headerlink" title="npm 基本命令"></a>npm 基本命令</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 更新 npm</span></span><br><span class="line">npm -v|--version</span><br><span class="line">npm install npm@latest -g</span><br><span class="line"></span><br><span class="line"><span class="comment"># nvm : npm Version Manager</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 搜索包</span></span><br><span class="line">npm search &lt;pkg&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装包</span></span><br><span class="line">npm install [&lt;@scope&gt;/]&lt;pkg&gt; <span class="comment"># [&lt;@scope&gt;/] 安装限定范围的包</span></span><br><span class="line">npm install [&lt;@scope&gt;/]&lt;pkg&gt;@&lt;tag&gt;</span><br><span class="line">npm install [&lt;@scope&gt;/]&lt;pkg&gt;@&lt;version&gt;</span><br><span class="line">npm install [&lt;@scope&gt;/]&lt;pkg&gt;@&lt;version range&gt;</span><br><span class="line">npm install &lt;folder&gt;</span><br><span class="line">npm install &lt;tarball file&gt;  <span class="comment"># .tar, .tar.gz, or .tgz</span></span><br><span class="line">npm install &lt;tarball url&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 公有仓库</span></span><br><span class="line">npm install user/project <span class="comment"># 默认 github</span></span><br><span class="line">npm install bitbucket:user/project</span><br><span class="line">npm install gitlab:user/project<span class="comment">#semver:^5.0 # semver 版本</span></span><br><span class="line">npm install git+https://git@github.com/user/project.git</span><br><span class="line">npm install git+ssh://git@github.com/user/project.git</span><br><span class="line">npm install git://github.com/user/project.git</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">npm install &lt;pkg&gt; -S|--save <span class="comment"># 安装到 dependencies</span></span><br><span class="line">npm install &lt;pkg&gt; -D|--save-dev <span class="comment"># 安装到 devDependencies</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># --verbose 参数 显示安装的详细信息</span></span><br><span class="line">npm i --verbose</span><br><span class="line"></span><br><span class="line"><span class="comment"># --production 参数 只会安装 dependencies 依赖，而忽略 devDependencies 依赖，用于生产环境</span></span><br><span class="line">npm i --production</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装全局包</span></span><br><span class="line">npm install -g &lt;pkg&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新包</span></span><br><span class="line">npm outdated <span class="comment"># 检查可以更新的模块</span></span><br><span class="line">npm update <span class="comment"># 更新全部本地包</span></span><br><span class="line"><span class="comment"># 更新全局安装的包</span></span><br><span class="line">npm update -g <span class="comment"># 更新全部</span></span><br><span class="line">npm update -g| --global &lt;pkg&gt; <span class="comment"># 更新指定包</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新方式 1</span></span><br><span class="line"><span class="comment"># 手动修改 package.json 中依赖包版本，之后执行</span></span><br><span class="line">npm install --force</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新方式 2 使用第三方插件：</span></span><br><span class="line">npm install -g npm-check-updates</span><br><span class="line">ncu <span class="comment"># 查看可更新包</span></span><br><span class="line">ncu -u <span class="comment"># 更新 package.json</span></span><br><span class="line">npm install <span class="comment"># 升级到最新版本</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除本地包</span></span><br><span class="line">npm uninstall &lt;pkg&gt;</span><br><span class="line">npm uninstall --save &lt;pkg&gt; <span class="comment"># 从 `package.json` 文件中删除依赖</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载全局安装的包</span></span><br><span class="line">npm uninstall -g &lt;pkg&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开官网</span></span><br><span class="line">npm docs|home [&lt;pkg&gt;]</span><br><span class="line"><span class="comment"># 打开源码仓库页面</span></span><br><span class="line">npm repo [&lt;pkg&gt;]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化一个项目，创建一个 package.json 文件，项目名不能为中文</span></span><br><span class="line">npm init</span><br><span class="line"><span class="comment"># 创建默认 package.json 文件 快速的初始化一个项目，会使用文件夹名称作为项目名</span></span><br><span class="line">npm init --<span class="built_in">yes</span> or -y</span><br></pre></td></tr></table></figure>
-
-<p>简写</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install  可简写成 npm i</span><br><span class="line"></span><br><span class="line">npm uninstall 可简写成 npm uni</span><br></pre></td></tr></table></figure>
-
-<h3 id="npm-修改源"><a href="#npm-修改源" class="headerlink" title="npm 修改源"></a>npm 修改源</h3><p><strong>修改全局配置</strong></p>
-<ul>
-<li>进入~&#x2F;.npmrc 增加 <code>registry=https://registry.npm.taobao.org</code></li>
-<li>通过命令 <code>npm config set registry https://registry.npm.taobao.org</code></li>
-</ul>
-<p><strong>修改当前项目的 npm 源</strong></p>
-<p>在 <code>package.json</code> 同级目录下创建 <code>.npmrc</code> 文件，增加 <code>registry=https://registry.npm.taobao.org</code></p>
-<p><strong>临时使用指定源下载</strong> <code>npm install jquery --registry=https://registry.npm.taobao.org</code></p>
-<p><strong>使用 nrm 管理源</strong></p>
-<h3 id="npm-配置文件"><a href="#npm-配置文件" class="headerlink" title="npm 配置文件"></a>npm 配置文件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># .npmrc 配置文件位置（~/.npmrc）</span></span><br><span class="line">npm config list</span><br><span class="line"></span><br><span class="line"><span class="comment"># npm 缓存目录，默认 C:\Users\&lt;username&gt;\AppData\Roaming\npm-cache</span></span><br><span class="line">npm config get cache</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除 npm 缓存：注意：如果网速慢的话，会导致下载失败。 再重新下载之前，建议使用该命令，清除刚才下载的缓存，否则有可能一直无法下载成功</span></span><br><span class="line">npm cache clean --force | -f</span><br><span class="line"></span><br><span class="line"><span class="comment"># npm 全局 node 包位置：  默认在 C:\Users\用户名\AppData\Roaming\npm目录下</span></span><br><span class="line">npm config get prefix</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">npm root -g</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改 npm 全局文件位置及缓存文件位置</span></span><br><span class="line">npm config <span class="built_in">set</span> prefix <span class="string">&quot;&lt;new_path&gt;&quot;</span></span><br><span class="line">npm config <span class="built_in">set</span> cache <span class="string">&quot;&lt;new_path&gt;&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="版本号"><a href="#版本号" class="headerlink" title="版本号"></a>版本号</h3><p>使用 NPM 下载和发布代码时都会接触到版本号。NPM 使用语义版本号来管理代码</p>
-<p>语义版本号分为 X.Y.Z 三位，分别代表主版本号、次版本号和补丁版本号。当代码变更时，版本号按以下原则更新。</p>
-<ul>
-<li>如果只是修复 bug，需要更新 Z 位</li>
-<li>如果是新增了功能，但是向下兼容，需要更新 Y 位</li>
-<li>如果有大变动，向下不兼容，需要更新 X 位</li>
-</ul>
-<h3 id="nrm-使用"><a href="#nrm-使用" class="headerlink" title="nrm 使用"></a>nrm 使用</h3><p>nrm：npm registry manager（npm 仓库地址管理工具）</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看配置列表，带 `*` 号即为当前使用的配置</span></span><br><span class="line">nrm <span class="built_in">ls</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换源</span></span><br><span class="line">nrm use 源的别名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加源</span></span><br><span class="line">nrm add 别名 地址</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测速</span></span><br><span class="line">nrm <span class="built_in">test</span> 别名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除源</span></span><br><span class="line">nrm del 别名</span><br></pre></td></tr></table></figure>
-
-<h3 id="查看项目安装了那些包"><a href="#查看项目安装了那些包" class="headerlink" title="查看项目安装了那些包"></a>查看项目安装了那些包</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm list --depth=0 [--dev | --production]</span><br><span class="line">npm list --depth=0</span><br></pre></td></tr></table></figure>
-
-<p>–depth 表示深度，我们使用的模块会有依赖，深度为零的时候，不会显示依赖模块</p>
-<h3 id="查看全局安装的包"><a href="#查看全局安装的包" class="headerlink" title="查看全局安装的包"></a>查看全局安装的包</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm list --depth=0 --global</span><br></pre></td></tr></table></figure>
-
-<h3 id="package-json-文件"><a href="#package-json-文件" class="headerlink" title="package.json 文件"></a>package.json 文件</h3><p>package.json 文件，包（项目）描述文件，用来管理组织一个包（项目），它是一个纯 JSON 格式的</p>
-<ul>
-<li>作用：描述当前项目（包）的信息，描述当前包（项目）的依赖项</li>
-<li>如何生成：<code>npm init</code>或者<code>npm init -y</code></li>
-<li>作用<ul>
-<li>作为一个标准的包，必须要有<code>package.json</code>文件进行描述</li>
-<li>一个项目的 node_modules 目录通常都会很大，不用拷贝 node_modules 目录，可以通过 package.json 文件配合<code>npm install</code> 直接安装项目所有的依赖项</li>
-</ul>
-</li>
-<li>描述内容</li>
-</ul>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;myproject&quot;</span><span class="punctuation">,</span> <span class="comment">// 描述了包的名字，不能有中文</span></span><br><span class="line">  <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1.0.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span><span class="punctuation">,</span> <span class="comment">// 包的描述信息</span></span><br><span class="line">  <span class="attr">&quot;main&quot;</span><span class="punctuation">:</span> <span class="string">&quot;index.js&quot;</span><span class="punctuation">,</span> <span class="comment">// 入口文件</span></span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="comment">// 配置一些脚本</span></span><br><span class="line">    <span class="attr">&quot;test&quot;</span><span class="punctuation">:</span> <span class="string">&quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;keywords&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span> <span class="comment">// 关键字（方便搜索）</span></span><br><span class="line">  <span class="attr">&quot;author&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span><span class="punctuation">,</span> <span class="comment">// 作者信息</span></span><br><span class="line">  <span class="attr">&quot;license&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ISC&quot;</span><span class="punctuation">,</span> <span class="comment">// 许可证，开源协议</span></span><br><span class="line">  <span class="attr">&quot;dependencies&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="comment">// 项目依赖</span></span><br><span class="line">    <span class="attr">&quot;bootstrap&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^3.3.7&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;jquery&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^3.3.1&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>注意：一个合法的 package.json，必须要有 name 和 version 两个属性</strong></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/236.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/236.html" class="post-title-link" itemprop="url">telegram ss ip 名单</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2019-06-30" itemprop="dateCreated datePublished" datetime="2019-06-30T00:00:49+00:00">2019-06-30</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">91.108.56.0/22</span><br><span class="line">91.108.4.0/22</span><br><span class="line">109.239.140.0/24</span><br><span class="line">149.154.160.0/20</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/12/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/14/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/12/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/14/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 </div>

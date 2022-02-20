@@ -175,7 +175,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">160</span>
+          <span class="site-state-item-count">161</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -219,6 +219,282 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1339.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/1339.html" class="post-title-link" itemprop="url">解锁网易云音乐客户端变灰歌曲</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-04-30" itemprop="dateCreated datePublished" datetime="2020-04-30T12:00:24+00:00">2020-04-30</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>项目地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25vbmRhbmVlL1VuYmxvY2tOZXRlYXNlTXVzaWM=">https://github.com/nondanee/UnblockNeteaseMusic</span><br>食用指南：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25vbmRhbmVlL1VuYmxvY2tOZXRlYXNlTXVzaWMvaXNzdWVzLzIy">https://github.com/nondanee/UnblockNeteaseMusic/issues/22</span></p>
+<p>特性：</p>
+<ul>
+<li>使用 QQ &#x2F; 虾米 &#x2F; 百度 &#x2F; 酷狗 &#x2F; 酷我 &#x2F; 咪咕 &#x2F; JOOX 音源替换变灰歌曲链接 (默认仅启用一、五、六)</li>
+<li>为请求增加 X-Real-IP 参数解锁海外限制，支持指定网易云服务器 IP，支持设置上游 HTTP &#x2F; HTTPS 代理</li>
+<li>完整的流量代理功能 (HTTP &#x2F; HTTPS)，可直接作为系统代理 (同时支持 PAC)</li>
+</ul>
+<h3 id="在-windows-本地使用"><a href="#在-windows-本地使用" class="headerlink" title="在 windows 本地使用"></a>在 windows 本地使用</h3><h4 id="安装-node-js"><a href="#安装-node-js" class="headerlink" title="安装 node.js"></a>安装 node.js</h4><p>去 node.js 官网下载安装即可</p>
+<h4 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/nondanee/UnblockNeteaseMusic.git <span class="comment">#克隆项目仓库</span></span><br><span class="line"><span class="built_in">cd</span> UnblockNeteaseMusic</span><br><span class="line">node app.js</span><br></pre></td></tr></table></figure>
+
+<p>或</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npx @nondanee/unblockneteasemusic</span><br></pre></td></tr></table></figure>
+
+<p>或</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ npm install -g @nondanee/unblockneteasemusic</span><br><span class="line">$ unblockneteasemusic</span><br></pre></td></tr></table></figure>
+
+<h3 id="网易云客户端连接使用"><a href="#网易云客户端连接使用" class="headerlink" title="网易云客户端连接使用"></a>网易云客户端连接使用</h3><p>在网易云客户端内设置代理：<br>右上角设置 &gt; 自定义代理 &gt; 地址 127.0.0.1 端口 8080<br>确定重启客户端后，即可开始使用</p>
+<p>PAC 自动代理脚本地址 <code>http://127.0.0.1:8080/proxy.pac</code></p>
+<p>以上是在本地 window 上使用的方法，如果想给手机稳定使用，可以参考如下方式</p>
+<h3 id="全端解决方案"><a href="#全端解决方案" class="headerlink" title="全端解决方案"></a>全端解决方案</h3><p>需要一台服务器</p>
+<h4 id="安卓等其它设备"><a href="#安卓等其它设备" class="headerlink" title="安卓等其它设备"></a>安卓等其它设备</h4><p>安装 pm2</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm -g install pm2</span><br></pre></td></tr></table></figure>
+
+<p>pm2 部署：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pm2 start app.js --name UnblockNeteaseMusic -- -s -p 8080</span><br></pre></td></tr></table></figure>
+
+<h4 id="ios-设备"><a href="#ios-设备" class="headerlink" title="ios 设备"></a>ios 设备</h4><p>ios 配置经验分享：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25vbmRhbmVlL1VuYmxvY2tOZXRlYXNlTXVzaWMvaXNzdWVzLzM2OA==">https://github.com/nondanee/UnblockNeteaseMusic/issues/368</span></p>
+<p>ios 需要一个域名，并配置反代</p>
+<p>nginx 配置：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">	  listen 443 ssl http2;</span><br><span class="line">	  server_name your_domain; # 改为你自己的域名</span><br><span class="line">	  ssl_certificate 1_your_domain_bundle.crt; # 改为自己申请得到的 crt 文件的名称</span><br><span class="line">	  ssl_certificate_key 2_your_domain.key; # 改为自己申请得到的 key 文件的名称</span><br><span class="line">	  ssl_session_timeout 5m;</span><br><span class="line">	  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">	  ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;</span><br><span class="line">	  ssl_prefer_server_ciphers on;</span><br><span class="line"></span><br><span class="line">	  location / &#123;</span><br><span class="line">	    proxy_pass http://localhost:8080; # 代理到 Unblock 服务地址</span><br><span class="line">	  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>pm2 部署：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pm2 start app.js --name UnblockNeteaseMusic -- -s -p 8080 -e https://unblockneteasemusic.ayyy.club</span><br></pre></td></tr></table></figure>
+
+<p>iOS 搭配 Shadowrocket 连接代理</p>
+<p>Shadowrocket 右上角加号添加节点 -&gt; 类型选择 HTTP -&gt; 服务器填写你的服务器公网 IP -&gt; 端口填写你启动服务的端口号（默认为 8080） -&gt; 点击配置 -&gt; 点击本地文件 -&gt; default.conf -&gt; 编辑配置</p>
+<p>添加三条规则 选项选择你刚刚添加的节点</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">USER-AGENT: NeteaseMusic*</span><br><span class="line">DOMAIN-SUFFIX: 163.com</span><br><span class="line">DOMAIN-SUFFIX: 126.net</span><br></pre></td></tr></table></figure>
+
+<h3 id="pm2-常用命令"><a href="#pm2-常用命令" class="headerlink" title="pm2 常用命令"></a>pm2 常用命令</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pm2 stop UnblockNeteaseMusic <span class="comment"># 停止服务</span></span><br><span class="line">pm2 restart UnblockNeteaseMusic <span class="comment"># 重启服务</span></span><br><span class="line">pm2 pull UnblockNeteaseMusic <span class="comment"># 更新服务到最新代码</span></span><br><span class="line">pm2 show UnblockNeteaseMusic <span class="comment"># 查看服务的参数信息</span></span><br><span class="line">pm2 <span class="built_in">log</span> UnblockNeteaseMusic <span class="comment"># 查看服务日志</span></span><br><span class="line">pm2 <span class="built_in">ls</span> <span class="comment"># 查看已部署的服务列表</span></span><br><span class="line">pm2 monit <span class="comment"># 监控服务状态</span></span><br><span class="line">pm2 flush <span class="comment"># 清理所有日志文件</span></span><br><span class="line">pm2 update <span class="comment"># 更新 pm2 状态</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="一键打卡刷满-300-听歌量"><a href="#一键打卡刷满-300-听歌量" class="headerlink" title="一键打卡刷满 300 听歌量"></a>一键打卡刷满 300 听歌量</h3><p><span class="exturl" data-url="aHR0cHM6Ly90b2RheS5uYW5nZS5jbi8=">https://today.nange.cn/</span></p>
+<div style="display: none;">
+使用方法参考
+
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cubmFuZ2UuY24vdW5sb2NrLW5ldGVhc2UtbXVzaWMuaHRtbA==">https://www.nange.cn/unlock-netease-music.html</span></p>
+</div>
+</div>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1334.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/1334.html" class="post-title-link" itemprop="url">苹果应用共享</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-04-26" itemprop="dateCreated datePublished" datetime="2020-04-26T16:10:35+00:00">2020-04-26</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/software/" itemprop="url" rel="index"><span itemprop="name">软件</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h4 id="胖森微信公众号-（共享-AppleId（免费））"><a href="#胖森微信公众号-（共享-AppleId（免费））" class="headerlink" title="胖森微信公众号 （共享 AppleId（免费））"></a>胖森微信公众号 （共享 AppleId（免费））</h4><p>Procreate<br>GoodNotes5<br>P 站助手<br>Shu<br>Quantumult<br>Quantumult X<br>Shadowrocket</p>
+<h4 id="aneeo-com-（AppleId）"><a href="#aneeo-com-（AppleId）" class="headerlink" title="aneeo.com （AppleId）"></a>aneeo.com （AppleId）</h4><p>旧版应用<br>AppleId 租用（收费）<br>应用代购</p>
+<h4 id="app-ignition-fun-打火机，广告太多不推荐-（在线安装）"><a href="#app-ignition-fun-打火机，广告太多不推荐-（在线安装）" class="headerlink" title="app.ignition.fun 打火机，广告太多不推荐 （在线安装）"></a>app.ignition.fun 打火机，广告太多不推荐 （在线安装）</h4><p>越狱应用</p>
+<h4 id="野心玩家-app-ambier-cn-（在线安装）"><a href="#野心玩家-app-ambier-cn-（在线安装）" class="headerlink" title="野心玩家 app.ambier.cn （在线安装）"></a>野心玩家 app.ambier.cn （在线安装）</h4><p>越狱应用 Uncover checkra1n<br>福利应用</p>
+<h4 id="bc-工具-id-cydias-top-（在线安装）"><a href="#bc-工具-id-cydias-top-（在线安装）" class="headerlink" title="bc 工具 id.cydias.top （在线安装）"></a>bc 工具 id.cydias.top （在线安装）</h4><p>越狱应用 Uncover checkra1n</p>
+<h4 id="有趣工具箱微信小程序-（在线安装）"><a href="#有趣工具箱微信小程序-（在线安装）" class="headerlink" title="有趣工具箱微信小程序 （在线安装）"></a>有趣工具箱微信小程序 （在线安装）</h4><p>越狱应用</p>
+<h4 id="宅哥玩机-（在线安装）"><a href="#宅哥玩机-（在线安装）" class="headerlink" title="宅哥玩机 （在线安装）"></a>宅哥玩机 （在线安装）</h4><p>越狱应用<br>福利应用</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1331.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/1331.html" class="post-title-link" itemprop="url">WordPress 博客绑定多个域名，并实现多个域名独立访问</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-04-26" itemprop="dateCreated datePublished" datetime="2020-04-26T15:09:02+00:00">2020-04-26</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/wordpress/" itemprop="url" rel="index"><span itemprop="name">wordpress</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>WordPress 博客默认是不能实现多个域名独立访问的，即使我们绑定了多个域名，访问时也会自动跳转到安装站点时默认的域名</p>
+<p>我们只需修改站点根目录下的 <code>wp-config.php</code> 文件，添加如下代码：</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="title function_ invoke__">define</span>(<span class="string">&#x27;WP_SITEURL&#x27;</span>, <span class="string">&#x27;https://&#x27;</span> . <span class="variable">$_SERVER</span>[<span class="string">&#x27;HTTP_HOST&#x27;</span>]);</span><br><span class="line"><span class="title function_ invoke__">define</span>(<span class="string">&#x27;WP_HOME&#x27;</span>, <span class="string">&#x27;https://&#x27;</span> . <span class="variable">$_SERVER</span>[<span class="string">&#x27;HTTP_HOST&#x27;</span>]);</span><br></pre></td></tr></table></figure>
+
+<p>即可</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -870,300 +1146,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1136.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/1136.html" class="post-title-link" itemprop="url">前端开发中常用的一些技巧</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2020-04-07" itemprop="dateCreated datePublished" datetime="2020-04-07T17:19:44+00:00">2020-04-07</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="css"><a href="#css" class="headerlink" title="css"></a>css</h3><h4 id="文字溢出省略号显示"><a href="#文字溢出省略号显示" class="headerlink" title="文字溢出省略号显示"></a>文字溢出省略号显示</h4><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 强制一行内显示文本 */</span></span><br><span class="line"><span class="selector-class">.single-line</span> &#123;</span><br><span class="line">  <span class="attribute">white-space</span>: nowrap;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 强制最多三行显示文本 */</span></span><br><span class="line"><span class="selector-class">.multi-line</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: -webkit-box;</span><br><span class="line">  -webkit-box-orient: vertical;</span><br><span class="line">  -webkit-line-clamp: <span class="number">3</span>; <span class="comment">/* 强制三行显示 */</span></span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">text-overflow</span>: ellipsis; <span class="comment">/* 不是必须 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="让-div-宽度自适应文字内容"><a href="#让-div-宽度自适应文字内容" class="headerlink" title="让 div 宽度自适应文字内容"></a>让 div 宽度自适应文字内容</h4><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.fit-width</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: fit-content;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="opacity-0、display-none、visibility-hidden"><a href="#opacity-0、display-none、visibility-hidden" class="headerlink" title="opacity:0、display:none、visibility:hidden"></a>opacity:0、display:none、visibility:hidden</h4><p><code>opacity:0</code> 和 <code>display:none</code>，若父节点元素应用了 <code>opacity:0</code> 和 <code>display:none</code>，无论其子孙元素如何挣扎都不会再出现在大众视野<br>而若父节点元素应用 <code>visibility:hidden</code>，子孙元素应用 <code>visibility:visible</code>，那么其就会毫无意外的显现出来</p>
-<h4 id="max-width-优先级高于行内样式加-important"><a href="#max-width-优先级高于行内样式加-important" class="headerlink" title="max-width 优先级高于行内样式加 !important"></a>max-width 优先级高于行内样式加 !important</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">  <span class="selector-tag">div</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">max-width</span>: <span class="number">50px</span>;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;width: 100px !important;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>div 的宽度为 50px</p>
-<h4 id="使用-CSS-网格定义-main-和-aside-元素"><a href="#使用-CSS-网格定义-main-和-aside-元素" class="headerlink" title="使用 CSS 网格定义 main 和 aside 元素"></a>使用 CSS 网格定义 main 和 aside 元素</h4><p>CSS 网格可用于定义布局中的 main 部分和 aside 部分，这是 CSS 网格的绝佳用途。问题是，即使 aside 是空的，它的高度也会和 main 的高度相等。</p>
-<p>要修复这个问题，可以让 aside 元素与其父元素的起点对齐，这样它的高度就不会扩展了。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: grid;</span><br><span class="line">  <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(<span class="number">12</span>, <span class="built_in">minmax</span>(<span class="number">0</span>, <span class="number">1</span>fr));</span><br><span class="line">  <span class="attribute">grid-gap</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* align-self 将会让 aside 元素与其父元素的起点对齐。 */</span></span><br><span class="line"><span class="selector-tag">aside</span> &#123;</span><br><span class="line">  <span class="attribute">grid-column</span>: <span class="number">1</span> / <span class="number">4</span>;</span><br><span class="line">  <span class="attribute">grid-row</span>: <span class="number">1</span>;</span><br><span class="line">  <span class="attribute">align-self</span>: start;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">main</span> &#123;</span><br><span class="line">  <span class="attribute">grid-column</span>: <span class="number">4</span> / <span class="number">13</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="使用-display-inline-block-时奇怪的空隙"><a href="#使用-display-inline-block-时奇怪的空隙" class="headerlink" title="使用 display: inline-block 时奇怪的空隙"></a>使用 display: inline-block 时奇怪的空隙</h4><p>给两个或两个以上的元素设置 display: inline-block 或者 display: inline ，将会导致它们之间产生一个微小的空隙。代码中的换行和缩进（连续空格）被渲染成了一个空格造成的</p>
-<p>通过给父元素设置 font-size: 0 可以简单地解决这个问题。</p>
-<h4 id="交互式-HTML-元素的字体不生效"><a href="#交互式-HTML-元素的字体不生效" class="headerlink" title="交互式 HTML 元素的字体不生效"></a>交互式 HTML 元素的字体不生效</h4><p>给整个文档设置字体的时候，字体并不会应用于诸如 input， button select 和 textarea 这些元素上。默认情况下，它们并不会继承文档字体，因为浏览器给它们应用了系统字体。</p>
-<p>要修复这个问题，直接给他们设置字体属性：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">input</span>,</span><br><span class="line"><span class="selector-tag">button</span>,</span><br><span class="line">select,</span><br><span class="line"><span class="selector-tag">textarea</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: your-font-name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="css-调试"><a href="#css-调试" class="headerlink" title="css 调试"></a>css 调试</h4><p>将代码添加到浏览器的控制台运行，页面上所有元素的轮廓都会显示出来。</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vYWRkeW9zbWFuaS9mZDM5OTllYTdmY2UyNDI3NTZiMQ==">https://gist.github.com/addyosmani/fd3999ea7fce242756b1</span></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">;[].<span class="property">forEach</span>.<span class="title function_">call</span>($$(<span class="string">&#x27;*&#x27;</span>), <span class="keyword">function</span> (<span class="params">a</span>) &#123;</span><br><span class="line">  a.<span class="property">style</span>.<span class="property">outline</span> = <span class="string">&#x27;1px solid #&#x27;</span> + (~~(<span class="title class_">Math</span>.<span class="title function_">random</span>() * (<span class="number">1</span> &lt;&lt; <span class="number">24</span>))).<span class="title function_">toString</span>(<span class="number">16</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h4 id="压缩或拉伸图片"><a href="#压缩或拉伸图片" class="headerlink" title="压缩或拉伸图片"></a>压缩或拉伸图片</h4><p>用 CSS 调整一张图片的大小时，如果纵横比与图片的宽高不一致，则图片会被压缩或拉伸。</p>
-<p>解决方法很简单：使用 CSS 的 object-fit。它的功能和给背景图片设置 background-size: cover 类似。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">img</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">object-fit</span>: contain;</span><br><span class="line">  <span class="comment">/* object-fit: cover; */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>object-fit 语法参考<br><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQ1NTL29iamVjdC1maXQ=">https://developer.mozilla.org/zh-CN/docs/Web/CSS/object-fit</span></p>
-<blockquote>
-<p>object-fit 属性由下列的值中的单独一个关键字来指定。</p>
-<p>取值<br>contain 保持长宽比，以长边填充<br>cover 保持长宽比，以短边填充，多余的会被裁减掉<br>fill 完全填充，会拉伸<br>none 保持其原有的尺寸<br>scale-down 内容的尺寸与 none 或 contain 中的一个相同，取决于它们两个之间谁得到的对象尺寸会更小一些。</p>
-</blockquote>
-<h4 id="滚动条样式"><a href="#滚动条样式" class="headerlink" title="滚动条样式"></a>滚动条样式</h4><figure class="highlight css"><table><tr><td class="code"><pre><span class="line">::-webkit-scrollbar &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">8px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">8px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* -webkit-scrollbar-thumb 滚动条手柄 */</span></span><br><span class="line">::-webkit-scrollbar-thumb &#123;</span><br><span class="line">&#125;</span><br><span class="line">::-webkit-scrollbar-thumb:hover &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* -webkit-scrollbar-track 滚动条轨道 */</span></span><br><span class="line">::-webkit-scrollbar-track &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*滚动条上半边或左半边*/</span></span><br><span class="line">::-webkit-scrollbar-track-piece:start &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* -webkit-scrollbar-button 滚动条的轨道的两端按钮 */</span></span><br><span class="line"><span class="comment">/*滚动条上边或左边按钮*/</span></span><br><span class="line">::-webkit-scrollbar-button:start &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* -webkit-scrollbar-corne 垂直滚动条和水平滚动条相交的地方 */</span></span><br><span class="line">::-webkit-scrollbar-corner &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="卡券样式"><a href="#卡券样式" class="headerlink" title="卡券样式"></a>卡券样式</h4><p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102204135.png"></p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.coupon</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">radial-gradient</span>(circle at right bottom, transparent <span class="number">10px</span>, <span class="number">#ffffff</span> <span class="number">0</span>) top right / <span class="number">50%</span> <span class="number">50%</span> no-repeat, <span class="built_in">radial-gradient</span>(circle at left bottom, transparent <span class="number">10px</span>, <span class="number">#ffffff</span> <span class="number">0</span>) top left / <span class="number">50%</span> <span class="number">50%</span> no-repeat, <span class="built_in">radial-gradient</span>(circle at right top, transparent <span class="number">10px</span>, <span class="number">#ffffff</span> <span class="number">0</span>) bottom right / <span class="number">50%</span> <span class="number">50%</span> no-repeat, <span class="built_in">radial-gradient</span>(circle at left top, transparent <span class="number">10px</span>, <span class="number">#ffffff</span> <span class="number">0</span>) bottom left / <span class="number">50%</span> <span class="number">50%</span> no-repeat;</span><br><span class="line">  <span class="attribute">filter</span>: <span class="built_in">drop-shadow</span>(<span class="number">2px</span> <span class="number">2px</span> <span class="number">2px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.2</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="阴影效果"><a href="#阴影效果" class="headerlink" title="阴影效果"></a>阴影效果</h4><p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102204206.jpeg"></p>
-<p>气泡阴影</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.tip</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">30px</span>;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">30px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="built_in">rgb</span>(<span class="number">245</span>, <span class="number">129</span>, <span class="number">127</span>);</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">4px</span>;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#fff</span>;</span><br><span class="line">  <span class="attribute">filter</span>: <span class="built_in">drop-shadow</span>(<span class="number">0px</span> <span class="number">2px</span> <span class="number">4px</span> <span class="built_in">rgba</span>(<span class="number">245</span>, <span class="number">129</span>, <span class="number">127</span>, <span class="number">0.9</span>));</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.tip</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">border-style</span>: solid;</span><br><span class="line">  <span class="attribute">border-width</span>: <span class="number">0</span> <span class="number">10px</span> <span class="number">10px</span> <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">border-color</span>: transparent transparent <span class="number">#fff</span> transparent;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">top</span>: -<span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">margin</span>: auto;</span><br><span class="line">  <span class="attribute">z-index</span>: <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.tip</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">border-style</span>: solid;</span><br><span class="line">  <span class="attribute">border-width</span>: <span class="number">0</span> <span class="number">10px</span> <span class="number">10px</span> <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">border-color</span>: transparent transparent <span class="built_in">rgb</span>(<span class="number">245</span>, <span class="number">129</span>, <span class="number">127</span>) transparent;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">top</span>: -<span class="number">11px</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">margin</span>: auto;</span><br><span class="line">  <span class="attribute">z-index</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>三角形阴影</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.shadow-triangle</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">border-style</span>: solid;</span><br><span class="line">  <span class="attribute">border-width</span>: <span class="number">0</span> <span class="number">50px</span> <span class="number">50px</span> <span class="number">50px</span>;</span><br><span class="line">  <span class="attribute">border-color</span>: transparent transparent <span class="built_in">rgb</span>(<span class="number">245</span>, <span class="number">129</span>, <span class="number">127</span>) transparent;</span><br><span class="line">  <span class="attribute">filter</span>: <span class="built_in">drop-shadow</span>(<span class="number">10px</span> <span class="number">0px</span> <span class="number">10px</span> <span class="built_in">rgba</span>(<span class="number">238</span>, <span class="number">125</span>, <span class="number">55</span>, <span class="number">0.5</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>缺圆投影</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.circle-square</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">50px</span>;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">radial-gradient</span>(circle at bottom right, transparent <span class="number">20px</span>, <span class="built_in">rgb</span>(<span class="number">245</span>, <span class="number">129</span>, <span class="number">127</span>) <span class="number">15px</span>);</span><br><span class="line">  <span class="attribute">filter</span>: <span class="built_in">drop-shadow</span>(<span class="number">2px</span> <span class="number">2px</span> <span class="number">2px</span> <span class="built_in">rgba</span>(<span class="number">238</span>, <span class="number">132</span>, <span class="number">66</span>, <span class="number">0.9</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="1px-边框"><a href="#1px-边框" class="headerlink" title="1px 边框"></a>1px 边框</h4><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 方式1 */</span></span><br><span class="line"><span class="selector-class">.border</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">pointer-events</span>: none;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200%</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">200%</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">  -webkit-<span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">0.5</span>);</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">0.5</span>);</span><br><span class="line">  <span class="attribute">transform-origin</span>: <span class="number">0</span> <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 方式2 */</span></span><br><span class="line"><span class="selector-class">.border</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">pointer-events</span>: none;</span><br><span class="line">  <span class="attribute">top</span>: -<span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">right</span>: -<span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">bottom</span>: -<span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">left</span>: -<span class="number">50%</span>;</span><br><span class="line">  -webkit-<span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">0.5</span>);</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">0.5</span>);</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="记住密码之后，输入框变色问题"><a href="#记住密码之后，输入框变色问题" class="headerlink" title="记住密码之后，输入框变色问题"></a>记住密码之后，输入框变色问题</h4><p>谷歌浏览器使用如下方式解决</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">input</span>:-webkit-autofill,</span><br><span class="line">textarea:-webkit-autofill,</span><br><span class="line">select:-webkit-autofill &#123;</span><br><span class="line">	-webkit-text-fill-<span class="attribute">color</span>: <span class="number">#ededed</span> <span class="meta">!important</span>; // 自动填充文字颜色</span><br><span class="line">	-webkit-<span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">0px</span> <span class="number">1000px</span> white inset <span class="meta">!important</span>; // 使用内阴影覆盖，这个内阴影一定要大，要不然盖不住</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>火狐浏览器无效</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1114.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/1114.html" class="post-title-link" itemprop="url">element-ui 实现向下滚动加载</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2020-04-07" itemprop="dateCreated datePublished" datetime="2020-04-07T13:51:41+00:00">2020-04-07</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="自定义封装-vue-指令，实现-select-下拉框滚动加载"><a href="#自定义封装-vue-指令，实现-select-下拉框滚动加载" class="headerlink" title="自定义封装 vue 指令，实现 select 下拉框滚动加载"></a>自定义封装 vue 指令，实现 select 下拉框滚动加载</h3><p>封装 v-loadmore 指令</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title class_">Vue</span>.<span class="title function_">directive</span>(<span class="string">&#x27;loadmore&#x27;</span>, &#123;</span><br><span class="line">  <span class="title function_">bind</span>(<span class="params">el, binding</span>) &#123;</span><br><span class="line">    <span class="comment">// 获取 element-ui 定义好的 scroll 盒子</span></span><br><span class="line">    <span class="keyword">const</span> target = el.<span class="title function_">querySelector</span>(<span class="string">&#x27;.el-select-dropdown .el-select-dropdown__wrap&#x27;</span>)</span><br><span class="line">    target.<span class="title function_">addEventListener</span>(<span class="string">&#x27;scroll&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="comment">// scrollHeight 获取元素内容高度(只读)</span></span><br><span class="line">      <span class="comment">// scrollTop 获取或者设置元素的滚动高度</span></span><br><span class="line">      <span class="comment">// clientHeight 读取元素的可见高度(只读)</span></span><br><span class="line">      <span class="keyword">const</span> flag = <span class="variable language_">this</span>.<span class="property">scrollHeight</span> - <span class="variable language_">this</span>.<span class="property">scrollTop</span> &lt;= <span class="variable language_">this</span>.<span class="property">clientHeight</span></span><br><span class="line">      <span class="keyword">if</span> (flag) &#123;</span><br><span class="line">        binding.<span class="title function_">value</span>()</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>使用</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">el-select</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-loadmore</span>=<span class="string">&quot;loadMore&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">el-option</span>&gt;</span><span class="tag">&lt;/<span class="name">el-option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">el-select</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">methods</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">    loadMore () &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="property">loadingMore</span> == <span class="literal">false</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">this</span>.<span class="property">loadingMore</span> = <span class="literal">true</span></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">return</span></span></span><br><span class="line"><span class="language-javascript">      &#125;</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="property">currentPage</span> &gt; <span class="variable language_">this</span>.<span class="property">totlaPage</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">return</span></span></span><br><span class="line"><span class="language-javascript">      &#125;</span></span><br><span class="line"><span class="language-javascript">      <span class="comment">// 获取数据</span></span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="title function_">getData</span>()</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="使用-vue-infinite-scroll"><a href="#使用-vue-infinite-scroll" class="headerlink" title="使用 vue-infinite-scroll"></a>使用 vue-infinite-scroll</h3><p>github 地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0VsZW1lRkUvdnVlLWluZmluaXRlLXNjcm9sbA==">https://github.com/ElemeFE/vue-infinite-scroll</span></p>
-<p>安装</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm i vue-infinite-scroll</span><br></pre></td></tr></table></figure>
-
-<p>使用</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// # main.js</span></span><br><span class="line"><span class="keyword">import</span> infiniteScroll <span class="keyword">from</span> <span class="string">&#x27;vue-infinite-scroll&#x27;</span></span><br><span class="line"><span class="title class_">Vue</span>.<span class="title function_">use</span>(infiniteScroll)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">v-infinite-scroll</span>=<span class="string">&quot;loadMore&quot;</span> <span class="attr">infinite-scroll-disabled</span>=<span class="string">&quot;busy&quot;</span> <span class="attr">infinite-scroll-distance</span>=<span class="string">&quot;10&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">&quot;(item, index) in moveRecord&quot;</span> <span class="attr">:key</span>=<span class="string">&quot;index&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">methods</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">    loadMore () &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">busy</span> = <span class="literal">true</span>;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">      <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, j = <span class="number">10</span>; i &lt; j; i++) &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="variable language_">this</span>.<span class="property">data</span>.<span class="title function_">push</span>(&#123; <span class="attr">name</span>: count++ &#125;);</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">this</span>.<span class="property">busy</span> = <span class="literal">false</span>;</span></span><br><span class="line"><span class="language-javascript">      &#125;, <span class="number">1000</span>);</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="element-ui-el-scrollbar-组件"><a href="#element-ui-el-scrollbar-组件" class="headerlink" title="element-ui el-scrollbar 组件"></a>element-ui el-scrollbar 组件</h3><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0VsZW1lRkUvZWxlbWVudC9ibG9iL2Rldi9wYWNrYWdlcy9zY3JvbGxiYXIvc3JjL21haW4uanM=">https://github.com/ElemeFE/element/blob/dev/packages/scrollbar/src/main.js</span></p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">el-scrollbar</span> <span class="attr">style</span>=<span class="string">&quot;height: 200px&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>zs<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">el-scrollbar</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.el-scrollbar__wrap</span> &#123;</span><br><span class="line">  <span class="attribute">overflow-x</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1065.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/1065.html" class="post-title-link" itemprop="url">微信小程序中相关 api 使用 promise</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2020-03-26" itemprop="dateCreated datePublished" datetime="2020-03-26T14:43:36+00:00">2020-03-26</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>微信小程序的 API 都是回调函数，一不小心就是回调地狱。我们可以用 Promise 封装下</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">Promisify</span> = f =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">arg = &#123;&#125;</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">      arg.<span class="property">success</span> = <span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="title function_">resolve</span>(res)</span><br><span class="line">      &#125;</span><br><span class="line">      arg.<span class="property">fail</span> = <span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="title function_">reject</span>(res)</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="title function_">f</span>(arg)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用</span></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">Request</span> = <span class="title class_">Promisify</span>(wx.<span class="property">request</span>)</span><br><span class="line"><span class="keyword">const</span> <span class="title class_">Login</span> = <span class="title class_">Promisify</span>(wx.<span class="property">login</span>)</span><br><span class="line"><span class="title class_">Login</span>().<span class="title function_">then</span>(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (res.<span class="property">code</span>) &#123;</span><br><span class="line">    <span class="title class_">Request</span>(&#123; <span class="attr">url</span>: <span class="string">&#x27;text.php&#x27;</span> &#125;).<span class="title function_">then</span>(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(res)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>相关问题</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXJzLndlaXhpbi5xcS5jb20vY29tbXVuaXR5L2RldmVsb3AvZG9jLzAwMDY0Y2MyNmJjMDU4YTZhODQ4ZjIzODM1MWMwMA==">wx.request 经 Promise 封装后，如何拿到requestTask</span></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 </div>
