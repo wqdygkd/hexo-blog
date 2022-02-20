@@ -15,7 +15,7 @@ Javascript 规定，每一个函数都有一个 `prototype` 属性，属性值�
 
 这也就意味着，我们可以把所有对象实例需要共享的属性和方法直接定义在 `prototype` 对象上
 
-```javascript
+```js
 function Person (name, age) {
   this.name = name
   this.age = age
@@ -48,7 +48,7 @@ console.log(p1.sayName === p2.sayName) // true
 
 默认情况下，原型对象中只包含了一个属性：constructor，constructor 属性指向了当前原型对象的构造函数
 
-```javascript
+```js
 function Person() {}
 
 console.log(Person.prototype)

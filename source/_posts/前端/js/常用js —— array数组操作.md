@@ -9,6 +9,13 @@ date: 2022-02-13
 updated: 2022-02-13
 ---
 
+### Array
+
+```js
+new Array(4) // [empty × 4]
+new Array('4') // ['4']
+```
+
 ### 基本方法
 
 > **`arr.join()`**

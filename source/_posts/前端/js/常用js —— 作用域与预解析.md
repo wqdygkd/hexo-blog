@@ -9,7 +9,7 @@ date: 2022-02-16
 updated: 2022-02-16
 ---
 
-#### 作用域
+## 作用域
 
 > 作用域：变量起作用的区域，也就是说：变量定义后，可以在哪个范围内使用该变量
 
@@ -19,7 +19,7 @@ updated: 2022-02-16
 
 自由变量：对于一个函数来说，函数内部没有声明该变量，但在函数内部有访问该变量。对于这个函数来说， 该变量就是一个自由变量。
 
-隐式全局变量：没有使用 var 定义的变量也是全局变量，叫做隐式全局变量。(不要使用)
+隐式全局变量：没有使用 var 定义的变量也是全局变量，叫做隐式全局变量。
 
 ```js
 var num = 11
@@ -53,38 +53,13 @@ function f2() {
   f1()
 }
 f2() // 123
-
-var num = 10
-var num1 = 10
-
-function test() {
-  var num = 20
-  num = 30 // num 在局部声明过，只能修改局部的 num 值
-  num1 = 20 // 修改全局的 num1 值
-  var num2 = 40
-  num3 = 50 // 隐式全局
-  console.log(num) // 30
-  console.log(num1) // 20
-  console.log(num2) // 40
-  console.log(num3) // 50
-}
-test()
-console.log(num) // 10
-console.log(num1) // 20
-// 如果 test 函数没执行过，则 num1 值为 10
-console.log(num3) // 50
-console.log(num2) // 报错
 ```
 
-#### 作用域链
+## 作用域链
 
 作用域链：只要是函数，就会形成一个作用域，如果这个函数被嵌套在其他函数中，那么外部函数也有自己的作用域，这个一直往上到全局环境，就形成了一个作用域链
 
-`变量的搜索原则`：
-
-1. 从当前作用域开始查找是否声明了该变量，如果存在，那么就直接返回这个变量的值
-2. 如果不存在，就会往上一层作用域查询，如果存在，就返回
-3. 如果不存在，一直查询到全局作用域，如果存在，就返回。如果在全局中也没有找到该变量会**报错**
+`变量的搜索原则`：从当前作用域开始查找，一直查询到全局作用域，如果存在，就返回。如果在全局中也没有找到该变量会**报错**
 
 ```js
 // 1.
@@ -97,7 +72,7 @@ function fn1() {
 }
 console.log(num) // 10
 
-// 2 -- 改造上面的面试题
+// 2
 var num = 10
 fn1()
 function fn1() {
@@ -135,46 +110,13 @@ fn()
 console.log(num1) // 10
 console.log(num2) // 200
 console.log(num3) // error
-
-// 5
-var num = 1
-function fn() {
-  var num = 100
-  num++
-  console.log(num)
-}
-fn() // 101
-fn() // 101
-console.log(num) // 1
-
-// 6.
-var color = 'red' // blue
-function outer() {
-  var anotherColor = 'blue' // red
-  function inner() {
-    var tmpColor = color // red
-    color = anotherColor
-    anotherColor = tmpColor // red
-    console.log(anotherColor) // red
-  }
-  inner()
-}
-outer()
-console.log(color) // blue
 ```
 
-#### 预解析
+## 预解析
 
-> 预解析：预先解析
+预解析过程：js 解析器在执行代码前，会把所有变量的声明和函数的声明提升到当前作用域的顶部。例如`var a = 11`其实会分为`var a` 和`a = 11`两部分，其中`var a`会被提升
 
-js 执行代码分为两个过程：
-
-- 预解析过程（变量与函数提升）
-- 代码一行一行执行
-
-预解析过程：JavaScript 解析器在执行代码前，会把所有变量的声明和函数的声明提升到当前作用域的顶部。例如`var a = 11`其实会分为`var a` 和`a = 11`两部分，其中`var a;`会被提升
-
-预解析规则 :
+预解析规则:
 
 1. var 声明的变量：只提升声明，不会提升赋值
 2. 函数声明：整体提升

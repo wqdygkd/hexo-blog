@@ -9,6 +9,33 @@ date: 2021-04-27
 updated: 2021-09-12
 ---
 
+## typeof 操作符
+
+> 是一个操作符而不是函数，圆括号可以使用，但不是必需的
+
+```js
+var num
+typeof num // undefined
+typeof num1 // undefined
+// 对未初始化和未声明的变量执行 typeof 操作符都返回 undefined 值
+
+var num = 1
+typeof num // number
+
+var num = '1'
+typeof num // string
+
+var flag = true
+typeof flag // bollean
+
+typeof true // boolean
+
+typeof null // object ==> null 被认为是一个空的对象引用
+
+var cat = { name: 'kitty' }
+typeof cat // object
+```
+
 ## 算数操作符
 
 > `+` 、`-` 、`*` 、`/` 、`%`

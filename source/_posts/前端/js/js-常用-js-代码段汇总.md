@@ -143,22 +143,6 @@ isIOS = /(iphone|ipod|ipad|ios)/i.test(navigator.userAgent)
 isAndroid = /android/i.test(navigator.userAgent)
 ```
 
-## 敏感符号转义
-
-```js
-function entities(s) {
-  let e = {
-    '"': '"',
-    '&': '&',
-    '<': '<',
-    '>': '>'
-  }
-  return s.replace(/["<>&]/g, (m) => {
-    return e[m]
-  })
-}
-```
-
 ## 数组去重
 
 ```js
