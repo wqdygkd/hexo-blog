@@ -175,7 +175,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">161</span>
+          <span class="site-state-item-count">158</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -185,7 +185,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">83</span>
+        <span class="site-state-item-count">82</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -219,275 +219,6 @@
 
 
     <div class="main-inner index posts-expand">
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/427.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/427.html" class="post-title-link" itemprop="url">npm 包管理工具的使用</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2019-07-03" itemprop="dateCreated datePublished" datetime="2019-07-03T22:32:09+00:00">2019-07-03</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="解决某些-npm-包无法下载的问题"><a href="#解决某些-npm-包无法下载的问题" class="headerlink" title="解决某些 npm 包无法下载的问题"></a>解决某些 npm 包无法下载的问题</h3><p>如 electron sass</p>
-<p>修改 <code>~/.npmrc</code>，或当前项目下的<code>.npmrc</code> 文件（如果没有可以新建）增加如下内容</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">registry=https://registry.npm.taobao.org</span><br><span class="line">sass_binary_site=https://npm.taobao.org/mirrors/node-sass/</span><br><span class="line">phantomjs_cdnurl=http://npm.taobao.org/mirrors/phantomjs</span><br><span class="line">electron_mirror=http://npm.taobao.org/mirrors/electron/</span><br><span class="line">chromedriver_cdnurl=http://npm.taobao.org/mirrors/chromedriver</span><br></pre></td></tr></table></figure>
-
-<p>淘宝 npm 镜像 <span class="exturl" data-url="aHR0cHM6Ly9ucG0udGFvYmFvLm9yZy8=">https://npm.taobao.org/</span></p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9ucG1qcy5jb20v">npm 官网</span><br><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm5wbWpzLmNvbS8=">npm 文档</span><br><span class="exturl" data-url="aHR0cHM6Ly93d3cubnBtanMuY24v">npm 中文文档</span></p>
-<h3 id="npm-基本命令"><a href="#npm-基本命令" class="headerlink" title="npm 基本命令"></a>npm 基本命令</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 更新 npm</span></span><br><span class="line">npm -v|--version</span><br><span class="line">npm install npm@latest -g</span><br><span class="line"></span><br><span class="line"><span class="comment"># nvm : npm Version Manager</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 搜索包</span></span><br><span class="line">npm search &lt;pkg&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装包</span></span><br><span class="line">npm install [&lt;@scope&gt;/]&lt;pkg&gt; <span class="comment"># [&lt;@scope&gt;/] 安装限定范围的包</span></span><br><span class="line">npm install [&lt;@scope&gt;/]&lt;pkg&gt;@&lt;tag&gt;</span><br><span class="line">npm install [&lt;@scope&gt;/]&lt;pkg&gt;@&lt;version&gt;</span><br><span class="line">npm install [&lt;@scope&gt;/]&lt;pkg&gt;@&lt;version range&gt;</span><br><span class="line">npm install &lt;folder&gt;</span><br><span class="line">npm install &lt;tarball file&gt;  <span class="comment"># .tar, .tar.gz, or .tgz</span></span><br><span class="line">npm install &lt;tarball url&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 公有仓库</span></span><br><span class="line">npm install user/project <span class="comment"># 默认 github</span></span><br><span class="line">npm install bitbucket:user/project</span><br><span class="line">npm install gitlab:user/project<span class="comment">#semver:^5.0 # semver 版本</span></span><br><span class="line">npm install git+https://git@github.com/user/project.git</span><br><span class="line">npm install git+ssh://git@github.com/user/project.git</span><br><span class="line">npm install git://github.com/user/project.git</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">npm install &lt;pkg&gt; -S|--save <span class="comment"># 安装到 dependencies</span></span><br><span class="line">npm install &lt;pkg&gt; -D|--save-dev <span class="comment"># 安装到 devDependencies</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># --verbose 参数 显示安装的详细信息</span></span><br><span class="line">npm i --verbose</span><br><span class="line"></span><br><span class="line"><span class="comment"># --production 参数 只会安装 dependencies 依赖，而忽略 devDependencies 依赖，用于生产环境</span></span><br><span class="line">npm i --production</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装全局包</span></span><br><span class="line">npm install -g &lt;pkg&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新包</span></span><br><span class="line">npm outdated <span class="comment"># 检查可以更新的模块</span></span><br><span class="line">npm update <span class="comment"># 更新全部本地包</span></span><br><span class="line"><span class="comment"># 更新全局安装的包</span></span><br><span class="line">npm update -g <span class="comment"># 更新全部</span></span><br><span class="line">npm update -g| --global &lt;pkg&gt; <span class="comment"># 更新指定包</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新方式 1</span></span><br><span class="line"><span class="comment"># 手动修改 package.json 中依赖包版本，之后执行</span></span><br><span class="line">npm install --force</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新方式 2 使用第三方插件：</span></span><br><span class="line">npm install -g npm-check-updates</span><br><span class="line">ncu <span class="comment"># 查看可更新包</span></span><br><span class="line">ncu -u <span class="comment"># 更新 package.json</span></span><br><span class="line">npm install <span class="comment"># 升级到最新版本</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除本地包</span></span><br><span class="line">npm uninstall &lt;pkg&gt;</span><br><span class="line">npm uninstall --save &lt;pkg&gt; <span class="comment"># 从 `package.json` 文件中删除依赖</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载全局安装的包</span></span><br><span class="line">npm uninstall -g &lt;pkg&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开官网</span></span><br><span class="line">npm docs|home [&lt;pkg&gt;]</span><br><span class="line"><span class="comment"># 打开源码仓库页面</span></span><br><span class="line">npm repo [&lt;pkg&gt;]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化一个项目，创建一个 package.json 文件，项目名不能为中文</span></span><br><span class="line">npm init</span><br><span class="line"><span class="comment"># 创建默认 package.json 文件 快速的初始化一个项目，会使用文件夹名称作为项目名</span></span><br><span class="line">npm init --<span class="built_in">yes</span> or -y</span><br></pre></td></tr></table></figure>
-
-<p>简写</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install  可简写成 npm i</span><br><span class="line"></span><br><span class="line">npm uninstall 可简写成 npm uni</span><br></pre></td></tr></table></figure>
-
-<h3 id="npm-修改源"><a href="#npm-修改源" class="headerlink" title="npm 修改源"></a>npm 修改源</h3><p><strong>修改全局配置</strong></p>
-<ul>
-<li>进入~&#x2F;.npmrc 增加 <code>registry=https://registry.npm.taobao.org</code></li>
-<li>通过命令 <code>npm config set registry https://registry.npm.taobao.org</code></li>
-</ul>
-<p><strong>修改当前项目的 npm 源</strong></p>
-<p>在 <code>package.json</code> 同级目录下创建 <code>.npmrc</code> 文件，增加 <code>registry=https://registry.npm.taobao.org</code></p>
-<p><strong>临时使用指定源下载</strong> <code>npm install jquery --registry=https://registry.npm.taobao.org</code></p>
-<p><strong>使用 nrm 管理源</strong></p>
-<h3 id="npm-配置文件"><a href="#npm-配置文件" class="headerlink" title="npm 配置文件"></a>npm 配置文件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># .npmrc 配置文件位置（~/.npmrc）</span></span><br><span class="line">npm config list</span><br><span class="line"></span><br><span class="line"><span class="comment"># npm 缓存目录，默认 C:\Users\&lt;username&gt;\AppData\Roaming\npm-cache</span></span><br><span class="line">npm config get cache</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除 npm 缓存：注意：如果网速慢的话，会导致下载失败。 再重新下载之前，建议使用该命令，清除刚才下载的缓存，否则有可能一直无法下载成功</span></span><br><span class="line">npm cache clean --force | -f</span><br><span class="line"></span><br><span class="line"><span class="comment"># npm 全局 node 包位置：  默认在 C:\Users\用户名\AppData\Roaming\npm目录下</span></span><br><span class="line">npm config get prefix</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">npm root -g</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改 npm 全局文件位置及缓存文件位置</span></span><br><span class="line">npm config <span class="built_in">set</span> prefix <span class="string">&quot;&lt;new_path&gt;&quot;</span></span><br><span class="line">npm config <span class="built_in">set</span> cache <span class="string">&quot;&lt;new_path&gt;&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="版本号"><a href="#版本号" class="headerlink" title="版本号"></a>版本号</h3><p>使用 NPM 下载和发布代码时都会接触到版本号。NPM 使用语义版本号来管理代码</p>
-<p>语义版本号分为 X.Y.Z 三位，分别代表主版本号、次版本号和补丁版本号。当代码变更时，版本号按以下原则更新。</p>
-<ul>
-<li>如果只是修复 bug，需要更新 Z 位</li>
-<li>如果是新增了功能，但是向下兼容，需要更新 Y 位</li>
-<li>如果有大变动，向下不兼容，需要更新 X 位</li>
-</ul>
-<h3 id="nrm-使用"><a href="#nrm-使用" class="headerlink" title="nrm 使用"></a>nrm 使用</h3><p>nrm：npm registry manager（npm 仓库地址管理工具）</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看配置列表，带 `*` 号即为当前使用的配置</span></span><br><span class="line">nrm <span class="built_in">ls</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换源</span></span><br><span class="line">nrm use 源的别名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加源</span></span><br><span class="line">nrm add 别名 地址</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测速</span></span><br><span class="line">nrm <span class="built_in">test</span> 别名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除源</span></span><br><span class="line">nrm del 别名</span><br></pre></td></tr></table></figure>
-
-<h3 id="查看项目安装了那些包"><a href="#查看项目安装了那些包" class="headerlink" title="查看项目安装了那些包"></a>查看项目安装了那些包</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm list --depth=0 [--dev | --production]</span><br><span class="line">npm list --depth=0</span><br></pre></td></tr></table></figure>
-
-<p>–depth 表示深度，我们使用的模块会有依赖，深度为零的时候，不会显示依赖模块</p>
-<h3 id="查看全局安装的包"><a href="#查看全局安装的包" class="headerlink" title="查看全局安装的包"></a>查看全局安装的包</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm list --depth=0 --global</span><br></pre></td></tr></table></figure>
-
-<h3 id="package-json-文件"><a href="#package-json-文件" class="headerlink" title="package.json 文件"></a>package.json 文件</h3><p>package.json 文件，包（项目）描述文件，用来管理组织一个包（项目），它是一个纯 JSON 格式的</p>
-<ul>
-<li>作用：描述当前项目（包）的信息，描述当前包（项目）的依赖项</li>
-<li>如何生成：<code>npm init</code>或者<code>npm init -y</code></li>
-<li>作用<ul>
-<li>作为一个标准的包，必须要有<code>package.json</code>文件进行描述</li>
-<li>一个项目的 node_modules 目录通常都会很大，不用拷贝 node_modules 目录，可以通过 package.json 文件配合<code>npm install</code> 直接安装项目所有的依赖项</li>
-</ul>
-</li>
-<li>描述内容</li>
-</ul>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;myproject&quot;</span><span class="punctuation">,</span> <span class="comment">// 描述了包的名字，不能有中文</span></span><br><span class="line">  <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1.0.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span><span class="punctuation">,</span> <span class="comment">// 包的描述信息</span></span><br><span class="line">  <span class="attr">&quot;main&quot;</span><span class="punctuation">:</span> <span class="string">&quot;index.js&quot;</span><span class="punctuation">,</span> <span class="comment">// 入口文件</span></span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="comment">// 配置一些脚本</span></span><br><span class="line">    <span class="attr">&quot;test&quot;</span><span class="punctuation">:</span> <span class="string">&quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;keywords&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span> <span class="comment">// 关键字（方便搜索）</span></span><br><span class="line">  <span class="attr">&quot;author&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span><span class="punctuation">,</span> <span class="comment">// 作者信息</span></span><br><span class="line">  <span class="attr">&quot;license&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ISC&quot;</span><span class="punctuation">,</span> <span class="comment">// 许可证，开源协议</span></span><br><span class="line">  <span class="attr">&quot;dependencies&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="comment">// 项目依赖</span></span><br><span class="line">    <span class="attr">&quot;bootstrap&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^3.3.7&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;jquery&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^3.3.1&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>注意：一个合法的 package.json，必须要有 name 和 version 两个属性</strong></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/236.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/236.html" class="post-title-link" itemprop="url">telegram ss ip 名单</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2019-06-30" itemprop="dateCreated datePublished" datetime="2019-06-30T00:00:49+00:00">2019-06-30</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">91.108.56.0/22</span><br><span class="line">91.108.4.0/22</span><br><span class="line">109.239.140.0/24</span><br><span class="line">149.154.160.0/20</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/234.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/234.html" class="post-title-link" itemprop="url">如何注册美区 PayPal 并绑定美区 Apple ID，以及风控的解决方案</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2019-06-30" itemprop="dateCreated datePublished" datetime="2019-06-30T00:00:40+00:00">2019-06-30</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><span class="exturl" data-url="aHR0cDovL2pvbHNvbi54eXovMjAxOC8xMS8yMi9yZWctdXMtcHAv">原文</span></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
 
     
 
@@ -2678,8 +2409,629 @@
 
 
 
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/398.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/398.html" class="post-title-link" itemprop="url">防抖和节流</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2018-12-12" itemprop="dateCreated datePublished" datetime="2018-12-12T22:13:29+00:00">2018-12-12</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>防抖和节流都是为了解决<strong>短时间内大量触发某函数</strong>而导致的<strong>性能问题，</strong>比如触发频率过高导致的响应速度跟不上触发频率，出现延迟，假死或卡顿的现象</p>
+</blockquote>
+<h2 id="防抖（debounce）"><a href="#防抖（debounce）" class="headerlink" title="防抖（debounce）"></a>防抖（debounce）</h2><p>在事件被触发 n 秒后再执行回调函数，如果在这 n 秒内又被触发，则重新计时（只会触发最后一次）</p>
+<p>应用场景</p>
+<ul>
+<li><p>用户在输入框中连续输入一串字符后，只会在输入完后去执行最后一次的查询 ajax 请求，这样可以有效减少请求次数，节约请求资源</p>
+</li>
+<li><p>window 的 resize、scroll 事件，不断地调整浏览器的窗口大小、或者滚动时会触发对应事件，防抖让其只触发一次</p>
+</li>
+</ul>
+<h2 id="节流（throttle）"><a href="#节流（throttle）" class="headerlink" title="节流（throttle）"></a>节流（throttle）</h2><p>规定一个单位时间 n，在这个单位时间内，只能有一次触发事件的回调函数执行，如果在同一个单位时间内事件被触发多次，只有一次能生效（每 n 秒触发一次）</p>
+<p>应用场景</p>
+<ul>
+<li><p>鼠标连续不断地触发某事件（如点击），只在单位时间内只触发一次</p>
+</li>
+<li><p>在页面的无限加载场景下，需要用户在滚动页面时，每隔一段时间发一次 ajax 请求，而不是在用户停下滚动页面操作时才去请求数据</p>
+</li>
+<li><p>监听滚动事件，比如是否滑到底部自动加载更多，用 throttle 来判断</p>
+</li>
+</ul>
+<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><p>防抖的作用是将多个连续的<code>debounced</code>调用合并为一次<code>callback</code>调用。防抖是基于最近次 <code>debounced</code> 调用来重置 <code>waitTime</code>，如果<code>debounced</code>事件触发间隔小于 <code>waitTime</code>，<code>callback</code>就不会执行；</p>
+<p>节流的作用是限制<code>callback</code>调用的频率（每<code>waitTime</code>调用一次）。是基于上次 <code>callback</code> 调用来计算 <code>waitTime</code> 的，不管<code>callback</code> 事件触发有多频繁，只要距离上次 <code>callback</code> 调用超过了 <code>waitTime</code>，就一定会进行下次 <code>callback</code> 调用。</p>
+<p>– 原理：</p>
+<p>防抖是 <code>debounced</code> 维护了一个计时器，规定在 <code>waitTime</code> 时间后触发 <code>callback</code>，但是在 <code>waitTime</code> 时间内再次触发 <code>debounced</code> 的话，会清除当前的 timer 然后重新计时，这样一来，只有最后一次<code>debounced</code> 操作才能触发 <code>callback</code>；</p>
+<p>节流是通过判断是否到达一定时间 (<code>waitTime</code>) 来再次触发 <code>callback</code> ， <code>func</code> 在 <code>waitTime</code> 时间内不能被再次触发。</p>
+<p>实现</p>
+<p>throttle-debounce 插件 <span class="exturl" data-url="aHR0cHM6Ly93d3cubnBtanMuY29tL3BhY2thZ2UvdGhyb3R0bGUtZGVib3VuY2U=">https://www.npmjs.com/package/throttle-debounce</span></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;input&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">input.<span class="property">oninput</span> = <span class="title function_">throttle</span>(<span class="number">1000</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">value</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">b</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> a = <span class="title function_">debounce</span>(<span class="number">1000</span>, b)</span><br><span class="line">a.<span class="title function_">call</span>(&#123; <span class="attr">name</span>: <span class="string">&#x27;zs&#x27;</span> &#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 节流</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">throttle</span>(<span class="params">delay, callback</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> timer = <span class="literal">null</span></span><br><span class="line">  <span class="keyword">let</span> lastExec = <span class="number">0</span></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> self = <span class="variable language_">this</span></span><br><span class="line">    <span class="keyword">const</span> elapsed = <span class="title class_">Number</span>(<span class="keyword">new</span> <span class="title class_">Date</span>()) - lastExec</span><br><span class="line">    <span class="keyword">const</span> args = <span class="variable language_">arguments</span></span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">exec</span>(<span class="params"></span>) &#123;</span><br><span class="line">      callback.<span class="title function_">apply</span>(self, args)</span><br><span class="line">      lastExec = <span class="title class_">Number</span>(<span class="keyword">new</span> <span class="title class_">Date</span>())</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">clearTimeout</span>(timer)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (elapsed &gt; delay) &#123;</span><br><span class="line">      <span class="title function_">exec</span>()</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      timer = <span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="title function_">exec</span>()</span><br><span class="line">      &#125;, delay - elapsed)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 防抖</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">debounce</span>(<span class="params">delay, callback</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> timer = <span class="literal">null</span></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> self = <span class="variable language_">this</span></span><br><span class="line">    <span class="keyword">const</span> args = <span class="variable language_">arguments</span></span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">exec</span>(<span class="params"></span>) &#123;</span><br><span class="line">      callback.<span class="title function_">apply</span>(self, args)</span><br><span class="line">      lastExec = <span class="title class_">Number</span>(<span class="keyword">new</span> <span class="title class_">Date</span>())</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">clearTimeout</span>(timer)</span><br><span class="line">    timer = <span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="title function_">exec</span>()</span><br><span class="line">    &#125;, delay)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/425.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/425.html" class="post-title-link" itemprop="url">LESS 基本使用</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2018-12-11" itemprop="dateCreated datePublished" datetime="2018-12-11T22:30:46+00:00">2018-12-11</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Less-简介"><a href="#Less-简介" class="headerlink" title="Less 简介"></a>Less 简介</h2><blockquote>
+<p><strong><em>Less</em>  是一门 CSS 预处理语言（预先处理）,它扩展了 CSS 语言，增加了变量、Mixin、函数等特性</strong></p>
+<p>浏览器不直接识别 less 文件，浏览器只识别 css 文件，所以我们写了 less 文件之后，我们需要预先把 less 文件转换成 css 文件。</p>
+</blockquote>
+<p>本质上，LESS 包含一套自定义的语法及一个解析器，用户根据这些语法定义自己的样式规则，这些规则最终会通过解析器，编译生成对应的 CSS 文件。LESS 并没有裁剪 CSS 原有的特性，更不是用来取代 CSS 的，而是在现有 CSS 语法的基础上，为 CSS 加入程序式语言的特性。</p>
+<p><strong>less 仅仅是写 css 的另一种方式，写出来的 less 文件浏览器也不识别，所以啊，我们写完了 less 文件，还需要通过 less 解析器解析成 css，最终浏览器引入的还是 css 文件。</strong></p>
+<p>学习网站：</p>
+<p><span class="exturl" data-url="aHR0cDovL2xlc3Njc3Mub3JnLw==">官网 http://lesscss.org/</span><br><span class="exturl" data-url="aHR0cDovL2xlc3Njc3MuY24v">中文网 http://lesscss.cn/</span></p>
+<h2 id="less-的编译"><a href="#less-的编译" class="headerlink" title="less 的编译"></a>less 的编译</h2><blockquote>
+<p>如何把 less 文件变成 css 文件</p>
+</blockquote>
+<h3 id="使用打包工具"><a href="#使用打包工具" class="headerlink" title="使用打包工具"></a>使用打包工具</h3><p><code>gulp</code></p>
+<p><code>webpack</code></p>
+<h3 id="使用考拉"><a href="#使用考拉" class="headerlink" title="使用考拉"></a>使用考拉</h3><blockquote>
+<p>koala 是一个前端预处理器语言（less&#x2F;sass）图形编译工具，支持 Less、Sass、Compass、CoffeeScript，帮助 web 开发者更高效地使用它们进行开发。跨平台运行，完美兼容 windows、linux、mac。</p>
+</blockquote>
+<p><span class="exturl" data-url="aHR0cDovL2tvYWxhLWFwcC5jb20vaW5kZXgtemguaHRtbA==">考拉官网</span></p>
+<p>使用步骤：</p>
+<ol>
+<li>把<code>less</code>文件夹拖进去</li>
+<li>会在当前目录生成一个<code>css</code>目录</li>
+</ol>
+<p>优点：不用 node 环境，不用 less 环境，koala 内置了</p>
+<h3 id="使用插件"><a href="#使用插件" class="headerlink" title="使用插件"></a>使用插件</h3><p>easy less</p>
+<h2 id="Less-语法"><a href="#Less-语法" class="headerlink" title="Less 语法"></a>Less 语法</h2><h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p><strong>注释</strong></p>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 这是CSS中的注释，因此会编译到css中 */</span></span><br><span class="line"><span class="comment">// 这是less的注释，css不能识别这个注释， 最后不会编译到css文件</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>变量</strong></p>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="comment">// @变量名: 变量值;</span></span><br><span class="line"><span class="variable">@color:</span> <span class="number">#ccc</span>;</span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="variable">@color</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="mixin-函数"><a href="#mixin-函数" class="headerlink" title="mixin 函数"></a>mixin 函数</h3><p><strong>混入函数</strong></p>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义一个函数：不带参数</span></span><br><span class="line"><span class="selector-class">.btn</span>() &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 调用函数</span></span><br><span class="line"><span class="selector-class">.my_btn</span> &#123;</span><br><span class="line">  <span class="selector-class">.btn</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义一个函数：带参数</span></span><br><span class="line"><span class="selector-class">.btn_border</span>(<span class="variable">@width</span>) &#123;</span><br><span class="line">  <span class="attribute">border</span>: <span class="variable">@width</span> solid <span class="number">#000</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.my_btn</span> &#123;</span><br><span class="line">  <span class="comment">// 如果函数定义了参数，调用的时候必须传入参数，否则会报错</span></span><br><span class="line">  <span class="selector-class">.btn_border</span>(<span class="number">10px</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义一个函数：带参数默认值</span></span><br><span class="line"><span class="selector-class">.btn_border</span>(<span class="variable">@width</span>: <span class="number">1px</span>) &#123;</span><br><span class="line">  <span class="attribute">border</span>: <span class="variable">@width</span> solid <span class="number">#000</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.my_btn</span> &#123;</span><br><span class="line">  <span class="comment">// 因为有默认值，所以不会报错</span></span><br><span class="line">  <span class="selector-class">.btn_border</span>();</span><br><span class="line">  <span class="selector-class">.btn_border</span>(<span class="number">10px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>应用：定义兼容多浏览器的圆角</p>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.border_radius</span>(<span class="variable">@value</span>: <span class="number">5px</span>) &#123;</span><br><span class="line">  -webkit-<span class="attribute">border-radius</span>: <span class="variable">@value</span>;</span><br><span class="line">  -moz-<span class="attribute">border-radius</span>: <span class="variable">@value</span>;</span><br><span class="line">  -ms-<span class="attribute">border-radius</span>: <span class="variable">@value</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="variable">@value</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="selector-class">.border_radius</span>(<span class="number">10px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h3><blockquote>
+<p>我们可以在一个选择器中嵌套另一个选择器来实现继承，这样很大程度减少了代码量，并且代码看起来更加的清晰。</p>
+</blockquote>
+<ul>
+<li>使用伪类的时候 可以使用<code>&amp;</code> 表示自己</li>
+</ul>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.father</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="comment">// 子代</span></span><br><span class="line">  <span class="selector-class">.son1</span> &#123;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 后代</span></span><br><span class="line">  &gt; <span class="selector-class">.son2</span> &#123;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 交集： &amp; 表示本身</span></span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-class">.now</span> &#123;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h3><figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 可以省略后缀名</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">&#x27;variable&#x27;</span>;</span><br><span class="line"><span class="keyword">@import</span> <span class="string">&#x27;maxin&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>模块化的思想，分模块进行管理这些 less 文件，最终只需要使用 import 将 less 引入到一起即可</p>
+<h3 id="函数（运算）"><a href="#函数（运算）" class="headerlink" title="函数（运算）"></a>函数（运算）</h3><blockquote>
+<p>在我们的 CSS 中充斥着大量的数值型的 value，less 可以直接支持运算，也提供了一系列的函数提供给我们使用。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">li &#123;</span><br><span class="line">  float: left;</span><br><span class="line">  width: round(100%/6, 2);</span><br><span class="line">  height: 100px + 100px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><span class="exturl" data-url="aHR0cDovL3d3dy4xMDI0aS5jb20vZGVtby9sZXNzL3JlZmVyZW5jZS5odG1s">http://www.1024i.com/demo/less/reference.html</span></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/389.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/389.html" class="post-title-link" itemprop="url">移动 web</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2018-12-11" itemprop="dateCreated datePublished" datetime="2018-12-11T22:05:45+00:00">2018-12-11</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="移动-web-基础"><a href="#移动-web-基础" class="headerlink" title="移动 web 基础"></a>移动 web 基础</h1><h2 id="移动端开发现状"><a href="#移动端开发现状" class="headerlink" title="移动端开发现状"></a>移动端开发现状</h2><ul>
+<li>移动 web 开发指的是需要适配移动设备的网页开发</li>
+<li>移动 web 开发与 pc 端 web 开发没有本质的区别，使用的还是 HTML&#x2F;CSS&#x2F;JavaScript 的技术</li>
+<li>移动 web 开发与 pc 端 web 开发的区别是什么？</li>
+</ul>
+<p>移动端的浏览器与 pc 端不同</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">谷歌浏览器 苹果浏览器、 UC浏览器 QQ浏览器 欧朋浏览器 百度手机浏览器  360安全浏览器  搜狗浏览器  猎豹浏览器等</span><br><span class="line">国内的手机浏览器都是根据webkit内核修改过来的，国内没有自主研发的内核，国内的操作系统也是基于Android系统修改的。</span><br><span class="line"></span><br><span class="line">因此在移动端，css3 属性只需要加 webkit 前缀即可</span><br></pre></td></tr></table></figure>
+
+<p>移动端设备尺寸不一样(尺寸非常多，碎片化很严重)</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="title class_">Android</span>： <span class="number">320</span>*<span class="number">480</span> <span class="number">480</span>*<span class="number">800</span>  <span class="number">540</span>*<span class="number">960</span> <span class="number">720</span>*<span class="number">1280</span> <span class="number">1080</span>*<span class="number">1920</span> 2k屏 4k屏</span><br><span class="line">iphpne：  <span class="number">640</span>*<span class="number">960</span> <span class="number">640</span>*<span class="number">1136</span> <span class="number">750</span>*<span class="number">1334</span> <span class="number">1242</span>*<span class="number">2208</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="移动端开发分类"><a href="#移动端开发分类" class="headerlink" title="移动端开发分类"></a>移动端开发分类</h2><ul>
+<li>原生 app（native app）</li>
+<li>混合 app（Hybrid app）</li>
+<li>web 应用（webApp）</li>
+</ul>
+<p><strong>原生 app（native app）</strong></p>
+<blockquote>
+<p>原生 app 是基于操作系统的开发，比如安卓，ios，windows phone,他们只能在各自的操作系统上运行。</p>
+</blockquote>
+<p>优点：</p>
+<ol>
+<li>可以访问操作系统，获取更多的资源（gps，摄像头，传感器，麦克风等）</li>
+<li>速度快，性能高，用户体验好</li>
+<li>可以离线使用</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>开发成本高</li>
+<li>需要安装和更新，更新与发布需要审核。</li>
+</ol>
+<p><strong>Web App</strong></p>
+<blockquote>
+<p>Web 应用使用 H5C3 开发页面，为浏览器设计的基于 web 的应用，可以在各种智能设备的手机浏览器上运行。不需要安装即可运行。</p>
+</blockquote>
+<p>优点：</p>
+<ol>
+<li>支持设备广泛</li>
+<li>开发成本低（使用）</li>
+<li>可以随时上线与更新，无需审核</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>用户体验极度依赖网速</li>
+<li>要求联网</li>
+<li>无法获取手机的资源（gps，摄像头）</li>
+</ol>
+<p><strong>混合 app（Hybrid App）</strong></p>
+<blockquote>
+<p>Hybrid App 是指介于 web-app、native-app 这两者之间的 app,它虽然看上去是一个 Native App，但只有一个 UI WebView，里面访问的是一个 Web App。（淘宝、京东、手机百度）</p>
+</blockquote>
+<p>Hybird App 说白了就是使用了 Native app 的壳，里面其实还是 HTML5 页面</p>
+<p>优点：</p>
+<ol>
+<li>开发成本和难度更低，兼容多个平台</li>
+<li>也可以访问手机的操作系统资源。</li>
+<li>更新维护更方便</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>用户体验相比原生 app 稍差</li>
+<li>性能依赖于网速</li>
+</ol>
+<p>总结：</p>
+<p>三种开发各有优缺点，具体用什么需要根据实际情况而定，比如预算，app 注重功能还是内容等</p>
+<h2 id="屏幕与分辨率"><a href="#屏幕与分辨率" class="headerlink" title="屏幕与分辨率"></a>屏幕与分辨率</h2><p><span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2EvMTE5MDAwMDAxMTc1Mzg1NQ==">理解设备像素、设备独立像素和 css 像素</span></p>
+<blockquote>
+<p>移动设备与 PC 设备最大的差异在于屏幕，这主要体现在屏幕尺寸和屏幕分辨率两个方面</p>
+</blockquote>
+<p>屏幕尺寸</p>
+<p>通常我们所指的屏幕<code>尺寸</code>，实际上指的是屏幕对角线的长度（一般用英寸来度量）</p>
+<p><code>1英寸 = 2.54厘米</code></p>
+<p>屏幕分辨率</p>
+<p>分辨率则一般用像素来度量，表示屏幕水平和垂直方向的像素数，例如 1920*1080 指的是屏幕垂直方向和水平方向分别有 1920 和 1080 个像素点而构成</p>
+<p><code>像素</code>：指计算机显示设备中的最小单位，即一个像素点的大小。每一个像素点可以理解为就是屏幕上的一个发光点</p>
+<p>像素密度 ppi</p>
+<p><code>PPI (Pixels Per Inch)</code>表示屏幕每英寸的像素数</p>
+<p>PPI 值的越大说明单位尺寸里所能容纳的像素数量就越多，所能展现画面的品质也就越精细，反之就越粗糙</p>
+<h2 id="设备像素"><a href="#设备像素" class="headerlink" title="设备像素"></a>设备像素</h2><blockquote>
+<p>设备像素 (device pixels）也叫物理像素</p>
+</blockquote>
+<p>设备像素指的是显示器上的真实像素，每个像素的大小是屏幕固有的属性，屏幕出厂以后就不会改变了</p>
+<p>设备分辨率描述的就是这个显示器的宽和高分别是多少个设备像素</p>
+<p>设备像素和设备分辨率交给操作系统来管理，浏览器不知道、也不需要知道设备分辨率的大小，浏览器只需要知道<strong>逻辑分辨率</strong>就可以了</p>
+<h2 id="设备独立像素"><a href="#设备独立像素" class="headerlink" title="设备独立像素"></a>设备独立像素</h2><blockquote>
+<p>设备独立像素（Device Independent Pixels）也叫逻辑像素、设备无关像素。在 IOS 设备上叫<code>PT</code>，Android 设备上叫<code>DP</code>，在 css 中，叫<code>PX</code></p>
+</blockquote>
+<p>为了能够保证 <code>图像内容在不同的 PPI 设备看上去大小应该差不多</code> ，操作系统定义了一个单位：设备独立像素，用设备独立像素定义的尺寸，不管屏幕的参数如何，都能以合适的大小显示（这也是设备独立像素名字的由来）</p>
+<p>对于那些像素密度高的屏幕，操作系统将多个设备像素划分为一个逻辑像素。屏幕的像素密度越高，就需要更多的设备像素来显示一个设备独立像素。至于将多少设备像素划分为一个逻辑像素，这由操作系统决定</p>
+<p>获取设备的像素比</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="property">devicePixelRatio</span> <span class="comment">// 物理像素 与 css 像素的比值 DPR</span></span><br></pre></td></tr></table></figure>
+
+<p>通过 <code>screen.width/height</code>得到的屏幕宽度和高度就是逻辑分辨率（单位：设备独立像素）</p>
+<h2 id="css-像素与缩放"><a href="#css-像素与缩放" class="headerlink" title="css 像素与缩放"></a>css 像素与缩放</h2><p>在缩放比例为 100% 的情况下，一个 css 像素大小等于一个设备独立像素</p>
+<p>缩放页面的时候，元素的 css 像素数量不会改变，改变的只是每个 css 像素的大小</p>
+<p>缩放比例 &#x3D; css 像素边长 &#x2F; 设备独立像素边长</p>
+<p>如果原本元素宽度为 128 个设备独立像素，那么缩放 200% 以后元素宽度为 256 个设备独立像素（css 像素宽度始终是 128）</p>
+<p>桌面浏览器上缩放机制是 page zoom，缩放会导致 CSS 像素边长的改变，从而导致 window.devicePixelRatio 的改变</p>
+<p>在移动端缩放机制是 pinch zoom，计算 window.devicePixelRatio 时，不考虑 pinch zoom 对 CSS 像素尺寸的影响，因此 window.devicePixelRatio 不会随缩放而改变</p>
+<h2 id="2-倍图与-3-倍图"><a href="#2-倍图与-3-倍图" class="headerlink" title="2 倍图与 3 倍图"></a>2 倍图与 3 倍图</h2><blockquote>
+<p>以后同学在工作的过程中，从 UI 那拿到的设计图通常都是 640 的设计图或者是 750 的设计图</p>
+</blockquote>
+<p>把更多的像素点压缩至一块屏幕里，从而达到更高的分辨率并提高屏幕显示的细腻程度</p>
+<p>设备像素比 devicePixelRatio：即像素的压缩比例</p>
+<p><strong>结论 ：在移动端为了在高清屏手机上显示得更加细腻，通常会使用更大的图片，比如 2 倍图或者 3 倍图</strong></p>
+<h2 id="视口-viewport"><a href="#视口-viewport" class="headerlink" title="视口 viewport"></a>视口 viewport</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">问题：一个电脑上的网站，在手机端访问，效果是什么样的？</span><br><span class="line"></span><br><span class="line">iPhone5 的设备宽度只有 320px，一张宽度为 640px 的图片在手机端访问，显示的效果是什么？</span><br><span class="line"></span><br><span class="line">1. 在手机端，html的 大小都是 980px，为什么？</span><br><span class="line">这主要是历史原因导致的，因为在移动设备刚流行的时候，网站大多都是pc端的，pc端的页面宽度一般都比较大，移动设备的宽度比较小，如果pc端页面直接在移动端显示的话，页面就会错乱。为了解决这个问题，移动端html的大小直接就定死成了980px（因为早起的pc端网站版心就是980px居多）</span><br><span class="line"></span><br><span class="line">2. 视口</span><br><span class="line">在 pc 端，html 的大小默认是继承了浏览器的宽度，即浏览器多宽，html 的大小就是多宽，但是在移动端，多出来了一个视口的概念（乔布斯）,视口说白了就是介于浏览器与 html 之间的一个东西，视口的宽度默认定死了 980px，因此 html 的宽度默认就是 980px，视口的特点是能够根据设备的宽度进行缩放</span><br><span class="line"></span><br><span class="line">3. 视口设置</span><br><span class="line">对于现在的移动端页面来说，视口默认为 980px 肯定不合适，因为设备宽度不够的话，视口会进行缩放，导致页面展示效果不好看</span><br></pre></td></tr></table></figure>
+
+<p><strong>视口参数设置</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// width 设置视口的宽度</span></span><br><span class="line"><span class="comment">// width=device-width   设置视口宽度为设备的宽度（常用）</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// initial-scale 设置初始缩放比例</span></span><br><span class="line"><span class="comment">// initial-scale=1.0  表示不缩放</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// user-scalable 设置是否允许用户缩放</span></span><br><span class="line"><span class="comment">// user-scalable=no  不允许用户缩放</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// maximum-scale  设置允许的最大缩放比例</span></span><br><span class="line"><span class="comment">// maximum-scale=1.0  可以不设置，因为都禁止用户缩放了</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// minimum-scale 设置允许最小缩放比</span></span><br><span class="line"><span class="comment">// minimum-scale=1.0  不设置，因为都禁用用户缩放了</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 标准写法：</span></span><br><span class="line"><span class="comment">// 快捷键：  meta:vp + tab键</span></span><br><span class="line">&lt;meta name=<span class="string">&quot;viewport&quot;</span> content=<span class="string">&quot;width=device-width, user-scalable=no, initial-scale=1.0&quot;</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="移动端调试问题"><a href="#移动端调试问题" class="headerlink" title="移动端调试问题"></a>移动端调试问题</h2><ol>
+<li>模拟器调试</li>
+<li>真机调试：使用手机进行访问。</li>
+</ol>
+<p>手机设备五花八门，屏幕尺寸都大不一样，尤其是安卓端，给我们的页面预览带来了一些麻烦。在实际工作中，作为开发者不可能有足够的设备让我们去测试（<strong>除了测试部门</strong> ），即便有，效率也特别的低，因此开发者一般都是通过浏览器的手机模拟器来模拟不同的设备。</p>
+<h1 id="流式布局"><a href="#流式布局" class="headerlink" title="流式布局"></a>流式布局</h1><p><strong>移动端的特点</strong></p>
+<ul>
+<li>手机端的兼容性问题比 PC 端小很多，因为手机端的浏览器版本比较新</li>
+<li>手机端屏幕比较小，能够放的内容比较少。</li>
+</ul>
+<p>问题：布局的时候怎么解决屏幕大小不一致的问题？</p>
+<ul>
+<li>PC 端，固定版心，让所有分辨率的电脑的版心都是一样的，比如京东</li>
+<li>移动端：移动端无法设置版心，因为移动端的设备屏幕本身就小，设置版心不合适。因此移动端大多会采用流式布局（百分比布局）</li>
+</ul>
+<p><strong>流式布局</strong>，也叫百分比布局，是移动端开发中经常使用的布局方式之一。</p>
+<p>流式布局的特征：</p>
+<ul>
+<li>宽度自适应，高度写死，并不是百分百还原设计图</li>
+<li>图标都是固定死大小的，包括字体等也是固定死的。并不是所有的东西都是自适应的。</li>
+<li>一些大的图片，设置宽度为百分比自适应即可，随着屏幕大小进行变化</li>
+</ul>
+<p><strong>流式布局无法做到所有设备都非常逼真的还原设计图，有些设备显示效果不是特别的好看。但是流式布局是移动端非常常用的一种布局方式，比较简单，需要掌握（携程、京东)</strong></p>
+<p><strong>最后一天会学习 rem 布局，配合 less 非常的方便，并且能够实现完全的自适应，包括字体以及图标等</strong></p>
+<p>经典的流式布局</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1. 左侧固定，右侧自适应</span><br><span class="line">2. 右侧固定，左侧自适应</span><br><span class="line">3. 两侧固定，中间自适应（圣杯布局，双飞翼布局）</span><br><span class="line">4. 等分布局</span><br></pre></td></tr></table></figure>
+
+<h1 id="touch-事件"><a href="#touch-事件" class="headerlink" title="touch 事件"></a>touch 事件</h1><p>移动端新增了 4 个与手指触摸相关的事件</p>
+<ul>
+<li><code>touchstart</code>: 手指放到屏幕上时触发</li>
+<li><code>touchmove</code>: 手指在屏幕上滑动式触发（会触发多次）</li>
+<li><code>touchend</code>: 手指离开屏幕时触发</li>
+<li><code>touchcancel</code>: 系统取消 touch 事件的时候触发，比如电话</li>
+</ul>
+<p>每个触摸事件被触发后，会生成一个 event 对象，event 对象中<code>changedTouches</code>会记录手指滑动的信息</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">e.<span class="property">touches</span> <span class="comment">// 当前屏幕上的手指</span></span><br><span class="line">e.<span class="property">targetTouches</span> <span class="comment">// 当前dom元素上的手指。</span></span><br><span class="line">e.<span class="property">changedTouches</span> <span class="comment">// 触摸时发生改变的手指(重点)(如手指离开屏幕)</span></span><br></pre></td></tr></table></figure>
+
+<p>这些列表里的每次触摸由 touch 对象组成，touch 对象里包含着触摸信息，主要属性如下</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// e.changedTouches[0].clientX</span></span><br><span class="line">clientX / clientY <span class="comment">// 触摸点相对浏览器窗口的位置</span></span><br><span class="line">pageX / pageY <span class="comment">// 触摸点相对于页面的位置</span></span><br></pre></td></tr></table></figure>
+
+<p>!&gt; 使用 jquery 注册 touch 类事件时，获取手指使用 <code>e.originalEvent.touchs[0]</code> ，因为 jq 对事件对象进行了封装</p>
+<p>【案例：jdm-滑动轮播图】</p>
+<p>【案例：jdm-区域滚动】</p>
+<h2 id="iscroll-插件使用"><a href="#iscroll-插件使用" class="headerlink" title="iscroll 插件使用"></a>iscroll 插件使用</h2><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2N1YmlxL2lzY3JvbGw=">https://github.com/cubiq/iscroll</span></p>
+<p><span class="exturl" data-url="aHR0cDovL3d3dy5tYW1pY29kZS5jb20vaW5mby1kZXRhaWwtMzMxODI3Lmh0bWw=">iscroll 参考文档</span></p>
+<p><strong>注意</strong>：使用 iscroll 需要满足的条件</p>
+<ol>
+<li>父盒子嵌套了子盒子（一个）</li>
+<li>如果有多个子盒子，所以我们需要使用一个盒子把所有的子盒子包裹起来</li>
+<li>如果有图片，我们需要保证图片加载完成，如果有浮动，需要清除浮动，为了保证子盒子的高度获取的是正确的</li>
+<li>子盒子大小一定要超过父盒子的大小</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 使用：box为父盒子</span></span><br><span class="line"><span class="keyword">var</span> box = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.box&#x27;</span>)</span><br><span class="line"><span class="keyword">new</span> <span class="title class_">IScroll</span>(box, &#123;</span><br><span class="line">  <span class="attr">scrollX</span>: <span class="literal">false</span>, <span class="comment">// 横向滚动</span></span><br><span class="line">  <span class="attr">scrollY</span>: <span class="literal">true</span> <span class="comment">// 纵向滚动</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h1 id="zepto-框架"><a href="#zepto-框架" class="headerlink" title="zepto 框架"></a>zepto 框架</h1><blockquote>
+<p><strong>Zepto</strong>是一个轻量级的<strong>针对现代高级浏览器的 JavaScript 库， <strong>它与 jquery</strong>有着类似的 api</strong>。 如果你会用 jquery，那么你也会用 zepto</p>
+</blockquote>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL21hZHJvYmJ5L3plcHRv">github 地址</span></p>
+<p><span class="exturl" data-url="aHR0cDovL3d3dy5jc3M4OC5jb20vZG9jL3plcHRvanNfYXBpLw==">中文文档</span></p>
+<h2 id="zepto-与-jquery-的区别"><a href="#zepto-与-jquery-的区别" class="headerlink" title="zepto 与 jquery 的区别"></a>zepto 与 jquery 的区别</h2><ul>
+<li>jquery 针对 pc 端，主要用于解决浏览器兼容性问题，zepto 主要针对移动端</li>
+<li>zepto 比 jquery 轻量，文件体积更小</li>
+<li>zepto 封装了一些移动端的手势事件</li>
+</ul>
+<h2 id="zepto-的基本使用"><a href="#zepto-的基本使用" class="headerlink" title="zepto 的基本使用"></a>zepto 的基本使用</h2><p>zepto 的使用与 jquery 基本一致，zepto 是分模块的，需要某个功能，就需要引入某个 zepto 的文件</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;zepto/zepto.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;zepto/event.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;zepto/fx.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  $(<span class="string">&#x27;.box&#x27;</span>).<span class="title function_">addClass</span>(<span class="string">&#x27;demo&#x27;</span>)</span><br><span class="line"></span><br><span class="line">  $(<span class="string">&#x27;button&#x27;</span>).<span class="title function_">on</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    $(<span class="string">&#x27;.box&#x27;</span>).<span class="title function_">animate</span>(&#123; <span class="attr">width</span>: <span class="number">500</span> &#125;, <span class="number">1000</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="zepto-的定制"><a href="#zepto-的定制" class="headerlink" title="zepto 的定制"></a>zepto 的定制</h2><p>安装 Nodejs 环境</p>
+<p>1、下载 zepto.js</p>
+<p>2、解压缩</p>
+<p>3、cmd 命令行进入解压缩后的目录</p>
+<p>4、执行<code>npm install</code>命令</p>
+<p>5、编辑 make 文件的<code>41行</code>，添加自定义模块并保存</p>
+<p>7、然后执行命令 <code>npm run-script dist</code></p>
+<p>8、查看目录 dist 即构建好的 zepto.js</p>
+<h2 id="zepto-手势事件"><a href="#zepto-手势事件" class="headerlink" title="zepto 手势事件"></a>zepto 手势事件</h2><p>zepto 中根据<code>touchstart touchmove touchend</code>封装了一些常用的手势事件，这些事件都是基于 touchstart touchmove touchend 封装</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">tap <span class="comment">// 轻触事件,用于替代移动端的click事件，因为click事件在老版本中会有300ms的延迟</span></span><br><span class="line">swipe <span class="comment">//手指滑动时触发</span></span><br><span class="line">swipeLeft <span class="comment">//左滑</span></span><br><span class="line">swipeRight <span class="comment">//右滑</span></span><br><span class="line">swipeUp <span class="comment">//上滑</span></span><br><span class="line">swipeDown <span class="comment">//下滑</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="响应式"><a href="#响应式" class="headerlink" title="响应式"></a>响应式</h1><h2 id="什么是响应式布局"><a href="#什么是响应式布局" class="headerlink" title="什么是响应式布局"></a>什么是响应式布局</h2><blockquote>
+<p>响应式布局（respond layout）是 Ethan Marcotte 在 2010 年 5 月份提出的一个概念，简而言之，就是<strong>一个网站能够兼容多个终端（手机、平板、pc 电脑、手表）</strong> ——而不是为每个终端做一个特定的版本。这个概念是为解决移动互联网浏览而诞生的</p>
+</blockquote>
+<p><strong>为什么要有响应式布局？</strong></p>
+<ul>
+<li>在移动互联日益成熟的时候，在 PC 端开发的网页已经无法满足移动设备的要求</li>
+<li>通常的做法是针对移动端单独做一套特定的版本</li>
+<li>如果终端越来越多，那么需要开发的版本就会越来越多（大屏设备的普及）</li>
+<li><strong>响应式布局</strong> ：一个网站能够兼容多个终端（节约开发成本）</li>
+</ul>
+<p><strong>优点：</strong></p>
+<p>面对不同分辨率设备灵活性强</p>
+<p>能够快捷解决多设备显示适应问题</p>
+<p>**缺点： **</p>
+<p>兼容各种设备工作量大，效率低下</p>
+<p>代码累赘，会出现隐藏无用的元素，加载时间加长</p>
+<p>其实这是一种折中性质的设计解决方案，多方面因素影响而达不到最佳效果</p>
+<p>一定程度上改变了网站原有的布局结构，会出现用户混淆的情况</p>
+<p>响应式开发现状：</p>
+<ul>
+<li>如果已经存在 PC 的网站了，那么一般不会使用响应式开发，而是针对移动端再开发一套系统（比如京东、淘宝）</li>
+<li>在<strong>新建站点</strong> 上采用响应式开发的越来越多</li>
+<li>在国内，响应式开发还不是特别的流行。但响应式开发是大势所趋，会越来越流行</li>
+</ul>
+<h2 id="响应式开发与移动-web-开发的比较"><a href="#响应式开发与移动-web-开发的比较" class="headerlink" title="响应式开发与移动 web 开发的比较"></a>响应式开发与移动 web 开发的比较</h2><table>
+<thead>
+<tr>
+<th>开发方式</th>
+<th>移动 web 开发+pc 开发</th>
+<th>响应式开发</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>引用场景</td>
+<td>一般已经有了 PC 端网站，只需要端独开发移动端网站即可</td>
+<td>针对一些新建网站，并且要求适配移动端</td>
+</tr>
+<tr>
+<td>开发</td>
+<td>针对性强，开发效率高</td>
+<td>兼容各种终端，效率低</td>
+</tr>
+<tr>
+<td>适配</td>
+<td>只能适配移动端或者 PC 端，pad 上体验比较差</td>
+<td>可以适配各种终端</td>
+</tr>
+<tr>
+<td>效率</td>
+<td>代码简介，加载快</td>
+<td>代码相对复杂，加载慢</td>
+</tr>
+</tbody></table>
+<h1 id="媒体查询"><a href="#媒体查询" class="headerlink" title="媒体查询"></a>媒体查询</h1><blockquote>
+<p>媒体查询（Media Query）是 CSS3 提出来的一个新的属性，通过媒体查询可以查询到 screen 的宽度，从而指定某个宽度区间的网页布局</p>
+</blockquote>
+<h2 id="设备分类"><a href="#设备分类" class="headerlink" title="设备分类"></a>设备分类</h2><table>
+<thead>
+<tr>
+<th>分类</th>
+<th>宽度范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>大屏设备</td>
+<td>&gt;1200px</td>
+</tr>
+<tr>
+<td>中屏设备</td>
+<td>992px~1200px</td>
+</tr>
+<tr>
+<td>小屏设备</td>
+<td>768px~992px</td>
+</tr>
+<tr>
+<td>超小屏设备</td>
+<td>&lt; 768px</td>
+</tr>
+</tbody></table>
+<h2 id="媒体查询的使用"><a href="#媒体查询的使用" class="headerlink" title="媒体查询的使用"></a>媒体查询的使用</h2><p>需求：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">  大屏设备(&gt;1200px)   版心：1170px   背景色：红色</span></span><br><span class="line"><span class="comment">  中屏设备(992-1200)  版心：970px    背景色：蓝色</span></span><br><span class="line"><span class="comment">  小屏设备(768-992)   版心：750px    背景色：黄色</span></span><br><span class="line"><span class="comment">  超小屏设备(&lt;768px)  版心：100%     背景色：绿色</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>响应式开发的原理：使用媒体查询实现不同终端的布局和样式的切换</p>
+<p>媒体查询语法：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 查询屏幕 */</span></span><br><span class="line"><span class="comment">/* screen 和第一个 and 可以省略 */</span></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> 条件 &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 条件的写法 */</span></span><br><span class="line"><span class="comment">/* min-width: 只要屏幕宽度超过这个值的设备样式就能生效 */</span></span><br><span class="line"><span class="comment">/* max-width: 只要屏幕宽度小于这个值的设备样式就能生效 */</span></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">1200px</span>) &#123;</span><br><span class="line">  <span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">1170px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: red;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">992px</span>) <span class="keyword">and</span> (<span class="attribute">max-width</span>: <span class="number">1200px</span>) &#123;</span><br><span class="line">  <span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">970px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: blue;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">768px</span>) <span class="keyword">and</span> (<span class="attribute">max-width</span>: <span class="number">992px</span>) &#123;</span><br><span class="line">  <span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">750px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: yellow;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">max-width</span>: <span class="number">768px</span>) &#123;</span><br><span class="line">  <span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: green;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="bootstrap-框架"><a href="#bootstrap-框架" class="headerlink" title="bootstrap 框架"></a>bootstrap 框架</h1><p><strong>【项目：微金所】</strong></p>
+<h1 id="REM"><a href="#REM" class="headerlink" title="REM"></a>REM</h1><h2 id="rem-是什么？"><a href="#rem-是什么？" class="headerlink" title="rem 是什么？"></a>rem 是什么？</h2><p><code>rem</code>（font size of the root element）是指相对于<code>根元素</code>的字体大小的单位。它就是一个相对单位。</p>
+<p><code>em</code>（font size of the element）是指相对于 <code>当前元素的字体大小</code> 的单位。它也是一个相对单位。</p>
+<p>它们之间其实很相似，只不过计算的规则一个是依赖根元素，一个是当前元素计算。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">16px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-class">.em</span> &#123;</span><br><span class="line">  <span class="comment">/* em 的计算方式参照的当前元素的 font-size，如果不设置，默认继承自父盒子 */</span></span><br><span class="line">  <span class="attribute">width</span>: <span class="number">2em</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">2em</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* rem 的计算方式参照的是 html 的 font-size */</span></span><br><span class="line"><span class="selector-tag">div</span><span class="selector-class">.rem</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">2rem</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">2rem</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="为什么要用-rem？"><a href="#为什么要用-rem？" class="headerlink" title="为什么要用 rem？"></a>为什么要用 rem？</h2><blockquote>
+<p>rem 的主要目的就是解决用于不同屏幕的适配问题。rem 能够等比例的适配所有的屏幕。</p>
+</blockquote>
+<p>由于市面上手机种类繁多，导致移动端的屏幕种类非常的混乱，比如有常见的<code>320px 360px 375px 384px 480px 640px</code>等。在开发中，美工一般只会提供 750px 或者是 640px 的设计稿，这就要求我们通过一张设计稿能够适配所有的屏幕。通常解决方案如下：</p>
+<ul>
+<li>流式布局：虽然可以让各种屏幕都适配，但是显示效果不是非常的友好，因为只有几个尺寸的手机能够完美的显示出来视觉设计师和交互最想要的效果。但是目前使用流式布局的公司非常多，比如 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYW1hem9uLmNuLw==">亚马逊</span> 、<span class="exturl" data-url="aHR0cHM6Ly9tLmpkLmNvbS8=">京东</span> 、<span class="exturl" data-url="aHR0cHM6Ly9tLmN0cmlwLmNvbS8=">携程</span></li>
+<li>响应式布局：响应式这种方式在国内很少有大型企业的复杂性的网站在移动端用这种方法去做，主要原因是<strong>工作大，维护性难</strong> 。所以一般都是中小型的门户或者博客类站点会采用响应式的方法从 PC 端页面到移动端页面以及 web app 直接一步到位，因为这样反而可以节约成本。</li>
+<li>rem 布局：rem 能够适配所有的屏幕，与 less 配合使用效果会更好。目前使用 rem 布局的有：<span class="exturl" data-url="aHR0cHM6Ly9tLnRhb2Jhby5jb20v">淘宝</span> 、 <span class="exturl" data-url="aHR0cHM6Ly9tLnN1bmluZy5jb20v">苏宁</span></li>
+</ul>
+<h2 id="rem-布局"><a href="#rem-布局" class="headerlink" title="rem 布局"></a>rem 布局</h2><p>因为 rem 的基准点是根元素 html 的字体大小，因此我们只需要设置不同屏幕的 html 的 font-size 大小不一样就可以达到不同屏幕的适配了。</p>
+<h3 id="rem-配合媒体查询"><a href="#rem-配合媒体查询" class="headerlink" title="rem 配合媒体查询"></a>rem 配合媒体查询</h3><p>使用 rem 配合媒体查询可以适配多个终端</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@media</span>(min-width: <span class="number">320px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">html</span> &#123;</span><br><span class="line">    <span class="comment">/* 基准值 / 设计图的大小  = 某个屏幕的font-size / 屏幕的宽度 */</span></span><br><span class="line">    <span class="comment">/* 100/750 = x/370 */</span></span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">50px</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>优点：使用媒体查询适配，速度快。</p>
+<p>缺点：适配多个终端时，需要添加响应的代码。</p>
+<h3 id="rem-配合-javascript"><a href="#rem-配合-javascript" class="headerlink" title="rem 配合 javascript"></a>rem 配合 javascript</h3><p>通过 javascript 获取可视区的宽度，计算 font-size 的值，也可以适配多个终端</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 根据屏幕的大小动态设置 html的 font-size</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">responsive</span> () &#123;</span><br><span class="line">  <span class="keyword">var</span> uiWidth = <span class="number">750</span> <span class="comment">// 设计图宽度</span></span><br><span class="line">  <span class="keyword">var</span> base = <span class="number">100</span> <span class="comment">// 设计图中1rem的大小</span></span><br><span class="line">  <span class="comment">// 当前屏幕的大小</span></span><br><span class="line">  <span class="keyword">var</span> pageWidth = <span class="variable language_">window</span>.<span class="property">innerWidth</span></span><br><span class="line">  <span class="keyword">if</span>(pageWidth &gt;= <span class="number">750</span>) &#123;</span><br><span class="line">    pageWidth = <span class="number">750</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(pageWidth &lt;= <span class="number">320</span>) &#123;</span><br><span class="line">    pageWidth = <span class="number">320</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 说白了就是把一个屏幕分成了 7.5 rem</span></span><br><span class="line">  <span class="variable language_">document</span>.<span class="property">documentElement</span>.<span class="property">style</span>.<span class="property">fontSize</span> = (base / uiWidth * pageWidth).<span class="title function_">toFixed</span>(<span class="number">2</span>) + ’px‘</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>优点：直接适配所有的终端</p>
+<p>缺点：必须在页面加载之前设置 html 的 font-size 值，不然会出现文字大小调动的情况。</p>
+<h3 id="rem-配合-flexible-插件"><a href="#rem-配合-flexible-插件" class="headerlink" title="rem 配合 flexible 插件"></a>rem 配合 flexible 插件</h3><ul>
+<li><p>flexible 插件基准值（base）是设计图的 1&#x2F;10</p>
+</li>
+<li><p>使用 flexible</p>
+</li>
+</ul>
+<ol>
+<li><p>在 header 中引入 flexible.js 这个文件</p>
+</li>
+<li><p>根据设计图能够确定基准值， 配合 px2rem 插件 ，需要设置一个 rootFontSize</p>
+</li>
+</ol>
+<p>【案例：苏宁易购】</p>
+<h1 id="swiper-插件"><a href="#swiper-插件" class="headerlink" title="swiper 插件"></a>swiper 插件</h1><blockquote>
+<p>Swiper 是纯 javascript 打造的滑动特效插件，面向手机、平板电脑等移动终端</p>
+</blockquote>
+<p><span class="exturl" data-url="aHR0cDovL3d3dy5zd2lwZXIuY29tLmNuLw==">swiper 中文网</span></p>
+<h1 id="other"><a href="#other" class="headerlink" title="other"></a>other</h1><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="comment">/* 取消链接高亮, 移动端特有的样式  */</span></span><br><span class="line">  -webkit-tap-highlight-<span class="attribute">color</span>: <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 </div>
