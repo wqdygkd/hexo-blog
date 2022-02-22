@@ -1,34 +1,22 @@
 ---
-title: ES6（ECMAScript）
+title: 常用js —— es6
 tags:
   - es6
   - js
-id: '405'
+id: 405
 categories:
   - 前端
 date: 2018-12-29
-updated: 2021-09-09
+updated: 2022-02-22
 ---
 
-# ES6（ECMAScript）
-
-ECMAScript 6.0（以下简称 ES6）是在 2015 年 6 月正式发布的标准。它的目标，是使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语言
-
-[ECMAScript 6 入门 阮一峰](http://es6.ruanyifeng.com/)
-
 ## let 与 const
-
-> ES6 中提供了两个声明变量的关键字：const 和 let
-
-参考链接
 
 [[知乎]我用了两个月的时间才理解 let](https://zhuanlan.zhihu.com/p/28140450)
 
 [[MDN]变量提升](https://developer.mozilla.org/zh-CN/docs/Glossary/Hoisting)
 
 ### let 的使用
-
-ES6 新增了`let`命令，用来声明变量。它的用法类似于`var`
 
 - let 声明的变量只有在当前作用域(块作用域)有效
 
@@ -45,33 +33,15 @@ console.log(b) // ReferenceError: b is not defined
 - 不允许重复声明
 
 ```js
-let a = 1
+var a = 1
 let a = 2 // SyntaxError: Identifier 'a' has already been declared
-```
-
-谷歌浏览器控制台对重复声明已经不报错了，估计是为了方面调试
-
-```txt
-> let a = 1
-< undefined
-> let a = 2
-< undefined
-> const a = 3
-x VM331:1 Uncaught SyntaxError: Identifier 'a' has already been declared
-> const b = 1
-< undefined
-> const b = 2
-< undefined
-> let b = 3
-x VM378:1 Uncaught SyntaxError: Identifier 'b' has already been declared
+let b = 3
+const b = 4 // SyntaxError: Identifier 'b' has already been declared
 ```
 
 - <span class="red">使用 let 声明的全局变量，不会成为 window 的属性</span>
 
 ```js
-var c = 1
-console.log(window.c) // 1
-console.log(c) // 1
 let c = 1
 console.log(window.c) // undefined
 console.log(c) // 1
@@ -107,7 +77,7 @@ a = 1; let a  // Uncaught ReferenceError: Cannot access 'a' before initializatio
 
 ### const 的使用
 
-`const`声明一个常量。常量：代码执行的过程中，不可以修改常量里面的值
+`const` 声明一个常量。常量：代码执行的过程中，不可以修改常量里面的值
 
 - const 声明的量不可以改变
 
@@ -133,46 +103,23 @@ obj = {} // TypeError: Assignment to constant variable
 
 - 其他用法和 let 一样
 
-## 模板字符串(模板字面量)
-
-模板字面量 是允许嵌入表达式的字符串字面量。你可以使用多行字符串和字符串插值功能
+## 模板字符串
 
 ```js
-// 1. 通过``可以定义一个字符串
+// 定义一个字符串
 let str = `hello world`
 
-// 2. 模板字符串内部允许换行
+// 内部允许换行
 let str = `
   hello
   world
 `
 
-// 3. 模板字符串内部可以使用表达式
-let str = `
-	你好，我是${name}
-`
+// 内部可以使用表达式
+let str = `你好，我是${name}`
 ```
 
 ## 箭头函数
-
-ES6 标准新增了一种新的函数：Arrow Function（箭头函数），为什么叫 Arrow Function？因为它的定义用的就是一个箭头
-
-### 使用
-
-```js
-// 语法： (参数列表) => {函数体}
-let fn = (x, y) => {
-  console.log(x + y)
-}
-```
-
-相当于
-
-```js
-let fn = function(x, y) {
-  console.log(x + y)
-}
-```
 
 ### 特点
 
