@@ -10,79 +10,10 @@ categories:
 date: 2019-01-08 22:21:49
 ---
 
-- Promise 是`异步编程`的一种解决方案，它允许你以一种同步的方式编写异步代码
-- `promise`：承诺、保证
-- [ES6 - Promise](http://es6.ruanyifeng.com/#docs/promise)
-- JS 是通过回调函数来实现异步编程的，当异步操作多了以后，就会产生回调嵌套回调的问题，这就是`回调地狱`
-- Promise 方式：将异步操作以同步操作的方式表达出来，避免了层层嵌套的回调函数
-- Promise 新建后立即执行
-
-## 封装一个 Promise
-
-```js
-// 按序读取文件：a -> b -> c
-// 按顺序读取 a b c 文件
-// 以前
-// 读取 a 文件
-fs.readFile('./a', (err, data) => {
-  if (err) return console.log('读取错误')
-  console.log(data.toString())
-
-  // 读取 b 文件
-  fs.readFile('./b', (err, data) => {
-    if (err) return console.log('读取错误')
-    console.log(data.toString())
-
-    // 读取 c 文件
-    fs.readFile('./a', (err, data) => {
-      if (err) return console.log('读取错误')
-      console.log(data.toString())
-    })
-  })
-})
-
-// 使用 Promise
-// 封装
-// Promise 是一个构造函数
-// 通过 new 创建 Promise 的实例对象
-function readFile(path) {
-  // 实例化 Promise
-  const p = new Promise((resolve, reject) => {
-    // resolve 表示成功，异步操作成功调用
-    // reject  表示失败，异步操作失败调用
-    fs.readFile(path, (err, data) => {
-      // 读取错误，调用 reject()
-      if (err) return reject(err)
-
-      // 读取成功 调用 resolve
-      resolve(data.toString())
-    })
-  })
-
-  // 返回 Promise 对象
-  return p
-}
-// 使用
-readFile('a')
-  .then((res) => {
-    console.log(res)
-    return readFile('a')
-  })
-  .then((res) => {
-    console.log(res)
-    return readFile('b')
-  })
-  .then((res) => {
-    console.log(res)
-  })
-```
-
 ## promise 的三个状态
 
 - pending : 等待 (等待成功或者失败去调用)
-
 - fulfilled : 成功调用(resolve)
-
 - rejected : 失败调用(reject)
 
 ## then、catch 和 finally
@@ -90,23 +21,16 @@ readFile('a')
 - 说明：获取异步操作的结果
 - `then()` ：用于获取异步操作成功时的结果 -> `resolve`
 - `catch()`：用于获取异步操作失败时的结果 -> `reject`
-- `finally()`：方法用于指定不管 Promise 对象最后状态如何，都会执行的操作，finally方法的回调函数不接受任何参数
-- 说明：`then()`方法可以有多个，按照先后顺序执行，通过回调函数返回值传递数据给下一个 then
+- `finally()`：不管 Promise 最后状态如何，都会执行的操作，finally方法的回调函数不接受任何参数
+- `then()`方法可以有多个，按照先后顺序执行，通过回调函数返回值传递数据给下一个 then
 
 ```js
 p
-  // onfullfilled 执行
-  .then((value) => {
-    console.log('文件a的内容为：', value)
-  })
-  // onrejected 执行
-  .catch((err) => {
-    console.log('文件读取失败：', err)
-  })
+  .then((value) => { }) // onfullfilled 执行
+  .catch((err) => {}) // onrejected 执行
 
 // ----------- 或者 -----------
-// then 中传两个参数
-// then方法的第一个参数是resolved状态的回调函数，第二个参数（可选）是rejected状态的回调函数
+// then 中传两个参数：第一个参数是resolved状态的回调函数，第二个参数（可选）是rejected状态的回调函数
 p.then(
   // onfullfilled 执行
   (value) => { },
@@ -144,7 +68,7 @@ Promise.all([p1, p2]).then(res => {
   console.log(res) // ['成功1', '成功2']
 })
 
-// 只要有一个请求被 reject，就会进入 catch 回调
+// 等待所有请求完成，只要有一个请求被 reject，就会进入 catch 回调
 Promise.all([p1, p2, p3]).then(res => {
   console.log(res)
 }).catch(error => {
