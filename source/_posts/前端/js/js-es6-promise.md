@@ -16,13 +16,45 @@ date: 2019-01-08 22:21:49
 - fulfilled : 成功调用(resolve)
 - rejected : 失败调用(reject)
 
-## then、catch 和 finally
+## Promise.prototype 成员
 
-- 说明：获取异步操作的结果
 - `then()` ：用于获取异步操作成功时的结果 -> `resolve`
 - `catch()`：用于获取异步操作失败时的结果 -> `reject`
 - `finally()`：不管 Promise 最后状态如何，都会执行的操作，finally方法的回调函数不接受任何参数
-- `then()`方法可以有多个，按照先后顺序执行，通过回调函数返回值传递数据给下一个 then
+
+```js
+promise.then(successCallback, failureCallback)
+promise.catch(failureCallback)
+```
+
+catch(failureCallback) 是 then(null, failureCallback) 的缩略形式
+
+链式调用
+
+回调函数的返回值会传递数据给下一个 then
+```js
+doSomething()
+.then(result => doSomethingElse(result))
+.then(newResult => doThirdThing(newResult))
+.then(finalResult => console.log(`Got the final result: ${finalResult}`))
+.catch(failureCallback);
+```
+
+错误传递
+遇到异常抛出，浏览器就会顺着 Promise 链寻找下一个 onRejected 失败回调函数或者由 .catch() 指定的回调函数
+
+这和以下同步代码的工作原理（执行过程）非常相似。
+async function foo() {
+  try {
+    const result = await doSomething();
+    const newResult = await doSomethingElse(result);
+    const finalResult = await doThirdThing(newResult);
+    console.log(`Got the final result: ${finalResult}`);
+  } catch(error) {
+    failureCallback(error);
+  }
+}
+
 
 ```js
 p
@@ -44,56 +76,9 @@ p.then(
 [MDN-Promise.all()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)
 [MDN-Promise.race()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/race)
 
-```js
-let p1 = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    resolve('成功1')
-  },500)
-})
+Promise.all()：resolve回调执行是在所有输入的promise的resolve回调都结束，或者输入的iterable里没有promise了的时候。reject回调执行是，只要任何一个输入的promise的reject回调执行或者输入不合法的promise就会立即抛出错误，并且reject的是第一个抛出的错误信息
 
-let p2 = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    resolve('成功2')
-  },1500)
-})
-
-let p3 = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    reject('失败')
-  }, 1000)
-})
-
-// 等待 p1，p2 请求完成
-Promise.all([p1, p2]).then(res => {
-  console.log(res) // ['成功1', '成功2']
-})
-
-// 等待所有请求完成，只要有一个请求被 reject，就会进入 catch 回调
-Promise.all([p1, p2, p3]).then(res => {
-  console.log(res)
-}).catch(error => {
-  console.log(error) // '失败'
-})
-
-// 始终返回最快的那一个异步，不管resolve还是reject
-Promise.race([p1, p2]).then((res) => {
-  console.log(res) // '成功1'
-}, (error) => {
-  console.log(error)
-})
-
-Promise.race([p1, p3]).then((res) => {
-  console.log(res) // '成功1'
-}, (error) => {
-  console.log(error)
-})
-
-Promise.race([p2, p3]).then((result) => {
-  console.log(res)
-}, (error) => {
-  console.log(error) // '失败'
-})
-```
+Promise.race()：始终返回最快的那一个promise，不管resolve还是reject
 
 ## async 和 await
 
@@ -196,26 +181,13 @@ p2.then((res) => {
 实际开发中，经常遇到一种情况：不知道或者不想区分，函数f是同步函数还是异步操作，但是想用 Promise 来处理它。因为这样就可以不管f是否包含异步操作，都用then方法指定下一步流程，用catch方法处理f抛出的错误。
 
 ```js
-Promise.resolve().then(f)
-```
-
-上面的写法有一个缺点，就是如果f是同步函数，那么它会在本轮事件循环的末尾执行。
-
-```js
 const f = () => console.log('now')
 Promise.resolve().then(f)
 console.log('next')
 // next
 // now
 ```
-
-用async函数
-
-```js
-(async () => f())()
-.then(...)
-.catch(...)
-```
+上面的写法有一个缺点，就是如果f是同步函数，那么它会在本轮事件循环的末尾执行。
 
 Promise.try方法
 
