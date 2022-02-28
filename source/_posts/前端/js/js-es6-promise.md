@@ -73,9 +73,6 @@ p.then(
 
 ## all 和 race
 
-[MDN-Promise.all()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)
-[MDN-Promise.race()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/race)
-
 Promise.all()：resolve回调执行是在所有输入的promise的resolve回调都结束，或者输入的iterable里没有promise了的时候。reject回调执行是，只要任何一个输入的promise的reject回调执行或者输入不合法的promise就会立即抛出错误，并且reject的是第一个抛出的错误信息
 
 Promise.race()：始终返回最快的那一个promise，不管resolve还是reject
@@ -201,3 +198,6 @@ console.log('next')
 
 
 ## new Promise 和 Promise.resolve()
+
+
+https://juejin.cn/post/6945319439772434469#heading-4
