@@ -175,7 +175,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">158</span>
+          <span class="site-state-item-count">157</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -185,7 +185,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">82</span>
+        <span class="site-state-item-count">81</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1855,707 +1855,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1658.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/1658.html" class="post-title-link" itemprop="url">Web Api</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2018-09-20" itemprop="dateCreated datePublished" datetime="2018-09-20T14:38:17+00:00">2018-09-20</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Web-Api-基本概念"><a href="#Web-Api-基本概念" class="headerlink" title="Web Api 基本概念"></a>Web Api 基本概念</h1><p><strong>API</strong>（Application Programming Interface,应用程序编程接口）</p>
-<p><strong>API 是一些预先定义的方法，这些方法能够实现某些特定的功能</strong></p>
-<ul>
-<li>任何开发语言都会提供自己的 API</li>
-<li>API 的特征输入和输出(参数&#x2F;返回值)</li>
-</ul>
-<p>通俗的讲，API 就是编程语言给我提供的一些 <code>工具</code>，通过这些<code>工具</code>，我们可以非常轻易的完成一些功能。</p>
-<p><strong>Web API</strong> : 是浏览器提供的 <strong>一套操作网页(web)的方法(API)</strong>, 通过这套 API 我们可以非常轻松的操作<code>页面的元素</code>和<code>浏览器的一些功能</code></p>
-<p>**ECMAScript - JavaScript 的核心 **</p>
-<ul>
-<li>ECMAScript 是一套标准, 规范了语言的基本语法和数据类型</li>
-<li>与具体实现无关</li>
-</ul>
-<p><strong>DOM</strong> - 文档对象模型</p>
-<ul>
-<li>一套操作页面元素的 API</li>
-<li>通过 DOM 提供的 API 可以获取&#x2F;操作网页上的元素</li>
-</ul>
-<p><strong>BOM - 浏览器对象模型</strong></p>
-<ul>
-<li>一套操作浏览器功能的 API</li>
-<li>通过 BOM 可以操作浏览器窗口, 比如刷新、控制浏览器跳转等</li>
-</ul>
-<h1 id="DOM-文档对象模型"><a href="#DOM-文档对象模型" class="headerlink" title="DOM 文档对象模型"></a>DOM 文档对象模型</h1><h2 id="DOM-基本概念"><a href="#DOM-基本概念" class="headerlink" title="DOM 基本概念"></a>DOM 基本概念</h2><blockquote>
-<p>DOM ( Document Object Model ) 文档对象模型，是<code>W3C组织</code>推荐的一套操作网页元素的 API</p>
-</blockquote>
-<p>DOM 又称为文档树模型，因为整个 HTML 文档是一个树形的结构</p>
-<p><strong>DOM 中常见的概念</strong> :</p>
-<ul>
-<li><p><strong>文档 <code>document</code></strong> : 一个网页可以称为文档；（换句话说：操作页面，其实就是操作 document）</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">document</span>)</span><br><span class="line"><span class="comment">// DOM 会把整个网页当成一个对象，我们操作这个网页，只要操作这个document对象</span></span><br><span class="line"><span class="comment">// DOM 会把网页中的所有的东西都当作对象</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>节点<code>node</code></strong> : 网页中的所有内容都是节点 (标签、属性、文本)</p>
-</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">  ul: 标签节点 class=&quot;box&quot;: 属性节点</span><br><span class="line">  <span class="comment">&lt;!-- 这是一些测试 --&gt;</span></span><br><span class="line">  注释节点</span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>测试<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  测试:文本节点</span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>测试<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>测试<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>元素 <code>element</code></strong> : 网页中的<strong>标签节点</strong></li>
-</ul>
-<h2 id="获取元素的方法"><a href="#获取元素的方法" class="headerlink" title="获取元素的方法"></a>获取元素的方法</h2><ul>
-<li><strong>document.getElementById()</strong></li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 通过id 获取元素</span></span><br><span class="line"><span class="comment">// 参数 : 字符串类型的id</span></span><br><span class="line"><span class="comment">// 返回值 : 一个元素（dom对象）</span></span><br><span class="line"><span class="keyword">var</span> div = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;div&#x27;</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">dir</span>(div) <span class="comment">// 以对象的形式显示</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(div) <span class="comment">// 以内容的形式显示</span></span><br></pre></td></tr></table></figure>
-
-<p>​ <strong>关于<code>console.log()</code>和<code>console.dir()</code>的区别</strong></p>
-<p>​ <code>console.log()</code> ：打印一个元素的时候，是以标签的形式进行展示的</p>
-<p>​ <code>console.dir()</code> ：打印一个元素的时候，是以对象的形式进行展示的</p>
-<ul>
-<li><strong>getElementsByClassName()</strong></li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 通过类名获取元素</span></span><br><span class="line"><span class="comment">// 参数：字符串类型的类名</span></span><br><span class="line"><span class="comment">// 返回值：伪数组</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">getElementsByClassName</span>(<span class="string">&#x27;class&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>getElementsByTagName()</strong></li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 通过标签名获取元素</span></span><br><span class="line"><span class="comment">// 参数：标签名字符串</span></span><br><span class="line"><span class="comment">// 返回值：伪数组</span></span><br><span class="line"><span class="keyword">var</span> ps = <span class="variable language_">document</span>.<span class="title function_">getElementsByTagName</span>(<span class="string">&#x27;p&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>getElementsByName()</strong></li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 通过name属性值获取元素</span></span><br><span class="line"><span class="comment">// 参数 : name值</span></span><br><span class="line"><span class="comment">// 返回值 : 伪数组</span></span><br><span class="line"><span class="keyword">var</span> ps = <span class="variable language_">document</span>.<span class="title function_">getElementsByName</span>(<span class="string">&#x27;aa&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>querySelector()</strong></li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 根据css选择器获取元素 (重点)</span></span><br><span class="line"><span class="comment">// 参数：是一个css选择器</span></span><br><span class="line"><span class="comment">// 返回值：只会返回一个对象，如果有很多个，会返回第一个</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#box&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>querySelectorAll()</strong></li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 根据css选择器获取元素 (重点)</span></span><br><span class="line"><span class="comment">// 参数：是一个css选择器</span></span><br><span class="line"><span class="comment">// 返回值：伪数组</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;.box&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p><strong>注意事项</strong></p>
-<ul>
-<li><p><code>getElementById()</code> 只能由 <code>document</code> 调用，如果通过其他元素调用会报错，其他方法可由已经获取到的 dom 对象调用</p>
-</li>
-<li><p><code>querySelector</code>和 <code>getElementById</code>如果获取不到元素会返回 null；<code>getElementsByClassName</code> 、<code>getElementsByTagName</code> 、<code>getElementsByName</code> 、<code>querySelectorAll</code> 如果没有获取到元素也会返回一个伪数组，只不过伪数组长度为 0</p>
-</li>
-<li><p>伪数组不是数组，不能使用属性的方法，但是可以跟数组一样进行遍历和使用下标进行操作；伪数组不能直接注册事件，需要遍历后拿到标签再注册事件</p>
-</li>
-<li><p>在 DOM 中, 获取元素操作需要写在 html 内容的后面，保证页面加载完成之后才能获取到内容</p>
-</li>
-</ul>
-<h2 id="事件学习"><a href="#事件学习" class="headerlink" title="事件学习"></a>事件学习</h2><h3 id="认识事件"><a href="#认识事件" class="headerlink" title="认识事件"></a>认识事件</h3><blockquote>
-<p>事件：理解为浏览器的感知系统 , 触发 –&gt; 响应机制，javascript 是基于事件驱动的</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 点击事件</span></span><br><span class="line"><span class="comment">// 结构 : 事件源.onclick = function () &#123;..&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>事件三要素 : 事件源 + 事件名称 + 事件处理函数</p>
-<ul>
-<li>事件源 : 给谁注册事件 ( 按钮 btn )</li>
-<li>事件名称 : 注册了什么事件 ( click 事件 )</li>
-<li>事件处理函数 : 事件触发后要执行的代码(函数形式)</li>
-</ul>
-<p>注意：事件处理函数并不会立马执行，而是当事件触发的时候才会执行（浏览器会自动调用）</p>
-<p>注册事件的基本语法 :</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> box = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;box&#x27;</span>)</span><br><span class="line"><span class="comment">//on:当  click:点击   当按钮被点击的时候触发</span></span><br><span class="line">box.<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;代码会在box被点击后执行&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>两种按钮</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span>&gt;</span>点亮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;哈&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">都是可点击的普通按钮，一个是文字显示在标签内容里, 而且还可以放其他标签，一个是文字显示在vaue中</span><br></pre></td></tr></table></figure>
-
-<h3 id="焦点事件"><a href="#焦点事件" class="headerlink" title="焦点事件"></a>焦点事件</h3><ul>
-<li><code>focus</code> : 获得焦点</li>
-<li><code>blur</code> : 失去焦点</li>
-</ul>
-<h3 id="鼠标事件"><a href="#鼠标事件" class="headerlink" title="鼠标事件"></a>鼠标事件</h3><ul>
-<li><code>click</code> : 单击</li>
-<li><code>dblclick</code> ：双击</li>
-<li><code>mouseover/mouseout</code> : 进入&#x2F;离开元素</li>
-<li><code>mouseenter/mouseleave</code> : 进入&#x2F;离开元素</li>
-<li><code>mousedown</code> ：按下</li>
-<li><code>mouseup</code> ：抬起&#x2F;释放</li>
-<li><code>mousemove</code> ：移动</li>
-</ul>
-<h3 id="键盘事件"><a href="#键盘事件" class="headerlink" title="键盘事件"></a>键盘事件</h3><ul>
-<li><code>keydown/keypress</code> ：按下</li>
-<li><code>keyup</code>： 释放</li>
-</ul>
-<h3 id="事件中的-this"><a href="#事件中的-this" class="headerlink" title="事件中的 this"></a>事件中的 this</h3><blockquote>
-<p>this 指向注册事件的事件源</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> btn = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;btn&#x27;</span>)</span><br><span class="line">btn.<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">// 给 btn 注册的事件，因此 this 表示 btn</span></span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">value</span> = <span class="string">&#x27;哈哈&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>练习：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 1. 给多个按钮注册点击事件，点击的那个变成红色 --&gt;</span></span><br><span class="line">.red &#123; background: red &#125;</span><br><span class="line"><span class="tag">&lt;<span class="name">button</span>&gt;</span>1<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span>&gt;</span>2<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// 给多个按钮注册点击事件，点击的那个变成红色，其他的恢复默认</span></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">var</span> btns = <span class="variable language_">document</span>.<span class="title function_">getElementsByTagName</span>(<span class="string">&#x27;button&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; btns.<span class="property">length</span>; i++) &#123;</span></span><br><span class="line"><span class="language-javascript">    btns[i].<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="comment">// console.log(i) // 点击按钮时打印 2</span></span></span><br><span class="line"><span class="language-javascript">      <span class="comment">// btns[i].className = &#x27;red&#x27; // 此时 i = 2，报错</span></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; btns.<span class="property">length</span>; i++) &#123;</span></span><br><span class="line"><span class="language-javascript">        btns[i].<span class="property">className</span> = <span class="string">&#x27;&#x27;</span> <span class="comment">// 恢复默认样式 ，排他思想</span></span></span><br><span class="line"><span class="language-javascript">      &#125;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">className</span> = <span class="string">&#x27;red&#x27;</span> <span class="comment">// 给自己添加样式</span></span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">// 2. 点击按钮，显示对应的图片 1-6</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;第一张&quot;</span> <span class="attr">title</span>=<span class="string">&quot;1&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">id</span>=<span class="string">&quot;img&quot;</span> <span class="attr">src</span>=<span class="string">&quot;images/1.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="阻止浏览器默认行为"><a href="#阻止浏览器默认行为" class="headerlink" title="阻止浏览器默认行为"></a>阻止浏览器默认行为</h2><blockquote>
-<p>对于 a 标签来说，默认的行为就是进行页面跳转，如果不想让 a 标签进行跳转，可以在注册事件中使用<code>return false</code></p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">id</span>=<span class="string">&quot;link&quot;</span> <span class="attr">href</span>=<span class="string">&quot;http://www.baidu.com&quot;</span>&gt;</span>这是a<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">var</span> link = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;link&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">  link.<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">alert</span>(<span class="string">&#x27;呵呵&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 阻止页面跳转</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">return</span> <span class="literal">false</span></span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>e.preventDefault() 只会阻止浏览器的默认行为，并不会停止函数执行</li>
-<li>return false 后的代码不在执行</li>
-<li>在 jQuery 中，<code>return false</code>在调用时会执行 3 个单独的操作：</li>
-<li><code>event.preventDefault()</code></li>
-<li><code>event.stopPropagation()</code></li>
-<li>停止回调执行并在调用时立即返回</li>
-</ol>
-<h2 id="属性操作"><a href="#属性操作" class="headerlink" title="属性操作"></a>属性操作</h2><ul>
-<li>在 DOM 中，页面标签的属性和 DOM 对象的属性是一一对应的，因此我们可以通过修改 DOM 对象的属性来修改标签的属性</li>
-</ul>
-<h3 id="普通标签属性"><a href="#普通标签属性" class="headerlink" title="普通标签属性"></a>普通标签属性</h3><ul>
-<li><p>常见的属性有：src、title、src、href、class、id 等</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 在 js 中 class 是关键字，因此对应的是 className 属性</span></span><br><span class="line">div.<span class="property">className</span> = <span class="string">&#x27;hg&#x27;</span> <span class="comment">// 修改类名会把原类名直接覆盖掉</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="表单属性操作"><a href="#表单属性操作" class="headerlink" title="表单属性操作"></a>表单属性操作</h3><ul>
-<li>常见的表单属性有：disabled、type、value、checked、selected</li>
-<li>对于 disabled、checked、selected 三个属性来说，比较特殊。在 DOM 对象中，这些属性是一个布尔类型的属性，值只有 true 或者 false</li>
-</ul>
-<p>!&gt; reset() 方法可把表单中的元素重置为它们的默认值</p>
-<p>【案例：禁用文本框】</p>
-<p>【案例：随机下拉框选中】</p>
-<p>【案例：表格全选案例】</p>
-<h3 id="标签的自定义属性"><a href="#标签的自定义属性" class="headerlink" title="标签的自定义属性"></a>标签的自定义属性</h3><blockquote>
-<p>我们之前讨论的属性，都是 HTML 规范中，标签本来就有的属性，对于标签自定义的一些属性，比较特殊</p>
-</blockquote>
-<p>在 html 页面中，定义一个自定义属性</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;box&quot;</span> <span class="attr">aa</span>=<span class="string">&quot;bb&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>在对应的 DOM 对象中是不存在的，在 DOM 对象中只会存在固定的那些属性</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> box = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;box&#x27;</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(box.<span class="property">aa</span>) <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>attribute 方法</strong></p>
-<blockquote>
-<p>attribute 系列方法用于设置标签的属性，不管是自定义的还是固有的属性</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 获取标签的属性</span></span><br><span class="line">box.<span class="title function_">getAttribute</span>(属性名)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置标签的属性</span></span><br><span class="line">box.<span class="title function_">setAttribute</span>(属性名, 属性值)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 移除标签的属性</span></span><br><span class="line">box.<span class="title function_">removeAttribute</span>(属性名)</span><br></pre></td></tr></table></figure>
-
-<p>区别 :</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// &lt;div a=&quot;1&quot; id=&quot;box&quot;&gt;&lt;/div&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. 直接给标签里只能添加固有的属性 title 等 标签+对象里都有显示</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 给标签添加自定义属性--标签上显示</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(box.<span class="property">a</span>) <span class="comment">// undefined =&gt; 对象中不显示</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(box.<span class="title function_">getAttribute</span>(<span class="string">&#x27;a&#x27;</span>)) <span class="comment">// 1 =&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 给对象添加自定义属性 -- 标签中不显示</span></span><br><span class="line">box.<span class="property">b</span> = <span class="number">2</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(box.<span class="property">b</span>) <span class="comment">// 2 =&gt; 对象中显示</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(box.<span class="title function_">getAttribute</span>(<span class="string">&#x27;b&#x27;</span>)) <span class="comment">// null</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. Attribute方法</span></span><br><span class="line">box.<span class="title function_">setAttribute</span>(<span class="string">&#x27;c&#x27;</span>, <span class="number">3</span>) <span class="comment">// 标签中显示</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">dir</span>(box)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(box.<span class="property">c</span>) <span class="comment">// undefined =&gt;对象中不显示</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(box.<span class="title function_">getAttribute</span>(<span class="string">&#x27;c&#x27;</span>)) <span class="comment">// 3</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(box.<span class="property">attributes</span>) <span class="comment">// &#123;0: a, 1: id, 2: c, a: a, id: id, c: c, length: 3&#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(box.<span class="property">attributes</span>.<span class="property">c</span>) <span class="comment">// c=&#x27;3&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="tab-栏案例-重点"><a href="#tab-栏案例-重点" class="headerlink" title="tab 栏案例 (重点)"></a>tab 栏案例 (重点)</h3><p><strong>[案例：获取当前元素的索引]</strong></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 方式1：</span></span><br><span class="line"><span class="comment">// 存</span></span><br><span class="line">btns[i].<span class="title function_">setAttribute</span>(<span class="string">&#x27;index&#x27;</span>, i)</span><br><span class="line"><span class="comment">// 取</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="title function_">getAttribute</span>(<span class="string">&#x27;index&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方式2：</span></span><br><span class="line"><span class="comment">// 存</span></span><br><span class="line">btns[i].<span class="property">index</span> = i</span><br><span class="line"><span class="comment">// 取</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">index</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 区别在于: 第一个显示在标签内  第二个不显示在标签内 推荐第二种</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>【案例：tab 栏切换】</strong></p>
-<h2 id="标签的内容属性"><a href="#标签的内容属性" class="headerlink" title="标签的内容属性"></a>标签的内容属性</h2><h3 id="innerText-和-innerHTML"><a href="#innerText-和-innerHTML" class="headerlink" title="innerText 和 innerHTML"></a>innerText 和 innerHTML</h3><ul>
-<li>共同点 : 都是用来获取和设置标签的内容的</li>
-<li>区别：<ul>
-<li>innerHTML 能够识别标签，标签能够生效</li>
-<li>innerText 只识别文本，标签会被转义</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> div = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;div&#x27;</span>)</span><br><span class="line"><span class="comment">// 获取内容</span></span><br><span class="line"><span class="comment">// 获取标签内容的时候，只会获取文本，标签扔掉了</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(div.<span class="property">innerText</span>) <span class="comment">// 哈哈</span></span><br><span class="line"><span class="comment">// 获取标签内容的时候，不管标签还是文本，都能获取到</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(div.<span class="property">innerHTML</span>) <span class="comment">// &lt;h1&gt;哈哈&lt;/h1&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置内容</span></span><br><span class="line"><span class="comment">// 设置标签内容的时候，覆盖原来内容，对标签进行转义</span></span><br><span class="line">div.<span class="property">innerText</span> = <span class="string">&#x27;&lt;h1&gt;嘿嘿&lt;/h1&gt;&#x27;</span></span><br><span class="line"><span class="comment">// 设置内容的时候，覆盖原来内容，标签也能生效，浏览器能解析这个标签</span></span><br><span class="line">div.<span class="property">innerHTML</span> = <span class="string">&#x27;&lt;h1&gt;嘿嘿&lt;/h1&gt;&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>浏览器兼容性：指网页在各种浏览器上的显示效果不一致。或者是一些属性和方法在低版本的浏览器中不支持</p>
-</blockquote>
-<ul>
-<li>innerText 是 IE 提出来的属性，因此低版本的火狐浏览器不支持这个属性。</li>
-<li>火狐有一个 textContent 属性，效果跟 innerText 一样，但是 IE678 不支持这个属性</li>
-</ul>
-<p>书写 innerText 的兼容性代码</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">getInnerText</span>(<span class="params">element</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> element.<span class="property">innerText</span> === <span class="string">&#x27;string&#x27;</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> element.<span class="property">innerText</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> element.<span class="property">textContent</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="行内样式操作（style-属性）"><a href="#行内样式操作（style-属性）" class="headerlink" title="行内样式操作（style 属性）"></a>行内样式操作（style 属性）</h2><blockquote>
-<p>标签不仅可以通过 class 属性操作样式 (嵌套样式)，还可以通过 style 属性操作样式 (行内样式)。</p>
-<p>同样的 DOM 对象可以通过 className 操作样式 (嵌套样式)，也可以通过 style 属性操作样 (行内样式)。</p>
-<p>css : 嵌套样式 &#x3D;&gt; js : 类名 div.className &#x3D; ‘red’</p>
-<p>css : 行内样式 &#x3D;&gt; js : style 对象 div.style.color &#x3D; ‘red’</p>
-</blockquote>
-<h3 id="样式属性"><a href="#样式属性" class="headerlink" title="样式属性"></a>样式属性</h3><ul>
-<li>style 属性是一个对象，里面存储了所有行内样式的键值对</li>
-<li>style 属性只能获取和设置<strong>行内样式</strong>，嵌套样式通过 style 获取不到</li>
-<li>如果样式的名字带 <code>-</code> ，比如 background-color ，在 style 对象中使用 backgroundColor &#x3D;&gt; （因为 <code>-</code> 在 js 中不是一个合法的标识符）</li>
-<li>style 设置的样式是行内样式，优先级要高于通过 className 设置的样式</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;color:red;background-color:blue;&quot;</span>&gt;</span>哈哈<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> div = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;div&#x27;</span>)</span><br><span class="line"><span class="comment">// 获取样式</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(div.<span class="property">style</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(div.<span class="property">style</span>.<span class="property">color</span>) <span class="comment">// red</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置样式</span></span><br><span class="line">div.<span class="property">style</span>.<span class="property">width</span> = <span class="string">&#x27;200px&#x27;</span></span><br><span class="line">div.<span class="property">style</span>.<span class="property">height</span> = <span class="string">&#x27;200px&#x27;</span></span><br><span class="line">div.<span class="property">style</span>.<span class="property">fontSize</span> = <span class="string">&#x27;100px&#x27;</span></span><br><span class="line">div.<span class="property">className</span> = <span class="string">&#x27;box&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><strong>getComputedStyle 获取元素计算后的样式</strong></p>
-<p>语法： <code>window.getComputedStyle( 获取的元素， 伪类)</code></p>
-<p>​ 伪类 &#x3D;&#x3D;&gt; ::after ::before，如果写上了伪类，表示要获取元素的伪类的样式，如果不需要获取的话，该参数写 null</p>
-<p>​ 返回值： 返回一个样式对象</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> div = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;div&#x27;</span>)</span><br><span class="line"><span class="comment">// 获取元素自身的</span></span><br><span class="line"><span class="keyword">var</span> ret = <span class="variable language_">window</span>.<span class="title function_">getComputedStyle</span>(div, <span class="literal">null</span>).<span class="property">fontSize</span></span><br><span class="line"><span class="keyword">var</span> ret1 = <span class="variable language_">window</span>.<span class="title function_">getComputedStyle</span>(div, <span class="literal">null</span>).<span class="property">backgroundColor</span></span><br><span class="line"><span class="comment">// 推荐：对于复合样式，需要获取什么样式，写具体的样式名，这样能更好的兼容更多浏览器</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取伪类的</span></span><br><span class="line"><span class="keyword">var</span> ret2 = <span class="variable language_">window</span>.<span class="title function_">getComputedStyle</span>(div, <span class="string">&#x27;::after&#x27;</span>).<span class="property">width</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-<h3 id="关于-body-的样式操作"><a href="#关于-body-的样式操作" class="headerlink" title="关于 body 的样式操作"></a>关于 body 的样式操作</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> bd = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;body&#x27;</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(bd) <span class="comment">// 通过 querySelector 获取 body 元素</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">document</span>.<span class="property">body</span>) <span class="comment">// 直接获取 body 元素</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">document</span>.<span class="property">documentElement</span> <span class="comment">// 可以获取 html 元素</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="property">head</span> <span class="comment">// 直接获取 head 元素</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="property">title</span> <span class="comment">// 获取的是 title 中的文本</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>【案例：开关灯案例】</strong></p>
-<p><strong>【案例：随机背景颜色案例】</strong></p>
-<p><strong>【案例：百度换肤】</strong></p>
-<h3 id="关于-cssText-了解"><a href="#关于-cssText-了解" class="headerlink" title="关于 cssText (了解)"></a>关于 cssText (了解)</h3><blockquote>
-<p>使用 cssText 可以设置 style 的属性值</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;width: 100px; height: 100px&quot;</span>&gt;</span>哈哈哈<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// 优点：可以一次性设置多个值</span></span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// 缺点：会覆盖整个style属性且不利于阅读</span></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">var</span> div = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;div&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">  div.<span class="property">style</span>.<span class="property">cssText</span> = <span class="string">&#x27;background:red;color:yellow&#x27;</span></span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="节点操作-超级重要"><a href="#节点操作-超级重要" class="headerlink" title="节点操作 (超级重要)"></a>节点操作 (超级重要)</h2><h3 id="节点属性-了解"><a href="#节点属性-了解" class="headerlink" title="节点属性 (了解)"></a>节点属性 (了解)</h3><p><strong>节点分类：</strong></p>
-<p>​ 元素节点、文本节点、属性节点、注释节点</p>
-<p><strong>节点常用的属性</strong></p>
-<ul>
-<li><p>childNodes : 获取所有的子节点</p>
-</li>
-<li><p><strong>nodeType</strong>:  节点类型：元素节点 &#x3D; 1 属性-2(过时) 注释-8 文本-3</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL05vZGUvbm9kZVR5cGU=">nodeType 链接-MDN</span></p>
-</li>
-<li><p><strong>nodeName</strong>: 节点名称</p>
-</li>
-<li><p><strong>nodeValue</strong>: 节点值</p>
-</li>
-</ul>
-<h3 id="节点查找-重点"><a href="#节点查找-重点" class="headerlink" title="节点查找 (重点)"></a>节点查找 (重点)</h3><h4 id="孩子节点"><a href="#孩子节点" class="headerlink" title="孩子节点"></a>孩子节点</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 下面是li --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>导航1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>导航2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>导航3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>导航4<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">var</span> ul = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;ul&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// 获取ul所有的子节点（包括了元素节点和其他很多类型的节点，基本不常用）</span></span></span><br><span class="line"><span class="language-javascript">  <span class="variable language_">console</span>.<span class="title function_">log</span>(ul.<span class="property">childNodes</span>)</span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// 获取第一个子节点  (不常用)</span></span></span><br><span class="line"><span class="language-javascript">  <span class="variable language_">console</span>.<span class="title function_">log</span>(ul.<span class="property">firstChild</span>)</span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// 获取最后一个子节点  (不常用)</span></span></span><br><span class="line"><span class="language-javascript">  <span class="variable language_">console</span>.<span class="title function_">log</span>(ul.<span class="property">lastChild</span>)</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// 获取所有的子元素，兼容性：IE678会把注释节点算上</span></span></span><br><span class="line"><span class="language-javascript">  <span class="variable language_">console</span>.<span class="title function_">log</span>(ul.<span class="property">children</span>)</span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// 获取第一个子元素 有兼容性问题（IE678）</span></span></span><br><span class="line"><span class="language-javascript">  <span class="variable language_">console</span>.<span class="title function_">log</span>(ul.<span class="property">firstElementChild</span>)</span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// 获取最后一个子元素 有兼容性问题（IE678）</span></span></span><br><span class="line"><span class="language-javascript">  <span class="variable language_">console</span>.<span class="title function_">log</span>(ul.<span class="property">lastElementChild</span>)</span></span><br><span class="line"><span class="language-javascript">  <span class="comment">// 获取第n个子元素 有兼容性问题（IE678）</span></span></span><br><span class="line"><span class="language-javascript">  <span class="variable language_">console</span>.<span class="title function_">log</span>(ul.<span class="property">children</span>[n])</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="兄弟节点"><a href="#兄弟节点" class="headerlink" title="兄弟节点"></a>兄弟节点</h4><ul>
-<li><code>nextSibling</code> : 下一个兄弟节点 (基本不常用)</li>
-<li><code>nextElementSibling</code> : 下一个兄弟元素（IE678 不兼容）</li>
-<li><code>previousSibling</code> : 上一个兄弟节点 (基本不常用)</li>
-<li><code>previousElementSibling</code> : 上一个兄弟元素 有兼容性问题 可以封装一个兼容性方法</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>导航1<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;p&quot;</span>&gt;</span>导航2<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>导航3<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="keyword">var</span> p2 = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.p&#x27;</span>)</span></span><br><span class="line"><span class="language-javascript">  <span class="variable language_">console</span>.<span class="title function_">log</span>(p2)</span></span><br><span class="line"><span class="language-javascript">  <span class="variable language_">console</span>.<span class="title function_">log</span>(p2.<span class="property">nextSibling</span>)</span></span><br><span class="line"><span class="language-javascript">  <span class="variable language_">console</span>.<span class="title function_">log</span>(p2.<span class="property">nextElementSibling</span>)</span></span><br><span class="line"><span class="language-javascript">  <span class="variable language_">console</span>.<span class="title function_">log</span>(p2.<span class="property">previousSibling</span>)</span></span><br><span class="line"><span class="language-javascript">  <span class="variable language_">console</span>.<span class="title function_">log</span>(p2.<span class="property">previousElementSibling</span>)</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>【案例 1：表单校验】</strong></p>
-<h4 id="父亲节点"><a href="#父亲节点" class="headerlink" title="父亲节点"></a>父亲节点</h4><ul>
-<li><code>parentNode</code> : 父节点（没有兼容性问题）</li>
-<li><code>parentElement</code> : 父元素</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">div.parentNode // 获取父节点</span><br></pre></td></tr></table></figure>
-
-<h3 id="添加节点-重点"><a href="#添加节点-重点" class="headerlink" title="添加节点 (重点)"></a>添加节点 (重点)</h3><h4 id="appendChild"><a href="#appendChild" class="headerlink" title="appendChild()"></a>appendChild()</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 作用：在子元素的最后添加一个元素</span></span><br><span class="line"><span class="comment">// 语法：parent.appendChild(newChild)</span></span><br><span class="line"><span class="comment">// 父元素.appendChild(新子元素)</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><strong>注意</strong> : 如果 newChild 已经存在于 DOM 树中，则它会被从原始位置删除</p>
-</blockquote>
-<h3 id="insertBefore"><a href="#insertBefore" class="headerlink" title="insertBefore()"></a>insertBefore()</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 作用：在某个子元素之前添加一个元素</span></span><br><span class="line"><span class="comment">// 语法：parent.insertBefore(newChild, refChild)</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<ol>
-<li>必须要父节点来调用，newChild 为需要添加的那个节点，refChild 为添加到哪一个节点的前面</li>
-<li>没有 <code>insertAfter()</code></li>
-</ol>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 将元素添加到最后</span></span><br><span class="line">div.<span class="title function_">appendChild</span>(p) <span class="comment">// (常用)</span></span><br><span class="line">div.<span class="title function_">insertBefore</span>(p, <span class="literal">null</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将元素添加到 s1 之前(常用)</span></span><br><span class="line">div.<span class="title function_">insertBefore</span>(p, s1)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将元素添加到 s1 之后</span></span><br><span class="line"><span class="comment">// 没有 insertAfter</span></span><br><span class="line">div.<span class="title function_">insertBefore</span>(p, s1.<span class="property">nextElementSibling</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将元素添加到最前</span></span><br><span class="line">div.<span class="title function_">insertBefore</span>(p, div.<span class="property">children</span>[<span class="number">0</span>]) <span class="comment">// (常用)</span></span><br><span class="line">div.<span class="title function_">insertBefore</span>(p, div.<span class="property">firstElementChild</span>)</span><br></pre></td></tr></table></figure>
-
-<h3 id="克隆节点-重点"><a href="#克隆节点-重点" class="headerlink" title="克隆节点 (重点)"></a>克隆节点 (重点)</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 语法：var newNode = 节点.cloneNode([isDeep])</span></span><br><span class="line"><span class="comment">// isDeep参数：false / true</span></span><br><span class="line"><span class="comment">// false：默认值：是浅复制，只会复制标签节点本身，不会复制节点的孩子</span></span><br><span class="line"><span class="comment">// true:   深度复制，会复制标签，还会复制标签的所有内容</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<ol>
-<li>克隆出来的节点跟原来的节点没有关系了，修改了也不会相互影响</li>
-<li>如果克隆的节点带了 id，我们需要给 id 重新设置一个值，不让 id 冲突</li>
-</ol>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> newNode = div.<span class="title function_">cloneNode</span>(<span class="literal">true</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(newNode)</span><br></pre></td></tr></table></figure>
-
-<h3 id="创建节点-3-种方式-重点"><a href="#创建节点-3-种方式-重点" class="headerlink" title="创建节点(3 种方式) (重点)"></a>创建节点(3 种方式) (重点)</h3><h4 id="document-write（基本不用）"><a href="#document-write（基本不用）" class="headerlink" title="document.write（基本不用）"></a>document.write（基本不用）</h4><p>可以生成新的节点，但是不推荐使用。如果页面已经加载完成了，再用 document.write 写内容的话，会把之前的页面给覆盖掉</p>
-<blockquote>
-<p>原理：页面从上往下加载的时候，会开启一个文档流，当页面加载完，文档流就会关闭。document.write 的本意就是在文档流上写入内容。如果页面没加载完成，文档流还是开着的，document.write 直接在这个文档流上写东西，如果页面加载完成了，还是用 document.write 写东西，会重新开启一个新的文档流，往新的文档流上写东西，旧的文档流就被新的文档流覆盖了。</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="property">onload</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">document</span>.<span class="title function_">write</span>(<span class="string">&#x27;呵呵&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="innerHTML-偶尔用"><a href="#innerHTML-偶尔用" class="headerlink" title="innerHTML (偶尔用)"></a>innerHTML (偶尔用)</h4><p>innerHTML 也可以创建节点</p>
-<blockquote>
-<p>使用 innerHTML 创建节点时，如果原来有内容的话，会把原先的内容覆盖</p>
-<p>慎用：很容易出现效率问题</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">div.<span class="property">innerHTML</span> = <span class="string">&#x27;&lt;h1&gt;哈哈&lt;/h1&gt;&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="createElement-常用"><a href="#createElement-常用" class="headerlink" title="createElement (常用)"></a>createElement (常用)</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 语法：var element = document.createElement(&#x27;tagName&#x27;)</span></span><br><span class="line"><span class="comment">// 返回：一个元素</span></span><br><span class="line"><span class="comment">// 需要配合 appendChild 和 innerText 来使用</span></span><br><span class="line"><span class="keyword">var</span> div = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;div&#x27;</span>)</span><br><span class="line"><span class="keyword">var</span> h1 = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;h1&#x27;</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(h1)</span><br><span class="line">h1.<span class="property">style</span>.<span class="property">background</span> = <span class="string">&#x27;red&#x27;</span></span><br><span class="line">h1.<span class="property">innerText</span> = <span class="string">&#x27;哈&#x27;</span></span><br><span class="line">div.<span class="title function_">appendChild</span>(h1)</span><br></pre></td></tr></table></figure>
-
-<h3 id="删除节点-重点"><a href="#删除节点-重点" class="headerlink" title="删除节点 (重点)"></a>删除节点 (重点)</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 语法：parent.removeChild(child)</span></span><br><span class="line"><span class="comment">// 解析：父元素.removeChild(子元素)</span></span><br><span class="line"><span class="comment">// 功能：由父元素调用，删除里面的一个子元素</span></span><br><span class="line"></span><br><span class="line">div.<span class="title function_">removeChild</span>(p)</span><br><span class="line">p.<span class="property">parentNode</span>.<span class="title function_">removeChild</span>(p)</span><br></pre></td></tr></table></figure>
-
-<p><strong>【案例 : 节点操作-删除节点】</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span> 使用 children 和 <span class="title class_">TagName</span>  =&gt;  需要配合 i--</span><br><span class="line"><span class="comment">// 原因 :动态计算 , 每删除一个,都会重新分配一次下标</span></span><br><span class="line"><span class="number">2.</span> 使用 <span class="title function_">querySelectorAll</span>(<span class="string">&#x27;li&#x27;</span>) =&gt;  ok的</span><br><span class="line"><span class="comment">// 原因 : 静态计算</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>[案例 : 许愿墙案例]</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">功能<span class="number">1</span>: 克隆<span class="number">10</span>个tip, 并且随机分布</span><br><span class="line">功能<span class="number">2</span>: 点击提高层级</span><br><span class="line">功能<span class="number">3</span>: 点击x, 删除当前tip</span><br><span class="line">功能<span class="number">4</span>: 双击tip头部, 删除当前tip</span><br></pre></td></tr></table></figure>
-
-<h3 id="替换节点"><a href="#替换节点" class="headerlink" title="替换节点"></a>替换节点</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 语法：</span></span><br><span class="line"><span class="comment">// newChild 为用来替换 oldChild 的新节点</span></span><br><span class="line">parentNode.<span class="title function_">replaceChild</span>(newChild, oldChild)</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><strong>注意</strong> : 如果 newChild 已经存在于 DOM 树中，则它会被从原始位置删除</p>
-</blockquote>
-<h3 id="节点操作综合案例"><a href="#节点操作综合案例" class="headerlink" title="节点操作综合案例"></a>节点操作综合案例</h3><p>【动态生成表格】</p>
-<h1 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h1><blockquote>
-<p>BOM（Browser Object Model）：浏览器对象模型，提供了一套操作浏览器功能的工具</p>
-</blockquote>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102205413.png"></p>
-<p><strong>重点</strong> ：定时器、 offset 系列</p>
-<h2 id="window"><a href="#window" class="headerlink" title="window"></a><code>window</code></h2><ul>
-<li>window 对象是一个全局对象，也可以说是 JavaScript 中的顶级对象</li>
-<li>所有定义在全局作用域中的变量、函数都会变成 window 对象的属性和方法</li>
-<li>像 document、alert()、console.log() 这些都是 window 的属性，其实 BOM 中基本所有的属性和方法都是 window 的</li>
-<li>window 对象下的属性和方法调用的时候可以省略 window</li>
-</ul>
-<h3 id="onload（掌握）"><a href="#onload（掌握）" class="headerlink" title=".onload（掌握）"></a>.onload（掌握）</h3><blockquote>
-<p>window.onload 事件会在 <strong>窗体加载完成</strong> 后执行，通常我们称之为入口函数。</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="property">onload</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">//代码会在窗体加载完成后执行。</span></span><br><span class="line">  <span class="comment">//窗体加载完成 包括文档树(DOM html)的加载、还有图片、文件的加载完成。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>如果有图片加载，那么代码一定要写到 window.onload 里面，否则会出现图片没有加载完成，获取到的宽度和高度不对的情况。</p>
-<p>浏览器会对页面的加载做优化，在加载图片的时候，图片的引入会延迟。</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;img src=<span class="string">&quot;./01.png&quot;</span> alt=<span class="string">&quot;&quot;</span>&gt;</span><br><span class="line"><span class="variable language_">window</span>.<span class="property">onload</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> img = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;img&#x27;</span>)</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(img.<span class="property">width</span>)</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(img.<span class="property">height</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="open-与-close-了解"><a href="#open-与-close-了解" class="headerlink" title=".open() 与 .close() (了解)"></a>.open() 与 .close() (了解)</h3><ul>
-<li>window.open() 打开一个窗口</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 语法：window.open(url, [name], [features])</span></span><br><span class="line"><span class="comment">// 参数1：需要载入的 url 地址</span></span><br><span class="line"><span class="comment">// 参数2：新窗口的名称或者 targt 属性</span></span><br><span class="line"><span class="comment">// _blank:如果指定为 _blank，表示在新的窗口打开</span></span><br><span class="line"><span class="comment">// 参数3：窗口的属性，指定窗口的大小</span></span><br><span class="line"><span class="comment">// 返回值：会返回刚刚创建的那个窗口，在 window.close() 时使用</span></span><br><span class="line"><span class="comment">// 示例：</span></span><br><span class="line"><span class="keyword">var</span> newWin = <span class="variable language_">window</span>.<span class="title function_">open</span>(<span class="string">&#x27;http://www.baidu.com&#x27;</span>, <span class="string">&#x27;_blank&#x27;</span>, <span class="string">&#x27;width=300,height=300&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 参数配置：https://developer.mozilla.org/zh-CN/docs/Web/API/Window/open</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>window.close() 关闭窗口</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">newWin.<span class="title function_">close</span>() <span class="comment">// newWin 是刚刚创建的那个窗口</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="title function_">close</span>() <span class="comment">// 把当前窗口给关闭</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="延时器与定时器-重点"><a href="#延时器与定时器-重点" class="headerlink" title="延时器与定时器 (重点)"></a>延时器与定时器 (重点)</h2><h3 id="setTimeout-延时器"><a href="#setTimeout-延时器" class="headerlink" title="setTimeout 延时器"></a>setTimeout 延时器</h3><blockquote>
-<p>可以在延迟一定时间后执行指定的代码</p>
-</blockquote>
-<p><strong>设置延时器</strong></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 语法: setTimeOut(callback,time)</span></span><br><span class="line"><span class="comment">// 参数1: 回调函数, 时间到了就会执行</span></span><br><span class="line"><span class="comment">// 参数2: 延时的时间  毫秒为单位 1s = 1000毫秒</span></span><br><span class="line"><span class="comment">// 返回 : 延时器的id,用于清除</span></span><br><span class="line"><span class="keyword">var</span> timer = <span class="title function_">setTimeOut</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">//1秒后将执行一次</span></span><br><span class="line">&#125;, <span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
-
-<p><strong>清除延时器</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 语法 : clearTimeOut(timerId)</span></span><br><span class="line"><span class="comment">// 参数 : 延时器id</span></span><br><span class="line"><span class="comment">// 示例 :</span></span><br><span class="line"><span class="title function_">clearTimeOut</span>(timer) <span class="comment">// 清除上面定义的延时器</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="setInterval-定时器"><a href="#setInterval-定时器" class="headerlink" title="setInterval 定时器"></a>setInterval 定时器</h3><blockquote>
-<p>setInterval 方法重复调用一个函数或执行一个代码段，在每次调用之间具有固定的时间间隔。 (每隔一段时间执行一段代码)</p>
-<p>定时器除非清除，否则会一直执行下去。</p>
-</blockquote>
-<p><strong>设置定时器</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 语法 :var timerId = setInterval(func,dealy)</span></span><br><span class="line"><span class="comment">// 参数1 ： 重复执行的函数</span></span><br><span class="line"><span class="comment">// 参数2 : 每次间隔的毫秒数</span></span><br><span class="line"><span class="comment">// 返回 : 定时器的id,  用于清除</span></span><br><span class="line"><span class="comment">// 示例 :</span></span><br><span class="line"><span class="keyword">var</span> timer = <span class="built_in">setInterval</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">// 1s 之后开始重复执行</span></span><br><span class="line">&#125;, <span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
-
-<p><strong>清除定时器</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 语法 : clearInterval(intervalId)</span></span><br><span class="line"><span class="comment">// 参数 : 定时器id</span></span><br><span class="line"><span class="comment">// 示例 :</span></span><br><span class="line"><span class="built_in">clearInterval</span>(timerId) <span class="comment">// 清除上面的定时器</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><p>【短信验证码案例.html】</p>
-<h2 id="location-对象"><a href="#location-对象" class="headerlink" title="location 对象"></a>location 对象</h2><blockquote>
-<p>location 对象也是 window 的一个属性</p>
-<p>location 其实对应的就是浏览器中的地址栏</p>
-</blockquote>
-<h3 id="常用属性和方法"><a href="#常用属性和方法" class="headerlink" title="常用属性和方法"></a>常用属性和方法</h3><ul>
-<li>location.href : 控制地址栏的地址，实现页面跳转</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  location.<span class="property">href</span> = <span class="string">&#x27;http://www.baidu.com&#x27;</span> <span class="comment">// 点击页面跳转到百度首页</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>[案例 : 注册成功，3 秒后跳转]</p>
-<blockquote>
-<p><strong>页面跳转：</strong></p>
-<p><code>location.href = &#39;url地址&#39;</code></p>
-<p><code>location.assign(&#39;url地址&#39;)</code></p>
-<p><code>location.replace(&#39;url地址&#39;)</code> (不记录历史)</p>
-</blockquote>
-<ul>
-<li>location.reload() 让页面重新加载</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  location.<span class="title function_">reload</span>() <span class="comment">// 重新刷新</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>location 的其他值</p>
-<blockquote>
-<p><code>http://www.bbb.com:8080/index.html?id=666&amp;psd=123#xxx</code></p>
-<ul>
-<li>location.hash &#x2F;&#x2F;哈希值 其实就是锚点 &#x3D;&#x3D;&gt; #xxx</li>
-<li>location.host &#x2F;&#x2F;服务器 服务器名+端口号 &#x3D;&gt; <span class="exturl" data-url="aHR0cDovL3d3dy5iYmIuY29tOjgwODAv">www.bbb.com:8080</span></li>
-<li>location.hostname &#x2F;&#x2F;服务器名 &#x3D;&gt; <span class="exturl" data-url="aHR0cDovL3d3dy5iYmIuY29tLw==">www.bbb.com</span></li>
-<li>location.pathname &#x2F;&#x2F;路径名 &#x3D;&gt; index.html</li>
-<li>location.port &#x2F;&#x2F;端口 &#x3D;&gt; 8080</li>
-<li>location.protocol &#x2F;&#x2F;协议 &#x3D;&gt; http</li>
-<li><strong>location.search</strong> &#x2F;&#x2F;参数 &#x3D;&gt; ?id&#x3D;666&amp;psd&#x3D;123</li>
-</ul>
-</blockquote>
-</li>
-</ul>
-<h2 id="其他对象"><a href="#其他对象" class="headerlink" title="其他对象"></a>其他对象</h2><ul>
-<li>history 对象表示页面的历史</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 随便打开一个网页 可以演示</span></span><br><span class="line"><span class="comment">// 后退：</span></span><br><span class="line">history.<span class="title function_">back</span>()</span><br><span class="line">history.<span class="title function_">go</span>(-<span class="number">1</span>)</span><br><span class="line"><span class="comment">// 前进：</span></span><br><span class="line">history.<span class="title function_">forward</span>()</span><br><span class="line">history.<span class="title function_">go</span>(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>screen 对象</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(screen.<span class="property">width</span>) <span class="comment">// 屏幕的宽度</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(screen.<span class="property">height</span>) <span class="comment">// 屏幕的高度</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(screen.<span class="property">availWidth</span>) <span class="comment">// 浏览器可占用的宽度</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(screen.<span class="property">availHeight</span>) <span class="comment">// 浏览器可占用的高度</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="缓动动画"><a href="#缓动动画" class="headerlink" title="缓动动画"></a>缓动动画</h2><h3 id="缓动动画初体验"><a href="#缓动动画初体验" class="headerlink" title="缓动动画初体验"></a>缓动动画初体验</h3><p>动画公式 :</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> step = (target - current) / <span class="number">10</span></span><br><span class="line">current += step</span><br></pre></td></tr></table></figure>
-
-<p>[案例演示 : ]</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1. 三步走</span><br><span class="line">- 获取当前位置</span><br><span class="line">- 累加小碎步</span><br><span class="line">- 重复赋值回去</span><br><span class="line">2. 定时器</span><br></pre></td></tr></table></figure>
-
-<p><strong>缺点</strong> : 打开控制台, 查看盒子的结构行内样式 left, 发现并没有跑到 400px, 只能跑到 396.4&#x2F;395.5</p>
-<p><strong>原因</strong> : offsetLeft 获取值的时候, 只会获取整数 , (对小数部分会四舍五入,整数有时候往上取整,有时候往下取整); <strong>可以在获取的 offset 地方打印查看</strong></p>
-<h3 id="缓动动画-移动-400-位置"><a href="#缓动动画-移动-400-位置" class="headerlink" title="缓动动画 - 移动 400 位置"></a>缓动动画 - 移动 400 位置</h3><p>动画公式 :</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> step = (target - current) / <span class="number">10</span></span><br><span class="line">step = <span class="title class_">Math</span>.<span class="title function_">ceil</span>(step) <span class="comment">// 往上取整</span></span><br><span class="line">current += step</span><br><span class="line"></span><br><span class="line"><span class="comment">// 为什么往上取整 :</span></span><br><span class="line"><span class="comment">// 1. 如果不取整，赋值为小数的话,下次取值还是会取个 整数回来，这就是之前的缺点</span></span><br><span class="line"><span class="comment">// 2. 往上取整的额原因是：(400-395)/10 = 0.5 如果往下取整为0，那就不会走了，所以</span></span><br><span class="line"><span class="comment">// 为了保证可以走，往上取整 取 1  步数 为 1</span></span><br></pre></td></tr></table></figure>
-
-<p>案例演示 注意点 :</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span>查看位置 : left有时候为 <span class="number">395.5</span>/ <span class="number">396.4</span></span><br><span class="line"><span class="number">2.</span>打印: <span class="function"><span class="params">offsetLeft</span>  =&gt;</span> <span class="number">395</span> / <span class="number">396</span></span><br><span class="line"><span class="number">3.</span>step为整数  往上取整</span><br></pre></td></tr></table></figure>
-
-<h3 id="缓动动画-回到-0-点位置"><a href="#缓动动画-回到-0-点位置" class="headerlink" title="缓动动画 - 回到 0 点位置"></a>缓动动画 - 回到 0 点位置</h3><p>动画公式 :</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> step = (target - current) / <span class="number">10</span></span><br><span class="line">step = <span class="title class_">Math</span>.<span class="title function_">floor</span>(step) <span class="comment">//往下取整</span></span><br><span class="line">current += step</span><br><span class="line"></span><br><span class="line"><span class="comment">// 为什么往下取整 :</span></span><br><span class="line"><span class="comment">// 1. 如果不取整，赋值为小数的话,下次取值还是会取个整数回来，这就是之前的缺点</span></span><br><span class="line"><span class="comment">// 2. 往上取整的额原因是 : (0-5)/10 = -0.5 如果往上取整为0  那就不会走了，所以</span></span><br><span class="line"><span class="comment">// 为了保证可以走，往下取整 : 取 -1    步数 为 -1</span></span><br></pre></td></tr></table></figure>
-
-<p>案例演示注意点 :</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span> 先把盒子 设置 left : 400px 位置;  回到<span class="number">0</span>位置</span><br><span class="line"><span class="number">2.</span> 查看位置 : left有时候为 <span class="number">4.5</span></span><br><span class="line"><span class="number">3.</span> 打印: <span class="function"><span class="params">offsetLeft</span>  =&gt;</span> <span class="number">5</span></span><br><span class="line"><span class="number">4.</span> step为整数  往下取整</span><br></pre></td></tr></table></figure>
-
-<h3 id="缓动动画-封装函数"><a href="#缓动动画-封装函数" class="headerlink" title="缓动动画 - 封装函数"></a>缓动动画 - 封装函数</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">animate</span>(<span class="params">element, target</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (element.<span class="property">timerId</span>) &#123;</span><br><span class="line">    <span class="built_in">clearInterval</span>(element.<span class="property">timerId</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  element.<span class="property">timerId</span> = <span class="built_in">setInterval</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// 1. 获取当前位置</span></span><br><span class="line">    <span class="keyword">var</span> current = element.<span class="property">offsetLeft</span></span><br><span class="line">    <span class="comment">// 2. 累加小碎步</span></span><br><span class="line">    <span class="keyword">var</span> step = (target - current) / <span class="number">10</span></span><br><span class="line">    <span class="comment">// 往上取整 ? 为什么，因为 0.5 如果网下取整也是0 ，不会走</span></span><br><span class="line">    step = step &gt; <span class="number">0</span> ? <span class="title class_">Math</span>.<span class="title function_">ceil</span>(step) : <span class="title class_">Math</span>.<span class="title function_">floor</span>(step)</span><br><span class="line">    current += step <span class="comment">// 1</span></span><br><span class="line">    <span class="comment">// 3. 重新赋值</span></span><br><span class="line">    element.<span class="property">style</span>.<span class="property">left</span> = current + <span class="string">&#x27;px&#x27;</span> <span class="comment">//400</span></span><br><span class="line">    <span class="keyword">if</span> (current == target) &#123;</span><br><span class="line">      <span class="built_in">clearInterval</span>(element.<span class="property">timerId</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, <span class="number">15</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>[案例 : 筋斗云]</p>
-<p>[案例：开机提示关闭]</p>
-<h2 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h2><h3 id="事件对象的概述"><a href="#事件对象的概述" class="headerlink" title="事件对象的概述"></a>事件对象的概述</h3><blockquote>
-<p>在<strong>触发某个事件</strong>的时候，都会产生一个<strong>事件对象 Event</strong>，这个对象中<strong>包含所有与事件相关的一些信息</strong>，包括触发事件的元素，事件的类型以及其他与事件相关的信息</p>
-</blockquote>
-<p><strong>鼠标</strong>事件<strong>触发</strong>时，事件对象中会包含<strong>鼠标的位置信息</strong>。</p>
-<p><strong>键盘</strong>事件<strong>触发</strong>时，事件对象中会包含<strong>按下的键相关的信息</strong>。</p>
-<h3 id="获取事件对象"><a href="#获取事件对象" class="headerlink" title="获取事件对象"></a>获取事件对象</h3><p><strong>现代浏览器获取 : (掌握)</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 给一个形参即可</span></span><br><span class="line">btn.<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params">e</span>) &#123;</span><br><span class="line">  <span class="comment">// e 就是事件对象，里面包含了事件触发时的一些信息</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(e)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>低版本浏览器 (ie678): (了解)</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">btn.<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">// IE678 通过 window.event 获取事件对象</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">window</span>.<span class="property">event</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>兼容性 :</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">btn.<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params">e</span>) &#123;</span><br><span class="line">  <span class="comment">// 只要用到了事件对象，就要记得处理浏览器兼容性</span></span><br><span class="line">  <span class="comment">// 低版本IE event 不存在为undefined</span></span><br><span class="line">  e = e || <span class="variable language_">window</span>.<span class="property">event</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="事件对象的常用属性"><a href="#事件对象的常用属性" class="headerlink" title="事件对象的常用属性"></a>事件对象的常用属性</h3><blockquote>
-<p>事件对象中有很多很多的属性，但是很多属性并不常用。我们经常用到的是<strong>鼠标位置信息</strong>和<strong>键盘码</strong>相关的信息</p>
-</blockquote>
-<h4 id="鼠标位置信息"><a href="#鼠标位置信息" class="headerlink" title="鼠标位置信息"></a>鼠标位置信息</h4><ul>
-<li><code>clientX</code> 与 <code>clientY</code> ： 相对于<strong>浏览器可视区</strong>左上角的位置（不随滚动条滚动而改变）</li>
-<li><code>pageX</code> 与 <code>pageY</code> ：相对于<strong>网页内容</strong>（文档 document）左上角的位置</li>
-<li><code>screenX</code> 与 <code>screenY</code> ：相对于<strong>屏幕</strong>左上角的位置</li>
-<li><code>offsetX</code> 与 <code>offsetY</code> ：鼠标相对于<strong>事件源</strong>左上角的位置</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="property">onmousemove</span> = <span class="keyword">function</span>(<span class="params">e</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(e.<span class="property">clientX</span>, e.<span class="property">clientY</span>)</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(e.<span class="property">pageX</span>, e.<span class="property">pageY</span>)</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(e.<span class="property">screenX</span>, e.<span class="property">screenY</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102205438.png"></p>
-<p><strong>[案例 : 拖拽案例]</strong></p>
-<h4 id="键盘码"><a href="#键盘码" class="headerlink" title="键盘码"></a>键盘码</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 键盘按下的那个键的键盘码</span></span><br><span class="line">e.<span class="property">keyCode</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="注册事件的两种方式"><a href="#注册事件的两种方式" class="headerlink" title="注册事件的两种方式"></a>注册事件的两种方式</h3><h4 id="on-事件名称"><a href="#on-事件名称" class="headerlink" title="on + 事件名称"></a>on + 事件名称</h4><blockquote>
-<p>onclick、onmouseover 这种 on+事件名称的方式注册事件几乎所有的浏览器都支持</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 注册事件</span></span><br><span class="line">box.<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">// 事件处理程序</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 移除事件</span></span><br><span class="line">box.<span class="property">onclick</span> = <span class="literal">null</span></span><br></pre></td></tr></table></figure>
-
-<p>on+事件名称注册事件的缺点：同一个元素同一类型的事件，只能注册一个，如果注册了多个，会出现覆盖问题</p>
-<h4 id="addEventListener"><a href="#addEventListener" class="headerlink" title="addEventListener"></a>addEventListener</h4><blockquote>
-<p>现代浏览器支持的注册事件的新方式，这种方式注册的事件不会出现覆盖问题</p>
-</blockquote>
-<p><strong>addEventListener 的语法</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// type：事件的类型：click mouseover  字符串类型，不带 on</span></span><br><span class="line"><span class="comment">// fn：函数，每次点击，执行这个函数</span></span><br><span class="line"><span class="comment">// useCapture: 可选，true：事件在捕获阶段执行，false: 事件在冒泡阶段执行(默认)</span></span><br><span class="line">element.<span class="title function_">addEventListener</span>(type, fn, useCapture)</span><br><span class="line">btn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;哈哈&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p><strong>removeEventListen 的语法</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// type：事件的类型</span></span><br><span class="line"><span class="comment">// fn：要移除的那个函数</span></span><br><span class="line">element.<span class="title function_">removeEventListener</span>(type, fn)</span><br><span class="line">btn.<span class="title function_">removeEventListener</span>(<span class="string">&#x27;click&#x27;</span>, fn)</span><br><span class="line"><span class="comment">// 注意 : 如果想让注册的事件能移除，不能用匿名函数</span></span><br></pre></td></tr></table></figure>
-
-<p>低版本浏览器兼容问题: (了解)</p>
-<blockquote>
-<p>IE678 不支持 addEventListener 与 removeEventListen 两个方法，但是支持 attachEvent 与 detachEvnet</p>
-</blockquote>
-<p>attachEvent 的用法：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// type: 事件类型，需要加上on</span></span><br><span class="line"><span class="comment">// fn: 需要执行的那个事件</span></span><br><span class="line"><span class="title function_">attachEvent</span>(type, fn)</span><br><span class="line">btn.<span class="title function_">attachEvent</span>(<span class="string">&#x27;onclick&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="title function_">alert</span>(<span class="string">&#x27;哈哈&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>detachEvent 的用法：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="title function_">detachEvent</span>(type, fn)</span><br></pre></td></tr></table></figure>
-
-<h4 id="兼容性封装（了解）"><a href="#兼容性封装（了解）" class="headerlink" title="兼容性封装（了解）"></a>兼容性封装（了解）</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 添加事件</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">addEvent</span>(<span class="params">element, type, fn</span>) &#123;</span><br><span class="line">  <span class="comment">// 能力检测</span></span><br><span class="line">  <span class="keyword">if</span> (element.<span class="property">addEventListener</span>) &#123;</span><br><span class="line">    element.<span class="title function_">addEventListener</span>(type, fn)</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (element.<span class="property">attachEvent</span>) &#123;</span><br><span class="line">    element.<span class="title function_">attachEvent</span>(<span class="string">&#x27;on&#x27;</span> + type, fn)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 如果都不行，那就用on方式</span></span><br><span class="line">    element[<span class="string">&#x27;on&#x27;</span> + type] = fn</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 移除事件</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">removeEvent</span>(<span class="params">element, type, fn</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (element.<span class="property">removeEventListener</span>) &#123;</span><br><span class="line">    element.<span class="title function_">removeEventListener</span>(type, fn, <span class="literal">false</span>)</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (element.<span class="property">detachEvent</span>) &#123;</span><br><span class="line">    element.<span class="title function_">detachEvent</span>(<span class="string">&#x27;on&#x27;</span> + type, fn)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    element[<span class="string">&#x27;on&#x27;</span> + type] = <span class="literal">null</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="事件流"><a href="#事件流" class="headerlink" title="事件流"></a>事件流</h2><h3 id="事件冒泡"><a href="#事件冒泡" class="headerlink" title="事件冒泡"></a>事件冒泡</h3><p>当一个元素的事件被触发时，同样的事件将会在该元素的所有祖先元素中依次被触发。这一过程被称为冒泡</p>
-<p>说白了就是：<strong>当我们触发了子元素的某个事件后，父元素对应的事件也会触发</strong></p>
-<p>on 创建的事件默认为冒泡，无法修改</p>
-<p><strong>[案例 : 弹窗案例]</strong></p>
-<p><strong>阻止事件冒泡</strong> <code>e.stopPropagation()</code></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">box.<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params">e</span>) &#123;</span><br><span class="line">  e.<span class="title function_">stopPropagation</span>()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 参数1：true =&gt; 捕获， false =&gt; 冒泡（默认）</span></span><br><span class="line">box.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;&#125;, 参数<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-
-<p><code>event.stopImmediatePropagation</code></p>
-<p>阻止事件冒泡并且阻止相同事件的其他侦听器被调用<br>如果有多个相同类型事件的事件监听函数绑定到同一个元素，当该类型的事件触发时，它们会按照被添加的顺序执行。如果其中某个监听函数执行了 <code>event.stopImmediatePropagation()</code> 方法，则当前元素剩下的监听函数将不会被执行</p>
-<p>阻止事件冒泡的兼容性封装</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">stopPropagation</span>(<span class="params">e</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (e &amp;&amp; e.<span class="property">stopPropagation</span>) &#123;</span><br><span class="line">    e.<span class="title function_">stopPropagation</span>() <span class="comment">// 标准浏览器</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="variable language_">window</span>.<span class="property">event</span>.<span class="property">cancelBubble</span> = <span class="literal">true</span> <span class="comment">// 兼容 IE</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="事件捕获"><a href="#事件捕获" class="headerlink" title="事件捕获"></a>事件捕获</h3><p>事件冒泡是 ie 提出来的</p>
-<p>路径 : 触发事件的目标元素(son) &gt; you &gt; father &gt; body &gt; document</p>
-<p>事件捕获是火狐提出来的</p>
-<p>路径 : document &gt; body &gt; father &gt; you &gt; 触发事件的目标元素 (son)</p>
-<p>解析 : 事件的处理将从 DOM 层次的根开始，而不是从触发事件的目标元素开始，事件被从目标元素的所有祖先元素依次往下传递</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 当 addEventListener 第三个参数为 true 时，表示事件捕获</span></span><br><span class="line">arr[i].<span class="title function_">addEventListener</span>(</span><br><span class="line">  <span class="string">&#x27;click&#x27;</span>,</span><br><span class="line">  <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="literal">true</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-<h3 id="事件流的三个阶段"><a href="#事件流的三个阶段" class="headerlink" title="事件流的三个阶段"></a>事件流的三个阶段</h3><ol>
-<li>事件的捕获阶段</li>
-<li>事件的目标阶段（触发自己的事件）</li>
-<li>事件的冒泡阶段</li>
-</ol>
-<p>事件有三个阶段 :</p>
-<ul>
-<li>捕获事件和冒泡事件都存在的话，首先发生的是捕获阶段，然后是目标阶段，最后才是冒泡阶段</li>
-<li>addEventListener 第三个参数为是否捕获</li>
-<li>如果为 true 时，表示该事件在捕获阶段发生</li>
-<li>如果为 false 时，表示该事件在冒泡阶段发生</li>
-<li>某一个事件只会执行一次</li>
-</ul>
-<h2 id="三大系列"><a href="#三大系列" class="headerlink" title="三大系列"></a>三大系列</h2><h3 id="offset-系列-重要"><a href="#offset-系列-重要" class="headerlink" title="offset 系列 (重要)"></a>offset 系列 (重要)</h3><blockquote>
-<p>offset 系列用于用于<strong>获取元素自身的大小和位置</strong>，在 webapi 中有广泛应用<br>offset 系列主要有：offsetHeight、offsetWidth、offsetParent、offsetLeft、offsetTop</p>
-</blockquote>
-<p><strong>offsetHeight 与 offsetWidth</strong></p>
-<ul>
-<li>获取元素真实的高度和宽度 （内容大小 + border + padding）（关注盒子本身，不关注盒子内部内容）</li>
-<li>获取到的是数值类型，方便计算</li>
-<li>offsetHeight 与 offsetWidth 是只读属性，不能设置</li>
-</ul>
-<blockquote>
-<p>style.height 与 style.width</p>
-<ul>
-<li>只能获取和设置行内样式</li>
-<li>不包括内边距、边框和外边距</li>
-<li>获取到的是字符串类型，需要转换</li>
-</ul>
-</blockquote>
-<p><strong>offsetParent</strong></p>
-<ul>
-<li>获取离当前元素最近的<strong>定位父元素</strong>(absolute、relative)，如果没有，那就找 body</li>
-</ul>
-<blockquote>
-<p>parentNode : 父节点（没有兼容性问题）</p>
-<p>parentElement : 父元素</p>
-</blockquote>
-<p><strong>offsetLeft 与 offsetTop</strong></p>
-<ul>
-<li>获取元素自身与 offsetParent 真实的距离</li>
-<li>获取到的是数值类型，方便计算</li>
-<li>只读属性，只能获取，不能设置</li>
-</ul>
-<blockquote>
-<p>style.left 与 style.top</p>
-<ul>
-<li>只能获取和设置行内样式</li>
-<li>获取到的是字符串，需要转换</li>
-</ul>
-</blockquote>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102205502.png"></p>
-<h3 id="scroll-系列"><a href="#scroll-系列" class="headerlink" title="scroll 系列"></a>scroll 系列</h3><blockquote>
-<p>scroll 系列是用来获取<strong>盒子内容的大小和位置</strong></p>
-<p>scroll 系列主要有 : scrollWidth、scrollHeight、scrollLeft、scrollTop</p>
-</blockquote>
-<p><strong>scrollWidth 与 scrollHeight</strong></p>
-<ul>
-<li>scrollWidth 与 scrollHeight 是盒子内容的宽度和高度。与盒子大小无关，仅仅与<strong>盒子的内容</strong>有关系（padding + 内容）</li>
-<li>如果内容没有溢出，scrollHeight 就是盒子高度 (scrollWidth 同理) &#x3D;&gt; 与 clientHeight、clientWidth 相同</li>
-<li>如果内容超过盒子，scrollHieght 就是内容高度 (scrollWidth 同理)</li>
-</ul>
-<p><strong>scrollTop</strong></p>
-<ul>
-<li>scrollTop 用于获取内容垂直滚动的像素数。如果没有滚动条，那么 scrollTop 值是 0</li>
-<li>内容超过盒子，盒子设置 overflow: scroll 就可出现滚动条</li>
-<li>此属性是可读写的</li>
-</ul>
-<p><strong>scrollLeft</strong></p>
-<ul>
-<li>scrollLeft 用于获取内容水平滚动的像素数</li>
-<li>此属性是可读写的</li>
-<li>浏览器切忌这种出现水平滚动条，用户体验极差，避免</li>
-</ul>
-<p><strong>scrollX 与 scrollY</strong></p>
-<ul>
-<li><p>只读属性</p>
-</li>
-<li><p>scrollY：文档在垂直方向已滚动的像素值<br>pageYOffset 属性是 scrollY 属性的别名<br>为了跨浏览器兼容，请使用 window.pageYOffset 代替 window.scrollY</p>
-</li>
-</ul>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102205527.png"></p>
-<p><strong>onscroll 事件</strong></p>
-<p>对于有滚动条的盒子，可以使用 onscroll 注册滚动事件，每滚动一像素，就会触发该事件</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> div = doucment.<span class="title function_">getElementById</span>(<span class="string">&#x27;div&#x27;</span>)</span><br><span class="line">div.<span class="property">onscroll</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(div.<span class="property">scrollLeft</span>)</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(div.<span class="property">scrollTop</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>场景 : 获取页面被卷去的高度和宽度</strong></p>
-<blockquote>
-<p>通常来说，scroll 家族用的最多的地方就是用来获取页面 <strong>被卷去的高度</strong>，非常的常用</p>
-</blockquote>
-<ul>
-<li>对于老式的浏览器，需要获取 html 或者 body 的 scrollTop</li>
-<li>对于现在浏览器，使用 window.pageYOffset 进行获取</li>
-</ul>
-<p>页面被卷去的高度和宽度的兼容性封装</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 给整个页面注册滚动事件</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="property">onscroll</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> scrollTop = <span class="variable language_">window</span>.<span class="property">pageYOffset</span> || <span class="variable language_">document</span>.<span class="property">documentElement</span>.<span class="property">scrollTop</span> || <span class="variable language_">document</span>.<span class="property">body</span>.<span class="property">scrollTop</span> || <span class="number">0</span></span><br><span class="line">  <span class="keyword">var</span> scrollLeft = <span class="variable language_">window</span>.<span class="property">pageXOffset</span> || <span class="variable language_">document</span>.<span class="property">documentElement</span>.<span class="property">scrollLeft</span> || <span class="variable language_">document</span>.<span class="property">body</span>.<span class="property">scrollLeft</span> || <span class="number">0</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(scrollLeft, scrollTop)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>[案例 : 固定导航案例]</strong></p>
-<h3 id="client-家族"><a href="#client-家族" class="headerlink" title="client 家族"></a>client 家族</h3><blockquote>
-<p>clien t 家族用于获取盒子可视区的大小 (内容 + padding)</p>
-<p>client 家族有 clientWidth、clientHeight、clientLeft、clientTop</p>
-</blockquote>
-<p><strong>clientWidth、clientHeight 可视区宽高</strong></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102205558.png"></p>
-<p><strong>clientTop</strong> 与 <strong>clientLeft</strong> 完全没有用，他们就是 borderTop 与 borderLeft</p>
-<p><strong>onresize 事件：onresize 事件会在窗口被调整大小的时候发生。</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="property">onresize</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">// 事件处理程序</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>场景 : client 系列一般用来获取页面的可视区宽高</strong></p>
-<blockquote>
-<p>低版本浏览器 : 获取的 html 和 body</p>
-<p>高版本的浏览器 : window.innerWidth (掌握)（只读属性）</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 因为求的是窗口大小所以用 window</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">onresize</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> W = <span class="variable language_">window</span>.<span class="property">innerWidth</span> || <span class="variable language_">document</span>.<span class="property">documentElement</span>.<span class="property">clientWidth</span> || <span class="variable language_">document</span>.<span class="property">body</span>.<span class="property">clientWidth</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(W)</span><br><span class="line">  <span class="keyword">var</span> H = <span class="variable language_">window</span>.<span class="property">innerHeight</span> || <span class="variable language_">document</span>.<span class="property">documentElement</span>.<span class="property">clientHeight</span> || <span class="variable language_">document</span>.<span class="property">body</span>.<span class="property">clientHeight</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(H)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://wqdy.top/428.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -3172,6 +2471,664 @@
 <h3 id="fork-的项目-A-与原项目-B-保持同步"><a href="#fork-的项目-A-与原项目-B-保持同步" class="headerlink" title="fork 的项目( A )与原项目 (B) 保持同步"></a>fork 的项目( A )与原项目 (B) 保持同步</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 将 A 克隆到本地做中转</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加 B 远程仓库地址并拉取</span></span><br><span class="line">git remote add update &lt;B 远程仓库地址&gt;</span><br><span class="line">git fetch update master:updated</span><br><span class="line"></span><br><span class="line"><span class="comment"># 合并并解决冲突</span></span><br><span class="line">git merge updated</span><br><span class="line"></span><br><span class="line"><span class="comment"># 也可以直接合并远程分支</span></span><br><span class="line">git merge update/master</span><br></pre></td></tr></table></figure>
 
 <h3 id="远程分支删除以后，本地显示仍然存在的解决办法"><a href="#远程分支删除以后，本地显示仍然存在的解决办法" class="headerlink" title="远程分支删除以后，本地显示仍然存在的解决办法"></a>远程分支删除以后，本地显示仍然存在的解决办法</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 显示所有分支：</span></span><br><span class="line">git branch -a</span><br><span class="line"></span><br><span class="line"><span class="comment"># 命令查看远程分支和本地分支的对应关系</span></span><br><span class="line">git remote show origin</span><br><span class="line"></span><br><span class="line"><span class="comment"># 会看到</span></span><br><span class="line">refs/remotes/origin/&lt;branch&gt; stale (use <span class="string">&#x27;git remote prune&#x27;</span> to remove)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行下面命令同步删除</span></span><br><span class="line">git remote prune origin</span><br><span class="line">或者</span><br><span class="line">git fetch -p</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1662.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/1662.html" class="post-title-link" itemprop="url">linux 入门</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2018-09-12" itemprop="dateCreated datePublished" datetime="2018-09-12T14:41:31+00:00">2018-09-12</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><span class="exturl" data-url="aHR0cHM6Ly93d3cuYnQuY24v">宝塔面板</span></p>
+<p>neofetch</p>
+<p>screenfetch</p>
+<p>netdata linux 系统性能监测工具</p>
+<p>htop 系统状况监控</p>
+<p>nano linux下文本编辑器</p>
+<p>grafana</p>
+<h3 id="linux-目录表"><a href="#linux-目录表" class="headerlink" title="linux 目录表"></a>linux 目录表</h3><p>&#x2F; 根目录</p>
+<p>&#x2F;bin 、 &#x2F;usr&#x2F;bin 可执行二进制文件目录，如常用的命令 ls cat 等</p>
+<p>&#x2F;boot 放置系统启动时用到的一些文件，如内核文件</p>
+<p>&#x2F;dev 存放系统下的设备文件，访问该目录下的文件，相当于访问某个设备，常用的是挂载光驱<code>mount /dev/cdrom/mnt</code></p>
+<p>&#x2F;etc 系统配置文件，重要的配置文件有</p>
+<h3 id="文件大小表示方式"><a href="#文件大小表示方式" class="headerlink" title="文件大小表示方式"></a>文件大小表示方式</h3><table>
+<thead>
+<tr>
+<th>单位</th>
+<th>英文</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>字节</td>
+<td>B (Byte)</td>
+</tr>
+<tr>
+<td>千</td>
+<td>K (KibiByte)</td>
+</tr>
+<tr>
+<td>兆</td>
+<td>M (MebiByte)</td>
+</tr>
+<tr>
+<td>千兆</td>
+<td>G (GigaByte)</td>
+</tr>
+<tr>
+<td>太</td>
+<td>T (TeraByte)</td>
+</tr>
+<tr>
+<td>拍</td>
+<td>P (PetaByte)</td>
+</tr>
+<tr>
+<td>艾</td>
+<td>E (ExaByte)</td>
+</tr>
+<tr>
+<td>泽</td>
+<td>Z (ZettaByte)</td>
+</tr>
+<tr>
+<td>尧</td>
+<td>Y (YottaByte)</td>
+</tr>
+</tbody></table>
+<h3 id="linux-常用命令"><a href="#linux-常用命令" class="headerlink" title="linux 常用命令"></a>linux 常用命令</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th></th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ls</td>
+<td>list</td>
+<td>查看当前文件夹下的内容</td>
+</tr>
+<tr>
+<td>pwd</td>
+<td>print work directory</td>
+<td>查看当前所在文件夹</td>
+</tr>
+<tr>
+<td>cd[目录名]</td>
+<td>change directory</td>
+<td>切换文件夹</td>
+</tr>
+<tr>
+<td>touch[文件名]</td>
+<td>touch</td>
+<td>如果文件不存在，新建文件<br />如果文件已经存在，修改文件的末次修改日期</td>
+</tr>
+<tr>
+<td>mkdir[目录名]</td>
+<td>make directory</td>
+<td>创建目录</td>
+</tr>
+<tr>
+<td>rm[文件名]</td>
+<td>remove</td>
+<td>删除指定的文件名</td>
+</tr>
+<tr>
+<td>clear</td>
+<td></td>
+<td>清屏</td>
+</tr>
+</tbody></table>
+<p><strong>ls 常用选项</strong></p>
+<ul>
+<li><code>-a</code> 显示所有目录和文件，包括隐藏文件</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$ </span><span class="language-bash"><span class="built_in">ls</span> -a</span></span><br><span class="line">. .. .xxx.txt</span><br><span class="line"><span class="meta"># </span><span class="language-bash">以.开头的文件/文件夹为隐藏文件/文件夹</span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">. 代表当前目录</span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">.. 代表上一级目录</span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">蓝色为目录，白色为文件</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>-l</code> 以列表方式显示文件的详细信息</li>
+<li><code>-h</code> 配合-l 以人性化的方式显示文件大小</li>
+</ul>
+<p>选项可以合写，无顺序</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$ </span><span class="language-bash"><span class="built_in">ls</span> -alh</span></span><br></pre></td></tr></table></figure>
+
+<p>ls <strong>通配符</strong></p>
+<ul>
+<li><code>*</code> 代表任意个数个字符</li>
+<li><code>？</code>代表任意一个字符</li>
+<li><code>[]</code> 表示可以匹配字符组中的任意一个</li>
+<li><code>[abc]</code> 匹配<code>a</code>、<code>b</code>、<code>c</code> 中的任意一个</li>
+<li><code>[a-f]</code> 匹配 <code>a-f</code> 任意一个字符</li>
+</ul>
+<p><strong>cd 常用选项</strong></p>
+<ul>
+<li><p><code>cd</code>&#x2F;<code>cd ~</code> 切换到当前用户的主目录</p>
+</li>
+<li><p><code>cd ..</code> 切换到上一级目录</p>
+</li>
+<li><p><code>cd -</code> 在最近两次工作目录间切换</p>
+</li>
+</ul>
+<p><strong>mkdir</strong></p>
+<ul>
+<li><code>-p</code> 可以递归创建目录</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$ </span><span class="language-bash">madir -p a/b/c</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>同一目录下文件夹名称不能和文件名同名</p>
+</blockquote>
+<p><strong>rm</strong></p>
+<blockquote>
+<p>删除时直接删除，不放入回收站</p>
+</blockquote>
+<ul>
+<li><p><code>-f</code> 强制删除，忽略不存在的文件，无需提示</p>
+</li>
+<li><p><code>-r</code> 递归的删除目录下的内容，或用于删除文件夹</p>
+</li>
+</ul>
+<h3 id="终端命令格式"><a href="#终端命令格式" class="headerlink" title="终端命令格式"></a>终端命令格式</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">command</span> [-options][paramete]</span><br></pre></td></tr></table></figure>
+
+<p>command : 命令名，相应功能的英文单词或单词缩写<br>-options： 选项<br>paramete ：参数</p>
+<h3 id="查阅帮助信息"><a href="#查阅帮助信息" class="headerlink" title="查阅帮助信息"></a>查阅帮助信息</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">command</span> --<span class="built_in">help</span></span><br><span class="line">$ man <span class="built_in">command</span></span><br><span class="line"><span class="comment"># man 是manual缩写,手册</span></span><br><span class="line"><span class="comment"># 使用man 时的操作键</span></span><br><span class="line"><span class="comment">#	空格 显示手册的下一屏</span></span><br><span class="line"><span class="comment">#	enter 一次滚动手册页的一行</span></span><br><span class="line"><span class="comment">#	b 回滚一屏</span></span><br><span class="line"><span class="comment">#	f 前滚一屏</span></span><br><span class="line"><span class="comment">#	q 退出</span></span><br><span class="line"><span class="comment">#	/word 搜索word字符串</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="终端技巧"><a href="#终端技巧" class="headerlink" title="终端技巧"></a>终端技巧</h3><ul>
+<li><p>自动补全</p>
+<p>在敲出 文件&#x2F;目录&#x2F;命令的前几个字母后，按下 <code>tab</code> 键</p>
+<ul>
+<li>如果输入没有歧义，系统会自动补全</li>
+<li>如果输入有歧义，再按一下 <code>tab</code> 键，系统会提示可能存在的命令</li>
+</ul>
+</li>
+<li><p>曾经使用过的命令</p>
+<p>按上下键可在曾经使用过的命令间切换，<code>Ctrl+c</code> 退出选择</p>
+</li>
+</ul>
+<h3 id="文件和目录常用命令"><a href="#文件和目录常用命令" class="headerlink" title="文件和目录常用命令"></a>文件和目录常用命令</h3><h4 id="拷贝和移动文件"><a href="#拷贝和移动文件" class="headerlink" title="拷贝和移动文件"></a>拷贝和移动文件</h4><ul>
+<li><p><code>tree [目录名]</code>： 以树状图列出文件目录结构</p>
+<p><code>-d</code> 只显示目录，不显示文件</p>
+</li>
+<li><p><code>cp 源文件 目标文件</code>： copy 复制文件或者目录</p>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$ </span><span class="language-bash"><span class="built_in">cp</span>  ~/Documemt/readme.txt  ./readme.txt</span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">将 ~/Documemt/ 目录下的 readme.txt 文件复制到./目录下并以readme.txt命名</span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">如果不修改文件名，只需要写目标路径</span></span><br><span class="line"><span class="meta">$ </span><span class="language-bash"><span class="built_in">cp</span>  ~/Documemt/readme.txt  ./</span></span><br></pre></td></tr></table></figure>
+
+<p><code>-i</code> ：覆盖文件前提示 y 覆盖 n 不覆盖</p>
+<p><code>-r</code> ：若给出的源文件是目录文件，将递归复制该目录下的所有子目录和文件，目标文件必须为一个目录名</p>
+<ul>
+<li><code>mv 源文件 目标文件</code>：move 移动文件或目录&#x2F; 文件或目录重命名</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$ </span><span class="language-bash"><span class="built_in">mv</span>  ~/Documemt/readme.txt  ./</span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">将 ~/Documemt/ 目录下的 readme.txt 文件移动到./目录下</span></span><br><span class="line"><span class="meta">$ </span><span class="language-bash"><span class="built_in">mv</span> readme.txt demo.txt</span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">将readme.txt文件名修改为demo.txt</span></span><br></pre></td></tr></table></figure>
+
+<p><code>-i</code> ：覆盖文件前提示 y 覆盖 n 不覆盖</p>
+<h4 id="查看文件内容"><a href="#查看文件内容" class="headerlink" title="查看文件内容"></a>查看文件内容</h4><ul>
+<li><p><code>cat</code> 文件名： <code>concatenate</code> 查看文件内容、创建文件、文件合并、追加文件内容等功能，会<strong>一次显示所有内容</strong>，适合内容较少的文本文件</p>
+<p><code>-b</code>：对非空输出行编号</p>
+<p><code>-n</code>：对输出的所有行编号</p>
+<blockquote>
+<p>linux 中还有一个 <code>nl</code> 命令和 <code>cat -b</code> 的效果等价</p>
+</blockquote>
+</li>
+<li><p><code>more</code> 文件名：<strong>分屏显示文件内容</strong> ，按空格显示下一屏，适合查看内容较多的文本</p>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta"># </span><span class="language-bash">使用 more 时的操作键  和 man 相同</span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">空格 显示手册的下一屏</span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">enter 一次滚动手册页的一行</span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">b 回滚一屏</span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">f 前滚一屏</span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">q 退出</span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">/word 搜索word字符串</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>grep</code> 搜索文本 文件名： 搜索文本文件内容，输出包含该文本的行</p>
+<blockquote>
+<p>linux 中的文本搜索工具，允许对文本文件进行模式查找（正则表达式），如果搜索文本中间有空格可以使用引号包裹</p>
+</blockquote>
+<p><code>-n</code> 显示匹配行和行号</p>
+<p><code>-v</code> 显示不包含匹配文本的所有行（相当于求反）</p>
+<p><code>-i</code> 忽略大小写</p>
+<p><code>^a</code> 行首，搜索以 a 开头的行</p>
+<p><code>ke$</code> 行尾，搜索以 ke 结束的行</p>
+</li>
+</ul>
+<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><ul>
+<li><p><code>echo 文字内容</code> ：会在终端中显示参数指定的文本，通常会和重定向联合使用</p>
+</li>
+<li><p>重定向 <code>&gt;</code> 和 <code>&gt;&gt;</code>：</p>
+</li>
+</ul>
+<blockquote>
+<p>linux 允许将命令执行结果重定向到一个文件，将本应显示在终端上的内容输出&#x2F;追加到指定文件中，保存命令输出结果</p>
+</blockquote>
+<p><code>&gt;</code> 表示输出，会覆盖文件原有的内容</p>
+<p><code>&gt;&gt;</code> 表示追加，会将文件追加到已有文件的末尾</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta"># </span><span class="language-bash">创建 a 文件并将 “hello world”输出到 a 文件中 ，与<span class="built_in">touch</span>区别</span></span><br><span class="line"><span class="meta">$ </span><span class="language-bash"><span class="built_in">echo</span> hello world &gt; a</span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">将命令 “<span class="built_in">ls</span> -lh” 的结果输出到 a 文件中</span></span><br><span class="line"><span class="meta">$ </span><span class="language-bash"><span class="built_in">ls</span> -lh &gt; a</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>管道 <code>|</code></li>
+</ul>
+<blockquote>
+<p>linux 允许将一个命令的输出通过管道作为另一个命令的输入，另一个命令对第一个命令的输出进行二次处理</p>
+<p>可以理解为现实生活中的管子，管子的一头塞东西进去，另一头取出来，这里 <code>|</code> 的左右分为两端，左端塞东西（写），右端取东西（读）</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta"># </span><span class="language-bash">more：分屏显示内容</span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">分屏显示命令 “<span class="built_in">ls</span> -lha” 的输出结果</span></span><br><span class="line"><span class="meta">$ </span><span class="language-bash"><span class="built_in">ls</span> -lha ~ | more</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">grep：在命令执行结果的基础上查询指定文本</span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">查找 “<span class="built_in">ls</span> -lha ~” 的结果中包含Do的行并显示</span></span><br><span class="line"><span class="meta">$ </span><span class="language-bash"><span class="built_in">ls</span> -lha ~ | grep Do</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="远程管理命令"><a href="#远程管理命令" class="headerlink" title="远程管理命令"></a>远程管理命令</h3><h4 id="关机-x2F-重启"><a href="#关机-x2F-重启" class="headerlink" title="关机&#x2F;重启"></a>关机&#x2F;重启</h4><p><code>shutdown 选项 时间</code></p>
+<pre><code>`-r`  重新启动
+</code></pre>
+<blockquote>
+<p>不指定选项和参数，默认表示一分钟之后关闭电脑</p>
+<p>远程维护服务器时，最好不要关闭系统，而应该重新启动系统</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta"># </span><span class="language-bash">常用命令示例</span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">重新启动电脑，now 表示现在</span></span><br><span class="line"><span class="meta">$ </span><span class="language-bash">shutdown -r now</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">系统在今天20:00 关机</span></span><br><span class="line"><span class="meta">$ </span><span class="language-bash">shutdown 20:00</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">系统十分钟后自动关机</span></span><br><span class="line"><span class="meta">$ </span><span class="language-bash">shutdown +10</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">取消关机计划</span></span><br><span class="line"><span class="meta">$ </span><span class="language-bash">shutdown -c</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="查看或配置网卡信息"><a href="#查看或配置网卡信息" class="headerlink" title="查看或配置网卡信息"></a>查看或配置网卡信息</h4><p><code>ifconfig</code>: <code>configure a network interface</code> 查看&#x2F;配置计算机当前的网卡配置信息</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta"># </span><span class="language-bash">查看网卡配置信息</span></span><br><span class="line"><span class="meta">$ </span><span class="language-bash">ifconfig</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">查看网卡对应的IP地址</span></span><br><span class="line"><span class="meta">$ </span><span class="language-bash">ifconfig | grep inet</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>在 linux 中物理网卡通常以 <code>ensxx</code> 表示</p>
+<p>127.0.0.1 本地环回&#x2F;环回地址，一般用来测试本机网卡是否正常</p>
+</blockquote>
+<p><code>ping ip地址</code>： <code>ping</code> 检测到目标 ip 地址连接是否正常</p>
+<p>ping 127.0.0.1 检查本地网卡是否工作正常</p>
+<h4 id="远程登录和复制文件"><a href="#远程登录和复制文件" class="headerlink" title="远程登录和复制文件"></a>远程登录和复制文件</h4><ul>
+<li><p><code>ssh 用户名@ip</code> ：<code>secure shell</code> 关机&#x2F;重新启动</p>
+</li>
+<li><p><code>scp 用户名@ip:文件名或路径 用户名@ip:文件名或路径</code>：<code>secure copy</code> 远程复制文件</p>
+</li>
+</ul>
+<p><strong>SSH</strong> ：SSH 客户端是一种使用 Secure Shell (SSH) 协议连接到远程计算机的软件协议</p>
+<ul>
+<li><p>数据传输是加密的，可以防止远程管理过程中的信息泄露，也能防止 DNS 欺骗和 IP 欺骗</p>
+</li>
+<li><p>数据传输是压缩的，可以提高传输速度</p>
+</li>
+</ul>
+<blockquote>
+<p>有关 ssh 配置信息都保存在用户家目录下的 <code>.ssh</code>目录下</p>
+</blockquote>
+<h5 id="域名和端口号"><a href="#域名和端口号" class="headerlink" title="域名和端口号"></a>域名和端口号</h5><p><code>域名</code>：由一串用点分割的名字组成，例如 <code>www.baidu.com</code> ，是 IP 地址的别名，方便记忆</p>
+<p><code>端口号</code>：通过 IP 地址可以找到网络上的计算机，通过端口号可以找到计算机上运行的程序</p>
+<blockquote>
+<p>SSH 服务器默认端口号为 22，Web 服务器为 80，HTTPS 为 443，FTP 服务器为 21，如果没有指定端口号，使用默认端口号</p>
+</blockquote>
+<h5 id="SSH-基本使用"><a href="#SSH-基本使用" class="headerlink" title="SSH 基本使用"></a>SSH 基本使用</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$ </span><span class="language-bash">ssh [-p port] user@remote</span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">user 远程服务器上的用户名，如果不指定默认当前用户</span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">remote 远程机器的地址，可以是IP/域名，或者别名</span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">port 是SSH server 监听的端口，如果不指定，默认22</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">使用 <span class="built_in">exit</span> 退出当前用户登录</span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">ssh 在 linux 或 Unix 系统下可直接使用，win下需要安装软件 putty xshell</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="scp-基本使用"><a href="#scp-基本使用" class="headerlink" title="scp 基本使用"></a>scp 基本使用</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta"># </span><span class="language-bash">从远程服务器拷贝文件</span></span><br><span class="line"><span class="meta">$ </span><span class="language-bash">scp user@remoteip:文件名或路径 文件名或路径</span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">-r 复制目录</span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">-P 指定端口是要用大写的 P</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">上传文件到服务器</span></span><br><span class="line"><span class="meta">$ </span><span class="language-bash">scp 文件名或路径 user@remote ip:文件名或路径</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>scp</code> 命令只能在 <code>Linux</code> 或 <code>Unix</code> 下使用</p>
+</blockquote>
+<p>在 win 系统中需安装 filezilla 使用 FTP 进行文件传输</p>
+<p>FileZilla 传输文件时，使用的是 <code>FTP</code> 服务而不是 <code>SSH</code> 服务，因此端口号应该为 <code>21</code></p>
+<h5 id="ssh-高级"><a href="#ssh-高级" class="headerlink" title="ssh 高级"></a>ssh 高级</h5><ul>
+<li>免密码登陆</li>
+</ul>
+<p>配置公钥：执行 <code>ssh-keygen</code> 即可生成 ssh 钥匙，一路回车即可</p>
+<p><code>id_rsa.pub</code> 公钥 、 <code>id_rsa</code> 私钥</p>
+<p>上传公钥到服务器：执行 <code>ssh-copy-id -p port user@remote</code>，公钥保存在服务器 <code>.ssh</code> 目录下</p>
+<p><code>authorized_keys</code></p>
+<blockquote>
+<p>本地使用私钥对数据进行加密&#x2F;解密，服务器使用公钥对数据进行加密&#x2F;解密</p>
+<p>非对称加密算法</p>
+<p>使用公钥加密的数据，需要使用私钥解密</p>
+<p>使用公私钥加密的数据，需要使用公钥解密</p>
+</blockquote>
+<ul>
+<li>配置别名</li>
+</ul>
+<p><code>~/.ssh/config</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Host vultr</span><br><span class="line">	HostName ip地址</span><br><span class="line">	User root</span><br><span class="line">	port 22</span><br></pre></td></tr></table></figure>
+
+<p>直接使用 <code>ssh vultr</code> 即可实现登陆，<code>scp</code> 同样适用</p>
+<h4 id="修改-ssh-配置允许自定义工具连接服务器"><a href="#修改-ssh-配置允许自定义工具连接服务器" class="headerlink" title="修改 ssh 配置允许自定义工具连接服务器"></a>修改 ssh 配置允许自定义工具连接服务器</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 切换到 root 角色</span></span><br><span class="line">sudo -i</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改 SSH 配置文件 /etc/ssh/sshd_config</span></span><br><span class="line">vi /etc/ssh/sshd_config</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改</span></span><br><span class="line">PermitRootLogin <span class="built_in">yes</span> <span class="comment"># 开启root用户访问</span></span><br><span class="line">PasswordAuthentication <span class="built_in">yes</span> <span class="comment"># 开启密码登陆</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 给root用户设置密码</span></span><br><span class="line">passwd root</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启SSH服务使修改生效</span></span><br><span class="line">service sshd restart</span><br></pre></td></tr></table></figure>
+
+<h3 id="用户和权限的相关命令"><a href="#用户和权限的相关命令" class="headerlink" title="用户和权限的相关命令"></a>用户和权限的相关命令</h3><h4 id="用户和权限的基本概念"><a href="#用户和权限的基本概念" class="headerlink" title="用户和权限的基本概念"></a>用户和权限的基本概念</h4><ul>
+<li><p>用户管理包括 <strong>用户</strong> 和 <strong>组</strong> 管理</p>
+</li>
+<li><p>在 linux 中可以指定每一个用户针对不同的文件或目录不同的权限</p>
+</li>
+<li><p>对<strong>文件&#x2F;目录的权限</strong>包括</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>权限</th>
+<th>英文</th>
+<th>缩写</th>
+<th>数字代号</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>读</td>
+<td>red</td>
+<td>r</td>
+<td>4</td>
+</tr>
+<tr>
+<td>写</td>
+<td>write</td>
+<td>w</td>
+<td>2</td>
+</tr>
+<tr>
+<td>执行</td>
+<td>excute</td>
+<td>x</td>
+<td>1</td>
+</tr>
+<tr>
+<td>无</td>
+<td></td>
+<td>-</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<p><strong>组</strong>：实际工作中，可以预先对组设置好权限，然后将不同的用户添加到不同的组中（简化了用户权限设置）</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta"># </span><span class="language-bash"><span class="built_in">ls</span> -l 扩展</span></span><br><span class="line"><span class="meta">$ </span><span class="language-bash"><span class="built_in">ls</span> -l</span></span><br><span class="line">-rw-rw-r-- 1 用户名 组名 大小 时间 名称</span><br><span class="line">drwxrwxr-x 2</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-</td>
+<td>rw-</td>
+<td>rw-</td>
+<td>r–</td>
+<td>1</td>
+<td>用户名</td>
+<td>组名</td>
+</tr>
+<tr>
+<td>d</td>
+<td>rwx</td>
+<td>rwx</td>
+<td>r-x</td>
+<td>2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>文件&#x2F;目录</td>
+<td>当前用户权限</td>
+<td>当前组所对应的权限</td>
+<td>其他用户权限</td>
+<td>硬链接数</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>硬链接数：表示有多少种方式可以访问到当前目录&#x2F;文件，文件的硬链接数通常为 1，目录的硬链接数取决于该目录有多少个子目录。</p>
+<h4 id="修改文件-x2F-目录权限-chmod"><a href="#修改文件-x2F-目录权限-chmod" class="headerlink" title="修改文件&#x2F;目录权限 chmod"></a>修改文件&#x2F;目录权限 <code>chmod</code></h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$ </span><span class="language-bash"><span class="built_in">chmod</span> +/-rwx 文件名|目录</span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">+ 增加权限  - 删除权限</span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">直接修改文件/目录的读、写、执行权限，但不能精确到 拥有者/组/其他</span></span><br><span class="line"><span class="meta">$ </span><span class="language-bash"><span class="built_in">chmod</span> +x 文件名 // 增加文件可执行权限</span></span><br><span class="line"><span class="meta">$ </span><span class="language-bash"><span class="built_in">chmod</span> -r 目录 // 删除目录可读权限</span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">目录的可读权限：读取目录内容（如果没有此权限，可<span class="built_in">cd</span>，不能<span class="built_in">ls</span>）</span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">目录的可写权限：修改目录内容</span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">目录的可执行权限：对目录执行终端命令（如果没有此权限，甚至无法 <span class="built_in">cd</span> 到目录）</span></span><br></pre></td></tr></table></figure>
+
+<p>chmod 高级用法</p>
+<h4 id="超级用户"><a href="#超级用户" class="headerlink" title="超级用户"></a>超级用户</h4><ul>
+<li><p><code>root</code> 账户用于系统的维护和管理，对操作系统的所有资源具有所有访问权限</p>
+</li>
+<li><p>不推荐直接使用 root 账户登录系统</p>
+</li>
+<li><p>在 linux 安装过程中，系统会自动创建一个标准用户账号</p>
+</li>
+</ul>
+<p><strong>sudo</strong></p>
+<ul>
+<li><p><code>su</code> 是 <code>substitute user</code> 缩写，表示使用另一个用户身份</p>
+</li>
+<li><p><code>sudo</code> 命令用来以其他身份来执行命令，预设身份为 root</p>
+</li>
+<li><p>用户使用 sudo 时，需先输入密码，之后有五分钟的有效期，超过期限去重新输入密码</p>
+</li>
+</ul>
+<h4 id="组管理"><a href="#组管理" class="headerlink" title="组管理"></a>组管理</h4><p><code>groupadd 组名</code> ：添加组</p>
+<p><code>groupdel 组名</code> ：删除组</p>
+<p><code>cat /etc/group</code> ：确认组信息</p>
+<p><code>chgrp 组名 文件/目录名</code> ：修改文件&#x2F;目录的所属组 -R 递归修改</p>
+<blockquote>
+<p>创建组&#x2F;删除组的终端命令都需要通过 sudo 来执行</p>
+<p>组信息保存在 &#x2F;etc&#x2F;group 文件中</p>
+<p>&#x2F;etc 目录是专门用来保存 系统配置信息的目录</p>
+</blockquote>
+<h4 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h4><p><strong>创建用户&#x2F;设置密码&#x2F;删除用户</strong></p>
+<p><code>useradd -m -g 组 新建用户名</code> ：添加新用户</p>
+<p>​-m 自动建立用户家目录</p>
+<p>​-g 指定用户所在的组，否则会建立一个和用户名同名的组</p>
+<p><code>passwd 用户名</code>：设置用户密码</p>
+<p>​ 如果是普通用户，直接用 passwd 可以修改自己的账户密码</p>
+<p><code>userdel -r 用户名</code>：删除用户</p>
+<p>​-r 选项自动删除用户家目录</p>
+<p><code>cat /etc/passwd | grep 用户名</code>：确认用户信息</p>
+<p>​ 新建用户后，用户信息保存在 <code>/etc/passwd</code> 文件中</p>
+<blockquote>
+<p>创建用户&#x2F;删除用户&#x2F;修改其他用户密码 的命令都需要通过 <code>sudo</code> 执行</p>
+<p>用户信息保存在 <code>/etc/passwd</code> 文件中</p>
+</blockquote>
+<p><strong>查看用户信息</strong></p>
+<p><code>id [用户名]</code>：查看用户 UID 和 GID 信息</p>
+<p><code>who</code> ：查看当前所有登陆的用户列表</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$ </span><span class="language-bash"><span class="built_in">who</span></span></span><br><span class="line">用户名  时间 (:0) # :0 表示当前电脑</span><br><span class="line">用户名  时间 (172.16.xx.xx)</span><br></pre></td></tr></table></figure>
+
+<p><code>whoami</code> ：查看当前登录用户的账户名</p>
+<p><strong>passwd 文件</strong> 由六个分号组成七个信息</p>
+<ol>
+<li>用户名</li>
+<li>密码（x，表示加密的密码）</li>
+<li>UID（用户标识）</li>
+<li>GID（组标识）</li>
+<li>用户全名</li>
+<li>家目录</li>
+<li>登录使用的 shell，就是登陆之后使用的终端，ubuntu 默认使用 <code>dash</code></li>
+</ol>
+<p><strong>usermod</strong></p>
+<p>用来设置用户的主组&#x2F;附加组 和登录 shell</p>
+<p>主组：在用户新建时指定，在 <code>etc/passwd</code> 的第四列 GID 对应的组</p>
+<p>附加组：在 <code>etc/group</code> 中最后一列表示该组的用户列表，用于指定用户的附加权限</p>
+<blockquote>
+<p>设置用户的附加组之后，需要重新登录才能生效</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 修改用户的主组</span></span><br><span class="line">$ usermod -g 组 用户名</span><br><span class="line"><span class="comment"># 修改用户的附加组</span></span><br><span class="line">$ usermod -G 组 用户名</span><br><span class="line"><span class="comment"># 修改用户登录shell</span></span><br><span class="line">$ usermod -s /bin/bash</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>默认使用 <code>useradd</code> 添加的用户是没有权限使用 <code>sudo</code> 以 <code>root</code> 身份执行命令的，使用以下命令将用户添加到 <code>sudo</code> 附加组中</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">usermod -G sudo 用户名</span><br></pre></td></tr></table></figure>
+
+<p><strong>which</strong></p>
+<blockquote>
+<p><code>/etc/passwd</code> 是用于保存用户信息的文件</p>
+<p><code>/usr/bin/passwd</code> 是用于修改用户密码的程序</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># which 可用于查看执行命令所在的位置</span></span><br><span class="line">$ <span class="built_in">which</span> <span class="built_in">ls</span></span><br><span class="line"><span class="comment"># /bin/ls</span></span><br><span class="line">$ <span class="built_in">which</span> useradd</span><br><span class="line"><span class="comment"># /usr/sbin/useradd</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>cd</code> 这个命令是内置在系统内核中的，没有独立文件，因此用 <code>which</code> 无法找到</p>
+</blockquote>
+<p><strong>bin 和 sbin</strong></p>
+<p><code>/bin</code> (binary) 是二进制执行文件目录，主要用于具体应用</p>
+<p><code>/sbin</code> (system binary) 是系统管理员专用的二进制文件目录，主要用于系统管理</p>
+<p><code>/usr/bin</code> (user commands for applications) 后期安装的一些软件</p>
+<p><code>/usr/sbin</code> (super user commands for applications) 超级用户的一些管理程序</p>
+<blockquote>
+<p>bin 存储普通可执行文件，sbin 存储跟系统管理相关的可执行文件</p>
+</blockquote>
+<h4 id="切换用户"><a href="#切换用户" class="headerlink" title="切换用户"></a>切换用户</h4><p><code>su - 用户名</code>：切换用户，并且切换目录</p>
+<p><code>-</code> 可以切换到用户家目录，否则保持位置不变</p>
+<p><code>exit</code>： 退出当前登录用户</p>
+<blockquote>
+<p><code>su</code> 不接用户名，可以切换到 <code>roo</code>，不推荐，不安全</p>
+</blockquote>
+<p>exit 示意图：</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102205719.png"></p>
+<h4 id="修改文件权限"><a href="#修改文件权限" class="headerlink" title="修改文件权限"></a>修改文件权限</h4><p>chowm 修改拥有者</p>
+<p>chgrp 修改组</p>
+<p>chmod 修改权限</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta"># </span><span class="language-bash">修改文件/目录的拥有者</span></span><br><span class="line"><span class="meta">$ </span><span class="language-bash"><span class="built_in">chown</span> 用户名 文件名/目录名</span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">递归修改文件/目录的组</span></span><br><span class="line"><span class="meta">$ </span><span class="language-bash"><span class="built_in">chgrp</span> -R 组名 文件名/目录名</span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">递归修改文件权限</span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">755 三个数字分别代表 用户 u /组 g /其他用户 o 的权限</span></span><br><span class="line"><span class="meta">$ </span><span class="language-bash"><span class="built_in">chmod</span> -R 755 文件名/目录名</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>r –&gt; 4 w –&gt; 2 x –&gt; 1 无权限 –&gt; 0 ，想要什么权限直接将数字相加</p>
+</blockquote>
+<h3 id="系统信息相关命令"><a href="#系统信息相关命令" class="headerlink" title="系统信息相关命令"></a>系统信息相关命令</h3><blockquote>
+<p>查询服务器上当前系统日期和时间 &#x2F; 磁盘空间占用情况 &#x2F; 程序执行情况</p>
+</blockquote>
+<h4 id="时间和日期"><a href="#时间和日期" class="headerlink" title="时间和日期"></a>时间和日期</h4><p><code>date</code> ：查看系统时间</p>
+<p><code>cal</code> ：<code>calendar</code> 查看日历， <code>-y</code> 选项可以查看一年的日历</p>
+<h4 id="磁盘和空间目录"><a href="#磁盘和空间目录" class="headerlink" title="磁盘和空间目录"></a>磁盘和空间目录</h4><p><code>df -h</code> ：<code>disk free</code> 显示磁盘剩余空间 -h 以人性化的方式显示文件大小</p>
+<p><code>du -h [目录名]</code> ：<code>disk usage</code> 显示目录占用空间情况，不指定目录默认表示当前目录</p>
+<blockquote>
+<p>-h 以人性化的方式显示文件大小</p>
+</blockquote>
+<h4 id="进程信息"><a href="#进程信息" class="headerlink" title="进程信息"></a>进程信息</h4><p>PID 进程代号</p>
+<p><code>ps au</code> : <code>process status</code> 查看进程的详细状况，默认只显示当前用户通过终端启动的程序</p>
+<p>​ps 选项(没有减号)</p>
+<p>​<code>a</code> 显示终端上的所有进程，包括其他用户的进程</p>
+<p>​<code>u</code> 显示进程的详细状态</p>
+<p>​<code>x</code> 显示不是通过终端启动的进程</p>
+<p><code>top</code> : 动态显示运行中的进程并且排序 ，输入 q 退出</p>
+<p><code>kill [-9] 进程代号</code> : 终止指定代号的进程，<code>-9</code> 表示强行终止</p>
+<h3 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h3><h4 id="查找文件"><a href="#查找文件" class="headerlink" title="查找文件"></a>查找文件</h4><p><code>find [路径] -name “*.txt”</code> : 查找指定路径下扩展名为.txt 的文件，包括子目录</p>
+<p>​ 如果省略路径，表示在当前文件夹下查找</p>
+<h4 id="软连接"><a href="#软连接" class="headerlink" title="软连接"></a>软连接</h4><p><code>ln -s 被链接的源文件 链接文件</code> ：建立文件的软链接，类似于 Windows 下的快捷方式</p>
+<p>注意：</p>
+<ul>
+<li><p>如果没有 <code>-s</code> 选项建立的是一个硬链接文件（两个文件占用相同大小的磁盘空间，几乎不用）</p>
+</li>
+<li><p>源文件要使用绝对路径，可以方便移动链接文件后，仍然能够正常使用</p>
+</li>
+</ul>
+<h5 id="文件软硬链接示意图"><a href="#文件软硬链接示意图" class="headerlink" title="文件软硬链接示意图"></a>文件软硬链接示意图</h5><p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102205748.png"></p>
+<ul>
+<li><p>在 linux 中<strong>文件名</strong>和<strong>文件的数据</strong>是分开存储的</p>
+</li>
+<li><p>在 linux 中，只有文件的硬链接数为 0 文件才会被删除</p>
+</li>
+<li><p>在日常工作中几乎不会建立文件的硬链接</p>
+</li>
+</ul>
+<h4 id="打包和解包"><a href="#打包和解包" class="headerlink" title="打包和解包"></a>打包和解包</h4><p>tar 是 Linux 中常用的备份工具，此命令可以把一系列文件打包到一个大文件中，也可以把一个打包的大文件恢复成一系列文件</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta"># </span><span class="language-bash">打包文件</span></span><br><span class="line">tar -cvf 打包文件.tar 被打包的文件/路径 (多个文件一次写在后面，用空格隔开)</span><br><span class="line"><span class="meta"># </span><span class="language-bash">解包文件</span></span><br><span class="line">tar -xvf 打包文件.tar</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>c</code> 生成档案文件，创建打包文件</p>
+</li>
+<li><p><code>x</code> 解开档案文件</p>
+</li>
+<li><p><code>v</code> 列出归档接档的详细过程</p>
+</li>
+<li><p><code>f</code> 指定档案文件名称， f 选项必须放在最后</p>
+</li>
+</ul>
+<h4 id="压缩和解压缩"><a href="#压缩和解压缩" class="headerlink" title="压缩和解压缩"></a>压缩和解压缩</h4><p><strong>gzip</strong></p>
+<ul>
+<li><p><code>tar</code> 和 <code>gzip</code> 命令结合使用实现文件打包和压缩</p>
+<ul>
+<li><p><code>tar</code> 只负责打包，但不压缩</p>
+</li>
+<li><p>用 <code>gzip</code> 压缩 <code>ta</code>r 打包后的文件，扩展名为 <code>xxx.tar.gz</code></p>
+</li>
+</ul>
+</li>
+<li><p><code>tar</code> 命令中 <code>-z</code> 选项可以调用 <code>gzip</code></p>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta"># </span><span class="language-bash">压缩文件</span></span><br><span class="line">tar -zcvf 打包文件.tar.gz 被压缩文件/路径</span><br><span class="line"><span class="meta"># </span><span class="language-bash">解压缩文件</span></span><br><span class="line">tar -zxvf 打包文件.tar.gz</span><br><span class="line"><span class="meta"># </span><span class="language-bash">解压缩到指定路径</span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">-C 解压到指定路径，（路径必须存在）</span></span><br><span class="line">tar -zxvf 打包文件.tar.gz -C 目标路径</span><br></pre></td></tr></table></figure>
+
+<p><strong>bzip2</strong></p>
+<ul>
+<li><p><code>tar</code> 和 <code>bzip2</code> 命令结合使用实现文件打包和压缩（用法同 <code>gzip</code>）</p>
+<ul>
+<li><p><code>tar</code> 只负责打包，但不压缩</p>
+</li>
+<li><p>用 <code>bzip2</code> 压缩 <code>ta</code>r 打包后的文件，扩展名为 <code>xxx.tar.bz2</code></p>
+</li>
+</ul>
+</li>
+<li><p><code>tar</code> 命令中 <code>-j</code> 选项可以调用 <code>bzip2</code></p>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta"># </span><span class="language-bash">压缩文件</span></span><br><span class="line">tar -jcvf 打包文件.tar.bz2 被压缩文件/路径</span><br><span class="line"><span class="meta"># </span><span class="language-bash">解压缩文件</span></span><br><span class="line">tar -jxvf 打包文件.tar.bz2</span><br><span class="line"><span class="meta"># </span><span class="language-bash">解压缩到指定路径</span></span><br><span class="line"><span class="meta"># </span><span class="language-bash">-C 解压到指定路径，（路径必须存在）</span></span><br><span class="line">tar -jxvf 打包文件.tar.bz2 -C 目标路径</span><br></pre></td></tr></table></figure>
+
+<h4 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h4><p><code>apt</code> : <code>Advanced Packaging Tool</code> ，linux 下安装包管理工具，可以方便的安装&#x2F;卸载&#x2F;更新软件包</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta"># </span><span class="language-bash">安装软件</span></span><br><span class="line">sudo apt install 软件包</span><br><span class="line"><span class="meta"># </span><span class="language-bash">卸载软件</span></span><br><span class="line">sudo apt remove 如软件名</span><br><span class="line"><span class="meta"># </span><span class="language-bash">更新已安装的包</span></span><br><span class="line">sudo apt upgrade</span><br></pre></td></tr></table></figure>
+
+<h3 id="防火墙管理"><a href="#防火墙管理" class="headerlink" title="防火墙管理"></a>防火墙管理</h3><p>CentOS7 默认的防火墙不是 iptables,而是 firewalle</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 添加规则</span></span><br><span class="line">firewall-cmd --add-port=16343/tcp</span><br><span class="line">firewall-cmd --zone=public --add-port=16343/tcp --permanent （--permanent 永久生效，没有此参数重启后失效）</span><br><span class="line"><span class="comment"># 重新载入</span></span><br><span class="line">firewall-cmd --reload</span><br><span class="line"><span class="comment"># 查看</span></span><br><span class="line">firewall-cmd --zone=public --query-port=80/tcp</span><br><span class="line"><span class="comment"># 删除</span></span><br><span class="line">firewall-cmd --zone=public --remove-port=80/tcp --permanent</span><br><span class="line"></span><br><span class="line"><span class="comment"># 开启防火墙</span></span><br><span class="line">systemctl start firewalld.service</span><br><span class="line"><span class="comment"># 关闭防火墙</span></span><br><span class="line">systemctl stop firewalld.service</span><br><span class="line"><span class="comment"># 列出端口信息</span></span><br><span class="line">firewall-cmd --list-ports</span><br></pre></td></tr></table></figure>
+
+<p>使用 iptables</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 先检查是否安装了iptables</span></span><br><span class="line">service iptables status</span><br><span class="line"><span class="comment"># 安装iptables</span></span><br><span class="line">yum install -y iptables</span><br><span class="line"><span class="comment"># 升级iptables</span></span><br><span class="line">yum update iptables</span><br><span class="line"><span class="comment"># 安装iptables-services</span></span><br><span class="line">yum install iptables-services</span><br><span class="line"><span class="comment"># 停止firewalld服务</span></span><br><span class="line">systemctl stop firewalld</span><br><span class="line"><span class="comment"># 禁用firewalld服务</span></span><br><span class="line">systemctl mask firewalld</span><br><span class="line"></span><br><span class="line"><span class="comment">#注册iptables服务</span></span><br><span class="line">systemctl <span class="built_in">enable</span> iptables.service</span><br><span class="line"><span class="comment"># 开启 iptables 防火墙</span></span><br><span class="line">systemctl start iptables.service</span><br><span class="line"><span class="comment"># 重启iptables防火墙</span></span><br><span class="line">systemctl restart iptables.service</span><br><span class="line"><span class="comment"># 关闭 iptables 防火墙</span></span><br><span class="line">systemctl stop iptables.service</span><br><span class="line"><span class="comment"># 查看 iptables 防火墙状态</span></span><br><span class="line">systemctl status iptables.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看iptables现有规则</span></span><br><span class="line">iptables -L -n</span><br><span class="line"><span class="comment"># 允许所有</span></span><br><span class="line">iptables -P INPUT ACCEPT</span><br><span class="line"><span class="comment"># 清空所有默认规则</span></span><br><span class="line">iptables -F</span><br><span class="line"><span class="comment"># 清空所有自定义规则</span></span><br><span class="line">iptables -X</span><br><span class="line"><span class="comment"># 所有计数器归0</span></span><br><span class="line">iptables -Z</span><br><span class="line"><span class="comment"># 允许来自于lo接口的数据包(本地访问)</span></span><br><span class="line">iptables -A INPUT -i lo -j ACCEPT</span><br><span class="line"><span class="comment"># 开放22端口</span></span><br><span class="line">iptables -A INPUT -p tcp --dport 22 -j ACCEPT</span><br><span class="line"><span class="comment"># 开放21端口(FTP)</span></span><br><span class="line">iptables -A INPUT -p tcp --dport 21 -j ACCEPT</span><br><span class="line"><span class="comment"># 开放80端口(HTTP)</span></span><br><span class="line">iptables -A INPUT -p tcp --dport 80 -j ACCEPT</span><br><span class="line"><span class="comment"># 开放443端口(HTTPS)</span></span><br><span class="line">iptables -A INPUT -p tcp --dport 443 -j ACCEPT</span><br><span class="line"><span class="comment"># 允许ping</span></span><br><span class="line">iptables -A INPUT -p icmp --icmp-type 8 -j ACCEPT</span><br><span class="line"><span class="comment"># 允许接受本机请求之后的返回数据 RELATED,是为FTP设置的</span></span><br><span class="line">iptables -A INPUT -m state --state  RELATED,ESTABLISHED -j ACCEPT</span><br><span class="line"><span class="comment"># 其他入站一律丢弃</span></span><br><span class="line">iptables -P INPUT DROP</span><br><span class="line"><span class="comment"># 所有出站一律绿灯</span></span><br><span class="line">iptables -P OUTPUT ACCEPT</span><br><span class="line"><span class="comment"># 所有转发一律丢弃</span></span><br><span class="line">iptables -P FORWARD DROP</span><br><span class="line"><span class="comment">#保存上述规则</span></span><br><span class="line">service iptables save</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">iptables -P INPUT ACCEPT</span><br><span class="line">iptables -F</span><br><span class="line">iptables -X</span><br><span class="line">iptables -Z</span><br><span class="line">iptables -A INPUT -i lo -j ACCEPT</span><br><span class="line">iptables -A INPUT -p tcp --dport 22 -j ACCEPT</span><br><span class="line">iptables -A INPUT -p tcp --dport 21 -j ACCEPT</span><br><span class="line">iptables -A INPUT -p tcp --dport 80 -j ACCEPT</span><br><span class="line">iptables -A INPUT -p tcp --dport 443 -j ACCEPT</span><br><span class="line">iptables -A INPUT -p icmp --icmp-type 8 -j ACCEPT</span><br><span class="line">iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT</span><br><span class="line">iptables -P INPUT DROP</span><br><span class="line">iptables -P OUTPUT ACCEPT</span><br><span class="line">iptables -P FORWARD DROP</span><br><span class="line">service iptables save</span><br><span class="line">systemctl restart iptables.service</span><br></pre></td></tr></table></figure>
+
+<p>sudo -i 为了频繁的执行某些只有超级用户才能执行的权限，而不用每次输入密码，可以使用该命令。提示输入密码时该密码为当前账户的密码。没有时间限制。执行该命令后提示符变为“#”而不是“$”。想退回普通账户时可以执行“exit”或“logout” 。<br>su 切换到某某用户模式，提示输入密码时该密码为切换后账户的密码，用法为“su 账户名称”。如果后面不加账户时系统默认为 root 账户，密码也为超级账户的密码。没有时间限制。<br>sudo su 运行 sudo 命令给 su 命令提权，运行 su 命令。<br>sudo -i 运行结果 PWD&#x3D;&#x2F;root<br>sudo su 运行结果 PWD&#x3D;&#x2F;home&#x2F;用户名（当前用户主目录）</p>
+<p>sudo : 暂时切换到超级用户模式以执行超级用户权限，提示输入密码时该密码为当前用户的密码，而不是超级账户的密码。不过有时间限制，Ubuntu 默认为一次时长 15 分钟。</p>
 
       
     </div>
