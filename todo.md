@@ -1,10 +1,10 @@
-2040
+2042
 
 call apply bind 手动实现
 多次bind
 完整原型链
 
-防抖 节流 深拷贝 手写Promise 任务调度 继承 排序 去重 发布订阅
+
 
 keep-alive缓存页面使用$destroy后不能在次缓存 https://github.com/vuejs/vue/issues/6509
 
