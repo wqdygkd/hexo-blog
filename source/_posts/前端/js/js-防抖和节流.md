@@ -2,21 +2,22 @@
 title: 防抖和节流
 tags:
   - js
-id: '398'
+id: 398
 categories:
   - 前端
-date: 2018-12-12 22:13:29
+date: 2018-12-12
+updated: 2022-03-02
 ---
 
 > 防抖和节流都是为了解决**短时间内大量触发某函数**而导致的**性能问题，**比如触发频率过高导致的响应速度跟不上触发频率，出现延迟，假死或卡顿的现象
 
 ## 防抖（debounce）
 
-在事件被触发 n 秒后再执行回调函数，如果在这 n 秒内又被触发，则重新计时（只会触发最后一次）
+在事件被触发 n 秒后再执行回调函数，如果在这 n 秒内又被触发，则重新计时（短时间内连续触发的事件 只有效执行一次）
 
 应用场景
 
-- 用户在输入框中连续输入一串字符后，只会在输入完后去执行最后一次的查询 ajax 请求，这样可以有效减少请求次数，节约请求资源
+- 用户在输入框中连续输入一串字符后，只会在输入完后去执行最后一次的查询请求，这样可以有效减少请求次数，节约请求资源
 
 - window 的 resize、scroll 事件，不断地调整浏览器的窗口大小、或者滚动时会触发对应事件，防抖让其只触发一次
 
@@ -26,11 +27,9 @@ date: 2018-12-12 22:13:29
 
 应用场景
 
-- 鼠标连续不断地触发某事件（如点击），只在单位时间内只触发一次
+- 鼠标连续不断地触发某事件（如点击），n 秒内只触发一次
 
-- 在页面的无限加载场景下，需要用户在滚动页面时，每隔一段时间发一次 ajax 请求，而不是在用户停下滚动页面操作时才去请求数据
-
-- 监听滚动事件，比如是否滑到底部自动加载更多，用 throttle 来判断
+- 监听滚动事件，比如是否滑到底部自动加载更多
 
 ## 区别
 
@@ -46,62 +45,36 @@ date: 2018-12-12 22:13:29
 
 实现
 
-throttle-debounce 插件 https://www.npmjs.com/package/throttle-debounce
+[throttle-debounce 插件](https://www.npmjs.com/package/throttle-debounce)
 
-```html
-<input id="input" type="text" />
-```
+简单实现
 
 ```js
-input.oninput = throttle(1000, function() {
-  console.log(this.value)
-})
-
-function b() {
-  console.log(this.name)
-}
-const a = debounce(1000, b)
-a.call({ name: 'zs' })
-
 // 节流
-function throttle(delay, callback) {
-  let timer = null
-  let lastExec = 0
+function throttle(delay, func) {
+  let flag = true
   return function() {
-    const self = this
-    const elapsed = Number(new Date()) - lastExec
-    const args = arguments
-    function exec() {
-      callback.apply(self, args)
-      lastExec = Number(new Date())
-    }
-
-    clearTimeout(timer)
-
-    if (elapsed > delay) {
-      exec()
-    } else {
-      timer = setTimeout(function() {
-        exec()
-      }, delay - elapsed)
+    const context = this
+    const arg = arguments
+    if (flag) {
+      flag = false
+      setTimeout(() => {
+        func.apply(context, arg)
+      }, delay)
     }
   }
 }
 
 // 防抖
-function debounce(delay, callback) {
+function debounce(delay, func) {
   let timer = null
   return function() {
-    const self = this
+    const context = this
     const args = arguments
-    function exec() {
-      callback.apply(self, args)
-      lastExec = Number(new Date())
-    }
 
     clearTimeout(timer)
     timer = setTimeout(function() {
-      exec()
+      func.apply(context, args)
     }, delay)
   }
 }
