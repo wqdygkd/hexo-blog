@@ -228,6 +228,87 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/504.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/504.html" class="post-title-link" itemprop="url">dux主题修改记录</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-02-12" itemprop="dateCreated datePublished" datetime="2020-02-12T11:35:20+00:00">2020-02-12</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/wordpress/" itemprop="url" rel="index"><span itemprop="name">wordpress</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="给网站添加语言"><a href="#给网站添加语言" class="headerlink" title="给网站添加语言"></a>给网站添加语言</h2><p>打开 <code>theme/dux/header.php</code> 文件，修改如下内容</p>
+<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE HTML&gt;</span><br><span class="line"><span class="deletion">-&lt;html&gt;</span></span><br><span class="line"><span class="addition">+&lt;html lang=&quot;zh&quot;&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="修改面包屑导航位置"><a href="#修改面包屑导航位置" class="headerlink" title="修改面包屑导航位置"></a>修改面包屑导航位置</h2><p>打开 <code>theme/dux/single.php</code> 文件，修改如下内容</p>
+<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">&lt;?php get_header(); ?&gt;</span><br><span class="line"><span class="deletion">-&lt;?php if( _hui(&#x27;breadcrumbs_single_s&#x27;) )&#123; ?&gt;</span></span><br><span class="line"><span class="deletion">- &lt;div class=&quot;breadcrumbs&quot;&gt;</span></span><br><span class="line"><span class="deletion">-  &lt;div class=&quot;container&quot;&gt;&lt;?php echo hui_breadcrumbs() ?&gt;&lt;/div&gt;</span></span><br><span class="line"><span class="deletion">- &lt;/div&gt;</span></span><br><span class="line"><span class="deletion">-&lt;?php &#125; ?&gt;</span></span><br><span class="line">&lt;section class=&quot;container&quot;&gt;</span><br><span class="line"><span class="addition">+ &lt;?php if( _hui(&#x27;breadcrumbs_single_s&#x27;) )&#123; ?&gt;</span></span><br><span class="line"><span class="addition">+  &lt;div class=&quot;breadcrumbs&quot;&gt;</span></span><br><span class="line"><span class="addition">+   &lt;div class=&quot;container&quot;&gt;&lt;?php echo hui_breadcrumbs() ?&gt;&lt;/div&gt;</span></span><br><span class="line"><span class="addition">+  &lt;/div&gt;</span></span><br><span class="line"><span class="addition">+ &lt;?php &#125; ?&gt;</span></span><br><span class="line"> &lt;div class=&quot;content-wrap&quot;&gt;</span><br><span class="line"> &lt;div class=&quot;content&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>添加自定义样式</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 面包屑导航 */</span></span><br><span class="line"><span class="selector-class">.breadcrumbs</span> &#123;</span><br><span class="line">	<span class="attribute">box-shadow</span>: none;</span><br><span class="line">	<span class="attribute">background</span>: none;</span><br><span class="line">	<span class="attribute">margin-bottom</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://wqdy.top/487.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -942,88 +1023,6 @@
 
 <p>附 axios 并发多个请求方式：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">request1</span> () &#123;</span><br><span class="line">  <span class="keyword">return</span> axios.<span class="title function_">get</span>(<span class="string">&#x27;/user/12345&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">request2</span> () &#123;</span><br><span class="line">  <span class="keyword">return</span> axios.<span class="title function_">get</span>(<span class="string">&#x27;/user/12345/permissions&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">axios.<span class="title function_">all</span>([<span class="title function_">request1</span>(), <span class="title function_">request2</span>()])</span><br><span class="line">  .<span class="title function_">then</span>(axios.<span class="title function_">spread</span>(<span class="function">(<span class="params">res1, res2</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 两个请求现在都执行完成</span></span><br><span class="line">    <span class="comment">// acct、perms 分别为两个请求的结果</span></span><br><span class="line">  &#125;))</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/366.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/366.html" class="post-title-link" itemprop="url">下载神器 Internet Download Manager 中文破解版</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2019-12-22" itemprop="dateCreated datePublished" datetime="2019-12-22T14:56:22+00:00">2019-12-22</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/software/" itemprop="url" rel="index"><span itemprop="name">软件</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><span class="exturl" data-url="aHR0cDovL3d3dy5pbnRlcm5ldGRvd25sb2FkbWFuYWdlci5jb20v">Internet Download Manager</span> (简称IDM)  是 Windows 平台老牌而功能强大的多线程下载工具，支持多媒体下载、自动捕获链接、自动识别文件名、静默下载、批量下载、计划下载任务、站点抓取、队列，支持IE, Opera, Firefox, Chrome等所有流行的浏览器，如果启用高级集成，则可以捕获和接管从任何程序的下载。</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210130211514.jpg"></p>
-<p>破解版下载地址</p>
-<p>Internet Download Manager 6.38.16<br>Internet Download Manager 6.35.18<br>链接：<span class="exturl" data-url="aHR0cHM6Ly9wYW4uYmFpZHUuY29tL3MvMU5RbW5xRUdBZkN1NDE2ekN3WC1BVEE=">https://pan.baidu.com/s/1NQmnqEGAfCu416zCwX-ATA</span><br>提取码：wqdy</p>
-<p>安装说明</p>
-<p>下载完成后解压，运行安装程序，安装完就是注册版</p>
-<p>配合插件使用</p>
-<p>谷歌浏览器插件安装方法：找到你的 IMD 安装目录 注意是安装好后 找到 <code>IDMGCExt.crx</code> <code>IDMGCExt59.crx</code>2 个文件,<br>选择 IDMGCExt.crx 拖动到谷歌浏览器,如果装不上选择 IDMGCExt59.crx 能装上!</p>
-<p>提醒：某些网盘无法使用 IDM 下载的解决办法：下载时，按住 Alt 键，再点击下载按钮就不会调用 IDM 了！</p>
-<p>有能力的建议支持<span class="exturl" data-url="aHR0cHM6Ly9zZWN1cmUuaW50ZXJuZXRkb3dubG9hZG1hbmFnZXIuY29tL2J1eV9pZG0uaHRtbA==">正版</span></p>
 
       
     </div>

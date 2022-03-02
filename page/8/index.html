@@ -228,6 +228,112 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1165.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/1165.html" class="post-title-link" itemprop="url">群辉 NAS docker 中配置 v2ray 客户端</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-04-19" itemprop="dateCreated datePublished" datetime="2020-04-19T17:05:57+00:00">2020-04-19</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/NAS/" itemprop="url" rel="index"><span itemprop="name">NAS</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="安装docker插件-v2ray-映像"><a href="#安装docker插件-v2ray-映像" class="headerlink" title="安装docker插件 + v2ray 映像"></a>安装docker插件 + v2ray 映像</h2><p><strong>注意：X86 架构的 CPU 支持 docker，ARM 架构的 CPU 不支持 docker</strong></p>
+<p>在群辉套件中心搜索 <code>docker</code> 并安装</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102184610.png"></p>
+<p>打开 docker，搜索 v2ray，双击下载 <code>v2ray/official</code> 即可</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102200946.png"></p>
+<p>选择刚刚下载的映像，点击启动</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102202910.png"></p>
+<p>输入容器名称，点击高级设置</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102201229.png"></p>
+<p>在高级设置中勾选启用自动重新启动和创建桌面快捷方式</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102201257.png"></p>
+<p>在卷中添加文件夹，装载路径为 <code>/etc</code>。需要提前在file station 中创建好 <code>docker/v2ray</code> 文件夹</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102201321.png"></p>
+<p>在网络中勾选 使用与 Docker Host 相同的网络</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102201343.png"></p>
+<p>其他默认，点击应用</p>
+<p>点击下一步</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102201404.png"></p>
+<p>将 <code>向导完成后运行此容器</code> 取消选中（因为还没有配置文件）。点击应用</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102201429.png"></p>
+<h2 id="v2ray-客户端配置文件"><a href="#v2ray-客户端配置文件" class="headerlink" title="v2ray 客户端配置文件"></a>v2ray 客户端配置文件</h2><p>可以用gui客户端中配置好服务器，直接导出客户端配置文件为 <code>config.json</code>，我使用的是 v2rayN</p>
+<p>编辑 config.json， 修改 listen 为 0.0.0.0, protocol 为 <code>http</code>，port 随意，也可以不改</p>
+<p>在 v2rayN 程序文件夹中 找到 geoip.dat geosite.dat 文件</p>
+<p>在刚刚创建的 <code>docker/v2ray</code>文件夹中在创建一个 v2ray 文件夹，将 config.json geoip.dat geosite.dat 三个文件放进去</p>
+<p>我的部分 <code>config.json</code> 配置</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;inbounds&quot;: [</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;tag&quot;: &quot;proxy&quot;,</span><br><span class="line">      &quot;port&quot;: 10808,</span><br><span class="line">      &quot;listen&quot;: &quot;0.0.0.0&quot;,</span><br><span class="line">      &quot;protocol&quot;: &quot;http&quot;,</span><br><span class="line">      &quot;sniffing&quot;: &#123;</span><br><span class="line">        &quot;enabled&quot;: true,</span><br><span class="line">        &quot;destOverride&quot;: [</span><br><span class="line">          &quot;http&quot;,</span><br><span class="line">          &quot;tls&quot;</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;settings&quot;: &#123;</span><br><span class="line">        &quot;auth&quot;: &quot;noauth&quot;,</span><br><span class="line">        &quot;udp&quot;: true,</span><br><span class="line">        &quot;ip&quot;: null,</span><br><span class="line">        &quot;address&quot;: null,</span><br><span class="line">        &quot;clients&quot;: null</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;streamSettings&quot;: null</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最后启动刚刚创建好的 docker 即可</p>
+<h3 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h3><p>到这了只是在群辉中安装了 v2ray 客户端，并配置了服务器，还需要手动连接代理，在群辉中，你需要在 控制面板-网络-常规-代理服务器 中添加代理</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102201501.png"></p>
+<p>如果你的其他设备想要连接也需要相同的方式手动配置代理</p>
+<p>在 win10 设置中，如下图所示位置，代理方式只支持 http 代理（这就是为什么上步中要把protocol改为http）地址为你群规的ip，端口就是上步中设置的端口，配置完之后保存即可</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102201524.png"></p>
+<p>手机中同理，在无线中配置代理</p>
+<p>如果你想实现只需连接家里无线就可以直接实现科学上网，你需要在路由器中做一些配置，可以参考下文【待整理】</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://wqdy.top/1136.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -998,101 +1104,6 @@
           <p>WordPress 在升级程序、主题、插件时，都会先切换到维护模式，也就是显示 ‘Briefly unavailable for scheduled maintenance. Check back in a minute’，如果升级顺利，也就几秒左右就恢复正常；但是如果由于网速不佳等原因导致升级中断，WordPress 就会一直停留在维护模式，不论前台还是后台。</p>
 <p>如何解决这个问题呢？</p>
 <p>马上通过 FTP 登录你的网站，删除 WordPress 根目录下的 <code>.maintenance</code> ，刷新网页即可。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/890.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/890.html" class="post-title-link" itemprop="url">github 下载加速--解决克隆 github 仓库时速度慢的问题</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2020-03-09" itemprop="dateCreated datePublished" datetime="2020-03-09T17:13:21+00:00">2020-03-09</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="修改-host-方式"><a href="#修改-host-方式" class="headerlink" title="修改 host 方式"></a>修改 host 方式</h2><p>访问 <span class="exturl" data-url="aHR0cDovL3Rvb2wuY2hpbmF6LmNvbS9kbnM=">http://tool.chinaz.com/dns</span> 或 <span class="exturl" data-url="aHR0cHM6Ly93d3cuaXBhZGRyZXNzLmNvbS8=">https://www.ipaddress.com/</span></p>
-<p>查询以下三个链接的 DNS 解析地址</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">github.com</span><br><span class="line">assets-cdn.github.com</span><br><span class="line">github.global.ssl.fastly.net</span><br></pre></td></tr></table></figure>
-
-<p>找到 TTL 值最小的 IP，修改系统 Hosts 文件</p>
-<p>之后刷新系统 DNS 缓存</p>
-<p>Windows+X 打开系统命令行（管理员身份）或 powershell</p>
-<p>运行 ipconfig &#x2F;flushdns 手动刷新系统 DNS 缓存。</p>
-<h2 id="利用国内代码管理平台中转"><a href="#利用国内代码管理平台中转" class="headerlink" title="利用国内代码管理平台中转"></a>利用国内代码管理平台中转</h2><p>利用码云(gitee)</p>
-<p>新建仓库-导入已有仓库 将 github 仓库 clone 到 gitee 中</p>
-<p>如果项目中有子模块，同理也需要 clone 到 gitee 中，同时修改主仓库中的 .gitmodules 文件，将子模块的地址修改为 gitee 地址</p>
-<h2 id="使用-GitHubDesktop-客户端"><a href="#使用-GitHubDesktop-客户端" class="headerlink" title="使用 GitHubDesktop 客户端"></a>使用 GitHubDesktop 客户端</h2><h2 id="使用代理"><a href="#使用代理" class="headerlink" title="使用代理"></a>使用代理</h2><p>仅仅开代理是不行的，需要单独配置</p>
-<p>如果使用 HTTPS 协议克隆需要如下配置</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 设置代理</span></span><br><span class="line">git config --global http.proxy socks5://127.0.0.1:1080</span><br><span class="line">git config --global https.proxy socks5://127.0.0.1:1080</span><br><span class="line"></span><br><span class="line"><span class="comment">#取消代理</span></span><br><span class="line">git config --global --<span class="built_in">unset</span> http.proxy</span><br><span class="line">git config --global --<span class="built_in">unset</span> https.proxy</span><br></pre></td></tr></table></figure>
-
-<p>使用 SSH 协议克隆需要如下配置</p>
-<p>修改.ssh&#x2F;config</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">Hostname github.com</span><br><span class="line">ProxyCommand connect -S 127.0.0.1:1080 %h %p</span><br></pre></td></tr></table></figure>
-
-<p>1080 端口换成你本地代理客户端的 socks 端口</p>
-<h2 id="github-com-cnpmjs-org-镜像站"><a href="#github-com-cnpmjs-org-镜像站" class="headerlink" title="github.com.cnpmjs.org 镜像站"></a>github.com.cnpmjs.org 镜像站</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/vuejs/vue.git</span><br><span class="line"><span class="comment"># 改为</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com.cnpmjs.org/vuejs/vue.git</span><br></pre></td></tr></table></figure>
-
-<h2 id="https-github-com-521xueweihan-GitHub520"><a href="#https-github-com-521xueweihan-GitHub520" class="headerlink" title="https://github.com/521xueweihan/GitHub520"></a><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tLzUyMXh1ZXdlaWhhbi9HaXRIdWI1MjA=">https://github.com/521xueweihan/GitHub520</span></h2><p>SwitchHosts v4.0.2<br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL29sZGovU3dpdGNoSG9zdHMvcmVsZWFzZXMvdGFnL3Y0LjAuMg==">https://github.com/oldj/SwitchHosts/releases/tag/v4.0.2</span></p>
 
       
     </div>

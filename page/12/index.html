@@ -228,6 +228,87 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/402.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/402.html" class="post-title-link" itemprop="url">使用 axios 导致 cookie 丢失问题</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2019-10-11" itemprop="dateCreated datePublished" datetime="2019-10-11T22:16:07+00:00">2019-10-11</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>问题：使用 axios 发送请求会拦截响应头中的 set-cookie，导致 cookie 丢失</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2F4aW9zL2F4aW9zL2lzc3Vlcy85NTM=">https://github.com/axios/axios/issues/953</span></p>
+<p>在控制台中也找不到 cookie</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(res.<span class="property">headers</span>[<span class="string">&#x27;set-cookie&#x27;</span>]) <span class="comment">// undefined</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">document</span>.<span class="property">cookie</span>) <span class="comment">// &#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>解决方式：修改 axios 配置</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">axios.<span class="property">defaults</span>.<span class="property">withCredentials</span> = <span class="literal">true</span> <span class="comment">// 默认是 false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Axios.interceptors.request.use(</span></span><br><span class="line"><span class="comment">//   config =&gt; &#123;</span></span><br><span class="line"><span class="comment">//     config.withCredentials = true // 添加</span></span><br><span class="line"><span class="comment">//     return config</span></span><br><span class="line"><span class="comment">//   &#125;)</span></span><br><span class="line"></span><br><span class="line">axios.<span class="title function_">create</span>(&#123;</span><br><span class="line">  <span class="attr">withCredentials</span>: <span class="literal">true</span> <span class="comment">// 表示跨域请求时是否需要使用凭证 默认 false</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>设置 <code>withCredentials = true</code> 会造成跨域，需要使用代理解决跨域问题</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://wqdy.top/372.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1172,109 +1253,6 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">匹配&#x27;wqdy&#x27;仅仅当&#x27;wqdy&#x27;后面不跟着&#x27;gkd&#x27;</span><br><span class="line">/wqdy(?!gkd)/</span><br></pre></td></tr></table></figure>
 
 <h2 id="判断是否有滚动条"><a href="#判断是否有滚动条" class="headerlink" title="判断是否有滚动条"></a>判断是否有滚动条</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">isScroll</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="variable language_">window</span>.<span class="property">innerWidth</span> - $(<span class="variable language_">document</span>).<span class="title function_">width</span>() !== <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/424.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/424.html" class="post-title-link" itemprop="url">less 使用 - mixin 混合</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2019-07-21" itemprop="dateCreated datePublished" datetime="2019-07-21T22:30:10+00:00">2019-07-21</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="mixin-混合"><a href="#mixin-混合" class="headerlink" title="mixin 混合"></a>mixin 混合</h3><p>可以在 mixin 中使用类选择器和 id 选择器</p>
-<p>.bgc 定义了一个属性集，在任何需要使用 .bgc 属性集的选择器中，只需像下面这样调用：(小括号是可选的)</p>
-<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.bgc</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#f00</span>;</span><br><span class="line">  <span class="selector-class">.bgc</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>编译后的 CSS 代码为：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.bgc</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#f00</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>总结：mixin 其实就是一种嵌套，简单的讲，mixin 就是规则级别的复用</p>
-<p>mixin 的定义也会被原封不动的输出到编译生成的 CSS 代码中</p>
-<p>如果希望编译生成的 CSS 代码中不包含 mixin 的定义，在定义 mixin 时，只需在 class、id 的后面添加一对小括号即可。如：</p>
-<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.bgc</span>() &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="selector-class">.bgc</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>编译后的 CSS 代码为：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>mixin 可以包含选择器</p>
-<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.hover</span>() &#123;</span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="selector-class">.hover</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>编译后的 CSS 代码为：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="命令空间-Namespaces"><a href="#命令空间-Namespaces" class="headerlink" title="命令空间 Namespaces"></a>命令空间 Namespaces</h3><p>如果想要在一个更复杂的选择器中混合属性，可以堆叠多个 id 或类</p>
-<p>可以将 mixin 置于 id 选择器之下，这样可以确保它不会和另一个库冲突</p>
-<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-id">#bgc</span> &#123;</span><br><span class="line">  <span class="selector-class">.inner</span>() &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="selector-id">#bgc</span><span class="selector-class">.inner</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="important-关键字"><a href="#important-关键字" class="headerlink" title="!important 关键字"></a>!important 关键字</h3><p>在 mixin 后使用 !important 关键字，将会标记调用所有继承的属性为!important</p>
-<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.bgc</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="selector-class">.bgc</span> !important;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 编译后 css 为</span></span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#ccc</span> <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>带参数的 Mixin</p>
-<p>mixin 还可以接受参数，这些参数在混合时传递给选择器块</p>
-<p>从上面的代码可以看出：mixin 其实就是一种嵌套，简单的讲，mixin 就是规则级别的复用。除了类选择器外，你也可以使用 id 选择器来定义 mixin。</p>
 
       
     </div>

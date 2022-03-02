@@ -4206,7 +4206,7 @@
 <p>如果是 GSuite Admin 账号，可以使用如下方式直接添加进群组</p>
 <ol>
 <li>将生成的json文件保存到 credentials 文件夹中</li>
-<li>在管理控制台中为您的组织创建组。创建群组后，您将拥有一个例如的地址<span class="exturl" data-url="bWFpbHRvOiYjeDczOyYjeDYxOyYjNjQ7JiMxMjE7JiMxMTE7JiN4NzU7JiN4NzI7JiN4NjQ7JiN4NmY7JiN4NmQ7JiM5NzsmI3g2OTsmI3g2ZTsmIzQ2OyYjeDYzOyYjeDZmOyYjeDZkOw==">&#x73;&#x61;&#64;&#121;&#111;&#x75;&#x72;&#x64;&#x6f;&#x6d;&#97;&#x69;&#x6e;&#46;&#x63;&#x6f;&#x6d;</span></li>
+<li>在管理控制台中为您的组织创建组。创建群组后，您将拥有一个例如的地址<span class="exturl" data-url="bWFpbHRvOiYjeDczOyYjOTc7JiN4NDA7JiN4Nzk7JiMxMTE7JiN4NzU7JiMxMTQ7JiMxMDA7JiMxMTE7JiN4NmQ7JiM5NzsmI3g2OTsmI3g2ZTsmI3gyZTsmI3g2MzsmIzExMTsmIzEwOTs=">&#x73;&#97;&#x40;&#x79;&#111;&#x75;&#114;&#100;&#111;&#x6d;&#97;&#x69;&#x6e;&#x2e;&#x63;&#111;&#109;</span></li>
 <li>运行 <code>python3 add_to_google_group.py -g sa@yourdomain.com</code></li>
 </ol>
 </blockquote>
@@ -10024,10 +10024,10 @@
     <content><![CDATA[<blockquote>
 <p>防抖和节流都是为了解决<strong>短时间内大量触发某函数</strong>而导致的<strong>性能问题，</strong>比如触发频率过高导致的响应速度跟不上触发频率，出现延迟，假死或卡顿的现象</p>
 </blockquote>
-<h2 id="防抖（debounce）"><a href="#防抖（debounce）" class="headerlink" title="防抖（debounce）"></a>防抖（debounce）</h2><p>在事件被触发 n 秒后再执行回调函数，如果在这 n 秒内又被触发，则重新计时（只会触发最后一次）</p>
+<h2 id="防抖（debounce）"><a href="#防抖（debounce）" class="headerlink" title="防抖（debounce）"></a>防抖（debounce）</h2><p>在事件被触发 n 秒后再执行回调函数，如果在这 n 秒内又被触发，则重新计时（短时间内连续触发的事件 只有效执行一次）</p>
 <p>应用场景</p>
 <ul>
-<li><p>用户在输入框中连续输入一串字符后，只会在输入完后去执行最后一次的查询 ajax 请求，这样可以有效减少请求次数，节约请求资源</p>
+<li><p>用户在输入框中连续输入一串字符后，只会在输入完后去执行最后一次的查询请求，这样可以有效减少请求次数，节约请求资源</p>
 </li>
 <li><p>window 的 resize、scroll 事件，不断地调整浏览器的窗口大小、或者滚动时会触发对应事件，防抖让其只触发一次</p>
 </li>
@@ -10035,11 +10035,9 @@
 <h2 id="节流（throttle）"><a href="#节流（throttle）" class="headerlink" title="节流（throttle）"></a>节流（throttle）</h2><p>规定一个单位时间 n，在这个单位时间内，只能有一次触发事件的回调函数执行，如果在同一个单位时间内事件被触发多次，只有一次能生效（每 n 秒触发一次）</p>
 <p>应用场景</p>
 <ul>
-<li><p>鼠标连续不断地触发某事件（如点击），只在单位时间内只触发一次</p>
+<li><p>鼠标连续不断地触发某事件（如点击），n 秒内只触发一次</p>
 </li>
-<li><p>在页面的无限加载场景下，需要用户在滚动页面时，每隔一段时间发一次 ajax 请求，而不是在用户停下滚动页面操作时才去请求数据</p>
-</li>
-<li><p>监听滚动事件，比如是否滑到底部自动加载更多，用 throttle 来判断</p>
+<li><p>监听滚动事件，比如是否滑到底部自动加载更多</p>
 </li>
 </ul>
 <h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><p>防抖的作用是将多个连续的<code>debounced</code>调用合并为一次<code>callback</code>调用。防抖是基于最近次 <code>debounced</code> 调用来重置 <code>waitTime</code>，如果<code>debounced</code>事件触发间隔小于 <code>waitTime</code>，<code>callback</code>就不会执行；</p>
@@ -10048,10 +10046,9 @@
 <p>防抖是 <code>debounced</code> 维护了一个计时器，规定在 <code>waitTime</code> 时间后触发 <code>callback</code>，但是在 <code>waitTime</code> 时间内再次触发 <code>debounced</code> 的话，会清除当前的 timer 然后重新计时，这样一来，只有最后一次<code>debounced</code> 操作才能触发 <code>callback</code>；</p>
 <p>节流是通过判断是否到达一定时间 (<code>waitTime</code>) 来再次触发 <code>callback</code> ， <code>func</code> 在 <code>waitTime</code> 时间内不能被再次触发。</p>
 <p>实现</p>
-<p>throttle-debounce 插件 <span class="exturl" data-url="aHR0cHM6Ly93d3cubnBtanMuY29tL3BhY2thZ2UvdGhyb3R0bGUtZGVib3VuY2U=">https://www.npmjs.com/package/throttle-debounce</span></p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;input&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">input.<span class="property">oninput</span> = <span class="title function_">throttle</span>(<span class="number">1000</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">value</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">b</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> a = <span class="title function_">debounce</span>(<span class="number">1000</span>, b)</span><br><span class="line">a.<span class="title function_">call</span>(&#123; <span class="attr">name</span>: <span class="string">&#x27;zs&#x27;</span> &#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 节流</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">throttle</span>(<span class="params">delay, callback</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> timer = <span class="literal">null</span></span><br><span class="line">  <span class="keyword">let</span> lastExec = <span class="number">0</span></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> self = <span class="variable language_">this</span></span><br><span class="line">    <span class="keyword">const</span> elapsed = <span class="title class_">Number</span>(<span class="keyword">new</span> <span class="title class_">Date</span>()) - lastExec</span><br><span class="line">    <span class="keyword">const</span> args = <span class="variable language_">arguments</span></span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">exec</span>(<span class="params"></span>) &#123;</span><br><span class="line">      callback.<span class="title function_">apply</span>(self, args)</span><br><span class="line">      lastExec = <span class="title class_">Number</span>(<span class="keyword">new</span> <span class="title class_">Date</span>())</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">clearTimeout</span>(timer)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (elapsed &gt; delay) &#123;</span><br><span class="line">      <span class="title function_">exec</span>()</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      timer = <span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="title function_">exec</span>()</span><br><span class="line">      &#125;, delay - elapsed)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 防抖</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">debounce</span>(<span class="params">delay, callback</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> timer = <span class="literal">null</span></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> self = <span class="variable language_">this</span></span><br><span class="line">    <span class="keyword">const</span> args = <span class="variable language_">arguments</span></span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">exec</span>(<span class="params"></span>) &#123;</span><br><span class="line">      callback.<span class="title function_">apply</span>(self, args)</span><br><span class="line">      lastExec = <span class="title class_">Number</span>(<span class="keyword">new</span> <span class="title class_">Date</span>())</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">clearTimeout</span>(timer)</span><br><span class="line">    timer = <span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="title function_">exec</span>()</span><br><span class="line">    &#125;, delay)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cubnBtanMuY29tL3BhY2thZ2UvdGhyb3R0bGUtZGVib3VuY2U=">throttle-debounce 插件</span></p>
+<p>简单实现</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 节流</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">throttle</span>(<span class="params">delay, func</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> flag = <span class="literal">true</span></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> context = <span class="variable language_">this</span></span><br><span class="line">    <span class="keyword">const</span> arg = <span class="variable language_">arguments</span></span><br><span class="line">    <span class="keyword">if</span> (flag) &#123;</span><br><span class="line">      flag = <span class="literal">false</span></span><br><span class="line">      <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        func.<span class="title function_">apply</span>(context, arg)</span><br><span class="line">      &#125;, delay)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 防抖</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">debounce</span>(<span class="params">delay, func</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> timer = <span class="literal">null</span></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> context = <span class="variable language_">this</span></span><br><span class="line">    <span class="keyword">const</span> args = <span class="variable language_">arguments</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">clearTimeout</span>(timer)</span><br><span class="line">    timer = <span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">      func.<span class="title function_">apply</span>(context, args)</span><br><span class="line">    &#125;, delay)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>前端</category>
@@ -13589,9 +13586,14 @@
 </details>
 
 
-<h4 id="防抖和节流"><a href="#防抖和节流" class="headerlink" title="防抖和节流"></a>防抖和节流</h4><p>防抖的作用是将多个连续的debounced调用合并为一次callback调用</p>
+<h4 id="防抖和节流"><a href="#防抖和节流" class="headerlink" title="防抖和节流"></a>防抖和节流</h4><details>
+<summary>详情</summary>
+
+<p>防抖的作用是将多个连续的debounced调用合并为一次callback调用</p>
 <p>节流的作用是限制callback调用的频率（每waitTime调用一次）</p>
 <p><a href="https://wqdy.top/398.html">https://wqdy.top/398.html</a></p>
+</details>
+
 <h4 id="深浅拷贝，实现深拷贝"><a href="#深浅拷贝，实现深拷贝" class="headerlink" title="深浅拷贝，实现深拷贝"></a>深浅拷贝，实现深拷贝</h4><p><strong>浅拷贝</strong>：可以使用 <code>Object.assign</code> 或展开运算符 <code>...</code> 来实现浅拷贝</p>
 <p><strong>深拷贝</strong>：</p>
 <ul>
@@ -13697,7 +13699,7 @@
   </entry>
   <entry>
     <title></title>
-    <url>/cl08b39p300k924oshusuent6.html</url>
+    <url>/cl09i3mzn00k02pne4a227u6f.html</url>
     <content><![CDATA[<h2 id="常用正则"><a href="#常用正则" class="headerlink" title="常用正则"></a>常用正则</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">. - 除换行符以外的所有字符。</span><br><span class="line">^ - 字符串开头。</span><br><span class="line">$ - 字符串结尾。</span><br><span class="line">\d,\w,\s - 匹配数字、字符、空格。</span><br><span class="line">\D,\W,\S - 匹配非数字、非字符、非空格。</span><br><span class="line">[abc] - 匹配 a、b 或 c 中的一个字母。</span><br><span class="line">[a-z] - 匹配 a 到 z 中的一个字母。</span><br><span class="line">[^abc] - 匹配除了 a、b 或 c 中的其他字母。</span><br><span class="line">aa|bb - 匹配 aa 或 bb。</span><br><span class="line">? - 0 次或 1 次匹配。</span><br><span class="line">* - 匹配 0 次或多次。</span><br><span class="line">+ - 匹配 1 次或多次。</span><br><span class="line">&#123;n&#125; - 匹配 n次。</span><br><span class="line">&#123;n,&#125; - 匹配 n次以上。</span><br><span class="line">&#123;m,n&#125; - 最少 m 次，最多 n 次匹配。</span><br><span class="line">(expr) - 捕获 expr 子模式,以 \1 使用它。</span><br><span class="line">(?:expr) - 忽略捕获的子模式。</span><br><span class="line">(?=expr) - 正向预查模式 expr。</span><br><span class="line">(?!expr) - 负向预查模式 expr。</span><br></pre></td></tr></table></figure>
 
 <p>任意正负数字  <code>^(\-|\+)?\d+(\.\d+)?$</code><br>邮箱 <code>^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$</code><br>最多保留2位小数的非负数字<br>匹配中文 <code>^[\u4e00-\u9fa5]*$</code></p>

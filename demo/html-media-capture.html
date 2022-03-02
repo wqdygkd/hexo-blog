@@ -1,196 +1,224 @@
-<!-- https://github.com/w3c/html-media-capture/ -->
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
   <title>HTML Media Capture Examples</title>
   <meta name="viewport" content="width=device-width">
   <style>
     body {
-    margin-top: 0;
-    padding-top: 0;
-    font: 100% sans-serif;
-    top: 0px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 20px;
-    padding-right: 20px;
-    max-width: 50em;
-}
+      margin-top: 0;
+      padding-top: 0;
+      font: 100% sans-serif;
+      top: 0px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 20px;
+      padding-right: 20px;
+      max-width: 50em;
+    }
 
-h1, h2, h3 {
-    color: #005a9c;
-}
+    h1,
+    h2,
+    h3 {
+      color: #005a9c;
+    }
 
-h1 {
-    font: 170% sans-serif;
-    margin-top: 30px;
-}
+    h1 {
+      font: 170% sans-serif;
+      margin-top: 30px;
+    }
 
-h2 {
-    font: 140% sans-serif;
-}
+    h2 {
+      font: 140% sans-serif;
+    }
 
-h3 {
-    font: 110% sans-serif;
-}
+    h3 {
+      font: 110% sans-serif;
+    }
 
-.controls {
-    border: dotted 1px gray;
-    padding: 5px;
-    margin-bottom: 10px;
-    background-color: #f0f0f0;
-}
+    .controls {
+      border: dotted 1px gray;
+      padding: 5px;
+      margin-bottom: 10px;
+      background-color: #f0f0f0;
+    }
 
-#supported {
-    background-color: #fffde3;
-    border: solid 1px #e7e7ce;
-    padding: 10px;
-    margin-top: 15px;
-}
+    #supported {
+      background-color: #fffde3;
+      border: solid 1px #e7e7ce;
+      padding: 10px;
+      margin-top: 15px;
+    }
 
-#footer {
-    border-top: dotted 1px gray;
-    color: gray;
-    font: 75% sans-serif;
-    padding: 10px;
-    margin-top: 25px;
-}
+    #footer {
+      border-top: dotted 1px gray;
+      color: gray;
+      font: 75% sans-serif;
+      padding: 10px;
+      margin-top: 25px;
+    }
 
-#output {
-  visibility: hidden;
-  animation: blinker 1s cubic-bezier(.5, 0, 1, 1) infinite alternate;
-  -webkit-animation: blinker 1s cubic-bezier(.5, 0, 1, 1) infinite alternate;
-}
+    #output {
+      visibility: hidden;
+      animation: blinker 1s cubic-bezier(.5, 0, 1, 1) infinite alternate;
+      -webkit-animation: blinker 1s cubic-bezier(.5, 0, 1, 1) infinite alternate;
+    }
 
-@keyframes blinker {
-  0% { opacity: 1.0; }
-  50% { opacity: 0.25; }
-  100% { opacity: 1.0; }
-}
+    @keyframes blinker {
+      0% {
+        opacity: 1.0;
+      }
 
-@-webkit-keyframes blinker {
-  0% { opacity: 1.0; }
-  50% { opacity: 0.25; }
-  100% { opacity: 1.0; }
-}
+      50% {
+        opacity: 0.25;
+      }
+
+      100% {
+        opacity: 1.0;
+      }
+    }
+
+    @-webkit-keyframes blinker {
+      0% {
+        opacity: 1.0;
+      }
+
+      50% {
+        opacity: 0.25;
+      }
+
+      100% {
+        opacity: 1.0;
+      }
+    }
   </style>
 </head>
+
 <body>
-<h1>HTML Media Capture Examples</h1>
+  <h1>HTML Media Capture Examples</h1>
 
-<button onclick="window.open('https://raw.github.com/anssiko/html-media-capture/gh-pages/index.html', '_blank')">View page source</button>
+  官方文档: https://www.w3.org/TR/2018/REC-html-media-capture-20180201/
+  https://github.com/w3c/html-media-capture/
 
-<p>These examples have been adapted from the <a href="http://dev.w3.org/2009/dap/camera/#examples">Examples</a> section of the <a href="http://dev.w3.org/2009/dap/camera/">HTML Media Capture spec</a>.</p>
+  <h2>Test for @capture and @accept existence</h2>
+  <p>Testing for attribute existence only.</p>
+  <p id="supported"></p>
 
-<p>The examples demonstrate how to give hints that it is preferred for the user to capture media of a specific MIME type using the media capture capabilities of the hosting device. Both a simple declarative example using an HTML form, as well as a more advanced example including scripting, are presented.<p>
-
-<p>For implementation status, see the <a href="http://www.w3.org/2009/dap/wiki/ImplementationStatus#HTML_Media_Capture">wiki</a>.
-
-<h2>Test for @capture and @accept existence</h2>
-<p>Testing for attribute existence only.</p>
-<p id="supported"></p>
-
-<h2>Example 1</h2>
-<p>To take a picture using the device's local still image capture device, such as a camera, and upload the picture taken using an HTML form:</p>
-<pre>
-  &lt;input type="file" accept="image/*" capture&gt;
-</pre>
-<form action="#" method="post" enctype="multipart/form-data">
+  <h2>Example 1</h2>
+  <pre>&lt;input type="file" accept="image/*" capture&gt;</pre>
   <input type="file" name="image" accept="image/*" capture>
-  <input type="submit" value="Upload">
-</form>
 
-<h2>Example 2</h2>
-<p>Or alternatively, to capture video using the device's local video camera:</p>
-<pre>
-  &lt;input type="file" accept="video/*" capture&gt;
-</pre>
-<form action="#" method="post" enctype="multipart/form-data">
+  <h2>Example 1</h2>
+  <pre>&lt;input type="file" accept="image/*" capture="user"&gt;</pre>
+  <input type="file" name="image" accept="image/*" capture="user">
+
+  <h2>Example 1</h2>
+  <pre>&lt;input type="file" accept="image/*" capture="environment"&gt;</pre>
+  <input type="file" name="image" accept="image/*" capture="environment">
+
+  <h2>Example 1</h2>
+  <pre>&lt;input type="file" accept="image/*" capture="任意值"&gt;</pre>
+  <input type="file" name="image" accept="image/*" capture="任意值">
+
+
+  <h2>Example 2</h2>
+  <pre>&lt;input type="file" accept="video/*" capture&gt;</pre>
   <input type="file" name="video" accept="video/*" capture>
-  <input type="submit" value="Upload">
-</form>
 
-<h2>Example 3</h2>
-<p>Or alternatively, to capture audio using the device's local microphone:</p>
-<pre>
-  &lt;input type="file" accept="audio/*" capture&gt;
-</pre>
-<form action="#" method="post" enctype="multipart/form-data">
+  <h2>Example 2</h2>
+  <pre>&lt;input type="file" accept="video/*" capture="user"&gt;</pre>
+  <input type="file" name="video" accept="video/*" capture="user">
+
+  <h2>Example 2</h2>
+  <pre>&lt;input type="file" accept="video/*" capture="environment"&gt;</pre>
+  <input type="file" name="video" accept="video/*" capture="environment">
+
+  <h2>Example 2</h2>
+  <pre>&lt;input type="file" accept="video/*" capture="任意值"&gt;</pre>
+  <input type="file" name="video" accept="video/*" capture="任意值">
+
+  <h2>Example 3</h2>
+  <pre>&lt;input type="file" accept="audio/*" capture&gt;</pre>
   <input type="file" name="audio" accept="audio/*" capture>
-  <input type="submit" value="Upload">
-</form>
 
-<h2>Examples 4-7</h2>
-<p>For more advanced use cases, specify the capture attribute in markup and handle the file upload in script via XMLHttpRequest:</p>
-<pre>&lt;input type="file" accept="image/*" capture&gt;</pre>
-<input id="example4" type="file" accept="image/*" capture>
+  <h2>Example 3</h2>
+  <pre>&lt;input type="file" accept="audio/*" capture="user"&gt;</pre>
+  <input type="file" name="audio" accept="audio/*" capture="user">
 
-<h2>Examples without @capture</h2>
+  <h2>Example 3</h2>
+  <pre>&lt;input type="file" accept="audio/*" capture="environment"&gt;</pre>
+  <input type="file" name="audio" accept="audio/*" capture="environment">
 
-<pre>&lt;input type="file" accept="image/*"&gt;</pre>
-<input type="file" accept="image/*">
+  <h2>Example 3</h2>
+  <pre>&lt;input type="file" accept="audio/*" capture="任意值"&gt;</pre>
+  <input type="file" name="audio" accept="audio/*" capture="任意值">
 
-<pre>&lt;input type="file"&gt;</pre>
-<input type="file">
+  <h2>Examples without @capture</h2>
 
-<script>
+  <pre>&lt;input type="file" accept="image/*"&gt;</pre>
+  <input type="file" accept="image/*">
 
-// test for @capture existence
+  <pre>&lt;input type="file"&gt;</pre>
+  <input type="file">
 
-function supported(attribute) {
-  var i = document.createElement('input');
-  i.setAttribute(attribute, true);
-  return !!i[attribute];
-}
+  <script>
 
-document.querySelector('#supported').innerHTML =
-  'It appears <strong>@capture is ' + (supported('capture') ? 'supported' : 'not supported') +
-  '</strong> and <strong>@accept is ' + (supported('accept') ? 'supported' : 'not supported') + '</strong>.';
+    // test for @capture existence
 
-var input = document.querySelector('#example4');
+    function supported(attribute) {
+      var i = document.createElement('input');
+      i.setAttribute(attribute, true);
+      return !!i[attribute];
+    }
 
-input.onchange = function () {
-  var file = input.files[0];
-  drawOnCanvas(file);
-  displayAsImage(file);
-};
+    document.querySelector('#supported').innerHTML =
+      'It appears <strong>@capture is ' + (supported('capture') ? 'supported' : 'not supported') +
+      '</strong> and <strong>@accept is ' + (supported('accept') ? 'supported' : 'not supported') + '</strong>.';
 
-function drawOnCanvas(file) {
-  var reader = new FileReader(),
-      c = document.createElement('canvas');
+    var input = document.querySelector('#example4');
 
-  document.body.appendChild(c);
-
-  reader.onload = function (e) {
-    var dataURL = e.target.result,
-        c = document.querySelector('canvas'),
-        ctx = c.getContext('2d'),
-        img = new Image();
-
-    img.onload = function() {
-      c.width = img.width;
-      c.height = img.height;
-      ctx.drawImage(img, 0, 0);
+    input.onchange = function () {
+      var file = input.files[0];
+      drawOnCanvas(file);
+      displayAsImage(file);
     };
 
-    img.src = dataURL;
-  };
+    function drawOnCanvas(file) {
+      var reader = new FileReader(),
+        c = document.createElement('canvas');
 
-  reader.readAsDataURL(file);
-}
+      document.body.appendChild(c);
 
-function displayAsImage(file) {
-  var imgURL = URL.createObjectURL(file),
-      img = document.createElement('img');
-  img.onload = function() {
-    URL.revokeObjectURL(imgURL);
-  };
+      reader.onload = function (e) {
+        var dataURL = e.target.result,
+          c = document.querySelector('canvas'),
+          ctx = c.getContext('2d'),
+          img = new Image();
 
-  img.src = imgURL;
-  document.body.appendChild(img);
-}
+        img.onload = function () {
+          c.width = img.width;
+          c.height = img.height;
+          ctx.drawImage(img, 0, 0);
+        };
 
-</script>
+        img.src = dataURL;
+      };
+
+      reader.readAsDataURL(file);
+    }
+
+    function displayAsImage(file) {
+      var imgURL = URL.createObjectURL(file),
+        img = document.createElement('img');
+      img.onload = function () {
+        URL.revokeObjectURL(imgURL);
+      };
+
+      img.src = imgURL;
+      document.body.appendChild(img);
+    }
+
+  </script>
 </body>
+
 </html>

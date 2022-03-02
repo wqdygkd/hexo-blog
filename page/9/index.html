@@ -228,6 +228,101 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/890.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/890.html" class="post-title-link" itemprop="url">github 下载加速--解决克隆 github 仓库时速度慢的问题</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-03-09" itemprop="dateCreated datePublished" datetime="2020-03-09T17:13:21+00:00">2020-03-09</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="修改-host-方式"><a href="#修改-host-方式" class="headerlink" title="修改 host 方式"></a>修改 host 方式</h2><p>访问 <span class="exturl" data-url="aHR0cDovL3Rvb2wuY2hpbmF6LmNvbS9kbnM=">http://tool.chinaz.com/dns</span> 或 <span class="exturl" data-url="aHR0cHM6Ly93d3cuaXBhZGRyZXNzLmNvbS8=">https://www.ipaddress.com/</span></p>
+<p>查询以下三个链接的 DNS 解析地址</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">github.com</span><br><span class="line">assets-cdn.github.com</span><br><span class="line">github.global.ssl.fastly.net</span><br></pre></td></tr></table></figure>
+
+<p>找到 TTL 值最小的 IP，修改系统 Hosts 文件</p>
+<p>之后刷新系统 DNS 缓存</p>
+<p>Windows+X 打开系统命令行（管理员身份）或 powershell</p>
+<p>运行 ipconfig &#x2F;flushdns 手动刷新系统 DNS 缓存。</p>
+<h2 id="利用国内代码管理平台中转"><a href="#利用国内代码管理平台中转" class="headerlink" title="利用国内代码管理平台中转"></a>利用国内代码管理平台中转</h2><p>利用码云(gitee)</p>
+<p>新建仓库-导入已有仓库 将 github 仓库 clone 到 gitee 中</p>
+<p>如果项目中有子模块，同理也需要 clone 到 gitee 中，同时修改主仓库中的 .gitmodules 文件，将子模块的地址修改为 gitee 地址</p>
+<h2 id="使用-GitHubDesktop-客户端"><a href="#使用-GitHubDesktop-客户端" class="headerlink" title="使用 GitHubDesktop 客户端"></a>使用 GitHubDesktop 客户端</h2><h2 id="使用代理"><a href="#使用代理" class="headerlink" title="使用代理"></a>使用代理</h2><p>仅仅开代理是不行的，需要单独配置</p>
+<p>如果使用 HTTPS 协议克隆需要如下配置</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 设置代理</span></span><br><span class="line">git config --global http.proxy socks5://127.0.0.1:1080</span><br><span class="line">git config --global https.proxy socks5://127.0.0.1:1080</span><br><span class="line"></span><br><span class="line"><span class="comment">#取消代理</span></span><br><span class="line">git config --global --<span class="built_in">unset</span> http.proxy</span><br><span class="line">git config --global --<span class="built_in">unset</span> https.proxy</span><br></pre></td></tr></table></figure>
+
+<p>使用 SSH 协议克隆需要如下配置</p>
+<p>修改.ssh&#x2F;config</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">Hostname github.com</span><br><span class="line">ProxyCommand connect -S 127.0.0.1:1080 %h %p</span><br></pre></td></tr></table></figure>
+
+<p>1080 端口换成你本地代理客户端的 socks 端口</p>
+<h2 id="github-com-cnpmjs-org-镜像站"><a href="#github-com-cnpmjs-org-镜像站" class="headerlink" title="github.com.cnpmjs.org 镜像站"></a>github.com.cnpmjs.org 镜像站</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/vuejs/vue.git</span><br><span class="line"><span class="comment"># 改为</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com.cnpmjs.org/vuejs/vue.git</span><br></pre></td></tr></table></figure>
+
+<h2 id="https-github-com-521xueweihan-GitHub520"><a href="#https-github-com-521xueweihan-GitHub520" class="headerlink" title="https://github.com/521xueweihan/GitHub520"></a><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tLzUyMXh1ZXdlaWhhbi9HaXRIdWI1MjA=">https://github.com/521xueweihan/GitHub520</span></h2><p>SwitchHosts v4.0.2<br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL29sZGovU3dpdGNoSG9zdHMvcmVsZWFzZXMvdGFnL3Y0LjAuMg==">https://github.com/oldj/SwitchHosts/releases/tag/v4.0.2</span></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://wqdy.top/819.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1435,87 +1530,6 @@
 <p>代码查看窗口将在浏览器的底部&#x2F;右侧打开。你可以通过查看 HTML 代码查看链接是否添加了 rel&#x3D;”nofollow”。</p>
 <p><strong>使用 Chrome 扩展组件（插件）检查页面 nofollow 链接</strong></p>
 <p>下载名为<span class="exturl" data-url="aHR0cHM6Ly9jaHJvbWUuZ29vZ2xlLmNvbS93ZWJzdG9yZS9kZXRhaWwvbm9mb2xsb3cvZGZvZ2lkZ2hhaWdvb21qZGVhY25kYWZhcGRpam1paWQ/aGw9ZW4=">NoFollow</span>的 Chrome 扩展组件，安装该插件后重新加载页面，该网页上的所有 nofollow 链接都将会高亮突出显示。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/504.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/504.html" class="post-title-link" itemprop="url">dux主题修改记录</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2020-02-12" itemprop="dateCreated datePublished" datetime="2020-02-12T11:35:20+00:00">2020-02-12</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/wordpress/" itemprop="url" rel="index"><span itemprop="name">wordpress</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="给网站添加语言"><a href="#给网站添加语言" class="headerlink" title="给网站添加语言"></a>给网站添加语言</h2><p>打开 <code>theme/dux/header.php</code> 文件，修改如下内容</p>
-<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE HTML&gt;</span><br><span class="line"><span class="deletion">-&lt;html&gt;</span></span><br><span class="line"><span class="addition">+&lt;html lang=&quot;zh&quot;&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="修改面包屑导航位置"><a href="#修改面包屑导航位置" class="headerlink" title="修改面包屑导航位置"></a>修改面包屑导航位置</h2><p>打开 <code>theme/dux/single.php</code> 文件，修改如下内容</p>
-<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">&lt;?php get_header(); ?&gt;</span><br><span class="line"><span class="deletion">-&lt;?php if( _hui(&#x27;breadcrumbs_single_s&#x27;) )&#123; ?&gt;</span></span><br><span class="line"><span class="deletion">- &lt;div class=&quot;breadcrumbs&quot;&gt;</span></span><br><span class="line"><span class="deletion">-  &lt;div class=&quot;container&quot;&gt;&lt;?php echo hui_breadcrumbs() ?&gt;&lt;/div&gt;</span></span><br><span class="line"><span class="deletion">- &lt;/div&gt;</span></span><br><span class="line"><span class="deletion">-&lt;?php &#125; ?&gt;</span></span><br><span class="line">&lt;section class=&quot;container&quot;&gt;</span><br><span class="line"><span class="addition">+ &lt;?php if( _hui(&#x27;breadcrumbs_single_s&#x27;) )&#123; ?&gt;</span></span><br><span class="line"><span class="addition">+  &lt;div class=&quot;breadcrumbs&quot;&gt;</span></span><br><span class="line"><span class="addition">+   &lt;div class=&quot;container&quot;&gt;&lt;?php echo hui_breadcrumbs() ?&gt;&lt;/div&gt;</span></span><br><span class="line"><span class="addition">+  &lt;/div&gt;</span></span><br><span class="line"><span class="addition">+ &lt;?php &#125; ?&gt;</span></span><br><span class="line"> &lt;div class=&quot;content-wrap&quot;&gt;</span><br><span class="line"> &lt;div class=&quot;content&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>添加自定义样式</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 面包屑导航 */</span></span><br><span class="line"><span class="selector-class">.breadcrumbs</span> &#123;</span><br><span class="line">	<span class="attribute">box-shadow</span>: none;</span><br><span class="line">	<span class="attribute">background</span>: none;</span><br><span class="line">	<span class="attribute">margin-bottom</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
