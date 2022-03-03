@@ -173,7 +173,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">157</span>
+          <span class="site-state-item-count">158</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -217,6 +217,90 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/384.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/384.html" class="post-title-link" itemprop="url">vue 项目中使用 axios.all 处理并发请求报 "TypeError: this.$axios.all is not a function" 异常解决方法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2019-12-27" itemprop="dateCreated datePublished" datetime="2019-12-27T18:25:44+00:00">2019-12-27</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>axios&#x2F;index.js 部分配置如下</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// axios/index.js</span></span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">Axios</span> = axios.<span class="title function_">create</span>(&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>原因：</p>
+<p>axios 实例没有 all 这个方法，all 是 axios 的静态方法</p>
+<p>所以解决方式就是将该方法手动挂载到 Axios 实例上即可</p>
+<p>在 <code>axios/index.js</code> 添加如下配置</p>
+<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">// axios/index.js</span><br><span class="line">import axios from &#x27;axios&#x27;</span><br><span class="line">const Axios = axios.create(&#123;</span><br><span class="line">  // ...</span><br><span class="line">&#125;)</span><br><span class="line"><span class="addition">+ Axios.all = axios.all</span></span><br><span class="line"><span class="addition">+ Axios.spread = axios.spread</span></span><br></pre></td></tr></table></figure>
+
+
+<p>附 axios 并发多个请求方式：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">request1</span> () &#123;</span><br><span class="line">  <span class="keyword">return</span> axios.<span class="title function_">get</span>(<span class="string">&#x27;/user/12345&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">request2</span> () &#123;</span><br><span class="line">  <span class="keyword">return</span> axios.<span class="title function_">get</span>(<span class="string">&#x27;/user/12345/permissions&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">axios.<span class="title function_">all</span>([<span class="title function_">request1</span>(), <span class="title function_">request2</span>()])</span><br><span class="line">  .<span class="title function_">then</span>(axios.<span class="title function_">spread</span>(<span class="function">(<span class="params">res1, res2</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 两个请求现在都执行完成</span></span><br><span class="line">    <span class="comment">// acct、perms 分别为两个请求的结果</span></span><br><span class="line">  &#125;))</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -962,138 +1046,6 @@
 <p>Node.js Best Practices <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2dvbGRiZXJneW9uaS9ub2RlYmVzdHByYWN0aWNlcw==">https://github.com/goldbergyoni/nodebestpractices</span></p>
 <p>html5-boilerplate 前端模板 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2g1YnAvaHRtbDUtYm9pbGVycGxhdGU=">https://github.com/h5bp/html5-boilerplate</span></p>
 <p>Airbnb 提供的非常精确和专业的风格指南<br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FpcmJuYi9qYXZhc2NyaXB0">https://github.com/airbnb/javascript</span></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/2011.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2011.html" class="post-title-link" itemprop="url">icon 图标在 vue 项目中的使用</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2019-08-01" itemprop="dateCreated datePublished" datetime="2019-08-01T00:00:00+00:00">2019-08-01</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <date title="修改时间：2019-10-13">2019-10-13</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>参考链接：<span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vcG9zdC81OWJiODY0YjUxODgyNTdlN2E0MjdjMDk=">https://juejin.im/post/59bb864b5188257e7a427c09</span></p>
-<h3 id="使用-iconfont"><a href="#使用-iconfont" class="headerlink" title="使用 iconfont"></a>使用 iconfont</h3><p>阿里开源图库 <span class="exturl" data-url="aHR0cHM6Ly93d3cuaWNvbmZvbnQuY24v">https://www.iconfont.cn/</span></p>
-<p>使用方法 <span class="exturl" data-url="aHR0cHM6Ly93d3cuaWNvbmZvbnQuY24vaGVscC9kZXRhaWw/c3BtPWEzMTN4Ljc3ODEwNjkuMTk5ODkxMDQxOS5kOGQxMWEzOTEmaGVscHR5cGU9Y29kZQ==">https://www.iconfont.cn/help/detail?spm=a313x.7781069.1998910419.d8d11a391&amp;helptype=code</span></p>
-<p>下载代码到本地（也可以使用在线链接）打开 demo_index.html 使用说明，有三种使用方式 unicode font-class symbol<br>unicode 方式： <span class="iconfont">&amp;#x33;</span> 这样，不直观，语意不明确，不支持多色图标<br>font-class 方式： <span class="iconfont icon-xxx"></span> 使用 class 定义，有语意，需要注意命名空间的问题，也是不支持多色图标<br>symbol 方式：使用 svg 不用再去请求 woff|eot|ttf| 这些字体库，且缩放不会失真，支持更加复杂的图标</p>
-<p>symbol 方式使用步骤：</p>
-<p>第一步：引入项目下面生成的 symbol 代码：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;./iconfont.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>或通过 import 导入</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&#x27;./iconfont.js&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>第二步：加入通用 CSS 代码：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.icon</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">1em</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">1em</span>;</span><br><span class="line">  <span class="attribute">vertical-align</span>: -<span class="number">0.15em</span>;</span><br><span class="line">  fill: currentColor;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>第三步：挑选相应图标并获取类名，应用于页面：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">class</span>=<span class="string">&quot;icon&quot;</span> <span class="attr">aria-hidden</span>=<span class="string">&quot;true&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">use</span> <span class="attr">xlink:href</span>=<span class="string">&quot;#icon-xxx&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">use</span>&gt;</span><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>symbol 其实使用了 SVG Sprite 技术， 所有的 svg-sprite 都是通过 iconfont 的 iconfont.js 生成的，所以：</p>
-<p>所有图标 icon 都很不直观，完全不知道哪个图标名对应什么图标，每次增删改图标，或者添加一些自定义的 svg 图标，只能将其也上传到 iconfont 和原有的图标放在一个项目库中，之后再重新下载，将整体 js 文件一起替换，而且也做不到按需加载</p>
-<p>导出的 svg 包含大量的无用信息，例如编辑器源信息、注释等。通常包含其它一些不会影响渲染结果或可以移除的内容</p>
-<h3 id="vue-cli3-项目使用-svg-sprite-loader-打包-svg"><a href="#vue-cli3-项目使用-svg-sprite-loader-打包-svg" class="headerlink" title="vue cli3 项目使用 svg-sprite-loader 打包 svg"></a>vue cli3 项目使用 svg-sprite-loader 打包 svg</h3><p>vue cli3 默认使用 file-loader 处理 svg：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* config.module.rule(&#x27;svg&#x27;) */</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">test</span>: <span class="regexp">/\.(svg)(\?.*)?$/</span>,</span><br><span class="line">  <span class="attr">use</span>: [</span><br><span class="line">    <span class="comment">/* config.module.rule(&#x27;svg&#x27;).use(&#x27;file-loader&#x27;) */</span></span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">loader</span>: <span class="string">&#x27;file-loader&#x27;</span>,</span><br><span class="line">      <span class="attr">options</span>: &#123;</span><br><span class="line">        <span class="attr">name</span>: <span class="string">&#x27;static/img/[name].[hash:8].[ext]&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>并路径指定为在 img 文件夹下，但我们的 svg 并不在 img 文件夹，而且 svg-sprite-loader 已经自带了 file-loader 的功能，所以，我们可以在我们自定义的 vue.config.js 文件下将 rule(svg) 清除：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">chainWebpack</span>: <span class="function"><span class="params">config</span> =&gt;</span> &#123;</span><br><span class="line">    config.<span class="property">module</span>.<span class="title function_">rule</span>(<span class="string">&#x27;svg&#x27;</span>).<span class="property">uses</span>.<span class="title function_">clear</span>()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>或者添加忽略，然后加上自定义的 svg rule，最后的配置如下：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 使用 svg-sprite-loader 处理 svg */</span></span><br><span class="line"><span class="comment">// 默认规则忽略 src/icons 文件夹</span></span><br><span class="line">config.<span class="property">module</span></span><br><span class="line">  .<span class="title function_">rule</span>(<span class="string">&#x27;svg&#x27;</span>)</span><br><span class="line">  .<span class="property">exclude</span>.<span class="title function_">add</span>(path.<span class="title function_">resolve</span>(__dirname, <span class="string">&#x27;src/icons&#x27;</span>))</span><br><span class="line">  .<span class="title function_">end</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">// src/icons 文件夹下的 svg 使用 svg-sprite-loader</span></span><br><span class="line">config.<span class="property">module</span></span><br><span class="line">  .<span class="title function_">rule</span>(<span class="string">&#x27;svg-sprite-loader&#x27;</span>)</span><br><span class="line">  .<span class="property">include</span>.<span class="title function_">add</span>(path.<span class="title function_">resolve</span>(__dirname, <span class="string">&#x27;src/icons&#x27;</span>))</span><br><span class="line">  .<span class="title function_">end</span>()</span><br><span class="line">  .<span class="title function_">test</span>(<span class="regexp">/\.svg$/</span>)</span><br><span class="line">  .<span class="title function_">use</span>(<span class="string">&#x27;svg-sprite&#x27;</span>)</span><br><span class="line">  .<span class="title function_">loader</span>(<span class="string">&#x27;svg-sprite-loader&#x27;</span>)</span><br><span class="line">  .<span class="title function_">options</span>(&#123;</span><br><span class="line">    <span class="attr">symbolId</span>: <span class="string">&#x27;icon-[name]&#x27;</span></span><br><span class="line">  &#125;)</span><br><span class="line">  .<span class="title function_">end</span>()</span><br></pre></td></tr></table></figure>
-
-<p>之后可以通过如下方式使用</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&#x27;@/icons/qq.svg&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- xlink:href=&quot;#icon-图标文件名 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">svg</span>&gt;</span><span class="tag">&lt;<span class="name">use</span> <span class="attr">xlink:href</span>=<span class="string">&quot;#icon-qq&quot;</span> /&gt;</span><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>使用缺点：需要手动导入图标</p>
-<h3 id="自动导入"><a href="#自动导入" class="headerlink" title="自动导入"></a>自动导入</h3><p>使用 webpack 的 <span class="exturl" data-url="aHR0cHM6Ly93ZWJwYWNrLmpzLm9yZy9ndWlkZXMvZGVwZW5kZW5jeS1tYW5hZ2VtZW50LyNyZXF1aXJlLWNvbnRleHQ=">require.context</span> api</p>
-<p>require.context 语法</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">require</span>.<span class="title function_">context</span>(directory, (useSubdirectories = <span class="literal">false</span>), (regExp = <span class="regexp">/^\.\//</span>))</span><br><span class="line"><span class="comment">// directory：说明需要检索的目录</span></span><br><span class="line"><span class="comment">// useSubdirectories：是否检索子目录</span></span><br><span class="line"><span class="comment">// regExp: 匹配文件的正则表达式</span></span><br><span class="line"><span class="comment">// Examples:</span></span><br><span class="line"><span class="built_in">require</span>.<span class="title function_">context</span>(<span class="string">&#x27;./test&#x27;</span>, <span class="literal">false</span>, <span class="regexp">/\.test\.js$/</span>)</span><br><span class="line"><span class="comment">// 表示在 test 文件夹（不包含子目录）下面的找所有文件名以 .test.js 结尾的能被 require 的文件</span></span><br></pre></td></tr></table></figure>
-
-<p>自动引入 @&#x2F;icons 下面所有的图标</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 基础组件的自动化全局注册</span></span><br><span class="line"><span class="keyword">const</span> requireComponent = <span class="built_in">require</span>.<span class="title function_">context</span>(<span class="string">&#x27;../../components&#x27;</span>, <span class="literal">false</span>)</span><br><span class="line"><span class="comment">// console.log(requireComponent.keys())</span></span><br><span class="line">requireComponent.<span class="title function_">keys</span>().<span class="title function_">forEach</span>(<span class="function"><span class="params">filename</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> componentConfig = requireComponent(filename)</span><br><span class="line">  <span class="comment">// console.log(componentConfig)</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> componentName = filename</span><br><span class="line">    .<span class="title function_">split</span>(<span class="string">&#x27;/&#x27;</span>)</span><br><span class="line">    .<span class="title function_">pop</span>()</span><br><span class="line">    .<span class="title function_">replace</span>(<span class="regexp">/\.\w+$/</span>, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">  <span class="comment">// console.log(componentName)</span></span><br><span class="line"></span><br><span class="line">  <span class="title class_">Vue</span>.<span class="title function_">component</span>(</span><br><span class="line">    componentName,</span><br><span class="line">    <span class="comment">// 如果这个组件选项是通过 `export default` 导出的，</span></span><br><span class="line">    <span class="comment">// 那么就会优先使用 `.default`，</span></span><br><span class="line">    <span class="comment">// 否则回退到使用模块的根。</span></span><br><span class="line">    componentConfig.<span class="property">default</span> || componentConfig</span><br><span class="line">  )</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">requireAll</span> = requireContext =&gt; requireContext.<span class="title function_">keys</span>().<span class="title function_">map</span>(requireContext)</span><br><span class="line"><span class="keyword">const</span> req = <span class="built_in">require</span>.<span class="title function_">context</span>(<span class="string">&#x27;@/icons&#x27;</span>, <span class="literal">false</span>)</span><br><span class="line">requireAll(req)</span><br></pre></td></tr></table></figure>
-
-<p>之后直接将图标放入 <code>@/icons</code> 文件夹下就可以直接使用了，删改图标同理</p>
-<h3 id="优化-svg"><a href="#优化-svg" class="headerlink" title="优化 svg"></a>优化 svg</h3><p>删除无用信息 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3N2Zy9zdmdv">svgo</span><br>阿里云导出的 svg 是带有默认的 fill 的，导致图标不能继承父级元素的颜色,可以通过删除默认 fill 解决</p>
-<p>安装</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm i svgo svgo-loader -D</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">config.<span class="property">module</span></span><br><span class="line">  .<span class="title function_">rule</span>(<span class="string">&#x27;svg-sprite-loader&#x27;</span>)</span><br><span class="line">  .<span class="property">include</span>.<span class="title function_">add</span>(path.<span class="title function_">resolve</span>(__dirname, <span class="string">&#x27;src/icons&#x27;</span>))</span><br><span class="line">  .<span class="title function_">use</span>(<span class="string">&#x27;svgo-loader&#x27;</span>)</span><br><span class="line">  .<span class="title function_">loader</span>(<span class="string">&#x27;svgo-loader&#x27;</span>)</span><br><span class="line">  .<span class="title function_">tap</span>(<span class="function"><span class="params">options</span> =&gt;</span> &#123;</span><br><span class="line">    options = &#123;</span><br><span class="line">      <span class="attr">plugins</span>: [</span><br><span class="line">        &#123; <span class="attr">removeXMLNS</span>: <span class="literal">true</span> &#125;, <span class="comment">// 删除xmlns属性（对于内联svg，默认情况下禁用）</span></span><br><span class="line">        &#123; <span class="attr">convertStyleToAttrs</span>: <span class="literal">true</span> &#125; <span class="comment">// 将css样式转换为svg元素属性</span></span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> options</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
-
-<p>也可以在图标管理中 我的项目 批量操作 批量去色 将默认颜色去除， 之后可以通过 css 自定义颜色</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">svg &#123;</span><br><span class="line">  fill: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>

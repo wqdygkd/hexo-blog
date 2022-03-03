@@ -173,7 +173,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">157</span>
+          <span class="site-state-item-count">158</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -217,6 +217,115 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1243.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/1243.html" class="post-title-link" itemprop="url">安装 rclone 并挂载 Google drive</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-04-22" itemprop="dateCreated datePublished" datetime="2020-04-22T00:00:05+00:00">2020-04-22</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">todo:</span><br><span class="line">https://www.cnblogs.com/mysummerday/p/12661263.html#_caption_1</span><br><span class="line"></span><br><span class="line">./rclone.exe mount secret:/  Q: --cache-dir G:\OneDrive --vfs-cache-mode writes &amp;</span><br><span class="line"></span><br><span class="line"> Fatal error: failed to mount FUSE fs: mount stopped before calling Init: mount failed: cgofuse: cannot find winfsp</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装-rclone-并挂载-Googledrive"><a href="#安装-rclone-并挂载-Googledrive" class="headerlink" title="安装 rclone 并挂载 Googledrive"></a>安装 rclone 并挂载 Googledrive</h3><h3 id="安装-rclone"><a href="#安装-rclone" class="headerlink" title="安装 rclone"></a>安装 rclone</h3><p>Linux 环境</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl https://rclone.org/install.sh | sudo bash</span><br></pre></td></tr></table></figure>
+
+<p>Windows 环境</p>
+<p>直接去 rclone 官网下载 rclone，最好将 rclone.exe 所在目录加入系统环境变量</p>
+<h3 id="配置-rclone"><a href="#配置-rclone" class="headerlink" title="配置 rclone"></a>配置 rclone</h3><blockquote>
+<p>详细配置参考 <span class="exturl" data-url="aHR0cHM6Ly9yY2xvbmUub3JnL2RyaXZlLw==">https://rclone.org/drive/</span></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rclone config</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">No remotes found - make a new one</span><br><span class="line">n) New remote</span><br><span class="line">s) Set configuration password</span><br><span class="line">q) Quit config</span><br><span class="line">n/s/q&gt; n # 新建</span><br><span class="line">name&gt; gdrive # 名称，后面要用到</span><br><span class="line">Type of storage to configure.</span><br><span class="line">Enter a string value. Press Enter for the default (&quot;&quot;).</span><br><span class="line">Choose a number from below, or type in your own value</span><br><span class="line"> 1 / 1Fichier</span><br><span class="line">   \ &quot;fichier&quot;</span><br><span class="line"> 2 / Alias for an existing remote</span><br><span class="line">   \ &quot;alias&quot;</span><br><span class="line"> 3 / Amazon Drive</span><br><span class="line">   \ &quot;amazon cloud drive&quot;</span><br><span class="line"> 4 / Amazon S3 Compliant Storage Provider (AWS, Alibaba, Ceph, Digital Ocean, Dreamhost, IBM COS, Minio, etc)</span><br><span class="line">   \ &quot;s3&quot;</span><br><span class="line"> 5 / Backblaze B2</span><br><span class="line">   \ &quot;b2&quot;</span><br><span class="line"> 6 / Box</span><br><span class="line">   \ &quot;box&quot;</span><br><span class="line"> 7 / Cache a remote</span><br><span class="line">   \ &quot;cache&quot;</span><br><span class="line"> 8 / Citrix Sharefile</span><br><span class="line">   \ &quot;sharefile&quot;</span><br><span class="line"> 9 / Dropbox</span><br><span class="line">   \ &quot;dropbox&quot;</span><br><span class="line">10 / Encrypt/Decrypt a remote</span><br><span class="line">   \ &quot;crypt&quot;</span><br><span class="line">11 / FTP Connection</span><br><span class="line">   \ &quot;ftp&quot;</span><br><span class="line">12 / Google Cloud Storage (this is not Google Drive)</span><br><span class="line">   \ &quot;google cloud storage&quot;</span><br><span class="line">13 / Google Drive</span><br><span class="line">   \ &quot;drive&quot;</span><br><span class="line">14 / Google Photos</span><br><span class="line">   \ &quot;google photos&quot;</span><br><span class="line">15 / Hubic</span><br><span class="line">   \ &quot;hubic&quot;</span><br><span class="line">16 / In memory object storage system.</span><br><span class="line">   \ &quot;memory&quot;</span><br><span class="line">17 / JottaCloud</span><br><span class="line">   \ &quot;jottacloud&quot;</span><br><span class="line">18 / Koofr</span><br><span class="line">   \ &quot;koofr&quot;</span><br><span class="line">19 / Local Disk</span><br><span class="line">   \ &quot;local&quot;</span><br><span class="line">20 / Mail.ru Cloud</span><br><span class="line">   \ &quot;mailru&quot;</span><br><span class="line">21 / Mega</span><br><span class="line">   \ &quot;mega&quot;</span><br><span class="line">22 / Microsoft Azure Blob Storage</span><br><span class="line">   \ &quot;azureblob&quot;</span><br><span class="line">23 / Microsoft OneDrive</span><br><span class="line">   \ &quot;onedrive&quot;</span><br><span class="line">24 / OpenDrive</span><br><span class="line">   \ &quot;opendrive&quot;</span><br><span class="line">25 / Openstack Swift (Rackspace Cloud Files, Memset Memstore, OVH)</span><br><span class="line">   \ &quot;swift&quot;</span><br><span class="line">26 / Pcloud</span><br><span class="line">   \ &quot;pcloud&quot;</span><br><span class="line">27 / Put.io</span><br><span class="line">   \ &quot;putio&quot;</span><br><span class="line">28 / QingCloud Object Storage</span><br><span class="line">   \ &quot;qingstor&quot;</span><br><span class="line">29 / SSH/SFTP Connection</span><br><span class="line">   \ &quot;sftp&quot;</span><br><span class="line">30 / Sugarsync</span><br><span class="line">   \ &quot;sugarsync&quot;</span><br><span class="line">31 / Transparently chunk/split large files</span><br><span class="line">   \ &quot;chunker&quot;</span><br><span class="line">32 / Union merges the contents of several remotes</span><br><span class="line">   \ &quot;union&quot;</span><br><span class="line">33 / Webdav</span><br><span class="line">   \ &quot;webdav&quot;</span><br><span class="line">34 / Yandex Disk</span><br><span class="line">   \ &quot;yandex&quot;</span><br><span class="line">35 / http Connection</span><br><span class="line">   \ &quot;http&quot;</span><br><span class="line">36 / premiumize.me</span><br><span class="line">   \ &quot;premiumizeme&quot;</span><br><span class="line">Storage&gt; 13 # 选择 13 google drive</span><br><span class="line">** See help for drive backend at: https://rclone.org/drive/ **</span><br><span class="line"></span><br><span class="line">Google Application Client Id</span><br><span class="line">Setting your own is recommended.</span><br><span class="line">See https://rclone.org/drive/#making-your-own-client-id for how to create your own.</span><br><span class="line">If you leave this blank, it will use an internal key which is low performance.</span><br><span class="line">Enter a string value. Press Enter for the default (&quot;&quot;).</span><br><span class="line">client_id&gt; # 默认</span><br><span class="line">Google Application Client Secret</span><br><span class="line">Setting your own is recommended.</span><br><span class="line">Enter a string value. Press Enter for the default (&quot;&quot;).</span><br><span class="line">client_secret&gt; # 默认</span><br><span class="line">Scope that rclone should use when requesting access from drive.</span><br><span class="line">Enter a string value. Press Enter for the default (&quot;&quot;).</span><br><span class="line">Choose a number from below, or type in your own value</span><br><span class="line"> 1 / Full access all files, excluding Application Data Folder.</span><br><span class="line">   \ &quot;drive&quot;</span><br><span class="line"> 2 / Read-only access to file metadata and file contents.</span><br><span class="line">   \ &quot;drive.readonly&quot;</span><br><span class="line">   / Access to files created by rclone only.</span><br><span class="line"> 3 | These are visible in the drive website.</span><br><span class="line">   | File authorization is revoked when the user deauthorizes the app.</span><br><span class="line">   \ &quot;drive.file&quot;</span><br><span class="line">   / Allows read and write access to the Application Data folder.</span><br><span class="line"> 4 | This is not visible in the drive website.</span><br><span class="line">   \ &quot;drive.appfolder&quot;</span><br><span class="line">   / Allows read-only access to file metadata but</span><br><span class="line"> 5 | does not allow any access to read or download file content.</span><br><span class="line">   \ &quot;drive.metadata.readonly&quot;</span><br><span class="line">scope&gt; 1 # 选1，所有权限</span><br><span class="line">ID of the root folder</span><br><span class="line">Leave blank normally.</span><br><span class="line"></span><br><span class="line">Fill in to access &quot;Computers&quot; folders (see docs), or for rclone to use</span><br><span class="line">a non root folder as its starting point.</span><br><span class="line"></span><br><span class="line">Note that if this is blank, the first time rclone runs it will fill it</span><br><span class="line">in with the ID of the root folder.</span><br><span class="line"></span><br><span class="line">Enter a string value. Press Enter for the default (&quot;&quot;).</span><br><span class="line">root_folder_id&gt; # 默认</span><br><span class="line">Service Account Credentials JSON file path</span><br><span class="line">Leave blank normally.</span><br><span class="line">Needed only if you want use SA instead of interactive login.</span><br><span class="line">Enter a string value. Press Enter for the default (&quot;&quot;).</span><br><span class="line">service_account_file&gt; # 默认</span><br><span class="line">Edit advanced config? (y/n)</span><br><span class="line">y) Yes</span><br><span class="line">n) No (default)</span><br><span class="line">y/n&gt; # 默认</span><br><span class="line">Remote config</span><br><span class="line">Use auto config?</span><br><span class="line"> * Say Y if not sure</span><br><span class="line"> * Say N if you are working on a remote or headless machine</span><br><span class="line">y) Yes (default)</span><br><span class="line">n) No</span><br><span class="line">y/n&gt; n # 如果在远程服务器上配置，记得选 n，否则可能无法正常授权</span><br><span class="line">If your browser doesn&#x27;t open automatically go to the following link: http://127.0.0.1:53682/auth</span><br><span class="line">Log in and authorize rclone for access</span><br><span class="line">Waiting for code...</span><br><span class="line">Got code</span><br><span class="line">Configure this as a team drive?</span><br><span class="line">y) Yes</span><br><span class="line">n) No</span><br><span class="line">y/n&gt; n</span><br><span class="line">--------------------</span><br><span class="line">[remote]</span><br><span class="line">client_id =</span><br><span class="line">client_secret =</span><br><span class="line">scope = drive</span><br><span class="line">root_folder_id =</span><br><span class="line">service_account_file =</span><br><span class="line">token = &#123;&quot;access_token&quot;:&quot;XXX&quot;,&quot;token_type&quot;:&quot;Bearer&quot;,&quot;refresh_token&quot;:&quot;XXX&quot;,&quot;expiry&quot;:&quot;2014-03-16T13:57:58.955387075Z&quot;&#125;</span><br><span class="line">--------------------</span><br><span class="line">y) Yes this is OK</span><br><span class="line">e) Edit this remote</span><br><span class="line">d) Delete this remote</span><br><span class="line">y/e/d&gt; y</span><br><span class="line">Current remotes:</span><br><span class="line">Name                 Type</span><br><span class="line">====                 ====</span><br><span class="line">gdrive               drive</span><br><span class="line"></span><br><span class="line">e) Edit existing remote</span><br><span class="line">n) New remote</span><br><span class="line">d) Delete remote</span><br><span class="line">r) Rename remote</span><br><span class="line">c) Copy remote</span><br><span class="line">s) Set configuration password</span><br><span class="line">q) Quit config</span><br><span class="line">e/n/d/r/c/s/q&gt; q</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：</strong>如果在远程 linux 安装，有些配置(涉及 oauth2 的配置)需要使用浏览器授权，可以使用一下方法配置</p>
+<blockquote>
+<p>参考：<span class="exturl" data-url="aHR0cHM6Ly9yY2xvbmUub3JnL3JlbW90ZV9zZXR1cC8=">https://rclone.org/remote_setup/</span></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Remote config</span><br><span class="line">Use auto config?</span><br><span class="line"> * Say Y if not sure</span><br><span class="line"> * Say N if you are working on a remote or headless machine</span><br><span class="line">y) Yes</span><br><span class="line">n) No</span><br><span class="line">y/n&gt; n # 这里选择 n，授权链接会变成如下样式，而不再是 http://127.0.0.1</span><br><span class="line">Please go to the following link: https://accounts.google.com/o/oauth2/auth?access_type=offline&amp;client_id=202264815644.apps.googleusercontent.com&amp;redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob&amp;response_type=code&amp;scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive&amp;state=J17j_xVz3tAQmV3sMO0xxw</span><br><span class="line">Log in and authorize rclone for access</span><br><span class="line">Enter verification code&gt; # 打开链接登陆授权，将code粘贴到这里</span><br></pre></td></tr></table></figure>
+
+<h3 id="挂载"><a href="#挂载" class="headerlink" title="挂载"></a>挂载</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /home/gdrive</span><br><span class="line"><span class="comment">#gdrive 为上面配置的 name</span></span><br><span class="line"><span class="comment">#/home/gdrive 为挂载到本地的目录</span></span><br><span class="line">/usr/bin/rclone mount gdrive: /home/gdrive \</span><br><span class="line"> --<span class="built_in">umask</span> 0000 \</span><br><span class="line"> --default-permissions \</span><br><span class="line"> --allow-non-empty \</span><br><span class="line"> --allow-other \</span><br><span class="line"> --buffer-size 32M \</span><br><span class="line"> --dir-cache-time 12h \</span><br><span class="line"> --vfs-cache-mode \</span><br><span class="line">  writes &amp;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>报错<br>Fatal error: failed to mount FUSE fs: fusermount: exec: “fusermount”: executable file not found in $PATH<br>解决：安装 fuse<br><code>apt-get install fuse -y</code></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 卸载磁盘</span></span><br><span class="line">fusermount -qzu LocalFolder  <span class="comment"># LocalFolder 为本地挂载目录</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="查看挂载"><a href="#查看挂载" class="headerlink" title="查看挂载"></a>查看挂载</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">df</span> -h</span><br><span class="line">Filesystem      Size  Used Avail Use% Mounted on</span><br><span class="line">gdrive:         1.0P     0  1.0P   0% /home/gdrive</span><br></pre></td></tr></table></figure>
+
+<p>自动挂载</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat &gt; /etc/systemd/system/rclone.service &lt;&lt;EOF</span><br><span class="line">[Unit]</span><br><span class="line">Description=Rclone</span><br><span class="line">AssertPathIsDirectory=LocalFolder</span><br><span class="line">After=network-online.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">ExecStart=/usr/bin/rclone mount emby: /home/gdrive \</span><br><span class="line"> --umask 0000 \</span><br><span class="line"> --default-permissions \</span><br><span class="line"> --allow-non-empty \</span><br><span class="line"> --allow-other \</span><br><span class="line"> --buffer-size 32M \</span><br><span class="line"> --dir-cache-time 12h \</span><br><span class="line"> --vfs-read-chunk-size 64M \</span><br><span class="line"> --vfs-read-chunk-size-limit 1G</span><br><span class="line">ExecStop=/bin/fusermount -u LocalFolder</span><br><span class="line">Restart=on-abort</span><br><span class="line">User=root</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=default.target</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+
+<p>启动</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl start rclone</span><br></pre></td></tr></table></figure>
+
+<p>开启启动</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> rclone</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1027,81 +1136,6 @@
 <p>保存到相册</p>
 <p>wx.canvasToTempFilePath(Object object, Object this)<br><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXJzLndlaXhpbi5xcS5jb20vbWluaXByb2dyYW0vZGV2L2FwaS9jYW52YXMvd3guY2FudmFzVG9UZW1wRmlsZVBhdGguaHRtbA==">https://developers.weixin.qq.com/miniprogram/dev/api/canvas/wx.canvasToTempFilePath.html</span></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="comment">// 把当前画布指定区域的内容导出生成指定大小的图片。 canvas2d不需要使用draw方法</span></span><br><span class="line"><span class="title function_">canvasToTempFilePath</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> query = wx.<span class="title function_">createSelectorQuery</span>()</span><br><span class="line">    query</span><br><span class="line">      .<span class="title function_">select</span>(<span class="string">&#x27;#sign&#x27;</span>)</span><br><span class="line">      .<span class="title function_">fields</span>(&#123; <span class="attr">node</span>: <span class="literal">true</span>, <span class="attr">size</span>: <span class="literal">true</span> &#125;)</span><br><span class="line">      .<span class="title function_">exec</span>(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// console.log(res)</span></span><br><span class="line">        <span class="keyword">const</span> canvas = res[<span class="number">0</span>].<span class="property">node</span></span><br><span class="line">        wx.<span class="title function_">canvasToTempFilePath</span>(&#123;</span><br><span class="line">          <span class="attr">x</span>: <span class="number">0</span>,</span><br><span class="line">          <span class="attr">y</span>: <span class="number">0</span>,</span><br><span class="line">          <span class="attr">fileType</span>: <span class="string">&#x27;jpg&#x27;</span>,</span><br><span class="line">          <span class="attr">canvas</span>: canvas,</span><br><span class="line">          <span class="title function_">success</span>(<span class="params">res</span>) &#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(res.<span class="property">tempFilePath</span>) <span class="comment">// 文件临时地址 可以保存到相册或上传</span></span><br><span class="line">            <span class="title function_">resolve</span>(res.<span class="property">tempFilePath</span>)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line"><span class="comment">// 保存本地</span></span><br><span class="line"><span class="title function_">saveToAlbum</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="title function_">canvasToTempFilePath</span>().<span class="title function_">then</span>(<span class="function"><span class="params">file</span> =&gt;</span> &#123;</span><br><span class="line">    wx.<span class="title function_">getSetting</span>(&#123;</span><br><span class="line">      <span class="title function_">success</span>(<span class="params">res</span>) &#123;</span><br><span class="line">        <span class="comment">// 如果没有则获取授权</span></span><br><span class="line">        <span class="keyword">if</span> (!res.<span class="property">authSetting</span>[<span class="string">&#x27;scope.writePhotosAlbum&#x27;</span>]) &#123;</span><br><span class="line">          wx.<span class="title function_">authorize</span>(&#123;</span><br><span class="line">            <span class="attr">scope</span>: <span class="string">&#x27;scope.writePhotosAlbum&#x27;</span>,</span><br><span class="line">            <span class="title function_">success</span>(<span class="params"></span>) &#123;</span><br><span class="line">              wx.<span class="title function_">saveImageToPhotosAlbum</span>(&#123;</span><br><span class="line">                <span class="attr">filePath</span>: file,</span><br><span class="line">                <span class="title function_">success</span>(<span class="params"></span>) &#123;</span><br><span class="line">                  wx.<span class="title function_">showToast</span>(&#123;</span><br><span class="line">                    <span class="attr">title</span>: <span class="string">&#x27;保存成功&#x27;</span></span><br><span class="line">                  &#125;)</span><br><span class="line">                &#125;,</span><br><span class="line">                <span class="title function_">fail</span>(<span class="params"></span>) &#123;</span><br><span class="line">                  wx.<span class="title function_">showToast</span>(&#123;</span><br><span class="line">                    <span class="attr">title</span>: <span class="string">&#x27;保存失败&#x27;</span>,</span><br><span class="line">                    <span class="attr">icon</span>: <span class="string">&#x27;none&#x27;</span></span><br><span class="line">                  &#125;)</span><br><span class="line">                &#125;</span><br><span class="line">              &#125;)</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="title function_">fail</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="comment">// 有授权直接保存</span></span><br><span class="line">          wx.<span class="title function_">saveImageToPhotosAlbum</span>(&#123;</span><br><span class="line">            <span class="attr">filePath</span>: file,</span><br><span class="line">            <span class="title function_">success</span>(<span class="params"></span>) &#123;</span><br><span class="line">              wx.<span class="title function_">showToast</span>(&#123;</span><br><span class="line">                <span class="attr">title</span>: <span class="string">&#x27;保存成功&#x27;</span></span><br><span class="line">              &#125;)</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="title function_">fail</span>(<span class="params"></span>) &#123;</span><br><span class="line">              wx.<span class="title function_">showToast</span>(&#123;</span><br><span class="line">                <span class="attr">title</span>: <span class="string">&#x27;保存失败&#x27;</span>,</span><br><span class="line">                <span class="attr">icon</span>: <span class="string">&#x27;none&#x27;</span></span><br><span class="line">              &#125;)</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/951.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/951.html" class="post-title-link" itemprop="url">解决 WordPress 'Briefly unavailable for scheduled maintenance. Check back in a minute.'</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2020-03-14" itemprop="dateCreated datePublished" datetime="2020-03-14T15:49:35+00:00">2020-03-14</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/wordpress/" itemprop="url" rel="index"><span itemprop="name">wordpress</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>WordPress 在升级程序、主题、插件时，都会先切换到维护模式，也就是显示 ‘Briefly unavailable for scheduled maintenance. Check back in a minute’，如果升级顺利，也就几秒左右就恢复正常；但是如果由于网速不佳等原因导致升级中断，WordPress 就会一直停留在维护模式，不论前台还是后台。</p>
-<p>如何解决这个问题呢？</p>
-<p>马上通过 FTP 登录你的网站，删除 WordPress 根目录下的 <code>.maintenance</code> ，刷新网页即可。</p>
 
       
     </div>
