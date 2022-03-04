@@ -83,7 +83,7 @@ function prefix_zero(num) {
 }
 ```
 
-### 价格格式化 (1234567 => 1,234,567.00)
+### 千分位格式化数字 (1234567 => 1,234,567.00)
 
 ```js
 /**
@@ -124,6 +124,17 @@ function formatMobile(mobile) {
   return mobile.replace(/(\d{3})\d{4}(\d{4})/, '$1****$2')
 }
 ```
+
+### 手机号格式化：3-4-4 分割
+
+```js
+watch: {
+  phoneNum(newValue, oldValue) {
+    this.phoneNum = newValue.length > oldValue.length ? newValue.replace(/\s/g, '').replace(/(\d{3})(\d{0,4})(\d{0,4})/, '$1 $2 $3') : this.phoneNum.trim()
+  }
+}
+```
+
 
 ### 进制转换
 
