@@ -173,7 +173,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">158</span>
+          <span class="site-state-item-count">159</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -217,6 +217,88 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1931.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我全都要">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/1931.html" class="post-title-link" itemprop="url">微信小程序常用代码段</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-07-24" itemprop="dateCreated datePublished" datetime="2020-07-24T10:48:04+00:00">2020-07-24</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="检查小程序更新"><a href="#检查小程序更新" class="headerlink" title="检查小程序更新"></a>检查小程序更新</h2><p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXJzLndlaXhpbi5xcS5jb20vbWluaXByb2dyYW0vZGV2L2FwaS9iYXNlL3VwZGF0ZS9VcGRhdGVNYW5hZ2VyLmh0bWw=">https://developers.weixin.qq.com/miniprogram/dev/api/base/update/UpdateManager.html</span></p>
+<p>在 <code>app.js</code> 中添加如下代码</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// app.js</span></span><br><span class="line"><span class="title class_">App</span>(&#123;</span><br><span class="line">  <span class="attr">onLaunch</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">checkNewVersion</span>()</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">checkNewVersion</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> self = <span class="variable language_">this</span></span><br><span class="line">    <span class="comment">// 检查版本更新</span></span><br><span class="line">    <span class="comment">// 获取小程序更新机制兼容</span></span><br><span class="line">    <span class="keyword">if</span> (wx.<span class="title function_">canIUse</span>(<span class="string">&#x27;getUpdateManager&#x27;</span>)) &#123;</span><br><span class="line">      <span class="keyword">const</span> updateManager = wx.<span class="title function_">getUpdateManager</span>()</span><br><span class="line">      updateManager.<span class="title function_">onCheckForUpdate</span>(<span class="keyword">function</span> (<span class="params">res</span>) &#123;</span><br><span class="line">        <span class="comment">// 请求完新版本信息的回调</span></span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(res)</span><br><span class="line">        <span class="keyword">if</span> (res.<span class="property">hasUpdate</span>) &#123;</span><br><span class="line">          updateManager.<span class="title function_">onUpdateReady</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">            wx.<span class="title function_">showModal</span>(&#123;</span><br><span class="line">              <span class="attr">title</span>: <span class="string">&#x27;更新提示&#x27;</span>,</span><br><span class="line">              <span class="attr">content</span>: <span class="string">&#x27;新版本已经准备好，是否重启应用？&#x27;</span>,</span><br><span class="line">              <span class="attr">success</span>: <span class="keyword">function</span> (<span class="params">res</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (res.<span class="property">confirm</span>) &#123;</span><br><span class="line">                  <span class="comment">// 新的版本已经下载好，调用 applyUpdate 应用新版本并重启</span></span><br><span class="line">                  updateManager.<span class="title function_">applyUpdate</span>()</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (res.<span class="property">cancel</span>) &#123;</span><br><span class="line">                  <span class="comment">// 如果需要强制更新，则给出二次弹窗</span></span><br><span class="line">                  wx.<span class="title function_">showModal</span>(&#123;</span><br><span class="line">                    <span class="attr">title</span>: <span class="string">&#x27;更新提示&#x27;</span>,</span><br><span class="line">                    <span class="attr">content</span>: <span class="string">&#x27;本次更新可能会导致旧版本无法正常访问，请使用新版本&#x27;</span>,</span><br><span class="line">                    <span class="attr">showCancel</span>: <span class="literal">false</span>, <span class="comment">// 不显示取消按钮</span></span><br><span class="line">                    <span class="attr">success</span>: <span class="keyword">function</span> (<span class="params">res</span>) &#123;</span><br><span class="line">                      <span class="keyword">if</span> (res.<span class="property">confirm</span>) &#123;</span><br><span class="line">                        <span class="comment">// 新的版本已经下载好，调用 applyUpdate 应用新版本并重启</span></span><br><span class="line">                        updateManager.<span class="title function_">applyUpdate</span>()</span><br><span class="line">                      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (res.<span class="property">cancel</span>) &#123;</span><br><span class="line">                        <span class="comment">// 重新回到版本更新提示</span></span><br><span class="line">                        self.<span class="title function_">checkNewVersion</span>()</span><br><span class="line">                      &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                  &#125;)</span><br><span class="line">                &#125;</span><br><span class="line">              &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">          &#125;)</span><br><span class="line">          updateManager.<span class="title function_">onUpdateFailed</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">            <span class="comment">// 新的版本下载失败</span></span><br><span class="line">            wx.<span class="title function_">showModal</span>(&#123;</span><br><span class="line">              <span class="attr">title</span>: <span class="string">&#x27;已经有新版本了&#x27;</span>,</span><br><span class="line">              <span class="attr">content</span>: <span class="string">&#x27;新版本已经上线啦~，请您删除当前小程序，重新搜索打开&#x27;</span></span><br><span class="line">            &#125;)</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">// 如果希望用户在最新版本的客户端上体验您的小程序，可以这样子提示</span></span><br><span class="line">      wx.<span class="title function_">showModal</span>(&#123;</span><br><span class="line">        <span class="attr">title</span>: <span class="string">&#x27;提示&#x27;</span>,</span><br><span class="line">        <span class="attr">content</span>: <span class="string">&#x27;当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。&#x27;</span></span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>微信开发者工具上可以通过「编译模式」下的「下次编译模拟更新」开关来调试</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1014,95 +1096,6 @@
 
 <p>使用</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ pm2 list <span class="comment"># 显示所有进程状态</span></span><br><span class="line"></span><br><span class="line">$ pm2 start &lt;js文件路径&gt;.js <span class="comment"># 同 node &lt;js文件路径&gt;.js</span></span><br><span class="line">$ pm2 start &lt;json描述文件路径&gt;.json</span><br><span class="line">$ pm2 start &lt;python文件路径&gt;.py --interpreter python</span><br><span class="line">$ pm2 start &lt;sh文件路径&gt;.sh --interpreter bash</span><br><span class="line">$ pm2 start ./node_modules/&lt;某模块名称&gt;/&lt;模块主文件路径&gt;.js</span><br><span class="line">$ pm2 start &lt;某种方式&gt; -- --param_name param_value</span><br><span class="line">$ pm2 start npm -- start <span class="comment"># 同 npm start</span></span><br><span class="line">$ pm2 start npm -- run &lt;scriptname&gt; <span class="comment"># 同 npm run &lt;scriptname&gt;</span></span><br><span class="line">$ pm2 start npm --watch --name &lt;taskname&gt; -- run &lt;scriptname&gt; <span class="comment"># --name 指定任务名 --watch监听文件变化</span></span><br><span class="line"></span><br><span class="line">$ pm2 start yarn -- start</span><br><span class="line">$ pm2 start yarn -- run &lt;scriptname&gt;</span><br><span class="line"></span><br><span class="line">$ pm2 stop     &lt;app_name|namespace|<span class="built_in">id</span>|<span class="string">&#x27;all&#x27;</span>|json_conf&gt; <span class="comment"># 停止进程  all 停止所有进程</span></span><br><span class="line">$ pm2 restart  &lt;app_name|namespace|<span class="built_in">id</span>|<span class="string">&#x27;all&#x27;</span>|json_conf&gt; <span class="comment"># 重启进程  all 重启所有进程</span></span><br><span class="line">$ pm2 delete   &lt;app_name|namespace|<span class="built_in">id</span>|<span class="string">&#x27;all&#x27;</span>|json_conf&gt; <span class="comment"># 删除进程  all 删除所有进程</span></span><br><span class="line">$ pm2 reload all <span class="comment"># 重载所有进程</span></span><br><span class="line"></span><br><span class="line">$ pm2 describe &lt;<span class="built_in">id</span>|app_name&gt; <span class="comment"># 进程详情</span></span><br><span class="line"></span><br><span class="line">$ pm2 monit <span class="comment"># 进程日志、详情</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新 PM2</span></span><br><span class="line"><span class="comment"># Install latest PM2 version</span></span><br><span class="line">$ npm install pm2@latest -g</span><br><span class="line"><span class="comment"># Save process list, exit old PM2 &amp; restore all processes</span></span><br><span class="line">$ pm2 update</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1802.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 我全都要">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/1802.html" class="post-title-link" itemprop="url">全网视频万能解析工具、视频下载工具 -- youtube-dl，CR TubeGet，Allavsoft</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2020-06-26" itemprop="dateCreated datePublished" datetime="2020-06-26T00:01:44+00:00">2020-06-26</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/software/" itemprop="url" rel="index"><span itemprop="name">软件</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="youtube-dl-–-一款犀利的全网视频下载利器"><a href="#youtube-dl-–-一款犀利的全网视频下载利器" class="headerlink" title="youtube-dl – 一款犀利的全网视频下载利器"></a>youtube-dl – 一款犀利的全网视频下载利器</h3><p>github：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3l0ZGwtb3JnL3lvdXR1YmUtZGw=">https://github.com/ytdl-org/youtube-dl</span></p>
-<p>下载：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3l0ZGwtb3JnL3lvdXR1YmUtZGwvcmVsZWFzZXM=">https://github.com/ytdl-org/youtube-dl/releases</span></p>
-<h3 id="CR-TubeGet-基于-youtube-dl-封装并做功能扩展的一款视频下载软件"><a href="#CR-TubeGet-基于-youtube-dl-封装并做功能扩展的一款视频下载软件" class="headerlink" title="CR TubeGet 基于 youtube-dl 封装并做功能扩展的一款视频下载软件"></a>CR TubeGet 基于 youtube-dl 封装并做功能扩展的一款视频下载软件</h3><p>CR TubeGet 功能：<br>1、支持 2000+站点视频下载，支持 YouTube、BiliBili 等主流视频站点<br>2、支持下载脚本扩展，加入 youtube-dl 不支持的站点下载<br>3、支持 200+播放列表，甚至搜索引擎(google、bing、baidu、yahoo、yandex、ask)之视频搜索列表，支持自定义视频列表<br>4、支持 YouTube 8k 分辨率，支持 Mp3 等音频下载，支持批量下载<br>5、支持视频 URL、文本文件拖放下载，支持剪切板视频 URL 监测功能<br>7、内置视频页面支持快捷下载<br>8、支持 aria2 下载器加速下载，支持 annie、you-get 下载组件<br>9、支持视频格式无损转换、字幕烧录</p>
-<p>下载地址</p>
-<p>v0.9.2.4 版起，未注册版本只能下载 99 个视频<br>如果希望继续使用免费版本，请下载 v0.9.2.3 版，该没有任何功能上的限制，有着视频下载的基本功能，若您下载油管及 B 站，相信其功能可以满</p>
-<p>软件发布官网：<span class="exturl" data-url="aHR0cDovL3d3dy5jci1zb2Z0Lm5ldC8=">http://www.cr-soft.net/</span></p>
-<p>百度云：<span class="exturl" data-url="aHR0cHM6Ly9wYW4uYmFpZHUuY29tL3MvMUVfZkdESGhHS243c1dDRXQ3Zk10R1E=">https://pan.baidu.com/s/1E_fGDHhGKn7sWCEt7fMtGQ</span> 提取码：m3fk</p>
-<h3 id="Allavsoft"><a href="#Allavsoft" class="headerlink" title="Allavsoft"></a>Allavsoft</h3><p>Allavsoft 视频下载器，是一个流行的快速在线视频下载和转换器，可将下载的视频转换为几乎所有流行的视频和音频格式。作为一款国外的软件，支持非常多的国内视频网站下载，包括但不限于优酷、土豆、爱奇艺等，更多支持网站请点击 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYWxsYXZzb2Z0LmNvbS9ob3ctdG8vaW5kZXguaHRtbA==">这里</span> 进行查看。</p>
-<p>破解教程 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL2F2ODU2MzE2MTEv">https://www.bilibili.com/video/av85631611/</span></p>
-<p>下载地址</p>
-<p>百度云：<span class="exturl" data-url="aHR0cHM6Ly9wYW4uYmFpZHUuY29tL3MvMVZ3R0Njc3N4T3ZuLVU0R1dGZWM5S1E=">https://pan.baidu.com/s/1VwGCcssxOvn-U4GWFec9KQ</span> 提取码：5r2x</p>
-<h3 id="硕鼠下载"><a href="#硕鼠下载" class="headerlink" title="硕鼠下载"></a>硕鼠下载</h3><p><span class="exturl" data-url="aHR0cDovL3d3dy5mbHZjZC5jb20v">http://www.flvcd.com/</span></p>
 
       
     </div>
