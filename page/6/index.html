@@ -173,7 +173,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">159</span>
+          <span class="site-state-item-count">157</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -217,6 +217,177 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1833.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我全都要">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/1833.html" class="post-title-link" itemprop="url">WordPress简单实现隐藏外链，外链通过go界面进行跳转</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-07-03" itemprop="dateCreated datePublished" datetime="2020-07-03T15:43:03+00:00">2020-07-03</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/wordpress/" itemprop="url" rel="index"><span itemprop="name">wordpress</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>网站外链跳转时通过 go 界面进行对 seo 比较友好，既美观又可以避免权重的流失。</p>
+<p>简单的实现</p>
+<ol>
+<li>在 wordpress 的根目录下，新建一个 go.php 文件，在 go.php 里面输入以下代码</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$t_url</span> = <span class="title function_ invoke__">preg_replace</span>(<span class="string">&#x27;/^url=(.*)$/i&#x27;</span>,<span class="string">&#x27;$1&#x27;</span>,<span class="variable">$_SERVER</span>[<span class="string">&quot;QUERY_STRING&quot;</span>]);</span><br><span class="line"><span class="keyword">if</span>(!<span class="keyword">empty</span>(<span class="variable">$t_url</span>)) &#123;</span><br><span class="line">  <span class="title function_ invoke__">preg_match</span>(<span class="string">&#x27;/(http|https):\/\//&#x27;</span>,<span class="variable">$t_url</span>,<span class="variable">$matches</span>);</span><br><span class="line">	<span class="keyword">if</span>(<span class="variable">$matches</span>)&#123;</span><br><span class="line">    <span class="variable">$url</span>=<span class="variable">$t_url</span>;</span><br><span class="line">    <span class="variable">$title</span>=<span class="string">&#x27;页面正在安全跳转中,请稍候&#x27;</span>;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="title function_ invoke__">preg_match</span>(<span class="string">&#x27;/\./i&#x27;</span>,<span class="variable">$t_url</span>,<span class="variable">$matche</span>);</span><br><span class="line">    <span class="keyword">if</span>(<span class="variable">$matche</span>)&#123;</span><br><span class="line">      <span class="variable">$url</span>=<span class="string">&#x27;http://&#x27;</span>.<span class="variable">$t_url</span>;</span><br><span class="line">      <span class="variable">$title</span>=<span class="string">&#x27;页面正在安全跳转中,请稍候&#x27;</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="variable">$url</span>=<span class="string">&#x27;//wqdy.top/&#x27;</span>;</span><br><span class="line">      <span class="variable">$title</span>=<span class="string">&#x27;参数错误，正在返回首页&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="variable">$title</span>=<span class="string">&#x27;参数缺失，正在返回首页&#x27;</span>;</span><br><span class="line">  <span class="variable">$url</span>=<span class="string">&#x27;//wqdy.top/&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta http-equiv=<span class="string">&quot;Content-Type&quot;</span> content=<span class="string">&quot;text/html; charset=UTF-8&quot;</span>&gt;</span><br><span class="line">&lt;meta http-equiv=<span class="string">&quot;refresh&quot;</span> content=<span class="string">&quot;1;url=&#x27;&lt;?php echo <span class="subst">$url</span>;?&gt;&#x27;;&quot;</span>&gt;</span><br><span class="line">&lt;title&gt;<span class="meta">&lt;?php</span> <span class="keyword">echo</span> <span class="variable">$title</span>;<span class="meta">?&gt;</span>&lt;/title&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">body &#123;background:<span class="comment">#000&#125;</span></span><br><span class="line">.loading &#123;</span><br><span class="line">	-webkit-animation:fadein <span class="number">2</span>s;</span><br><span class="line">	-moz-animation:fadein <span class="number">2</span>s;</span><br><span class="line">	-o-animation:fadein <span class="number">2</span>s;</span><br><span class="line">	animation:fadein <span class="number">2</span>s&#125;</span><br><span class="line">@-moz-keyframes fadein &#123;<span class="keyword">from</span> &#123;opacity:<span class="number">0</span>&#125;</span><br><span class="line">to &#123;opacity:<span class="number">1</span>&#125;&#125;</span><br><span class="line">@-webkit-keyframes fadein &#123;<span class="keyword">from</span> &#123;opacity:<span class="number">0</span>&#125;</span><br><span class="line">to &#123;opacity:<span class="number">1</span>&#125;&#125;</span><br><span class="line">@-o-keyframes fadein &#123;<span class="keyword">from</span> &#123;opacity:<span class="number">0</span>&#125;</span><br><span class="line">to &#123;opacity:<span class="number">1</span>&#125;&#125;</span><br><span class="line">@keyframes fadein &#123;<span class="keyword">from</span> &#123;opacity:<span class="number">0</span>&#125;</span><br><span class="line">to &#123;opacity:<span class="number">1</span>&#125;&#125;</span><br><span class="line">.spinner-wrapper &#123;</span><br><span class="line">	position:absolute;</span><br><span class="line">	top:<span class="number">0</span>;</span><br><span class="line">	left:<span class="number">0</span>;</span><br><span class="line">	z-index:<span class="number">300</span>;</span><br><span class="line">	height:<span class="number">100</span>%;</span><br><span class="line">	min-width:<span class="number">100</span>%;</span><br><span class="line">	min-height:<span class="number">100</span>%;</span><br><span class="line">	background:<span class="comment">#3498db&#125;</span></span><br><span class="line">.spinner-text &#123;</span><br><span class="line">	position:absolute;</span><br><span class="line">	top:<span class="number">50</span>%;</span><br><span class="line">	left:<span class="number">50</span>%;</span><br><span class="line">	margin-left:-<span class="number">200</span>px;</span><br><span class="line">	margin-top: <span class="number">2</span>px;</span><br><span class="line">	color:<span class="comment">#fff;</span></span><br><span class="line">	letter-spacing:<span class="number">1</span>px;</span><br><span class="line">	font-weight:<span class="number">700</span>;</span><br><span class="line">	font-size:<span class="number">36</span>px;</span><br><span class="line">	font-family:Arial&#125;</span><br><span class="line">.spinner &#123;</span><br><span class="line">	position:absolute;</span><br><span class="line">	top:<span class="number">50</span>%;</span><br><span class="line">	left:<span class="number">50</span>%;</span><br><span class="line">	display:block;</span><br><span class="line">	margin-left:-<span class="number">270</span>px;</span><br><span class="line">	width:<span class="number">1</span>px;</span><br><span class="line">	height:<span class="number">1</span>px;</span><br><span class="line">	border:<span class="number">25</span>px solid <span class="title function_ invoke__">rgba</span>(<span class="number">100</span>,<span class="number">100</span>,<span class="number">100</span>,<span class="number">0.2</span>);</span><br><span class="line">	-webkit-border-radius:<span class="number">50</span>px;</span><br><span class="line">	-moz-border-radius:<span class="number">50</span>px;</span><br><span class="line">	border-radius:<span class="number">50</span>px;</span><br><span class="line">	border-left-color:transparent;</span><br><span class="line">	border-right-color:transparent;</span><br><span class="line">	-webkit-animation:spin <span class="number">1.5</span>s infinite;</span><br><span class="line">	-moz-animation:spin <span class="number">1.5</span>s infinite;</span><br><span class="line">	animation:spin <span class="number">1.5</span>s infinite&#125;</span><br><span class="line">@-webkit-keyframes spin &#123;<span class="number">0</span>%,<span class="number">100</span>% &#123;-webkit-transform:<span class="title function_ invoke__">rotate</span>(<span class="number">0</span>deg) <span class="title function_ invoke__">scale</span>(<span class="number">1</span>)&#125;</span><br><span class="line"><span class="number">50</span>% &#123;-webkit-transform:<span class="title function_ invoke__">rotate</span>(<span class="number">720</span>deg) <span class="title function_ invoke__">scale</span>(<span class="number">0.6</span>)&#125;&#125;</span><br><span class="line">@-moz-keyframes spin &#123;<span class="number">0</span>%,<span class="number">100</span>% &#123;-moz-transform:<span class="title function_ invoke__">rotate</span>(<span class="number">0</span>deg) <span class="title function_ invoke__">scale</span>(<span class="number">1</span>)&#125;</span><br><span class="line"><span class="number">50</span>% &#123;-moz-transform:<span class="title function_ invoke__">rotate</span>(<span class="number">720</span>deg) <span class="title function_ invoke__">scale</span>(<span class="number">0.6</span>)&#125;&#125;</span><br><span class="line">@-o-keyframes spin &#123;<span class="number">0</span>%,<span class="number">100</span>% &#123;-o-transform:<span class="title function_ invoke__">rotate</span>(<span class="number">0</span>deg) <span class="title function_ invoke__">scale</span>(<span class="number">1</span>)&#125;</span><br><span class="line"><span class="number">50</span>% &#123;-o-transform:<span class="title function_ invoke__">rotate</span>(<span class="number">720</span>deg) <span class="title function_ invoke__">scale</span>(<span class="number">0.6</span>)&#125;&#125;</span><br><span class="line">@keyframes spin &#123;<span class="number">0</span>%,<span class="number">100</span>% &#123;transform:<span class="title function_ invoke__">rotate</span>(<span class="number">0</span>deg) <span class="title function_ invoke__">scale</span>(<span class="number">1</span>)&#125;</span><br><span class="line"><span class="number">50</span>% &#123;transform:<span class="title function_ invoke__">rotate</span>(<span class="number">720</span>deg) <span class="title function_ invoke__">scale</span>(<span class="number">0.6</span>)&#125;&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span>=&quot;<span class="title">loading</span>&quot;&gt;</span></span><br><span class="line"><span class="class">  &lt;<span class="title">div</span> <span class="title">class</span>=&quot;<span class="title">spinner</span>-<span class="title">wrapper</span>&quot;&gt;</span></span><br><span class="line"><span class="class">    &lt;<span class="title">span</span> <span class="title">class</span>=&quot;<span class="title">spinner</span>-<span class="title">text</span>&quot;&gt;页面正在安全跳转中,请稍候&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line"><span class="class">    &lt;<span class="title">span</span> <span class="title">class</span>=&quot;<span class="title">spinner</span>&quot;&gt;&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line"><span class="class">  &lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="class">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="class">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="class">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>则外链跳转形式为： <code>&#123;本站地址&#125;/go.php?&#123;外链地址&#125;</code></p>
+<ol start="2">
+<li>给外部链接加上 go 跳转，在主题目录下的 functions.php 中添加如下代码</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="title function_ invoke__">add_filter</span>(<span class="string">&#x27;the_content&#x27;</span>,<span class="string">&#x27;the_content_nofollow&#x27;</span>,<span class="number">999</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">the_content_nofollow</span>(<span class="params"><span class="variable">$content</span></span>) </span>&#123;</span><br><span class="line">  <span class="title function_ invoke__">preg_match_all</span>(<span class="string">&#x27;/&lt;a(.*?)href=&quot;(.*?)&quot;(.*?)&gt;/&#x27;</span>,<span class="variable">$content</span>,<span class="variable">$matches</span>);</span><br><span class="line">  <span class="keyword">if</span>(<span class="variable">$matches</span>)&#123;</span><br><span class="line">    <span class="keyword">foreach</span>(<span class="variable">$matches</span>[<span class="number">2</span>] <span class="keyword">as</span> <span class="variable">$val</span>)&#123;</span><br><span class="line">      <span class="keyword">if</span>(<span class="title function_ invoke__">strpos</span>(<span class="variable">$val</span>,<span class="string">&#x27;://&#x27;</span>)!==<span class="literal">false</span> &amp;&amp; <span class="title function_ invoke__">strpos</span>(<span class="variable">$val</span>,<span class="title function_ invoke__">home_url</span>())===<span class="literal">false</span> &amp;&amp; !<span class="title function_ invoke__">preg_match</span>(<span class="string">&#x27;/\.(jpg|jepg|png|ico|bmp|gif|tiff)/i&#x27;</span>,<span class="variable">$val</span>))&#123;</span><br><span class="line">        <span class="variable">$content</span>=<span class="title function_ invoke__">str_replace</span>(<span class="string">&quot;href=\&quot;<span class="subst">$val</span>\&quot;&quot;</span>, <span class="string">&quot;href=\&quot;&quot;</span>.<span class="title function_ invoke__">home_url</span>().<span class="string">&quot;/go.php?url=<span class="subst">$val</span>\&quot; &quot;</span>,<span class="variable">$content</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="variable">$content</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1800.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我全都要">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/1800.html" class="post-title-link" itemprop="url">pm2 - node 进程管理工具</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-07-01" itemprop="dateCreated datePublished" datetime="2020-07-01T11:01:06+00:00">2020-07-01</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>安装</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install pm2 -g</span><br></pre></td></tr></table></figure>
+
+<p>使用</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ pm2 list <span class="comment"># 显示所有进程状态</span></span><br><span class="line"></span><br><span class="line">$ pm2 start &lt;js文件路径&gt;.js <span class="comment"># 同 node &lt;js文件路径&gt;.js</span></span><br><span class="line">$ pm2 start &lt;json描述文件路径&gt;.json</span><br><span class="line">$ pm2 start &lt;python文件路径&gt;.py --interpreter python</span><br><span class="line">$ pm2 start &lt;sh文件路径&gt;.sh --interpreter bash</span><br><span class="line">$ pm2 start ./node_modules/&lt;某模块名称&gt;/&lt;模块主文件路径&gt;.js</span><br><span class="line">$ pm2 start &lt;某种方式&gt; -- --param_name param_value</span><br><span class="line">$ pm2 start npm -- start <span class="comment"># 同 npm start</span></span><br><span class="line">$ pm2 start npm -- run &lt;scriptname&gt; <span class="comment"># 同 npm run &lt;scriptname&gt;</span></span><br><span class="line">$ pm2 start npm --watch --name &lt;taskname&gt; -- run &lt;scriptname&gt; <span class="comment"># --name 指定任务名 --watch监听文件变化</span></span><br><span class="line"></span><br><span class="line">$ pm2 start yarn -- start</span><br><span class="line">$ pm2 start yarn -- run &lt;scriptname&gt;</span><br><span class="line"></span><br><span class="line">$ pm2 stop     &lt;app_name|namespace|<span class="built_in">id</span>|<span class="string">&#x27;all&#x27;</span>|json_conf&gt; <span class="comment"># 停止进程  all 停止所有进程</span></span><br><span class="line">$ pm2 restart  &lt;app_name|namespace|<span class="built_in">id</span>|<span class="string">&#x27;all&#x27;</span>|json_conf&gt; <span class="comment"># 重启进程  all 重启所有进程</span></span><br><span class="line">$ pm2 delete   &lt;app_name|namespace|<span class="built_in">id</span>|<span class="string">&#x27;all&#x27;</span>|json_conf&gt; <span class="comment"># 删除进程  all 删除所有进程</span></span><br><span class="line">$ pm2 reload all <span class="comment"># 重载所有进程</span></span><br><span class="line"></span><br><span class="line">$ pm2 describe &lt;<span class="built_in">id</span>|app_name&gt; <span class="comment"># 进程详情</span></span><br><span class="line"></span><br><span class="line">$ pm2 monit <span class="comment"># 进程日志、详情</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新 PM2</span></span><br><span class="line"><span class="comment"># Install latest PM2 version</span></span><br><span class="line">$ npm install pm2@latest -g</span><br><span class="line"><span class="comment"># Save process list, exit old PM2 &amp; restore all processes</span></span><br><span class="line">$ pm2 update</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1027,7 +1198,7 @@
 <p>如果是 GSuite Admin 账号，可以使用如下方式直接添加进群组</p>
 <ol>
 <li>将生成的json文件保存到 credentials 文件夹中</li>
-<li>在管理控制台中为您的组织创建组。创建群组后，您将拥有一个例如的地址<span class="exturl" data-url="bWFpbHRvOiYjeDczOyYjOTc7JiM2NDsmI3g3OTsmIzExMTsmI3g3NTsmI3g3MjsmI3g2NDsmI3g2ZjsmIzEwOTsmI3g2MTsmIzEwNTsmI3g2ZTsmIzQ2OyYjeDYzOyYjeDZmOyYjeDZkOw==">&#x73;&#97;&#64;&#x79;&#111;&#x75;&#x72;&#x64;&#x6f;&#109;&#x61;&#105;&#x6e;&#46;&#x63;&#x6f;&#x6d;</span></li>
+<li>在管理控制台中为您的组织创建组。创建群组后，您将拥有一个例如的地址<span class="exturl" data-url="bWFpbHRvOiYjMTE1OyYjOTc7JiM2NDsmI3g3OTsmI3g2ZjsmIzExNzsmIzExNDsmIzEwMDsmIzExMTsmI3g2ZDsmI3g2MTsmIzEwNTsmI3g2ZTsmI3gyZTsmIzk5OyYjMTExOyYjeDZkOw==">&#115;&#97;&#64;&#x79;&#x6f;&#117;&#114;&#100;&#111;&#x6d;&#x61;&#105;&#x6e;&#x2e;&#99;&#111;&#x6d;</span></li>
 <li>运行 <code>python3 add_to_google_group.py -g sa@yourdomain.com</code></li>
 </ol>
 </blockquote>
@@ -1124,249 +1295,6 @@
 <p>团队盘有限制 40w 文件&#x2F;文件夹，回收站中的文件也计算在 40w 之内，可以新增团队盘，或删除小文件并删除回收站</p>
 <p>谷歌云端硬盘 API 不公开清空回收站的方法，但它有一个删除方法可以永久删除文件，而不经过回收站</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://developers.google.com/drive/v2/reference/files/delete</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1469.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 我全都要">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/1469.html" class="post-title-link" itemprop="url">用 tMM 刮削影片信息，让 KODI、Jellyfin、PLEX、使用本地媒体电影墙！</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2020-05-20" itemprop="dateCreated datePublished" datetime="2020-05-20T23:09:12+00:00">2020-05-20</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/NAS/" itemprop="url" rel="index"><span itemprop="name">NAS</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/NAS/software/" itemprop="url" rel="index"><span itemprop="name">软件</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>当使用 pt 或者各种 bt 网站，下载了很多电影以后，使用 NAS 上的 plex 或者 jellyfin 刮削不出来海报怎么办？</p>
-<p>而今天就将推荐大家使用这款 tinyMediaManager 软件，该软件功能非常强大，可以刮削电影、电影系列、电视剧等，还可以重建nfo文件和批量重名文件、文件夹。支持Win&#x2F;Mac&#x2F;Linux。通过他自动匹配家里的电影资源库，让自己的，不论 KODI，还是 jellyfin，还是 emby、plex 都能用上完美的电影墙！</p>
-<h2 id="windows-下使用"><a href="#windows-下使用" class="headerlink" title="windows 下使用"></a>windows 下使用</h2><h3 id="下载和安装-tinyMediaManager"><a href="#下载和安装-tinyMediaManager" class="headerlink" title="下载和安装 tinyMediaManager"></a>下载和安装 tinyMediaManager</h3><p>下载地址 <span class="exturl" data-url="aHR0cHM6Ly93d3cudGlueW1lZGlhbWFuYWdlci5vcmcvZG93bmxvYWQv">https://www.tinymediamanager.org/download/</span></p>
-<p>如果提示需要 java 环境，下载安装即可</p>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>打开软件</p>
-<p>当提示设置影片档案文件夹时，可以先不添加，直接下一步</p>
-<p>当提示元数据刮削的时候，选择 <code>themoviedb.org</code>，不管是电影和电视剧都选他即可</p>
-<p>打开设置，添加电影和电视剧目录，其他默认</p>
-<p>设置好了以后，点击更新</p>
-<p>全选已添加的影片信息，点击右键，搜索并刮削所选电影 - 自动匹配：会自动下载封面和影片信息</p>
-<p>其中有可能遇到需要您手动搜索的影片，手动搜索一下中文名字即可</p>
-<p>当影片完全搜索不出来的时候，也可以到豆瓣电影里面搜索一下这个影片，记住它的 imdb 链接的后面一串数字，比如：tt7286456</p>
-<p>直接搜索这个序列号，也是可以获取影片资料的</p>
-<p>电视剧的搜索方式和电影的搜索方式是一模一样的，而且电视剧会将每一集都进行信息整理和分类</p>
-<p>全部更新完毕后，可以看到影片的文件夹里观看，下载了 nfo 影片信息，海报封面图，logo 等</p>
-<h2 id="linux-下使用"><a href="#linux-下使用" class="headerlink" title="linux 下使用"></a>linux 下使用</h2><p>使用docker安装</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9odWIuZG9ja2VyLmNvbS9yL3JvbWFuY2luL3RpbnltZWRpYW1hbmFnZXI=">https://hub.docker.com/r/romancin/tinymediamanager</span></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker pull romancin/tinymediamanager</span><br><span class="line"></span><br><span class="line">docker run -d --name=tinymediamanager \</span><br><span class="line">-v /share/Container/tinymediamanager/config:/config \</span><br><span class="line">-v /home/gdrive:/media \</span><br><span class="line">-e GROUP_ID=0 -e USER_ID=0 -e TZ=Europe/Madrid \</span><br><span class="line">-p 5800:5800 \</span><br><span class="line">-p 5900:5900 \</span><br><span class="line">romancin/tinymediamanager:latest</span><br></pre></td></tr></table></figure>
-
-<p>浏览以 <code>http://your-host-ip:5800</code> 即可访问 TinyMediaManager GUI</p>
-<p>解决中文无法正常显示的问题</p>
-<p>添加 ENABLE_CJK_FONT&#x3D;1 环境变量</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d --name=tinymediamanager \</span><br><span class="line">-v /share/Container/tinymediamanager/config:/config \</span><br><span class="line">-v /home/gdrive:/media \</span><br><span class="line">-e GROUP_ID=0 -e USER_ID=0 -e TZ=Europe/Madrid -e ENABLE_CJK_FONT=1 \</span><br><span class="line">-p 5800:5800 \</span><br><span class="line">-p 5900:5900 \</span><br><span class="line">romancin/tinymediamanager:latest</span><br></pre></td></tr></table></figure>
-
-<h3 id="使用-Jellyfin-加载-tinyMediaManager-整理的影片"><a href="#使用-Jellyfin-加载-tinyMediaManager-整理的影片" class="headerlink" title="使用 Jellyfin 加载 tinyMediaManager 整理的影片"></a>使用 Jellyfin 加载 tinyMediaManager 整理的影片</h3><p>只需要设置 Jellyfin 媒体库，取消掉所有的刮削器即可（一定要取消掉，否则依然会无法显示影片信息，甚至连影片都可能不会出现在影视墙上）</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1449.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 我全都要">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/1449.html" class="post-title-link" itemprop="url">Ubuntu 下关于 Transmission daemon 的安装与配置</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2020-05-19" itemprop="dateCreated datePublished" datetime="2020-05-19T20:46:55+00:00">2020-05-19</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>Transmission 是一个强大的 BitTorrent 开源客户端，<span class="exturl" data-url="aHR0cHM6Ly93d3cudHJhbnNtaXNzaW9uYnQuY29tLw==">官方网站</span>上提供了多个版本可以下载，包括：Mac、GTK+、QT、web 版本。</p>
-<p>Transmission 支持 DHT、Magnet Link、uTP 以及 PEX 等特性。尤其是支持 Magnet Link 磁力链接下载十分重要，因为目前网上很多资源都是采用这种方式来分享的，而不是传统的.torrent 文件</p>
-<p>在 Ubuntu 的发行版中，Transmission 软件包下面包含多个套件，这些套件的名字很容易搞混淆，它们分别是：</p>
-<ul>
-<li>transmission-gtk: GTK+界面的 Transmission BT 客户端。</li>
-<li>transmission-qt: QT 界面的 Transmission BT 客户端。</li>
-<li>transmission-cli: 命令行界面的 Transmission BT 客户端，与 QT、GTK+版本功能一样，是命令行下一个完备的 BT 客户端。</li>
-<li>transmission-daemon: 是一个 Transmission 的后台守护程序，本身不具备操作指令，只能通过 Web 客户端或者 transmission-remote-cli 来进行控制。这个程序特别适合安装在服务器上或者嵌入式系统中，以及一些没有显示器的设备上。</li>
-<li>transmission-remote-cli: 用来控制 transmission-daemon 的命令套件，本身不具备下载 BT 的功能，只能够配合 daemon 使用。</li>
-</ul>
-<p>这些套件不必都安装上，根据我的需求，只需要安装 transmission-daemon 即可</p>
-<h3 id="Transmission-的安装"><a href="#Transmission-的安装" class="headerlink" title="Transmission 的安装"></a>Transmission 的安装</h3><p>打开终端，输入以下命令安装：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install transmission-daemon</span><br></pre></td></tr></table></figure>
-
-<p>安装过程中会顺带把 transmission-cli 也安装上，安装完毕后系统会多出如下一些命令行工具</p>
-<ul>
-<li>transmission-cli： 独立的命令行客户端。</li>
-<li>transmission-create： 用来建立.torrent 种子文件的命令行工具。</li>
-<li>transmission-daemon： 后台守护程序。</li>
-<li>transmission-edit： 用来修改.torrent 种子文件的 announce URL。</li>
-<li>transmission-remote： 控制 daemon 的程序。</li>
-<li>transmission-show：查看.torrent 文件的信息。</li>
-</ul>
-<p>安装好后，Transmission-daemon 有一些默认设置(<span class="exturl" data-url="aHR0cHM6Ly90cmFjLnRyYW5zbWlzc2lvbmJ0LmNvbS93aWtpL1VuaXhTZXJ2ZXIvRGViaWFu">参考链接</span>)。</p>
-<p>默认配置目录清单</p>
-<p>启动初始化脚本 &#x2F;etc&#x2F;init.d&#x2F;transmission-daemon<br>基本配置文件 &#x2F;etc&#x2F;default&#x2F;transmission-daemon<br>详细配置文件目录 &#x2F;var&#x2F;lib&#x2F;transmsision-daemon&#x2F;info&#x2F;settings.json<br>下载存储目录 &#x2F;var&#x2F;lib&#x2F;transmission-daemon&#x2F;downloads</p>
-<p>settings.json： 主要的配置文件，设置 daemon 的各项参数，包括 RPC 的用户名密码配置。它实际上是一个符号链接，指向的原始文件是&#x2F;etc&#x2F;transmission-daemon&#x2F;settings.json。里面的参数解释可以参考官网的配置说明。<br>torrents&#x2F;： 用户存放.torrent 种子文件的目录,凡是添加到下载任务的种子，都存放在这里。.torrent 的命名包含,种子文件本身的名字和种子的 SHA1 HASH 值。<br>resume&#x2F;： 存放了.resume 文件，.resume 文件包含了一个种子的信息，例如该文件哪些部分被下载了，下载的数据存储的位置等等。<br>blocklists&#x2F;： 存储被屏蔽的 peer 的地址。<br>dht.dat： 存储 DHT 节点信息。</p>
-<p>如果使用另外一个用户来运行 transmission-daemon 的话，会在该用户的目录下，创建一个.config&#x2F;transmission-daemon 的文件夹，配置目录 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RyYW5zbWlzc2lvbi90cmFuc21pc3Npb24vd2lraS9Db25maWd1cmF0aW9uLUZpbGVz">https://github.com/transmission/transmission/wiki/Configuration-Files</span></p>
-<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 启动</span></span><br><span class="line">sudo service transmission-daemon start</span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止</span></span><br><span class="line">sudo service transmission-daemon stop</span><br></pre></td></tr></table></figure>
-
-<h3 id="Transmission-的配置"><a href="#Transmission-的配置" class="headerlink" title="Transmission 的配置"></a>Transmission 的配置</h3><p>配置主要是通过修改&#x2F;var&#x2F;lib&#x2F;transmission-daemon&#x2F;info&#x2F;settings.json 文件中的参数来实现的。<br>注意：在编辑 Transmission 的配置文件的时候，需要先关闭 daemon 进程，否则编辑的参数将会被恢复到原来的状态。</p>
-<h4 id="配置-RPC"><a href="#配置-RPC" class="headerlink" title="配置 RPC"></a>配置 RPC</h4><p>最关键的就是要配置 RPC，因为无论是 Web 界面还是 CLI 都是通过 RPC 协议和 daemon 来进行交互的。</p>
-<p>打开文件&#x2F;var&#x2F;lib&#x2F;transmission-daemon&#x2F;info&#x2F;settings.json，修改配置参数如下：</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;rpc-authentication-required&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;rpc-bind-address&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0.0.0.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;rpc-enabled&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;rpc-host-whitelist&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span><span class="punctuation">,</span> <span class="comment">// rpc 主机白名单</span></span><br><span class="line">  <span class="attr">&quot;rpc-host-whitelist-enabled&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span><span class="punctuation">,</span> <span class="comment">//rpc 主机白名单是否开启，若需要任意主机都能访问，建议false</span></span><br><span class="line">  <span class="attr">&quot;rpc-password&quot;</span><span class="punctuation">:</span> <span class="string">&quot;123456&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;rpc-port&quot;</span><span class="punctuation">:</span> <span class="number">9091</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;rpc-url&quot;</span><span class="punctuation">:</span> <span class="string">&quot;/transmission/&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;rpc-username&quot;</span><span class="punctuation">:</span> <span class="string">&quot;transmission&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;rpc-whitelist&quot;</span><span class="punctuation">:</span> <span class="string">&quot;*&quot;</span><span class="punctuation">,</span> <span class="comment">// rpc 主机白名单</span></span><br><span class="line">  <span class="attr">&quot;rpc-whitelist-enabled&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span> <span class="comment">//rpc 主机白名单是否开启，若需要任意主机都能访问，建议false</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>我将用户名设置为了 transmission，密码设置为了 123456，whitelist 设置成了”*”，表示任何 IP 都可以通过 RPC 协议访问这个 daemon。需要注意的是 password 设置成了明文。当启动 daemon 之后，daemon 会自动检测密码设置。如果发现密码配置被修改了，daemon 会自动计算修改后的密码的 HASH 值，并用这个 HASH 值替换掉配置文件中的明文密码，这样会更安全。</p>
-<p>输入<code>service transmission-daemon start</code>启动程序后，打开 settings.json，会看到 rpc-password 一项被改为了 HASH 值。</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;rpc-password&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&#123;5f4bd5498bddd9aa2ad8f4d475dcebe23e9d8c8bsorspnUE&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>settings.json 里面还有很多参数可以配置，包括上传&#x2F;下载速度的限制、DHT 的配置、端口设置等等，详细的参数解释可以参考<span class="exturl" data-url="aHR0cHM6Ly90cmFjLnRyYW5zbWlzc2lvbmJ0LmNvbS93aWtpL0VkaXRDb25maWdGaWxlcw==">官网的配置说明</span></p>
-<h3 id="使用-Web-界面控制-Transmission-daemon"><a href="#使用-Web-界面控制-Transmission-daemon" class="headerlink" title="使用 Web 界面控制 Transmission daemon"></a>使用 Web 界面控制 Transmission daemon</h3><p>经过上述配置后，我们就可以通过 Web 界面来访问和控制 Transmission daemon 了。在浏览器里面输入以下地址</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://127.0.0.1:9091/transmission/web/</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>浏览器提示你输入刚才配置的用户名和密码，就可以成功登陆 Web 管理界面。界面和桌面版的 GUI 程序有点像，操作起来很方便。</p>
-<h3 id="其他问题"><a href="#其他问题" class="headerlink" title="其他问题"></a>其他问题</h3><p>在本机使用 <code>http://&lt;your.server.ip.addr&gt;:9091/transmission/web/</code> 访问出现 403:Forbidden 解决<br>修改配置</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;rpc-whitelist&quot;</span><span class="punctuation">:</span> <span class="string">&quot;127.0.0.1&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;rpc-whitelist-enabled&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>将 <code>rpc-whitelist</code>设置为 <code>&quot;*&quot;</code>或将 <code>rpc-whitelist-enabled</code> 设置为 <code>false</code></p>
-<p>在局域网其他机器上使用 <code>http://&lt;your.server.ip.addr&gt;:9091/transmission/web/</code> 访问时无法访问解决<br>修改配置</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;rpc-host-whitelist&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span><span class="punctuation">,</span> <span class="comment">// rpc 主机白名单</span></span><br><span class="line">  <span class="attr">&quot;rpc-host-whitelist-enabled&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span> <span class="comment">//rpc 主机白名单是否开启，若需要任意主机都能访问，建议false</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>将 <code>rpc-host-whitelist</code>设置为 <code>&quot;*&quot;</code>或将 <code>rpc-host-whitelist-enabled</code> 设置为 <code>false</code></p>
-<p>原始界面，没有汉化，也比较简单，可以使用 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3JvbmdnYW5nL3RyYW5zbWlzc2lvbi13ZWItY29udHJvbA==">transmission-web-control</span> 加强 Transmission Web 的操作能力</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget -N  https://github.com/ronggang/transmission-web-control/raw/master/release/install-tr-control-cn.sh</span><br><span class="line">bash install-tr-control-cn.sh</span><br></pre></td></tr></table></figure>
-
-<p>安装完成之后刷新浏览器即可看到新的 ui，如果没有看到可能是浏览器缓存，ctrl + f5 强制刷新一下，如果还是没有看到，<br>可以尝试使用 root 用户运行</p>
-<p>或尝试使用</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash install-tr-control-cn.sh /usr/share/transmission</span><br></pre></td></tr></table></figure>
-
-<p>&#x2F;usr&#x2F;share&#x2F;transmission 为 Transmission Web 所在目录</p>
 
       
     </div>

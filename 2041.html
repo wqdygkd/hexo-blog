@@ -22,15 +22,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"wqdy.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.10.1","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="数组去重 详情 1. 新建一个数组，遍历去要重的数组，当值不在新数组的时候（indexOf 为-1 或 includes 为false）就加入该新数组中  function unique(arr) &amp;#123;  var newArr &#x3D; []  for (var i &#x3D; 0; i &lt; arr.length; i++) &amp;#123;    if (newArr.indexOf(arr[i])">
+    <meta name="description" content="数组去重 冒泡排序 详情  &#x2F;&#x2F; 将数组中的数从小到大排列var arr &#x3D; [1, 4, 6, 7, 9, 3, 5, 8]&#x2F;&#x2F; var numi &#x3D; 0&#x2F;&#x2F; var numj &#x3D; 0for (var j &#x3D; 0; j &lt; arr.length - 1; j++) &amp;#123;  &#x2F;&#x2F; numj +&#x3D; 1  var flag &#x3D; true  for (var i &#x3D; 0; i &lt; a">
 <meta property="og:type" content="website">
 <meta property="og:title" content="手写题">
 <meta property="og:url" content="https://wqdy.top/2041.html">
 <meta property="og:site_name" content="我全都要">
-<meta property="og:description" content="数组去重 详情 1. 新建一个数组，遍历去要重的数组，当值不在新数组的时候（indexOf 为-1 或 includes 为false）就加入该新数组中  function unique(arr) &amp;#123;  var newArr &#x3D; []  for (var i &#x3D; 0; i &lt; arr.length; i++) &amp;#123;    if (newArr.indexOf(arr[i])">
+<meta property="og:description" content="数组去重 冒泡排序 详情  &#x2F;&#x2F; 将数组中的数从小到大排列var arr &#x3D; [1, 4, 6, 7, 9, 3, 5, 8]&#x2F;&#x2F; var numi &#x3D; 0&#x2F;&#x2F; var numj &#x3D; 0for (var j &#x3D; 0; j &lt; arr.length - 1; j++) &amp;#123;  &#x2F;&#x2F; numj +&#x3D; 1  var flag &#x3D; true  for (var i &#x3D; 0; i &lt; a">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-02-18T00:00:00.000Z">
-<meta property="article:modified_time" content="2022-02-22T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-03-06T00:00:00.000Z">
 <meta property="article:author" content="c">
 <meta name="twitter:card" content="summary">
 
@@ -161,7 +161,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D"><span class="nav-text">数组去重</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F"><span class="nav-text">冒泡排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0-call-apply-bind-%E6%96%B9%E6%B3%95"><span class="nav-text">实现 call apply bind 方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81"><span class="nav-text">防抖和节流</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D"><span class="nav-text">深浅拷贝</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%8B%E5%86%99-Promise"><span class="nav-text">手写 Promise</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%8B%E5%86%99-Promise-all"><span class="nav-text">手写 Promise.all</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%8B%E5%86%99-Promise-race"><span class="nav-text">手写 Promise.race</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%82%E6%AD%A5%E8%B0%83%E5%BA%A6"><span class="nav-text">异步调度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="nav-text">实现继承的方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85"><span class="nav-text">发布订阅</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%81%E5%B9%B3%E6%95%B0%E6%8D%AE%E8%BD%ACtree"><span class="nav-text">扁平数据转tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0-instanceof"><span class="nav-text">实现 instanceof</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA-new-%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="nav-text">实现一个 new 操作符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0-JSON-stringify"><span class="nav-text">实现 JSON.stringify</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%8B%E6%9C%BA%E5%8F%B7-3-4-4-%E5%88%86%E5%89%B2"><span class="nav-text">手机号 3-4-4 分割</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%83%E5%88%86%E4%BD%8D%E6%A0%BC%E5%BC%8F%E5%8C%96%E6%95%B0%E5%AD%97"><span class="nav-text">千分位格式化数字</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F"><span class="nav-text">冒泡排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0-call-apply-bind-%E6%96%B9%E6%B3%95"><span class="nav-text">实现 call apply bind 方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81"><span class="nav-text">防抖和节流</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D"><span class="nav-text">深浅拷贝</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%8B%E5%86%99-Promise"><span class="nav-text">手写 Promise</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%8B%E5%86%99-Promise-all"><span class="nav-text">手写 Promise.all</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%8B%E5%86%99-Promise-race"><span class="nav-text">手写 Promise.race</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%82%E6%AD%A5%E8%B0%83%E5%BA%A6"><span class="nav-text">异步调度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="nav-text">实现继承的方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85"><span class="nav-text">发布订阅</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%81%E5%B9%B3%E6%95%B0%E6%8D%AE%E8%BD%ACtree"><span class="nav-text">扁平数据转tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0-instanceof"><span class="nav-text">实现 instanceof</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0-JSON-stringify"><span class="nav-text">实现 JSON.stringify</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -176,7 +176,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">159</span>
+          <span class="site-state-item-count">157</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -266,7 +266,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <date title="修改时间：2022-02-22">2022-02-22</date>
+      <date title="修改时间：2022-03-06">2022-03-06</date>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -295,26 +295,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h4 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h4><details>
-<summary>详情</summary>
-1. 新建一个数组，遍历去要重的数组，当值不在新数组的时候（indexOf 为-1 或 includes 为false）就加入该新数组中
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">unique</span>(<span class="params">arr</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> newArr = []</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.<span class="property">length</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (newArr.<span class="title function_">indexOf</span>(arr[i]) === -<span class="number">1</span>) &#123;</span><br><span class="line">      newArr.<span class="title function_">push</span>(arr[i])</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> newArr</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>数组下标判断：如果当前数组的第 i 项在当前数组中第一次出现的位置不是 i，那么表示第 i 项是重复的，忽略掉。否则存入结果数组</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">unique</span>(<span class="params">arr</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> newArr = []</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.<span class="property">length</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (arr.<span class="title function_">indexOf</span>(arr[i]) === i) &#123;</span><br><span class="line">      newArr.<span class="title function_">push</span>(arr[i])</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> newArr</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>hash去重<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Deduplication</span>(<span class="params">arr</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> result = []</span><br><span class="line">  <span class="keyword">var</span> hashMap = &#123;&#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.<span class="property">length</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">var</span> temp = arr[i]</span><br><span class="line">    <span class="keyword">if</span> (!hashMap[temp]) &#123;</span><br><span class="line">      hashMap[temp] = <span class="literal">true</span></span><br><span class="line">      result.<span class="title function_">push</span>(temp)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<ol start="3">
-<li>ES6 实现</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">unique</span>(<span class="params">arr</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> x = <span class="keyword">new</span> <span class="title class_">Set</span>(arr)</span><br><span class="line">  <span class="keyword">return</span> [...x]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</details>
-
+        <p><a href="/2045.html">数组去重</a></p>
 <h4 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h4><details>
 <summary>详情</summary>
 
@@ -363,7 +344,9 @@
 <p>es5继承 与 es6 继承的区别参考 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0FkdmFuY2VkLUZyb250ZW5kL0RhaWx5LUludGVydmlldy1RdWVzdGlvbi9pc3N1ZXMvMjA=">https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/20</span></p>
 <h4 id="发布订阅"><a href="#发布订阅" class="headerlink" title="发布订阅"></a>发布订阅</h4><h4 id="扁平数据转tree"><a href="#扁平数据转tree" class="headerlink" title="扁平数据转tree"></a>扁平数据转tree</h4><h4 id="实现-instanceof"><a href="#实现-instanceof" class="headerlink" title="实现 instanceof"></a>实现 instanceof</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// a instanceof b  b.prototype 是否在 a 的原型链中</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">myInstanceof</span>(<span class="params">a, b</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> a === <span class="string">&#x27;object&#x27;</span> || a === <span class="literal">null</span>) <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// getProtypeOf是Object对象自带的一个方法，能够拿到参数的原型对象</span></span><br><span class="line">  <span class="keyword">let</span> proto = <span class="title class_">Object</span>.<span class="title function_">getPrototypeOf</span>(a)</span><br><span class="line">  <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="comment">// 查找到尽头，还没找到</span></span><br><span class="line">    <span class="keyword">if</span> (proto == <span class="literal">null</span>) <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    <span class="comment">// 找到相同的原型对象</span></span><br><span class="line">    <span class="keyword">if</span> (proto == b.<span class="property"><span class="keyword">prototype</span></span>) <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    proto = <span class="title class_">Object</span>.<span class="title function_">getPrototypeof</span>(proto)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="实现一个-new-操作符"><a href="#实现一个-new-操作符" class="headerlink" title="实现一个 new 操作符"></a><a href="/2044.html">实现一个 new 操作符</a></h4><h4 id="实现-JSON-stringify"><a href="#实现-JSON-stringify" class="headerlink" title="实现 JSON.stringify"></a>实现 JSON.stringify</h4><h4 id="手机号-3-4-4-分割"><a href="#手机号-3-4-4-分割" class="headerlink" title="手机号 3-4-4 分割"></a>手机号 3-4-4 分割</h4><h4 id="千分位格式化数字"><a href="#千分位格式化数字" class="headerlink" title="千分位格式化数字"></a>千分位格式化数字</h4>
+<p><a href="/2044.html">实现一个 new 操作符</a></p>
+<h4 id="实现-JSON-stringify"><a href="#实现-JSON-stringify" class="headerlink" title="实现 JSON.stringify"></a>实现 JSON.stringify</h4><p><a href="/382.html#%E6%89%8B%E6%9C%BA%E5%8F%B7%E6%A0%BC%E5%BC%8F%E5%8C%96%EF%BC%9A3-4-4-%E5%88%86%E5%89%B2">手机号 3-4-4 分割</a><br><a href="/382.html#%E5%8D%83%E5%88%86%E4%BD%8D%E6%A0%BC%E5%BC%8F%E5%8C%96%E6%95%B0%E5%AD%97">千分位格式化数字</a></p>
+
     </div>
 
     
