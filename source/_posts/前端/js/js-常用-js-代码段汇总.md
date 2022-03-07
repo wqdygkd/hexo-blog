@@ -83,7 +83,9 @@ function prefix_zero(num) {
 }
 ```
 
-### 千分位格式化数字 (1234567 => 1,234,567.00)
+### 千分位格式化数字
+
+(1234567 => 1,234,567.00)
 
 ```js
 /**
@@ -152,26 +154,6 @@ isWeibo = /weibo/i.test(navigator.userAgent)
 isQQ = /qq/i.test(navigator.userAgent)
 isIOS = /(iphone|ipod|ipad|ios)/i.test(navigator.userAgent)
 isAndroid = /android/i.test(navigator.userAgent)
-```
-
-## 数组去重
-
-```js
-function distinct(arr) {
-  return arr.filter((v, i, array) => array.indexOf(v) === i)
-}
-
-// 对象数组去重
-// arr: 目标数组
-// id: 唯一属性
-function distinct(arr, id) {
-  let object = {}
-  let objres = arr.reduce((item, next) => {
-    object[next[id]] ? '' : (object[next[id]] = true && item.push(next))
-    return item
-  }, [])
-  return objres
-}
 ```
 
 ## 数组顺序上移下移
