@@ -226,6 +226,181 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/397.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我全都要">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/397.html" class="post-title-link" itemprop="url">+0 -0 Number.NaN NaN undefined null ''  相等性判断</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2019-10-28" itemprop="dateCreated datePublished" datetime="2019-10-28T22:12:33+00:00">2019-10-28</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="主要区分-0-和-0、NaN-和-NaN-在不同情况下的相等性区别"><a href="#主要区分-0-和-0、NaN-和-NaN-在不同情况下的相等性区别" class="headerlink" title="主要区分 +0 和 -0、NaN 和 NaN 在不同情况下的相等性区别"></a>主要区分 <code>+0</code> 和 <code>-0</code>、<code>NaN</code> 和 <code>NaN</code> 在不同情况下的相等性区别</h2><p><code>==</code> <code>===</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(+<span class="number">0</span> === -<span class="number">0</span>) <span class="comment">// true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">NaN</span> == <span class="title class_">NaN</span>) <span class="comment">// false NaN 不与任何值相等，包括自身</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="literal">undefined</span> == <span class="literal">null</span>) <span class="comment">// true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="literal">undefined</span> === <span class="literal">null</span>) <span class="comment">// false</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">NaN</span> === <span class="title class_">NaN</span>) <span class="comment">// false</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Number</span>.<span class="property">NaN</span> === <span class="title class_">NaN</span>) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<p>Object.is() 方法判断两个值是否是相同的值。比较时不会做类型转换，这与 <code>==</code> <code>===</code> 运算符的判定方式都不一样</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(+<span class="number">0</span>, -<span class="number">0</span>) <span class="comment">// false</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="number">0</span>, -<span class="number">0</span>) <span class="comment">// false</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="number">0</span>, +<span class="number">0</span>) <span class="comment">// true</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(-<span class="number">0</span>, -<span class="number">0</span>) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="literal">undefined</span>, <span class="literal">undefined</span>) <span class="comment">// true</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="literal">null</span>, <span class="literal">null</span>) <span class="comment">// true</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="title class_">Number</span>.<span class="property">NaN</span>, <span class="title class_">Number</span>.<span class="property">NaN</span>) <span class="comment">// true</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="title class_">Number</span>.<span class="property">NaN</span>, <span class="title class_">NaN</span>) <span class="comment">// true</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="title class_">NaN</span>, <span class="title class_">NaN</span>) <span class="comment">// true</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="title class_">NaN</span>, <span class="number">0</span> / <span class="number">0</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>在 Set， Map 内部，两个 NaN 是相等, +0 和 -0 也是相等的</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = [<span class="title class_">NaN</span>, <span class="title class_">NaN</span>, <span class="literal">undefined</span>, <span class="literal">undefined</span>, +<span class="number">0</span>, -<span class="number">0</span>, &#123;&#125;, &#123;&#125;]</span><br><span class="line"><span class="keyword">let</span> b = <span class="keyword">new</span> <span class="title class_">Set</span>(a) <span class="comment">// &#123;NaN, undefined, 0, &#123;&#125;, &#123;&#125;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>总结：</p>
+<ul>
+<li>比较运算符中 <code>+0</code> 和 <code>-0</code> 是相等的、<code>NaN</code> 和 <code>NaN</code>是不等的</li>
+<li>Object.is() 方法中 <code>+0</code> 和 <code>-0</code> 是不相等的、<code>NaN</code> 和 <code>NaN</code>是相等的</li>
+<li>在 Set， Map 内部， <code>+0</code> 和 <code>-0</code> 是相等的、<code>NaN</code> 和 <code>NaN</code> 也是相等的</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1659.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我全都要">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/1659.html" class="post-title-link" itemprop="url">window.setTimeout 第三个参数</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2019-10-28" itemprop="dateCreated datePublished" datetime="2019-10-28T14:38:43+00:00">2019-10-28</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL1dpbmRvdy9zZXRUaW1lb3V0">MDN</span>上关于 setTimeout 介绍</p>
+<p>语法</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> timeoutID = scope.<span class="built_in">setTimeout</span>(<span class="keyword">function</span>[, delay, param1, param2, ...])</span><br><span class="line"><span class="comment">// delay 可选 默认 0</span></span><br><span class="line"><span class="comment">// param1, ..., paramN 可选 ，附加参数，一旦定时器到期，他会作为参数传递给 function</span></span><br><span class="line"><span class="comment">// 返回值timeoutID是一个正整数，表示定时器的编号</span></span><br></pre></td></tr></table></figure>
+
+<p>应用</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt;= <span class="number">5</span>; i++) &#123;</span><br><span class="line">  <span class="built_in">setTimeout</span>(</span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">timer</span>(<span class="params">j</span>) &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(j)</span><br><span class="line">    &#125;,</span><br><span class="line">    i * <span class="number">1000</span>,</span><br><span class="line">    i</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 会立即返回一个 timeid</span></span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// 3</span></span><br><span class="line"><span class="comment">// 4</span></span><br><span class="line"><span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://wqdy.top/230.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1012,178 +1187,6 @@
 <li><p>2021&#x2F;04&#x2F;06 w10-谷歌浏览器 + WebRTC Leak Prevent插件（在无痕模式下启用 + IP handling policy:Disabled non-proxied UDp(froce proxy) ）-国内手机号(已被使用过)-注册新的 Gmail 邮箱-注册成功</p>
 </li>
 </ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/403.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 我全都要">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/403.html" class="post-title-link" itemprop="url">addEventListener 以及 vue 中的 .passive 修饰符</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2019-07-31" itemprop="dateCreated datePublished" datetime="2019-07-31T22:16:42+00:00">2019-07-31</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL0V2ZW50VGFyZ2V0L2FkZEV2ZW50TGlzdGVuZXI=">https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/addEventListener</span></p>
-<p>添加事件</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 语法</span></span><br><span class="line">target.<span class="title function_">addEventListener</span>(type, listener[, useCapture])</span><br><span class="line"><span class="comment">// type: 事件的类型: click mouseover  字符串类型，不带 on</span></span><br><span class="line"><span class="comment">// listener: 函数，每次点击，执行这个函数</span></span><br><span class="line"><span class="comment">// useCapture: 可选，true: 事件在捕获阶段执行，false: 事件在冒泡阶段执行(默认)</span></span><br><span class="line"></span><br><span class="line">target.<span class="title function_">addEventListener</span>(type, listener[, options])</span><br></pre></td></tr></table></figure>
-
-<p>options 可选，可用的选项如下：<br>capture: Boolean，默认 false，等价于以前的 useCapture 参数<br>once: Boolean，默认 false，如果是 true，表示 listener 在添加之后最多只调用一次。 listener 也会在其被调用之后自动移除<br>passive: Boolean，默认 false，设置为 true 时，表示 listener 永远不会调用 preventDefault() 如果 listener 仍然调用了这个函数，客户端将会忽略它并抛出一个控制台警告。</p>
-<p>浏览器无法预先知道一个监听器会不会调用 preventDefault()，它能做的只有等监听器执行完后再去执行默认行为，而监听器执行是要耗时的，有些甚至耗时很明显，这样就会导致页面卡顿</p>
-<p><code>.passive</code> 修饰符尤其能够提升移动端的性能<br><span class="exturl" data-url="aHR0cHM6Ly9jbi52dWVqcy5vcmcvdjIvZ3VpZGUvZXZlbnRzLmh0bWwjJUU0JUJBJThCJUU0JUJCJUI2JUU0JUJGJUFFJUU5JUE1JUIwJUU3JUFDJUE2">vue .passive 事件修饰符</span></p>
-<p>移除事件</p>
-<p>removeEventListener</p>
-<p>在第三个参数是布尔值的时候，addEventListener(“foo”, listener, true) 添加的监听器，必须用 removeEventListener(“foo”, listener, true) 才能删除掉, 因为这个监听器也有可能还注册在了冒泡阶段, 如果第三个参数为 false 则直接通过 removeEventListener(“foo”, listener) 就可以删除</p>
-<p>通过 addEventListener(“foo”, listener, {capture: true}) 添加的监听器删除时也同样需要添加 {capture: true} 来删除，当然 {capture: true} 换成 true 也可以</p>
-<p>通过 addEventListener(“foo”, listener, {passive: true}) 添加的监听器直接通过 removeEventListener(“foo”, listener) 就可以删除了<br>因为一个监听器同时是 passive 和非 passive（以及同时是 once 和非 once）是说不通的，如果你添加了多个，那么后添加的会忽略</p>
-<p>removeEventListener(“foo”, listener, {capture: true}) &#x2F;&#x2F; {capture: true} 必须加，当然 {capture: true} 换成 true 也可以</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/430.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 我全都要">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/430.html" class="post-title-link" itemprop="url">axios 取消请求</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2019-07-27" itemprop="dateCreated datePublished" datetime="2019-07-27T22:17:21+00:00">2019-07-27</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>原生 js abort() 方法</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> A = $.<span class="title function_">ajax</span>(&#123;&#125;)</span><br><span class="line">A.<span class="title function_">abort</span>()</span><br></pre></td></tr></table></figure>
-
-<p>Axios 提供了一个 CancelToken 的函数，这是一个构造函数，该函数的作用就是用来取消接口请求的</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">methods</span>: &#123;</span><br><span class="line">  getMsg () &#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="title class_">CancelToken</span> = axios.<span class="property">CancelToken</span></span><br><span class="line">    <span class="keyword">let</span> that = <span class="variable language_">this</span></span><br><span class="line">    axios.<span class="title function_">get</span>(<span class="string">&#x27;&#x27;</span>, &#123;</span><br><span class="line">      <span class="attr">cancelToken</span>: <span class="keyword">new</span> <span class="title class_">CancelToken</span>(<span class="keyword">function</span> <span class="title function_">executor</span>(<span class="params">c</span>) &#123;</span><br><span class="line">        that.<span class="property">cancel</span> = c</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(c)</span><br><span class="line">        <span class="comment">// 这个参数 c 就是 CancelToken 构造函数里面自带的取消请求的函数，这里把该函数当参数用</span></span><br><span class="line">      &#125;)</span><br><span class="line">      <span class="attr">params</span>: &#123;&#125;</span><br><span class="line">    &#125;).<span class="title function_">then</span>(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">items</span> = res.<span class="property">data</span></span><br><span class="line">    &#125;).<span class="title function_">catch</span>(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(err)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br><span class="line">  cancelGetMsg () &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">cancel</span>()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>

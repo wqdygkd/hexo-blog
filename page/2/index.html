@@ -226,6 +226,223 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/2039.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我全都要">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2039.html" class="post-title-link" itemprop="url">常用js —— 闭包</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2022-02-20" itemprop="dateCreated datePublished" datetime="2022-02-20T00:00:00+00:00">2022-02-20</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="闭包-closure-的概念"><a href="#闭包-closure-的概念" class="headerlink" title="闭包(closure)的概念"></a>闭包(closure)的概念</h3><blockquote>
+<p>闭包是函数和声明该函数的词法环境的组合</p>
+</blockquote>
+<p>在 js 中，在函数中可以（嵌套）定义另一个函数时，如果内部的函数引用了外部的函数的变量，产生闭包</p>
+<p>产生闭包的条件：有两个函数，是嵌套关系，内部函数引用了外部函数的变量</p>
+<p>闭包的作用：</p>
+<ul>
+<li>私有变量，保护数据安全</li>
+<li>持久化数据</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 闭包的基本模型</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">outer</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> num = <span class="number">10</span></span><br><span class="line">  <span class="keyword">function</span> <span class="title function_">inner</span> () &#123;</span><br><span class="line">    num++</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(num)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> inner  <span class="comment">// 把inner函数给返回出去，让外部能够调用inner函数</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 并不一定是有返回函数才算是产生了闭包</span></span><br><span class="line"><span class="keyword">var</span> f3</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">f1</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">2</span></span><br><span class="line">  f3 = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(a)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">f1</span>()</span><br><span class="line"><span class="title function_">f3</span>() <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="闭包的应用"><a href="#闭包的应用" class="headerlink" title="闭包的应用"></a>闭包的应用</h3><h4 id="计数器"><a href="#计数器" class="headerlink" title="计数器"></a>计数器</h4><p>需求：统计一个函数的调用次数</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> count = <span class="number">0</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params"></span>) &#123;</span><br><span class="line">  count++</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;我被调用了，调用次数是&#x27;</span> + count)</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">fn</span>()</span><br><span class="line"><span class="title function_">fn</span>()</span><br><span class="line"><span class="title function_">fn</span>()</span><br><span class="line"><span class="comment">// 缺点：count是全局变量，不安全</span></span><br></pre></td></tr></table></figure>
+
+<p>使用闭包解决这个问题</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">outer</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> count = <span class="number">0</span> <span class="comment">// 私有变量, 将 count 保护起来了</span></span><br><span class="line">  <span class="keyword">function</span> <span class="title function_">add</span>(<span class="params"></span>) &#123;</span><br><span class="line">    count++</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;当前count&#x27;</span> + count)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> add</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> result = <span class="title function_">outer</span>()</span><br><span class="line"><span class="title function_">result</span>()</span><br></pre></td></tr></table></figure>
+
+<h4 id="缓存的私有化"><a href="#缓存的私有化" class="headerlink" title="缓存的私有化"></a>缓存的私有化</h4><p>计算斐波那契数列，会有很大的性能问题，因为重复的计算了很多次，因此我们可以使用缓存来解决这个性能问题。</p>
+<p>缺点：既然使用缓存，就需要保证缓存的数据的安全，不能被别人修改，因此，需要使用闭包来实现缓存的私有化。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">outer</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">// 缓存</span></span><br><span class="line">  <span class="keyword">var</span> arr = []</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> fbi = <span class="keyword">function</span>(<span class="params">n</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">1</span> || n == <span class="number">2</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (arr[n]) &#123;</span><br><span class="line">      <span class="keyword">return</span> arr[n]</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">var</span> temp = <span class="title function_">fbi</span>(n - <span class="number">1</span>) + <span class="title function_">fbi</span>(n - <span class="number">2</span>)</span><br><span class="line">      arr[n] = temp <span class="comment">//存入缓存</span></span><br><span class="line">      <span class="keyword">return</span> temp</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> fbi</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> fbi = <span class="title function_">outer</span>()</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">fbi</span>(<span class="number">40</span>))</span><br></pre></td></tr></table></figure>
+
+<h3 id="闭包存在的问题"><a href="#闭包存在的问题" class="headerlink" title="闭包存在的问题"></a>闭包存在的问题</h3><blockquote>
+<p>正常情况下：函数在调用的时候，去开辟一块内存空间用来执行内部的代码，当函数调用结束的时候，要销毁开辟的空间，节省内存<br>闭包占用的内存是不会被释放的，因此，如果滥用闭包，会造成内存泄漏的问题。闭包很强大，但是只有在必须使用闭包的时候才使用</p>
+</blockquote>
+<h4 id="js-的垃圾回收机制-了解"><a href="#js-的垃圾回收机制-了解" class="headerlink" title="js 的垃圾回收机制(了解)"></a>js 的垃圾回收机制(了解)</h4><ul>
+<li>内存：计算机中所有程序的运行都是在<code>内存</code> 中进行的，因此内存的性能对计算机的影响非常大，运行程序需要消耗内存，当程序结束时，内存会得到释放。</li>
+<li>javascript 分配内存：当我们定义变量，javascript 自动分配内存存储数据。无论是值类型或者是引用类型，都需要存储在内存中。</li>
+<li>垃圾回收：当代码执行结束，分配的内存已经不需要了，这时候需要将内存进行回收，在 javascript 语言中，<code>垃圾回收机器</code>会帮我们回收<code>不再需要使用</code>的内存。</li>
+</ul>
+<h5 id="引用记数法清除"><a href="#引用记数法清除" class="headerlink" title="引用记数法清除"></a>引用记数法清除</h5><p>引用记数垃圾收集：如果没有引用指向某个对象（或者是函数作用域），那么这个对象或者函数作用域就会被垃圾回收机制回收。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;zs&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 对象被 o 变量引用，引用记数 1</span></span><br><span class="line"><span class="keyword">var</span> obj = o <span class="comment">// 变量被 o 和 obj 引用，引用记数 2</span></span><br><span class="line">o = <span class="number">1</span> <span class="comment">// o 不在引用对象了，引用记数 1</span></span><br><span class="line">obj = <span class="literal">null</span> <span class="comment">// obj 不在引用对象了，引用记数 0，可以被垃圾回收了</span></span><br></pre></td></tr></table></figure>
+
+<p>引用计数法无法解决循环引用导致的内存泄露</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> obj1 = &#123;&#125; <span class="comment">// 引用计数为 2</span></span><br><span class="line">  <span class="keyword">var</span> obj2 = &#123;&#125; <span class="comment">// 引用计数为 2</span></span><br><span class="line">  obj1.<span class="property">a</span> = obj2</span><br><span class="line">  obj2.<span class="property">b</span> = obj1</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">fn</span>() <span class="comment">// 销毁fn调用开辟的空间， 但是由于引用计数考虑到两个对象都不是零引用的对象，就不能够被垃圾回收机制给回收掉</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="标记清除法清除"><a href="#标记清除法清除" class="headerlink" title="标记清除法清除"></a>标记清除法清除</h5><p>使用引用计数法进行垃圾回收的时候，会出现循环引用导致内存泄漏的问题。因此现代的浏览器都采用标记清除法来进行垃圾回收。</p>
+<p>这个算法假定设置一个叫做根（root）的对象（在 Javascript 里，根是全局对象 Window）。定期的，垃圾回收器将从根开始，找所有从根开始引用的对象，然后找这些对象引用的对象……从根开始，垃圾回收器将找到所有可以获得的对象和所有不能获得的对象。</p>
+<p><strong>从 2012 年起，所有现代浏览器都使用了标记 - 清除垃圾回收算法。</strong></p>
+<h4 id="闭包占用内存释放"><a href="#闭包占用内存释放" class="headerlink" title="闭包占用内存释放"></a>闭包占用内存释放</h4><p>当闭包的功能不在需要使用了，将这个变量指向 <code>null</code>， 这样闭包占用的内存就可以被回收掉了</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">outer</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> count = <span class="number">0</span></span><br><span class="line">  <span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params"></span>) &#123;</span><br><span class="line">    count++</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;执行次数&#x27;</span> + count)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> fn</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> result = <span class="title function_">outer</span>()</span><br><span class="line"><span class="title function_">result</span>()</span><br><span class="line">result = <span class="literal">null</span> <span class="comment">// 当函数 fn 没有被变量引用了，那么函数 fn 就会被回收，函数 fn 一旦被回收，那么 outer调用形成的作用域也就得到了释放</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/2030.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我全都要">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2030.html" class="post-title-link" itemprop="url">总结 —— parseInt 和 parseFloat</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2021-09-12" itemprop="dateCreated datePublished" datetime="2021-09-12T00:00:00+00:00">2021-09-12</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <date title="修改时间：2022-02-20">2022-02-20</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><blockquote>
+<p><code>parseInt()</code> 函数解析一个字符串参数，指定该字符串为指定基数的进制值，并返回一个 10 进制的整数，如果被解析参数的第一个字符无法被转化成数值类型，则返回 <code>NaN</code></p>
+</blockquote>
+<p>参考 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvSmF2YVNjcmlwdC9SZWZlcmVuY2UvR2xvYmFsX09iamVjdHMvcGFyc2VJbnQ=">parseInt</span></p>
+<p><code>parseInt(string, radix)</code></p>
+<p>string 要被解析的值，如果参数不是一个字符串，则将其转换为字符串</p>
+<p>radix 基数，表示进制，介于 2 和 36 之间的整数，参数 radix 的值为undefined、0 或没有设置该参数时，parseInt() 会根据 string 来判断数字的基数。如果输入的 string 以 “0x”或 “0x”（一个0，后面是小写或大写的X）开头，那么radix被假定为16，字符串的其余部分被解析为十六进制数。如果输入的 string以 “0”（0）开头， radix被假定为10（十进制）。如果输入的 string 以任何其他值开头， radix 是 10 (十进制)。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">parseInt</span>(<span class="string">&#x27;123&#x27;</span>, <span class="number">5</span>) <span class="comment">// 将 &#x27;123&#x27; 看作 5 进制数，返回十进制数 38</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">&#x27;4215213&#x27;</span>, <span class="number">5</span>)   <span class="comment">// 4 * 5^2 + 2 * 5^1 + 1 * 5^0 = 111 返回 111</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">&#x27;0x123&#x27;</span>) <span class="comment">// 291</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].<span class="title function_">map</span>(<span class="built_in">parseInt</span>) <span class="comment">// [1, NaN, NaN]</span></span><br><span class="line"><span class="comment">// [1, 2, 3].map(parseInt(item, index))</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>parseFloat()</code> 函数解析一个字符串参数并返回一个浮点数，如果给定值不能被转换成数值，则会返回 NaN</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">parseFloat</span>(<span class="string">&#x27;3.14&#x27;</span>) <span class="comment">// 3.14</span></span><br><span class="line"><span class="built_in">parseFloat</span>(<span class="string">&#x27;0x123&#x27;</span>) <span class="comment">// 0</span></span><br><span class="line"><span class="comment">// [1, 2, 3].map(parseFloat) // [1, 2, 3]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">parseInt</span>(<span class="number">0.0000005</span>) === <span class="number">5</span></span><br><span class="line"><span class="comment">// 如果 parseInt 第一个参数不是字符串，会将其转换成字符串</span></span><br><span class="line"><span class="comment">// 小于 10-6 的浮点数以指数表示</span></span><br><span class="line"><span class="comment">// parseint 从 float 的指数法中提取整数</span></span><br><span class="line"><span class="title class_">String</span>(<span class="number">0.0000005</span>) <span class="comment">// =&gt; &#x27;5e-7&#x27;</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="number">5e-7</span>) <span class="comment">// =&gt; 5</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">&#x27;5e-7&#x27;</span>) <span class="comment">// =&gt; 5</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="number">1111111111111111111111</span>) <span class="comment">// =&gt; 1</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="number">999999999999999999999</span>) <span class="comment">// =&gt; 1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">parseInt</span>((<span class="number">5e-7</span>).<span class="title function_">toFixed</span>()) <span class="comment">// =&gt; 0</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">parseFloat</span>(<span class="number">9999999999999999</span>) <span class="comment">// 10000000000000000</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://wqdy.top/2040.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1414,241 +1631,6 @@
 <li>将伪数组转换成真数组</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 借用数组的方法</span></span><br><span class="line"><span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">slice</span>.<span class="title function_">call</span>(obj)</span><br><span class="line">[].<span class="property">slice</span>.<span class="title function_">call</span>(obj)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用es6中数组的from方法：从一个类似数组或可迭代对象中创建一个新的数组实例</span></span><br><span class="line"><span class="title class_">Array</span>.<span class="title function_">from</span>(obj)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 对于函数的arguments参数可以使用扩展运算符</span></span><br><span class="line">[...<span class="variable language_">arguments</span>]</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/2032.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 我全都要">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2032.html" class="post-title-link" itemprop="url">常用js —— string字符串操作</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2022-02-12" itemprop="dateCreated datePublished" datetime="2022-02-12T00:00:00+00:00">2022-02-12</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <date title="修改时间：2022-02-13">2022-02-13</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="String-对象"><a href="#String-对象" class="headerlink" title="String 对象"></a>String 对象</h3><p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvSmF2YVNjcmlwdC9SZWZlcmVuY2UvR2xvYmFsX09iamVjdHMvU3RyaW5n">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String</span></p>
-<blockquote>
-<p>操作字符串的方法<strong>不会改变原来的字符串</strong>，需要新字符串去接收</p>
-</blockquote>
-<ul>
-<li><strong>查找指定字符串</strong></li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">str.<span class="title function_">indexOf</span>(searchString[, position]) <span class="comment">// 获取某个字符串第一次出现的位置，如果没有，返回-1。可选参数position可设置从str的某个指定的位置开始查找</span></span><br><span class="line">str.<span class="title function_">lastIndexOf</span>(searchString[, position]) <span class="comment">// 从后面开始查找某个字符串第一次出现的位置。如果没有，返回-1</span></span><br><span class="line"></span><br><span class="line">str.<span class="title function_">search</span>(regexp) <span class="comment">// 输出第一次出现位置，找不到输出-1</span></span><br><span class="line">str.<span class="title function_">match</span>(regexp) <span class="comment">// 输出匹配到的第一个字符，匹配不到返回 null</span></span><br><span class="line">str.<span class="title function_">match</span>(regexp/g) <span class="comment">// 全部输出</span></span><br><span class="line"></span><br><span class="line">str.<span class="title function_">startsWith</span>(str1) <span class="comment">// 判断 str 字符串是否以 str1 字符串开头，若符合返回 true</span></span><br><span class="line">	<span class="comment">// 等价于判断 str.indexOf(str1) === 0</span></span><br><span class="line"></span><br><span class="line">str.<span class="title function_">endsWith</span>(str1) <span class="comment">// 判断 str 字符串是否以 str1 字符串结尾，若符合返回 true</span></span><br><span class="line">	<span class="comment">// 等价于判断 str.indexOf(str1) === str.length - str1.length</span></span><br></pre></td></tr></table></figure>
-
-<p>str.includes(searchString[, position]) 用于判断一个字符串是否包含在另一个字符串中，根据情况返回 true 或 false</p>
-<ul>
-<li><strong>str.trim()</strong></li>
-</ul>
-<p>去除字符串两边的空格，内部空格不会去除</p>
-<ul>
-<li><strong>大小写转换</strong></li>
-</ul>
-<p><code>str.toUpperCase()</code> 全部转换成大写字母<br><code>str.toLowerCase()</code> 全部转换成小写字母</p>
-<ul>
-<li><strong>字符串拼接与截取</strong></li>
-</ul>
-<p>字符串拼接 可以用 concat，用法与数组一样，但是一般都用 <code>+</code></p>
-<p><code>str.slice(start, end)</code></p>
-<p>从 start 开始，end 结束，并且取不到 end，没有 end 则截取从 start 到末尾<br>start 和 end 都不是必选，<code>str.slice()</code> 与 <code>str.slice(0)</code> 等价 截取全部，<br>start 和 end 可以是任意参数，参数应该是先调用Number()， 结果是NAN转换成0输出， 结果是整数直接输出， 结果是小数，再调用parseInt() 转化为整数输出<br>start 和 end 可以是负数，会将字符串的长度与对应的负数相加，结果作为参数，如果还是负数，不会递归继续与字符长度相加，取 0</p>
-<p><code>str.substring(params1, params2)</code></p>
-<p>以两个参数中较小一个作为起始位置，较大的参数作为结束位置，不包括结束位置，只有一个参数则截取到末尾<br>params1, params2 都不是必选，<code>str.substring()</code> 与 <code>str.substring(0)</code> 等价 截取全部<br>可以是任意参数，参数应该是先调用Number()， 结果是NAN转换成0输出， 结果是整数直接输出， 结果是小数，再调用parseInt() 转化为整数输出<br>可以是负数，负参数会被直接转换为 0</p>
-<p><code>str.substr(start, length)</code></p>
-<p>从 start 开始，截取 length 个字符，没有 length 则截取到末尾<br>可以是任意参数，参数应该是先调用Number()， 结果是NAN转换成0输出， 结果是整数直接输出， 结果是小数，再调用parseInt() 转化为整数输出<br>start 参数为负参数时，会将参数与字符串长度相加后的结果作为参数，如果还是负数，不会递归继续与字符长度相加，取 0<br>length 参数为负数时，会被转化为 0 ，即截取长度为 0</p>
-<ul>
-<li><strong>字符串切割</strong></li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">str.<span class="title function_">split</span>(separator[, limit]) <span class="comment">// 将字符串分割成数组</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;zs,ls,ww&#x27;</span></span><br><span class="line"><span class="keyword">var</span> arr = str.<span class="title function_">split</span>(<span class="string">&#x27;,&#x27;</span>, <span class="number">1</span>) <span class="comment">// [&#x27;zs&#x27;]</span></span><br><span class="line"><span class="keyword">var</span> arr = str.<span class="title function_">split</span>() <span class="comment">// [&#x27;zs,ls,ww&#x27;]</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>字符串替换</strong></li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 语法</span></span><br><span class="line">str.<span class="title function_">replace</span>(regexp|substr, replacement)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 参数：regexp/substr: 需要替换的内容    replacement: 替换文本或生成替换文本的函数  默认只替换第一个匹配子串</span></span><br><span class="line">str.<span class="title function_">replace</span>(<span class="regexp">/regexp/g</span>, replacement) <span class="comment">// 全部替换</span></span><br><span class="line"></span><br><span class="line">str.<span class="title function_">replace</span>(<span class="regexp">/ /g</span>, <span class="string">&#x27;&#x27;</span>) <span class="comment">// 将全部空格去掉</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// replaceAll 全部替换</span></span><br></pre></td></tr></table></figure>
-
-<p>replace() 方法的参数 replacement 可以是函数。在这种情况下，每个匹配都调用该函数，它返回的字符串将作为替换文本使用。该函数的第一个参数是匹配模式的字符串。接下来的参数是与模式中的子表达式匹配的字符串，可以有 0 个或多个这样的参数。接下来的参数是一个整数，声明了匹配在 stringObject 中出现的位置。最后一个参数是 stringObject 本身。</p>
-<ul>
-<li><strong><code>str.charAt(pos)</code></strong></li>
-</ul>
-<p>pos参数可以是任意, 参数应该是先调用Number()， 结果是NAN转换成0输出，结果是整数直接输出，结果是小数，再调用 Math.ceil() 转化为整数输出<br>str.charAt() &#x3D;&#x3D;&#x3D; str.charAt(0)</p>
-<p>如果pos小于0或者大于等于字符串的长度str.length，返回空字符串</p>
-<ul>
-<li><strong><code>padEnd() padStart()</code></strong></li>
-</ul>
-<p>padEnd() padStart() 方法用另一个字符串填充当前字符串(如果需要的话，会重复多次)，以便产生的字符串达到给定的长度。padStart()从当前字符串的左侧开始填充，padEnd()从当前字符串的右侧开始填充</p>
-<ul>
-<li>寻找重复最多的字符以及个数</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;shdshdfjkfjfdgjkjdksgjskdjfsfsfsfjksjkfdkjf&#x27;</span></span><br><span class="line"><span class="keyword">var</span> arr = str.<span class="title function_">split</span>(<span class="string">&#x27;&#x27;</span>).<span class="title function_">sort</span>()</span><br><span class="line">str = arr.<span class="title function_">join</span>(<span class="string">&#x27;&#x27;</span>)</span><br><span class="line"><span class="keyword">var</span> count = <span class="number">0</span></span><br><span class="line"><span class="keyword">var</span> char = <span class="number">0</span></span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/(\w)\1+/g</span></span><br><span class="line">str.<span class="title function_">replace</span>(reg, <span class="keyword">function</span>(<span class="params">a, b, c, d</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(a, b, c, d) <span class="comment">// a 匹配模式的字符串 b 与模式中的子表达式匹配的字符串 c 匹配在 str 中出现的位置 d  str 本身</span></span><br><span class="line">  <span class="keyword">if</span> (a.<span class="property">length</span> &gt; count) &#123;</span><br><span class="line">    count = a.<span class="property">length</span></span><br><span class="line">    char = b</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str)</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;最多的字符为:&#x27;</span> + char + <span class="string">&#x27;;个数为:&#x27;</span> + count)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/2031.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 我全都要">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2031.html" class="post-title-link" itemprop="url">安卓手机高版本抓包方案</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2021-12-07" itemprop="dateCreated datePublished" datetime="2021-12-07T00:00:00+00:00">2021-12-07</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>安卓7.0以后，每个应用可以<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIuYW5kcm9pZC5jb20vdHJhaW5pbmcvYXJ0aWNsZXMvc2VjdXJpdHktY29uZmlnI0N1c3RvbVRydXN0">自定义可信 CA 集</span>，默认情况下，应用只会信任系统级的证书，不再信任用户级的证书。通过Fiddler&#x2F;Charles安装的证书属于用户级的证书，因此会被视作不安全的证书，导致无法正常抓包</p>
-<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><h4 id="修改APP配置文件允许信任用户证书，但前提是可以获取到APP的源码"><a href="#修改APP配置文件允许信任用户证书，但前提是可以获取到APP的源码" class="headerlink" title="修改APP配置文件允许信任用户证书，但前提是可以获取到APP的源码"></a>修改APP配置文件允许信任用户证书，但前提是可以获取到APP的源码</h4><h4 id="将证书安装到系统证书中，但需要root权限"><a href="#将证书安装到系统证书中，但需要root权限" class="headerlink" title="将证书安装到系统证书中，但需要root权限"></a>将证书安装到系统证书中，但需要root权限</h4><p>安装好用户证书，系统已root，安装re文件管理器，使用re文件管理器将证书移动到系统证书文件夹</p>
-<p>用户证书路径：&#x2F;data&#x2F;misc&#x2F;user&#x2F;0&#x2F;cacerts-added&#x2F;&lt;证书Hash值&gt;.编号<br>系统证书路径：&#x2F;system&#x2F;etc&#x2F;security&#x2F;cacerts</p>
-<p>方法1: 使用adb连接</p>
-<p>Copy<br>执行:</p>
-<ol>
-<li>adb push 0dd2455e.0 &#x2F;sdcard</li>
-<li>adb shell</li>
-<li>su</li>
-<li>mount -o remount,rw &#x2F;system<br>#mount -o rw,remount &#x2F;system</li>
-<li>cp &#x2F;sdcard&#x2F;0dd2455e.0 &#x2F;system&#x2F;etc&#x2F;security&#x2F;cacerts&#x2F;</li>
-<li>chmod 644 &#x2F;system&#x2F;etc&#x2F;security&#x2F;cacerts&#x2F;0dd2455e.0</li>
-</ol>
-<p>使用第三方文件管理器(推荐)</p>
-<p>下载酷安市场app –&gt; 分别搜索 Syslock 和 RE管理器 并下载安装(其他应用市场下载也可以)<br>给 Syslock 和 RE管理器 root权限(以小米为例:安全中心–&gt;应用管理–&gt;权限–&gt;ROOT权限管理–&gt;找到应用并开启)<br>打开Syslock并解锁 &#x2F;system (每次重启后都得开启一次)<br>将文件拷贝至手机中<br>使用RE管理器将文件拷贝到 &#x2F;system&#x2F;etc&#x2F;security&#x2F;cacerts 下<br>修改文件权限<br>到此然后重启手机。就可以正常抓https数据包了。<br>也可以到手机 设置-&gt;安全-&gt;信任凭据–&gt;系统 查看。</p>
-<h4 id="安卓模拟器（兼容性差，很多应用闪退）"><a href="#安卓模拟器（兼容性差，很多应用闪退）" class="headerlink" title="安卓模拟器（兼容性差，很多应用闪退）"></a>安卓模拟器（兼容性差，很多应用闪退）</h4><h4 id="安卓虚拟机-VMOS，官网-http-www-vmos-cn-，该方案相对简单"><a href="#安卓虚拟机-VMOS，官网-http-www-vmos-cn-，该方案相对简单" class="headerlink" title="安卓虚拟机 VMOS，官网: http://www.vmos.cn/，该方案相对简单"></a>安卓虚拟机 VMOS，官网: <span class="exturl" data-url="aHR0cDovL3d3dy52bW9zLmNuLyVFRiVCQyU4QyVFOCVBRiVBNSVFNiU5NiVCOSVFNiVBMSU4OCVFNyU5QiVCOCVFNSVBRiVCOSVFNyVBRSU4MCVFNSU4RCU5NQ==">http://www.vmos.cn/，该方案相对简单</span></h4><p>vmos 设置wifi代理</p>
-<ol>
-<li>找到 vmos 主屏右下角的设置 — 其他设置 — 网络 adb (记录 ip+端口)</li>
-<li>连接vmos: <code>adb connect ip+端口</code></li>
-<li>打开wlan设置: <code>adb shell am start -a android.intent.action.MAIN -n  com.android.settings/.wifi.WifiSettings</code></li>
-<li>长按 wifi，修改网络，添加代理</li>
-</ol>
 
       
     </div>

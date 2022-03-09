@@ -226,6 +226,178 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/403.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我全都要">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/403.html" class="post-title-link" itemprop="url">addEventListener 以及 vue 中的 .passive 修饰符</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2019-07-31" itemprop="dateCreated datePublished" datetime="2019-07-31T22:16:42+00:00">2019-07-31</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQVBJL0V2ZW50VGFyZ2V0L2FkZEV2ZW50TGlzdGVuZXI=">https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/addEventListener</span></p>
+<p>添加事件</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 语法</span></span><br><span class="line">target.<span class="title function_">addEventListener</span>(type, listener[, useCapture])</span><br><span class="line"><span class="comment">// type: 事件的类型: click mouseover  字符串类型，不带 on</span></span><br><span class="line"><span class="comment">// listener: 函数，每次点击，执行这个函数</span></span><br><span class="line"><span class="comment">// useCapture: 可选，true: 事件在捕获阶段执行，false: 事件在冒泡阶段执行(默认)</span></span><br><span class="line"></span><br><span class="line">target.<span class="title function_">addEventListener</span>(type, listener[, options])</span><br></pre></td></tr></table></figure>
+
+<p>options 可选，可用的选项如下：<br>capture: Boolean，默认 false，等价于以前的 useCapture 参数<br>once: Boolean，默认 false，如果是 true，表示 listener 在添加之后最多只调用一次。 listener 也会在其被调用之后自动移除<br>passive: Boolean，默认 false，设置为 true 时，表示 listener 永远不会调用 preventDefault() 如果 listener 仍然调用了这个函数，客户端将会忽略它并抛出一个控制台警告。</p>
+<p>浏览器无法预先知道一个监听器会不会调用 preventDefault()，它能做的只有等监听器执行完后再去执行默认行为，而监听器执行是要耗时的，有些甚至耗时很明显，这样就会导致页面卡顿</p>
+<p><code>.passive</code> 修饰符尤其能够提升移动端的性能<br><span class="exturl" data-url="aHR0cHM6Ly9jbi52dWVqcy5vcmcvdjIvZ3VpZGUvZXZlbnRzLmh0bWwjJUU0JUJBJThCJUU0JUJCJUI2JUU0JUJGJUFFJUU5JUE1JUIwJUU3JUFDJUE2">vue .passive 事件修饰符</span></p>
+<p>移除事件</p>
+<p>removeEventListener</p>
+<p>在第三个参数是布尔值的时候，addEventListener(“foo”, listener, true) 添加的监听器，必须用 removeEventListener(“foo”, listener, true) 才能删除掉, 因为这个监听器也有可能还注册在了冒泡阶段, 如果第三个参数为 false 则直接通过 removeEventListener(“foo”, listener) 就可以删除</p>
+<p>通过 addEventListener(“foo”, listener, {capture: true}) 添加的监听器删除时也同样需要添加 {capture: true} 来删除，当然 {capture: true} 换成 true 也可以</p>
+<p>通过 addEventListener(“foo”, listener, {passive: true}) 添加的监听器直接通过 removeEventListener(“foo”, listener) 就可以删除了<br>因为一个监听器同时是 passive 和非 passive（以及同时是 once 和非 once）是说不通的，如果你添加了多个，那么后添加的会忽略</p>
+<p>removeEventListener(“foo”, listener, {capture: true}) &#x2F;&#x2F; {capture: true} 必须加，当然 {capture: true} 换成 true 也可以</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/430.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我全都要">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/430.html" class="post-title-link" itemprop="url">axios 取消请求</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2019-07-27" itemprop="dateCreated datePublished" datetime="2019-07-27T22:17:21+00:00">2019-07-27</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>原生 js abort() 方法</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> A = $.<span class="title function_">ajax</span>(&#123;&#125;)</span><br><span class="line">A.<span class="title function_">abort</span>()</span><br></pre></td></tr></table></figure>
+
+<p>Axios 提供了一个 CancelToken 的函数，这是一个构造函数，该函数的作用就是用来取消接口请求的</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">methods</span>: &#123;</span><br><span class="line">  getMsg () &#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="title class_">CancelToken</span> = axios.<span class="property">CancelToken</span></span><br><span class="line">    <span class="keyword">let</span> that = <span class="variable language_">this</span></span><br><span class="line">    axios.<span class="title function_">get</span>(<span class="string">&#x27;&#x27;</span>, &#123;</span><br><span class="line">      <span class="attr">cancelToken</span>: <span class="keyword">new</span> <span class="title class_">CancelToken</span>(<span class="keyword">function</span> <span class="title function_">executor</span>(<span class="params">c</span>) &#123;</span><br><span class="line">        that.<span class="property">cancel</span> = c</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(c)</span><br><span class="line">        <span class="comment">// 这个参数 c 就是 CancelToken 构造函数里面自带的取消请求的函数，这里把该函数当参数用</span></span><br><span class="line">      &#125;)</span><br><span class="line">      <span class="attr">params</span>: &#123;&#125;</span><br><span class="line">    &#125;).<span class="title function_">then</span>(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">items</span> = res.<span class="property">data</span></span><br><span class="line">    &#125;).<span class="title function_">catch</span>(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(err)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br><span class="line">  cancelGetMsg () &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">cancel</span>()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://wqdy.top/387.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1173,217 +1345,6 @@
 </ul>
 <p>说明：Meta 标签中的 format-detection 属性及含义<br>format-detection 中文的意思是 “格式检测”，它是用来检测 html 里的一些格式的</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 禁止了把数字转化为拨号链接 默认为 yes --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;format-detection&quot;</span> <span class="attr">content</span>=<span class="string">&quot;telephone=no&quot;</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 禁止作为邮箱地址 默认为 yes --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;format-detection&quot;</span> <span class="attr">content</span>=<span class="string">&quot;email=no&quot;</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 禁止跳转至地图 默认为 yes --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;format-detection&quot;</span> <span class="attr">content</span>=<span class="string">&quot;adress=no&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;format-detection&quot;</span> <span class="attr">content</span>=<span class="string">&quot;telephone=no,email=no,adress=no&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/222.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 我全都要">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/222.html" class="post-title-link" itemprop="url">解决VPS通过SS访问谷歌学术受限</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2019-07-09" itemprop="dateCreated datePublished" datetime="2019-07-09T00:00:09+00:00">2019-07-09</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在网上搜索后发现有可能有以下原因：</p>
-<p>1.你的 VPS 被人用来做爬虫爬 Google，IP 被封</p>
-<p>2.你的 IPv4 网段有人做爬虫，网段被封</p>
-<p>3.你的 IPv6 网段有人做爬虫，网段被封</p>
-<p>IPv6 网段被封</p>
-<p>强制你的 VPS 用 IPv4 来访问，具体方法在 <code>/etc/sysctl.conf</code> 后追加</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># disable ipv6</span><br><span class="line">net.ipv6.conf.all.disable_ipv6=1</span><br><span class="line">net.ipv6.conf.default.disable_ipv6=1</span><br><span class="line">net.ipv6.conf.lo.disable_ipv6=1</span><br></pre></td></tr></table></figure>
-
-<p>IPv4 网段被封</p>
-<p>强制 VPS 使用 IPv6 访问，确认打开 VPS 上的 IPv6 功能，更改 VPS 的 hosts 中指定 Google Schoolar 的 IPv6 地址，编辑<code>/etc/hosts</code>后追加：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">## Scholar</span><br><span class="line">## type &#x27;host google.com&#x27; to get the correct ipv6 address or</span><br><span class="line">## visit https://github.com/lennylxx/ipv6-hosts</span><br><span class="line">2404:6800:4004:81a::200e scholar.google.cn</span><br><span class="line">2404:6800:4004:81a::200e scholar.google.com.hk</span><br><span class="line">2404:6800:4004:81a::200e scholar.google.com</span><br><span class="line">2404:6800:4004:81a::200e scholar.l.google.com</span><br></pre></td></tr></table></figure>
-
-<p>更改配置后，重启 SS</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/224.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 我全都要">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/224.html" class="post-title-link" itemprop="url">搭建ss服务器</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2019-07-09" itemprop="dateCreated datePublished" datetime="2019-07-09T00:00:08+00:00">2019-07-09</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="购买-VPS-服务器"><a href="#购买-VPS-服务器" class="headerlink" title="购买 VPS 服务器"></a>购买 VPS 服务器</h2><p>vultr 注册地址：<span class="exturl" data-url="aHR0cHM6Ly93d3cudnVsdHIuY29tLw==">https://www.vultr.com/</span></p>
-<p>利用 <code>ipip</code> 这个网站的 实用工具里的 ping 来全国性的 ping 我们的主机，检测连通性</p>
-<h2 id="部署-VPS-服务器"><a href="#部署-VPS-服务器" class="headerlink" title="部署 VPS 服务器"></a>部署 VPS 服务器</h2><h3 id="ssh-工具"><a href="#ssh-工具" class="headerlink" title="ssh 工具"></a>ssh 工具</h3><p><strong>Win：</strong><br>使用软件 PuTTY<br>打开软件<br>Host Name (or IP address) 写你服务器的 IP 地址<br>Port 默认 22<br>Connection type 选择 SSH<br>Open</p>
-<p><strong>Mac：</strong><br>默认有 SSH 命令<br>ssh root@IP<br>输入用户名和密码,用户名为 root<br>login as: root<br>root@IP’s password:</p>
-<h3 id="安装服务"><a href="#安装服务" class="headerlink" title="安装服务"></a>安装服务</h3><p>CentOS&#x2F;Debian&#x2F;Ubuntu ShadowsocksR 单&#x2F;多端口 一键管理脚本<br><span class="exturl" data-url="aHR0cHM6Ly9kb3ViLmlvL3NzLWpjNDIv">https://doub.io/ss-jc42/</span></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum -y install wget</span><br><span class="line"></span><br><span class="line">wget -N --no-check-certificate https://softs.fun/Bash/ssr.sh &amp;&amp; <span class="built_in">chmod</span> +x ssr.sh &amp;&amp; bash ssr.sh</span><br></pre></td></tr></table></figure>
-
-<p>备用脚本：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum -y install wget</span><br><span class="line"></span><br><span class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssr.sh &amp;&amp; <span class="built_in">chmod</span> +x ssr.sh &amp;&amp; bash ssr.sh</span><br></pre></td></tr></table></figure>
-
-<p>复制上面的代码到 VPS 服务器里，按回车键，脚本会自动安装，以后只需要运行 <code>bash ssr.sh</code> 这个快捷命令就可以出现下图的界面进行设置。</p>
-<ol>
-<li>安装 SSR 服务端</li>
-<li>设置端口和密码</li>
-<li>设置的加密方式: aes-256-cfb</li>
-<li>选择协议插件: auth_sha1_v4</li>
-<li>选择混淆插件 plain</li>
-</ol>
-<p>ShadowsocksR MudbJSON 模式多用户一键脚本 支持流量限制<br><span class="exturl" data-url="aHR0cHM6Ly9kb3ViLmlvL3NzLWpjNjAv">https://doub.io/ss-jc60/</span></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget -N --no-check-certificate https://softs.fun/Bash/ssrmu.sh &amp;&amp; <span class="built_in">chmod</span> +x ssrmu.sh &amp;&amp; bash ssrmu.sh</span><br></pre></td></tr></table></figure>
-
-<p>备用下载地址</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssrmu.sh &amp;&amp; <span class="built_in">chmod</span> +x ssrmu.sh &amp;&amp; bash ssrmu.sh</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash ssrmu.sh</span><br></pre></td></tr></table></figure>
-
-<h2 id="测速脚本官方地址"><a href="#测速脚本官方地址" class="headerlink" title="测速脚本官方地址"></a>测速脚本官方地址</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://raw.githubusercontent.com/oooldking/script/master/superbench.sh</span><br><span class="line"><span class="built_in">chmod</span> +x superbench.sh</span><br><span class="line">./superbench.sh</span><br></pre></td></tr></table></figure>
-
-<h2 id="加速"><a href="#加速" class="headerlink" title="加速"></a>加速</h2><p><span class="exturl" data-url="aHR0cHM6Ly9zc3IudG9vbHMvNjc0">锐速&#x2F;BBR&#x2F;魔改 BBR&#x2F;KCPTUN 加速效果对比测试</span></p>
-<p>【原版 BBR】</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh</span><br><span class="line"><span class="built_in">chmod</span> +x bbr.sh</span><br><span class="line">./bbr.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启服务器</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证是否安装成功</span></span><br><span class="line">sysctl net.ipv4.tcp_congestion_control</span><br><span class="line"><span class="comment"># 得到如下结果表示安装成功</span></span><br><span class="line">net.ipv4.tcp_congestion_control = bbr</span><br></pre></td></tr></table></figure>
-
-<p>【魔改 BBR】</p>
-<p>只有 centos 和 debain 版</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># centos 版</span></span><br><span class="line">wget --no-check-certificate https://raw.githubusercontent.com/tcp-nanqinlang/general/master/General/CentOS/bash/tcp_nanqinlang-1.3.2.sh</span><br><span class="line">bash tcp_nanqinlang-1.3.2.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># debain 版</span></span><br><span class="line">wget --no-check-certificate https://github.com/tcp-nanqinlang/general/releases/download/3.4.2.1/tcp_nanqinlang-fool-1.3.0.sh</span><br><span class="line">bash tcp_nanqinlang-fool-1.3.0.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 选择 1 安装内核，重启</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行 选择 2 安装并开启算法</span></span><br><span class="line">bash tcp_nanqinlang-1.3.2.sh</span><br><span class="line"><span class="comment"># 选择 2 安装并开启算法</span></span><br></pre></td></tr></table></figure>
-
-<p>【BBRPlus（BBR v2.0）】</p>
-<p>Github 项目地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2N4OTIwOC9iYnJwbHVz">https://github.com/cx9208/bbrplus</span></p>
-<p>一键脚本（仅CentOS）</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum -y install wget &amp;&amp; wget <span class="string">&quot;https://github.com/cx9208/bbrplus/raw/master/ok_bbrplus_centos.sh&quot;</span> &amp;&amp; <span class="built_in">chmod</span> +x ok_bbrplus_centos.sh &amp;&amp; ./ok_bbrplus_centos.sh</span><br></pre></td></tr></table></figure>
-
-<p>等待安装完成，重启，重启之后，按照以下步骤检查是否成功：</p>
-<p>执行 uname -r，显示 4.14.129-bbrplus 则切换内核成功</p>
-<p>执行 lsmod | grep bbr，显示有 bbrplus 则开启成功</p>
 
       
     </div>

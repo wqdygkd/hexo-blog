@@ -226,6 +226,241 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/2032.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我全都要">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2032.html" class="post-title-link" itemprop="url">常用js —— string字符串操作</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2022-02-12" itemprop="dateCreated datePublished" datetime="2022-02-12T00:00:00+00:00">2022-02-12</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <date title="修改时间：2022-02-13">2022-02-13</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="String-对象"><a href="#String-对象" class="headerlink" title="String 对象"></a>String 对象</h3><p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvSmF2YVNjcmlwdC9SZWZlcmVuY2UvR2xvYmFsX09iamVjdHMvU3RyaW5n">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String</span></p>
+<blockquote>
+<p>操作字符串的方法<strong>不会改变原来的字符串</strong>，需要新字符串去接收</p>
+</blockquote>
+<ul>
+<li><strong>查找指定字符串</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">str.<span class="title function_">indexOf</span>(searchString[, position]) <span class="comment">// 获取某个字符串第一次出现的位置，如果没有，返回-1。可选参数position可设置从str的某个指定的位置开始查找</span></span><br><span class="line">str.<span class="title function_">lastIndexOf</span>(searchString[, position]) <span class="comment">// 从后面开始查找某个字符串第一次出现的位置。如果没有，返回-1</span></span><br><span class="line"></span><br><span class="line">str.<span class="title function_">search</span>(regexp) <span class="comment">// 输出第一次出现位置，找不到输出-1</span></span><br><span class="line">str.<span class="title function_">match</span>(regexp) <span class="comment">// 输出匹配到的第一个字符，匹配不到返回 null</span></span><br><span class="line">str.<span class="title function_">match</span>(regexp/g) <span class="comment">// 全部输出</span></span><br><span class="line"></span><br><span class="line">str.<span class="title function_">startsWith</span>(str1) <span class="comment">// 判断 str 字符串是否以 str1 字符串开头，若符合返回 true</span></span><br><span class="line">	<span class="comment">// 等价于判断 str.indexOf(str1) === 0</span></span><br><span class="line"></span><br><span class="line">str.<span class="title function_">endsWith</span>(str1) <span class="comment">// 判断 str 字符串是否以 str1 字符串结尾，若符合返回 true</span></span><br><span class="line">	<span class="comment">// 等价于判断 str.indexOf(str1) === str.length - str1.length</span></span><br></pre></td></tr></table></figure>
+
+<p>str.includes(searchString[, position]) 用于判断一个字符串是否包含在另一个字符串中，根据情况返回 true 或 false</p>
+<ul>
+<li><strong>str.trim()</strong></li>
+</ul>
+<p>去除字符串两边的空格，内部空格不会去除</p>
+<ul>
+<li><strong>大小写转换</strong></li>
+</ul>
+<p><code>str.toUpperCase()</code> 全部转换成大写字母<br><code>str.toLowerCase()</code> 全部转换成小写字母</p>
+<ul>
+<li><strong>字符串拼接与截取</strong></li>
+</ul>
+<p>字符串拼接 可以用 concat，用法与数组一样，但是一般都用 <code>+</code></p>
+<p><code>str.slice(start, end)</code></p>
+<p>从 start 开始，end 结束，并且取不到 end，没有 end 则截取从 start 到末尾<br>start 和 end 都不是必选，<code>str.slice()</code> 与 <code>str.slice(0)</code> 等价 截取全部，<br>start 和 end 可以是任意参数，参数应该是先调用Number()， 结果是NAN转换成0输出， 结果是整数直接输出， 结果是小数，再调用parseInt() 转化为整数输出<br>start 和 end 可以是负数，会将字符串的长度与对应的负数相加，结果作为参数，如果还是负数，不会递归继续与字符长度相加，取 0</p>
+<p><code>str.substring(params1, params2)</code></p>
+<p>以两个参数中较小一个作为起始位置，较大的参数作为结束位置，不包括结束位置，只有一个参数则截取到末尾<br>params1, params2 都不是必选，<code>str.substring()</code> 与 <code>str.substring(0)</code> 等价 截取全部<br>可以是任意参数，参数应该是先调用Number()， 结果是NAN转换成0输出， 结果是整数直接输出， 结果是小数，再调用parseInt() 转化为整数输出<br>可以是负数，负参数会被直接转换为 0</p>
+<p><code>str.substr(start, length)</code></p>
+<p>从 start 开始，截取 length 个字符，没有 length 则截取到末尾<br>可以是任意参数，参数应该是先调用Number()， 结果是NAN转换成0输出， 结果是整数直接输出， 结果是小数，再调用parseInt() 转化为整数输出<br>start 参数为负参数时，会将参数与字符串长度相加后的结果作为参数，如果还是负数，不会递归继续与字符长度相加，取 0<br>length 参数为负数时，会被转化为 0 ，即截取长度为 0</p>
+<ul>
+<li><strong>字符串切割</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">str.<span class="title function_">split</span>(separator[, limit]) <span class="comment">// 将字符串分割成数组</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;zs,ls,ww&#x27;</span></span><br><span class="line"><span class="keyword">var</span> arr = str.<span class="title function_">split</span>(<span class="string">&#x27;,&#x27;</span>, <span class="number">1</span>) <span class="comment">// [&#x27;zs&#x27;]</span></span><br><span class="line"><span class="keyword">var</span> arr = str.<span class="title function_">split</span>() <span class="comment">// [&#x27;zs,ls,ww&#x27;]</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>字符串替换</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 语法</span></span><br><span class="line">str.<span class="title function_">replace</span>(regexp|substr, replacement)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 参数：regexp/substr: 需要替换的内容    replacement: 替换文本或生成替换文本的函数  默认只替换第一个匹配子串</span></span><br><span class="line">str.<span class="title function_">replace</span>(<span class="regexp">/regexp/g</span>, replacement) <span class="comment">// 全部替换</span></span><br><span class="line"></span><br><span class="line">str.<span class="title function_">replace</span>(<span class="regexp">/ /g</span>, <span class="string">&#x27;&#x27;</span>) <span class="comment">// 将全部空格去掉</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// replaceAll 全部替换</span></span><br></pre></td></tr></table></figure>
+
+<p>replace() 方法的参数 replacement 可以是函数。在这种情况下，每个匹配都调用该函数，它返回的字符串将作为替换文本使用。该函数的第一个参数是匹配模式的字符串。接下来的参数是与模式中的子表达式匹配的字符串，可以有 0 个或多个这样的参数。接下来的参数是一个整数，声明了匹配在 stringObject 中出现的位置。最后一个参数是 stringObject 本身。</p>
+<ul>
+<li><strong><code>str.charAt(pos)</code></strong></li>
+</ul>
+<p>pos参数可以是任意, 参数应该是先调用Number()， 结果是NAN转换成0输出，结果是整数直接输出，结果是小数，再调用 Math.ceil() 转化为整数输出<br>str.charAt() &#x3D;&#x3D;&#x3D; str.charAt(0)</p>
+<p>如果pos小于0或者大于等于字符串的长度str.length，返回空字符串</p>
+<ul>
+<li><strong><code>padEnd() padStart()</code></strong></li>
+</ul>
+<p>padEnd() padStart() 方法用另一个字符串填充当前字符串(如果需要的话，会重复多次)，以便产生的字符串达到给定的长度。padStart()从当前字符串的左侧开始填充，padEnd()从当前字符串的右侧开始填充</p>
+<ul>
+<li>寻找重复最多的字符以及个数</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;shdshdfjkfjfdgjkjdksgjskdjfsfsfsfjksjkfdkjf&#x27;</span></span><br><span class="line"><span class="keyword">var</span> arr = str.<span class="title function_">split</span>(<span class="string">&#x27;&#x27;</span>).<span class="title function_">sort</span>()</span><br><span class="line">str = arr.<span class="title function_">join</span>(<span class="string">&#x27;&#x27;</span>)</span><br><span class="line"><span class="keyword">var</span> count = <span class="number">0</span></span><br><span class="line"><span class="keyword">var</span> char = <span class="number">0</span></span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/(\w)\1+/g</span></span><br><span class="line">str.<span class="title function_">replace</span>(reg, <span class="keyword">function</span>(<span class="params">a, b, c, d</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(a, b, c, d) <span class="comment">// a 匹配模式的字符串 b 与模式中的子表达式匹配的字符串 c 匹配在 str 中出现的位置 d  str 本身</span></span><br><span class="line">  <span class="keyword">if</span> (a.<span class="property">length</span> &gt; count) &#123;</span><br><span class="line">    count = a.<span class="property">length</span></span><br><span class="line">    char = b</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str)</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;最多的字符为:&#x27;</span> + char + <span class="string">&#x27;;个数为:&#x27;</span> + count)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/2031.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我全都要">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2031.html" class="post-title-link" itemprop="url">安卓手机高版本抓包方案</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2021-12-07" itemprop="dateCreated datePublished" datetime="2021-12-07T00:00:00+00:00">2021-12-07</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>安卓7.0以后，每个应用可以<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIuYW5kcm9pZC5jb20vdHJhaW5pbmcvYXJ0aWNsZXMvc2VjdXJpdHktY29uZmlnI0N1c3RvbVRydXN0">自定义可信 CA 集</span>，默认情况下，应用只会信任系统级的证书，不再信任用户级的证书。通过Fiddler&#x2F;Charles安装的证书属于用户级的证书，因此会被视作不安全的证书，导致无法正常抓包</p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><h4 id="修改APP配置文件允许信任用户证书，但前提是可以获取到APP的源码"><a href="#修改APP配置文件允许信任用户证书，但前提是可以获取到APP的源码" class="headerlink" title="修改APP配置文件允许信任用户证书，但前提是可以获取到APP的源码"></a>修改APP配置文件允许信任用户证书，但前提是可以获取到APP的源码</h4><h4 id="将证书安装到系统证书中，但需要root权限"><a href="#将证书安装到系统证书中，但需要root权限" class="headerlink" title="将证书安装到系统证书中，但需要root权限"></a>将证书安装到系统证书中，但需要root权限</h4><p>安装好用户证书，系统已root，安装re文件管理器，使用re文件管理器将证书移动到系统证书文件夹</p>
+<p>用户证书路径：&#x2F;data&#x2F;misc&#x2F;user&#x2F;0&#x2F;cacerts-added&#x2F;&lt;证书Hash值&gt;.编号<br>系统证书路径：&#x2F;system&#x2F;etc&#x2F;security&#x2F;cacerts</p>
+<p>方法1: 使用adb连接</p>
+<p>Copy<br>执行:</p>
+<ol>
+<li>adb push 0dd2455e.0 &#x2F;sdcard</li>
+<li>adb shell</li>
+<li>su</li>
+<li>mount -o remount,rw &#x2F;system<br>#mount -o rw,remount &#x2F;system</li>
+<li>cp &#x2F;sdcard&#x2F;0dd2455e.0 &#x2F;system&#x2F;etc&#x2F;security&#x2F;cacerts&#x2F;</li>
+<li>chmod 644 &#x2F;system&#x2F;etc&#x2F;security&#x2F;cacerts&#x2F;0dd2455e.0</li>
+</ol>
+<p>使用第三方文件管理器(推荐)</p>
+<p>下载酷安市场app –&gt; 分别搜索 Syslock 和 RE管理器 并下载安装(其他应用市场下载也可以)<br>给 Syslock 和 RE管理器 root权限(以小米为例:安全中心–&gt;应用管理–&gt;权限–&gt;ROOT权限管理–&gt;找到应用并开启)<br>打开Syslock并解锁 &#x2F;system (每次重启后都得开启一次)<br>将文件拷贝至手机中<br>使用RE管理器将文件拷贝到 &#x2F;system&#x2F;etc&#x2F;security&#x2F;cacerts 下<br>修改文件权限<br>到此然后重启手机。就可以正常抓https数据包了。<br>也可以到手机 设置-&gt;安全-&gt;信任凭据–&gt;系统 查看。</p>
+<h4 id="安卓模拟器（兼容性差，很多应用闪退）"><a href="#安卓模拟器（兼容性差，很多应用闪退）" class="headerlink" title="安卓模拟器（兼容性差，很多应用闪退）"></a>安卓模拟器（兼容性差，很多应用闪退）</h4><h4 id="安卓虚拟机-VMOS，官网-http-www-vmos-cn-，该方案相对简单"><a href="#安卓虚拟机-VMOS，官网-http-www-vmos-cn-，该方案相对简单" class="headerlink" title="安卓虚拟机 VMOS，官网: http://www.vmos.cn/，该方案相对简单"></a>安卓虚拟机 VMOS，官网: <span class="exturl" data-url="aHR0cDovL3d3dy52bW9zLmNuLyVFRiVCQyU4QyVFOCVBRiVBNSVFNiU5NiVCOSVFNiVBMSU4OCVFNyU5QiVCOCVFNSVBRiVCOSVFNyVBRSU4MCVFNSU4RCU5NQ==">http://www.vmos.cn/，该方案相对简单</span></h4><p>vmos 设置wifi代理</p>
+<ol>
+<li>找到 vmos 主屏右下角的设置 — 其他设置 — 网络 adb (记录 ip+端口)</li>
+<li>连接vmos: <code>adb connect ip+端口</code></li>
+<li>打开wlan设置: <code>adb shell am start -a android.intent.action.MAIN -n  com.android.settings/.wifi.WifiSettings</code></li>
+<li>长按 wifi，修改网络，添加代理</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://wqdy.top/2025.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1400,168 +1635,6 @@
 
 <p>监听第三方组件数据的变化，但是组件又没有提供change事件，可以在外部监听组件的updated钩子函数</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">child-component</span> @<span class="attr">hook:updated</span>=<span class="string">&quot;handleChildUpdated&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/2024.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 我全都要">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024.html" class="post-title-link" itemprop="url">支持天翼云，百度云等网盘的挂载工具</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2021-03-20" itemprop="dateCreated datePublished" datetime="2021-03-20T00:00:00+00:00">2021-03-20</date>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="CTList"><a href="#CTList" class="headerlink" title="CTList"></a>CTList</h2><p>CTList是萌咖大佬基于go语言写的天翼云网盘的目录列表程序。CTList支持多用户，支持WebDav，整个站点目录支持在nPlayer、PotPlayer播放器以及ES文件浏览器中使用。</p>
-<p>参考链接：<span class="exturl" data-url="aHR0cHM6Ly93d3cubW9lcmF0cy5jb20vYXJjaGl2ZXMvMTAyOC8=">https://www.moerats.com/archives/1028/</span></p>
-<h2 id="sharelist"><a href="#sharelist" class="headerlink" title="sharelist"></a>sharelist</h2><p>sharelist是reruin大佬node.js开发的云盘目录程序，前端页面简洁美观<br>可挂载：Google Drive，One Drive，天翼云，和彩云，蓝奏云，本地文件，WebDAV，SFTP，Teambition，Baidu，Aliyun Drive</p>
-<p>项目地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3JlcnVpbi9zaGFyZWxpc3Q=">https://github.com/reruin/sharelist</span></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/2023.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 我全都要">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023.html" class="post-title-link" itemprop="url">使用 github actions 将 github 项目自动同步到 gitee 并自动部署 Gitee Pages</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2021-03-03" itemprop="dateCreated datePublished" datetime="2021-03-03T00:00:00+00:00">2021-03-03</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>由于 github Pages 和 netlify 的访问速度慢，所以现在将博客部署到 Gitee Pages</p>
-<p>先使用 wearerequired&#x2F;git-mirror-action 将 GitHub 仓库同步到 Gitee 仓库，再使用 yanglbme&#x2F;gitee-pages-action 实现 Gitee Pages 的自动部署。</p>
-<h3 id="配置秘钥"><a href="#配置秘钥" class="headerlink" title="配置秘钥"></a>配置秘钥</h3><ul>
-<li><p>使用命令 <code>ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</code> 生成 SSH Key(⚠️注意此处不要设置密码)</p>
-</li>
-<li><p>在 GitHub 项目的「​Settings -&gt; Secrets」路径下配置好命名为 <code>GITEE_RSA_PRIVATE_KEY</code> 和 <code>GITEE_PASSWORD</code> 的两个密钥。其中：<code>GITEE_RSA_PRIVATE_KEY</code> 存放 <code>id_rsa</code> 私钥；<code>GITEE_PASSWORD</code> 存放 <code>Gitee</code> 帐号的密码</p>
-</li>
-<li><p>在 GitHub 的个人设置页面「Settings -&gt; SSH and GPG keys」​ 配置 SSH 公钥（即：id_rsa.pub），命名随意</p>
-</li>
-<li><p>在 Gitee 的个人设置页面「安全设置 -&gt; SSH 公钥」​ 配置 SSH 公钥（即：id_rsa.pub），命名随意</p>
-</li>
-</ul>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Sync</span> <span class="string">to</span> <span class="string">Gitee</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span> [<span class="string">main</span>, <span class="string">gh-pages</span>]</span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">build:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Sync</span> <span class="string">to</span> <span class="string">Gitee</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">wearerequired/git-mirror-action@master</span></span><br><span class="line">        <span class="attr">env:</span></span><br><span class="line">          <span class="comment"># 注意在 Settings-&gt;Secrets 配置 GITEE_RSA_PRIVATE_KEY</span></span><br><span class="line">          <span class="attr">SSH_PRIVATE_KEY:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.GITEE_RSA_PRIVATE_KEY</span> <span class="string">&#125;&#125;</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="comment"># 注意替换为你的 GitHub 源仓库地址</span></span><br><span class="line">          <span class="attr">source-repo:</span> <span class="string">git@github.com:cuilongjin/hexo-blog.git</span></span><br><span class="line">          <span class="comment"># 注意替换为你的 Gitee 目标仓库地址</span></span><br><span class="line">          <span class="attr">destination-repo:</span> <span class="string">git@gitee.com:cuilongjin/hexo-blog.git</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Build</span> <span class="string">Gitee</span> <span class="string">Pages</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">yanglbme/gitee-pages-action@main</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="comment"># 注意替换为你的 Gitee 用户名</span></span><br><span class="line">          <span class="attr">gitee-username:</span> <span class="string">cuilongjin</span></span><br><span class="line">          <span class="comment"># 注意在 Settings-&gt;Secrets 配置 GITEE_PASSWORD</span></span><br><span class="line">          <span class="attr">gitee-password:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.GITEE_PASSWORD</span> <span class="string">&#125;&#125;</span></span><br><span class="line">          <span class="comment"># 注意替换为你的 Gitee 仓库，仓库名严格区分大小写，请准确填写，否则会出错</span></span><br><span class="line">          <span class="attr">gitee-repo:</span> <span class="string">cuilongjin/hexo-blog</span></span><br><span class="line">          <span class="comment"># 要部署的分支，默认是 master，若是其他分支，则需要指定（指定的分支必须存在）</span></span><br><span class="line">          <span class="attr">branch:</span> <span class="string">gh-pages</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
