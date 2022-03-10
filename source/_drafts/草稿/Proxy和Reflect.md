@@ -2,7 +2,7 @@
 title: 【es6】Proxy 和 Reflect
 date: 2019/10/25
 categories:
-  - ['js']
+  - 前端
 ---
 
 proxy 在目标对象的外层搭建了一层拦截，外界对目标对象的某些操作，必须通过这层拦截
@@ -73,7 +73,7 @@ handler.preventExtensions()
 handler.getOwnPropertyDescriptor()
 
 // 在定义代理对象某个属性时的属性描述时触发该操作，比如在执行 Object.defineProperty(proxy, "foo", {}) 时
-andler.defineProperty()
+handler.defineProperty()
 
 // 在判断代理对象是否拥有某个属性时触发该操作，比如在执行 "foo" in proxy 时
 handler.has(target, key)
@@ -97,7 +97,7 @@ handler.apply()
 handler.construct()
 ```
 
-Reflect 是一个内置的对象，它提供拦截 JavaScript 操作的方法。这些方法与[处理器对象](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Proxy/handler)的方法相同。Reflect 不是一个函数对象，因此不能将其与一个 new 运算符一起使用，或者将 Reflect 对象作为一个函数来调用。Reflect 的所有属性和方法都是静态的（就像 Math 对象）
+[Reflect](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Reflect) 是一个内置的对象，它提供拦截 JavaScript 操作的方法。Reflect 不是一个函数对象，因此不能将其与一个 new 运算符一起使用，或者将 Reflect 对象作为一个函数来调用。Reflect 的所有属性和方法都是静态的（就像 Math 对象）
 
 1. 将 Object 对象的一些明显属于语言内部的方法（比如 Object.defineProperty），放到 Reflect 对象上
 

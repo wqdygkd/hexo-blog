@@ -103,6 +103,7 @@ obj1.b.push(4)
 defineProperty 无法监听数组的变化
 对象新增的属性无法监听
 对象不存在的属性无法监听
+无法监听到属性的删除
 
 **vue 3.0 响应式数据原理**
 
@@ -154,7 +155,7 @@ let proxy = reactive(obj)
 proxy.name.a = 'l' // 多层代理通过 get 设置 (会先触发 proxy.name 的 get)
 ```
 
-问题：同一个对象可能会被多从代理，代理也可能会被再次代理
+问题：同一个对象可能会被多次代理，代理也可能会被再次代理
 
 ```js
 proxy = reactive(obj)
