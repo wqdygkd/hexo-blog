@@ -4197,7 +4197,7 @@
 <p>如果是 GSuite Admin 账号，可以使用如下方式直接添加进群组</p>
 <ol>
 <li>将生成的json文件保存到 credentials 文件夹中</li>
-<li>在管理控制台中为您的组织创建组。创建群组后，您将拥有一个例如的地址<span class="exturl" data-url="bWFpbHRvOiYjeDczOyYjOTc7JiM2NDsmIzEyMTsmIzExMTsmIzExNzsmIzExNDsmI3g2NDsmI3g2ZjsmIzEwOTsmI3g2MTsmIzEwNTsmIzExMDsmI3gyZTsmI3g2MzsmIzExMTsmIzEwOTs=">&#x73;&#97;&#64;&#121;&#111;&#117;&#114;&#x64;&#x6f;&#109;&#x61;&#105;&#110;&#x2e;&#x63;&#111;&#109;</span></li>
+<li>在管理控制台中为您的组织创建组。创建群组后，您将拥有一个例如的地址<span class="exturl" data-url="bWFpbHRvOiYjMTE1OyYjeDYxOyYjNjQ7JiMxMjE7JiMxMTE7JiN4NzU7JiMxMTQ7JiMxMDA7JiMxMTE7JiMxMDk7JiN4NjE7JiMxMDU7JiN4NmU7JiM0NjsmIzk5OyYjeDZmOyYjMTA5Ow==">&#115;&#x61;&#64;&#121;&#111;&#x75;&#114;&#100;&#111;&#109;&#x61;&#105;&#x6e;&#46;&#99;&#x6f;&#109;</span></li>
 <li>运行 <code>python3 add_to_google_group.py -g sa@yourdomain.com</code></li>
 </ol>
 </blockquote>
@@ -9933,100 +9933,6 @@
       </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>/cl0js416900e92houbah9gb76.html</url>
-    <content><![CDATA[<h2 id="常用正则"><a href="#常用正则" class="headerlink" title="常用正则"></a>常用正则</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">. - 除换行符以外的所有字符。</span><br><span class="line">^ - 字符串开头。</span><br><span class="line">$ - 字符串结尾。</span><br><span class="line">\d,\w,\s - 匹配数字、字符、空格。</span><br><span class="line">\D,\W,\S - 匹配非数字、非字符、非空格。</span><br><span class="line">[abc] - 匹配 a、b 或 c 中的一个字母。</span><br><span class="line">[a-z] - 匹配 a 到 z 中的一个字母。</span><br><span class="line">[^abc] - 匹配除了 a、b 或 c 中的其他字母。</span><br><span class="line">aa|bb - 匹配 aa 或 bb。</span><br><span class="line">? - 0 次或 1 次匹配。</span><br><span class="line">* - 匹配 0 次或多次。</span><br><span class="line">+ - 匹配 1 次或多次。</span><br><span class="line">&#123;n&#125; - 匹配 n次。</span><br><span class="line">&#123;n,&#125; - 匹配 n次以上。</span><br><span class="line">&#123;m,n&#125; - 最少 m 次，最多 n 次匹配。</span><br><span class="line">(expr) - 捕获 expr 子模式,以 \1 使用它。</span><br><span class="line">(?:expr) - 忽略捕获的子模式。</span><br><span class="line">(?=expr) - 正向预查模式 expr。</span><br><span class="line">(?!expr) - 负向预查模式 expr。</span><br></pre></td></tr></table></figure>
-
-<p>任意正负数字  <code>^(\-|\+)?\d+(\.\d+)?$</code><br>邮箱 <code>^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$</code><br>最多保留2位小数的非负数字<br>匹配中文 <code>^[\u4e00-\u9fa5]*$</code></p>
-<h4 id="常用正则表达式"><a href="#常用正则表达式" class="headerlink" title="常用正则表达式"></a>常用正则表达式</h4><p>校验数字的表达式</p>
-<ul>
-<li>n 位的数字：<code>^\d&#123;n&#125;$</code></li>
-<li>至少 n 位的数字：<code>^\d&#123;n,&#125;$</code></li>
-<li>m-n 位的数字：<code>^\d&#123;m,n&#125;$</code></li>
-<li>零和非零开头的数字：<code>^(0|[1-9][0-9]*)$</code></li>
-<li>非零开头的最多带两位小数的数字：<code>^([1-9][0-9]*)+(.[0-9]&#123;1,2&#125;)?$</code></li>
-<li>带 1-2 位小数的正数或负数：<code>^(\-)?\d+(\.\d&#123;1,2&#125;)$</code></li>
-<li>正数、负数、和小数：<code>^(\-|\+)?\d+(\.\d+)?$</code></li>
-<li>有两位小数的正实数：<code>^[0-9]+(\.[0-9]&#123;2&#125;)?$</code></li>
-<li>非零的正整数：<code>^[1-9]\d*$</code></li>
-<li>非零的负整数：<code>^-[1-9]\d*$</code></li>
-<li>非负整数：<code>^\d+$</code></li>
-<li>非正整数：<code>^-[1-9]\d*|0$</code></li>
-</ul>
-<p>校验字符的表达式</p>
-<ul>
-<li>汉字：<code>^[\u4e00-\u9fa5]&#123;0,&#125;$</code></li>
-<li>英文和数字：<code>^[A-Za-z0-9]+$</code></li>
-<li>长度为 3-20 的所有字符：<code>^\.&#123;3,20&#125;$</code></li>
-<li>由 26 个英文字母组成的字符串：<code>^[A-Za-z]+$</code></li>
-<li>由 26 个大写英文字母组成的字符串：<code>^[A-Z]+$</code></li>
-<li>由 26 个小写英文字母组成的字符串：<code>^[a-z]+$</code></li>
-<li>由数字和 26 个英文字母组成的字符串：<code>^[A-Za-z0-9]+$</code></li>
-<li>由数字、26 个英文字母或者下划线组成的字符串：<code>^\w+$</code></li>
-<li>中文、英文、数字包括下划线：<code>^[\u4E00-\u9FA5A-Za-z0-9_]+$</code></li>
-<li>中文、英文、数字但不包括下划线等符号：<code>^[\u4E00-\u9FA5A-Za-z0-9]+$</code></li>
-</ul>
-<p>钱的输入格式：<br>有四种钱的表示形式我们可以接受:”10000.00” 和 “10,000.00”, 和没有 “分” 的 “10000” 和 “10,000”：^[1-9][0-9]<em>$<br>这表示任意一个不以0开头的数字,但是,这也意味着一个字符”0”不通过,所以我们采用下面的形式：^(0|[1-9][0-9]</em>)$<br>一个0或者一个不以0开头的数字.我们还可以允许开头有一个负号：^(0|-?[1-9][0-9]<em>)$<br>这表示一个0或者一个可能为负的开头不为0的数字.让用户以0开头好了.把负号的也去掉,因为钱总不能是负的吧。下面我们要加的是说明可能的小数部分：^[0-9]+(.[0-9]+)?$<br>必须说明的是,小数点后面至少应该有1位数,所以”10.”是不通过的,但是 “10” 和 “10.2” 是通过的：^[0-9]+(.[0-9]{2})?$<br>这样我们规定小数点后面必须有两位,如果你认为太苛刻了,可以这样：^[0-9]+(.[0-9]{1,2})?$<br>这样就允许用户只写一位小数.下面我们该考虑数字中的逗号了,我们可以这样：^[0-9]{1,3}(,[0-9]{3})</em>(.[0-9]{1,2})?$<br>1到3个数字,后面跟着任意个 逗号+3个数字,逗号成为可选,而不是必须：^([0-9]+|[0-9]{1,3}(,[0-9]{3})<em>)(.[0-9]{1,2})?$<br>备注：这就是最终结果了,别忘了”+”可以用”</em>“替代如果你觉得空字符串也可以接受的话(奇怪,为什么?)最后,别忘了在用函数时去掉去掉那个反斜杠,一般的错误都在这里</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>总结 —— parseInt 和 parseFloat</title>
-    <url>/2030.html</url>
-    <content><![CDATA[<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><blockquote>
-<p><code>parseInt()</code> 函数解析一个字符串参数，指定该字符串为指定基数的进制值，并返回一个 10 进制的整数，如果被解析参数的第一个字符无法被转化成数值类型，则返回 <code>NaN</code></p>
-</blockquote>
-<p>参考 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvSmF2YVNjcmlwdC9SZWZlcmVuY2UvR2xvYmFsX09iamVjdHMvcGFyc2VJbnQ=">parseInt</span></p>
-<p><code>parseInt(string, radix)</code></p>
-<p>string 要被解析的值，如果参数不是一个字符串，则将其转换为字符串</p>
-<p>radix 基数，表示进制，介于 2 和 36 之间的整数，参数 radix 的值为undefined、0 或没有设置该参数时，parseInt() 会根据 string 来判断数字的基数。如果输入的 string 以 “0x”或 “0x”（一个0，后面是小写或大写的X）开头，那么radix被假定为16，字符串的其余部分被解析为十六进制数。如果输入的 string以 “0”（0）开头， radix被假定为10（十进制）。如果输入的 string 以任何其他值开头， radix 是 10 (十进制)。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">parseInt</span>(<span class="string">&#x27;123&#x27;</span>, <span class="number">5</span>) <span class="comment">// 将 &#x27;123&#x27; 看作 5 进制数，返回十进制数 38</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">&#x27;4215213&#x27;</span>, <span class="number">5</span>)   <span class="comment">// 4 * 5^2 + 2 * 5^1 + 1 * 5^0 = 111 返回 111</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">&#x27;0x123&#x27;</span>) <span class="comment">// 291</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].<span class="title function_">map</span>(<span class="built_in">parseInt</span>) <span class="comment">// [1, NaN, NaN]</span></span><br><span class="line"><span class="comment">// [1, 2, 3].map(parseInt(item, index))</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><code>parseFloat()</code> 函数解析一个字符串参数并返回一个浮点数，如果给定值不能被转换成数值，则会返回 NaN</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">parseFloat</span>(<span class="string">&#x27;3.14&#x27;</span>) <span class="comment">// 3.14</span></span><br><span class="line"><span class="built_in">parseFloat</span>(<span class="string">&#x27;0x123&#x27;</span>) <span class="comment">// 0</span></span><br><span class="line"><span class="comment">// [1, 2, 3].map(parseFloat) // [1, 2, 3]</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">parseInt</span>(<span class="number">0.0000005</span>) === <span class="number">5</span></span><br><span class="line"><span class="comment">// 如果 parseInt 第一个参数不是字符串，会将其转换成字符串</span></span><br><span class="line"><span class="comment">// 小于 10-6 的浮点数以指数表示</span></span><br><span class="line"><span class="comment">// parseint 从 float 的指数法中提取整数</span></span><br><span class="line"><span class="title class_">String</span>(<span class="number">0.0000005</span>) <span class="comment">// =&gt; &#x27;5e-7&#x27;</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="number">5e-7</span>) <span class="comment">// =&gt; 5</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">&#x27;5e-7&#x27;</span>) <span class="comment">// =&gt; 5</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="number">1111111111111111111111</span>) <span class="comment">// =&gt; 1</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="number">999999999999999999999</span>) <span class="comment">// =&gt; 1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">parseInt</span>((<span class="number">5e-7</span>).<span class="title function_">toFixed</span>()) <span class="comment">// =&gt; 0</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">parseFloat</span>(<span class="number">9999999999999999</span>) <span class="comment">// 10000000000000000</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>总结 —— 获取一个对象的类型(类型识别)</title>
-    <url>/2040.html</url>
-    <content><![CDATA[<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="comment">// 只能查看基本数据类型的类型</span></span><br><span class="line"><span class="keyword">instanceof</span> <span class="comment">// 判断对象的具体类型</span></span><br><span class="line">constructor.<span class="property">name</span> <span class="comment">// 获取对象的具体类型 适用于任何类型的检测</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(<span class="string">&#x27;str&#x27;</span>) <span class="comment">// &#x27;[object String]&#x27; 适用于任何类型的检测</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>typeof</strong></p>
-<p>用于查看基本数据的数据类型， number string boolean undefined</p>
-<p>null 比较特殊，结果是 object</p>
-<p>如果查看复杂数据类型，返回的都是 object 类型</p>
-<p>函数的结果是 function</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// typeof 判断</span></span><br><span class="line"><span class="comment">// 简单类型</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="number">12</span> <span class="comment">// &#x27;number&#x27;</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="string">&#x27;abc&#x27;</span> <span class="comment">// &#x27;string&#x27;</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">true</span> <span class="comment">// &#x27;boolean&#x27;</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">undefined</span> <span class="comment">// &#x27;underfined&#x27;</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">null</span> <span class="comment">// &#x27;object&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 复杂类型 (引用类型)</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="keyword">function</span>(<span class="params"></span>) &#123;&#125; <span class="comment">// &#x27;function&#x27;</span></span><br><span class="line"><span class="keyword">typeof</span> [] <span class="comment">// &#x27;object&#x27;</span></span><br><span class="line"><span class="keyword">typeof</span> &#123;&#125; <span class="comment">// &#x27;object&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>instanceof 判断</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 语法</span></span><br><span class="line">object <span class="keyword">instanceof</span> constructor</span><br></pre></td></tr></table></figure>
-
-<p>用来检测 <code>constructor.prototype</code> 是否存在于参数 <code>object</code> 的原型链中</p>
-<p>不能用于类型识别</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// instanceof 判断</span></span><br><span class="line"><span class="keyword">var</span> simpleStr = <span class="string">&#x27;This is a simple string&#x27;</span></span><br><span class="line"><span class="keyword">var</span> myString = <span class="keyword">new</span> <span class="title class_">String</span>()</span><br><span class="line"><span class="keyword">var</span> newStr = <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&#x27;String created with constructor&#x27;</span>)</span><br><span class="line"><span class="keyword">var</span> myObj = &#123;&#125;</span><br><span class="line"><span class="keyword">var</span> myNonObj = <span class="title class_">Object</span>.<span class="title function_">create</span>(<span class="literal">null</span>)</span><br><span class="line"><span class="keyword">var</span> myArr = []</span><br><span class="line"><span class="keyword">var</span> myFn = <span class="keyword">function</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line"></span><br><span class="line">simpleStr <span class="keyword">instanceof</span> <span class="title class_">String</span> <span class="comment">// 返回 false, 检查原型链会找到 undefined</span></span><br><span class="line">myString <span class="keyword">instanceof</span> <span class="title class_">String</span> <span class="comment">// 返回 true</span></span><br><span class="line">newStr <span class="keyword">instanceof</span> <span class="title class_">String</span> <span class="comment">// 返回 true</span></span><br><span class="line">myString <span class="keyword">instanceof</span> <span class="title class_">Object</span> <span class="comment">// 返回 true</span></span><br><span class="line"></span><br><span class="line">myObj <span class="keyword">instanceof</span> <span class="title class_">Object</span> <span class="comment">// 返回 true, 尽管原型没有定义</span></span><br><span class="line">;(&#123;&#125; <span class="keyword">instanceof</span> <span class="title class_">Object</span>) <span class="comment">// 返回 true, 同上</span></span><br><span class="line">myNonObj <span class="keyword">instanceof</span> <span class="title class_">Object</span> <span class="comment">// 返回 false, 一种创建对象的方法，这种方法创建的对象不</span></span><br><span class="line"></span><br><span class="line">myArr <span class="keyword">instanceof</span> <span class="title class_">Array</span> <span class="comment">// true</span></span><br><span class="line">myArr <span class="keyword">instanceof</span> <span class="title class_">Object</span> <span class="comment">// true</span></span><br><span class="line">myFn <span class="keyword">instanceof</span> <span class="title class_">Object</span> <span class="comment">// true</span></span><br><span class="line">myFn <span class="keyword">instanceof</span> <span class="title class_">Function</span> <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>constructor.name</strong></p>
-<p>Undefined&#x2F;Null 没有 constructor 属性</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> myArr = []</span><br><span class="line"><span class="keyword">var</span> myFn = <span class="keyword">function</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line"><span class="keyword">var</span> myObj = &#123;&#125;</span><br><span class="line"><span class="keyword">let</span> myDate = <span class="keyword">new</span> <span class="title class_">Date</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 原型的构造函数</span></span><br><span class="line">myArr.<span class="property">constructor</span>.<span class="property">name</span> <span class="comment">// Array</span></span><br><span class="line">myFn.<span class="property">constructor</span>.<span class="property">name</span> <span class="comment">// Object</span></span><br><span class="line">myObj.<span class="property">constructor</span>.<span class="property">name</span> <span class="comment">// Function</span></span><br><span class="line">myDate.<span class="property">constructor</span>.<span class="property">name</span> <span class="comment">// Date</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 自定义构造函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Teacher</span>(<span class="params">name, age</span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">name</span> = name</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">age</span> = age</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> tea = <span class="keyword">new</span> <span class="title class_">Teacher</span>(<span class="string">&#x27;zs&#x27;</span>, <span class="number">18</span>)</span><br><span class="line">tea.<span class="property">constructor</span>.<span class="property">name</span> <span class="comment">// Teacher</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>Object.prototype.toString</strong></p>
-<p>适用于任何类型的检测，不能识别自定义对象类型</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(<span class="string">&#x27;str&#x27;</span>).<span class="title function_">slice</span>(<span class="number">8</span>, -<span class="number">1</span>) <span class="comment">// String</span></span><br><span class="line"><span class="comment">// 正则 =&gt; RegExp</span></span><br><span class="line"><span class="comment">// 时间对象 =&gt; Date</span></span><br><span class="line"><span class="comment">// 字符串 =&gt; String</span></span><br><span class="line"><span class="comment">// 对象 =&gt; Object</span></span><br><span class="line"><span class="comment">// 数组 =&gt; Array</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 自定义构造函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Teacher</span>(<span class="params">name, age</span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">name</span> = name</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">age</span> = age</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> tea = <span class="keyword">new</span> <span class="title class_">Teacher</span>(<span class="string">&#x27;zs&#x27;</span>, <span class="number">18</span>)</span><br><span class="line"><span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(tea) <span class="comment">// &#x27;[object Object]&#x27;</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-  </entry>
-  <entry>
     <title>总结 —— 遍历</title>
     <url>/396.html</url>
     <content><![CDATA[<h1 id="原生-js-中-for-语句"><a href="#原生-js-中-for-语句" class="headerlink" title="原生 js 中 for 语句"></a>原生 js 中 for 语句</h1><p><span class='red'>可使用 continue 跳出当前循环， break 跳出整个循环</span></p>
@@ -11798,6 +11704,100 @@
 
 <p><a href="/2044.html">实现一个 new 操作符</a></p>
 <h4 id="实现-JSON-stringify"><a href="#实现-JSON-stringify" class="headerlink" title="实现 JSON.stringify"></a>实现 JSON.stringify</h4><p><a href="/382.html#%E6%89%8B%E6%9C%BA%E5%8F%B7%E6%A0%BC%E5%BC%8F%E5%8C%96%EF%BC%9A3-4-4-%E5%88%86%E5%89%B2">手机号 3-4-4 分割</a><br><a href="/382.html#%E5%8D%83%E5%88%86%E4%BD%8D%E6%A0%BC%E5%BC%8F%E5%8C%96%E6%95%B0%E5%AD%97">千分位格式化数字</a></p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/cl0kvon1800jv20oq671xc2f7.html</url>
+    <content><![CDATA[<h2 id="常用正则"><a href="#常用正则" class="headerlink" title="常用正则"></a>常用正则</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">. - 除换行符以外的所有字符。</span><br><span class="line">^ - 字符串开头。</span><br><span class="line">$ - 字符串结尾。</span><br><span class="line">\d,\w,\s - 匹配数字、字符、空格。</span><br><span class="line">\D,\W,\S - 匹配非数字、非字符、非空格。</span><br><span class="line">[abc] - 匹配 a、b 或 c 中的一个字母。</span><br><span class="line">[a-z] - 匹配 a 到 z 中的一个字母。</span><br><span class="line">[^abc] - 匹配除了 a、b 或 c 中的其他字母。</span><br><span class="line">aa|bb - 匹配 aa 或 bb。</span><br><span class="line">? - 0 次或 1 次匹配。</span><br><span class="line">* - 匹配 0 次或多次。</span><br><span class="line">+ - 匹配 1 次或多次。</span><br><span class="line">&#123;n&#125; - 匹配 n次。</span><br><span class="line">&#123;n,&#125; - 匹配 n次以上。</span><br><span class="line">&#123;m,n&#125; - 最少 m 次，最多 n 次匹配。</span><br><span class="line">(expr) - 捕获 expr 子模式,以 \1 使用它。</span><br><span class="line">(?:expr) - 忽略捕获的子模式。</span><br><span class="line">(?=expr) - 正向预查模式 expr。</span><br><span class="line">(?!expr) - 负向预查模式 expr。</span><br></pre></td></tr></table></figure>
+
+<p>任意正负数字  <code>^(\-|\+)?\d+(\.\d+)?$</code><br>邮箱 <code>^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$</code><br>最多保留2位小数的非负数字<br>匹配中文 <code>^[\u4e00-\u9fa5]*$</code></p>
+<h4 id="常用正则表达式"><a href="#常用正则表达式" class="headerlink" title="常用正则表达式"></a>常用正则表达式</h4><p>校验数字的表达式</p>
+<ul>
+<li>n 位的数字：<code>^\d&#123;n&#125;$</code></li>
+<li>至少 n 位的数字：<code>^\d&#123;n,&#125;$</code></li>
+<li>m-n 位的数字：<code>^\d&#123;m,n&#125;$</code></li>
+<li>零和非零开头的数字：<code>^(0|[1-9][0-9]*)$</code></li>
+<li>非零开头的最多带两位小数的数字：<code>^([1-9][0-9]*)+(.[0-9]&#123;1,2&#125;)?$</code></li>
+<li>带 1-2 位小数的正数或负数：<code>^(\-)?\d+(\.\d&#123;1,2&#125;)$</code></li>
+<li>正数、负数、和小数：<code>^(\-|\+)?\d+(\.\d+)?$</code></li>
+<li>有两位小数的正实数：<code>^[0-9]+(\.[0-9]&#123;2&#125;)?$</code></li>
+<li>非零的正整数：<code>^[1-9]\d*$</code></li>
+<li>非零的负整数：<code>^-[1-9]\d*$</code></li>
+<li>非负整数：<code>^\d+$</code></li>
+<li>非正整数：<code>^-[1-9]\d*|0$</code></li>
+</ul>
+<p>校验字符的表达式</p>
+<ul>
+<li>汉字：<code>^[\u4e00-\u9fa5]&#123;0,&#125;$</code></li>
+<li>英文和数字：<code>^[A-Za-z0-9]+$</code></li>
+<li>长度为 3-20 的所有字符：<code>^\.&#123;3,20&#125;$</code></li>
+<li>由 26 个英文字母组成的字符串：<code>^[A-Za-z]+$</code></li>
+<li>由 26 个大写英文字母组成的字符串：<code>^[A-Z]+$</code></li>
+<li>由 26 个小写英文字母组成的字符串：<code>^[a-z]+$</code></li>
+<li>由数字和 26 个英文字母组成的字符串：<code>^[A-Za-z0-9]+$</code></li>
+<li>由数字、26 个英文字母或者下划线组成的字符串：<code>^\w+$</code></li>
+<li>中文、英文、数字包括下划线：<code>^[\u4E00-\u9FA5A-Za-z0-9_]+$</code></li>
+<li>中文、英文、数字但不包括下划线等符号：<code>^[\u4E00-\u9FA5A-Za-z0-9]+$</code></li>
+</ul>
+<p>钱的输入格式：<br>有四种钱的表示形式我们可以接受:”10000.00” 和 “10,000.00”, 和没有 “分” 的 “10000” 和 “10,000”：^[1-9][0-9]<em>$<br>这表示任意一个不以0开头的数字,但是,这也意味着一个字符”0”不通过,所以我们采用下面的形式：^(0|[1-9][0-9]</em>)$<br>一个0或者一个不以0开头的数字.我们还可以允许开头有一个负号：^(0|-?[1-9][0-9]<em>)$<br>这表示一个0或者一个可能为负的开头不为0的数字.让用户以0开头好了.把负号的也去掉,因为钱总不能是负的吧。下面我们要加的是说明可能的小数部分：^[0-9]+(.[0-9]+)?$<br>必须说明的是,小数点后面至少应该有1位数,所以”10.”是不通过的,但是 “10” 和 “10.2” 是通过的：^[0-9]+(.[0-9]{2})?$<br>这样我们规定小数点后面必须有两位,如果你认为太苛刻了,可以这样：^[0-9]+(.[0-9]{1,2})?$<br>这样就允许用户只写一位小数.下面我们该考虑数字中的逗号了,我们可以这样：^[0-9]{1,3}(,[0-9]{3})</em>(.[0-9]{1,2})?$<br>1到3个数字,后面跟着任意个 逗号+3个数字,逗号成为可选,而不是必须：^([0-9]+|[0-9]{1,3}(,[0-9]{3})<em>)(.[0-9]{1,2})?$<br>备注：这就是最终结果了,别忘了”+”可以用”</em>“替代如果你觉得空字符串也可以接受的话(奇怪,为什么?)最后,别忘了在用函数时去掉去掉那个反斜杠,一般的错误都在这里</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>总结 —— parseInt 和 parseFloat</title>
+    <url>/2030.html</url>
+    <content><![CDATA[<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><blockquote>
+<p><code>parseInt()</code> 函数解析一个字符串参数，指定该字符串为指定基数的进制值，并返回一个 10 进制的整数，如果被解析参数的第一个字符无法被转化成数值类型，则返回 <code>NaN</code></p>
+</blockquote>
+<p>参考 <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvSmF2YVNjcmlwdC9SZWZlcmVuY2UvR2xvYmFsX09iamVjdHMvcGFyc2VJbnQ=">parseInt</span></p>
+<p><code>parseInt(string, radix)</code></p>
+<p>string 要被解析的值，如果参数不是一个字符串，则将其转换为字符串</p>
+<p>radix 基数，表示进制，介于 2 和 36 之间的整数，参数 radix 的值为undefined、0 或没有设置该参数时，parseInt() 会根据 string 来判断数字的基数。如果输入的 string 以 “0x”或 “0x”（一个0，后面是小写或大写的X）开头，那么radix被假定为16，字符串的其余部分被解析为十六进制数。如果输入的 string以 “0”（0）开头， radix被假定为10（十进制）。如果输入的 string 以任何其他值开头， radix 是 10 (十进制)。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">parseInt</span>(<span class="string">&#x27;123&#x27;</span>, <span class="number">5</span>) <span class="comment">// 将 &#x27;123&#x27; 看作 5 进制数，返回十进制数 38</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">&#x27;4215213&#x27;</span>, <span class="number">5</span>)   <span class="comment">// 4 * 5^2 + 2 * 5^1 + 1 * 5^0 = 111 返回 111</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">&#x27;0x123&#x27;</span>) <span class="comment">// 291</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].<span class="title function_">map</span>(<span class="built_in">parseInt</span>) <span class="comment">// [1, NaN, NaN]</span></span><br><span class="line"><span class="comment">// [1, 2, 3].map(parseInt(item, index))</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>parseFloat()</code> 函数解析一个字符串参数并返回一个浮点数，如果给定值不能被转换成数值，则会返回 NaN</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">parseFloat</span>(<span class="string">&#x27;3.14&#x27;</span>) <span class="comment">// 3.14</span></span><br><span class="line"><span class="built_in">parseFloat</span>(<span class="string">&#x27;0x123&#x27;</span>) <span class="comment">// 0</span></span><br><span class="line"><span class="comment">// [1, 2, 3].map(parseFloat) // [1, 2, 3]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">parseInt</span>(<span class="number">0.0000005</span>) === <span class="number">5</span></span><br><span class="line"><span class="comment">// 如果 parseInt 第一个参数不是字符串，会将其转换成字符串</span></span><br><span class="line"><span class="comment">// 小于 10-6 的浮点数以指数表示</span></span><br><span class="line"><span class="comment">// parseint 从 float 的指数法中提取整数</span></span><br><span class="line"><span class="title class_">String</span>(<span class="number">0.0000005</span>) <span class="comment">// =&gt; &#x27;5e-7&#x27;</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="number">5e-7</span>) <span class="comment">// =&gt; 5</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">&#x27;5e-7&#x27;</span>) <span class="comment">// =&gt; 5</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="number">1111111111111111111111</span>) <span class="comment">// =&gt; 1</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="number">999999999999999999999</span>) <span class="comment">// =&gt; 1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">parseInt</span>((<span class="number">5e-7</span>).<span class="title function_">toFixed</span>()) <span class="comment">// =&gt; 0</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">parseFloat</span>(<span class="number">9999999999999999</span>) <span class="comment">// 10000000000000000</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>总结 —— 获取一个对象的类型(类型识别)</title>
+    <url>/2040.html</url>
+    <content><![CDATA[<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="comment">// 只能查看基本数据类型的类型</span></span><br><span class="line"><span class="keyword">instanceof</span> <span class="comment">// 判断对象的具体类型</span></span><br><span class="line">constructor.<span class="property">name</span> <span class="comment">// 获取对象的具体类型 适用于任何类型的检测</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(<span class="string">&#x27;str&#x27;</span>) <span class="comment">// &#x27;[object String]&#x27; 适用于任何类型的检测</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>typeof</strong></p>
+<p>用于查看基本数据的数据类型， number string boolean undefined</p>
+<p>null 比较特殊，结果是 object</p>
+<p>如果查看复杂数据类型，返回的都是 object 类型</p>
+<p>函数的结果是 function</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// typeof 判断</span></span><br><span class="line"><span class="comment">// 简单类型</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="number">12</span> <span class="comment">// &#x27;number&#x27;</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="string">&#x27;abc&#x27;</span> <span class="comment">// &#x27;string&#x27;</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">true</span> <span class="comment">// &#x27;boolean&#x27;</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">undefined</span> <span class="comment">// &#x27;underfined&#x27;</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">null</span> <span class="comment">// &#x27;object&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 复杂类型 (引用类型)</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="keyword">function</span>(<span class="params"></span>) &#123;&#125; <span class="comment">// &#x27;function&#x27;</span></span><br><span class="line"><span class="keyword">typeof</span> [] <span class="comment">// &#x27;object&#x27;</span></span><br><span class="line"><span class="keyword">typeof</span> &#123;&#125; <span class="comment">// &#x27;object&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>instanceof 判断</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 语法</span></span><br><span class="line">object <span class="keyword">instanceof</span> constructor</span><br></pre></td></tr></table></figure>
+
+<p>用来检测 <code>constructor.prototype</code> 是否存在于参数 <code>object</code> 的原型链中</p>
+<p>不能用于类型识别</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// instanceof 判断</span></span><br><span class="line"><span class="keyword">var</span> simpleStr = <span class="string">&#x27;This is a simple string&#x27;</span></span><br><span class="line"><span class="keyword">var</span> myString = <span class="keyword">new</span> <span class="title class_">String</span>()</span><br><span class="line"><span class="keyword">var</span> newStr = <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&#x27;String created with constructor&#x27;</span>)</span><br><span class="line"><span class="keyword">var</span> myObj = &#123;&#125;</span><br><span class="line"><span class="keyword">var</span> myNonObj = <span class="title class_">Object</span>.<span class="title function_">create</span>(<span class="literal">null</span>)</span><br><span class="line"><span class="keyword">var</span> myArr = []</span><br><span class="line"><span class="keyword">var</span> myFn = <span class="keyword">function</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line"></span><br><span class="line">simpleStr <span class="keyword">instanceof</span> <span class="title class_">String</span> <span class="comment">// 返回 false, 检查原型链会找到 undefined</span></span><br><span class="line">myString <span class="keyword">instanceof</span> <span class="title class_">String</span> <span class="comment">// 返回 true</span></span><br><span class="line">newStr <span class="keyword">instanceof</span> <span class="title class_">String</span> <span class="comment">// 返回 true</span></span><br><span class="line">myString <span class="keyword">instanceof</span> <span class="title class_">Object</span> <span class="comment">// 返回 true</span></span><br><span class="line"></span><br><span class="line">myObj <span class="keyword">instanceof</span> <span class="title class_">Object</span> <span class="comment">// 返回 true, 尽管原型没有定义</span></span><br><span class="line">;(&#123;&#125; <span class="keyword">instanceof</span> <span class="title class_">Object</span>) <span class="comment">// 返回 true, 同上</span></span><br><span class="line">myNonObj <span class="keyword">instanceof</span> <span class="title class_">Object</span> <span class="comment">// 返回 false, 一种创建对象的方法，这种方法创建的对象不</span></span><br><span class="line"></span><br><span class="line">myArr <span class="keyword">instanceof</span> <span class="title class_">Array</span> <span class="comment">// true</span></span><br><span class="line">myArr <span class="keyword">instanceof</span> <span class="title class_">Object</span> <span class="comment">// true</span></span><br><span class="line">myFn <span class="keyword">instanceof</span> <span class="title class_">Object</span> <span class="comment">// true</span></span><br><span class="line">myFn <span class="keyword">instanceof</span> <span class="title class_">Function</span> <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>constructor.name</strong></p>
+<p>Undefined&#x2F;Null 没有 constructor 属性</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> myArr = []</span><br><span class="line"><span class="keyword">var</span> myFn = <span class="keyword">function</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line"><span class="keyword">var</span> myObj = &#123;&#125;</span><br><span class="line"><span class="keyword">let</span> myDate = <span class="keyword">new</span> <span class="title class_">Date</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 原型的构造函数</span></span><br><span class="line">myArr.<span class="property">constructor</span>.<span class="property">name</span> <span class="comment">// Array</span></span><br><span class="line">myFn.<span class="property">constructor</span>.<span class="property">name</span> <span class="comment">// Object</span></span><br><span class="line">myObj.<span class="property">constructor</span>.<span class="property">name</span> <span class="comment">// Function</span></span><br><span class="line">myDate.<span class="property">constructor</span>.<span class="property">name</span> <span class="comment">// Date</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 自定义构造函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Teacher</span>(<span class="params">name, age</span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">name</span> = name</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">age</span> = age</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> tea = <span class="keyword">new</span> <span class="title class_">Teacher</span>(<span class="string">&#x27;zs&#x27;</span>, <span class="number">18</span>)</span><br><span class="line">tea.<span class="property">constructor</span>.<span class="property">name</span> <span class="comment">// Teacher</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Object.prototype.toString</strong></p>
+<p>适用于任何类型的检测，不能识别自定义对象类型</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(<span class="string">&#x27;str&#x27;</span>).<span class="title function_">slice</span>(<span class="number">8</span>, -<span class="number">1</span>) <span class="comment">// String</span></span><br><span class="line"><span class="comment">// 正则 =&gt; RegExp</span></span><br><span class="line"><span class="comment">// 时间对象 =&gt; Date</span></span><br><span class="line"><span class="comment">// 字符串 =&gt; String</span></span><br><span class="line"><span class="comment">// 对象 =&gt; Object</span></span><br><span class="line"><span class="comment">// 数组 =&gt; Array</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 自定义构造函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Teacher</span>(<span class="params">name, age</span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">name</span> = name</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">age</span> = age</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> tea = <span class="keyword">new</span> <span class="title class_">Teacher</span>(<span class="string">&#x27;zs&#x27;</span>, <span class="number">18</span>)</span><br><span class="line"><span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(tea) <span class="comment">// &#x27;[object Object]&#x27;</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>前端</category>
