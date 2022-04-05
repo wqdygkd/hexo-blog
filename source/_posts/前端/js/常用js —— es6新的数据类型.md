@@ -1,5 +1,5 @@
 ---
-tltle: 新的数据类型
+tltle: 常用js —— es6新的数据类型
 date: 2019/10/21
 ---
 
@@ -31,7 +31,7 @@ Set.prototype.clear() // 移除 Set 对象内的所有元素
 Set.prototype.values() // 返回一个新的迭代器对象，该对象包含Set对象中的按插入顺序排列的所有元素的值
 Set.prototype.keys() // 与values()方法相同
 Set.prototype.entries() // 返回一个新的迭代器对象，该对象包含Set对象中的按插入顺序排列的所有元素的值的[value, value]数组。为了使这个方法和Map对象保持相似，每个值的键和值相等
-Set.prototype.forEach(callbackFn[, thisArg]) // 按照插入顺序遍历每个成员
+Set.prototype.forEach(callbackFn[, thisArg])
 // Set 结构的键名就是键值（两者是同一个值），因此 forEach 遍历时 callbackFn 前两个参数是同一个值
 ```
 
@@ -127,6 +127,10 @@ console.log(Array.from(myMap)) // 输出和 kvArray 相同的数组
 // 展开运算符本质上是将Map对象转换成数组
 var merged = new Map([...map1, ...map2])
 ```
+
+# WeakMap
+
+https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/WeakMap
 
 # symbol
 

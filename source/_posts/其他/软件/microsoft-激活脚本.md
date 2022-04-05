@@ -5,7 +5,7 @@ tags:
   - windows
   - 激活
   - 软件
-id: '936'
+id: 936
 categories:
   - 软件
 date: 2020-04-22 22:34:05
@@ -19,67 +19,32 @@ date: 2020-04-22 22:34:05
 
 ![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102203303.png)
 
-### 支持的 win10 版本：
-
-家庭版（HWID/KMS3）
-家庭单语言版（HWID/KMS3）
-专业版（HWID/KMS3）
-专业教育版（HWID/KMS3）
-专业工作站版（HWID/KMS3）
-教育版（HWID/KMS3）
-企业版（HWID/KMS3）
-企业版 S 2015（HWID）
-企业版 S 2016（HWID/KMS3）
-企业版 S（KMS19™）
-
-### 下载地址
+下载地址
 
 https://www.aiowares.com/showthread.php?tid=246
-
-百度云：链接：https://pan.baidu.com/s/111rJZHaOFJrpOdOKXW5Vcw 提取码：3o1c
-
-## W10 数字许可激活 C#版
-
-是一款由吾爱破解论坛 angelkyo 编写的 Windows 10 数字权利激活工具，跟 HWIDGen 类似
-
-![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102203321.png)
-
-### 下载地址
-
-https://www.52pojie.cn/thread-742884-1-1.html
-
-百度云：链接：https://pan.baidu.com/s/1OsoR_Zpu_BF7m0Plw8mUEA 提取码：a1ru
+百度网盘：https://pan.baidu.com/s/111rJZHaOFJrpOdOKXW5Vcw 提取码：3o1c
+阿里云盘：https://www.aliyundrive.com/s/rDRjZipezKs 提取码：f99y
 
 ## 离线 KMS 激活工具 HEU KMS Activator v19.6.2 正式版
 
-一款简洁高效的 KMS 激活工具，适用于 Windows、Office 及 VL 版本，无需联网即可一键激活，离线全自动激活软件，
-
-KMS 服务是微软公司对 Windows 以及 Office 等的批量授权服务，可以利用 KMS 激活局域网中的产品。而这款工具是利用在系统内部搭建 KMS 服务器，因此无论是 Windows 还是 Office 都可轻易进行激活。
-
-### 功能：
-
-Heu KMS 几乎支持所有 Vl 批量授权版本
-可以通过搭建内置的 KMS 服务器进行手动激活产品
-支持对 Windows 系统以及 Office 办公软件备份激活信息
+支持 Office2010/2013/2016/2019 、Windows10/8.1/8 等版本KMS激活
+支持 Win10 数字许可证激活
 
 ![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102203343.png)
 
-### 下载地址
+下载地址
 
-百度云：链接：https://pan.baidu.com/s/1gAGqEHEMjUa4IDx4tYNXag 提取码：vrfc
+百度网盘：https://pan.baidu.com/s/1gAGqEHEMjUa4IDx4tYNXag 提取码：vrfc
+阿里云盘：https://www.aliyundrive.com/s/QUzToEPidB7 提取码: f99y
 
 ## Microsoft 激活脚本（MAS）：
 
 一组脚本，用于使用 HWID / KMS38 /在线 KMS 激活方法激活 Microsoft 产品，重点是开放源代码，较少的防病毒检测和用户友好性。
 原贴地址（需要登录）：https://www.nsaneforums.com/topic/316668-microsoft-activation-scripts/
 
-### 开源地址
+下载地址
 
-https://gitlab.com/massgrave/microsoft-activation-scripts
-https://github.com/massgravel/Microsoft-Activation-Scripts
-
-### 下载地址
-
-https://github.com/massgravel/Microsoft-Activation-Scripts/releases
-
-百度云：链接：https://pan.baidu.com/s/1JKEYAfgJj9msfW81bhbKjw 提取码：21di
+github：https://github.com/massgravel/Microsoft-Activation-Scripts
+gitlab：https://gitlab.com/massgrave/microsoft-activation-scripts
+百度网盘：https://pan.baidu.com/s/1JKEYAfgJj9msfW81bhbKjw 提取码：21di
+阿里云盘：https://www.aliyundrive.com/s/ZU7am7SwVx8 提取码：f99y

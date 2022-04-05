@@ -13,12 +13,6 @@ date: 2019-12-22 14:56:22
 
 ![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210130211514.jpg)
 
-破解版下载地址
-
-Internet Download Manager 6.38.16
-Internet Download Manager 6.35.18
-链接：https://pan.baidu.com/s/1NQmnqEGAfCu416zCwX-ATA
-提取码：wqdy
 
 安装说明
 
@@ -33,3 +27,9 @@ Internet Download Manager 6.35.18
 提醒：某些网盘无法使用 IDM 下载的解决办法：下载时，按住 Alt 键，再点击下载按钮就不会调用 IDM 了！
 
 有能力的建议支持[正版](https://secure.internetdownloadmanager.com/buy_idm.html)
+
+破解版下载地址
+
+百度网盘：https://pan.baidu.com/s/1NQmnqEGAfCu416zCwX-ATA 提取码：wqdy
+阿里云盘：https://www.aliyundrive.com/s/BrLj3RAXJ3v 提取码：f99y
+TG：https://t.me/wqdy_channel/36
