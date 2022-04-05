@@ -190,7 +190,7 @@
 </div>
   <div class="links-of-author site-overview-item animated">
       <span class="links-of-author-item">
-        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2N1aWxvbmdqaW4=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;cuilongjin"><i class="fab fa-github fa-fw"></i>GitHub</span>
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3dxZHlna2Q=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wqdygkd"><i class="fab fa-github fa-fw"></i>GitHub</span>
       </span>
   </div>
 
@@ -217,98 +217,6 @@
 
 
     <div class="main-inner index posts-expand">
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/397.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 我全都要">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/397.html" class="post-title-link" itemprop="url">+0 -0 Number.NaN NaN undefined null ''  相等性判断</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2019-10-28" itemprop="dateCreated datePublished" datetime="2019-10-28T22:12:33+00:00">2019-10-28</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="主要区分-0-和-0、NaN-和-NaN-在不同情况下的相等性区别"><a href="#主要区分-0-和-0、NaN-和-NaN-在不同情况下的相等性区别" class="headerlink" title="主要区分 +0 和 -0、NaN 和 NaN 在不同情况下的相等性区别"></a>主要区分 <code>+0</code> 和 <code>-0</code>、<code>NaN</code> 和 <code>NaN</code> 在不同情况下的相等性区别</h2><p><code>==</code> <code>===</code></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(+<span class="number">0</span> === -<span class="number">0</span>) <span class="comment">// true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">NaN</span> == <span class="title class_">NaN</span>) <span class="comment">// false NaN 不与任何值相等，包括自身</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="literal">undefined</span> == <span class="literal">null</span>) <span class="comment">// true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="literal">undefined</span> === <span class="literal">null</span>) <span class="comment">// false</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">NaN</span> === <span class="title class_">NaN</span>) <span class="comment">// false</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Number</span>.<span class="property">NaN</span> === <span class="title class_">NaN</span>) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-
-<p>Object.is() 方法判断两个值是否是相同的值。比较时不会做类型转换，这与 <code>==</code> <code>===</code> 运算符的判定方式都不一样</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(+<span class="number">0</span>, -<span class="number">0</span>) <span class="comment">// false</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="number">0</span>, -<span class="number">0</span>) <span class="comment">// false</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="number">0</span>, +<span class="number">0</span>) <span class="comment">// true</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(-<span class="number">0</span>, -<span class="number">0</span>) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="literal">undefined</span>, <span class="literal">undefined</span>) <span class="comment">// true</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="literal">null</span>, <span class="literal">null</span>) <span class="comment">// true</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="title class_">Number</span>.<span class="property">NaN</span>, <span class="title class_">Number</span>.<span class="property">NaN</span>) <span class="comment">// true</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="title class_">Number</span>.<span class="property">NaN</span>, <span class="title class_">NaN</span>) <span class="comment">// true</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="title class_">NaN</span>, <span class="title class_">NaN</span>) <span class="comment">// true</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="title class_">NaN</span>, <span class="number">0</span> / <span class="number">0</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-
-<p>在 Set， Map 内部，两个 NaN 是相等, +0 和 -0 也是相等的</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = [<span class="title class_">NaN</span>, <span class="title class_">NaN</span>, <span class="literal">undefined</span>, <span class="literal">undefined</span>, +<span class="number">0</span>, -<span class="number">0</span>, &#123;&#125;, &#123;&#125;]</span><br><span class="line"><span class="keyword">let</span> b = <span class="keyword">new</span> <span class="title class_">Set</span>(a) <span class="comment">// &#123;NaN, undefined, 0, &#123;&#125;, &#123;&#125;&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>总结：</p>
-<ul>
-<li>比较运算符中 <code>+0</code> 和 <code>-0</code> 是相等的、<code>NaN</code> 和 <code>NaN</code>是不等的</li>
-<li>Object.is() 方法中 <code>+0</code> 和 <code>-0</code> 是不相等的、<code>NaN</code> 和 <code>NaN</code>是相等的</li>
-<li>在 Set， Map 内部， <code>+0</code> 和 <code>-0</code> 是相等的、<code>NaN</code> 和 <code>NaN</code> 也是相等的</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
 
     
 
@@ -551,6 +459,109 @@
 <p>Node.js Best Practices <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2dvbGRiZXJneW9uaS9ub2RlYmVzdHByYWN0aWNlcw==">https://github.com/goldbergyoni/nodebestpractices</span></p>
 <p>html5-boilerplate 前端模板 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2g1YnAvaHRtbDUtYm9pbGVycGxhdGU=">https://github.com/h5bp/html5-boilerplate</span></p>
 <p>Airbnb 提供的非常精确和专业的风格指南<br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FpcmJuYi9qYXZhc2NyaXB0">https://github.com/airbnb/javascript</span></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/cl1m6q1lg00df8mow92wr0zrj.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我全都要">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/cl1m6q1lg00df8mow92wr0zrj.html" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2019-10-21" itemprop="dateCreated datePublished" datetime="2019-10-21T00:00:00+00:00">2019-10-21</date>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Set-数据类型"><a href="#Set-数据类型" class="headerlink" title="Set 数据类型"></a>Set 数据类型</h1><p>Set 对象允许你存储任何类型的唯一值，无论是原始值或者是对象引用</p>
+<p>Set 对象是值的集合，你可以按照插入的顺序迭代它的元素。 Set 中的元素只会出现一次，即 Set 中的元素是唯一的</p>
+<p>Set 中判断两个值是否相等的算法不同于 <code>===</code>，在 Set 内部，两个 NaN 是相等</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = [<span class="title class_">NaN</span>, <span class="title class_">NaN</span>, <span class="literal">undefined</span>, <span class="literal">undefined</span>, +<span class="number">0</span>, -<span class="number">0</span>, &#123;&#125;, &#123;&#125;]</span><br><span class="line"><span class="keyword">let</span> b = <span class="keyword">new</span> <span class="title class_">Set</span>(a) <span class="comment">// [NaN, undefined, +0, &#123;&#125;, &#123;&#125;]</span></span><br></pre></td></tr></table></figure>
+
+<p>属性</p>
+<p>Set.length 为 0<br>Set.prototype.size 返回 Set 对象值得个数</p>
+<p>操作方法</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title class_">Set</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="title function_">add</span>(value) <span class="comment">// 在尾部添加某个值，返回该 Set 本身</span></span><br><span class="line"><span class="title class_">Set</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="title function_">delete</span>(value) <span class="comment">// 移除Set的中与这个值相等的元素，即如果该元素存在，返回true，否则返回false</span></span><br><span class="line"><span class="title class_">Set</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="title function_">has</span>(value) <span class="comment">// 返回一个布尔值，表示该值是否为 Set 的成员</span></span><br><span class="line"><span class="title class_">Set</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="title function_">clear</span>() <span class="comment">// 移除 Set 对象内的所有元素</span></span><br><span class="line"><span class="title class_">Set</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="title function_">values</span>() <span class="comment">// 返回一个新的迭代器对象，该对象包含Set对象中的按插入顺序排列的所有元素的值</span></span><br><span class="line"><span class="title class_">Set</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="title function_">keys</span>() <span class="comment">// 与values()方法相同</span></span><br><span class="line"><span class="title class_">Set</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="title function_">entries</span>() <span class="comment">// 返回一个新的迭代器对象，该对象包含Set对象中的按插入顺序排列的所有元素的值的[value, value]数组。为了使这个方法和Map对象保持相似，每个值的键和值相等</span></span><br><span class="line"><span class="title class_">Set</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="title function_">forEach</span>(callbackFn[, thisArg])</span><br><span class="line"><span class="comment">// Set 结构的键名就是键值（两者是同一个值），因此 forEach 遍历时 callbackFn 前两个参数是同一个值</span></span><br></pre></td></tr></table></figure>
+
+<p>Set Array 互相转化</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title class_">Array</span>.<span class="title function_">from</span>(mySet) <span class="comment">// Set ==&gt; Array</span></span><br><span class="line">[...mySet] <span class="comment">// Set ==&gt; Array</span></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Set</span>(myArray) <span class="comment">// Array ==&gt; Set</span></span><br><span class="line">[...<span class="keyword">new</span> <span class="title class_">Set</span>(myArray)] <span class="comment">// 数组去重</span></span><br></pre></td></tr></table></figure>
+
+<p>使用 Set 实现并集（Union）、交集（Intersect）和差集（Difference）</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="keyword">new</span> <span class="title class_">Set</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line"><span class="keyword">let</span> b = <span class="keyword">new</span> <span class="title class_">Set</span>([<span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">// 并集</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">union</span>(<span class="params">setA, setB</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Set</span>([...setA, ...setB])</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 交集</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">intersect</span>(<span class="params">setA, setB</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Set</span>([...setA].<span class="title function_">filter</span>(<span class="function"><span class="params">x</span> =&gt;</span> setB.<span class="title function_">has</span>(x)))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 差集</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">difference</span>(<span class="params">setA, setB</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Set</span>([...setA].<span class="title function_">filter</span>(<span class="function"><span class="params">x</span> =&gt;</span> !setB.<span class="title function_">has</span>(x)))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h1><p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvSmF2YVNjcmlwdC9SZWZlcmVuY2UvR2xvYmFsX09iamVjdHMvTWFw">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Map</span></p>
+<p>Map 对象保存键值对。任何值(对象或者原始值) 都可以作为一个键或一个值<br>Map 中 NaN 是与 NaN 相等的（虽然 NaN !&#x3D;&#x3D; NaN），剩下所有其它的值是根据 &#x3D;&#x3D;&#x3D; 运算符的结果判断是否相等</p>
+<p>属性</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title class_">Map</span>.<span class="property">length</span> <span class="comment">// 0</span></span><br><span class="line"><span class="title class_">Map</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">size</span> <span class="comment">// 返回 map 对象键值对的个数</span></span><br></pre></td></tr></table></figure>
+
+<p>方法</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title class_">Map</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="title function_">clear</span>() <span class="comment">// 移除 Map 对象的所有键/值对</span></span><br><span class="line"><span class="title class_">Map</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="title function_">delete</span>(key) <span class="comment">// 如果 Map 对象中存在该元素，则移除它并返回 true；否则如果该元素不存在则返回 false</span></span><br><span class="line"><span class="title class_">Map</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="title function_">entries</span>() <span class="comment">// 返回一个新的 Iterator 对象，它按插入顺序包含了 Map 对象中每个元素的 [key, value] 数组</span></span><br><span class="line"><span class="title class_">Map</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="title function_">forEach</span>(callbackFn[, thisArg]) <span class="comment">// 按插入顺序，为 Map 对象里的每一键值对调用一次 callbackFn 函数。如果为 forEach 提供了 thisArg，它将在每次回调中作为 this 值</span></span><br><span class="line"><span class="title class_">Map</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="title function_">get</span>(key) <span class="comment">// 返回键对应的值，如果不存在，则返回 undefined</span></span><br><span class="line"><span class="title class_">Map</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="title function_">has</span>(key) <span class="comment">// 返回一个布尔值，表示 Map 实例是否包含键对应的值</span></span><br><span class="line"><span class="title class_">Map</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="title function_">keys</span>() <span class="comment">// 返回一个新的 Iterator 对象， 它按插入顺序包含了 Map 对象中每个元素的键</span></span><br><span class="line"><span class="title class_">Map</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="title function_">set</span>(key, value) <span class="comment">// 设置 Map 对象中键的值。返回该 Map 对象</span></span><br><span class="line"><span class="title class_">Map</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="title function_">values</span>() <span class="comment">// 返回一个新的 Iterator 对象，它按插入顺序包含了 Map 对象中每个元素的值</span></span><br><span class="line"><span class="title class_">Map</span>.<span class="property"><span class="keyword">prototype</span></span>[@@iterator]() <span class="comment">// 返回一个新的 Iterator 对象，它按插入顺序包含了 Map 对象中每个元素的 [key, value] 数组</span></span><br></pre></td></tr></table></figure>
+
+<p>迭代 Map</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> [key, value] <span class="keyword">of</span> myMap) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(key + <span class="string">&#x27; = &#x27;</span> + value)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">myMap.<span class="title function_">forEach</span>(<span class="keyword">function</span>(<span class="params">value, key</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(key + <span class="string">&#x27; = &#x27;</span> + value)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>Map 和数组的关系</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> kvArray = [[<span class="string">&#x27;key1&#x27;</span>, <span class="string">&#x27;value1&#x27;</span>], [<span class="string">&#x27;key2&#x27;</span>, <span class="string">&#x27;value2&#x27;</span>]]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用常规的Map构造函数可以将一个二维键值对数组转换成一个 Map 对象</span></span><br><span class="line"><span class="keyword">var</span> myMap = <span class="keyword">new</span> <span class="title class_">Map</span>(kvArray)</span><br><span class="line"></span><br><span class="line">myMap.<span class="title function_">get</span>(<span class="string">&#x27;key1&#x27;</span>) <span class="comment">// 返回值为 &#x27;value1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 Array.from 函数可以将一个Map对象转换成一个二维键值对数组</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Array</span>.<span class="title function_">from</span>(myMap)) <span class="comment">// 输出和 kvArray 相同的数组</span></span><br></pre></td></tr></table></figure>
+
+<p>合并两个 Map 对象时，如果有重复的键值，则后面的会覆盖前面的</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 展开运算符本质上是将Map对象转换成数组</span></span><br><span class="line"><span class="keyword">var</span> merged = <span class="keyword">new</span> <span class="title class_">Map</span>([...map1, ...map2])</span><br></pre></td></tr></table></figure>
+
+<h1 id="WeakMap"><a href="#WeakMap" class="headerlink" title="WeakMap"></a>WeakMap</h1><p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvSmF2YVNjcmlwdC9SZWZlcmVuY2UvR2xvYmFsX09iamVjdHMvV2Vha01hcA==">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/WeakMap</span></p>
+<h1 id="symbol"><a href="#symbol" class="headerlink" title="symbol"></a>symbol</h1><p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvSmF2YVNjcmlwdC9SZWZlcmVuY2UvR2xvYmFsX09iamVjdHMvU3ltYm9s">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Symbol</span></p>
 
       
     </div>
@@ -1271,7 +1282,7 @@
 
 
 
-<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"cuilongjin/hexo-blog","issue_term":"pathname","theme":"github-light"}</script>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"wqdygkd/hexo-blog","issue_term":"pathname","theme":"github-light"}</script>
 <script src="/js/third-party/comments/utterances.js"></script>
 
 </body>
