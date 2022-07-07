@@ -163,6 +163,7 @@ define(function(require, exports, module) {
 ## CommonJS 规范
 
 > Node 应用由模块组成，采用 CommonJS 模块规范，每个文件就是一个模块，有自己的作用域
+> 模块可以多次加载，但是只会在第一次加载时运行一次，然后运行结果就被缓存了，以后再加载，就直接读取缓存结果。要想让模块再次运行，必须清除缓存。
 
 在前端浏览器里面并不支持 module.exports
 
