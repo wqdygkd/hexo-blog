@@ -1,6 +1,8 @@
 ---
 tltle: 常用js —— es6新的数据类型
+id: 2048
 date: 2019/10/21
+updated: 2022-03-15
 ---
 
 # Set 数据类型
@@ -131,6 +133,10 @@ var merged = new Map([...map1, ...map2])
 # WeakMap
 
 https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/WeakMap
+
+WeakMap 对象是一组键/值对的集合，其中的键是弱引用的。其键必须是对象，而值可以是任意的
+
+正由于这样的弱引用，WeakMap 的 key 是不可枚举的
 
 # symbol
 

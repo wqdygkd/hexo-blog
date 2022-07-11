@@ -68,7 +68,7 @@ obj.hasOwnProperty('toString') // false
 
 **`hasOwnProperty` 与 `in` 的区别**
 
-1. `in` 操作符：判断对象能否访问到该属性（不管这个属性是自己提供的，还是从原型上继承来的），如果可以访问到，都会返回 true
+1. `in` 操作符：判断对象能否访问到该属性（**不管这个属性是自己提供的，还是从原型上继承来的**），如果可以访问到，都会返回 true
 
 2. `hasOwnProperty`：该属性必须是自己提供，才返回 true，否则返回 false
 

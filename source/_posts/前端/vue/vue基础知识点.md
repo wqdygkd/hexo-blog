@@ -85,11 +85,109 @@ v-model 原理（语法糖）：v-model是 :value="msg" @input="msg=$event.targe
 
 vue 是通过重写数组的方法（变异方法）实现对数组的监听
 
-## key属性作用
+### key属性作用
 
-官方文档中说：
+https://cn.vuejs.org/v2/api/#key
+https://cn.vuejs.org/v2/guide/list.html#维护状态
 
 当 Vue.js 用`v-for`正在更新已渲染过的元素列表时，它默认用“就地复用”策略。如果数据项的顺序被改变，Vue 将不会移动 DOM 元素来匹配数据项的顺序， 而是简单复用此处每个元素，并且确保它在特定索引下显示已被渲染过的每个元素。
 
 没有`key`属性，Vue 无法跟踪每个节点
 
+### nextTick
+
+https://cn.vuejs.org/v2/guide/reactivity.html#异步更新队列
+
+### vdom
+
+用js对象描述真实dom结构
+
+1. 数据更新需要手动更新DOM，且DOM API细节比较多，操作复杂，容易出错且代码难以维护
+2. 直接DOM对比的话，dom的查找和创建等操作是很耗费资源的，且dom的大部分属性对于diff操作是没有意义的
+
+引入 Virtual DOM 在性能方面的考量仅仅是一方面。更重要的原因是为了解耦 HTML 依赖
+将 Virtual DOM作为一个兼容层，让我们还能对接非 Web 端的系统，实现跨端开发。
+同样的，通过 Virtual DOM我们可以渲染到其他的平台，比如实现 SSR、同构渲染等等。
+实现组件的高度抽象化
+
+### native修饰符
+
+在组件的根元素上监听一个原生事件
+
+```
+<my-component v-on:click.native="doTheThing"></my-component>
+```
+
+可以理解为该修饰符的作用就是把一个vue组件转化为一个普通的HTML标签，并且该修饰符对普通HTML标签是没有任何作用的。
+
+为什么vue组件要设计一个native修饰符
+
+DOM本身具有事件属性，所以原生元素(div, button 等)的所有事件都是DOM事件
+vue组件有自己的自定义事件系统，你在component组件上定义事件，vue必须要知道是那种类型的事件好进入相应的处理逻辑，.native 就是区分的标识。
+
+## $set原理
+
+如果在实例创建之后添加新的属性到实例上，它不会触发视图更新
+
+Vue 会在初始化实例时对属性执行 getter/setter 转化过程，所以属性必须在 data 对象上存在才能让 Vue 转换它
+
+Vue 不允许在已经创建的实例上动态添加新的根级响应式属性，可以使用 `Vue.set(object, key, value)` 方法将响应属性添加到嵌套的对象上，或者创建一个包含原对象属性和新属性的对象替换掉原对象
+
+```js
+// src/core/observer/index.js
+export function set (target, key, val) {
+  // 如果 set 函数的第一个参数是 undefined 或 null 或者是原始类型值，那么在非生产环境下会打印警告信息
+  if (process.env.NODE_ENV !== 'production' && (isUndef(target) || isPrimitive(target)) ) {
+    warn(`Cannot set reactive property on undefined, null, or primitive value: ${target}`)
+  }
+
+  // target为数组
+  if (Array.isArray(target) && isValidArrayIndex(key)) {
+    // 修改数组的长度, 避免索引>数组长度导致splcie()执行有误
+    target.length = Math.max(target.length, key)
+    // 利用数组的splice变异方法触发响应式
+    target.splice(key, 1, val)
+    return val
+  }
+
+  // target为对象, key在target或者target.prototype上
+  // 同时必须不能在 Object.prototype 上
+  // 直接修改即可, 有兴趣可以看issue: https://github.com/vuejs/vue/issues/6845
+  if (key in target && !(key in Object.prototype)) {
+    target[key] = val
+    return val
+  }
+  // 以上都不成立, 即开始给target创建一个全新的属性
+  // 获取Observer实例
+  const ob = target.__ob__
+  // Vue 实例对象拥有 _isVue 属性, 即不允许给Vue 实例对象添加属性
+  // 也不允许Vue.set/$set 函数为根数据对象(vm.$data)添加属性
+  if (target._isVue || (ob && ob.vmCount)) {
+    process.env.NODE_ENV !== 'production' && warn(
+      'Avoid adding reactive properties to a Vue instance or its root $data ' +
+      'at runtime - declare it upfront in the data option.'
+    )
+    return val
+  }
+  // target本身就不是响应式数据, 直接赋值
+  if (!ob) {
+    target[key] = val
+    return val
+  }
+  // 进行响应式处理
+  defineReactive(ob.value, key, val)
+  ob.dep.notify()
+  return val
+}
+```
+
+
+## scoped原理
+
+`<style scoped></style>`
+
+Vue的作用域样式实现思路如下：1. 加了scoped，PostCSS给一个组件中的所有dom添加了一个独一无二的动态属性，`<div data-v-实例标识 >`；2. 然后给CSS选择器的最后一个选择器单元增加了属性选择器，假设原选择器为 `.page .title`，则更改后的选择器为 `.page .title[data-v-实例标识]`。这种做法使得样式只作用于当前组件内部dom，可以使得组件之间的样式不互相污染。
+
+如果这时候需要改子组件的样式，但是又不影响其他页面使用这个子组件的样式的时候，我们可以使用深度作用选择器 `>>>、/deep/、::v-deep`
+
+使用深度作用选择器后， postcss会在每一个深度作用选择器前面的一个选择器单元增加一个属性选择器[data-v-实例标识]，假设原选择器为 `.page /deep/.title`，则更改后的选择器为 `.page[data-v-实例标识] .title`
