@@ -17,14 +17,14 @@ updated: 2022-03-09
 [native修饰符](/2046.html#native修饰符)
 [$set原理](/2046.html#$set原理)
 [scoped原理](/2046.html#scoped原理)
+[vue中ref](/2046.html#vue中ref)
+[Vue中.sync和v-model的区别](/2046.html#Vue中.sync和v-model的区别)
 
 
 
 模板编译
 模板渲染过程
 路由
-
-## Vue中 .sync 和 v-model 的区别
 
 ## 路由拦截
 
@@ -82,12 +82,6 @@ router.push({ path: 'register', query: { plan: 'private' }}) // -> /register?pla
 
 routes: [{ path: '/user/:id?', name='user', component: User }]
 ```
-
-## vue 中 ref
-
-给元素或子组件注册引用信息，引用信息将会注册在父组件的 `$refs`对象上
-
-在 Vue 中直接操作 DOM 元素
 
 ## 首屏加载优化和算法
 

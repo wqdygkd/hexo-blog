@@ -191,3 +191,16 @@ Vue的作用域样式实现思路如下：1. 加了scoped，PostCSS给一个组�
 如果这时候需要改子组件的样式，但是又不影响其他页面使用这个子组件的样式的时候，我们可以使用深度作用选择器 `>>>、/deep/、::v-deep`
 
 使用深度作用选择器后， postcss会在每一个深度作用选择器前面的一个选择器单元增加一个属性选择器[data-v-实例标识]，假设原选择器为 `.page /deep/.title`，则更改后的选择器为 `.page[data-v-实例标识] .title`
+
+## vue中ref
+
+https://cn.vuejs.org/v2/api/#ref
+
+给元素或子组件注册引用信息，引用信息将会注册在父组件的 `$refs`对象上；
+如果在普通的 DOM 元素上使用，引用指向的就是 DOM 元素；如果用在子组件上，引用就指向组件实例
+
+## Vue中.sync和v-model的区别
+
+1. v-model: @input + value
+2. :val.sync: @update:val
+3. v-model只能用一次；.sync可以有多个
