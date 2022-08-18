@@ -2,10 +2,11 @@
 title: Chrome Developer Tools 使用技巧
 tags:
   - chrome
-id: '419'
+id: 419
 categories:
   - 前端
-date: 2019-08-25 22:27:03
+date: 2019-08-25
+updated: 2022-08-18
 ---
 
 ### console.log()
@@ -86,11 +87,12 @@ for (i = 0; i < 10; ++i) {
 console.timeEnd()
 ```
 
-### 选择 DOM 元素
+### 选择 DOM 元素 $ 和 $$
 
-- 在谷歌开发控制台中, 可以使用 `$('选择器')` 类似于 jquery 的方式选择 DOM 元素
+- 在谷歌开发控制台中可以使用 `$('选择器')` 类似于 jquery 的方式选择 DOM 元素
 
-`$('')` 等效于 `document.querySelector('')`，这将返回 DOM 中与选择器匹配的第一个元素，可以使用 `$$(tagName)` 或 `$$(.class)`，选择 DOM 的所有元素并返回一个数组。可以通过下标获取指定的元素，例如，`$$('.box')` 获取具有类 box 的所有元素，`$$('.box')[0]`和 `$$('.box')[1]`分别获取第一个和第二个元素
+`$(selector)` 等效于 `document.querySelector(selector)`
+`$$(selector)` 等效于 `document.querySelectorAll(selector)`
 
 - `inspect($('selector'))` 将检查与选择器匹配的元素，并转到 Elements 选项卡
 
@@ -98,32 +100,15 @@ console.timeEnd()
 
 ### 将页面转换为可编辑状态
 
-在 Console 中输入:
-
-```js
-document.body.contentEditable = true
-```
+在 Console 中输入: `document.body.contentEditable = true`
 
 之后页面中的内容即为可编辑状态，可以编辑 DOM 中的任何内容
 
 ### 查找与 DOM 中的元素关联的事件
 
-`getEventListeners($('selector'))` 返回一个对象数组，其中包含绑定到该元素的所有事件。你可以展开对象来查看事件
+`getEventListeners($('selector'))` 返回一个对象，其中包含绑定到该元素的所有事件
 
-要找到特定事件的侦听器，可以这样做:
-
-```js
-getEventListeners($('selector')).eventName[0].listener
-
-// 将显示与 id 为 btn 的元素的单击事件关联的侦听器
-getEventListeners($('btn')).click[0].listener
-```
-
-或
-
-控制台 => Element => EventListeners
-
-https://segmentfault.com/q/1010000002892890
+或 控制台 => Element => EventListeners
 
 ### 监控事件
 
@@ -143,15 +128,14 @@ monitorEvents($('#box'), ['click', 'focus'])
 unmonitorEvents($('#box'))
 ```
 
-检索最后一个结果的值
+### 检索最后一个结果的值
+
 `$_` 表示控制台中最近一次返回的值
 
-```
-1 + 1
-> 2
-
-$_
-> 2
+```js
+'Hellow World'.split(' ')
+$_.reverse()
+$_.join(' ') // 'World Hellow'
 ```
 
 ### 断点调试
@@ -164,8 +148,50 @@ $_
 6. 让所有的断点失效
 7. 自动根据错误断点
 
-![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102205131.png)
+![](https://pic.rmb.bdstatic.com/bjh/5be7b30204587460a4f304432b726270.png)
+![](https://pic.rmb.bdstatic.com/bjh/85827b5258ae714066edd31f35fd4236.png)
+![](https://pic.rmb.bdstatic.com/bjh/0be40e17fff5f95297b89ead47343777.png)
 
-![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102205150.png)
+### 一键重新发起请求
 
-![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102205206.png)
+在与后端联调接口时比较方便，不用刷新页面，不用走页面交互
+
+控制台 - Network - 选择要重新发送的请求 - 右键选择Replay XHR(只有xhr请求才有)
+
+### 在控制台修改入参重新发起请求
+
+同样方便与后端联调接口
+
+控制台 - Network - 选择要重新发送的请求 - 右键 Copy - Copy as fetch - 控制台粘贴代码, 修改参数回车
+
+
+### 复制js变量
+
+鼠标放在一个变量上，右键 Copy Object/String...
+
+或 在控制台中使用 copy() 函数，将对象作为入参执行即可
+
+### 将节点或变量保存为全局变量
+
+鼠标放在一个Element节点或变量上，右键 Store xxx as global variable，在Console中将可以使用该变量
+
+### 网页截图
+
+可以截取指定节点或全部网页内容
+
+使用前先打开控制台
+
+截取全部网页内容：ctrl/cmd + shift + p 执行Command命令，输入Capture full size screenshot 按下回车
+
+截取部分网页内容：先在 Elements 中选中要截取的节点，ctrl + shift + p 执行Command命令，输入Capture node screenshot 回车
+
+### 展开所有DOM元素
+
+调试元素时，在层级比较深的情况下，你是不是也经常一个个展开去调试？有一种更加快捷的方式
+
+Alt/Opt + click（需要展开的最外层元素）
+
+
+### 实时表达式
+
+点击Console面板中的 小眼睛，输入一个 js 表达式，回车，该表达式将会在Console面板里置顶，并动态刷新表达式的值
