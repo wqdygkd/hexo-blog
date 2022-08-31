@@ -173,7 +173,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">159</span>
+          <span class="site-state-item-count">160</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -217,6 +217,99 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/969.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/969.html" class="post-title-link" itemprop="url">微信小程序 canvas touchmove 事件实现手写签名并保存到相册</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-03-18" itemprop="dateCreated datePublished" datetime="2020-03-18T10:57:43+00:00">2020-03-18</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>2020-03-19<br>真机调试报错 <code>r.Canvas is not a constructor</code><br>原因：canvas 2d 和 webgl 暂不支持真机调试，请直接使用真机预览，真机预览模式下使用 vConsole 调试</p>
+</blockquote>
+<p>基础代码(使用 Canvas 2D 接口)</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title class_">Component</span>(&#123;</span><br><span class="line">  <span class="attr">data</span>: &#123;</span><br><span class="line">    <span class="attr">ctx</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">    <span class="attr">image</span>: <span class="string">&#x27;&#x27;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">methods</span>: &#123;</span><br><span class="line">    <span class="attr">onLoad</span>: <span class="keyword">function</span>(<span class="params">options</span>) &#123;&#125;,</span><br><span class="line">    <span class="attr">onReady</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="keyword">const</span> query = wx.<span class="title function_">createSelectorQuery</span>()</span><br><span class="line">      query</span><br><span class="line">        .<span class="title function_">select</span>(<span class="string">&#x27;#sign&#x27;</span>)</span><br><span class="line">        .<span class="title function_">fields</span>(&#123; <span class="attr">node</span>: <span class="literal">true</span>, <span class="attr">size</span>: <span class="literal">true</span> &#125;)</span><br><span class="line">        .<span class="title function_">exec</span>(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="variable language_">console</span>.<span class="title function_">log</span>(res)</span><br><span class="line">          <span class="keyword">const</span> canvas = res[<span class="number">0</span>].<span class="property">node</span></span><br><span class="line">          <span class="keyword">const</span> ctx = canvas.<span class="title function_">getContext</span>(<span class="string">&#x27;2d&#x27;</span>)</span><br><span class="line">          <span class="variable language_">console</span>.<span class="title function_">log</span>(ctx)</span><br><span class="line"></span><br><span class="line">          <span class="keyword">const</span> dpr = wx.<span class="title function_">getSystemInfoSync</span>().<span class="property">pixelRatio</span></span><br><span class="line">          canvas.<span class="property">width</span> = res[<span class="number">0</span>].<span class="property">width</span> * dpr</span><br><span class="line">          canvas.<span class="property">height</span> = res[<span class="number">0</span>].<span class="property">height</span> * dpr</span><br><span class="line">          ctx.<span class="title function_">scale</span>(dpr, dpr)</span><br><span class="line"></span><br><span class="line">          ctx.<span class="property">lineWidth</span> = <span class="number">4</span> <span class="comment">//线条的宽度</span></span><br><span class="line">          ctx.<span class="property">strokeStyle</span> = <span class="string">&#x27;#333&#x27;</span> <span class="comment">//线条的颜色</span></span><br><span class="line">          ctx.<span class="property">lineCap</span> = <span class="string">&#x27;round&#x27;</span> <span class="comment">//定义线条开头和结尾处的形状</span></span><br><span class="line">          ctx.<span class="property">lineJoin</span> = <span class="string">&#x27;bevel&#x27;</span> <span class="comment">// 线条与线条之间的连接方式，该属性有三个属性值：miter（默认值，尖角），bevel（衔接），round（圆角）。</span></span><br><span class="line">          <span class="variable language_">this</span>.<span class="title function_">setData</span>(&#123;</span><br><span class="line">            <span class="attr">ctx</span>: ctx</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>实现手写效果</p>
+<p>使用 catchtouchmove 绑定，默认会阻止页面跟着滑动</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">type</span>=<span class="string">&quot;2d&quot;</span> <span class="attr">id</span>=<span class="string">&quot;sign&quot;</span> <span class="attr">bindtouchstart</span>=<span class="string">&quot;bindtouchstartHandler&quot;</span> <span class="attr">catchtouchmove</span>=<span class="string">&quot;catchtouchmoveHandler&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title function_">bindtouchstartHandler</span>(<span class="params">e</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (e.<span class="property">type</span> != <span class="string">&#x27;touchstart&#x27;</span>) <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  <span class="keyword">let</span> ctx = <span class="variable language_">this</span>.<span class="property">data</span>.<span class="property">ctx</span></span><br><span class="line">  <span class="comment">//开始本次绘画</span></span><br><span class="line">  ctx.<span class="title function_">beginPath</span>()</span><br><span class="line">  <span class="comment">//画笔起始点</span></span><br><span class="line">  ctx.<span class="title function_">moveTo</span>(e.<span class="property">touches</span>[<span class="number">0</span>].<span class="property">x</span>, e.<span class="property">touches</span>[<span class="number">0</span>].<span class="property">y</span>)</span><br><span class="line">&#125;,</span><br><span class="line"><span class="title function_">catchtouchmoveHandler</span>(<span class="params">e</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> left = e.<span class="property">currentTarget</span>.<span class="property">offsetLeft</span></span><br><span class="line">  <span class="keyword">let</span> top = e.<span class="property">currentTarget</span>.<span class="property">offsetTop</span></span><br><span class="line">  <span class="keyword">let</span> pageX = e.<span class="property">touches</span>[<span class="number">0</span>].<span class="property">pageX</span></span><br><span class="line">  <span class="keyword">let</span> pageY = e.<span class="property">touches</span>[<span class="number">0</span>].<span class="property">pageY</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> ctx = <span class="variable language_">this</span>.<span class="property">data</span>.<span class="property">ctx</span></span><br><span class="line">  <span class="comment">//根据鼠标路径绘画</span></span><br><span class="line">  ctx.<span class="title function_">lineTo</span>(pageX - left, pageY - top)</span><br><span class="line">  <span class="comment">//立即渲染</span></span><br><span class="line">  ctx.<span class="title function_">stroke</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用 <code>bindtouchmove</code>，需要单独处理页面跟着滚动的问题</p>
+<p>给 canvas 绑定 bindtouchmove&#x3D;”touchmoveHandler” 然后绑定空的 catchtouchmove 事件<code>catchtouchmove=&quot;preventTouchmove&quot;</code> 或者直接 <code>catchtouchmove=&quot;ture&quot;</code></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">type</span>=<span class="string">&quot;2d&quot;</span> <span class="attr">id</span>=<span class="string">&quot;sign&quot;</span> <span class="attr">bindtouchstart</span>=<span class="string">&quot;bindtouchstartHandler&quot;</span> <span class="attr">bindtouchmove</span>=<span class="string">&quot;bindtouchmoveHandler&quot;</span> <span class="attr">catchtouchmove</span>=<span class="string">&quot;preventTouchmove&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title function_">bindtouchstartHandler</span>(<span class="params">e</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (e.<span class="property">type</span> != <span class="string">&#x27;touchstart&#x27;</span>) <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  <span class="keyword">let</span> ctx = <span class="variable language_">this</span>.<span class="property">data</span>.<span class="property">ctx</span></span><br><span class="line">  <span class="comment">//开始本次绘画</span></span><br><span class="line">  ctx.<span class="title function_">beginPath</span>()</span><br><span class="line">  <span class="comment">//画笔起始点</span></span><br><span class="line">  ctx.<span class="title function_">moveTo</span>(e.<span class="property">touches</span>[<span class="number">0</span>].<span class="property">x</span>, e.<span class="property">touches</span>[<span class="number">0</span>].<span class="property">y</span>)</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line"><span class="comment">// bind绑定的事件</span></span><br><span class="line">bindtouchmoveHandler (e) &#123;</span><br><span class="line">  <span class="keyword">let</span> ctx = <span class="variable language_">this</span>.<span class="property">data</span>.<span class="property">ctx</span></span><br><span class="line">  <span class="comment">//根据鼠标路径绘画</span></span><br><span class="line">  ctx.<span class="title function_">lineTo</span>(e.<span class="property">touches</span>[<span class="number">0</span>].<span class="property">x</span>, e.<span class="property">touches</span>[<span class="number">0</span>].<span class="property">y</span>)</span><br><span class="line">  <span class="comment">//立即渲染</span></span><br><span class="line">  ctx.<span class="title function_">stroke</span>()</span><br><span class="line">&#125;,</span><br><span class="line">preventTouchmove () &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>保存到相册</p>
+<p>wx.canvasToTempFilePath(Object object, Object this)<br><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXJzLndlaXhpbi5xcS5jb20vbWluaXByb2dyYW0vZGV2L2FwaS9jYW52YXMvd3guY2FudmFzVG9UZW1wRmlsZVBhdGguaHRtbA==">https://developers.weixin.qq.com/miniprogram/dev/api/canvas/wx.canvasToTempFilePath.html</span></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"> <span class="comment">// 把当前画布指定区域的内容导出生成指定大小的图片。 canvas2d不需要使用draw方法</span></span><br><span class="line"><span class="title function_">canvasToTempFilePath</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> query = wx.<span class="title function_">createSelectorQuery</span>()</span><br><span class="line">    query</span><br><span class="line">      .<span class="title function_">select</span>(<span class="string">&#x27;#sign&#x27;</span>)</span><br><span class="line">      .<span class="title function_">fields</span>(&#123; <span class="attr">node</span>: <span class="literal">true</span>, <span class="attr">size</span>: <span class="literal">true</span> &#125;)</span><br><span class="line">      .<span class="title function_">exec</span>(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// console.log(res)</span></span><br><span class="line">        <span class="keyword">const</span> canvas = res[<span class="number">0</span>].<span class="property">node</span></span><br><span class="line">        wx.<span class="title function_">canvasToTempFilePath</span>(&#123;</span><br><span class="line">          <span class="attr">x</span>: <span class="number">0</span>,</span><br><span class="line">          <span class="attr">y</span>: <span class="number">0</span>,</span><br><span class="line">          <span class="attr">fileType</span>: <span class="string">&#x27;jpg&#x27;</span>,</span><br><span class="line">          <span class="attr">canvas</span>: canvas,</span><br><span class="line">          <span class="title function_">success</span>(<span class="params">res</span>) &#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(res.<span class="property">tempFilePath</span>) <span class="comment">// 文件临时地址 可以保存到相册或上传</span></span><br><span class="line">            <span class="title function_">resolve</span>(res.<span class="property">tempFilePath</span>)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line"><span class="comment">// 保存本地</span></span><br><span class="line"><span class="title function_">saveToAlbum</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="title function_">canvasToTempFilePath</span>().<span class="title function_">then</span>(<span class="function"><span class="params">file</span> =&gt;</span> &#123;</span><br><span class="line">    wx.<span class="title function_">getSetting</span>(&#123;</span><br><span class="line">      <span class="title function_">success</span>(<span class="params">res</span>) &#123;</span><br><span class="line">        <span class="comment">// 如果没有则获取授权</span></span><br><span class="line">        <span class="keyword">if</span> (!res.<span class="property">authSetting</span>[<span class="string">&#x27;scope.writePhotosAlbum&#x27;</span>]) &#123;</span><br><span class="line">          wx.<span class="title function_">authorize</span>(&#123;</span><br><span class="line">            <span class="attr">scope</span>: <span class="string">&#x27;scope.writePhotosAlbum&#x27;</span>,</span><br><span class="line">            <span class="title function_">success</span>(<span class="params"></span>) &#123;</span><br><span class="line">              wx.<span class="title function_">saveImageToPhotosAlbum</span>(&#123;</span><br><span class="line">                <span class="attr">filePath</span>: file,</span><br><span class="line">                <span class="title function_">success</span>(<span class="params"></span>) &#123;</span><br><span class="line">                  wx.<span class="title function_">showToast</span>(&#123;</span><br><span class="line">                    <span class="attr">title</span>: <span class="string">&#x27;保存成功&#x27;</span></span><br><span class="line">                  &#125;)</span><br><span class="line">                &#125;,</span><br><span class="line">                <span class="title function_">fail</span>(<span class="params"></span>) &#123;</span><br><span class="line">                  wx.<span class="title function_">showToast</span>(&#123;</span><br><span class="line">                    <span class="attr">title</span>: <span class="string">&#x27;保存失败&#x27;</span>,</span><br><span class="line">                    <span class="attr">icon</span>: <span class="string">&#x27;none&#x27;</span></span><br><span class="line">                  &#125;)</span><br><span class="line">                &#125;</span><br><span class="line">              &#125;)</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="title function_">fail</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="comment">// 有授权直接保存</span></span><br><span class="line">          wx.<span class="title function_">saveImageToPhotosAlbum</span>(&#123;</span><br><span class="line">            <span class="attr">filePath</span>: file,</span><br><span class="line">            <span class="title function_">success</span>(<span class="params"></span>) &#123;</span><br><span class="line">              wx.<span class="title function_">showToast</span>(&#123;</span><br><span class="line">                <span class="attr">title</span>: <span class="string">&#x27;保存成功&#x27;</span></span><br><span class="line">              &#125;)</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="title function_">fail</span>(<span class="params"></span>) &#123;</span><br><span class="line">              wx.<span class="title function_">showToast</span>(&#123;</span><br><span class="line">                <span class="attr">title</span>: <span class="string">&#x27;保存失败&#x27;</span>,</span><br><span class="line">                <span class="attr">icon</span>: <span class="string">&#x27;none&#x27;</span></span><br><span class="line">              &#125;)</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1442,82 +1535,6 @@
 <li><code>WIN</code> + <code>R</code> 打开运行窗口，输入 <code>regedit</code> 回车</li>
 <li>找到路径 <code>HKEY_CLASSES_ROOT\MIME\Database\Content Type\image/jpeg</code>，把 <code>extension</code> 的值改成 .jpg，关闭注册表即可</li>
 </ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/650.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/650.html" class="post-title-link" itemprop="url">RoughJS -- JavaScript手绘风格的图形库</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2020-02-29" itemprop="dateCreated datePublished" datetime="2020-02-29T01:39:28+00:00">2020-02-29</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>RoughJS是一个轻量级的JavaScript图形库（压缩后约9KB），可以让你在网页上绘制素描风格、手绘样式般的图形。RoughJS定义了绘制直线，曲线，圆弧，多边形，圆和椭圆的图元，同时它还支持绘制SVG路径。</p>
-<p>Rough.js可同时用于<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvZW4tVVMvZG9jcy9XZWIvQVBJL0NhbnZhc19BUEk=">Canvas</span>和<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvZW4tVVMvZG9jcy9XZWIvU1ZH">SVG</span>。</p>
-<p>网站地址：<span class="exturl" data-url="aHR0cHM6Ly9yb3VnaGpzLmNvbS8=">https://roughjs.com/</span></p>
-<p>使用手册：<span class="exturl" data-url="aHR0cHM6Ly93d3cudHV0b3JpYWxkb2NzLmNvbS90dXRvcmlhbC9yb3VnaGpzL2dldC1zdGFydGVkLmh0bWw=">https://www.tutorialdocs.com/tutorial/roughjs/get-started.html</span></p>
 
       
     </div>
