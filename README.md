@@ -6,6 +6,5 @@
 
 netlifycms doc: https://www.netlifycms.org/docs/add-to-your-site/
 
-
 ## License
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fcuilongjin%2Fhexo-blog.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fcuilongjin%2Fhexo-blog?ref=badge_large)
