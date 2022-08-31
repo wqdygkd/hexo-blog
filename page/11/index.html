@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-logo.png">
@@ -173,7 +173,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">157</span>
+          <span class="site-state-item-count">159</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -183,7 +183,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">81</span>
+        <span class="site-state-item-count">82</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -217,6 +217,426 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/554.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/554.html" class="post-title-link" itemprop="url">如何为 WordPress 文章中的链接自动添加 nofollow</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-02-18" itemprop="dateCreated datePublished" datetime="2020-02-18T15:50:28+00:00">2020-02-18</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/wordpress/" itemprop="url" rel="index"><span itemprop="name">wordpress</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在 SEO 的角度，我们不宜在网站中设置过多的外链，防止搜索引擎蜘蛛在爬虫你的网站时跳出到其他网站。因此，了解并为外链加上 nofollow 链接是非常有必要的（除非这些外链与你的网站有利益关系，比如是你的其他网站又或者是合作伙伴的网站）。</p>
+<h3 id="什么是-nofollow-链接"><a href="#什么是-nofollow-链接" class="headerlink" title="什么是 nofollow 链接"></a>什么是 nofollow 链接</h3><p>Nofollow 链接是带有 rel &#x3D;”nofollow” HTML 标记的链接。 nofollow 标签可帮助搜索引擎了解要忽略目标链接，并且不会将网页（放置 nofollow 链接）的 PageRank 传递给此类链接。</p>
+<p>以下链接类型应该设置为 nofollow 链接：返利链接，赞助商链接，广告链接，社交媒体链接，不可信&#x2F;不可靠网站内容链接</p>
+<h3 id="如何建立-Nofollow-链接"><a href="#如何建立-Nofollow-链接" class="headerlink" title="如何建立 Nofollow 链接"></a>如何建立 Nofollow 链接</h3><p>将下面的代码添加到主题的 <code>functions.php</code> 文件即可：</p>
+<p>如果不想直接修改 <code>functions.php</code> 文件，可以使用 <a href="https://wqdy.top/671.html">Code Snippets 插件</a></p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 文章外部链接加上nofollow</span></span><br><span class="line"><span class="title function_ invoke__">add_filter</span>( <span class="string">&#x27;the_content&#x27;</span>, <span class="string">&#x27;nf_url_parse&#x27;</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">nf_url_parse</span>(<span class="params"> <span class="variable">$content</span> </span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="variable">$regexp</span> = <span class="string">&quot;&lt;a\s[^&gt;]*href=(\&quot;??)([^\&quot; &gt;]*?)\\1[^&gt;]*&gt;&quot;</span>;</span><br><span class="line">  <span class="keyword">if</span>(<span class="title function_ invoke__">preg_match_all</span>(<span class="string">&quot;/<span class="subst">$regexp</span>/siU&quot;</span>, <span class="variable">$content</span>, <span class="variable">$matches</span>, PREG_SET_ORDER)) &#123;</span><br><span class="line">    <span class="keyword">if</span>( !<span class="keyword">empty</span>(<span class="variable">$matches</span>) ) &#123;</span><br><span class="line"></span><br><span class="line">      <span class="variable">$srcUrl</span> = <span class="title function_ invoke__">get_option</span>(<span class="string">&#x27;siteurl&#x27;</span>);</span><br><span class="line">      <span class="keyword">for</span> (<span class="variable">$i</span>=<span class="number">0</span>; <span class="variable">$i</span> &lt; <span class="title function_ invoke__">count</span>(<span class="variable">$matches</span>); <span class="variable">$i</span>++)</span><br><span class="line">      &#123;</span><br><span class="line"></span><br><span class="line">        <span class="variable">$tag</span> = <span class="variable">$matches</span>[<span class="variable">$i</span>][<span class="number">0</span>];</span><br><span class="line">        <span class="variable">$tag2</span> = <span class="variable">$matches</span>[<span class="variable">$i</span>][<span class="number">0</span>];</span><br><span class="line">        <span class="variable">$url</span> = <span class="variable">$matches</span>[<span class="variable">$i</span>][<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">        <span class="variable">$noFollow</span> = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// $pattern = &#x27;/target\s*=\s*&quot;\s*_blank\s*&quot;/&#x27;;</span></span><br><span class="line">        <span class="comment">// preg_match($pattern, $tag2, $match, PREG_OFFSET_CAPTURE);</span></span><br><span class="line">        <span class="comment">// if( count($match) &lt; 1 )</span></span><br><span class="line">        <span class="comment">//   $noFollow .= &#x27; target=&quot;_blank&quot; &#x27;;</span></span><br><span class="line"></span><br><span class="line">        <span class="variable">$pattern</span> = <span class="string">&#x27;/rel\s*=\s*&quot;\s*[n|d]ofollow\s*&quot;/&#x27;</span>;</span><br><span class="line">        <span class="title function_ invoke__">preg_match</span>(<span class="variable">$pattern</span>, <span class="variable">$tag2</span>, <span class="variable">$match</span>, PREG_OFFSET_CAPTURE);</span><br><span class="line">        <span class="keyword">if</span>( <span class="title function_ invoke__">count</span>(<span class="variable">$match</span>) &lt; <span class="number">1</span> )</span><br><span class="line">          <span class="variable">$noFollow</span> .= <span class="string">&#x27; rel=&quot;nofollow&quot; &#x27;</span>;</span><br><span class="line"></span><br><span class="line">        <span class="variable">$pos</span> = <span class="title function_ invoke__">strpos</span>(<span class="variable">$url</span>,<span class="variable">$srcUrl</span>);</span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$pos</span> === <span class="literal">false</span>) &#123;</span><br><span class="line">          <span class="variable">$tag</span> = <span class="title function_ invoke__">rtrim</span> (<span class="variable">$tag</span>,<span class="string">&#x27;&gt;&#x27;</span>);</span><br><span class="line">          <span class="variable">$tag</span> .= <span class="variable">$noFollow</span>.<span class="string">&#x27;&gt;&#x27;</span>;</span><br><span class="line">          <span class="variable">$content</span> = <span class="title function_ invoke__">str_replace</span>(<span class="variable">$tag2</span>,<span class="variable">$tag</span>,<span class="variable">$content</span>);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="variable">$content</span> = <span class="title function_ invoke__">str_replace</span>(<span class="string">&#x27;]]&gt;&#x27;</span>, <span class="string">&#x27;]]&gt;&#x27;</span>, <span class="variable">$content</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="variable">$content</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="检查-nofollow-链接是否生效"><a href="#检查-nofollow-链接是否生效" class="headerlink" title="检查 nofollow 链接是否生效"></a>检查 nofollow 链接是否生效</h3><p><strong>使用浏览器的 <code>检查</code> 功能查看 nofollow 链接</strong></p>
+<p>使用浏览器打开页面，移动鼠标光标至你想要检查的链接上方。</p>
+<p>右击鼠标按钮，选择 <code>检查</code> 选项 （以 Chrome 为例，不同浏览器选项叫法不太一样）</p>
+<p>代码查看窗口将在浏览器的底部&#x2F;右侧打开。你可以通过查看 HTML 代码查看链接是否添加了 rel&#x3D;”nofollow”。</p>
+<p><strong>使用 Chrome 扩展组件（插件）检查页面 nofollow 链接</strong></p>
+<p>下载名为<span class="exturl" data-url="aHR0cHM6Ly9jaHJvbWUuZ29vZ2xlLmNvbS93ZWJzdG9yZS9kZXRhaWwvbm9mb2xsb3cvZGZvZ2lkZ2hhaWdvb21qZGVhY25kYWZhcGRpam1paWQ/aGw9ZW4=">NoFollow</span>的 Chrome 扩展组件，安装该插件后重新加载页面，该网页上的所有 nofollow 链接都将会高亮突出显示。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/504.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/504.html" class="post-title-link" itemprop="url">dux主题修改记录</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-02-12" itemprop="dateCreated datePublished" datetime="2020-02-12T11:35:20+00:00">2020-02-12</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/wordpress/" itemprop="url" rel="index"><span itemprop="name">wordpress</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="给网站添加语言"><a href="#给网站添加语言" class="headerlink" title="给网站添加语言"></a>给网站添加语言</h2><p>打开 <code>theme/dux/header.php</code> 文件，修改如下内容</p>
+<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE HTML&gt;</span><br><span class="line"><span class="deletion">-&lt;html&gt;</span></span><br><span class="line"><span class="addition">+&lt;html lang=&quot;zh&quot;&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="修改面包屑导航位置"><a href="#修改面包屑导航位置" class="headerlink" title="修改面包屑导航位置"></a>修改面包屑导航位置</h2><p>打开 <code>theme/dux/single.php</code> 文件，修改如下内容</p>
+<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">&lt;?php get_header(); ?&gt;</span><br><span class="line"><span class="deletion">-&lt;?php if( _hui(&#x27;breadcrumbs_single_s&#x27;) )&#123; ?&gt;</span></span><br><span class="line"><span class="deletion">- &lt;div class=&quot;breadcrumbs&quot;&gt;</span></span><br><span class="line"><span class="deletion">-  &lt;div class=&quot;container&quot;&gt;&lt;?php echo hui_breadcrumbs() ?&gt;&lt;/div&gt;</span></span><br><span class="line"><span class="deletion">- &lt;/div&gt;</span></span><br><span class="line"><span class="deletion">-&lt;?php &#125; ?&gt;</span></span><br><span class="line">&lt;section class=&quot;container&quot;&gt;</span><br><span class="line"><span class="addition">+ &lt;?php if( _hui(&#x27;breadcrumbs_single_s&#x27;) )&#123; ?&gt;</span></span><br><span class="line"><span class="addition">+  &lt;div class=&quot;breadcrumbs&quot;&gt;</span></span><br><span class="line"><span class="addition">+   &lt;div class=&quot;container&quot;&gt;&lt;?php echo hui_breadcrumbs() ?&gt;&lt;/div&gt;</span></span><br><span class="line"><span class="addition">+  &lt;/div&gt;</span></span><br><span class="line"><span class="addition">+ &lt;?php &#125; ?&gt;</span></span><br><span class="line"> &lt;div class=&quot;content-wrap&quot;&gt;</span><br><span class="line"> &lt;div class=&quot;content&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>添加自定义样式</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 面包屑导航 */</span></span><br><span class="line"><span class="selector-class">.breadcrumbs</span> &#123;</span><br><span class="line">	<span class="attribute">box-shadow</span>: none;</span><br><span class="line">	<span class="attribute">background</span>: none;</span><br><span class="line">	<span class="attribute">margin-bottom</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/478.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/478.html" class="post-title-link" itemprop="url">斐讯K2P、K2路由器刷机</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-02-07" itemprop="dateCreated datePublished" datetime="2020-02-07T18:30:29+00:00">2020-02-07</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="PADAVAN（老毛子）固件"><a href="#PADAVAN（老毛子）固件" class="headerlink" title="PADAVAN（老毛子）固件"></a>PADAVAN（老毛子）固件</h3><p><strong>H大固件地址</strong>：<span class="exturl" data-url="aHR0cDovL29wdC5jbjJxcS5jb20vcGFkYXZhbi8=">http://opt.cn2qq.com/padavan/</span></p>
+<p>k2路由器下载 <code>RT-AC54U-GPIO-1-PSG1218-64M**.trx</code> 文件</p>
+<p>K2P各固件的区别，供大家参考：<br>K2P_V5_3.4.3.9-099.trx        这是K2P的MTK平台原版未改版最新v5.0无线驱动固件<br>K2P_DRV_V5_3.4.3.9-099.trx    这是K2P的MTK平台硬改USB最新v5.0无线驱动固件<br>K2P_DRV_512M_3.4.3.9-099.trx  这是K2P的MTK平台硬改512MB内存(RAM)和USB稳定v4.0无线驱动固件<br>K2P_DRV_256M_3.4.3.9-099.trx  这是K2P的MTK平台硬改256MB内存(RAM)和USB稳定v4.0无线驱动固件<br>K2P_DRV_3.4.3.9-099.trx       这是K2P的MTK平台硬改USB稳定v4.0无线驱动固件<br>K2P_3.4.3.9-099.trx           这是K2P的MTK平台原版未改版稳定v4.0无线驱动固件</p>
+<p>管理地址：192.168.123.1<br>管理账号：admin<br>管理密码：admin</p>
+<p><strong>HANWCKF固件地址</strong> <span class="exturl" data-url="aHR0cHM6Ly9wYW4uYmFpZHUuY29tL3MvMWtVOFlxckg=">https://pan.baidu.com/s/1kU8YqrH</span>  提取码: hmdn</p>
+<p>k2p 源码 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hhbndja2YvcnQtbjU2dQ==">https://github.com/hanwckf/rt-n56u</span></p>
+<p><strong>灯大固件</strong>：<span class="exturl" data-url="aHR0cDovL3JvbS5uYW5vZG0ubmV0Lw==">http://rom.nanodm.net/</span></p>
+<p><strong>waynezwd的固件地址</strong>：<span class="exturl" data-url="aHR0cHM6Ly9wYW4uYmFpZHUuY29tL3MvMUt2bFdsNEhyMUR3WTJOME54Z3plQkE=">https://pan.baidu.com/s/1KvlWl4Hr1DwY2N0NxgzeBA</span> 提取码: w5e8</p>
+<h3 id="高恪免费路由固件"><a href="#高恪免费路由固件" class="headerlink" title="高恪免费路由固件"></a>高恪免费路由固件</h3><p><span class="exturl" data-url="aHR0cDovL3d3dy5nb2Nsb3VkLmNuL2Jicy9mb3J1bS01MS0xLmh0bWw=">http://www.gocloud.cn/bbs/forum-51-1.html</span></p>
+<h3 id="lede"><a href="#lede" class="headerlink" title="lede"></a>lede</h3><p>OpenWrt 固件 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2Nvb2xzbm93d29sZi9sZWRl">https://github.com/coolsnowwolf/lede</span></p>
+<p>魔改固件下载 <span class="exturl" data-url="aHR0cDovL2xlYW4ueXMxNjguY29tLw==">http://lean.ys168.com/</span></p>
+<h3 id="论坛"><a href="#论坛" class="headerlink" title="论坛"></a>论坛</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cucmlnaHQuY29tLmNuL2ZvcnVtL2ZvcnVtLnBocA==">https://www.right.com.cn/forum/forum.php</span></p>
+<p><span class="exturl" data-url="aHR0cDovL3d3dy5nb2Nsb3VkLmNuL2Jicy9mb3J1bS5waHA=">http://www.gocloud.cn/bbs/forum.php</span></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/450.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/450.html" class="post-title-link" itemprop="url">网站配置SSL后无法访问解决办法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-02-04" itemprop="dateCreated datePublished" datetime="2020-02-04T14:04:31+00:00">2020-02-04</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/wordpress/" itemprop="url" rel="index"><span itemprop="name">wordpress</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ol>
+<li><p>开放 443 端口</p>
+</li>
+<li><p>域名证书有效且配置正确</p>
+</li>
+<li><p>ssl配置问题</p>
+</li>
+</ol>
+<p>正确启用HTTP&#x2F;2支持，正确配置ssl_protocols和ssl_ciphers</p>
+<p>启用HTTP2并非只在 listen 443 ssl 配置中加入http2就行了，它主要需要两个地方的设置支持：ssl_protocols 和 ssl_ciphers 。</p>
+<p>修改如下配置以向后兼容</p>
+<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">listen 443 ssl http2;</span><br><span class="line"><span class="deletion">- ssl_protocols TLSv1.1 TLSv1.2 TLSv1.3;</span></span><br><span class="line"><span class="addition">+ ssl_protocols TLSv1 TLSv1.1 TLSv1.2 TLSv1.3;</span></span><br><span class="line">ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;</span><br></pre></td></tr></table></figure>
+
+<p>在线 http2 检测</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cucm9zZWhvc3RpbmcuY29tL25ldHdvcmstdG9vbHMvaHR0cDItc3VwcG9ydC5odG1s">https://www.rosehosting.com/network-tools/http2-support.html</span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9teXNzbC5jb20vaHR0cDJfY2hlY2suaHRtbA==">https://myssl.com/http2_check.html</span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuc3NsbGFicy5jb20vc3NsdGVzdC9hbmFseXplLmh0bWw=">https://www.ssllabs.com/ssltest/analyze.html</span></p>
+<p><img data-src="/wp-content/uploads/2020/03/HTTP2-test.png"><br><img data-src="/wp-content/uploads/2020/03/HTTP2-test-1.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1002.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/1002.html" class="post-title-link" itemprop="url">vue-awesome-swiper 设置 loop：true不会自动滚动的问题</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-01-20" itemprop="dateCreated datePublished" datetime="2020-01-20T13:11:58+00:00">2020-01-20</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>vue-awesome-swiper: 基于 Swiper4、适用于 Vue 的轮播组件，支持服务端渲染和单页应用</p>
+<p>github地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3N1cm1vbi1jaGluYS92dWUtYXdlc29tZS1zd2lwZXI=">https://github.com/surmon-china/vue-awesome-swiper</span></p>
+<p>官网：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuc3VybW9uLm1lL3Z1ZS1hd2Vzb21lLXN3aXBlci8=">https://github.surmon.me/vue-awesome-swiper/</span></p>
+<p>问题：</p>
+<p>设置loop：true， autoplay：2000 不会自动滚动</p>
+<p>解决<br>在 swiper 上添加 <code>v-if=&quot;swiperSlides.length&gt;0&quot;</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;swiper v-<span class="keyword">if</span>=<span class="string">&quot;swiperSlides.length&gt;0&quot;</span> :options=<span class="string">&quot;swiperOption&quot;</span> ref=<span class="string">&quot;mySwiper&quot;</span>&gt;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -610,434 +1030,6 @@
 
 <p>附 axios 并发多个请求方式：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">request1</span> () &#123;</span><br><span class="line">  <span class="keyword">return</span> axios.<span class="title function_">get</span>(<span class="string">&#x27;/user/12345&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">request2</span> () &#123;</span><br><span class="line">  <span class="keyword">return</span> axios.<span class="title function_">get</span>(<span class="string">&#x27;/user/12345/permissions&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">axios.<span class="title function_">all</span>([<span class="title function_">request1</span>(), <span class="title function_">request2</span>()])</span><br><span class="line">  .<span class="title function_">then</span>(axios.<span class="title function_">spread</span>(<span class="function">(<span class="params">res1, res2</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 两个请求现在都执行完成</span></span><br><span class="line">    <span class="comment">// acct、perms 分别为两个请求的结果</span></span><br><span class="line">  &#125;))</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/366.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/366.html" class="post-title-link" itemprop="url">下载神器 Internet Download Manager 中文破解版</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2019-12-22" itemprop="dateCreated datePublished" datetime="2019-12-22T14:56:22+00:00">2019-12-22</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/software/" itemprop="url" rel="index"><span itemprop="name">软件</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><span class="exturl" data-url="aHR0cDovL3d3dy5pbnRlcm5ldGRvd25sb2FkbWFuYWdlci5jb20v">Internet Download Manager</span> (简称IDM)  是 Windows 平台老牌而功能强大的多线程下载工具，支持多媒体下载、自动捕获链接、自动识别文件名、静默下载、批量下载、计划下载任务、站点抓取、队列，支持IE, Opera, Firefox, Chrome等所有流行的浏览器，如果启用高级集成，则可以捕获和接管从任何程序的下载。</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210130211514.jpg"></p>
-<p>安装说明</p>
-<p>下载完成后解压，运行安装程序，安装完就是注册版</p>
-<p>配合插件使用</p>
-<p>谷歌浏览器插件安装方法：找到你的 IMD 安装目录 注意是安装好后 找到 <code>IDMGCExt.crx</code> <code>IDMGCExt59.crx</code>2 个文件,<br>选择 IDMGCExt.crx 拖动到谷歌浏览器,如果装不上选择 IDMGCExt59.crx 能装上!</p>
-<p>提醒：某些网盘无法使用 IDM 下载的解决办法：下载时，按住 Alt 键，再点击下载按钮就不会调用 IDM 了！</p>
-<p>有能力的建议支持<span class="exturl" data-url="aHR0cHM6Ly9zZWN1cmUuaW50ZXJuZXRkb3dubG9hZG1hbmFnZXIuY29tL2J1eV9pZG0uaHRtbA==">正版</span></p>
-<p>破解版下载地址</p>
-<p>百度网盘：<span class="exturl" data-url="aHR0cHM6Ly9wYW4uYmFpZHUuY29tL3MvMU5RbW5xRUdBZkN1NDE2ekN3WC1BVEE=">https://pan.baidu.com/s/1NQmnqEGAfCu416zCwX-ATA</span> 提取码：wqdy<br>阿里云盘：<span class="exturl" data-url="aHR0cHM6Ly93d3cuYWxpeXVuZHJpdmUuY29tL3MvQnJMajNSQVhKM3Y=">https://www.aliyundrive.com/s/BrLj3RAXJ3v</span> 提取码：f99y<br>TG：<span class="exturl" data-url="aHR0cHM6Ly90Lm1lL3dxZHlfY2hhbm5lbC8zNg==">https://t.me/wqdy_channel/36</span></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/355.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/355.html" class="post-title-link" itemprop="url">将 html 内容转换成图片总结 html2canvas与dom-to-image</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2019-12-17" itemprop="dateCreated datePublished" datetime="2019-12-17T11:16:27+00:00">2019-12-17</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="html2canvas"><a href="#html2canvas" class="headerlink" title="html2canvas"></a>html2canvas</h3><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25pa2xhc3ZoL2h0bWwyY2FudmFz">html2canvas</span></p>
-<p>基本使用</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install html2canvas</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> html2canvas <span class="keyword">from</span> <span class="string">&#x27;html2canvas&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 语法</span></span><br><span class="line"><span class="comment">// html2canvas(element, options)</span></span><br><span class="line"></span><br><span class="line"><span class="title function_">html2canvas</span>(<span class="variable language_">document</span>.<span class="property">body</span>).<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params">canvas</span>) &#123;</span><br><span class="line">  <span class="comment">// document.body.appendChild(canvas)</span></span><br><span class="line">  <span class="keyword">let</span> dataURL = canvas.<span class="title function_">toDataURL</span>(<span class="string">&#x27;image/png&#x27;</span>) <span class="comment">// dataURL 为 base64 图片</span></span><br><span class="line">  <span class="comment">// var img = new Image()</span></span><br><span class="line">  <span class="comment">// img.src = dataURL</span></span><br><span class="line">  <span class="comment">// document.body.appendChild(img)</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>常用配置使用示例</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> options = &#123;</span><br><span class="line">  <span class="attr">dpi</span>: <span class="number">192</span>,</span><br><span class="line">  <span class="attr">scale</span>: <span class="number">2</span>, <span class="comment">// 放大</span></span><br><span class="line">  <span class="comment">// logging: true, //日志开关，便于查看html2canvas的内部执行流程</span></span><br><span class="line">  <span class="attr">useCORS</span>: <span class="literal">true</span> <span class="comment">// 开启跨域配置, (跨域图片，转换的时候会将跨域图片识别为空白,因此需要开启此选项)</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">html2canvas</span>(<span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#app&#x27;</span>), options).<span class="title function_">then</span>(<span class="function"><span class="params">canvas</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">appendChild</span>(canvas)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>html2canvas 生成图片模糊问题</p>
-<ol>
-<li>html2canvas 第二个参数配置 <code>scale</code> 和 <code>dpi</code>, <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25pa2xhc3ZoL2h0bWwyY2FudmFzL3B1bGwvMTA4Nw==">参考</span></li>
-<li>如果要生成的 dom 中有背景图片，将背景图片换成 div 包裹 img 标签形式，不要通过css设置成background</li>
-</ol>
-<h3 id="dom-to-image"><a href="#dom-to-image" class="headerlink" title="dom-to-image"></a>dom-to-image</h3><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RzYXllbi9kb20tdG8taW1hZ2U=">dom-to-image</span></p>
-<p>基本使用</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install dom-to-image</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* in ES 6 */</span></span><br><span class="line"><span class="keyword">import</span> domtoimage <span class="keyword">from</span> <span class="string">&#x27;dom-to-image&#x27;</span></span><br><span class="line"><span class="comment">/* in ES 5 */</span></span><br><span class="line"><span class="keyword">var</span> domtoimage = <span class="built_in">require</span>(<span class="string">&#x27;dom-to-image&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> node = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;my-node&#x27;</span>)</span><br><span class="line"></span><br><span class="line">domtoimage</span><br><span class="line">  .<span class="title function_">toPng</span>(node)</span><br><span class="line">  .<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params">dataUrl</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> img = <span class="keyword">new</span> <span class="title class_">Image</span>()</span><br><span class="line">    img.<span class="property">src</span> = dataUrl</span><br><span class="line">    <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">appendChild</span>(img)</span><br><span class="line">  &#125;)</span><br><span class="line">  .<span class="title function_">catch</span>(<span class="keyword">function</span>(<span class="params">error</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;oops, something went wrong!&#x27;</span>, error)</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
-
-<p>将 base64 转换成 file 对象用于上传到服务器</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title function_">b64ToFile</span>(<span class="params">dataurl</span>)  &#123;</span><br><span class="line">  <span class="keyword">let</span> arr = dataurl.<span class="title function_">split</span>(<span class="string">&#x27;,&#x27;</span>)</span><br><span class="line">  <span class="keyword">let</span> mime = arr[<span class="number">0</span>].<span class="title function_">match</span>(<span class="regexp">/:(.*?);/</span>)[<span class="number">1</span>]</span><br><span class="line">  <span class="keyword">let</span> bstr = <span class="title function_">atob</span>(arr[<span class="number">1</span>])</span><br><span class="line">  <span class="keyword">let</span> n = bstr.<span class="property">length</span></span><br><span class="line">  <span class="keyword">let</span> u8arr = <span class="keyword">new</span> <span class="title class_">Uint8Array</span>(n)</span><br><span class="line">  <span class="keyword">while</span> (n--) &#123;</span><br><span class="line">      u8arr[n] = bstr.<span class="title function_">charCodeAt</span>(n)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> file =  <span class="keyword">new</span> <span class="title class_">File</span>([u8arr], <span class="string">&#x27;filename.png&#x27;</span>, &#123;<span class="attr">type</span>:mime&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/338.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/338.html" class="post-title-link" itemprop="url">dux 主题自定义代码高亮-使用 highlight.js</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2019-12-14" itemprop="dateCreated datePublished" datetime="2019-12-14T12:02:12+00:00">2019-12-14</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/wordpress/" itemprop="url" rel="index"><span itemprop="name">wordpress</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p>dux 主题默认使用 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2dvb2dsZS9jb2RlLXByZXR0aWZ5">Google Code Prettify</span> 实现代码高亮</p>
-</blockquote>
-<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>在 <span class="exturl" data-url="aHR0cHM6Ly9oaWdobGlnaHRqcy5vcmcv">highlight 官网</span>下载 js 和 css 文件</p>
-<p>可以使用官网提供的 <span class="exturl" data-url="aHR0cHM6Ly9oaWdobGlnaHRqcy5vcmcvZG93bmxvYWQv">CDN 链接</span>，也可以根据需要定制自己需要的语言</p>
-<p>选择自己喜欢的<span class="exturl" data-url="aHR0cHM6Ly9oaWdobGlnaHRqcy5vcmcvc3RhdGljL2RlbW8v">主题</span>，在<span class="exturl" data-url="aHR0cHM6Ly9jZG4uanNkZWxpdnIubmV0L2doL2hpZ2hsaWdodGpzL2Nkbi1yZWxlYXNlQDkuMTcuMS9idWlsZC9zdHlsZXMvJTdE">这里</span>进行下载</p>
-<p>将 <code>highlight.main.js</code> 文件放到主题的 <code>/js/libs/</code> 文件夹中</p>
-<h3 id="编辑主题文件"><a href="#编辑主题文件" class="headerlink" title="编辑主题文件"></a>编辑主题文件</h3><p>编辑 <code>/js/loader.js</code> 文件，将 <code>highlight.min.js</code> 引入</p>
-<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">tbquire.config(&#123;</span><br><span class="line">  baseUrl: jsui.uri + &#x27;/js&#x27;,</span><br><span class="line">  urlArgs: &#x27;ver=&#x27; + jsui.ver,</span><br><span class="line">  paths: &#123;</span><br><span class="line">    &#x27;swiper&#x27;        : &#x27;libs/swiper.min&#x27;,</span><br><span class="line">    &#x27;jquery.cookie&#x27; : &#x27;libs/jquery.cookie.min&#x27;,</span><br><span class="line">    &#x27;jsrender&#x27;      : &#x27;libs/jsrender.min&#x27;,</span><br><span class="line">    &#x27;router&#x27;        : &#x27;libs/router.min&#x27;,</span><br><span class="line">    &#x27;lazyload&#x27;      : &#x27;libs/lazyload.min&#x27;,</span><br><span class="line">    &#x27;prettyprint&#x27;   : &#x27;libs/prettyprint&#x27;,</span><br><span class="line"><span class="addition">+   &#x27;highlight&#x27;     : &#x27;libs/highlight.min&#x27;,</span></span><br><span class="line">    &#x27;ias&#x27;           : &#x27;libs/ias.min&#x27;,</span><br><span class="line">    &#x27;main&#x27;          : &#x27;main&#x27;,</span><br><span class="line">    &#x27;comment&#x27;       : &#x27;comment&#x27;,</span><br><span class="line">    &#x27;user&#x27;          : &#x27;user&#x27;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>编辑 <code>/js/main.js</code> 注释掉 prettyprint 部分</p>
-<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">/*</span><br><span class="line"> * prettyprint</span><br><span class="line"> * <span class="comment">====================================================</span></span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line"><span class="deletion">-$(&#x27;pre&#x27;).each(function()&#123;</span></span><br><span class="line"><span class="deletion">-    if( !$(this).attr(&#x27;style&#x27;) ) $(this).addClass(&#x27;prettyprint&#x27;)</span></span><br><span class="line"><span class="deletion">-&#125;)</span></span><br><span class="line"></span><br><span class="line"><span class="deletion">-if( $(&#x27;.prettyprint&#x27;).length )&#123;</span></span><br><span class="line"><span class="deletion">-    tbquire([&#x27;prettyprint&#x27;], function(prettyprint) &#123;</span></span><br><span class="line"><span class="deletion">-        prettyPrint()</span></span><br><span class="line"><span class="deletion">-    &#125;)</span></span><br><span class="line"><span class="deletion">-&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="addition">+/*</span></span><br><span class="line"><span class="addition">+ * highlight</span></span><br><span class="line"><span class="addition">+ * ====================================================</span></span><br><span class="line"><span class="addition">+*/</span></span><br><span class="line"><span class="addition">+</span></span><br><span class="line"><span class="addition">+$(&#x27;pre code&#x27;).forEach((block) =&gt; &#123;</span></span><br><span class="line"><span class="addition">+  tbquire([&#x27;highlight&#x27;], function() &#123;</span></span><br><span class="line"><span class="addition">+    hljs.highlightBlock(block)</span></span><br><span class="line"><span class="addition">+&#125;)</span></span><br></pre></td></tr></table></figure>
-
-<p>此时 highlight 脚本已经生效，接下来就是应用 highlight 样式</p>
-<h3 id="应用-highlight-样式"><a href="#应用-highlight-样式" class="headerlink" title="应用 highlight 样式"></a>应用 highlight 样式</h3><p>你可以选择将下载好的 css 文件打开，将样式拷贝到 &#x2F;libs&#x2F;css&#x2F;main.css 文件中</p>
-<p>也可以在 <code>wordpress后台-外观-自定义-添加额外css</code> 中为主题定义样式</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1656.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/1656.html" class="post-title-link" itemprop="url">js 不写行尾分号注意事项</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2019-11-01" itemprop="dateCreated datePublished" datetime="2019-11-01T14:36:34+00:00">2019-11-01</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>若行首为 <code>(</code>、<code>[</code>、<code>/</code>、<code>+</code>、<code>-</code>，会与上一行代码相接，此时需要在行首添加分号<br><code>++</code>、<code>--</code>在上下两行都不加分号的情况下，与下一行代码相接<br>return 语句在执行时会在末尾加分号</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/397.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/397.html" class="post-title-link" itemprop="url">+0 -0 Number.NaN NaN undefined null ''  相等性判断</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2019-10-28" itemprop="dateCreated datePublished" datetime="2019-10-28T22:12:33+00:00">2019-10-28</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="主要区分-0-和-0、NaN-和-NaN-在不同情况下的相等性区别"><a href="#主要区分-0-和-0、NaN-和-NaN-在不同情况下的相等性区别" class="headerlink" title="主要区分 +0 和 -0、NaN 和 NaN 在不同情况下的相等性区别"></a>主要区分 <code>+0</code> 和 <code>-0</code>、<code>NaN</code> 和 <code>NaN</code> 在不同情况下的相等性区别</h2><p><code>==</code> <code>===</code></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(+<span class="number">0</span> === -<span class="number">0</span>) <span class="comment">// true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">NaN</span> == <span class="title class_">NaN</span>) <span class="comment">// false NaN 不与任何值相等，包括自身</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="literal">undefined</span> == <span class="literal">null</span>) <span class="comment">// true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="literal">undefined</span> === <span class="literal">null</span>) <span class="comment">// false</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">NaN</span> === <span class="title class_">NaN</span>) <span class="comment">// false</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Number</span>.<span class="property">NaN</span> === <span class="title class_">NaN</span>) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-
-<p>Object.is() 方法判断两个值是否是相同的值。比较时不会做类型转换，这与 <code>==</code> <code>===</code> 运算符的判定方式都不一样</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(+<span class="number">0</span>, -<span class="number">0</span>) <span class="comment">// false</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="number">0</span>, -<span class="number">0</span>) <span class="comment">// false</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="number">0</span>, +<span class="number">0</span>) <span class="comment">// true</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(-<span class="number">0</span>, -<span class="number">0</span>) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="literal">undefined</span>, <span class="literal">undefined</span>) <span class="comment">// true</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="literal">null</span>, <span class="literal">null</span>) <span class="comment">// true</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="title class_">Number</span>.<span class="property">NaN</span>, <span class="title class_">Number</span>.<span class="property">NaN</span>) <span class="comment">// true</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="title class_">Number</span>.<span class="property">NaN</span>, <span class="title class_">NaN</span>) <span class="comment">// true</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="title class_">NaN</span>, <span class="title class_">NaN</span>) <span class="comment">// true</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">is</span>(<span class="title class_">NaN</span>, <span class="number">0</span> / <span class="number">0</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-
-<p>在 Set， Map 内部，两个 NaN 是相等, +0 和 -0 也是相等的</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = [<span class="title class_">NaN</span>, <span class="title class_">NaN</span>, <span class="literal">undefined</span>, <span class="literal">undefined</span>, +<span class="number">0</span>, -<span class="number">0</span>, &#123;&#125;, &#123;&#125;]</span><br><span class="line"><span class="keyword">let</span> b = <span class="keyword">new</span> <span class="title class_">Set</span>(a) <span class="comment">// &#123;NaN, undefined, 0, &#123;&#125;, &#123;&#125;&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>总结：</p>
-<ul>
-<li>比较运算符中 <code>+0</code> 和 <code>-0</code> 是相等的、<code>NaN</code> 和 <code>NaN</code>是不等的</li>
-<li>Object.is() 方法中 <code>+0</code> 和 <code>-0</code> 是不相等的、<code>NaN</code> 和 <code>NaN</code>是相等的</li>
-<li>在 Set， Map 内部， <code>+0</code> 和 <code>-0</code> 是相等的、<code>NaN</code> 和 <code>NaN</code> 也是相等的</li>
-</ul>
 
       
     </div>

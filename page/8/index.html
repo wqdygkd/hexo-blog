@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-logo.png">
@@ -173,7 +173,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">157</span>
+          <span class="site-state-item-count">159</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -183,7 +183,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">81</span>
+        <span class="site-state-item-count">82</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -217,6 +217,512 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1404.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/1404.html" class="post-title-link" itemprop="url">终端命令行下使用代理</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-05-16" itemprop="dateCreated datePublished" datetime="2020-05-16T12:13:13+00:00">2020-05-16</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h2><p>注意</p>
+<ul>
+<li>一定要加 <code>http://</code>，直接写域名或者 IP 不行</li>
+<li>http 和 https 都要设置</li>
+<li>cmd，Bash，PowerShell 设置的方式不同</li>
+<li>设置的代理只在当前 cmd 窗口下有效，窗口关闭后会失效，新建的窗口也不生效</li>
+</ul>
+<h3 id="cmd"><a href="#cmd" class="headerlink" title="cmd"></a>cmd</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># set http_proxy=http://IP:PORT</span></span><br><span class="line"><span class="built_in">set</span> http_proxy=http://127.0.0.1:1080</span><br><span class="line"><span class="built_in">set</span> https_proxy=http://127.0.0.1:1080</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果有用户名密码需要设置，否则不需要设置</span></span><br><span class="line"><span class="built_in">set</span> http_proxy_user=user</span><br><span class="line"><span class="built_in">set</span> http_proxy_pass=pass</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> https_proxy_user=user</span><br><span class="line"><span class="built_in">set</span> https_proxy_pass=pass</span><br><span class="line"></span><br><span class="line"><span class="comment"># 恢复</span></span><br><span class="line"><span class="built_in">set</span> http_proxy=</span><br><span class="line"><span class="built_in">set</span> https_proxy=</span><br></pre></td></tr></table></figure>
+
+<h3 id="Bash"><a href="#Bash" class="headerlink" title="Bash"></a>Bash</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Ubuntu 下命令为 export</span><br><span class="line">export http_proxy=http://127.0.0.1:1080</span><br></pre></td></tr></table></figure>
+
+<h3 id="PowerShell"><a href="#PowerShell" class="headerlink" title="PowerShell"></a>PowerShell</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$env:HTTP_PROXY=&quot;http://127.0.0.1:1080&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><ul>
+<li>如果想验证是否成功配置了代理的话，用 ping 命令是不可以的（ping的协议不是http，也不是https，是ICMP协议）</li>
+</ul>
+<p><code>curl -vv http://www.google.com</code>，用这条命令来验证，如果返回如下结果表示代理设置成功。</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102203731.png"></p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NoYWRvd3NvY2tzL3NoYWRvd3NvY2tzLXdpbmRvd3MvaXNzdWVzLzE0ODk=">https://github.com/shadowsocks/shadowsocks-windows/issues/1489</span><br><span class="exturl" data-url="aHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vZmFtb3VzZ2Fya2luL2M1MTM4YjFlMTNhYzQxOTIwZDIy">https://gist.github.com/famousgarkin/c5138b1e13ac41920d22</span></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1365.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/1365.html" class="post-title-link" itemprop="url">使用群晖Docker安装Jellyfin家庭影院</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-05-10" itemprop="dateCreated datePublished" datetime="2020-05-10T14:32:17+00:00">2020-05-10</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/NAS/" itemprop="url" rel="index"><span itemprop="name">NAS</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>plex 和 emby，这两个软件是不错，但是因为收费，不得不放弃之。</p>
+</blockquote>
+<p>jellyfin开源地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2plbGx5ZmluL2plbGx5Zmlu">https://github.com/jellyfin/jellyfin</span></p>
+<h3 id="安装-Docker"><a href="#安装-Docker" class="headerlink" title="安装 Docker"></a>安装 Docker</h3><p>在群辉套件中心搜索 docker 并安装</p>
+<h3 id="安装-jellyfin"><a href="#安装-jellyfin" class="headerlink" title="安装 jellyfin"></a>安装 jellyfin</h3><ul>
+<li><p>打开 docker，点击注册表，搜索 jellyfin，双击第一个进行安装：如果有提示 请选择标签，直接点 latest 选择就好，点击映像，会看到 jellyfin，等待下载完成</p>
+</li>
+<li><p>进入群晖的文件管理器里面，在 docker 文件夹内新建一个名字叫 jellyfin 的文件夹</p>
+</li>
+<li><p>打开控制编办，创建共享文件夹，比如 video，用来保存电影</p>
+</li>
+<li><p>镜像下载好了后，我们进入到映像里，选择下载的 jellyfin，点启动</p>
+</li>
+<li><p>点击高级设置，然后点击卷，添加文件夹，将 jellyfin 和 video 文件夹都添加上：将<code>video</code>文件夹装载到 <code>/media</code>下，将<code>docker/jellyfin</code> 装载到 <code>/config</code></p>
+</li>
+</ul>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102184514.png"></p>
+<ul>
+<li>点击端口设置，默认是 8096，设置一样的即可</li>
+</ul>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102184536.png"></p>
+<ul>
+<li>设置完成后，点击应用 -&gt; 点下一步 -&gt; 点击应用 -&gt;点击容器，可以看到 jellyfin 服务已经运行成功了！</li>
+</ul>
+<p>docker 下安装 jellyfin 完成</p>
+<h3 id="设置-jellyfin"><a href="#设置-jellyfin" class="headerlink" title="设置 jellyfin"></a>设置 jellyfin</h3><ul>
+<li><p>在浏览器中输入这个 nas 的 IP 加上端口号 8096，如<code>IP:8096</code>，就进入到了 jellyfin 设置页面，默认是英文，先设置成中文，点击 Next</p>
+</li>
+<li><p>然后要求设置一下账号和密码，简单设置一下即可，点击 Next</p>
+</li>
+<li><p>添加媒体库，暂时先不添加，直接点 Next 跳过</p>
+</li>
+<li><p>然后选择语言，选择 Chinese，然后下面的国家，选择 people’s Republic of china，点击 Next</p>
+</li>
+<li><p>默认，点击 Next</p>
+</li>
+<li><p>点击 Finish</p>
+</li>
+<li><p>这个时候进入到了登录页面，输入用户密码进入到 jellyfin 里面，因为没有设置媒体库，所以没有内容</p>
+</li>
+</ul>
+<h3 id="设置媒体库"><a href="#设置媒体库" class="headerlink" title="设置媒体库"></a>设置媒体库</h3><ul>
+<li><p>点击左上角 -&gt; 控制台 -&gt; 媒体库 -&gt; 添加媒体库</p>
+</li>
+<li><p>这里有一些分类，比如电影，音乐，电视剧等，会刮削一些媒体对应的内容，这里先选择了电影，将右上角的显示高级设置打开，依次设置名称、文件夹、语言，文件夹选择<code>/media</code> 这个文件夹里面你存放电影的文件夹（这个&#x2F;media，就是我们之前设置的 video 文件夹）</p>
+</li>
+<li><p>将媒体图像保存到文件夹打勾，这样会将刮削的封面直接放到你电影的文件夹里</p>
+</li>
+<li><p>其他默认，点击确定后，就开始自动扫描媒体库了，这个过程，会自动根据电影的文件名在网上进行刮削，制作电影墙</p>
+</li>
+<li><p>扫描媒体是一个很慢的过程，我们再添加一下电视节目的类型，比如电视剧，连续剧都放到这个目录下，还是老规矩，元数据里的全部打勾，将媒体保存到文件夹里也打勾</p>
+</li>
+<li><p>到此，基础的 jellyfin 就设置好了，只要返回主页就能看到自己的电影了！</p>
+</li>
+</ul>
+<h3 id="插件设置"><a href="#插件设置" class="headerlink" title="插件设置"></a>插件设置</h3><ul>
+<li><p>除了媒体库和转码设置，还有一个字幕插件，有些我们下的国外的电影，是没有字幕的，拥有了这个插件，可以进行自动下载匹配的字幕。点击到插件选项，右边往下移，找到 open subtitles 这个， 点击安装版本进行安装</p>
+</li>
+<li><p>安装后，提示要重启 jellyfin 服务， 我们进入到 docker 里，将这个容器进行重启，重启后，点到插件，就可以看到这个插件了</p>
+</li>
+<li><p>进入这个插件，填上账号密码就 ok 了，账号没有的话，点击下面的 register 注册一下</p>
+</li>
+</ul>
+<h3 id="其它设置"><a href="#其它设置" class="headerlink" title="其它设置"></a>其它设置</h3><p>端口设置</p>
+<p>多用户，权限控制</p>
+<h3 id="其他问题"><a href="#其他问题" class="headerlink" title="其他问题"></a>其他问题</h3><p>演员照片不显示<br>添加host<br>13.225.69.117 api.themoviedb.org</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1339.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/1339.html" class="post-title-link" itemprop="url">解锁网易云音乐客户端变灰歌曲</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-04-30" itemprop="dateCreated datePublished" datetime="2020-04-30T12:00:24+00:00">2020-04-30</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>项目地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25vbmRhbmVlL1VuYmxvY2tOZXRlYXNlTXVzaWM=">https://github.com/nondanee/UnblockNeteaseMusic</span><br>食用指南：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25vbmRhbmVlL1VuYmxvY2tOZXRlYXNlTXVzaWMvaXNzdWVzLzIy">https://github.com/nondanee/UnblockNeteaseMusic/issues/22</span></p>
+<p>特性：</p>
+<ul>
+<li>使用 QQ &#x2F; 虾米 &#x2F; 百度 &#x2F; 酷狗 &#x2F; 酷我 &#x2F; 咪咕 &#x2F; JOOX 音源替换变灰歌曲链接 (默认仅启用一、五、六)</li>
+<li>为请求增加 X-Real-IP 参数解锁海外限制，支持指定网易云服务器 IP，支持设置上游 HTTP &#x2F; HTTPS 代理</li>
+<li>完整的流量代理功能 (HTTP &#x2F; HTTPS)，可直接作为系统代理 (同时支持 PAC)</li>
+</ul>
+<h3 id="在-windows-本地使用"><a href="#在-windows-本地使用" class="headerlink" title="在 windows 本地使用"></a>在 windows 本地使用</h3><h4 id="安装-node-js"><a href="#安装-node-js" class="headerlink" title="安装 node.js"></a>安装 node.js</h4><p>去 node.js 官网下载安装即可</p>
+<h4 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/nondanee/UnblockNeteaseMusic.git <span class="comment">#克隆项目仓库</span></span><br><span class="line"><span class="built_in">cd</span> UnblockNeteaseMusic</span><br><span class="line">node app.js</span><br></pre></td></tr></table></figure>
+
+<p>或</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npx @nondanee/unblockneteasemusic</span><br></pre></td></tr></table></figure>
+
+<p>或</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ npm install -g @nondanee/unblockneteasemusic</span><br><span class="line">$ unblockneteasemusic</span><br></pre></td></tr></table></figure>
+
+<h3 id="网易云客户端连接使用"><a href="#网易云客户端连接使用" class="headerlink" title="网易云客户端连接使用"></a>网易云客户端连接使用</h3><p>在网易云客户端内设置代理：<br>右上角设置 &gt; 自定义代理 &gt; 地址 127.0.0.1 端口 8080<br>确定重启客户端后，即可开始使用</p>
+<p>PAC 自动代理脚本地址 <code>http://127.0.0.1:8080/proxy.pac</code></p>
+<p>以上是在本地 window 上使用的方法，如果想给手机稳定使用，可以参考如下方式</p>
+<h3 id="全端解决方案"><a href="#全端解决方案" class="headerlink" title="全端解决方案"></a>全端解决方案</h3><p>需要一台服务器</p>
+<h4 id="安卓等其它设备"><a href="#安卓等其它设备" class="headerlink" title="安卓等其它设备"></a>安卓等其它设备</h4><p>安装 pm2</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm -g install pm2</span><br></pre></td></tr></table></figure>
+
+<p>pm2 部署：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pm2 start app.js --name UnblockNeteaseMusic -- -s -p 8080</span><br></pre></td></tr></table></figure>
+
+<h4 id="ios-设备"><a href="#ios-设备" class="headerlink" title="ios 设备"></a>ios 设备</h4><p>ios 配置经验分享：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25vbmRhbmVlL1VuYmxvY2tOZXRlYXNlTXVzaWMvaXNzdWVzLzM2OA==">https://github.com/nondanee/UnblockNeteaseMusic/issues/368</span></p>
+<p>ios 需要一个域名，并配置反代</p>
+<p>nginx 配置：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">	  listen 443 ssl http2;</span><br><span class="line">	  server_name your_domain; # 改为你自己的域名</span><br><span class="line">	  ssl_certificate 1_your_domain_bundle.crt; # 改为自己申请得到的 crt 文件的名称</span><br><span class="line">	  ssl_certificate_key 2_your_domain.key; # 改为自己申请得到的 key 文件的名称</span><br><span class="line">	  ssl_session_timeout 5m;</span><br><span class="line">	  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">	  ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;</span><br><span class="line">	  ssl_prefer_server_ciphers on;</span><br><span class="line"></span><br><span class="line">	  location / &#123;</span><br><span class="line">	    proxy_pass http://localhost:8080; # 代理到 Unblock 服务地址</span><br><span class="line">	  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>pm2 部署：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pm2 start app.js --name UnblockNeteaseMusic -- -s -p 8080 -e https://unblockneteasemusic.ayyy.club</span><br></pre></td></tr></table></figure>
+
+<p>iOS 搭配 Shadowrocket 连接代理</p>
+<p>Shadowrocket 右上角加号添加节点 -&gt; 类型选择 HTTP -&gt; 服务器填写你的服务器公网 IP -&gt; 端口填写你启动服务的端口号（默认为 8080） -&gt; 点击配置 -&gt; 点击本地文件 -&gt; default.conf -&gt; 编辑配置</p>
+<p>添加三条规则 选项选择你刚刚添加的节点</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">USER-AGENT: NeteaseMusic*</span><br><span class="line">DOMAIN-SUFFIX: 163.com</span><br><span class="line">DOMAIN-SUFFIX: 126.net</span><br></pre></td></tr></table></figure>
+
+<h3 id="pm2-常用命令"><a href="#pm2-常用命令" class="headerlink" title="pm2 常用命令"></a>pm2 常用命令</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pm2 stop UnblockNeteaseMusic <span class="comment"># 停止服务</span></span><br><span class="line">pm2 restart UnblockNeteaseMusic <span class="comment"># 重启服务</span></span><br><span class="line">pm2 pull UnblockNeteaseMusic <span class="comment"># 更新服务到最新代码</span></span><br><span class="line">pm2 show UnblockNeteaseMusic <span class="comment"># 查看服务的参数信息</span></span><br><span class="line">pm2 <span class="built_in">log</span> UnblockNeteaseMusic <span class="comment"># 查看服务日志</span></span><br><span class="line">pm2 <span class="built_in">ls</span> <span class="comment"># 查看已部署的服务列表</span></span><br><span class="line">pm2 monit <span class="comment"># 监控服务状态</span></span><br><span class="line">pm2 flush <span class="comment"># 清理所有日志文件</span></span><br><span class="line">pm2 update <span class="comment"># 更新 pm2 状态</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="一键打卡刷满-300-听歌量"><a href="#一键打卡刷满-300-听歌量" class="headerlink" title="一键打卡刷满 300 听歌量"></a>一键打卡刷满 300 听歌量</h3><p><span class="exturl" data-url="aHR0cHM6Ly90b2RheS5uYW5nZS5jbi8=">https://today.nange.cn/</span></p>
+<div style="display: none;">
+使用方法参考
+
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cubmFuZ2UuY24vdW5sb2NrLW5ldGVhc2UtbXVzaWMuaHRtbA==">https://www.nange.cn/unlock-netease-music.html</span></p>
+</div>
+</div>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1334.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/1334.html" class="post-title-link" itemprop="url">苹果应用共享</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-04-26" itemprop="dateCreated datePublished" datetime="2020-04-26T16:10:35+00:00">2020-04-26</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/software/" itemprop="url" rel="index"><span itemprop="name">软件</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h4 id="胖森微信公众号-（共享-AppleId（免费））"><a href="#胖森微信公众号-（共享-AppleId（免费））" class="headerlink" title="胖森微信公众号 （共享 AppleId（免费））"></a>胖森微信公众号 （共享 AppleId（免费））</h4><p>Procreate<br>GoodNotes5<br>P 站助手<br>Shu<br>Quantumult<br>Quantumult X<br>Shadowrocket</p>
+<h4 id="aneeo-com-（AppleId）"><a href="#aneeo-com-（AppleId）" class="headerlink" title="aneeo.com （AppleId）"></a>aneeo.com （AppleId）</h4><p>旧版应用<br>AppleId 租用（收费）<br>应用代购</p>
+<h4 id="app-ignition-fun-打火机，广告太多不推荐-（在线安装）"><a href="#app-ignition-fun-打火机，广告太多不推荐-（在线安装）" class="headerlink" title="app.ignition.fun 打火机，广告太多不推荐 （在线安装）"></a>app.ignition.fun 打火机，广告太多不推荐 （在线安装）</h4><p>越狱应用</p>
+<h4 id="野心玩家-app-ambier-cn-（在线安装）"><a href="#野心玩家-app-ambier-cn-（在线安装）" class="headerlink" title="野心玩家 app.ambier.cn （在线安装）"></a>野心玩家 app.ambier.cn （在线安装）</h4><p>越狱应用 Uncover checkra1n<br>福利应用</p>
+<h4 id="bc-工具-id-cydias-top-（在线安装）"><a href="#bc-工具-id-cydias-top-（在线安装）" class="headerlink" title="bc 工具 id.cydias.top （在线安装）"></a>bc 工具 id.cydias.top （在线安装）</h4><p>越狱应用 Uncover checkra1n</p>
+<h4 id="有趣工具箱微信小程序-（在线安装）"><a href="#有趣工具箱微信小程序-（在线安装）" class="headerlink" title="有趣工具箱微信小程序 （在线安装）"></a>有趣工具箱微信小程序 （在线安装）</h4><p>越狱应用</p>
+<h4 id="宅哥玩机-（在线安装）"><a href="#宅哥玩机-（在线安装）" class="headerlink" title="宅哥玩机 （在线安装）"></a>宅哥玩机 （在线安装）</h4><p>越狱应用<br>福利应用</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1331.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/1331.html" class="post-title-link" itemprop="url">WordPress 博客绑定多个域名，并实现多个域名独立访问</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-04-26" itemprop="dateCreated datePublished" datetime="2020-04-26T15:09:02+00:00">2020-04-26</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/wordpress/" itemprop="url" rel="index"><span itemprop="name">wordpress</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>WordPress 博客默认是不能实现多个域名独立访问的，即使我们绑定了多个域名，访问时也会自动跳转到安装站点时默认的域名</p>
+<p>我们只需修改站点根目录下的 <code>wp-config.php</code> 文件，添加如下代码：</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="title function_ invoke__">define</span>(<span class="string">&#x27;WP_SITEURL&#x27;</span>, <span class="string">&#x27;https://&#x27;</span> . <span class="variable">$_SERVER</span>[<span class="string">&#x27;HTTP_HOST&#x27;</span>]);</span><br><span class="line"><span class="title function_ invoke__">define</span>(<span class="string">&#x27;WP_HOME&#x27;</span>, <span class="string">&#x27;https://&#x27;</span> . <span class="variable">$_SERVER</span>[<span class="string">&#x27;HTTP_HOST&#x27;</span>]);</span><br></pre></td></tr></table></figure>
+
+<p>即可</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -628,513 +1134,6 @@
 <p>部署 CloudFlare</p>
 <p>绑定自定义域名</p>
 <p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RvbndhL2dvaW5kZXgvaXNzdWVzLzQ=">https://github.com/donwa/goindex/issues/4</span></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1243.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/1243.html" class="post-title-link" itemprop="url">安装 rclone 并挂载 Google drive</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2020-04-22" itemprop="dateCreated datePublished" datetime="2020-04-22T00:00:05+00:00">2020-04-22</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">todo:</span><br><span class="line">https://www.cnblogs.com/mysummerday/p/12661263.html#_caption_1</span><br><span class="line"></span><br><span class="line">./rclone.exe mount secret:/  Q: --cache-dir G:\OneDrive --vfs-cache-mode writes &amp;</span><br><span class="line"></span><br><span class="line"> Fatal error: failed to mount FUSE fs: mount stopped before calling Init: mount failed: cgofuse: cannot find winfsp</span><br></pre></td></tr></table></figure>
-
-<h3 id="安装-rclone-并挂载-Googledrive"><a href="#安装-rclone-并挂载-Googledrive" class="headerlink" title="安装 rclone 并挂载 Googledrive"></a>安装 rclone 并挂载 Googledrive</h3><h3 id="安装-rclone"><a href="#安装-rclone" class="headerlink" title="安装 rclone"></a>安装 rclone</h3><p>Linux 环境</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl https://rclone.org/install.sh | sudo bash</span><br></pre></td></tr></table></figure>
-
-<p>Windows 环境</p>
-<p>直接去 rclone 官网下载 rclone，最好将 rclone.exe 所在目录加入系统环境变量</p>
-<h3 id="配置-rclone"><a href="#配置-rclone" class="headerlink" title="配置 rclone"></a>配置 rclone</h3><blockquote>
-<p>详细配置参考 <span class="exturl" data-url="aHR0cHM6Ly9yY2xvbmUub3JnL2RyaXZlLw==">https://rclone.org/drive/</span></p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rclone config</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">No remotes found - make a new one</span><br><span class="line">n) New remote</span><br><span class="line">s) Set configuration password</span><br><span class="line">q) Quit config</span><br><span class="line">n/s/q&gt; n # 新建</span><br><span class="line">name&gt; gdrive # 名称，后面要用到</span><br><span class="line">Type of storage to configure.</span><br><span class="line">Enter a string value. Press Enter for the default (&quot;&quot;).</span><br><span class="line">Choose a number from below, or type in your own value</span><br><span class="line"> 1 / 1Fichier</span><br><span class="line">   \ &quot;fichier&quot;</span><br><span class="line"> 2 / Alias for an existing remote</span><br><span class="line">   \ &quot;alias&quot;</span><br><span class="line"> 3 / Amazon Drive</span><br><span class="line">   \ &quot;amazon cloud drive&quot;</span><br><span class="line"> 4 / Amazon S3 Compliant Storage Provider (AWS, Alibaba, Ceph, Digital Ocean, Dreamhost, IBM COS, Minio, etc)</span><br><span class="line">   \ &quot;s3&quot;</span><br><span class="line"> 5 / Backblaze B2</span><br><span class="line">   \ &quot;b2&quot;</span><br><span class="line"> 6 / Box</span><br><span class="line">   \ &quot;box&quot;</span><br><span class="line"> 7 / Cache a remote</span><br><span class="line">   \ &quot;cache&quot;</span><br><span class="line"> 8 / Citrix Sharefile</span><br><span class="line">   \ &quot;sharefile&quot;</span><br><span class="line"> 9 / Dropbox</span><br><span class="line">   \ &quot;dropbox&quot;</span><br><span class="line">10 / Encrypt/Decrypt a remote</span><br><span class="line">   \ &quot;crypt&quot;</span><br><span class="line">11 / FTP Connection</span><br><span class="line">   \ &quot;ftp&quot;</span><br><span class="line">12 / Google Cloud Storage (this is not Google Drive)</span><br><span class="line">   \ &quot;google cloud storage&quot;</span><br><span class="line">13 / Google Drive</span><br><span class="line">   \ &quot;drive&quot;</span><br><span class="line">14 / Google Photos</span><br><span class="line">   \ &quot;google photos&quot;</span><br><span class="line">15 / Hubic</span><br><span class="line">   \ &quot;hubic&quot;</span><br><span class="line">16 / In memory object storage system.</span><br><span class="line">   \ &quot;memory&quot;</span><br><span class="line">17 / JottaCloud</span><br><span class="line">   \ &quot;jottacloud&quot;</span><br><span class="line">18 / Koofr</span><br><span class="line">   \ &quot;koofr&quot;</span><br><span class="line">19 / Local Disk</span><br><span class="line">   \ &quot;local&quot;</span><br><span class="line">20 / Mail.ru Cloud</span><br><span class="line">   \ &quot;mailru&quot;</span><br><span class="line">21 / Mega</span><br><span class="line">   \ &quot;mega&quot;</span><br><span class="line">22 / Microsoft Azure Blob Storage</span><br><span class="line">   \ &quot;azureblob&quot;</span><br><span class="line">23 / Microsoft OneDrive</span><br><span class="line">   \ &quot;onedrive&quot;</span><br><span class="line">24 / OpenDrive</span><br><span class="line">   \ &quot;opendrive&quot;</span><br><span class="line">25 / Openstack Swift (Rackspace Cloud Files, Memset Memstore, OVH)</span><br><span class="line">   \ &quot;swift&quot;</span><br><span class="line">26 / Pcloud</span><br><span class="line">   \ &quot;pcloud&quot;</span><br><span class="line">27 / Put.io</span><br><span class="line">   \ &quot;putio&quot;</span><br><span class="line">28 / QingCloud Object Storage</span><br><span class="line">   \ &quot;qingstor&quot;</span><br><span class="line">29 / SSH/SFTP Connection</span><br><span class="line">   \ &quot;sftp&quot;</span><br><span class="line">30 / Sugarsync</span><br><span class="line">   \ &quot;sugarsync&quot;</span><br><span class="line">31 / Transparently chunk/split large files</span><br><span class="line">   \ &quot;chunker&quot;</span><br><span class="line">32 / Union merges the contents of several remotes</span><br><span class="line">   \ &quot;union&quot;</span><br><span class="line">33 / Webdav</span><br><span class="line">   \ &quot;webdav&quot;</span><br><span class="line">34 / Yandex Disk</span><br><span class="line">   \ &quot;yandex&quot;</span><br><span class="line">35 / http Connection</span><br><span class="line">   \ &quot;http&quot;</span><br><span class="line">36 / premiumize.me</span><br><span class="line">   \ &quot;premiumizeme&quot;</span><br><span class="line">Storage&gt; 13 # 选择 13 google drive</span><br><span class="line">** See help for drive backend at: https://rclone.org/drive/ **</span><br><span class="line"></span><br><span class="line">Google Application Client Id</span><br><span class="line">Setting your own is recommended.</span><br><span class="line">See https://rclone.org/drive/#making-your-own-client-id for how to create your own.</span><br><span class="line">If you leave this blank, it will use an internal key which is low performance.</span><br><span class="line">Enter a string value. Press Enter for the default (&quot;&quot;).</span><br><span class="line">client_id&gt; # 默认</span><br><span class="line">Google Application Client Secret</span><br><span class="line">Setting your own is recommended.</span><br><span class="line">Enter a string value. Press Enter for the default (&quot;&quot;).</span><br><span class="line">client_secret&gt; # 默认</span><br><span class="line">Scope that rclone should use when requesting access from drive.</span><br><span class="line">Enter a string value. Press Enter for the default (&quot;&quot;).</span><br><span class="line">Choose a number from below, or type in your own value</span><br><span class="line"> 1 / Full access all files, excluding Application Data Folder.</span><br><span class="line">   \ &quot;drive&quot;</span><br><span class="line"> 2 / Read-only access to file metadata and file contents.</span><br><span class="line">   \ &quot;drive.readonly&quot;</span><br><span class="line">   / Access to files created by rclone only.</span><br><span class="line"> 3 | These are visible in the drive website.</span><br><span class="line">   | File authorization is revoked when the user deauthorizes the app.</span><br><span class="line">   \ &quot;drive.file&quot;</span><br><span class="line">   / Allows read and write access to the Application Data folder.</span><br><span class="line"> 4 | This is not visible in the drive website.</span><br><span class="line">   \ &quot;drive.appfolder&quot;</span><br><span class="line">   / Allows read-only access to file metadata but</span><br><span class="line"> 5 | does not allow any access to read or download file content.</span><br><span class="line">   \ &quot;drive.metadata.readonly&quot;</span><br><span class="line">scope&gt; 1 # 选1，所有权限</span><br><span class="line">ID of the root folder</span><br><span class="line">Leave blank normally.</span><br><span class="line"></span><br><span class="line">Fill in to access &quot;Computers&quot; folders (see docs), or for rclone to use</span><br><span class="line">a non root folder as its starting point.</span><br><span class="line"></span><br><span class="line">Note that if this is blank, the first time rclone runs it will fill it</span><br><span class="line">in with the ID of the root folder.</span><br><span class="line"></span><br><span class="line">Enter a string value. Press Enter for the default (&quot;&quot;).</span><br><span class="line">root_folder_id&gt; # 默认</span><br><span class="line">Service Account Credentials JSON file path</span><br><span class="line">Leave blank normally.</span><br><span class="line">Needed only if you want use SA instead of interactive login.</span><br><span class="line">Enter a string value. Press Enter for the default (&quot;&quot;).</span><br><span class="line">service_account_file&gt; # 默认</span><br><span class="line">Edit advanced config? (y/n)</span><br><span class="line">y) Yes</span><br><span class="line">n) No (default)</span><br><span class="line">y/n&gt; # 默认</span><br><span class="line">Remote config</span><br><span class="line">Use auto config?</span><br><span class="line"> * Say Y if not sure</span><br><span class="line"> * Say N if you are working on a remote or headless machine</span><br><span class="line">y) Yes (default)</span><br><span class="line">n) No</span><br><span class="line">y/n&gt; n # 如果在远程服务器上配置，记得选 n，否则可能无法正常授权</span><br><span class="line">If your browser doesn&#x27;t open automatically go to the following link: http://127.0.0.1:53682/auth</span><br><span class="line">Log in and authorize rclone for access</span><br><span class="line">Waiting for code...</span><br><span class="line">Got code</span><br><span class="line">Configure this as a team drive?</span><br><span class="line">y) Yes</span><br><span class="line">n) No</span><br><span class="line">y/n&gt; n</span><br><span class="line">--------------------</span><br><span class="line">[remote]</span><br><span class="line">client_id =</span><br><span class="line">client_secret =</span><br><span class="line">scope = drive</span><br><span class="line">root_folder_id =</span><br><span class="line">service_account_file =</span><br><span class="line">token = &#123;&quot;access_token&quot;:&quot;XXX&quot;,&quot;token_type&quot;:&quot;Bearer&quot;,&quot;refresh_token&quot;:&quot;XXX&quot;,&quot;expiry&quot;:&quot;2014-03-16T13:57:58.955387075Z&quot;&#125;</span><br><span class="line">--------------------</span><br><span class="line">y) Yes this is OK</span><br><span class="line">e) Edit this remote</span><br><span class="line">d) Delete this remote</span><br><span class="line">y/e/d&gt; y</span><br><span class="line">Current remotes:</span><br><span class="line">Name                 Type</span><br><span class="line">====                 ====</span><br><span class="line">gdrive               drive</span><br><span class="line"></span><br><span class="line">e) Edit existing remote</span><br><span class="line">n) New remote</span><br><span class="line">d) Delete remote</span><br><span class="line">r) Rename remote</span><br><span class="line">c) Copy remote</span><br><span class="line">s) Set configuration password</span><br><span class="line">q) Quit config</span><br><span class="line">e/n/d/r/c/s/q&gt; q</span><br></pre></td></tr></table></figure>
-
-<p><strong>注意：</strong>如果在远程 linux 安装，有些配置(涉及 oauth2 的配置)需要使用浏览器授权，可以使用一下方法配置</p>
-<blockquote>
-<p>参考：<span class="exturl" data-url="aHR0cHM6Ly9yY2xvbmUub3JnL3JlbW90ZV9zZXR1cC8=">https://rclone.org/remote_setup/</span></p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Remote config</span><br><span class="line">Use auto config?</span><br><span class="line"> * Say Y if not sure</span><br><span class="line"> * Say N if you are working on a remote or headless machine</span><br><span class="line">y) Yes</span><br><span class="line">n) No</span><br><span class="line">y/n&gt; n # 这里选择 n，授权链接会变成如下样式，而不再是 http://127.0.0.1</span><br><span class="line">Please go to the following link: https://accounts.google.com/o/oauth2/auth?access_type=offline&amp;client_id=202264815644.apps.googleusercontent.com&amp;redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob&amp;response_type=code&amp;scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive&amp;state=J17j_xVz3tAQmV3sMO0xxw</span><br><span class="line">Log in and authorize rclone for access</span><br><span class="line">Enter verification code&gt; # 打开链接登陆授权，将code粘贴到这里</span><br></pre></td></tr></table></figure>
-
-<h3 id="挂载"><a href="#挂载" class="headerlink" title="挂载"></a>挂载</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /home/gdrive</span><br><span class="line"><span class="comment">#gdrive 为上面配置的 name</span></span><br><span class="line"><span class="comment">#/home/gdrive 为挂载到本地的目录</span></span><br><span class="line">/usr/bin/rclone mount gdrive: /home/gdrive \</span><br><span class="line"> --<span class="built_in">umask</span> 0000 \</span><br><span class="line"> --default-permissions \</span><br><span class="line"> --allow-non-empty \</span><br><span class="line"> --allow-other \</span><br><span class="line"> --buffer-size 32M \</span><br><span class="line"> --dir-cache-time 12h \</span><br><span class="line"> --vfs-cache-mode \</span><br><span class="line">  writes &amp;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>报错<br>Fatal error: failed to mount FUSE fs: fusermount: exec: “fusermount”: executable file not found in $PATH<br>解决：安装 fuse<br><code>apt-get install fuse -y</code></p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 卸载磁盘</span></span><br><span class="line">fusermount -qzu LocalFolder  <span class="comment"># LocalFolder 为本地挂载目录</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="查看挂载"><a href="#查看挂载" class="headerlink" title="查看挂载"></a>查看挂载</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">df</span> -h</span><br><span class="line">Filesystem      Size  Used Avail Use% Mounted on</span><br><span class="line">gdrive:         1.0P     0  1.0P   0% /home/gdrive</span><br></pre></td></tr></table></figure>
-
-<p>自动挂载</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat &gt; /etc/systemd/system/rclone.service &lt;&lt;EOF</span><br><span class="line">[Unit]</span><br><span class="line">Description=Rclone</span><br><span class="line">AssertPathIsDirectory=LocalFolder</span><br><span class="line">After=network-online.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">ExecStart=/usr/bin/rclone mount emby: /home/gdrive \</span><br><span class="line"> --umask 0000 \</span><br><span class="line"> --default-permissions \</span><br><span class="line"> --allow-non-empty \</span><br><span class="line"> --allow-other \</span><br><span class="line"> --buffer-size 32M \</span><br><span class="line"> --dir-cache-time 12h \</span><br><span class="line"> --vfs-read-chunk-size 64M \</span><br><span class="line"> --vfs-read-chunk-size-limit 1G</span><br><span class="line">ExecStop=/bin/fusermount -u LocalFolder</span><br><span class="line">Restart=on-abort</span><br><span class="line">User=root</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=default.target</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
-
-<p>启动</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl start rclone</span><br></pre></td></tr></table></figure>
-
-<p>开启启动</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> rclone</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1165.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/1165.html" class="post-title-link" itemprop="url">群辉 NAS docker 中配置 v2ray 客户端</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2020-04-19" itemprop="dateCreated datePublished" datetime="2020-04-19T17:05:57+00:00">2020-04-19</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/NAS/" itemprop="url" rel="index"><span itemprop="name">NAS</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="安装docker插件-v2ray-映像"><a href="#安装docker插件-v2ray-映像" class="headerlink" title="安装docker插件 + v2ray 映像"></a>安装docker插件 + v2ray 映像</h2><p><strong>注意：X86 架构的 CPU 支持 docker，ARM 架构的 CPU 不支持 docker</strong></p>
-<p>在群辉套件中心搜索 <code>docker</code> 并安装</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102184610.png"></p>
-<p>打开 docker，搜索 v2ray，双击下载 <code>v2ray/official</code> 即可</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102200946.png"></p>
-<p>选择刚刚下载的映像，点击启动</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102202910.png"></p>
-<p>输入容器名称，点击高级设置</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102201229.png"></p>
-<p>在高级设置中勾选启用自动重新启动和创建桌面快捷方式</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102201257.png"></p>
-<p>在卷中添加文件夹，装载路径为 <code>/etc</code>。需要提前在file station 中创建好 <code>docker/v2ray</code> 文件夹</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102201321.png"></p>
-<p>在网络中勾选 使用与 Docker Host 相同的网络</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102201343.png"></p>
-<p>其他默认，点击应用</p>
-<p>点击下一步</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102201404.png"></p>
-<p>将 <code>向导完成后运行此容器</code> 取消选中（因为还没有配置文件）。点击应用</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102201429.png"></p>
-<h2 id="v2ray-客户端配置文件"><a href="#v2ray-客户端配置文件" class="headerlink" title="v2ray 客户端配置文件"></a>v2ray 客户端配置文件</h2><p>可以用gui客户端中配置好服务器，直接导出客户端配置文件为 <code>config.json</code>，我使用的是 v2rayN</p>
-<p>编辑 config.json， 修改 listen 为 0.0.0.0, protocol 为 <code>http</code>，port 随意，也可以不改</p>
-<p>在 v2rayN 程序文件夹中 找到 geoip.dat geosite.dat 文件</p>
-<p>在刚刚创建的 <code>docker/v2ray</code>文件夹中在创建一个 v2ray 文件夹，将 config.json geoip.dat geosite.dat 三个文件放进去</p>
-<p>我的部分 <code>config.json</code> 配置</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;inbounds&quot;: [</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;tag&quot;: &quot;proxy&quot;,</span><br><span class="line">      &quot;port&quot;: 10808,</span><br><span class="line">      &quot;listen&quot;: &quot;0.0.0.0&quot;,</span><br><span class="line">      &quot;protocol&quot;: &quot;http&quot;,</span><br><span class="line">      &quot;sniffing&quot;: &#123;</span><br><span class="line">        &quot;enabled&quot;: true,</span><br><span class="line">        &quot;destOverride&quot;: [</span><br><span class="line">          &quot;http&quot;,</span><br><span class="line">          &quot;tls&quot;</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;settings&quot;: &#123;</span><br><span class="line">        &quot;auth&quot;: &quot;noauth&quot;,</span><br><span class="line">        &quot;udp&quot;: true,</span><br><span class="line">        &quot;ip&quot;: null,</span><br><span class="line">        &quot;address&quot;: null,</span><br><span class="line">        &quot;clients&quot;: null</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;streamSettings&quot;: null</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>最后启动刚刚创建好的 docker 即可</p>
-<h3 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h3><p>到这了只是在群辉中安装了 v2ray 客户端，并配置了服务器，还需要手动连接代理，在群辉中，你需要在 控制面板-网络-常规-代理服务器 中添加代理</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102201501.png"></p>
-<p>如果你的其他设备想要连接也需要相同的方式手动配置代理</p>
-<p>在 win10 设置中，如下图所示位置，代理方式只支持 http 代理（这就是为什么上步中要把protocol改为http）地址为你群规的ip，端口就是上步中设置的端口，配置完之后保存即可</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102201524.png"></p>
-<p>手机中同理，在无线中配置代理</p>
-<p>如果你想实现只需连接家里无线就可以直接实现科学上网，你需要在路由器中做一些配置，可以参考下文【待整理】</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1136.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/1136.html" class="post-title-link" itemprop="url">前端开发中常用的一些技巧</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2020-04-07" itemprop="dateCreated datePublished" datetime="2020-04-07T17:19:44+00:00">2020-04-07</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="css"><a href="#css" class="headerlink" title="css"></a>css</h3><h4 id="文字溢出省略号显示"><a href="#文字溢出省略号显示" class="headerlink" title="文字溢出省略号显示"></a>文字溢出省略号显示</h4><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 强制一行内显示文本 */</span></span><br><span class="line"><span class="selector-class">.single-line</span> &#123;</span><br><span class="line">  <span class="attribute">white-space</span>: nowrap;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 强制最多三行显示文本 */</span></span><br><span class="line"><span class="selector-class">.multi-line</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: -webkit-box;</span><br><span class="line">  -webkit-box-orient: vertical;</span><br><span class="line">  -webkit-line-clamp: <span class="number">3</span>; <span class="comment">/* 强制三行显示 */</span></span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">text-overflow</span>: ellipsis; <span class="comment">/* 不是必须 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="让-div-宽度自适应文字内容"><a href="#让-div-宽度自适应文字内容" class="headerlink" title="让 div 宽度自适应文字内容"></a>让 div 宽度自适应文字内容</h4><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.fit-width</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: fit-content;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="opacity-0、display-none、visibility-hidden"><a href="#opacity-0、display-none、visibility-hidden" class="headerlink" title="opacity:0、display:none、visibility:hidden"></a>opacity:0、display:none、visibility:hidden</h4><p><code>opacity:0</code> 和 <code>display:none</code>，若父节点元素应用了 <code>opacity:0</code> 和 <code>display:none</code>，无论其子孙元素如何挣扎都不会再出现在大众视野<br>而若父节点元素应用 <code>visibility:hidden</code>，子孙元素应用 <code>visibility:visible</code>，那么其就会毫无意外的显现出来</p>
-<h4 id="max-width-优先级高于行内样式加-important"><a href="#max-width-优先级高于行内样式加-important" class="headerlink" title="max-width 优先级高于行内样式加 !important"></a>max-width 优先级高于行内样式加 !important</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">  <span class="selector-tag">div</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">max-width</span>: <span class="number">50px</span>;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;width: 100px !important;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>div 的宽度为 50px</p>
-<h4 id="使用-CSS-网格定义-main-和-aside-元素"><a href="#使用-CSS-网格定义-main-和-aside-元素" class="headerlink" title="使用 CSS 网格定义 main 和 aside 元素"></a>使用 CSS 网格定义 main 和 aside 元素</h4><p>CSS 网格可用于定义布局中的 main 部分和 aside 部分，这是 CSS 网格的绝佳用途。问题是，即使 aside 是空的，它的高度也会和 main 的高度相等。</p>
-<p>要修复这个问题，可以让 aside 元素与其父元素的起点对齐，这样它的高度就不会扩展了。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: grid;</span><br><span class="line">  <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(<span class="number">12</span>, <span class="built_in">minmax</span>(<span class="number">0</span>, <span class="number">1</span>fr));</span><br><span class="line">  <span class="attribute">grid-gap</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* align-self 将会让 aside 元素与其父元素的起点对齐。 */</span></span><br><span class="line"><span class="selector-tag">aside</span> &#123;</span><br><span class="line">  <span class="attribute">grid-column</span>: <span class="number">1</span> / <span class="number">4</span>;</span><br><span class="line">  <span class="attribute">grid-row</span>: <span class="number">1</span>;</span><br><span class="line">  <span class="attribute">align-self</span>: start;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">main</span> &#123;</span><br><span class="line">  <span class="attribute">grid-column</span>: <span class="number">4</span> / <span class="number">13</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="使用-display-inline-block-时奇怪的空隙"><a href="#使用-display-inline-block-时奇怪的空隙" class="headerlink" title="使用 display: inline-block 时奇怪的空隙"></a>使用 display: inline-block 时奇怪的空隙</h4><p>给两个或两个以上的元素设置 display: inline-block 或者 display: inline ，将会导致它们之间产生一个微小的空隙。代码中的换行和缩进（连续空格）被渲染成了一个空格造成的</p>
-<p>通过给父元素设置 font-size: 0 可以简单地解决这个问题。</p>
-<h4 id="交互式-HTML-元素的字体不生效"><a href="#交互式-HTML-元素的字体不生效" class="headerlink" title="交互式 HTML 元素的字体不生效"></a>交互式 HTML 元素的字体不生效</h4><p>给整个文档设置字体的时候，字体并不会应用于诸如 input， button select 和 textarea 这些元素上。默认情况下，它们并不会继承文档字体，因为浏览器给它们应用了系统字体。</p>
-<p>要修复这个问题，直接给他们设置字体属性：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">input</span>,</span><br><span class="line"><span class="selector-tag">button</span>,</span><br><span class="line">select,</span><br><span class="line"><span class="selector-tag">textarea</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: your-font-name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="css-调试"><a href="#css-调试" class="headerlink" title="css 调试"></a>css 调试</h4><p>将代码添加到浏览器的控制台运行，页面上所有元素的轮廓都会显示出来。</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vYWRkeW9zbWFuaS9mZDM5OTllYTdmY2UyNDI3NTZiMQ==">https://gist.github.com/addyosmani/fd3999ea7fce242756b1</span></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">;[].<span class="property">forEach</span>.<span class="title function_">call</span>($$(<span class="string">&#x27;*&#x27;</span>), <span class="keyword">function</span> (<span class="params">a</span>) &#123;</span><br><span class="line">  a.<span class="property">style</span>.<span class="property">outline</span> = <span class="string">&#x27;1px solid #&#x27;</span> + (~~(<span class="title class_">Math</span>.<span class="title function_">random</span>() * (<span class="number">1</span> &lt;&lt; <span class="number">24</span>))).<span class="title function_">toString</span>(<span class="number">16</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h4 id="压缩或拉伸图片"><a href="#压缩或拉伸图片" class="headerlink" title="压缩或拉伸图片"></a>压缩或拉伸图片</h4><p>用 CSS 调整一张图片的大小时，如果纵横比与图片的宽高不一致，则图片会被压缩或拉伸。</p>
-<p>解决方法很简单：使用 CSS 的 object-fit。它的功能和给背景图片设置 background-size: cover 类似。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">img</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">object-fit</span>: contain;</span><br><span class="line">  <span class="comment">/* object-fit: cover; */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>object-fit 语法参考<br><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQ1NTL29iamVjdC1maXQ=">https://developer.mozilla.org/zh-CN/docs/Web/CSS/object-fit</span></p>
-<blockquote>
-<p>object-fit 属性由下列的值中的单独一个关键字来指定。</p>
-<p>取值<br>contain 保持长宽比，以长边填充<br>cover 保持长宽比，以短边填充，多余的会被裁减掉<br>fill 完全填充，会拉伸<br>none 保持其原有的尺寸<br>scale-down 内容的尺寸与 none 或 contain 中的一个相同，取决于它们两个之间谁得到的对象尺寸会更小一些。</p>
-</blockquote>
-<h4 id="滚动条样式"><a href="#滚动条样式" class="headerlink" title="滚动条样式"></a>滚动条样式</h4><figure class="highlight css"><table><tr><td class="code"><pre><span class="line">::-webkit-scrollbar &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">8px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">8px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* -webkit-scrollbar-thumb 滚动条手柄 */</span></span><br><span class="line">::-webkit-scrollbar-thumb &#123;</span><br><span class="line">&#125;</span><br><span class="line">::-webkit-scrollbar-thumb:hover &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* -webkit-scrollbar-track 滚动条轨道 */</span></span><br><span class="line">::-webkit-scrollbar-track &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*滚动条上半边或左半边*/</span></span><br><span class="line">::-webkit-scrollbar-track-piece:start &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* -webkit-scrollbar-button 滚动条的轨道的两端按钮 */</span></span><br><span class="line"><span class="comment">/*滚动条上边或左边按钮*/</span></span><br><span class="line">::-webkit-scrollbar-button:start &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* -webkit-scrollbar-corne 垂直滚动条和水平滚动条相交的地方 */</span></span><br><span class="line">::-webkit-scrollbar-corner &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="卡券样式"><a href="#卡券样式" class="headerlink" title="卡券样式"></a>卡券样式</h4><p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102204135.png"></p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.coupon</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">radial-gradient</span>(circle at right bottom, transparent <span class="number">10px</span>, <span class="number">#ffffff</span> <span class="number">0</span>) top right / <span class="number">50%</span> <span class="number">50%</span> no-repeat, <span class="built_in">radial-gradient</span>(circle at left bottom, transparent <span class="number">10px</span>, <span class="number">#ffffff</span> <span class="number">0</span>) top left / <span class="number">50%</span> <span class="number">50%</span> no-repeat, <span class="built_in">radial-gradient</span>(circle at right top, transparent <span class="number">10px</span>, <span class="number">#ffffff</span> <span class="number">0</span>) bottom right / <span class="number">50%</span> <span class="number">50%</span> no-repeat, <span class="built_in">radial-gradient</span>(circle at left top, transparent <span class="number">10px</span>, <span class="number">#ffffff</span> <span class="number">0</span>) bottom left / <span class="number">50%</span> <span class="number">50%</span> no-repeat;</span><br><span class="line">  <span class="attribute">filter</span>: <span class="built_in">drop-shadow</span>(<span class="number">2px</span> <span class="number">2px</span> <span class="number">2px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.2</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="阴影效果"><a href="#阴影效果" class="headerlink" title="阴影效果"></a>阴影效果</h4><p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102204206.jpeg"></p>
-<p>气泡阴影</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.tip</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">30px</span>;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">30px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="built_in">rgb</span>(<span class="number">245</span>, <span class="number">129</span>, <span class="number">127</span>);</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">4px</span>;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#fff</span>;</span><br><span class="line">  <span class="attribute">filter</span>: <span class="built_in">drop-shadow</span>(<span class="number">0px</span> <span class="number">2px</span> <span class="number">4px</span> <span class="built_in">rgba</span>(<span class="number">245</span>, <span class="number">129</span>, <span class="number">127</span>, <span class="number">0.9</span>));</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.tip</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">border-style</span>: solid;</span><br><span class="line">  <span class="attribute">border-width</span>: <span class="number">0</span> <span class="number">10px</span> <span class="number">10px</span> <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">border-color</span>: transparent transparent <span class="number">#fff</span> transparent;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">top</span>: -<span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">margin</span>: auto;</span><br><span class="line">  <span class="attribute">z-index</span>: <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.tip</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">border-style</span>: solid;</span><br><span class="line">  <span class="attribute">border-width</span>: <span class="number">0</span> <span class="number">10px</span> <span class="number">10px</span> <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">border-color</span>: transparent transparent <span class="built_in">rgb</span>(<span class="number">245</span>, <span class="number">129</span>, <span class="number">127</span>) transparent;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">top</span>: -<span class="number">11px</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">margin</span>: auto;</span><br><span class="line">  <span class="attribute">z-index</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>三角形阴影</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.shadow-triangle</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">border-style</span>: solid;</span><br><span class="line">  <span class="attribute">border-width</span>: <span class="number">0</span> <span class="number">50px</span> <span class="number">50px</span> <span class="number">50px</span>;</span><br><span class="line">  <span class="attribute">border-color</span>: transparent transparent <span class="built_in">rgb</span>(<span class="number">245</span>, <span class="number">129</span>, <span class="number">127</span>) transparent;</span><br><span class="line">  <span class="attribute">filter</span>: <span class="built_in">drop-shadow</span>(<span class="number">10px</span> <span class="number">0px</span> <span class="number">10px</span> <span class="built_in">rgba</span>(<span class="number">238</span>, <span class="number">125</span>, <span class="number">55</span>, <span class="number">0.5</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>缺圆投影</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.circle-square</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">50px</span>;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">radial-gradient</span>(circle at bottom right, transparent <span class="number">20px</span>, <span class="built_in">rgb</span>(<span class="number">245</span>, <span class="number">129</span>, <span class="number">127</span>) <span class="number">15px</span>);</span><br><span class="line">  <span class="attribute">filter</span>: <span class="built_in">drop-shadow</span>(<span class="number">2px</span> <span class="number">2px</span> <span class="number">2px</span> <span class="built_in">rgba</span>(<span class="number">238</span>, <span class="number">132</span>, <span class="number">66</span>, <span class="number">0.9</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="1px-边框"><a href="#1px-边框" class="headerlink" title="1px 边框"></a>1px 边框</h4><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 方式1 */</span></span><br><span class="line"><span class="selector-class">.border</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">pointer-events</span>: none;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200%</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">200%</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">  -webkit-<span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">0.5</span>);</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">0.5</span>);</span><br><span class="line">  <span class="attribute">transform-origin</span>: <span class="number">0</span> <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 方式2 */</span></span><br><span class="line"><span class="selector-class">.border</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">pointer-events</span>: none;</span><br><span class="line">  <span class="attribute">top</span>: -<span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">right</span>: -<span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">bottom</span>: -<span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">left</span>: -<span class="number">50%</span>;</span><br><span class="line">  -webkit-<span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">0.5</span>);</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">0.5</span>);</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="记住密码之后，输入框变色问题"><a href="#记住密码之后，输入框变色问题" class="headerlink" title="记住密码之后，输入框变色问题"></a>记住密码之后，输入框变色问题</h4><p>谷歌浏览器使用如下方式解决</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">input</span>:-webkit-autofill,</span><br><span class="line">textarea:-webkit-autofill,</span><br><span class="line">select:-webkit-autofill &#123;</span><br><span class="line">	-webkit-text-fill-<span class="attribute">color</span>: <span class="number">#ededed</span> <span class="meta">!important</span>; // 自动填充文字颜色</span><br><span class="line">	-webkit-<span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">0px</span> <span class="number">1000px</span> white inset <span class="meta">!important</span>; // 使用内阴影覆盖，这个内阴影一定要大，要不然盖不住</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>火狐浏览器无效</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1114.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/1114.html" class="post-title-link" itemprop="url">element-ui 实现向下滚动加载</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2020-04-07" itemprop="dateCreated datePublished" datetime="2020-04-07T13:51:41+00:00">2020-04-07</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="自定义封装-vue-指令，实现-select-下拉框滚动加载"><a href="#自定义封装-vue-指令，实现-select-下拉框滚动加载" class="headerlink" title="自定义封装 vue 指令，实现 select 下拉框滚动加载"></a>自定义封装 vue 指令，实现 select 下拉框滚动加载</h3><p>封装 v-loadmore 指令</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title class_">Vue</span>.<span class="title function_">directive</span>(<span class="string">&#x27;loadmore&#x27;</span>, &#123;</span><br><span class="line">  <span class="title function_">bind</span>(<span class="params">el, binding</span>) &#123;</span><br><span class="line">    <span class="comment">// 获取 element-ui 定义好的 scroll 盒子</span></span><br><span class="line">    <span class="keyword">const</span> target = el.<span class="title function_">querySelector</span>(<span class="string">&#x27;.el-select-dropdown .el-select-dropdown__wrap&#x27;</span>)</span><br><span class="line">    target.<span class="title function_">addEventListener</span>(<span class="string">&#x27;scroll&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="comment">// scrollHeight 获取元素内容高度(只读)</span></span><br><span class="line">      <span class="comment">// scrollTop 获取或者设置元素的滚动高度</span></span><br><span class="line">      <span class="comment">// clientHeight 读取元素的可见高度(只读)</span></span><br><span class="line">      <span class="keyword">const</span> flag = <span class="variable language_">this</span>.<span class="property">scrollHeight</span> - <span class="variable language_">this</span>.<span class="property">scrollTop</span> &lt;= <span class="variable language_">this</span>.<span class="property">clientHeight</span></span><br><span class="line">      <span class="keyword">if</span> (flag) &#123;</span><br><span class="line">        binding.<span class="title function_">value</span>()</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>使用</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">el-select</span></span></span><br><span class="line"><span class="tag">  <span class="attr">v-loadmore</span>=<span class="string">&quot;loadMore&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">el-option</span>&gt;</span><span class="tag">&lt;/<span class="name">el-option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">el-select</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">methods</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">    loadMore () &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="property">loadingMore</span> == <span class="literal">false</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">this</span>.<span class="property">loadingMore</span> = <span class="literal">true</span></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">return</span></span></span><br><span class="line"><span class="language-javascript">      &#125;</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="property">currentPage</span> &gt; <span class="variable language_">this</span>.<span class="property">totlaPage</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">return</span></span></span><br><span class="line"><span class="language-javascript">      &#125;</span></span><br><span class="line"><span class="language-javascript">      <span class="comment">// 获取数据</span></span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="title function_">getData</span>()</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="使用-vue-infinite-scroll"><a href="#使用-vue-infinite-scroll" class="headerlink" title="使用 vue-infinite-scroll"></a>使用 vue-infinite-scroll</h3><p>github 地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0VsZW1lRkUvdnVlLWluZmluaXRlLXNjcm9sbA==">https://github.com/ElemeFE/vue-infinite-scroll</span></p>
-<p>安装</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm i vue-infinite-scroll</span><br></pre></td></tr></table></figure>
-
-<p>使用</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// # main.js</span></span><br><span class="line"><span class="keyword">import</span> infiniteScroll <span class="keyword">from</span> <span class="string">&#x27;vue-infinite-scroll&#x27;</span></span><br><span class="line"><span class="title class_">Vue</span>.<span class="title function_">use</span>(infiniteScroll)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">v-infinite-scroll</span>=<span class="string">&quot;loadMore&quot;</span> <span class="attr">infinite-scroll-disabled</span>=<span class="string">&quot;busy&quot;</span> <span class="attr">infinite-scroll-distance</span>=<span class="string">&quot;10&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">&quot;(item, index) in moveRecord&quot;</span> <span class="attr">:key</span>=<span class="string">&quot;index&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript">  <span class="attr">methods</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">    loadMore () &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="variable language_">this</span>.<span class="property">busy</span> = <span class="literal">true</span>;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">      <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, j = <span class="number">10</span>; i &lt; j; i++) &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="variable language_">this</span>.<span class="property">data</span>.<span class="title function_">push</span>(&#123; <span class="attr">name</span>: count++ &#125;);</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">this</span>.<span class="property">busy</span> = <span class="literal">false</span>;</span></span><br><span class="line"><span class="language-javascript">      &#125;, <span class="number">1000</span>);</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">  &#125;</span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="element-ui-el-scrollbar-组件"><a href="#element-ui-el-scrollbar-组件" class="headerlink" title="element-ui el-scrollbar 组件"></a>element-ui el-scrollbar 组件</h3><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0VsZW1lRkUvZWxlbWVudC9ibG9iL2Rldi9wYWNrYWdlcy9zY3JvbGxiYXIvc3JjL21haW4uanM=">https://github.com/ElemeFE/element/blob/dev/packages/scrollbar/src/main.js</span></p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">el-scrollbar</span> <span class="attr">style</span>=<span class="string">&quot;height: 200px&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>zs<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">el-scrollbar</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.el-scrollbar__wrap</span> &#123;</span><br><span class="line">  <span class="attribute">overflow-x</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1065.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/1065.html" class="post-title-link" itemprop="url">微信小程序中相关 api 使用 promise</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2020-03-26" itemprop="dateCreated datePublished" datetime="2020-03-26T14:43:36+00:00">2020-03-26</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>微信小程序的 API 都是回调函数，一不小心就是回调地狱。我们可以用 Promise 封装下</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">Promisify</span> = f =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">arg = &#123;&#125;</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">      arg.<span class="property">success</span> = <span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="title function_">resolve</span>(res)</span><br><span class="line">      &#125;</span><br><span class="line">      arg.<span class="property">fail</span> = <span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="title function_">reject</span>(res)</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="title function_">f</span>(arg)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用</span></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">Request</span> = <span class="title class_">Promisify</span>(wx.<span class="property">request</span>)</span><br><span class="line"><span class="keyword">const</span> <span class="title class_">Login</span> = <span class="title class_">Promisify</span>(wx.<span class="property">login</span>)</span><br><span class="line"><span class="title class_">Login</span>().<span class="title function_">then</span>(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (res.<span class="property">code</span>) &#123;</span><br><span class="line">    <span class="title class_">Request</span>(&#123; <span class="attr">url</span>: <span class="string">&#x27;text.php&#x27;</span> &#125;).<span class="title function_">then</span>(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(res)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>相关问题</p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXJzLndlaXhpbi5xcS5jb20vY29tbXVuaXR5L2RldmVsb3AvZG9jLzAwMDY0Y2MyNmJjMDU4YTZhODQ4ZjIzODM1MWMwMA==">wx.request 经 Promise 封装后，如何拿到requestTask</span></p>
 
       
     </div>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-logo.png">
@@ -173,7 +173,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">157</span>
+          <span class="site-state-item-count">159</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -183,7 +183,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">81</span>
+        <span class="site-state-item-count">82</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -217,6 +217,283 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/415.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/415.html" class="post-title-link" itemprop="url">配置 web 服务器</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2019-07-09" itemprop="dateCreated datePublished" datetime="2019-07-09T22:24:43+00:00">2019-07-09</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Apache-安装"><a href="#Apache-安装" class="headerlink" title="Apache 安装"></a>Apache 安装</h1><h2 id="centos"><a href="#centos" class="headerlink" title="centos"></a>centos</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># yum install httpd  （centos之下，Apache的名字叫httpd，和Apache的主程序 httpd.exe 同名）</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="打开并测试-Apache"><a href="#打开并测试-Apache" class="headerlink" title="打开并测试 Apache"></a>打开并测试 Apache</h3><ul>
+<li><p>先确保，云服务器的 80 端口，是允许外网访问的。</p>
+</li>
+<li><p>开启 Apache 服务</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">service httpd start</span><br><span class="line"><span class="comment"># 查看状态</span></span><br><span class="line">service httpd status</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>测试 Apache 是否正常运行</li>
+</ul>
+<p>浏览器输入： 外网 IP:80，如果能正常显示 Apache 的内置主页，则说明 Apache 服务已正常开启。</p>
+<h3 id="修改-Apache-的配置文件"><a href="#修改-Apache-的配置文件" class="headerlink" title="修改 Apache 的配置文件"></a>修改 Apache 的配置文件</h3><p>主配置文件 <code>/etc/httpd/conf/httpd.conf</code></p>
+<p>修改如下键值兼容 php</p>
+<blockquote>
+<p>键：DirectoryIndex<br>值：index.html index.php</p>
+</blockquote>
+<p><strong>默认站点主目录</strong>：&#x2F;var&#x2F;www&#x2F;html&#x2F;</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vc21iaW4vcC82OTQ2MjEwLmh0bWw=">https://www.cnblogs.com/smbin/p/6946210.html</span></p>
+<h3 id="安装证书"><a href="#安装证书" class="headerlink" title="安装证书"></a><strong>安装证书</strong></h3><ol>
+<li>安装 ssl 模块</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># yum install mod_ssl -y</span><br></pre></td></tr></table></figure>
+
+<p>Ps：安装完成后，会在&#x2F;etc&#x2F;httpd&#x2F;conf.d&#x2F;下生成一个 ssl.conf 配置文件。</p>
+<p>建一个目录用来放 ssl 证书文件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># mkdir /etc/httpd/ssl/</span><br></pre></td></tr></table></figure>
+
+<p>编辑 ssl 配置文件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># vim /etc/httpd/conf.d/ssl.conf</span><br></pre></td></tr></table></figure>
+
+<p>修改以下几行，去掉前面的“#”注释；</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;VirtualHost&gt;</span><br><span class="line">#网页文件路径</span><br><span class="line">DocumentRoot &quot;/var/www/html&quot;</span><br><span class="line">#改为自己的域名</span><br><span class="line">ServerName cuilongjin.top:80</span><br><span class="line">#启用SSL功能</span><br><span class="line">SSLEngine on</span><br><span class="line">#填写证书文件路径</span><br><span class="line">SSLCertificateFile   /etc/httpd/ssl/cert-1541656252121_cuilongjin.top.key</span><br><span class="line">#填写私钥文件路径</span><br><span class="line">SSLCertificateKeyFile   /etc/httpd/ssl/cert-1541656252121_cuilongjin.top.key</span><br><span class="line">#填写证书链文件路径</span><br><span class="line">SSLCertificateChainFile   /etc/httpd/ssl/cert-1541656252121_cuilongjin.top_chain.crt</span><br><span class="line">&lt;/VirtualHost&gt;</span><br></pre></td></tr></table></figure>
+
+<p>重启服务器</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># service httpd restart</span><br></pre></td></tr></table></figure>
+
+<h1 id="Nginx-的安装与配置"><a href="#Nginx-的安装与配置" class="headerlink" title="Nginx 的安装与配置"></a>Nginx 的安装与配置</h1><h2 id="CentOS-下安装："><a href="#CentOS-下安装：" class="headerlink" title="CentOS 下安装："></a><strong>CentOS</strong> 下安装：</h2><p>通过安装包安装</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装所需环境</span></span><br><span class="line">yum install gcc-c++</span><br><span class="line">yum install -y pcre pcre-devel</span><br><span class="line">yum install -y zlib zlib-devel</span><br><span class="line">yum install -y openssl openssl-devel</span><br><span class="line"></span><br><span class="line"><span class="comment"># 官网下载 nginx https://nginx.org/</span></span><br><span class="line">yum install wget</span><br><span class="line">wget -c https://nginx.org/download/nginx-1.17.4.tar.gz</span><br><span class="line"><span class="comment"># 解压</span></span><br><span class="line">tar -zxvf nginx-1.17.4.tar.gz</span><br><span class="line"><span class="built_in">cd</span> nginx-1.17.1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置</span></span><br><span class="line">./configure</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编译安装</span></span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查找安装路径：</span></span><br><span class="line">whereis nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动、停止 重启 nginx</span></span><br><span class="line"><span class="built_in">cd</span> /usr/local/nginx/sbin/</span><br><span class="line">./nginx <span class="comment"># 启动</span></span><br><span class="line">./nginx -s stop <span class="comment"># 此方式相当于先查出nginx进程id再使用kill命令强制杀掉进程</span></span><br><span class="line">./nginx -s quit <span class="comment"># 此方式停止步骤是待nginx进程处理任务完毕进行停止</span></span><br><span class="line">./nginx -s quit &amp;&amp; ./nginx <span class="comment"># 重启 nginx</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 重新加载配置文件</span></span><br><span class="line"><span class="comment"># 配置文件 nginx.conf 修改后，要想让配置生效需要重启 nginx，使用 -s reload 不用先停止 nginx 再启动即可将配置信息在 nginx 中生效，如下：</span></span><br><span class="line">./nginx -s reload</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查询 nginx 进程</span></span><br><span class="line">ps aux|grep nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 开机自启动</span></span><br><span class="line">在 rc.local 增加启动代码</span><br><span class="line">vi /etc/rc.local</span><br><span class="line"><span class="comment"># 增加一行 /usr/local/nginx/sbin/nginx</span></span><br><span class="line"><span class="comment"># 设置执行权限</span></span><br><span class="line"><span class="built_in">chmod</span> 755 rc.local</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加 nginx 为系统服务</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>centos 下，yum 源不提供 nginx 的安装，可以通过切换 yum 源的方法获取安装</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum -y install nginx</span><br></pre></td></tr></table></figure>
+
+<p>主站点目录&#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html</p>
+<p><strong>配置 Nginx：</strong></p>
+<p>Nginx 的配置文件默认位置为：<code>/etc/nginx/nginx.conf</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen       80; #监听80端口，接收http请求</span><br><span class="line">  server_name  localhost; #就是网站地址</span><br><span class="line">  root         /usr/share/nginx/html; # 准备存放代码工程的路径</span><br><span class="line">  #路由到网站根目录www.example.com时候的处理</span><br><span class="line">  location / &#123;</span><br><span class="line">    index index.php index.html index.htm;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  #当请求网站下php文件的时候，反向代理到php-fpm</span><br><span class="line">  location ~ \.php$ &#123;</span><br><span class="line">    include fastcgi.conf; #加载nginx的fastcgi模块</span><br><span class="line">    fastcgi_intercept_errors on;</span><br><span class="line">    fastcgi_pass   127.0.0.1:9000; #nginx fastcgi进程监听的IP地址和端口</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>自定义 Nginx 站点配置文件存放目录</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/etc/nginx/conf.d/</span><br></pre></td></tr></table></figure>
+
+<p>默认站点目录&#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html</p>
+<p>安装 php</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum install php php-fpm</span><br></pre></td></tr></table></figure>
+
+<p>配置 php.ini</p>
+<p>&#x2F;etc&#x2F;php.ini</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cgi.fix_pathinfo=1</span><br></pre></td></tr></table></figure>
+
+<p>配置 php-fpm</p>
+<p>&#x2F;etc&#x2F;php-fpm.d&#x2F;<span class="exturl" data-url="aHR0cDovL3d3dy5jb25mLw==">www.conf</span></p>
+<p>user &#x3D; nginx</p>
+<p>group &#x3D; nginx</p>
+<p>chkconfig php-fpm on #设置 php-fpm 自启动</p>
+<p>service nginx restart #重新启动 nginx</p>
+<p>service php-fpm start #启动 php-fpm</p>
+<p>sudo iptables -I INPUT -p tcp -m tcp –dport 80 -j ACCEPT</p>
+<p>sudo iptables -I INPUT -p tcp -m tcp –dport 443 -j ACCEPT</p>
+<p>iptables -L -n</p>
+<p>&#x2F;usr&#x2F;sbin&#x2F;nginx</p>
+<p>查询 nginx 进程</p>
+<p>ps -ef | grep nginx</p>
+<p>nginx 配置</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#</span><br><span class="line"># HTTPS server configuration</span><br><span class="line">#</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">  listen       443 ssl http2 default_server;</span><br><span class="line">  listen       [::]:443 ssl;</span><br><span class="line">  server_name  _;</span><br><span class="line">  root         /usr/share/nginx/html;</span><br><span class="line"></span><br><span class="line">  ssl_certificate ssl/cuilongjin.top.pem;</span><br><span class="line">  ssl_certificate_key ssl/cuilongjin.top.key;</span><br><span class="line">  ssl_session_cache shared:SSL:1m;</span><br><span class="line">  ssl_session_timeout  10m;</span><br><span class="line">  ssl_ciphers HIGH:!aNULL:!MD5;</span><br><span class="line">  ssl_prefer_server_ciphers on;</span><br><span class="line"></span><br><span class="line">  # Load configuration files for the default server block.</span><br><span class="line">  include /etc/nginx/default.d/*.conf;</span><br><span class="line"></span><br><span class="line">  location / &#123;</span><br><span class="line">  &#125;</span><br><span class="line">    location ~ \.php$ &#123;</span><br><span class="line">      root html;</span><br><span class="line">      fastcgi_pass 127.0.0.1:9000;</span><br><span class="line">      fastcgi_index index.php;</span><br><span class="line">      fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;</span><br><span class="line">      include fastcgi_params;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  error_page 404 /404.html;</span><br><span class="line">    location = /40x.html &#123;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  error_page 500 502 503 504 /50x.html;</span><br><span class="line">    location = /50x.html &#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#</span><br><span class="line"># The default server</span><br><span class="line">#</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">  listen       80 default_server;</span><br><span class="line">  listen       [::]:80 default_server;</span><br><span class="line">  server_name  _;</span><br><span class="line">  root         /usr/share/nginx/html;</span><br><span class="line"></span><br><span class="line">  # Load configuration files for the default server block.</span><br><span class="line">  include /etc/nginx/default.d/*.conf;</span><br><span class="line"></span><br><span class="line">  location / &#123;</span><br><span class="line">  &#125;</span><br><span class="line">  location ~ \.php$ &#123;</span><br><span class="line">    root html;</span><br><span class="line">    fastcgi_pass 127.0.0.1:9000;</span><br><span class="line">    fastcgi_index index.php;</span><br><span class="line">    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;</span><br><span class="line">    include fastcgi_params;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  error_page 404 /404.html;</span><br><span class="line">    location = /40x.html &#123;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  error_page 500 502 503 504 /50x.html;</span><br><span class="line">    location = /50x.html &#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="ubuntu-下安装"><a href="#ubuntu-下安装" class="headerlink" title="ubuntu 下安装"></a>ubuntu 下安装</h2><p>安装 nginx</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install nginx</span><br></pre></td></tr></table></figure>
+
+<p>Ubuntu 安装之后的文件结构大致为：</p>
+<ul>
+<li>所有的配置文件都在&#x2F;etc&#x2F;nginx 下，并且每个虚拟主机已经安排在了&#x2F;etc&#x2F;nginx&#x2F;sites-available 下</li>
+<li>程序文件在&#x2F;usr&#x2F;sbin&#x2F;nginx</li>
+<li>日志文件在&#x2F;var&#x2F;log&#x2F;nginx</li>
+<li>并已经在&#x2F;etc&#x2F;init.d&#x2F;下创建了启动脚本 nginx</li>
+<li>服务器配置文件在&#x2F;etc&#x2F;nginx&#x2F;sites-available&#x2F;</li>
+<li>默认主站点目录 &#x2F;var&#x2F;www&#x2F;html，（有的可能在&#x2F;var&#x2F;www）, 请参考&#x2F;etc&#x2F;nginx&#x2F;sites-available 里的配置</li>
+</ul>
+<p>安装 php</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get install php</span><br></pre></td></tr></table></figure>
+
+<p>配置 php.ini &#x2F;etc&#x2F;php&#x2F;7.2&#x2F;cli&#x2F;</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cgi.fix_pathinfo=1</span><br></pre></td></tr></table></figure>
+
+<p>配置 php-fpm</p>
+<p>启动 nginx</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/etc/init.d/nginx restart</span><br><span class="line">/etc/init.d/nginx stop</span><br><span class="line">/etc/init.d/nginx start</span><br></pre></td></tr></table></figure>
+
+<p>删除 nginx</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get --purge remove nginx</span><br><span class="line"><span class="comment"># –-purge 包括配置文件</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="arch-下安装-nginx"><a href="#arch-下安装-nginx" class="headerlink" title="arch 下安装 nginx"></a>arch 下安装 nginx</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pacman -S nginx</span><br></pre></td></tr></table></figure>
+
+<p>启动 Nginx 服务,运行以下命令:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># systemctl start nginx</span><br></pre></td></tr></table></figure>
+
+<h3 id="要-Nginx-服务开机时启动-运行以下命令"><a href="#要-Nginx-服务开机时启动-运行以下命令" class="headerlink" title="要 Nginx 服务开机时启动,运行以下命令:"></a>要 Nginx 服务开机时启动,运行以下命令:</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># systemctl enable nginx</span><br></pre></td></tr></table></figure>
+
+<p>默认页面是:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/usr/share/nginx/html/index.html</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>你可以修改在 <strong>&#x2F;etc&#x2F;nginx&#x2F;</strong> 目录中的文件来更改配置 <strong>.&#x2F;etc&#x2F;nginx&#x2F;nginx.conf</strong> 是主配置文件</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/388.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/388.html" class="post-title-link" itemprop="url">移动端(Safari)浏览网页时对数字禁用电话功能</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2019-07-09" itemprop="dateCreated datePublished" datetime="2019-07-09T22:05:00+00:00">2019-07-09</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="移动端-Safari-浏览网页时对数字禁用电话功能"><a href="#移动端-Safari-浏览网页时对数字禁用电话功能" class="headerlink" title="移动端(Safari)浏览网页时对数字禁用电话功能"></a>移动端(Safari)浏览网页时对数字禁用电话功能</h2><ul>
+<li>标准的电话号码格式是：</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;tel:+86-123-456-7890&quot;</span>&gt;</span>1234567890<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>有时候不是电话号码的数字会被浏览器自动解析为如上电话号码格式，导致样式和布局改变</p>
+</li>
+<li><p>忽略页面中的数字识别为电话号码, 只要把这个默认行为关闭就行</p>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;format-detection&quot;</span> <span class="attr">content</span>=<span class="string">&quot;telephone=no&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>这个关闭不会影响真正电话号码的识别</li>
+</ul>
+<p>说明：Meta 标签中的 format-detection 属性及含义<br>format-detection 中文的意思是 “格式检测”，它是用来检测 html 里的一些格式的</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 禁止了把数字转化为拨号链接 默认为 yes --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;format-detection&quot;</span> <span class="attr">content</span>=<span class="string">&quot;telephone=no&quot;</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 禁止作为邮箱地址 默认为 yes --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;format-detection&quot;</span> <span class="attr">content</span>=<span class="string">&quot;email=no&quot;</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 禁止跳转至地图 默认为 yes --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;format-detection&quot;</span> <span class="attr">content</span>=<span class="string">&quot;adress=no&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;format-detection&quot;</span> <span class="attr">content</span>=<span class="string">&quot;telephone=no,email=no,adress=no&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1101,373 +1378,6 @@
 <h2 id="whistle"><a href="#whistle" class="headerlink" title="whistle"></a>whistle</h2><p><span class="exturl" data-url="aHR0cHM6Ly9zZWdtZW50ZmF1bHQuY29tL2EvMTE5MDAwMDAxNjA1ODg3NT91dG1fc291cmNlPXRhZy1uZXdlc3Q=">https://segmentfault.com/a/1190000016058875?utm_source=tag-newest</span><br><span class="exturl" data-url="aHR0cDovL3dwcm94eS5vcmcvd2hpc3RsZS8=">http://wproxy.org/whistle/</span></p>
 <h2 id="chii"><a href="#chii" class="headerlink" title="chii"></a>chii</h2><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2xpcmlsaXJpL2NoaWk=">https://github.com/liriliri/chii</span></p>
 <h2 id="抓包工具"><a href="#抓包工具" class="headerlink" title="抓包工具"></a>抓包工具</h2><p>AnyProxy<br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FsaWJhYmEvYW55cHJveHk=">https://github.com/alibaba/anyproxy</span><br>Zan Proxy<br><span class="exturl" data-url="aHR0cHM6Ly95b3V6YW4uZ2l0aHViLmlvL3phbi1wcm94eS8=">https://youzan.github.io/zan-proxy/</span></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/410.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/410.html" class="post-title-link" itemprop="url">【es6】Promise</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2019-01-08" itemprop="dateCreated datePublished" datetime="2019-01-08T22:21:49+00:00">2019-01-08</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="promise-的三个状态"><a href="#promise-的三个状态" class="headerlink" title="promise 的三个状态"></a>promise 的三个状态</h2><ul>
-<li>pending : 等待 (等待成功或者失败去调用)</li>
-<li>fulfilled : 成功调用(resolve)</li>
-<li>rejected : 失败调用(reject)</li>
-</ul>
-<h2 id="Promise-prototype-成员"><a href="#Promise-prototype-成员" class="headerlink" title="Promise.prototype 成员"></a>Promise.prototype 成员</h2><ul>
-<li><code>then()</code> ：用于获取异步操作成功时的结果 -&gt; <code>resolve</code></li>
-<li><code>catch()</code>：用于获取异步操作失败时的结果 -&gt; <code>reject</code></li>
-<li><code>finally()</code>：不管 Promise 最后状态如何，都会执行的操作，finally方法的回调函数不接受任何参数</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">promise.<span class="title function_">then</span>(successCallback, failureCallback)</span><br><span class="line">promise.<span class="title function_">catch</span>(failureCallback)</span><br></pre></td></tr></table></figure>
-
-<p>catch(failureCallback) 是 then(null, failureCallback) 的缩略形式</p>
-<p>链式调用</p>
-<p>回调函数的返回值会传递数据给下一个 then</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title function_">doSomething</span>()</span><br><span class="line">.<span class="title function_">then</span>(<span class="function"><span class="params">result</span> =&gt;</span> <span class="title function_">doSomethingElse</span>(result))</span><br><span class="line">.<span class="title function_">then</span>(<span class="function"><span class="params">newResult</span> =&gt;</span> <span class="title function_">doThirdThing</span>(newResult))</span><br><span class="line">.<span class="title function_">then</span>(<span class="function"><span class="params">finalResult</span> =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`Got the final result: <span class="subst">$&#123;finalResult&#125;</span>`</span>))</span><br><span class="line">.<span class="title function_">catch</span>(failureCallback);</span><br></pre></td></tr></table></figure>
-
-<p>错误传递<br>遇到异常抛出，浏览器就会顺着 Promise 链寻找下一个 onRejected 失败回调函数或者由 .catch() 指定的回调函数</p>
-<p>这和以下同步代码的工作原理（执行过程）非常相似。<br>async function foo() {<br>  try {<br>    const result &#x3D; await doSomething();<br>    const newResult &#x3D; await doSomethingElse(result);<br>    const finalResult &#x3D; await doThirdThing(newResult);<br>    console.log(<code>Got the final result: $&#123;finalResult&#125;</code>);<br>  } catch(error) {<br>    failureCallback(error);<br>  }<br>}</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">p</span><br><span class="line">  .<span class="title function_">then</span>(<span class="function">(<span class="params">value</span>) =&gt;</span> &#123; &#125;) <span class="comment">// onfullfilled 执行</span></span><br><span class="line">  .<span class="title function_">catch</span>(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123;&#125;) <span class="comment">// onrejected 执行</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ----------- 或者 -----------</span></span><br><span class="line"><span class="comment">// then 中传两个参数：第一个参数是resolved状态的回调函数，第二个参数（可选）是rejected状态的回调函数</span></span><br><span class="line">p.<span class="title function_">then</span>(</span><br><span class="line">  <span class="comment">// onfullfilled 执行</span></span><br><span class="line">  <span class="function">(<span class="params">value</span>) =&gt;</span> &#123; &#125;,</span><br><span class="line">  <span class="comment">// onrejected 执行</span></span><br><span class="line">  <span class="function">(<span class="params">err</span>) =&gt;</span> &#123; &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-<h2 id="all-和-race"><a href="#all-和-race" class="headerlink" title="all 和 race"></a>all 和 race</h2><p>Promise.all()：resolve回调执行是在所有输入的promise的resolve回调都结束，或者输入的iterable里没有promise了的时候。reject回调执行是，只要任何一个输入的promise的reject回调执行或者输入不合法的promise就会立即抛出错误，并且reject的是第一个抛出的错误信息</p>
-<p>Promise.race()：始终返回最快的那一个promise，不管resolve还是reject</p>
-<h2 id="async-和-await"><a href="#async-和-await" class="headerlink" title="async 和 await"></a>async 和 await</h2><ul>
-<li>异步编程终极方案</li>
-</ul>
-<ul>
-<li>async &#x2F; await 用同步编写代码的方式 处理异步操作的一个方案</li>
-<li>async：修饰 (修饰一个内部有异步操作的函数) 格式 : async + 函数 (里面有异步操作的函数)</li>
-<li>await : 等待 (等上一个异步操作完成啊 , 修饰 一个结果是 promise 的)异步操作 格式 : await + 异步操作(结果 promise 对象)</li>
-<li>async 和 await 是成对出现的，await 只能在 async 函数中使用</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 第一步封装</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">readFile</span>(<span class="params">path</span>) &#123;</span><br><span class="line">  <span class="comment">// 1. 实例化 promise</span></span><br><span class="line">  <span class="keyword">const</span> p = <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    fs.<span class="title function_">readFile</span>(path, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (err) &#123;</span><br><span class="line">        <span class="comment">// 操作错误 调用 =&gt;  reject  =&gt; catch</span></span><br><span class="line">        <span class="keyword">return</span> <span class="title function_">reject</span>(err)</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">// 操作成功  调用 =&gt; resolve =&gt; then</span></span><br><span class="line">      <span class="title function_">resolve</span>(data.<span class="title function_">toString</span>())</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="comment">// 2. 返回 promise 对象</span></span><br><span class="line">  <span class="keyword">return</span> p</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第二步：使用 (async/await)</span></span><br><span class="line"><span class="comment">// async + 函数 (里面有异步操作的函数)</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">// await + 异步操作(结果promise对象)</span></span><br><span class="line">  <span class="comment">// 读取a文件</span></span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> res1 = <span class="keyword">await</span> <span class="title function_">readFile</span>(<span class="string">&#x27;./data/a1.txt&#x27;</span>)</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(res1)</span><br><span class="line">  &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(error)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 读取 b 文件</span></span><br><span class="line">  <span class="keyword">const</span> res2 = <span class="keyword">await</span> <span class="title function_">readFile</span>(<span class="string">&#x27;./data/b.txt&#x27;</span>)</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(res2)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 读取 c 文件</span></span><br><span class="line">  <span class="keyword">const</span> res3 = <span class="keyword">await</span> <span class="title function_">readFile</span>(<span class="string">&#x27;./data/c.txt&#x27;</span>)</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(res3)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">fn</span>()</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 延时函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">sleep</span>(<span class="params">a, b</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> p = <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="title function_">resolve</span>(b)</span><br><span class="line">    &#125;, a)</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">return</span> p</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> res1 = <span class="keyword">await</span> <span class="title function_">sleep</span>(<span class="number">1000</span>, <span class="string">&#x27;a&#x27;</span>)</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(res1)</span><br><span class="line">  <span class="keyword">const</span> res2 = <span class="keyword">await</span> <span class="title function_">sleep</span>(<span class="number">5000</span>, <span class="string">&#x27;b&#x27;</span>)</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(res2)</span><br><span class="line">  <span class="keyword">const</span> res3 = <span class="keyword">await</span> <span class="title function_">sleep</span>(<span class="number">3000</span>, <span class="string">&#x27;c&#x27;</span>)</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(res3)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// fn()</span></span><br><span class="line"></span><br><span class="line"><span class="title function_">sleep</span>(<span class="number">1000</span>, <span class="string">&#x27;a&#x27;</span>)</span><br><span class="line">  .<span class="title function_">then</span>(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(res)</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">sleep</span>(<span class="number">5000</span>, <span class="string">&#x27;b&#x27;</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">  .<span class="title function_">then</span>(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(res)</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">sleep</span>(<span class="number">3000</span>, <span class="string">&#x27;c&#x27;</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">  .<span class="title function_">then</span>(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(res)</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> p1 = <span class="title class_">Promise</span>.<span class="title function_">all</span>([<span class="title function_">sleep</span>(<span class="number">1000</span>, <span class="string">&#x27;a&#x27;</span>), <span class="title function_">sleep</span>(<span class="number">5000</span>, <span class="string">&#x27;b&#x27;</span>)])</span><br><span class="line">p1.<span class="title function_">then</span>(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(res)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> p2 = <span class="title class_">Promise</span>.<span class="title function_">race</span>([<span class="title function_">sleep</span>(<span class="number">1000</span>, <span class="string">&#x27;a&#x27;</span>), <span class="title function_">sleep</span>(<span class="number">5000</span>, <span class="string">&#x27;b&#x27;</span>)])</span><br><span class="line">p2.<span class="title function_">then</span>(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(res)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h2 id="Promise-try"><a href="#Promise-try" class="headerlink" title="Promise.try()"></a>Promise.try()</h2><p>实际开发中，经常遇到一种情况：不知道或者不想区分，函数f是同步函数还是异步操作，但是想用 Promise 来处理它。因为这样就可以不管f是否包含异步操作，都用then方法指定下一步流程，用catch方法处理f抛出的错误。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">f</span> = (<span class="params"></span>) =&gt; <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;now&#x27;</span>)</span><br><span class="line"><span class="title class_">Promise</span>.<span class="title function_">resolve</span>().<span class="title function_">then</span>(f)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;next&#x27;</span>)</span><br><span class="line"><span class="comment">// next</span></span><br><span class="line"><span class="comment">// now</span></span><br></pre></td></tr></table></figure>
-<p>上面的写法有一个缺点，就是如果f是同步函数，那么它会在本轮事件循环的末尾执行。</p>
-<p>Promise.try方法</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">f</span> = (<span class="params"></span>) =&gt; <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;now&#x27;</span>)</span><br><span class="line"><span class="title class_">Promise</span>.<span class="title function_">try</span>(f)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;next&#x27;</span>)</span><br><span class="line"><span class="comment">// now</span></span><br><span class="line"><span class="comment">// next</span></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="new-Promise-和-Promise-resolve"><a href="#new-Promise-和-Promise-resolve" class="headerlink" title="new Promise 和 Promise.resolve()"></a>new Promise 和 Promise.resolve()</h2><p><span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uY24vcG9zdC82OTQ1MzE5NDM5NzcyNDM0NDY5I2hlYWRpbmctNA==">https://juejin.cn/post/6945319439772434469#heading-4</span></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/429.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/429.html" class="post-title-link" itemprop="url">Webpack</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2019-01-05" itemprop="dateCreated datePublished" datetime="2019-01-05T22:33:14+00:00">2019-01-05</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly93ZWJwYWNrLmpzLm9yZy8=">webpack 官网</span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly93ZWJwYWNrLmRvY3NjaGluYS5vcmcv">webpack 中文网</span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2N1aWxvbmdqaW4vd2VicGFjay1jb25maWcv">webpack 配置文件</span></li>
-</ul>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>webpack 是一个现代 JavaScript 应用程序的模块打包器（module bundler）</p>
-<p>webpack 是一个模块化方案（预编译）</p>
-<p>webpack 获取具有依赖关系的模块，并生成表示这些模块的静态资源</p>
-<p>webpack 的两个特点：模块化、打包</p>
-<p>四个核心概念：<strong>入口(entry)<strong>、</strong>输出(output)<strong>、</strong>加载器(loader)<strong>、</strong>插件(plugins)</strong></p>
-<p>模块化方案：webpack 和 requirejs（通过编写代码的方式将前端的功能，划分成独立的模块）<br>browserify 是与 webpack 相似的模块化打包工具</p>
-<h3 id="webpack-起源"><a href="#webpack-起源" class="headerlink" title="webpack 起源"></a>webpack 起源</h3><ul>
-<li>webpack 解决了现存模块打包器的两个痛点：<ul>
-<li>Code Spliting - 代码分离</li>
-<li>静态资源的模块化处理方案</li>
-</ul>
-</li>
-</ul>
-<h3 id="webpack-与模块"><a href="#webpack-与模块" class="headerlink" title="webpack 与模块"></a>webpack 与模块</h3><ul>
-<li><p><span class="exturl" data-url="aHR0cDovL3poYW9kYS5uZXQvd2VicGFjay1oYW5kYm9vay9tb2R1bGUtc3lzdGVtLmh0bWw=">前端模块系统的演进</span></p>
-</li>
-<li><p>在 webpack 看来：所有的<strong>静态资源都是模块</strong></p>
-</li>
-<li><p>webpack 模块能够识别以下等形式的模块之间的依赖：</p>
-<ul>
-<li><p>ES2015 <code>import</code> <code>export</code></p>
-</li>
-<li><p>CommonJS <code>require()</code> <code>module.exports</code></p>
-</li>
-<li><p>AMD <code>define</code> 和 <code>require</code></p>
-</li>
-<li><p>css&#x2F;sass&#x2F;less 文件中的 <code>@import</code></p>
-</li>
-<li><p>图片连接，比如：样式 <code>url(...)</code> 或 HTML <code>&lt;img src=...&gt;</code></p>
-</li>
-<li><p>字体等</p>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>在 webpack 提供的模块化环境中<ul>
-<li>想要加载一个 JS 文件，只需要 require(‘a.js’)</li>
-<li>想要加载一个 CSS 文件，只需要 require(‘css&#x2F;index.css’)</li>
-<li>想要加载一个图片文件，只需要 require(‘images&#x2F;a.png’)</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><span class="exturl" data-url="aHR0cDovL3d3dy5qaWFuc2h1LmNvbS9wLzQyZTExNTE1YzEwZiM=">入门 Webpack，看这篇就够了</span></li>
-</ul>
-<h3 id="webpack-打包原理："><a href="#webpack-打包原理：" class="headerlink" title="webpack 打包原理："></a>webpack 打包原理：</h3><p>​ 入口文件： main.js</p>
-<p>​ webpack 从入口出发，递归分析项目中所有的依赖项（模块），使用 loader 来处理对应的模块最终，打包生成一个 bundle.js 文件。</p>
-<p>​ 如果配置了 webpack 中的 代码分离（Code Spliting），webpack 会根据 分离点 将这个模块生成一个独立的 JS 文件</p>
-<p>​ 还可以通过配置，将 CSS 、 图片、 字体 等文件，从 bundle.js 中抽离为独立的文件</p>
-<h2 id="webpack-的基本使用"><a href="#webpack-的基本使用" class="headerlink" title="webpack 的基本使用"></a>webpack 的基本使用</h2><p>安装：<code>npm i -D webpack webpack-cli</code></p>
-<p>webpack：是 webpack 工具的核心包</p>
-<p>webpack-cli：提供了一些在终端中使用的命令</p>
-<p>-D(–save-dev)：表示项目开发期间的依赖</p>
-<p>webpack 的两种使用方式：命令行、配置文件（<code>webpack.config.js</code>）</p>
-<h3 id="命令行使用说明"><a href="#命令行使用说明" class="headerlink" title="命令行使用说明"></a>命令行使用说明</h3><ul>
-<li><code>package.json</code>中的<code>scripts</code>中可以存放一些 bash 命令，这些 bash 命令可以通过 <code>npm run 命令名称</code> 来执行</li>
-<li>注意：npm 在执行 scripts 中的命令的时候，是在电脑系统后台默认开启一个 bash，将当前目录下的<code>./node_modules/.bin</code>这个文件夹临时加入了系统环境变量</li>
-<li>使用方式：<code>npm run build</code></li>
-<li>设置开发状态： <code>mode</code> 如果没有设置 mode 配置项，webpack 会默认提供开发环境(production)</li>
-<li>在入口文件中可以使用 <code>import</code> 引入 js css less 等文件</li>
-</ul>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">  <span class="comment">// webpack 是 webpack-cli 提供的命令</span></span><br><span class="line">  <span class="comment">// src/js/main.js 为入口文件</span></span><br><span class="line">  <span class="comment">// --output dist/bundle.js 为出口文件</span></span><br><span class="line">  <span class="comment">// --mode development 生产环境</span></span><br><span class="line">  <span class="attr">&quot;build&quot;</span><span class="punctuation">:</span> <span class="string">&quot;webpack&quot;</span></span><br><span class="line">  <span class="attr">&quot;build1&quot;</span><span class="punctuation">:</span> <span class="string">&quot;webpack src/js/main.js --output dist/bundle.js --mode development&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="配置文件方式（推荐）"><a href="#配置文件方式（推荐）" class="headerlink" title="配置文件方式（推荐）"></a>配置文件方式（推荐）</h3><p>项目<code>根目录</code>下创建一个 <code>webpack.config.js</code>文件，运行 <code>webpack</code> 命令时的默认配置文件</p>
-<p>指定其他文件：<code>--config webpack.XX.js</code></p>
-<p>配置 <code>package.json</code> 中的 <code>scripts</code> , 脚本命令为： <code>&quot;build&quot;: &quot;webpack&quot;</code></p>
-<p>执行命令 : <code>npm run build</code></p>
-<p>示例代码</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// webpack 是基于 node的 , 所以配置文件符合 node 方式书写配置</span></span><br><span class="line"><span class="comment">// 注意 : 不要再这个文件中使用ES6的的模块化 import语法</span></span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="comment">// 入口</span></span><br><span class="line">  <span class="attr">entry</span>: path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;./src/js/main.js&#x27;</span>),</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 出口</span></span><br><span class="line">  <span class="attr">output</span>: &#123;</span><br><span class="line">    <span class="comment">// 出口目录</span></span><br><span class="line">    <span class="attr">path</span>: path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;dist&#x27;</span>),</span><br><span class="line">    <span class="attr">filename</span>: <span class="string">&#x27;js/bundle.js&#x27;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 开发模式</span></span><br><span class="line">  <span class="attr">mode</span>: <span class="string">&#x27;development&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="webpack-dev-server"><a href="#webpack-dev-server" class="headerlink" title="webpack-dev-server"></a>webpack-dev-server</h2><p>安装：<code>npm i -D webpack-dev-server</code></p>
-<p>作用：配合 webpack，创建开发环境（启动服务器、监视文件变化、自动编译、刷新浏览器等），提高开发效率</p>
-<p>注意：无法直接在终端中执行 <code>webpack-dev-server</code>，需要在 <code>package.json</code> 配置 <code>scripts</code> 后使用</p>
-<h3 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h3><ul>
-<li><code>webpack-dev-server</code>将打包好的文件存储在内存中，提高编译和加载速度，效率更高（不会生成 dist 目录）</li>
-<li>在内存中出口目录为项目根目录（命令行中的提示：<code>webpack output is served from /</code>）<ul>
-<li>在<code>index.html</code>页面中引入文件不需要加<code>dist</code></li>
-</ul>
-</li>
-</ul>
-<h3 id="CLI-配置"><a href="#CLI-配置" class="headerlink" title="CLI 配置"></a>CLI 配置</h3><ul>
-<li><code>--contentBase</code> ：告诉服务器在哪个目录中提供服务（可以理解为：打开哪个目录中的 index.html）<ul>
-<li><code>--contentBase ./src</code>：当前目录下的 src 文件夹</li>
-</ul>
-</li>
-<li><code>--open true</code> ：自动打开浏览器</li>
-<li><code>--port 3000</code> ：指定端口号</li>
-<li><code>--hot</code> ：热更新，只加载修改的文件(按需加载修改的内容)，而非全部加载</li>
-<li><code>--progress</code>：显示进度条</li>
-</ul>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;dev&quot;</span><span class="punctuation">:</span> <span class="string">&quot;webpack-dev-server --contentBase src --open --port 8888 --hot&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="配置文件配置"><a href="#配置文件配置" class="headerlink" title="配置文件配置"></a>配置文件配置</h3><p>配置 <code>package.json</code> 中的 <code>scripts</code> , 脚本命令为： <code>&quot;dev&quot;: &quot;webpack-dev-server --hot&quot;</code></p>
-<p>执行命令 : <code>npm run dev</code></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// --hot 热更新写在命令行里，不然的话还要配其他插件麻烦</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">devServer</span>: &#123;</span><br><span class="line">    <span class="attr">contentBase</span>: path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;src&#x27;</span>),</span><br><span class="line">    <span class="comment">// 自动打开浏览器</span></span><br><span class="line">    <span class="attr">open</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="comment">// 端口号</span></span><br><span class="line">    <span class="attr">port</span>: <span class="number">3000</span>,</span><br><span class="line">    <span class="comment">// hot: true,</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">proxy</span>: &#123;</span><br><span class="line">      <span class="string">&#x27;/api&#x27;</span>: &#123;</span><br><span class="line">        <span class="comment">// api 表示当前项目请求的 key</span></span><br><span class="line">        <span class="attr">target</span>: <span class="string">&#x27;http://www.baidu.com&#x27;</span>, <span class="comment">// 代理服务器路径</span></span><br><span class="line">        <span class="attr">pathRewrite</span>: &#123; <span class="string">&#x27;^/api&#x27;</span>: <span class="string">&#x27;/api&#x27;</span> &#125;, <span class="comment">// 重写路径</span></span><br><span class="line">        <span class="attr">changeOrigin</span>: <span class="literal">true</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 请求 localhost:8080/api/.. 会被代理到 http://www.baidu.com/api/..</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// plugins: [</span></span><br><span class="line">  <span class="comment">//   new webpack.HotModuleReplacementPlugin()</span></span><br><span class="line">  <span class="comment">// ]</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="html-webpack-plugin-插件"><a href="#html-webpack-plugin-插件" class="headerlink" title="html-webpack-plugin 插件"></a>html-webpack-plugin 插件</h2><ul>
-<li>安装：<code>npm i -D html-webpack-plugin</code></li>
-<li>作用：根据模板，在内存中自动生成 html 页面，并自动引入<code>bundle.js</code>、<code>css</code>等文件</li>
-</ul>
-<p>配置文件配置：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 引入 html-webpack-plugin 插件</span></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">HtmlWebpackPlugin</span> = <span class="built_in">require</span>(<span class="string">&#x27;html-webpack-plugin&#x27;</span>)</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="comment">// 配置插件</span></span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">    <span class="comment">// html-webpack-plugin 配置</span></span><br><span class="line">    <span class="keyword">new</span> <span class="title class_">HtmlWebpackPlugin</span>(&#123;</span><br><span class="line">      <span class="comment">// 模板页面路径</span></span><br><span class="line">      <span class="attr">template</span>: path.<span class="title function_">join</span>(__dirname, <span class="string">&#x27;src/index.html&#x27;</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="打包非-js-文件"><a href="#打包非-js-文件" class="headerlink" title="打包非 js 文件"></a>打包非 js 文件</h2><p>webpack 默认只能处理 js 文件，非 js(css、less、图片、字体等)处理不了，借助 loader 加载器</p>
-<h3 id="处理-css-文件"><a href="#处理-css-文件" class="headerlink" title="处理 css 文件"></a>处理 css 文件</h3><p>在 <code>main.js</code>中引入 css 文件 <code>import &#39;../css/main.css&#39;</code></p>
-<p>安装 : <code>npm i -D style-loader css-loader</code></p>
-<p>在 <code>webpack.config.js</code> 中，添加个新的配置项 <code>module</code></p>
-<p>在 <code>module</code> 中添加 <code>loader</code> 来处理 <code>css</code></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">module</span>: &#123;</span><br><span class="line">    <span class="attr">rules</span>: [</span><br><span class="line">      <span class="comment">// 处理 css</span></span><br><span class="line">      <span class="comment">// 注意点 use 执行loader 顺序 从右往左</span></span><br><span class="line">      <span class="comment">// css-loader: 读取css文件内容，将其转化为一个模块</span></span><br><span class="line">      <span class="comment">// style-loader: 拿到模块, 创建一个style标签，插入页面中</span></span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">test</span>: <span class="regexp">/\.css$/</span>,</span><br><span class="line">        <span class="attr">use</span>: [<span class="string">&#x27;style-loader&#x27;</span>, <span class="string">&#x27;css-loader&#x27;</span>]</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="处理-less-文件"><a href="#处理-less-文件" class="headerlink" title="处理 less 文件"></a>处理 less 文件</h3><p>在 <code>main.js</code>中引入 less 文件 <code>import &#39;../css/main.less&#39;</code></p>
-<p>安装 : <code>npm i -D less-loader less style-loader css-loader</code></p>
-<p>在 webpack.config.js 中配置项 <code>module-&gt;rules</code>中添加 loader 来处理 <code>less</code></p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">module</span>: &#123;</span><br><span class="line">    <span class="attr">rules</span>: [</span><br><span class="line">      <span class="comment">//处理 css</span></span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">test</span>: <span class="regexp">/\.less$/</span>,</span><br><span class="line">        <span class="attr">use</span>: [<span class="string">&#x27;style-loader&#x27;</span>, <span class="string">&#x27;css-loader&#x27;</span>, <span class="string">&#x27;less-loader&#x27;</span>]</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="处理图片文件"><a href="#处理图片文件" class="headerlink" title="处理图片文件"></a>处理图片文件</h3><p>安装 : <code>npm i -D url-loader file-loader</code></p>
-<p>在 webpack.config.js 中配置项 <code>module-&gt;rules</code>中添加 loader 来处理图片</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">module</span>: &#123;</span><br><span class="line">    <span class="attr">rules</span>: [</span><br><span class="line">      <span class="comment">// 处理图片</span></span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">test</span>: <span class="regexp">/\.(jpg|png)$/</span>,</span><br><span class="line">        <span class="attr">use</span>: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">loader</span>: <span class="string">&#x27;url-loader&#x27;</span>,</span><br><span class="line">            <span class="attr">options</span>: &#123;</span><br><span class="line">              <span class="comment">//  图片大小 &lt;= 10000 =&gt; 转化为base64</span></span><br><span class="line">              <span class="comment">//  图片大小 &gt;= 10000 =&gt; 不会转base64 内部调用 file-loader 加载图片</span></span><br><span class="line">              <span class="attr">limit</span>: <span class="number">10000</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>url-loader</strong> 默认会将图片转化为 base64 编码格式，目的：提高性能</p>
-<p><strong>file-loader</strong> 在处理图片时，会对文件进行重命名</p>
-<p>base64 编码格式的图片说明：</p>
-<ul>
-<li>精灵图：将一些小图片合并为一张图片，减少请求次数，提高性能</li>
-<li>字体图标：直接将一些小的图片,合并到字体文件中，并且不会失真</li>
-<li>base64：是一种编码格式,能够将图片、文字等常见的文件，转化为 base64 格式，这种字符串格式浏览器能够识别并且读取显示到页面中</li>
-<li>base64 是一个字符串，也可以直接被内嵌到页面中，或者 css 中</li>
-<li>注意：大图片不适合用 base64 处理，只有小的图标才适合 base64 处理</li>
-</ul>
-<h3 id="处理字体文件"><a href="#处理字体文件" class="headerlink" title="处理字体文件"></a>处理字体文件</h3><p>在 <strong>main.js</strong> 中引入 css 文件 <code>import &#39;../css/iconfont/iconfont.css&#39;</code></p>
-<p>在 webpack.config.js 中配置</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">module</span>: &#123;</span><br><span class="line">    <span class="attr">rules</span>: [</span><br><span class="line">      <span class="comment">// 处理字体图标</span></span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">test</span>: <span class="regexp">/\.(svg|woff|woff2|ttf|eot)$/</span>,</span><br><span class="line">        <span class="attr">use</span>: <span class="string">&#x27;url-loader&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="处理-ES6-语法"><a href="#处理-ES6-语法" class="headerlink" title="处理 ES6 语法"></a>处理 ES6 语法</h3><ol>
-<li>现在的项目都是使用 ES6 开发的，但是这些新的 ES6 语法，并不是所有的浏览器都支持，所以就需要有一个工具，帮我们转成 es5 语法，这个就是：babel</li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9iYWJlbGpzLmlvLw==">babel</span></li>
-<li>Babel is a JavaScript compiler. &#x3D;&#x3D;&gt; babel 是一个 JavaScript 编译器</li>
-<li>webpack 只能处理 import &#x2F; export 这个 es6 模块化语法，而其他的 js 新语法，应该使用 babel 来处理</li>
-</ol>
-<p>babel 的使用 :</p>
-<ul>
-<li>安装： <code>npm i -D babel-core babel-loader@7</code><ul>
-<li>babel-core 是 babel 的核心包</li>
-<li>babel-loader 加载 js 文件，并将 js 代码内容交给 babel-core 解析为 es5 低版本的 js</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>安装：<code>npm i -D babel-preset-env babel-preset-stage-2</code><ul>
-<li>babel-preset-env：表示能够解析 es2015、es2016、es2017、es2018 这些标准的语法</li>
-<li>babel-preset-stage-2：用来解析还没有被采纳为标准的语法</li>
-<li><code>babel-polyfill与babel-plugin-transform-runtime</code> 也是做兼容处理的,以前都是用这个，兼容更早的</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>配置 : 在 webpack.config.js 中添加一个 loader</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">module</span>: &#123;</span><br><span class="line">    <span class="attr">rules</span>: [</span><br><span class="line">      <span class="comment">// 处理 ES6 语法</span></span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">test</span>: <span class="regexp">/\.js$/</span>,</span><br><span class="line">        <span class="attr">use</span>: <span class="string">&#x27;babel-loader&#x27;</span>,</span><br><span class="line">        <span class="comment">// 设置忽略 node-modules 文件夹</span></span><br><span class="line">        <span class="attr">exclude</span>: <span class="regexp">/node-modules/</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>在项目根目录中创建 babel 的配置文件，叫：<code>.babelrc</code></li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;presets&quot;: [</span><br><span class="line">    &quot;env&quot;,</span><br><span class="line">    &quot;stage-2&quot;</span><br><span class="line">  ],</span><br><span class="line"></span><br><span class="line">  -----------</span><br><span class="line">  // 暂时不用</span><br><span class="line">  // 如果未来某一天真的用到了polify</span><br><span class="line">  &quot;plugins&quot;: [</span><br><span class="line">    &quot;transform-runtime&quot;, &#123;</span><br><span class="line">      &quot;helpers&quot;: false,</span><br><span class="line">      &quot;polyfill&quot;: true,</span><br><span class="line">      &quot;regenerator&quot;: true,</span><br><span class="line">      &quot;moduleName&quot;: &quot;babel-runtime&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="项目打包上线"><a href="#项目打包上线" class="headerlink" title="项目打包上线"></a>项目打包上线</h2><p>执行 : <code>npm run build</code> 对项目进行打包，生成 dist 文件</p>
-<p>模拟本地服务器 : 安装 : <code>npm i -g http-server</code></p>
-<p>把 dist 文件里的内容放到服务器里即可，直接运行<code>http-server</code></p>
-<h2 id="webpack-和-gulp-区别"><a href="#webpack-和-gulp-区别" class="headerlink" title="webpack 和 gulp 区别"></a>webpack 和 gulp 区别</h2><ol>
-<li>Gulp 侧重于前端开发的整个过程的控制管理（像是流水线），我们可以通过给 gulp 配置不通的 task（通过 Gulp 中的 gulp.task() 方法配置，比如启动 server、sass&#x2F;less 预编译、文件的合并压缩等等）来让 gulp 实现不同的功能，从而构建整个前端开发流程</li>
-<li>Webpack 也称之为模块打包机 ，由此也可以看出 Webpack 更侧重于模块打包，当然我们可以把开发中的所有资源（图片、js 文件、css 文件等）都可以看成模块，最初 Webpack 本身就是为前端 JS 代码打包而设计的，后来被扩展到其他资源的打包处理。Webpack 是通过 loader（加载器）和 plugins（插件）对资源进行处理的</li>
-<li>gulp 是构建工具，Webpack 是 js 模块化的解决方案</li>
-</ol>
 
       
     </div>

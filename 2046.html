@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-logo.png">
@@ -161,7 +161,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E4%BB%8B%E7%BB%8D"><span class="nav-text">生命周期介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%84%E4%BB%B6%E9%80%9A%E8%AE%AF"><span class="nav-text">组件通讯</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A"><span class="nav-text">双向数据绑定</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#key%E5%B1%9E%E6%80%A7%E4%BD%9C%E7%94%A8"><span class="nav-text">key属性作用</span></a></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E4%BB%8B%E7%BB%8D"><span class="nav-text">生命周期介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%84%E4%BB%B6%E9%80%9A%E8%AE%AF"><span class="nav-text">组件通讯</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A"><span class="nav-text">双向数据绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#key%E5%B1%9E%E6%80%A7%E4%BD%9C%E7%94%A8"><span class="nav-text">key属性作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nextTick"><span class="nav-text">nextTick</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vdom"><span class="nav-text">vdom</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#native%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="nav-text">native修饰符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#set%E5%8E%9F%E7%90%86"><span class="nav-text">$set原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scoped%E5%8E%9F%E7%90%86"><span class="nav-text">scoped原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vue%E4%B8%ADref"><span class="nav-text">vue中ref</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue%E4%B8%AD-sync%E5%92%8Cv-model%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">Vue中.sync和v-model的区别</span></a></div>
         </div>
         <!--/noindex-->
 
@@ -176,7 +176,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">157</span>
+          <span class="site-state-item-count">159</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -186,7 +186,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">81</span>
+        <span class="site-state-item-count">82</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -320,9 +320,39 @@
 <p>v-model 原理（语法糖）：v-model是 :value&#x3D;”msg” @input&#x3D;”msg&#x3D;$event.target.value” 的语法糖</p>
 <p><code>Object.defineProperty</code> 不可以用来监听数组</p>
 <p>vue 是通过重写数组的方法（变异方法）实现对数组的监听</p>
-<h2 id="key属性作用"><a href="#key属性作用" class="headerlink" title="key属性作用"></a>key属性作用</h2><p>官方文档中说：</p>
+<h3 id="key属性作用"><a href="#key属性作用" class="headerlink" title="key属性作用"></a>key属性作用</h3><p><span class="exturl" data-url="aHR0cHM6Ly9jbi52dWVqcy5vcmcvdjIvYXBpLyNrZXk=">https://cn.vuejs.org/v2/api/#key</span><br><span class="exturl" data-url="aHR0cHM6Ly9jbi52dWVqcy5vcmcvdjIvZ3VpZGUvbGlzdC5odG1sIyVFNyVCQiVCNCVFNiU4QSVBNCVFNyU4QSVCNiVFNiU4MCU4MQ==">https://cn.vuejs.org/v2/guide/list.html#维护状态</span></p>
 <p>当 Vue.js 用<code>v-for</code>正在更新已渲染过的元素列表时，它默认用“就地复用”策略。如果数据项的顺序被改变，Vue 将不会移动 DOM 元素来匹配数据项的顺序， 而是简单复用此处每个元素，并且确保它在特定索引下显示已被渲染过的每个元素。</p>
 <p>没有<code>key</code>属性，Vue 无法跟踪每个节点</p>
+<h3 id="nextTick"><a href="#nextTick" class="headerlink" title="nextTick"></a>nextTick</h3><p><span class="exturl" data-url="aHR0cHM6Ly9jbi52dWVqcy5vcmcvdjIvZ3VpZGUvcmVhY3Rpdml0eS5odG1sIyVFNSVCQyU4MiVFNiVBRCVBNSVFNiU5QiVCNCVFNiU5NiVCMCVFOSU5OCU5RiVFNSU4OCU5Nw==">https://cn.vuejs.org/v2/guide/reactivity.html#异步更新队列</span></p>
+<h3 id="vdom"><a href="#vdom" class="headerlink" title="vdom"></a>vdom</h3><p>用js对象描述真实dom结构</p>
+<ol>
+<li>数据更新需要手动更新DOM，且DOM API细节比较多，操作复杂，容易出错且代码难以维护</li>
+<li>直接DOM对比的话，dom的查找和创建等操作是很耗费资源的，且dom的大部分属性对于diff操作是没有意义的</li>
+</ol>
+<p>引入 Virtual DOM 在性能方面的考量仅仅是一方面。更重要的原因是为了解耦 HTML 依赖<br>将 Virtual DOM作为一个兼容层，让我们还能对接非 Web 端的系统，实现跨端开发。<br>同样的，通过 Virtual DOM我们可以渲染到其他的平台，比如实现 SSR、同构渲染等等。<br>实现组件的高度抽象化</p>
+<h3 id="native修饰符"><a href="#native修饰符" class="headerlink" title="native修饰符"></a>native修饰符</h3><p>在组件的根元素上监听一个原生事件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;my-component v-on:click.native=&quot;doTheThing&quot;&gt;&lt;/my-component&gt;</span><br></pre></td></tr></table></figure>
+
+<p>可以理解为该修饰符的作用就是把一个vue组件转化为一个普通的HTML标签，并且该修饰符对普通HTML标签是没有任何作用的。</p>
+<p>为什么vue组件要设计一个native修饰符</p>
+<p>DOM本身具有事件属性，所以原生元素(div, button 等)的所有事件都是DOM事件<br>vue组件有自己的自定义事件系统，你在component组件上定义事件，vue必须要知道是那种类型的事件好进入相应的处理逻辑，.native 就是区分的标识。</p>
+<h2 id="set原理"><a href="#set原理" class="headerlink" title="$set原理"></a>$set原理</h2><p>如果在实例创建之后添加新的属性到实例上，它不会触发视图更新</p>
+<p>Vue 会在初始化实例时对属性执行 getter&#x2F;setter 转化过程，所以属性必须在 data 对象上存在才能让 Vue 转换它</p>
+<p>Vue 不允许在已经创建的实例上动态添加新的根级响应式属性，可以使用 <code>Vue.set(object, key, value)</code> 方法将响应属性添加到嵌套的对象上，或者创建一个包含原对象属性和新属性的对象替换掉原对象</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// src/core/observer/index.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">set</span> (target, key, val) &#123;</span><br><span class="line">  <span class="comment">// 如果 set 函数的第一个参数是 undefined 或 null 或者是原始类型值，那么在非生产环境下会打印警告信息</span></span><br><span class="line">  <span class="keyword">if</span> (process.<span class="property">env</span>.<span class="property">NODE_ENV</span> !== <span class="string">&#x27;production&#x27;</span> &amp;&amp; (<span class="title function_">isUndef</span>(target) || <span class="title function_">isPrimitive</span>(target)) ) &#123;</span><br><span class="line">    <span class="title function_">warn</span>(<span class="string">`Cannot set reactive property on undefined, null, or primitive value: <span class="subst">$&#123;target&#125;</span>`</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// target为数组</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="title class_">Array</span>.<span class="title function_">isArray</span>(target) &amp;&amp; <span class="title function_">isValidArrayIndex</span>(key)) &#123;</span><br><span class="line">    <span class="comment">// 修改数组的长度, 避免索引&gt;数组长度导致splcie()执行有误</span></span><br><span class="line">    target.<span class="property">length</span> = <span class="title class_">Math</span>.<span class="title function_">max</span>(target.<span class="property">length</span>, key)</span><br><span class="line">    <span class="comment">// 利用数组的splice变异方法触发响应式</span></span><br><span class="line">    target.<span class="title function_">splice</span>(key, <span class="number">1</span>, val)</span><br><span class="line">    <span class="keyword">return</span> val</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// target为对象, key在target或者target.prototype上</span></span><br><span class="line">  <span class="comment">// 同时必须不能在 Object.prototype 上</span></span><br><span class="line">  <span class="comment">// 直接修改即可, 有兴趣可以看issue: https://github.com/vuejs/vue/issues/6845</span></span><br><span class="line">  <span class="keyword">if</span> (key <span class="keyword">in</span> target &amp;&amp; !(key <span class="keyword">in</span> <span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>)) &#123;</span><br><span class="line">    target[key] = val</span><br><span class="line">    <span class="keyword">return</span> val</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 以上都不成立, 即开始给target创建一个全新的属性</span></span><br><span class="line">  <span class="comment">// 获取Observer实例</span></span><br><span class="line">  <span class="keyword">const</span> ob = target.<span class="property">__ob__</span></span><br><span class="line">  <span class="comment">// Vue 实例对象拥有 _isVue 属性, 即不允许给Vue 实例对象添加属性</span></span><br><span class="line">  <span class="comment">// 也不允许Vue.set/$set 函数为根数据对象(vm.$data)添加属性</span></span><br><span class="line">  <span class="keyword">if</span> (target.<span class="property">_isVue</span> || (ob &amp;&amp; ob.<span class="property">vmCount</span>)) &#123;</span><br><span class="line">    process.<span class="property">env</span>.<span class="property">NODE_ENV</span> !== <span class="string">&#x27;production&#x27;</span> &amp;&amp; <span class="title function_">warn</span>(</span><br><span class="line">      <span class="string">&#x27;Avoid adding reactive properties to a Vue instance or its root $data &#x27;</span> +</span><br><span class="line">      <span class="string">&#x27;at runtime - declare it upfront in the data option.&#x27;</span></span><br><span class="line">    )</span><br><span class="line">    <span class="keyword">return</span> val</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// target本身就不是响应式数据, 直接赋值</span></span><br><span class="line">  <span class="keyword">if</span> (!ob) &#123;</span><br><span class="line">    target[key] = val</span><br><span class="line">    <span class="keyword">return</span> val</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 进行响应式处理</span></span><br><span class="line">  <span class="title function_">defineReactive</span>(ob.<span class="property">value</span>, key, val)</span><br><span class="line">  ob.<span class="property">dep</span>.<span class="title function_">notify</span>()</span><br><span class="line">  <span class="keyword">return</span> val</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="scoped原理"><a href="#scoped原理" class="headerlink" title="scoped原理"></a>scoped原理</h2><p><code>&lt;style scoped&gt;&lt;/style&gt;</code></p>
+<p>Vue的作用域样式实现思路如下：1. 加了scoped，PostCSS给一个组件中的所有dom添加了一个独一无二的动态属性，<code>&lt;div data-v-实例标识 &gt;</code>；2. 然后给CSS选择器的最后一个选择器单元增加了属性选择器，假设原选择器为 <code>.page .title</code>，则更改后的选择器为 <code>.page .title[data-v-实例标识]</code>。这种做法使得样式只作用于当前组件内部dom，可以使得组件之间的样式不互相污染。</p>
+<p>如果这时候需要改子组件的样式，但是又不影响其他页面使用这个子组件的样式的时候，我们可以使用深度作用选择器 <code>&gt;&gt;&gt;、/deep/、::v-deep</code></p>
+<p>使用深度作用选择器后， postcss会在每一个深度作用选择器前面的一个选择器单元增加一个属性选择器[data-v-实例标识]，假设原选择器为 <code>.page /deep/.title</code>，则更改后的选择器为 <code>.page[data-v-实例标识] .title</code></p>
+<h2 id="vue中ref"><a href="#vue中ref" class="headerlink" title="vue中ref"></a>vue中ref</h2><p><span class="exturl" data-url="aHR0cHM6Ly9jbi52dWVqcy5vcmcvdjIvYXBpLyNyZWY=">https://cn.vuejs.org/v2/api/#ref</span></p>
+<p>给元素或子组件注册引用信息，引用信息将会注册在父组件的 <code>$refs</code>对象上；<br>如果在普通的 DOM 元素上使用，引用指向的就是 DOM 元素；如果用在子组件上，引用就指向组件实例</p>
+<h2 id="Vue中-sync和v-model的区别"><a href="#Vue中-sync和v-model的区别" class="headerlink" title="Vue中.sync和v-model的区别"></a>Vue中.sync和v-model的区别</h2><ol>
+<li>v-model: @input + value</li>
+<li>:val.sync: @update:val</li>
+<li>v-model只能用一次；.sync可以有多个</li>
+</ol>
 
     </div>
 
@@ -336,13 +366,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2045.html" rel="prev" title="手写 —— 数组去重">
-                  <i class="fa fa-chevron-left"></i> 手写 —— 数组去重
+                <a href="/2047.html" rel="prev" title="vue">
+                  <i class="fa fa-chevron-left"></i> vue
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/cl5axqlc500e71cosacsm1oie.html" rel="next" title="">
-                   <i class="fa fa-chevron-right"></i>
+                <a href="/2049.html" rel="next" title="Navicat Premium 破解（win&mac）">
+                  Navicat Premium 破解（win&mac） <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

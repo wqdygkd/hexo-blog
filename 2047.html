@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-logo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-logo.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-logo.png">
+  <link rel="mask-icon" href="/images/favicon-logo.png" color="#222">
+  <meta name="google-site-verification" content="4ub2lNf2WEkusifo-b7xbJIm2G5xxYUczDoWOFGp-NM">
+  <meta name="msvalidate.01" content="C2030D8E2452D4B39AED09488E55F2DF">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"wqdy.top","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.10.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+  <meta name="description" content="vue的生命周期组件通讯、组件渲染更新过程vue怎么实现双向数据绑定，v-model原理key属性作用nextTick实现原理是什么？为什么在nextTick中可以获取到最新的domvdomdiffnative修饰符$set原理scoped原理vue中refVue中.sync和v-model的区别 模板编译模板渲染过程路由 路由拦截主要是利用 vue-router 提供的钩子函数 beforeEa">
+<meta property="og:type" content="website">
+<meta property="og:title" content="vue">
+<meta property="og:url" content="https://wqdy.top/2047.html">
+<meta property="og:site_name" content="我全都要">
+<meta property="og:description" content="vue的生命周期组件通讯、组件渲染更新过程vue怎么实现双向数据绑定，v-model原理key属性作用nextTick实现原理是什么？为什么在nextTick中可以获取到最新的domvdomdiffnative修饰符$set原理scoped原理vue中refVue中.sync和v-model的区别 模板编译模板渲染过程路由 路由拦截主要是利用 vue-router 提供的钩子函数 beforeEa">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-03-09T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-03-09T00:00:00.000Z">
+<meta property="article:author" content="c">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://wqdy.top/2047.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://wqdy.top/2047.html","path":"2047.html","title":"vue"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>vue | 我全都要</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112496567-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-112496567-1","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?0a902dd83e2d4f1aebaeaa0bafe307a0"></script>
+
+
+
+
+
+<!-- google 分析 -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9068539038073295"
+     crossorigin="anonymous"></script>
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">我全都要</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">搞快点</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-前端"><a href="/c/frontend/" rel="section"><i class="fab fa-html5 fa-fw"></i>前端</a></li>
+        <li class="menu-item menu-item-软件"><a href="/c/software/" rel="section"><i class="fas fa-th-large fa-fw"></i>软件</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fas fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1%E6%8B%A6%E6%88%AA"><span class="nav-text">路由拦截</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vue-%E8%B7%AF%E7%94%B1%E4%BC%A0%E5%8F%82"><span class="nav-text">vue 路由传参</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A6%96%E5%B1%8F%E5%8A%A0%E8%BD%BD%E4%BC%98%E5%8C%96%E5%92%8C%E7%AE%97%E6%B3%95"><span class="nav-text">首屏加载优化和算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vue-loader"><span class="nav-text">vue-loader</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Computed%E5%92%8CWatch"><span class="nav-text">Computed和Watch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vue3-%E6%96%B0%E7%89%B9%E6%80%A7"><span class="nav-text">vue3 新特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%81%9A%E8%BF%87%E5%93%AA%E4%BA%9B-webpack-%E9%85%8D%E7%BD%AE"><span class="nav-text">做过哪些 webpack 配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vue-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E4%BB%A4"><span class="nav-text">vue 自定义指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vuex-%E7%9A%84%E4%BA%94%E4%B8%AA%E7%8A%B6%E6%80%81"><span class="nav-text">vuex 的五个状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vuex-%E5%BC%82%E6%AD%A5"><span class="nav-text">vuex 异步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hash-%E5%92%8C-History-%E8%B7%AF%E7%94%B1%E7%9A%84%E5%8C%BA%E5%88%AB%E5%92%8C%E4%BC%98%E7%BC%BA%E7%82%B9%EF%BC%9F"><span class="nav-text">Hash 和 History 路由的区别和优缺点？</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="c"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">c</p>
+  <div class="site-description" itemprop="description">分享各类资源、经验与技巧</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">159</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">82</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3dxZHlna2Q=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wqdygkd"><i class="fab fa-github fa-fw"></i>GitHub</span>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/2047.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          vue
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2022-03-09" itemprop="dateCreated datePublished" datetime="2022-03-09T00:00:00+00:00">2022-03-09</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><a href="/2046.html#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E4%BB%8B%E7%BB%8D">vue的生命周期</a><br><a href="/2046.html#%E7%BB%84%E4%BB%B6%E9%80%9A%E8%AE%AF">组件通讯、组件渲染更新过程</a><br><a href="/2046.html#%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A">vue怎么实现双向数据绑定，v-model原理</a><br><a href="/2046.html#key%E5%B1%9E%E6%80%A7%E4%BD%9C%E7%94%A8">key属性作用</a><br><a href="/2046.html#nextTick">nextTick实现原理是什么？为什么在nextTick中可以获取到最新的dom</a><br><a href="/2046.html#vdom">vdom</a><br><a href="">diff</a><br><a href="/2046.html#native%E4%BF%AE%E9%A5%B0%E7%AC%A6">native修饰符</a><br><a href="/2046.html#$set%E5%8E%9F%E7%90%86">$set原理</a><br><a href="/2046.html#scoped%E5%8E%9F%E7%90%86">scoped原理</a><br><a href="/2046.html#vue%E4%B8%ADref">vue中ref</a><br><a href="/2046.html#Vue%E4%B8%AD.sync%E5%92%8Cv-model%E7%9A%84%E5%8C%BA%E5%88%AB">Vue中.sync和v-model的区别</a></p>
+<p>模板编译<br>模板渲染过程<br>路由</p>
+<h2 id="路由拦截"><a href="#路由拦截" class="headerlink" title="路由拦截"></a>路由拦截</h2><p>主要是利用 vue-router 提供的钩子函数 beforeEach() 对路由进行判断 - 导航守卫 - 全局前置守卫</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">router.<span class="title function_">beforeEach</span>(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>to: Route: 即将要进入的目标</p>
+</li>
+<li><p>from: Route: 当前导航正要离开的路由</p>
+</li>
+<li><p>next: Function: 一定要调用该方法来 resolve 这个钩子。执行效果依赖 next 方法的调用参数。</p>
+</li>
+<li><p>next(): 进行管道中的下一个钩子。如果全部钩子执行完了，则导航的状态就是 confirmed （确认的）。</p>
+</li>
+<li><p>next(false): 中断当前的导航。如果浏览器的 URL 改变了（可能是用户手动或者浏览器后退按钮），那么 URL 地址会重置到 from 路由对应的地址。</p>
+</li>
+<li><p>next(‘&#x2F;’) 或者 next({ path: ‘&#x2F;’ }): 跳转到一个不同的地址。当前的导航被中断，然后进行一个新的导航。</p>
+</li>
+</ul>
+<h2 id="vue-路由传参"><a href="#vue-路由传参" class="headerlink" title="vue 路由传参"></a>vue 路由传参</h2><p><code>_vue/vue?id=路由参数</code></p>
+<ul>
+<li>vue 路由传参方式，说明区别和应用场景</li>
+</ul>
+<p><span class="exturl" data-url="aHR0cHM6Ly9yb3V0ZXIudnVlanMub3JnL3poL2d1aWRlL2Vzc2VudGlhbHMvbmF2aWdhdGlvbi5odG1sIyVFNyVCQyU5NiVFNyVBOCU4QiVFNSVCQyU4RiVFNyU5QSU4NCVFNSVBRiVCQyVFOCU4OCVBQQ==">编程式导航</span></p>
+<p>params 和 queery</p>
+<p>params 要用 name 来引入，query 要用 path 来引入</p>
+<p>query 类似于 ajax 中 get 传参，params 类似于 post</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> userId = <span class="string">&#x27;123&#x27;</span></span><br><span class="line"><span class="comment">// 字符串</span></span><br><span class="line">router.<span class="title function_">push</span>(<span class="string">&#x27;/user&#x27;</span>) <span class="comment">// -&gt; /user</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 对象, path为路由的path属性值</span></span><br><span class="line">router.<span class="title function_">push</span>(&#123; <span class="attr">path</span>: <span class="string">&#x27;/user&#x27;</span> &#125;) <span class="comment">// -&gt; /user</span></span><br><span class="line">router.<span class="title function_">push</span>(&#123; <span class="attr">path</span>: <span class="string">`/user/<span class="subst">$&#123;userId&#125;</span>`</span> &#125;) <span class="comment">// -&gt; /user/123</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 命名的路由，name为路由的name属性值</span></span><br><span class="line">router.<span class="title function_">push</span>(&#123; <span class="attr">name</span>: <span class="string">&#x27;user&#x27;</span>, <span class="attr">params</span>: &#123; userId &#125;&#125;) <span class="comment">// -&gt; /user/123</span></span><br><span class="line"><span class="comment">// 如果提供了 path，params 会被忽略</span></span><br><span class="line"><span class="comment">// 这里的 params 不生效</span></span><br><span class="line">router.<span class="title function_">push</span>(&#123; <span class="attr">path</span>: <span class="string">&#x27;/user&#x27;</span>, <span class="attr">params</span>: &#123; userId &#125;&#125;) <span class="comment">// -&gt; /user</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 带查询参数</span></span><br><span class="line">router.<span class="title function_">push</span>(&#123; <span class="attr">path</span>: <span class="string">&#x27;register&#x27;</span>, <span class="attr">query</span>: &#123; <span class="attr">plan</span>: <span class="string">&#x27;private&#x27;</span> &#125;&#125;) <span class="comment">// -&gt; /register?plan=private</span></span><br><span class="line"></span><br><span class="line"><span class="attr">routes</span>: [&#123; <span class="attr">path</span>: <span class="string">&#x27;/user/:id?&#x27;</span>, name=<span class="string">&#x27;user&#x27;</span>, <span class="attr">component</span>: <span class="title class_">User</span> &#125;]</span><br></pre></td></tr></table></figure>
+
+<h2 id="首屏加载优化和算法"><a href="#首屏加载优化和算法" class="headerlink" title="首屏加载优化和算法"></a>首屏加载优化和算法</h2><h2 id="vue-loader"><a href="#vue-loader" class="headerlink" title="vue-loader"></a>vue-loader</h2><p>解析和转换 .vue 文件，提取出其中的逻辑代码 script、样式代码 style、以及 HTML 模版 template，再分别把它们交给对应的 Loader 去处理</p>
+<h2 id="Computed和Watch"><a href="#Computed和Watch" class="headerlink" title="Computed和Watch"></a>Computed和Watch</h2><p>Computed 有缓存: 基于它们的响应式依赖进行缓存，只有跟计算属性相关的数据发生了改变，计算属性才会重新计算<br>Watch没有缓存性 deep: true 深度监听，这样便会对对象中的每一项进行监听。优化的话可以使用字符串形式监听</p>
+<h2 id="vue3-新特性"><a href="#vue3-新特性" class="headerlink" title="vue3 新特性"></a>vue3 新特性</h2><p>基于 Proxy 的观察者机制<br>重写虚拟 Dom<br>更好的支持 ts<br>新工具 vite</p>
+<h2 id="做过哪些-webpack-配置"><a href="#做过哪些-webpack-配置" class="headerlink" title="做过哪些 webpack 配置"></a>做过哪些 webpack 配置</h2><p>配置 proxy 跨域<br>配置 externals<br>配置别名<br>添加打包分析插件 BundleAnalyzerPlugin</p>
+<p>chainWebpack</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="variable constant_">IS_PROD</span> = [<span class="string">&#x27;production&#x27;</span>, <span class="string">&#x27;prod&#x27;</span>].<span class="title function_">includes</span>(process.<span class="property">env</span>.<span class="property">NODE_ENV</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// cdn</span></span><br><span class="line"><span class="keyword">const</span> cdn = &#123;</span><br><span class="line">  <span class="attr">css</span>: [],</span><br><span class="line">  <span class="attr">js</span>: [</span><br><span class="line">    <span class="string">&#x27;https://cdn.bootcss.com/vue/2.5.17/vue.runtime.min.js&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;https://cdn.bootcss.com/vue-router/3.0.1/vue-router.min.js&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;https://cdn.bootcss.com/vuex/3.0.1/vuex.min.js&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;https://cdn.bootcss.com/axios/0.18.0/axios.min.js&#x27;</span>,</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">chainWebpack</span>: <span class="function"><span class="params">config</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 添加别名</span></span><br><span class="line">    config.<span class="property">resolve</span>.<span class="property">alias</span></span><br><span class="line">      .<span class="title function_">set</span>(<span class="string">&#x27;@&#x27;</span>, <span class="title function_">resolve</span>(<span class="string">&#x27;src&#x27;</span>))</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 移除 prefetch 插件</span></span><br><span class="line">    config.<span class="property">plugins</span>.<span class="title function_">delete</span>(<span class="string">&#x27;prefetch&#x27;</span>)</span><br><span class="line">    <span class="comment">// 移除 preload 插件</span></span><br><span class="line">    config.<span class="property">plugins</span>.<span class="title function_">delete</span>(<span class="string">&#x27;preload&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 生产环境配置</span></span><br><span class="line">    <span class="keyword">if</span> (isProduction) &#123;</span><br><span class="line">      <span class="comment">// 生产环境注入cdn ， 还需要修改index.html</span></span><br><span class="line">      config.<span class="title function_">plugin</span>(<span class="string">&#x27;html&#x27;</span>)</span><br><span class="line">        .<span class="title function_">tap</span>(<span class="function"><span class="params">args</span> =&gt;</span> &#123;</span><br><span class="line">          args[<span class="number">0</span>].<span class="property">cdn</span> = cdn</span><br><span class="line">          <span class="keyword">return</span> args</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="attr">configureWebpack</span>: <span class="function"><span class="params">config</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 配置 externals</span></span><br><span class="line">    <span class="comment">// 键：表示 导入包语法 from 后面跟着的名称</span></span><br><span class="line">    <span class="comment">// 值：表示 script 引入JS文件时，在全局环境中的变量名称</span></span><br><span class="line">    config.<span class="property">externals</span> = &#123;</span><br><span class="line">      <span class="string">&#x27;vue&#x27;</span>: <span class="string">&#x27;Vue&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;element-ui&#x27;</span>: <span class="string">&#x27;ELEMENT&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;vue-router&#x27;</span>: <span class="string">&#x27;VueRouter&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;vuex&#x27;</span>: <span class="string">&#x27;Vuex&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;axios&#x27;</span>: <span class="string">&#x27;axios&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// UglifyJsPlugin</span></span><br><span class="line">    <span class="comment">// 去掉 console.log  drop_console: true,</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 开启gzip压缩</span></span><br><span class="line">    <span class="comment">// compression-webpack-plugin</span></span><br><span class="line"></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="attr">css</span>: &#123;</span><br><span class="line">    <span class="comment">// css预设器配置项</span></span><br><span class="line">    <span class="attr">loaderOptions</span>: &#123;</span><br><span class="line">      <span class="comment">// pass options to sass-loader</span></span><br><span class="line">      <span class="attr">sass</span>: &#123;</span><br><span class="line">        <span class="comment">// 引入全局变量样式,@使我们设置的别名,执行src目录</span></span><br><span class="line">        <span class="attr">data</span>: <span class="string">` @import &quot;@/stylePath/theme.scss&quot;; `</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="attr">devServer</span>: &#123;</span><br><span class="line">    <span class="attr">proxy</span>: &#123;</span><br><span class="line">      <span class="string">&#x27;/api&#x27;</span>: &#123;</span><br><span class="line">        <span class="attr">target</span>: <span class="string">&#x27;http://yd.msword.top&#x27;</span>, <span class="comment">// 代理的目标服务器地址   用‘/api&#x27;代替target里面的地址</span></span><br><span class="line">        <span class="comment">// https请求需要该设置</span></span><br><span class="line">        <span class="attr">secure</span>: <span class="literal">false</span>,</span><br><span class="line">        <span class="attr">ws</span>: <span class="literal">true</span>, <span class="comment">// 代理websockets</span></span><br><span class="line">        <span class="attr">changeOrigin</span>: <span class="literal">true</span>, <span class="comment">// 是否跨域，虚拟的站点需要更管origin</span></span><br><span class="line">        <span class="attr">pathRewrite</span>: &#123;</span><br><span class="line">          <span class="string">&#x27;^/api&#x27;</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>index.html 修改</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 使用CDN的CSS文件 --&gt;</span></span><br><span class="line">&lt;% for (var i in htmlWebpackPlugin.options.cdn &amp;&amp; htmlWebpackPlugin.options.cdn.css) &#123; %&gt;</span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">&quot;&lt;%= htmlWebpackPlugin.options.cdn.css[i] %&gt;&quot;</span> <span class="attr">rel</span>=<span class="string">&quot;preload&quot;</span> <span class="attr">as</span>=<span class="string">&quot;style&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">&quot;&lt;%= htmlWebpackPlugin.options.cdn.css[i] %&gt;&quot;</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span>&gt;</span></span><br><span class="line">&lt;% &#125; %&gt;</span><br><span class="line"><span class="comment">&lt;!-- 使用CDN的JS文件 --&gt;</span></span><br><span class="line">&lt;% for (var i in htmlWebpackPlugin.options.cdn &amp;&amp; htmlWebpackPlugin.options.cdn.js) &#123; %&gt;</span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">&quot;&lt;%= htmlWebpackPlugin.options.cdn.js[i] %&gt;&quot;</span> <span class="attr">rel</span>=<span class="string">&quot;preload&quot;</span> <span class="attr">as</span>=<span class="string">&quot;script&quot;</span>&gt;</span></span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="vue-自定义指令"><a href="#vue-自定义指令" class="headerlink" title="vue 自定义指令"></a>vue 自定义指令</h2><p>全局</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title class_">Vue</span>.<span class="title function_">directive</span>(<span class="string">&#x27;color&#x27;</span>, &#123;</span><br><span class="line">  <span class="comment">// 只调用一次，指令第一次绑定到元素时调用，在这里可以进行一次初始化设置；</span></span><br><span class="line">  bind (el, binding) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(binding)</span><br><span class="line">    el.<span class="property">style</span>.<span class="property">background</span> = binding.<span class="property">value</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 被绑定元素插入父节点时调用；</span></span><br><span class="line">  inserted () &#123;&#125;,</span><br><span class="line">  <span class="comment">// 在 bind 之后立即以初始值为参数第一次调用，之后每当绑定值变化时调用，参数为新值与旧值；</span></span><br><span class="line">  update () &#123;&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>组件内</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">directives</span>:&#123;</span><br><span class="line">  <span class="attr">test</span>:&#123;</span><br><span class="line">    inserted (el, binding) &#123;<span class="comment">// 指令的定义</span></span><br><span class="line">      <span class="comment">// el为绑定元素，可以对其进行dom操作</span></span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(binding) <span class="comment">//一个对象，包含很多属性属性</span></span><br><span class="line">    &#125;,</span><br><span class="line">    bind (el, binding, vnode) &#123;</span><br><span class="line">      el.<span class="property">innerHTML</span> = binding.<span class="property">value</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<h2 id="vuex-的五个状态"><a href="#vuex-的五个状态" class="headerlink" title="vuex 的五个状态"></a>vuex 的五个状态</h2><p><code>state</code></p>
+<p><code>mutations</code>：提供修改数据的方法</p>
+<p><code>getters</code>：可以认为是 store 的计算属性</p>
+<p><code>actions</code>：Action 提交的是 mutation，可以包含异步</p>
+<p><code>modules</code>：将 store 分割成模块</p>
+<h2 id="vuex-异步"><a href="#vuex-异步" class="headerlink" title="vuex 异步"></a>vuex 异步</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> mutations = &#123;</span><br><span class="line">  addTodo (state, playload) &#123;</span><br><span class="line">    <span class="comment">// 操作state</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> actions = &#123;</span><br><span class="line">  <span class="comment">// 异步任务</span></span><br><span class="line">  <span class="comment">// context : 相当于 store</span></span><br><span class="line">  <span class="comment">// playload : 就是传过来的参数</span></span><br><span class="line">  addTodoAsync (context, playload) &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      context.<span class="title function_">commit</span>(<span class="string">&#x27;addTodo&#x27;</span>, playload)</span><br><span class="line">    &#125;, <span class="number">1000</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="attr">methods</span>: &#123;</span><br><span class="line">  <span class="comment">// 添加任务</span></span><br><span class="line">  addTodo () &#123;</span><br><span class="line">    <span class="comment">// 异步 : 分发 dispatch  =&gt; actions</span></span><br><span class="line">    <span class="comment">// dispatch =&gt; 找 actions</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">$store</span>.<span class="title function_">dispatch</span>(<span class="string">&#x27;addTodoAsync&#x27;</span>, &#123;</span><br><span class="line">      <span class="attr">todoName</span>: <span class="variable language_">this</span>.<span class="property">todoName</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Hash-和-History-路由的区别和优缺点？"><a href="#Hash-和-History-路由的区别和优缺点？" class="headerlink" title="Hash 和 History 路由的区别和优缺点？"></a>Hash 和 History 路由的区别和优缺点？</h2><ul>
+<li>hash 路由模式的实现主要是基于下面几个特性：</li>
+</ul>
+<p>URL 中 hash 值只是客户端的一种状态，也就是说当向服务器端发出请求时，hash 部分不会被发送（hash 值改变，浏览器不会重新发起请求）<br>hash 值改变，会在浏览器的访问历史中增加一个记录。因此我们能通过浏览器的回退、前进按钮控制 hash 的切换<br>可以通过 a 标签，或对 loaction.hash 进行赋值，来改变 URL 的 hash 值<br>可以使用 hashchange 事件来监听 hash 值的变化，从而对页面进行跳转（渲染）</p>
+<ul>
+<li>history 路由模式的实现主要基于存在下面几个特性：</li>
+</ul>
+<p>pushState 和 repalceState 两个 API 来操作实现 URL 的变化，且不会重新发起请求<br>使用 popstate  事件来监听 url 的变化，从而对页面进行跳转（渲染）<br>history.pushState() 或 history.replaceState() 不会触发 popstate 事件，这时我们需要手动触发页面跳转（渲染）。</p>
+<ul>
+<li>hash模式优缺点</li>
+</ul>
+<p>优点</p>
+<p>只需要前端配置路由表, 不需要后端的参与<br>兼容性好, 浏览器都能支持<br>hash值改变不会向后端发送请求, 完全属于前端路由</p>
+<p>缺点<br>hash值前面需要加<code>#</code>, 不符合url规范, 也不美观</p>
+<ul>
+<li>history 模式的优缺点：</li>
+</ul>
+<p>优点：<br>符合url地址规范, 不需要<code>#</code>, 使用起来比较美观</p>
+<p>缺点：<br>需要服务端配合重定向，否则一刷新页面就404了<br>兼容性比较差, 利用了 HTML5 History对象中新增的 pushState() 和 replaceState() 方法, 需要浏览器的支持</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9jbi52dWVqcy5vcmcvdjIvZ3VpZGUvY29tcG9uZW50cy1jdXN0b20tZXZlbnRzLmh0bWwjJUU1JUIwJTg2JUU1JThFJTlGJUU3JTk0JTlGJUU0JUJBJThCJUU0JUJCJUI2JUU3JUJCJTkxJUU1JUFFJTlBJUU1JTg4JUIwJUU3JUJCJTg0JUU0JUJCJUI2">https://cn.vuejs.org/v2/guide/components-custom-events.html#将原生事件绑定到组件</span></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2045.html" rel="prev" title="手写 —— 数组去重">
+                  <i class="fa fa-chevron-left"></i> 手写 —— 数组去重
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2046.html" rel="next" title="vue基础知识点复习">
+                  vue基础知识点复习 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2015 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">c</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>本站为个人博客，站内所有软件资源均收集自互联网，本站仅做免费分享，不出售。本站内所有软件资源仅限个人用于学习和研究目的，不得将上述内容用于商业或者非法用途，否则，一切后果请用户自负。本站内所有软件必须在下载后的24个小时之内，从您的电脑中彻底删除。本站对任何资源不提供技术支持，遇到问题请自行研究或购买正版。本站信息来自网络，版权争议与本站无关。访问和下载本站内容，说明您已同意上述条款。
+
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"wqdygkd/hexo-blog","issue_term":"pathname","theme":"github-light"}</script>
+<script src="/js/third-party/comments/utterances.js"></script>
+
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-logo.png">
@@ -173,7 +173,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">157</span>
+          <span class="site-state-item-count">159</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -183,7 +183,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">81</span>
+        <span class="site-state-item-count">82</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -217,6 +217,494 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1782.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/1782.html" class="post-title-link" itemprop="url">nuxt.js 学习笔记</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-06-21" itemprop="dateCreated datePublished" datetime="2020-06-21T00:00:26+00:00">2020-06-21</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="nuxt"><a href="#nuxt" class="headerlink" title="nuxt"></a>nuxt</h2><p>Nuxt.js 是一个基于 Vue.js 的通用应用框架。</p>
+<p>官网：<span class="exturl" data-url="aHR0cHM6Ly9udXh0anMub3JnLw==">https://nuxtjs.org/</span><br>中文：<span class="exturl" data-url="aHR0cHM6Ly96aC5udXh0anMub3JnLw==">https://zh.nuxtjs.org/</span> <span class="exturl" data-url="aHR0cHM6Ly93d3cubnV4dGpzLmNuLw==">https://www.nuxtjs.cn/</span></p>
+<h2 id="nuxt-渲染流程"><a href="#nuxt-渲染流程" class="headerlink" title="nuxt 渲染流程"></a>nuxt 渲染流程</h2><p>在任何 Vue 组件的生命周期内， 只有 beforeCreate 和 created 这两个方法会在 客户端和服务端被调用。其他生命周期函数仅在客户端被调用。<br><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102205617.png"></p>
+<h3 id="asyncData-方法"><a href="#asyncData-方法" class="headerlink" title="asyncData 方法"></a>asyncData 方法</h3><p><span class="exturl" data-url="aHR0cHM6Ly96aC5udXh0anMub3JnL2FwaS8=">https://zh.nuxtjs.org/api/</span></p>
+<p>用于在渲染组件之前异步获取数据，在服务端或路由更新之前被调用。在这个方法被调用的时候，第一个参数被设定为当前页面的上下文对象，你可以利用 asyncData 方法来获取数据并返回给当前组件。</p>
+<p>注意：由于 asyncData 方法是在组件 初始化 前被调用的，所以在方法内是没有办法通过 this 来引用组件的实例对象。<br>asyncData 只在首屏被执行，其它时候相当于 created 或 mounted 在客户端渲染页面。</p>
+<h3 id="fetch-方法"><a href="#fetch-方法" class="headerlink" title="fetch 方法"></a>fetch 方法</h3><p>在 2.12 版本之前：</p>
+<p>fetch 方法用于在渲染页面前填充应用的状态树（store）数据， 与 asyncData 方法类似，不同的是它不会设置组件的数据。<br>警告: 您无法在内部使用 this 获取组件实例，fetch 是在组件初始化之前被调用</p>
+<p>在 2.12 版本中，fetch 有大更新，fetch(context)已被弃用，可以在 fetch() 中直接使用 this，参考：<span class="exturl" data-url="aHR0cHM6Ly9udXh0anMub3JnL2FwaS9wYWdlcy1mZXRjaA==">https://nuxtjs.org/api/pages-fetch</span></p>
+<p>参考 2：<span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vcG9zdC81ZWNiODEzNzUxODgyNTQzMTg0NTk4ZmU=">https://juejin.im/post/5ecb813751882543184598fe</span><br><span class="exturl" data-url="aHR0cHM6Ly96aC5udXh0anMub3JnL2Jsb2cvdW5kZXJzdGFuZGluZy1ob3ctZmV0Y2gtd29ya3MtaW4tbnV4dC0yLTEyLw==">https://zh.nuxtjs.org/blog/understanding-how-fetch-works-in-nuxt-2-12/</span></p>
+<h2 id="context"><a href="#context" class="headerlink" title="context"></a>context</h2><p><span class="exturl" data-url="aHR0cHM6Ly96aC5udXh0anMub3JnL2FwaS9jb250ZXh0">https://zh.nuxtjs.org/api/context</span></p>
+<p>服务端上下文对象，可以在 <code>asyncData</code> <code>fetch</code> <code>plugins</code> <code>middlewares</code> <code>modules</code> <code>store/nuxtServerInit</code> 等特殊的 Nuxt 生命周期区域中使用</p>
+<h2 id="nuxt-配置"><a href="#nuxt-配置" class="headerlink" title="nuxt 配置"></a>nuxt 配置</h2><h3 id="配置启动端口"><a href="#配置启动端口" class="headerlink" title="配置启动端口"></a>配置启动端口</h3><p>以下两者都可以配置启动端口</p>
+<p>第一种</p>
+<p>nuxt.config.js :</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">server</span>: &#123;</span><br><span class="line">    <span class="attr">port</span>: <span class="number">8000</span>,</span><br><span class="line">    <span class="attr">host</span>: <span class="string">&#x27;127.0.0.1&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>第二种</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">package.json <span class="punctuation">:</span></span><br><span class="line"><span class="attr">&quot;config&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;nuxt&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;port&quot;</span><span class="punctuation">:</span> <span class="string">&quot;8000&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;host&quot;</span><span class="punctuation">:</span> <span class="string">&quot;127.0.0.1&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="引入-element-ui"><a href="#引入-element-ui" class="headerlink" title="引入 element-ui"></a>引入 element-ui</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm i element-ui</span><br></pre></td></tr></table></figure>
+
+<p>修改 <code>nuxt.config.js</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">plugins</span>: [<span class="string">&#x27;@/plugins/element-ui&#x27;</span>],</span><br><span class="line">  <span class="attr">transpile</span>: [<span class="regexp">/^element-ui/</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>创建 <code>plugins/element-ui.js</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">Vue</span> <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Element</span> <span class="keyword">from</span> <span class="string">&#x27;element-ui&#x27;</span></span><br><span class="line"><span class="title class_">Vue</span>.<span class="title function_">use</span>(<span class="title class_">Element</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h3><p><span class="exturl" data-url="aHR0cHM6Ly96aC5udXh0anMub3JnL2FwaS9jb25maWd1cmF0aW9uLWVudg==">https://zh.nuxtjs.org/api/configuration-env</span></p>
+<p>package.json</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;dev&quot;</span><span class="punctuation">:</span> <span class="string">&quot;nuxt&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;build:test&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cross-env BASE_URL=testxxx nuxt build&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;build:production&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cross-env BASE_URL=productionxxx nuxt build&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>nuxt.config.js</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">env</span>: &#123;</span><br><span class="line">    <span class="attr">baseUrl</span>: process.<span class="property">env</span>.<span class="property">BASE_URL</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们可以通过以下两种方式来使用 baseUrl 变量：</p>
+<p>通过 <code>process.env.baseUrl</code><br>通过 <code>context.env.baseUrl</code></p>
+<h3 id="自定义路由配置"><a href="#自定义路由配置" class="headerlink" title="自定义路由配置"></a>自定义路由配置</h3><p>在 Nuxt.js 中，路由是基于文件结构自动生成，无需配置。自动生成的路由配置可在 .nuxt&#x2F;router.js 中查看。</p>
+<p>配置路由以 <code>.html</code> 结尾</p>
+<p>nuxt.config.js</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="attr">router</span>: &#123;</span><br><span class="line">    <span class="attr">middleware</span>: <span class="string">&#x27;router&#x27;</span>,</span><br><span class="line">    <span class="title function_">extendRoutes</span>(<span class="params">routes, resolve</span>) &#123;</span><br><span class="line">      routes.<span class="title function_">push</span>(&#123;</span><br><span class="line">        <span class="attr">name</span>: <span class="string">&#x27;case&#x27;</span>,</span><br><span class="line">        <span class="attr">path</span>: <span class="string">&#x27;/case.html&#x27;</span>,</span><br><span class="line">        <span class="attr">component</span>: <span class="title function_">resolve</span>(__dirname, <span class="string">&#x27;pages/case/_id.vue&#x27;</span>)</span><br><span class="line">      &#125;)</span><br><span class="line">      routes.<span class="title function_">forEach</span>(<span class="function">(<span class="params">element</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> path = element.<span class="property">path</span></span><br><span class="line">        <span class="keyword">if</span> (path !== <span class="string">&#x27;/&#x27;</span> &amp;&amp; !path.<span class="title function_">includes</span>(<span class="string">&#x27;.html&#x27;</span>)) &#123;</span><br><span class="line">          path = path + <span class="string">&#x27;.html&#x27;</span></span><br><span class="line">          element.<span class="property">path</span> = path</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="axios-配置"><a href="#axios-配置" class="headerlink" title="axios 配置"></a>axios 配置</h3><p>使用 Axios，并配置全局拦截器，处理跨域</p>
+<p>安装依赖</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install @nuxtjs/axios @nuxtjs/proxy --save</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// nuxt.config.js</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">modules</span>: [<span class="string">&#x27;@nuxtjs/axios&#x27;</span>], <span class="comment">// 不需要加入@nuxtjs/proxy</span></span><br><span class="line">  <span class="attr">axios</span>: &#123;</span><br><span class="line">    <span class="attr">proxy</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">prefix</span>: <span class="string">&#x27;/api&#x27;</span>, <span class="comment">// baseURL</span></span><br><span class="line">    <span class="attr">credentials</span>: <span class="literal">true</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">proxy</span>: &#123;</span><br><span class="line">    <span class="string">&#x27;/api/&#x27;</span>: &#123;</span><br><span class="line">      <span class="attr">target</span>: <span class="string">&#x27;http://127.0.0.1:8080&#x27;</span>, <span class="comment">// 代理地址</span></span><br><span class="line">      <span class="attr">changeOrigin</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="attr">pathRewrite</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;^/api&#x27;</span>: <span class="string">&#x27;&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>组件中使用</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  asyncData (&#123; app, $axios &#125;) &#123;</span><br><span class="line">    <span class="comment">// app.$axios == $axios</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(app.<span class="property">$axios</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  created () &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">$axios</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>设置全局拦截器：新建一个&#x2F;plugins&#x2F;axios.js</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> (<span class="params">&#123; $axios &#125;</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> axios = $axios</span><br><span class="line">  <span class="comment">// 基本配置</span></span><br><span class="line">  axios.<span class="property">defaults</span>.<span class="property">timeout</span> = <span class="number">10000</span></span><br><span class="line">  axios.<span class="property">defaults</span>.<span class="property">headers</span>.<span class="property">post</span>[<span class="string">&#x27;Content-Type&#x27;</span>] = <span class="string">&#x27;application/x-www-form-urlencoded&#x27;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 请求回调</span></span><br><span class="line">  axios.<span class="title function_">onRequest</span>(<span class="function">(<span class="params">config</span>) =&gt;</span> &#123;&#125;)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 返回回调</span></span><br><span class="line">  axios.<span class="title function_">onResponse</span>(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;&#125;)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 错误回调</span></span><br><span class="line">  axios.<span class="title function_">onError</span>(<span class="function">(<span class="params">error</span>) =&gt;</span> &#123;&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后在 plugins 配置它</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">plugins</span>: [</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">src</span>: <span class="string">&#x27;@/plugins/axios&#x27;</span>,</span><br><span class="line">    <span class="attr">mode</span>: <span class="string">&#x27;client&#x27;</span>,</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置-css-预处理器"><a href="#配置-css-预处理器" class="headerlink" title="配置 css 预处理器"></a>配置 css 预处理器</h3><p>安装依赖</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm i -D less less-loader</span><br></pre></td></tr></table></figure>
+
+<p>无需配置，模板内直接使用</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">lang</span>=<span class="string">&quot;less&quot;</span> <span class="attr">scoped</span>&gt;</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="token-的设置与存储"><a href="#token-的设置与存储" class="headerlink" title="token 的设置与存储"></a>token 的设置与存储</h3><p>在前后端分离的项目中，一般都会存放到本地存储中。但 Nuxt.js 不同，由于服务端渲染的特点，部分请求在服务端发起，我们无法获取 localStorage 或 sessionStorage。</p>
+<p>可以使用 cookie，并借助 cookie-universal-nuxt 模块（该模块只是帮助我们注入，主要实现依赖 cookie-universal），不管在服务端还是客户端，cookie-universal-nuxt 都为我们提供一致的 api，它内部会帮我们去适配对应的方法。</p>
+<p>安装 cookie-universal-nuxt</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm run cookie-universal-nuxt --save</span><br></pre></td></tr></table></figure>
+
+<p>nuxt.config.js :</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">modules</span>: [<span class="string">&#x27;cookie-universal-nuxt&#x27;</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>访问 $cookies 进行使用：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 服务端：</span></span><br><span class="line"><span class="comment">// 获取</span></span><br><span class="line">app.<span class="property">$cookies</span>.<span class="title function_">get</span>(<span class="string">&#x27;name&#x27;</span>)</span><br><span class="line"><span class="comment">// 设置</span></span><br><span class="line">app.<span class="property">$cookies</span>.<span class="title function_">set</span>(<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;value&#x27;</span>)</span><br><span class="line"><span class="comment">// 删除</span></span><br><span class="line">app.<span class="property">$cookies</span>.<span class="title function_">remove</span>(<span class="string">&#x27;name&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 客户端：</span></span><br><span class="line"><span class="comment">// 获取</span></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">$cookies</span>.<span class="title function_">get</span>(<span class="string">&#x27;name&#x27;</span>)</span><br><span class="line"><span class="comment">// 设置</span></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">$cookies</span>.<span class="title function_">set</span>(<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;value&#x27;</span>)</span><br><span class="line"><span class="comment">// 删除</span></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">$cookies</span>.<span class="title function_">remove</span>(<span class="string">&#x27;name&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>之后需要改造下 axios，让它在请求时带上验证信息：</p>
+<p>&#x2F;plugins&#x2F;axios.js :</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> (<span class="params">&#123; app: &#123; $axios, $cookies &#125; &#125;</span>) &#123;</span><br><span class="line">  $axios.<span class="property">interceptors</span>.<span class="property">request</span>.<span class="title function_">use</span>(<span class="function">(<span class="params">config</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 头部带上验证信息</span></span><br><span class="line">    config.<span class="property">headers</span>[<span class="string">&#x27;X-Token&#x27;</span>] = $cookies.<span class="title function_">get</span>(<span class="string">&#x27;token&#x27;</span>) || <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">return</span> config</span><br><span class="line">  &#125;)</span><br><span class="line">  $axios.<span class="property">interceptors</span>.<span class="property">response</span>.<span class="title function_">use</span>(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="regexp">/^[4|5]/</span>.<span class="title function_">test</span>(response.<span class="property">status</span>)) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="title class_">Promise</span>.<span class="title function_">reject</span>(response.<span class="property">statusText</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> response.<span class="property">data</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="middleware-中间件使用"><a href="#middleware-中间件使用" class="headerlink" title="middleware 中间件使用"></a>middleware 中间件使用</h3><p><span class="exturl" data-url="aHR0cHM6Ly96aC5udXh0anMub3JnL2FwaS9wYWdlcy1taWRkbGV3YXJl">https://zh.nuxtjs.org/api/pages-middleware</span></p>
+<p>全局配置: 这种中间件使用是注入到全局的每个页面中</p>
+<p>nuxt.config.js :</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">router</span>: &#123;</span><br><span class="line">    <span class="attr">middleware</span>: [<span class="string">&#x27;auth&#x27;</span>]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果你希望中间件只运行于某个页面，可以配置页面的 middleware 选项：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="attr">middleware</span>: <span class="string">&#x27;auth&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用-keep-alive"><a href="#使用-keep-alive" class="headerlink" title="使用 keep-alive"></a>使用 keep-alive</h3><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL251eHQvbnV4dC5qcy90cmVlL2Rldi9leGFtcGxlcy93aXRoLWtlZXAtYWxpdmU=">https://github.com/nuxt/nuxt.js/tree/dev/examples/with-keep-alive</span></p>
+<p>layouts&#x2F;default.vue:</p>
+<template>
+  <Nuxt keep-alive/>
+</template>
+
+<p>直接给 Nuxt 添加 keep-alive 虽然可以实现页面缓存，但是每次页面切换时都会去请求接口</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vcG9zdC81Y2ZmNWYwMmU1MWQ0NTEwNjI0Zjk3YWI=">https://juejin.im/post/5cff5f02e51d4510624f97ab</span></p>
+<h3 id="分离-css"><a href="#分离-css" class="headerlink" title="分离 css"></a>分离 css</h3><p>nuxt.config.js</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">build</span>: &#123;</span><br><span class="line"><span class="attr">extractCSS</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">optimization</span>: &#123;</span><br><span class="line">    <span class="attr">splitChunks</span>: &#123;</span><br><span class="line">      <span class="attr">chunks</span>: <span class="string">&#x27;all&#x27;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="head-配置"><a href="#head-配置" class="headerlink" title="head 配置"></a>head 配置</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">meta</span>: [</span><br><span class="line">  &#123; <span class="attr">charset</span>: <span class="string">&#x27;utf-8&#x27;</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">&#x27;viewport&#x27;</span>, <span class="attr">content</span>: <span class="string">&#x27;width=device-width, initial-scale=1&#x27;</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">&#x27;author&#x27;</span>, <span class="attr">content</span>: <span class="string">&#x27;cuilongjin&#x27;</span> &#125;,</span><br><span class="line">  &#123; <span class="string">&#x27;http-equiv&#x27;</span>: <span class="string">&#x27;X-UA-Compatible&#x27;</span>, <span class="attr">content</span>: <span class="string">&#x27;IE=edge&#x27;</span> &#125;,</span><br><span class="line">],</span><br><span class="line"><span class="attr">link</span>: [</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">rel</span>: <span class="string">&#x27;icon&#x27;</span>,</span><br><span class="line">    <span class="attr">type</span>: <span class="string">&#x27;image/x-icon&#x27;</span>,</span><br><span class="line">    <span class="attr">href</span>: <span class="string">&#x27;/logo.png&#x27;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">],</span><br><span class="line"><span class="attr">script</span>: [</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">src</span>: <span class="string">&#x27;/moveheader.js&#x27;</span>, <span class="comment">// 引入 js 路径</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">innerHTML</span>: <span class="string">&#x27;console.log(&#x27;</span><span class="number">1</span><span class="string">&#x27;)&#x27;</span> <span class="comment">// 直接引入 js 代码</span></span><br><span class="line">  &#125;,</span><br><span class="line">],</span><br><span class="line"><span class="comment">// 如果使用innerHTML直接引入 js 代码，代码中的引号会被转换为实体字符，导致代码不能正常执行，所以需要配置此项</span></span><br><span class="line"><span class="attr">__dangerouslyDisableSanitizers</span>: [<span class="string">&#x27;script&#x27;</span>],</span><br></pre></td></tr></table></figure>
+
+<h3 id="添加百度统计代码"><a href="#添加百度统计代码" class="headerlink" title="添加百度统计代码"></a>添加百度统计代码</h3><p>在 plugins 目录下新建 <code>baidu.js</code> 文件，内容如下：<br>注意修改xxxxxxxxxxx编号</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> ** 只在生产模式的客户端中使用</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">if</span> (process.<span class="property">client</span> &amp;&amp; process.<span class="property">env</span>.<span class="property">NODE_ENV</span> === <span class="string">&#x27;production&#x27;</span>) &#123;</span><br><span class="line">  <span class="comment">// 百度统计脚本</span></span><br><span class="line">  <span class="keyword">var</span> _hmt = _hmt || []</span><br><span class="line">  ;(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> hm = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;script&#x27;</span>)</span><br><span class="line">    hm.<span class="property">src</span> = <span class="string">&#x27;https://hm.baidu.com/hm.js?xxxxxxxxxxx&#x27;</span></span><br><span class="line">    <span class="keyword">const</span> s = <span class="variable language_">document</span>.<span class="title function_">getElementsByTagName</span>(<span class="string">&#x27;script&#x27;</span>)[<span class="number">0</span>]</span><br><span class="line">    s.<span class="property">parentNode</span>.<span class="title function_">insertBefore</span>(hm, s)</span><br><span class="line">  &#125;)()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> (&#123; <span class="attr">app</span>: &#123; router &#125;, store &#125;) =&gt; &#123;</span><br><span class="line">  <span class="comment">// 每次路由变更时进行pv统计</span></span><br><span class="line">  <span class="keyword">if</span> (process.<span class="property">client</span> &amp;&amp; process.<span class="property">env</span>.<span class="property">NODE_ENV</span> === <span class="string">&#x27;production&#x27;</span>) &#123;</span><br><span class="line">    router.<span class="title function_">afterEach</span>(<span class="function">(<span class="params">to, <span class="keyword">from</span></span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">var</span> _hmt = _hmt || []</span><br><span class="line">      ;(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> hm = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;script&#x27;</span>)</span><br><span class="line">        hm.<span class="property">src</span> = <span class="string">&#x27;https://hm.baidu.com/hm.js?xxxxxxxxxxx&#x27;</span></span><br><span class="line">        <span class="keyword">const</span> s = <span class="variable language_">document</span>.<span class="title function_">getElementsByTagName</span>(<span class="string">&#x27;script&#x27;</span>)[<span class="number">0</span>]</span><br><span class="line">        s.<span class="property">parentNode</span>.<span class="title function_">insertBefore</span>(hm, s)</span><br><span class="line">      &#125;)()</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>在 <code>nuxt-config.js</code> 中添加</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">plugins</span>: [</span><br><span class="line">    &#123; <span class="attr">src</span>: <span class="string">&#x27;~plugins/baidu.js&#x27;</span>, <span class="attr">mode</span>: <span class="string">&#x27;client&#x27;</span> &#125;,</span><br><span class="line">  ],</span><br></pre></td></tr></table></figure>
+
+<h2 id="兼容-ie9-ie10"><a href="#兼容-ie9-ie10" class="headerlink" title="兼容 ie9 ie10"></a>兼容 ie9 ie10</h2><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0NoYW5XYWhGdW5nL251eHQtanVlamluLXByb2plY3Q=">参考 demo</span><br><span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vcG9zdC81ZWJmNWRjZjUxODgyNTZkNDI2NjI4NWQ=">掘金教程</span></p>
+<p><code>window.__NUXT__</code> 如何去掉</p>
+<p>vue 实例中 通过 <code>this.$nuxt.context</code> 访问 context</p>
+<p>nuxt generate 动态路由配置</p>
+<p>nuxt 配置自定义 webpack loader 处理图片 css</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1754.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/1754.html" class="post-title-link" itemprop="url">rrweb-io - 利用现代浏览器所提供的强大 API 录制并回放任意 Web 界面中的用户操作</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-06-18" itemprop="dateCreated datePublished" datetime="2020-06-18T13:41:23+00:00">2020-06-18</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Jyd2ViLWlvL3Jyd2Vi">https://github.com/rrweb-io/rrweb</span></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1730.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/1730.html" class="post-title-link" itemprop="url">js 图像处理库</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-06-17" itemprop="dateCreated datePublished" datetime="2020-06-17T15:54:23+00:00">2020-06-17</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="merge-images-合并图像"><a href="#merge-images-合并图像" class="headerlink" title="merge-images 合并图像"></a>merge-images 合并图像</h3><p>github 地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2x1a2VjaGlsZHMvbWVyZ2UtaW1hZ2Vz">https://github.com/lukechilds/merge-images</span></p>
+<h3 id="Cropper-js-图片裁剪工具"><a href="#Cropper-js-图片裁剪工具" class="headerlink" title="Cropper.js 图片裁剪工具"></a>Cropper.js 图片裁剪工具</h3><p>github 地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2Zlbmd5dWFuY2hlbi9jcm9wcGVyanM=">https://github.com/fengyuanchen/cropperjs</span><br>示例地址：<span class="exturl" data-url="aHR0cHM6Ly9mZW5neXVhbmNoZW4uZ2l0aHViLmlvL2Nyb3BwZXJqcy8=">https://fengyuanchen.github.io/cropperjs/</span></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102205245.png"></p>
+<h3 id="grade-js-根据图片的两种主要颜色生成背景渐变"><a href="#grade-js-根据图片的两种主要颜色生成背景渐变" class="headerlink" title="grade.js 根据图片的两种主要颜色生成背景渐变"></a>grade.js 根据图片的两种主要颜色生成背景渐变</h3><p>github 地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2Jlbmhvd2RsZTg5L2dyYWRl">https://github.com/benhowdle89/grade</span><br>示例地址：<span class="exturl" data-url="aHR0cHM6Ly9iZW5ob3dkbGU4OS5naXRodWIuaW8vZ3JhZGUv">https://benhowdle89.github.io/grade/</span></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102205301.png"></p>
+<h3 id="Compressor-js-图像压缩"><a href="#Compressor-js-图像压缩" class="headerlink" title="Compressor.js 图像压缩"></a>Compressor.js 图像压缩</h3><p>github 地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2Zlbmd5dWFuY2hlbi9jb21wcmVzc29yanM=">https://github.com/fengyuanchen/compressorjs</span><br>示例地址：<span class="exturl" data-url="aHR0cHM6Ly9mZW5neXVhbmNoZW4uZ2l0aHViLmlvL2NvbXByZXNzb3Jqcy8=">https://fengyuanchen.github.io/compressorjs/</span></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102205339.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1737.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/1737.html" class="post-title-link" itemprop="url">wordpress 修改文章id</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-06-16" itemprop="dateCreated datePublished" datetime="2020-06-16T16:43:32+00:00">2020-06-16</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/wordpress/" itemprop="url" rel="index"><span itemprop="name">wordpress</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">update</span> wp_posts <span class="keyword">set</span> id <span class="operator">=</span> <span class="number">430</span> <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">404</span>;</span><br><span class="line"><span class="keyword">update</span> wp_term_relationships <span class="keyword">set</span> object_id <span class="operator">=</span> <span class="number">430</span> <span class="keyword">where</span> object_id <span class="operator">=</span> <span class="number">404</span>;</span><br><span class="line"><span class="keyword">update</span> wp_postmeta <span class="keyword">set</span> post_id <span class="operator">=</span> <span class="number">430</span> <span class="keyword">where</span> post_id <span class="operator">=</span> <span class="number">404</span>;</span><br><span class="line"><span class="keyword">update</span> wp_comments <span class="keyword">set</span> comment_post_ID <span class="operator">=</span> <span class="number">430</span> <span class="keyword">where</span> comment_post_ID <span class="operator">=</span> <span class="number">404</span>;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1553.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="c">
+      <meta itemprop="description" content="分享各类资源、经验与技巧">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我全都要">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/1553.html" class="post-title-link" itemprop="url">获取页面向左、向上卷动的距离</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <date title="创建时间：2020-05-28" itemprop="dateCreated datePublished" datetime="2020-05-28T14:34:57+00:00">2020-05-28</date>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/c/frontend/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>如果页面指定了 DTD，即指定了 DOCTYPE 时，使用 document.documentElement.scrollTop&#x2F;Left 可以获取到正确的结果</p>
+<p>页面没有 DTD，即没指定 DOCTYPE 时，使用 document.body.scrollTop&#x2F;Left 可以获取到正确的结果</p>
+<p>获取页面向左、向上卷动的距离的兼容性方式</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">getScroll</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="attr">left</span>: <span class="variable language_">window</span>.<span class="property">pageXOffset</span> || <span class="variable language_">document</span>.<span class="property">documentElement</span>.<span class="property">scrollLeft</span> || <span class="variable language_">document</span>.<span class="property">body</span>.<span class="property">scrollLeft</span> || <span class="number">0</span>,</span><br><span class="line">    <span class="attr">top</span>: <span class="variable language_">window</span>.<span class="property">pageYOffset</span> || <span class="variable language_">document</span>.<span class="property">documentElement</span>.<span class="property">scrollTop</span> || <span class="variable language_">document</span>.<span class="property">body</span>.<span class="property">scrollTop</span> || <span class="number">0</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>document.body 与 document.documentElement 区别</p>
+<p>document.body 返回 dom 中的 body 节点即 <code>&lt;body&gt;</code><br>document.documentElement 返回 dom 中的 root 节点即 <code>&lt;html&gt;</code></p>
+<p>设置页面卷曲距离</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// X: 向左卷曲距离</span></span><br><span class="line"><span class="comment">// Y: 向上卷曲距离</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="title function_">scrollTo</span>(X, Y)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -415,7 +903,7 @@
 <p>如果是 GSuite Admin 账号，可以使用如下方式直接添加进群组</p>
 <ol>
 <li>将生成的json文件保存到 credentials 文件夹中</li>
-<li>在管理控制台中为您的组织创建组。创建群组后，您将拥有一个例如的地址<span class="exturl" data-url="bWFpbHRvOiYjMTE1OyYjOTc7JiM2NDsmI3g3OTsmIzExMTsmIzExNzsmIzExNDsmI3g2NDsmI3g2ZjsmIzEwOTsmIzk3OyYjMTA1OyYjMTEwOyYjeDJlOyYjeDYzOyYjMTExOyYjMTA5Ow==">&#115;&#97;&#64;&#x79;&#111;&#117;&#114;&#x64;&#x6f;&#109;&#97;&#105;&#110;&#x2e;&#x63;&#111;&#109;</span></li>
+<li>在管理控制台中为您的组织创建组。创建群组后，您将拥有一个例如的地址<span class="exturl" data-url="bWFpbHRvOiYjeDczOyYjeDYxOyYjeDQwOyYjeDc5OyYjeDZmOyYjMTE3OyYjeDcyOyYjeDY0OyYjeDZmOyYjeDZkOyYjOTc7JiMxMDU7JiMxMTA7JiN4MmU7JiM5OTsmIzExMTsmIzEwOTs=">&#x73;&#x61;&#x40;&#x79;&#x6f;&#117;&#x72;&#x64;&#x6f;&#x6d;&#97;&#105;&#110;&#x2e;&#99;&#111;&#109;</span></li>
 <li>运行 <code>python3 add_to_google_group.py -g sa@yourdomain.com</code></li>
 </ol>
 </blockquote>
@@ -718,7 +1206,7 @@
 <h3 id="Transmission-的配置"><a href="#Transmission-的配置" class="headerlink" title="Transmission 的配置"></a>Transmission 的配置</h3><p>配置主要是通过修改&#x2F;var&#x2F;lib&#x2F;transmission-daemon&#x2F;info&#x2F;settings.json 文件中的参数来实现的。<br>注意：在编辑 Transmission 的配置文件的时候，需要先关闭 daemon 进程，否则编辑的参数将会被恢复到原来的状态。</p>
 <h4 id="配置-RPC"><a href="#配置-RPC" class="headerlink" title="配置 RPC"></a>配置 RPC</h4><p>最关键的就是要配置 RPC，因为无论是 Web 界面还是 CLI 都是通过 RPC 协议和 daemon 来进行交互的。</p>
 <p>打开文件&#x2F;var&#x2F;lib&#x2F;transmission-daemon&#x2F;info&#x2F;settings.json，修改配置参数如下：</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;rpc-authentication-required&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;rpc-bind-address&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0.0.0.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;rpc-enabled&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;rpc-host-whitelist&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span><span class="punctuation">,</span> <span class="comment">// rpc 主机白名单</span></span><br><span class="line">  <span class="attr">&quot;rpc-host-whitelist-enabled&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span><span class="punctuation">,</span> <span class="comment">//rpc 主机白名单是否开启，若需要任意主机都能访问，建议false</span></span><br><span class="line">  <span class="attr">&quot;rpc-password&quot;</span><span class="punctuation">:</span> <span class="string">&quot;123456&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;rpc-port&quot;</span><span class="punctuation">:</span> <span class="number">9091</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;rpc-url&quot;</span><span class="punctuation">:</span> <span class="string">&quot;/transmission/&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;rpc-username&quot;</span><span class="punctuation">:</span> <span class="string">&quot;transmission&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;rpc-whitelist&quot;</span><span class="punctuation">:</span> <span class="string">&quot;*&quot;</span><span class="punctuation">,</span> <span class="comment">// rpc 主机白名单</span></span><br><span class="line">  <span class="attr">&quot;rpc-whitelist-enabled&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span> <span class="comment">//rpc 主机白名单是否开启，若需要任意主机都能访问，建议false</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;rpc-authentication-required&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;rpc-bind-address&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0.0.0.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;rpc-enabled&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;rpc-host-whitelist&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span><span class="punctuation">,</span> <span class="comment">// rpc 主机白名单</span></span><br><span class="line">  <span class="attr">&quot;rpc-host-whitelist-enabled&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span> <span class="comment">//rpc 主机白名单是否开启，若需要任意主机都能访问，建议false</span></span><br><span class="line">  <span class="attr">&quot;rpc-password&quot;</span><span class="punctuation">:</span> <span class="string">&quot;123456&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;rpc-port&quot;</span><span class="punctuation">:</span> <span class="number">9091</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;rpc-url&quot;</span><span class="punctuation">:</span> <span class="string">&quot;/transmission/&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;rpc-username&quot;</span><span class="punctuation">:</span> <span class="string">&quot;transmission&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;rpc-whitelist&quot;</span><span class="punctuation">:</span> <span class="string">&quot;*&quot;</span><span class="punctuation">,</span> <span class="comment">// rpc 主机白名单</span></span><br><span class="line">  <span class="attr">&quot;rpc-whitelist-enabled&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span> <span class="comment">//rpc 主机白名单是否开启，若需要任意主机都能访问，建议false</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
 
 <p>我将用户名设置为了 transmission，密码设置为了 123456，whitelist 设置成了”*”，表示任何 IP 都可以通过 RPC 协议访问这个 daemon。需要注意的是 password 设置成了明文。当启动 daemon 之后，daemon 会自动检测密码设置。如果发现密码配置被修改了，daemon 会自动计算修改后的密码的 HASH 值，并用这个 HASH 值替换掉配置文件中的明文密码，这样会更安全。</p>
 <p>输入<code>service transmission-daemon start</code>启动程序后，打开 settings.json，会看到 rpc-password 一项被改为了 HASH 值。</p>
@@ -730,11 +1218,11 @@
 
 <p>浏览器提示你输入刚才配置的用户名和密码，就可以成功登陆 Web 管理界面。界面和桌面版的 GUI 程序有点像，操作起来很方便。</p>
 <h3 id="其他问题"><a href="#其他问题" class="headerlink" title="其他问题"></a>其他问题</h3><p>在本机使用 <code>http://&lt;your.server.ip.addr&gt;:9091/transmission/web/</code> 访问出现 403:Forbidden 解决<br>修改配置</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;rpc-whitelist&quot;</span><span class="punctuation">:</span> <span class="string">&quot;127.0.0.1&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;rpc-whitelist-enabled&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;rpc-whitelist&quot;</span><span class="punctuation">:</span> <span class="string">&quot;127.0.0.1&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;rpc-whitelist-enabled&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
 
 <p>将 <code>rpc-whitelist</code>设置为 <code>&quot;*&quot;</code>或将 <code>rpc-whitelist-enabled</code> 设置为 <code>false</code></p>
 <p>在局域网其他机器上使用 <code>http://&lt;your.server.ip.addr&gt;:9091/transmission/web/</code> 访问时无法访问解决<br>修改配置</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;rpc-host-whitelist&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span><span class="punctuation">,</span> <span class="comment">// rpc 主机白名单</span></span><br><span class="line">  <span class="attr">&quot;rpc-host-whitelist-enabled&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span> <span class="comment">//rpc 主机白名单是否开启，若需要任意主机都能访问，建议false</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;rpc-host-whitelist&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span><span class="punctuation">,</span> <span class="comment">// rpc 主机白名单</span></span><br><span class="line">  <span class="attr">&quot;rpc-host-whitelist-enabled&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span> <span class="comment">//rpc 主机白名单是否开启，若需要任意主机都能访问，建议false</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
 
 <p>将 <code>rpc-host-whitelist</code>设置为 <code>&quot;*&quot;</code>或将 <code>rpc-host-whitelist-enabled</code> 设置为 <code>false</code></p>
 <p>原始界面，没有汉化，也比较简单，可以使用 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3JvbmdnYW5nL3RyYW5zbWlzc2lvbi13ZWItY29udHJvbA==">transmission-web-control</span> 加强 Transmission Web 的操作能力</p>
@@ -830,512 +1318,6 @@
 <h4 id="使用效果"><a href="#使用效果" class="headerlink" title="使用效果"></a>使用效果</h4><p>前后对比：</p>
 <p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102202439.png"></p>
 <p>可以看到 CPU 占用明显降低了，播放也不卡顿了，效果还是非常明显的。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1404.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/1404.html" class="post-title-link" itemprop="url">终端命令行下使用代理</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2020-05-16" itemprop="dateCreated datePublished" datetime="2020-05-16T12:13:13+00:00">2020-05-16</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h2><p>注意</p>
-<ul>
-<li>一定要加 <code>http://</code>，直接写域名或者 IP 不行</li>
-<li>http 和 https 都要设置</li>
-<li>cmd，Bash，PowerShell 设置的方式不同</li>
-<li>设置的代理只在当前 cmd 窗口下有效，窗口关闭后会失效，新建的窗口也不生效</li>
-</ul>
-<h3 id="cmd"><a href="#cmd" class="headerlink" title="cmd"></a>cmd</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># set http_proxy=http://IP:PORT</span></span><br><span class="line"><span class="built_in">set</span> http_proxy=http://127.0.0.1:1080</span><br><span class="line"><span class="built_in">set</span> https_proxy=http://127.0.0.1:1080</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果有用户名密码需要设置，否则不需要设置</span></span><br><span class="line"><span class="built_in">set</span> http_proxy_user=user</span><br><span class="line"><span class="built_in">set</span> http_proxy_pass=pass</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> https_proxy_user=user</span><br><span class="line"><span class="built_in">set</span> https_proxy_pass=pass</span><br><span class="line"></span><br><span class="line"><span class="comment"># 恢复</span></span><br><span class="line"><span class="built_in">set</span> http_proxy=</span><br><span class="line"><span class="built_in">set</span> https_proxy=</span><br></pre></td></tr></table></figure>
-
-<h3 id="Bash"><a href="#Bash" class="headerlink" title="Bash"></a>Bash</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Ubuntu 下命令为 export</span><br><span class="line">export http_proxy=http://127.0.0.1:1080</span><br></pre></td></tr></table></figure>
-
-<h3 id="PowerShell"><a href="#PowerShell" class="headerlink" title="PowerShell"></a>PowerShell</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$env:HTTP_PROXY=&quot;http://127.0.0.1:1080&quot;</span><br></pre></td></tr></table></figure>
-
-<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><ul>
-<li>如果想验证是否成功配置了代理的话，用 ping 命令是不可以的（ping的协议不是http，也不是https，是ICMP协议）</li>
-</ul>
-<p><code>curl -vv http://www.google.com</code>，用这条命令来验证，如果返回如下结果表示代理设置成功。</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102203731.png"></p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NoYWRvd3NvY2tzL3NoYWRvd3NvY2tzLXdpbmRvd3MvaXNzdWVzLzE0ODk=">https://github.com/shadowsocks/shadowsocks-windows/issues/1489</span><br><span class="exturl" data-url="aHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vZmFtb3VzZ2Fya2luL2M1MTM4YjFlMTNhYzQxOTIwZDIy">https://gist.github.com/famousgarkin/c5138b1e13ac41920d22</span></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1365.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/1365.html" class="post-title-link" itemprop="url">使用群晖Docker安装Jellyfin家庭影院</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2020-05-10" itemprop="dateCreated datePublished" datetime="2020-05-10T14:32:17+00:00">2020-05-10</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/NAS/" itemprop="url" rel="index"><span itemprop="name">NAS</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p>plex 和 emby，这两个软件是不错，但是因为收费，不得不放弃之。</p>
-</blockquote>
-<p>jellyfin开源地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2plbGx5ZmluL2plbGx5Zmlu">https://github.com/jellyfin/jellyfin</span></p>
-<h3 id="安装-Docker"><a href="#安装-Docker" class="headerlink" title="安装 Docker"></a>安装 Docker</h3><p>在群辉套件中心搜索 docker 并安装</p>
-<h3 id="安装-jellyfin"><a href="#安装-jellyfin" class="headerlink" title="安装 jellyfin"></a>安装 jellyfin</h3><ul>
-<li><p>打开 docker，点击注册表，搜索 jellyfin，双击第一个进行安装：如果有提示 请选择标签，直接点 latest 选择就好，点击映像，会看到 jellyfin，等待下载完成</p>
-</li>
-<li><p>进入群晖的文件管理器里面，在 docker 文件夹内新建一个名字叫 jellyfin 的文件夹</p>
-</li>
-<li><p>打开控制编办，创建共享文件夹，比如 video，用来保存电影</p>
-</li>
-<li><p>镜像下载好了后，我们进入到映像里，选择下载的 jellyfin，点启动</p>
-</li>
-<li><p>点击高级设置，然后点击卷，添加文件夹，将 jellyfin 和 video 文件夹都添加上：将<code>video</code>文件夹装载到 <code>/media</code>下，将<code>docker/jellyfin</code> 装载到 <code>/config</code></p>
-</li>
-</ul>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102184514.png"></p>
-<ul>
-<li>点击端口设置，默认是 8096，设置一样的即可</li>
-</ul>
-<p><img data-src="https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102184536.png"></p>
-<ul>
-<li>设置完成后，点击应用 -&gt; 点下一步 -&gt; 点击应用 -&gt;点击容器，可以看到 jellyfin 服务已经运行成功了！</li>
-</ul>
-<p>docker 下安装 jellyfin 完成</p>
-<h3 id="设置-jellyfin"><a href="#设置-jellyfin" class="headerlink" title="设置 jellyfin"></a>设置 jellyfin</h3><ul>
-<li><p>在浏览器中输入这个 nas 的 IP 加上端口号 8096，如<code>IP:8096</code>，就进入到了 jellyfin 设置页面，默认是英文，先设置成中文，点击 Next</p>
-</li>
-<li><p>然后要求设置一下账号和密码，简单设置一下即可，点击 Next</p>
-</li>
-<li><p>添加媒体库，暂时先不添加，直接点 Next 跳过</p>
-</li>
-<li><p>然后选择语言，选择 Chinese，然后下面的国家，选择 people’s Republic of china，点击 Next</p>
-</li>
-<li><p>默认，点击 Next</p>
-</li>
-<li><p>点击 Finish</p>
-</li>
-<li><p>这个时候进入到了登录页面，输入用户密码进入到 jellyfin 里面，因为没有设置媒体库，所以没有内容</p>
-</li>
-</ul>
-<h3 id="设置媒体库"><a href="#设置媒体库" class="headerlink" title="设置媒体库"></a>设置媒体库</h3><ul>
-<li><p>点击左上角 -&gt; 控制台 -&gt; 媒体库 -&gt; 添加媒体库</p>
-</li>
-<li><p>这里有一些分类，比如电影，音乐，电视剧等，会刮削一些媒体对应的内容，这里先选择了电影，将右上角的显示高级设置打开，依次设置名称、文件夹、语言，文件夹选择<code>/media</code> 这个文件夹里面你存放电影的文件夹（这个&#x2F;media，就是我们之前设置的 video 文件夹）</p>
-</li>
-<li><p>将媒体图像保存到文件夹打勾，这样会将刮削的封面直接放到你电影的文件夹里</p>
-</li>
-<li><p>其他默认，点击确定后，就开始自动扫描媒体库了，这个过程，会自动根据电影的文件名在网上进行刮削，制作电影墙</p>
-</li>
-<li><p>扫描媒体是一个很慢的过程，我们再添加一下电视节目的类型，比如电视剧，连续剧都放到这个目录下，还是老规矩，元数据里的全部打勾，将媒体保存到文件夹里也打勾</p>
-</li>
-<li><p>到此，基础的 jellyfin 就设置好了，只要返回主页就能看到自己的电影了！</p>
-</li>
-</ul>
-<h3 id="插件设置"><a href="#插件设置" class="headerlink" title="插件设置"></a>插件设置</h3><ul>
-<li><p>除了媒体库和转码设置，还有一个字幕插件，有些我们下的国外的电影，是没有字幕的，拥有了这个插件，可以进行自动下载匹配的字幕。点击到插件选项，右边往下移，找到 open subtitles 这个， 点击安装版本进行安装</p>
-</li>
-<li><p>安装后，提示要重启 jellyfin 服务， 我们进入到 docker 里，将这个容器进行重启，重启后，点到插件，就可以看到这个插件了</p>
-</li>
-<li><p>进入这个插件，填上账号密码就 ok 了，账号没有的话，点击下面的 register 注册一下</p>
-</li>
-</ul>
-<h3 id="其它设置"><a href="#其它设置" class="headerlink" title="其它设置"></a>其它设置</h3><p>端口设置</p>
-<p>多用户，权限控制</p>
-<h3 id="其他问题"><a href="#其他问题" class="headerlink" title="其他问题"></a>其他问题</h3><p>演员照片不显示<br>添加host<br>13.225.69.117 api.themoviedb.org</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1339.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/1339.html" class="post-title-link" itemprop="url">解锁网易云音乐客户端变灰歌曲</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2020-04-30" itemprop="dateCreated datePublished" datetime="2020-04-30T12:00:24+00:00">2020-04-30</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>项目地址：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25vbmRhbmVlL1VuYmxvY2tOZXRlYXNlTXVzaWM=">https://github.com/nondanee/UnblockNeteaseMusic</span><br>食用指南：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25vbmRhbmVlL1VuYmxvY2tOZXRlYXNlTXVzaWMvaXNzdWVzLzIy">https://github.com/nondanee/UnblockNeteaseMusic/issues/22</span></p>
-<p>特性：</p>
-<ul>
-<li>使用 QQ &#x2F; 虾米 &#x2F; 百度 &#x2F; 酷狗 &#x2F; 酷我 &#x2F; 咪咕 &#x2F; JOOX 音源替换变灰歌曲链接 (默认仅启用一、五、六)</li>
-<li>为请求增加 X-Real-IP 参数解锁海外限制，支持指定网易云服务器 IP，支持设置上游 HTTP &#x2F; HTTPS 代理</li>
-<li>完整的流量代理功能 (HTTP &#x2F; HTTPS)，可直接作为系统代理 (同时支持 PAC)</li>
-</ul>
-<h3 id="在-windows-本地使用"><a href="#在-windows-本地使用" class="headerlink" title="在 windows 本地使用"></a>在 windows 本地使用</h3><h4 id="安装-node-js"><a href="#安装-node-js" class="headerlink" title="安装 node.js"></a>安装 node.js</h4><p>去 node.js 官网下载安装即可</p>
-<h4 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/nondanee/UnblockNeteaseMusic.git <span class="comment">#克隆项目仓库</span></span><br><span class="line"><span class="built_in">cd</span> UnblockNeteaseMusic</span><br><span class="line">node app.js</span><br></pre></td></tr></table></figure>
-
-<p>或</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npx @nondanee/unblockneteasemusic</span><br></pre></td></tr></table></figure>
-
-<p>或</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ npm install -g @nondanee/unblockneteasemusic</span><br><span class="line">$ unblockneteasemusic</span><br></pre></td></tr></table></figure>
-
-<h3 id="网易云客户端连接使用"><a href="#网易云客户端连接使用" class="headerlink" title="网易云客户端连接使用"></a>网易云客户端连接使用</h3><p>在网易云客户端内设置代理：<br>右上角设置 &gt; 自定义代理 &gt; 地址 127.0.0.1 端口 8080<br>确定重启客户端后，即可开始使用</p>
-<p>PAC 自动代理脚本地址 <code>http://127.0.0.1:8080/proxy.pac</code></p>
-<p>以上是在本地 window 上使用的方法，如果想给手机稳定使用，可以参考如下方式</p>
-<h3 id="全端解决方案"><a href="#全端解决方案" class="headerlink" title="全端解决方案"></a>全端解决方案</h3><p>需要一台服务器</p>
-<h4 id="安卓等其它设备"><a href="#安卓等其它设备" class="headerlink" title="安卓等其它设备"></a>安卓等其它设备</h4><p>安装 pm2</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm -g install pm2</span><br></pre></td></tr></table></figure>
-
-<p>pm2 部署：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pm2 start app.js --name UnblockNeteaseMusic -- -s -p 8080</span><br></pre></td></tr></table></figure>
-
-<h4 id="ios-设备"><a href="#ios-设备" class="headerlink" title="ios 设备"></a>ios 设备</h4><p>ios 配置经验分享：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25vbmRhbmVlL1VuYmxvY2tOZXRlYXNlTXVzaWMvaXNzdWVzLzM2OA==">https://github.com/nondanee/UnblockNeteaseMusic/issues/368</span></p>
-<p>ios 需要一个域名，并配置反代</p>
-<p>nginx 配置：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">	  listen 443 ssl http2;</span><br><span class="line">	  server_name your_domain; # 改为你自己的域名</span><br><span class="line">	  ssl_certificate 1_your_domain_bundle.crt; # 改为自己申请得到的 crt 文件的名称</span><br><span class="line">	  ssl_certificate_key 2_your_domain.key; # 改为自己申请得到的 key 文件的名称</span><br><span class="line">	  ssl_session_timeout 5m;</span><br><span class="line">	  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">	  ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;</span><br><span class="line">	  ssl_prefer_server_ciphers on;</span><br><span class="line"></span><br><span class="line">	  location / &#123;</span><br><span class="line">	    proxy_pass http://localhost:8080; # 代理到 Unblock 服务地址</span><br><span class="line">	  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>pm2 部署：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pm2 start app.js --name UnblockNeteaseMusic -- -s -p 8080 -e https://unblockneteasemusic.ayyy.club</span><br></pre></td></tr></table></figure>
-
-<p>iOS 搭配 Shadowrocket 连接代理</p>
-<p>Shadowrocket 右上角加号添加节点 -&gt; 类型选择 HTTP -&gt; 服务器填写你的服务器公网 IP -&gt; 端口填写你启动服务的端口号（默认为 8080） -&gt; 点击配置 -&gt; 点击本地文件 -&gt; default.conf -&gt; 编辑配置</p>
-<p>添加三条规则 选项选择你刚刚添加的节点</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">USER-AGENT: NeteaseMusic*</span><br><span class="line">DOMAIN-SUFFIX: 163.com</span><br><span class="line">DOMAIN-SUFFIX: 126.net</span><br></pre></td></tr></table></figure>
-
-<h3 id="pm2-常用命令"><a href="#pm2-常用命令" class="headerlink" title="pm2 常用命令"></a>pm2 常用命令</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pm2 stop UnblockNeteaseMusic <span class="comment"># 停止服务</span></span><br><span class="line">pm2 restart UnblockNeteaseMusic <span class="comment"># 重启服务</span></span><br><span class="line">pm2 pull UnblockNeteaseMusic <span class="comment"># 更新服务到最新代码</span></span><br><span class="line">pm2 show UnblockNeteaseMusic <span class="comment"># 查看服务的参数信息</span></span><br><span class="line">pm2 <span class="built_in">log</span> UnblockNeteaseMusic <span class="comment"># 查看服务日志</span></span><br><span class="line">pm2 <span class="built_in">ls</span> <span class="comment"># 查看已部署的服务列表</span></span><br><span class="line">pm2 monit <span class="comment"># 监控服务状态</span></span><br><span class="line">pm2 flush <span class="comment"># 清理所有日志文件</span></span><br><span class="line">pm2 update <span class="comment"># 更新 pm2 状态</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="一键打卡刷满-300-听歌量"><a href="#一键打卡刷满-300-听歌量" class="headerlink" title="一键打卡刷满 300 听歌量"></a>一键打卡刷满 300 听歌量</h3><p><span class="exturl" data-url="aHR0cHM6Ly90b2RheS5uYW5nZS5jbi8=">https://today.nange.cn/</span></p>
-<div style="display: none;">
-使用方法参考
-
-<p><span class="exturl" data-url="aHR0cHM6Ly93d3cubmFuZ2UuY24vdW5sb2NrLW5ldGVhc2UtbXVzaWMuaHRtbA==">https://www.nange.cn/unlock-netease-music.html</span></p>
-</div>
-</div>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1334.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/1334.html" class="post-title-link" itemprop="url">苹果应用共享</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2020-04-26" itemprop="dateCreated datePublished" datetime="2020-04-26T16:10:35+00:00">2020-04-26</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/software/" itemprop="url" rel="index"><span itemprop="name">软件</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h4 id="胖森微信公众号-（共享-AppleId（免费））"><a href="#胖森微信公众号-（共享-AppleId（免费））" class="headerlink" title="胖森微信公众号 （共享 AppleId（免费））"></a>胖森微信公众号 （共享 AppleId（免费））</h4><p>Procreate<br>GoodNotes5<br>P 站助手<br>Shu<br>Quantumult<br>Quantumult X<br>Shadowrocket</p>
-<h4 id="aneeo-com-（AppleId）"><a href="#aneeo-com-（AppleId）" class="headerlink" title="aneeo.com （AppleId）"></a>aneeo.com （AppleId）</h4><p>旧版应用<br>AppleId 租用（收费）<br>应用代购</p>
-<h4 id="app-ignition-fun-打火机，广告太多不推荐-（在线安装）"><a href="#app-ignition-fun-打火机，广告太多不推荐-（在线安装）" class="headerlink" title="app.ignition.fun 打火机，广告太多不推荐 （在线安装）"></a>app.ignition.fun 打火机，广告太多不推荐 （在线安装）</h4><p>越狱应用</p>
-<h4 id="野心玩家-app-ambier-cn-（在线安装）"><a href="#野心玩家-app-ambier-cn-（在线安装）" class="headerlink" title="野心玩家 app.ambier.cn （在线安装）"></a>野心玩家 app.ambier.cn （在线安装）</h4><p>越狱应用 Uncover checkra1n<br>福利应用</p>
-<h4 id="bc-工具-id-cydias-top-（在线安装）"><a href="#bc-工具-id-cydias-top-（在线安装）" class="headerlink" title="bc 工具 id.cydias.top （在线安装）"></a>bc 工具 id.cydias.top （在线安装）</h4><p>越狱应用 Uncover checkra1n</p>
-<h4 id="有趣工具箱微信小程序-（在线安装）"><a href="#有趣工具箱微信小程序-（在线安装）" class="headerlink" title="有趣工具箱微信小程序 （在线安装）"></a>有趣工具箱微信小程序 （在线安装）</h4><p>越狱应用</p>
-<h4 id="宅哥玩机-（在线安装）"><a href="#宅哥玩机-（在线安装）" class="headerlink" title="宅哥玩机 （在线安装）"></a>宅哥玩机 （在线安装）</h4><p>越狱应用<br>福利应用</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wqdy.top/1331.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="c">
-      <meta itemprop="description" content="分享各类资源、经验与技巧">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我全都要">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/1331.html" class="post-title-link" itemprop="url">WordPress 博客绑定多个域名，并实现多个域名独立访问</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <date title="创建时间：2020-04-26" itemprop="dateCreated datePublished" datetime="2020-04-26T15:09:02+00:00">2020-04-26</date>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/c/wordpress/" itemprop="url" rel="index"><span itemprop="name">wordpress</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>WordPress 博客默认是不能实现多个域名独立访问的，即使我们绑定了多个域名，访问时也会自动跳转到安装站点时默认的域名</p>
-<p>我们只需修改站点根目录下的 <code>wp-config.php</code> 文件，添加如下代码：</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="title function_ invoke__">define</span>(<span class="string">&#x27;WP_SITEURL&#x27;</span>, <span class="string">&#x27;https://&#x27;</span> . <span class="variable">$_SERVER</span>[<span class="string">&#x27;HTTP_HOST&#x27;</span>]);</span><br><span class="line"><span class="title function_ invoke__">define</span>(<span class="string">&#x27;WP_HOME&#x27;</span>, <span class="string">&#x27;https://&#x27;</span> . <span class="variable">$_SERVER</span>[<span class="string">&#x27;HTTP_HOST&#x27;</span>]);</span><br></pre></td></tr></table></figure>
-
-<p>即可</p>
 
       
     </div>
