@@ -461,8 +461,13 @@ stretch：拉伸，不设置高度的情况下
 align-items 与 align-content 的区别
 
 ```css
-align-items调整的是侧轴的对其方式，不换行一般用align-itemsalign-content: 必须是多行才生效，如果单行，没有效果。换行了就用 align-content;
+align-items 调整的是侧轴的对其方式，不换行一般用align-items
+align-content: 必须是多行才生效，如果单行，没有效果。换行了就用 align-content
 ```
+
+flex-flow 是以下属性的简写属性： flex-direction flex-wrap
+
+flex 是以下属性的简写属性： flex-grow flex-shrink flex-basis
 
 !> 上述属性都是给父盒子设置的，这些样式影响的是所有的子元素，接下来的几个属性是给子盒子设置的，用来单独设置子元素的样式
 

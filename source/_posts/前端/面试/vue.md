@@ -7,20 +7,8 @@ date: 2022-03-09
 updated: 2022-03-09
 ---
 
-[vue的生命周期](/2046.html#生命周期介绍)
-[组件通讯、组件渲染更新过程](/2046.html#组件通讯)
-[vue怎么实现双向数据绑定，v-model原理](/2046.html#双向数据绑定)
-[key属性作用](/2046.html#key属性作用)
-[nextTick实现原理是什么？为什么在nextTick中可以获取到最新的dom](/2046.html#nextTick)
-[vdom](/2046.html#vdom)
+
 [diff]()
-[native修饰符](/2046.html#native修饰符)
-[$set原理](/2046.html#$set原理)
-[scoped原理](/2046.html#scoped原理)
-[vue中ref](/2046.html#vue中ref)
-[Vue中.sync和v-model的区别](/2046.html#Vue中.sync和v-model的区别)
-
-
 
 模板编译
 模板渲染过程
@@ -56,7 +44,7 @@ router.beforeEach((to, from, next) => {
 
 [编程式导航](https://router.vuejs.org/zh/guide/essentials/navigation.html#%E7%BC%96%E7%A8%8B%E5%BC%8F%E7%9A%84%E5%AF%BC%E8%88%AA)
 
-params 和 queery
+params 和 query
 
 params 要用 name 来引入，query 要用 path 来引入
 
