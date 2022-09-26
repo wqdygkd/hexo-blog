@@ -204,6 +204,8 @@ let obj = {
 
 ## class 关键字
 
+https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes
+
 ES5 中通过 构造函数 + 原型 的方式来实现面向对象
 
 ```js
@@ -232,6 +234,7 @@ class 仅仅是一个语法结构（语法糖），本质还是函数，实现�
 ```js
 class Person {}
 Person instanceof Function // true
+Person.prototype.constructor === Person // true
 ```
 
 类声明
@@ -255,6 +258,13 @@ class Person {
 const p = new Person('tom', 18)
 console.log(p) // Person {name: 'tom', age: 18}
 p.say() // tom 18
+```
+
+类的内部所有定义的方法，都是不可枚举的
+
+```js
+Object.keys(Person.prototype) // []
+Object.getOwnPropertyNames(Person.prototype) //
 ```
 
 类表达式
@@ -320,7 +330,7 @@ class Chinese extends Person {
   constructor(name, age) {
     // 子类中使用 constructor 必须手动调用 super
     // super 表示父类的构造函数
-    // 先调用 super() 在使用 this
+    // 先调用 super() 再使用 this
     super()
     this.name = name
     this.age = age
@@ -331,6 +341,61 @@ class Chinese extends Person {
 const c = new Chinese('zs', 18)
 console.log(c)
 c.say() // 父类中的方法
+```
+
+静态方法  static
+
+静态方法不会被实例继承，而是直接通过类来调用
+
+```js
+class Person {
+  static play() {
+    return 'play'
+  }
+}
+
+Person.play() // 'play'
+
+var person = new Person()
+person.play() // err person.play is not a function
+```
+
+静态方法可以与非静态方法重名
+
+```js
+class Person {
+  static play() {
+    return 'static play'
+  }
+  play() {
+    return 'play'
+  }
+}
+
+
+Person.play() // 'static play'
+
+var person = new Person()
+person.play() // 'play'
+```
+
+父类的静态方法，可以被子类继承, 静态方法也是可以从super对象上调用
+
+```js
+class Person {
+  static play() {
+    return 'static play'
+  }
+}
+
+class Child extends Person {
+  static childPlay() {
+    return 'Child ' + super.play()
+  }
+}
+
+Child.play() // 'static play'
+Child.childPlay() // 'Child static play'
 ```
 
 ## 解构赋值
