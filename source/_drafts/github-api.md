@@ -15,4 +15,4 @@ baseUrl: https://api.github.com
 仓库信息: /repos/:owner/:repo
 
 仓库文件: /repos/:owner/:repo/contents/:path?ref=commit|branch|tag
-        https://api.github.com/repos/cuilongjin/static/contents/img
+        https://api.github.com/repos/wqdygkd/my-script/contents/img

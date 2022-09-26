@@ -17,7 +17,7 @@ date: 2020-04-22 22:34:05
 
 [数字许可证](https://support.microsoft.com/zh-cn/help/12440/windows-10-activate)（在 Windows 10 版本 1511 中称为数字授权）是 Windows 10 的一种激活方法，该方法不需要输入产品密钥。在同一台电脑上主要硬件（应该是 CPU 和主板）不变化的情况下，重新安装系统时无需再次输入密钥，系统会在自动连接到微软服务器进行激活。
 
-![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102203303.png)
+![](https://cdn.jsdelivr.net/gh/wqdygkd/my-script@img/img/20210102203303.png)
 
 下载地址
 
@@ -30,7 +30,7 @@ https://www.aiowares.com/showthread.php?tid=246
 支持 Office2010/2013/2016/2019 、Windows10/8.1/8 等版本KMS激活
 支持 Win10 数字许可证激活
 
-![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102203343.png)
+![](https://cdn.jsdelivr.net/gh/wqdygkd/my-script@img/img/20210102203343.png)
 
 下载地址
 

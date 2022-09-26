@@ -36,7 +36,7 @@ date: 2018-08-27 22:08:12
 - `opacity`不等于 1
 - `transform`不等于 none
 
-![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102204249.png)
+![](https://cdn.jsdelivr.net/gh/wqdygkd/my-script@img/img/20210102204249.png)
 
 ```html
 <html>

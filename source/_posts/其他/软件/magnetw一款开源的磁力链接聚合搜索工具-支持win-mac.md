@@ -12,4 +12,4 @@ date: 2020-04-25 14:01:16
 
 欢迎 star
 
-![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102203211.gif)
+![](https://cdn.jsdelivr.net/gh/wqdygkd/my-script@img/img/20210102203211.gif)

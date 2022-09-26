@@ -68,7 +68,7 @@ console.log(p.constructor == Person.prototype.constructor) // true
 
 原型：每一个构造函数都有一个属性`prototype`，函数的 prototype 属性值就是原型。通过构造函数创建出来的实例能够直接使用原型上的属性和方法
 
-![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102204519.png)
+![](https://cdn.jsdelivr.net/gh/wqdygkd/my-script@img/img/20210102204519.png)
 
 原型三角关系：
 
@@ -108,7 +108,7 @@ var date = new Date()
 
 总结：Object.prototype 是原型链的尽头，Object.prototype 的原型是 null
 
-![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102204539.png)
+![](https://cdn.jsdelivr.net/gh/wqdygkd/my-script@img/img/20210102204539.png)
 
 ### 函数的原型链结构
 
@@ -118,15 +118,15 @@ Person ==> Function.prototype ==> Object.prototype ==> null
 
 Function.prototype 类型是个函数
 
-![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102204558.jpeg)
+![](https://cdn.jsdelivr.net/gh/wqdygkd/my-script@img/img/20210102204558.jpeg)
 
 ## 完整版原型链
 
 图一
-![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102204647.png)
+![](https://cdn.jsdelivr.net/gh/wqdygkd/my-script@img/img/20210102204647.png)
 
 图二
-![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102204701.jpeg)
+![](https://cdn.jsdelivr.net/gh/wqdygkd/my-script@img/img/20210102204701.jpeg)
 
 1. 所有函数都是 new Function 创建出来的，因此 `所有函数.__proto__` 都是 `Function.prototype`
 2. 所有对象都是 new Object 创建出来的，因此 `所有对象.__proto__` 都是 `Object.prototype`

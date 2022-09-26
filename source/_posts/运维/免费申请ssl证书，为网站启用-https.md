@@ -50,7 +50,7 @@ github：https://github.com/acmesh-official/acme.sh/wiki/说明
 
 支持一键配置 `宝塔SSL`,`Let's Encrypt`免费证书
 
-![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102184437.png)
+![](https://cdn.jsdelivr.net/gh/wqdygkd/my-script@img/img/20210102184437.png)
 
 ## freessl
 

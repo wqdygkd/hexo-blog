@@ -8,7 +8,7 @@ categories:
 date: 2018-10-18 14:34:36
 ---
 
-![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102204500.png)
+![](https://cdn.jsdelivr.net/gh/wqdygkd/my-script@img/img/20210102204500.png)
 
 ## 沙箱模式
 

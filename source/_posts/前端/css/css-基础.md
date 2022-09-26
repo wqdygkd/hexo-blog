@@ -472,7 +472,7 @@ font-style 属性用于定义字体风格，如设置斜体、倾斜或正常字
 
 **行高测量**
 
-![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102183819.png)
+![](https://cdn.jsdelivr.net/gh/wqdygkd/my-script@img/img/20210102183819.png)
 
 **行高和高度的三种关系**
 
@@ -830,7 +830,7 @@ CSS层叠性最后的执行口诀：  长江后浪推前浪，前浪死在沙滩
 
 ### 6.2 CSS 继承性
 
-![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102183947.png)
+![](https://cdn.jsdelivr.net/gh/wqdygkd/my-script@img/img/20210102183947.png)
 
 - 概念：
 
@@ -848,7 +848,7 @@ CSS层叠性最后的执行口诀：  长江后浪推前浪，前浪死在沙滩
 
 ### 6.3 CSS 优先级（重点）
 
-![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102184033.png)
+![](https://cdn.jsdelivr.net/gh/wqdygkd/my-script@img/img/20210102184033.png)
 
 - 概念：
 
@@ -908,7 +908,7 @@ css 学习三大重点： css 盒子模型 、 浮动 、 定位
 
 主题思路：
 
-![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102184059.png)
+![](https://cdn.jsdelivr.net/gh/wqdygkd/my-script@img/img/20210102184059.png)
 
 目标：
 
@@ -1124,7 +1124,7 @@ margin: 10px auto; /* 块级盒子水平居中  左右margin 改为 auto 就阔�
 
 - 当上下相邻的两个块元素相遇时，如果上面的元素有下外边距 margin-bottom，下面的元素有上外边距 margin-top，则他们之间的垂直间距不是 margin-bottom 与 margin-top 之和而是**取两个值中的较大者**，这种现象被称为相邻块元素垂直外边距的合并（也称外边距塌陷）。
 
-![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102184124.png)
+![](https://cdn.jsdelivr.net/gh/wqdygkd/my-script@img/img/20210102184124.png)
 
 **解决方案：尽量只给一个盒子添加 margin 值**。
 
@@ -1132,7 +1132,7 @@ margin: 10px auto; /* 块级盒子水平居中  左右margin 改为 auto 就阔�
 
 - 对于两个嵌套关系的块元素，如果父元素没有上内边距及边框，父元素的上外边距会与子元素的上外边距发生合并（父元素会跟着下来），合并后的外边距为两者中的较大者
 
-![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102184202.png)
+![](https://cdn.jsdelivr.net/gh/wqdygkd/my-script@img/img/20210102184202.png)
 
 **解决方案：**
 
@@ -1634,7 +1634,7 @@ outline: outline-color ||outline-style || outline-width;
 
 **行内**、**行内块**、表单元格 垂直方向的对齐方式: vertical-align
 
-![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102184232.jpg)
+![](https://cdn.jsdelivr.net/gh/wqdygkd/my-script@img/img/20210102184232.jpg)
 
 ```css
 vertical-align: baseline | sub | super | top(对齐line) | text-top(对齐文字) | middle | bottom | text-bottom | <percentage>(参照line-height向上) | <length>(参照baseline向上);
@@ -1650,7 +1650,7 @@ middle: 当前元素的中线和父元素的基线加上x高度的一半对齐;
 
 **去除图片底侧空白缝隙**
 
-![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102184254.png)
+![](https://cdn.jsdelivr.net/gh/wqdygkd/my-script@img/img/20210102184254.png)
 
 - 原因：
 

@@ -259,7 +259,7 @@ transform: translateX(800px) scale(1.5) rotate(360deg);
 
 > 用 X、Y、Z 分别表示空间的 3 个维度，三条轴互相垂直。**注意+Y 是向下的**
 
-![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102204311.png)
+![](https://cdn.jsdelivr.net/gh/wqdygkd/my-script@img/img/20210102204311.png)
 
 ### perspective 透视
 
@@ -275,7 +275,7 @@ perspective：500px;
 
 对于我们眼睛来说，离我们越近的房子，我们会感觉到这个房子越大，离我们越远的房子，就会感觉越小，其实房子的大小都是一样的，只是在视觉上的一种不同。
 
-![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102204343.png)
+![](https://cdn.jsdelivr.net/gh/wqdygkd/my-script@img/img/20210102204343.png)
 
 ### rotate 旋转
 
@@ -398,7 +398,7 @@ CSS3 在布局方面做了非常大的改进，使得我们对块级元素的布
 主轴：默认是水平方向向右，子元素在主轴上排列
 侧轴：与主轴垂直的轴称作侧轴，默认是垂直方向向下
 
-![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102204407.png)
+![](https://cdn.jsdelivr.net/gh/wqdygkd/my-script@img/img/20210102204407.png)
 
 ### 给容器设置的样式
 

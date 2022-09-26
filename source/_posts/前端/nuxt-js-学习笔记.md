@@ -18,7 +18,7 @@ Nuxt.js 是一个基于 Vue.js 的通用应用框架。
 ## nuxt 渲染流程
 
 在任何 Vue 组件的生命周期内， 只有 beforeCreate 和 created 这两个方法会在 客户端和服务端被调用。其他生命周期函数仅在客户端被调用。
-![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102205617.png)
+![](https://cdn.jsdelivr.net/gh/wqdygkd/my-script@img/img/20210102205617.png)
 
 ### asyncData 方法
 

@@ -9,9 +9,9 @@ date: 2020-07-09 18:18:43
 
 Snap2HTML 可以帮你将硬盘下的文件整理成一个 html 格式的树状视图列表，类似于 Windows 资源管理器，带有文件大小、日期、数量等常用信息，右上角还提供了搜索功能，方便你去整理或查找，或者是向基友们分享一下你的收藏
 
-![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102203522.png)
+![](https://cdn.jsdelivr.net/gh/wqdygkd/my-script@img/img/20210102203522.png)
 
-![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102203541.png)
+![](https://cdn.jsdelivr.net/gh/wqdygkd/my-script@img/img/20210102203541.png)
 
 github地址 https://github.com/rlv-dan/Snap2HTML
 

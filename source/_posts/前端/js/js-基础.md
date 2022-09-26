@@ -420,7 +420,7 @@ switch (变量) {
 
 ## while 循环
 
-![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102205019.png)
+![](https://cdn.jsdelivr.net/gh/wqdygkd/my-script@img/img/20210102205019.png)
 
 基本语法 :
 
@@ -451,7 +451,7 @@ console.log(sum)
 
 > do..while 循环和 while 循环非常像，二者经常可以相互替代，但是 do..while 的特点是不管条件成不成立，都会执行一次。
 
-![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102205045.png)
+![](https://cdn.jsdelivr.net/gh/wqdygkd/my-script@img/img/20210102205045.png)
 
 基础语法 :
 
@@ -475,7 +475,7 @@ do {
 
 ## for 循环
 
-![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102205112.png)
+![](https://cdn.jsdelivr.net/gh/wqdygkd/my-script@img/img/20210102205112.png)
 
 for 循环语法：
 

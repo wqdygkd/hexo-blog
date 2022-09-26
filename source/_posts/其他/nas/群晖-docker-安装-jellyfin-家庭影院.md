@@ -30,11 +30,11 @@ jellyfin开源地址：https://github.com/jellyfin/jellyfin
 
 * 点击高级设置，然后点击卷，添加文件夹，将 jellyfin 和 video 文件夹都添加上：将`video`文件夹装载到 `/media`下，将`docker/jellyfin` 装载到 `/config`
 
-![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102184514.png)
+![](https://cdn.jsdelivr.net/gh/wqdygkd/my-script@img/img/20210102184514.png)
 
 * 点击端口设置，默认是 8096，设置一样的即可
 
-![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102184536.png)
+![](https://cdn.jsdelivr.net/gh/wqdygkd/my-script@img/img/20210102184536.png)
 
 * 设置完成后，点击应用 -> 点下一步 -> 点击应用 ->点击容器，可以看到 jellyfin 服务已经运行成功了！
 

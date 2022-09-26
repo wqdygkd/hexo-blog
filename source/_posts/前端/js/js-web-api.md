@@ -474,7 +474,7 @@ parentNode.replaceChild(newChild, oldChild)
 
 > BOM（Browser Object Model）：浏览器对象模型，提供了一套操作浏览器功能的工具
 
-![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102205413.png)
+![](https://cdn.jsdelivr.net/gh/wqdygkd/my-script@img/img/20210102205413.png)
 
 **重点** ：定时器、 offset 系列
 
@@ -821,7 +821,7 @@ document.onmousemove = function(e) {
 }
 ```
 
-![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102205438.png)
+![](https://cdn.jsdelivr.net/gh/wqdygkd/my-script@img/img/20210102205438.png)
 
 **[案例 : 拖拽案例]**
 
@@ -1039,7 +1039,7 @@ arr[i].addEventListener(
 > - 只能获取和设置行内样式
 > - 获取到的是字符串，需要转换
 
-![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102205502.png)
+![](https://cdn.jsdelivr.net/gh/wqdygkd/my-script@img/img/20210102205502.png)
 
 ### scroll 系列
 
@@ -1073,7 +1073,7 @@ arr[i].addEventListener(
   pageYOffset 属性是 scrollY 属性的别名
   为了跨浏览器兼容，请使用 window.pageYOffset 代替 window.scrollY
 
-![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102205527.png)
+![](https://cdn.jsdelivr.net/gh/wqdygkd/my-script@img/img/20210102205527.png)
 
 **onscroll 事件**
 
@@ -1115,7 +1115,7 @@ document.onscroll = function() {
 
 **clientWidth、clientHeight 可视区宽高**
 
-![](https://cdn.jsdelivr.net/gh/cuilongjin/static@img/img/20210102205558.png)
+![](https://cdn.jsdelivr.net/gh/wqdygkd/my-script@img/img/20210102205558.png)
 
 **clientTop** 与 **clientLeft** 完全没有用，他们就是 borderTop 与 borderLeft
 
