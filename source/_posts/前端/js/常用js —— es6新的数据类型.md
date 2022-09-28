@@ -15,7 +15,7 @@ Set 中判断两个值是否相等的算法不同于 `===`，在 Set 内部，�
 
 ```js
 let a = [NaN, NaN, undefined, undefined, +0, -0, {}, {}]
-let b = new Set(a) // [NaN, undefined, +0, {}, {}]
+let b = new Set(a) // [NaN, undefined, 0, {}, {}]
 ```
 
 属性
@@ -94,7 +94,6 @@ Map.prototype.has(key) // 返回一个布尔值，表示 Map 实例是否包含�
 Map.prototype.keys() // 返回一个新的 Iterator 对象， 它按插入顺序包含了 Map 对象中每个元素的键
 Map.prototype.set(key, value) // 设置 Map 对象中键的值。返回该 Map 对象
 Map.prototype.values() // 返回一个新的 Iterator 对象，它按插入顺序包含了 Map 对象中每个元素的值
-Map.prototype[@@iterator]() // 返回一个新的 Iterator 对象，它按插入顺序包含了 Map 对象中每个元素的 [key, value] 数组
 ```
 
 迭代 Map
@@ -136,7 +135,9 @@ https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects
 
 WeakMap 对象是一组键/值对的集合，其中的键是弱引用的。其键必须是对象，而值可以是任意的
 
-正由于这样的弱引用，WeakMap 的 key 是不可枚举的
+正由于这样的弱引用，WeakMap 的 key 是不可枚举的，即无法遍历
+WeakMap 没有size属性
+没有clear()方法
 
 # symbol
 

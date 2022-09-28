@@ -313,3 +313,4 @@ Object.is(NaN, 0 / 0) // true
 
 返回一个给定对象自身的所有可枚举属性值的数组
 
+Object.fromEntries
