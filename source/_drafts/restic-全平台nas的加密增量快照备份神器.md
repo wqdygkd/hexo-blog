@@ -3,7 +3,7 @@ title: restic-全平台nas的加密增量快照备份神器
 tags: []
 id: '1994'
 categories:
-  - - uncategorized
+  - 软件
 date: 2020-10-14
 ---
 
@@ -19,3 +19,32 @@ date: 2020-10-14
 https://cloud.tencent.com/developer/article/1530989
 
 https://ikfou.com/archives/287.html
+
+```bash
+# 初始化仓库
+restic init --repo ./backup 8102834@s#3jVFf@
+
+# 备份
+restic --repo ./backup backup ./my-file --exclude=node_modules\
+
+# 检查快照
+restic -r ./backup check
+
+# 检查快照备份情况
+restic -r ./backup snapshots
+
+# 挂载备份
+restic -r ./backup mount /r
+
+# 清理快照，只保留最新的2个
+restic -r ./backup forget --keep-last 2 --prune
+
+
+
+restic -r /srv/restic-repo restore 79766175 --target /tmp/restore-work
+
+./restic.exe init --repo  \\c10\c\File\File.pri
+
+./restic.exe --repo  \\c10\c\File\File.pri  backup  \\c10\c\File.pri --exclude=node_modules\
+
+./restic.exe  -r E:\共享云端硬盘\wqdy\backup mount ./backup-mount
