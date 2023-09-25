@@ -158,15 +158,16 @@ $ man command
 
 #### 拷贝和移动文件
 
-- `tree [目录名]`： 以树状图列出文件目录结构
-
-  `-d` 只显示目录，不显示文件
-
+- tree [目录名]：以树状图列出文件目录结构
+```
+-d 只显示目录，不显示文件
+```
 - `cp 源文件 目标文件`： copy 复制文件或者目录
 
 ```shell
-$ cp  ~/Documemt/readme.txt  ./readme.txt
 # 将 ~/Documemt/ 目录下的 readme.txt 文件复制到./目录下并以readme.txt命名
+cp  ~/Documemt/readme.txt  ./readme.txt
+
 # 如果不修改文件名，只需要写目标路径
 $ cp  ~/Documemt/readme.txt  ./
 ```
@@ -175,7 +176,7 @@ $ cp  ~/Documemt/readme.txt  ./
 
 `-r` ：若给出的源文件是目录文件，将递归复制该目录下的所有子目录和文件，目标文件必须为一个目录名
 
-- `mv 源文件 目标文件`：move 移动文件或目录/ 文件或目录重命名
+mv 源文件 目标文件：move 移动文件或目录/ 文件或目录重命名
 
 ```shell
 $ mv  ~/Documemt/readme.txt  ./
@@ -228,7 +229,7 @@ $ mv readme.txt demo.txt
 
 - 重定向 `>` 和 `>>`：
 
-> linux 允许将命令执行结果重定向到一个文件，将本应显示在终端上的内容输出/追加到指定文件中，保存命令输出结果
+linux 允许将命令执行结果重定向到一个文件，将本应显示在终端上的内容输出/追加到指定文件中，保存命令输出结果
 
 `>` 表示输出，会覆盖文件原有的内容
 
@@ -766,27 +767,6 @@ sudo apt upgrade
 ```
 
 ### 防火墙管理
-
-CentOS7 默认的防火墙不是 iptables,而是 firewalle
-
-```bash
-# 添加规则
-firewall-cmd --add-port=16343/tcp
-firewall-cmd --zone=public --add-port=16343/tcp --permanent （--permanent 永久生效，没有此参数重启后失效）
-# 重新载入
-firewall-cmd --reload
-# 查看
-firewall-cmd --zone=public --query-port=80/tcp
-# 删除
-firewall-cmd --zone=public --remove-port=80/tcp --permanent
-
-# 开启防火墙
-systemctl start firewalld.service
-# 关闭防火墙
-systemctl stop firewalld.service
-# 列出端口信息
-firewall-cmd --list-ports
-```
 
 使用 iptables
 
