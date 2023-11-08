@@ -13,7 +13,6 @@ date: 2022-04-05
 32位 http://download.navicat.com.cn/download/navicat150_premium_cs_x86.exe
 64位 http://download.navicat.com.cn/download/navicat150_premium_cs_x64.exe
 
-注册补丁
 
 百度网盘：https://pan.baidu.com/s/1RR17QvWBlekj2vDLEJzZdg 提取码：wqdy
 阿里云盘：

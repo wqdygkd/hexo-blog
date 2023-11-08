@@ -8,48 +8,6 @@ categories:
 date: 2018-12-11 22:30:46
 ---
 
-## Less 简介
-
-> ***Less*  是一门 CSS 预处理语言（预先处理）,它扩展了 CSS 语言，增加了变量、Mixin、函数等特性**
->
-> 浏览器不直接识别 less 文件，浏览器只识别 css 文件，所以我们写了 less 文件之后，我们需要预先把 less 文件转换成 css 文件。
-
-本质上，LESS 包含一套自定义的语法及一个解析器，用户根据这些语法定义自己的样式规则，这些规则最终会通过解析器，编译生成对应的 CSS 文件。LESS 并没有裁剪 CSS 原有的特性，更不是用来取代 CSS 的，而是在现有 CSS 语法的基础上，为 CSS 加入程序式语言的特性。
-
-**less 仅仅是写 css 的另一种方式，写出来的 less 文件浏览器也不识别，所以啊，我们写完了 less 文件，还需要通过 less 解析器解析成 css，最终浏览器引入的还是 css 文件。**
-
-学习网站：
-
-[官网 http://lesscss.org/](http://lesscss.org/)
-[中文网 http://lesscss.cn/](http://lesscss.cn/)
-
-## less 的编译
-
-> 如何把 less 文件变成 css 文件
-
-### 使用打包工具
-
-`gulp`
-
-`webpack`
-
-### 使用考拉
-
-> koala 是一个前端预处理器语言（less/sass）图形编译工具，支持 Less、Sass、Compass、CoffeeScript，帮助 web 开发者更高效地使用它们进行开发。跨平台运行，完美兼容 windows、linux、mac。
-
-[考拉官网](http://koala-app.com/index-zh.html)
-
-使用步骤：
-
-1. 把`less`文件夹拖进去
-2. 会在当前目录生成一个`css`目录
-
-优点：不用 node 环境，不用 less 环境，koala 内置了
-
-### 使用插件
-
-easy less
-
 ## Less 语法
 
 ### 变量
