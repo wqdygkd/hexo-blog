@@ -1,21 +1,3 @@
----
-title: sublime 插件、快捷键
-tags:
-  - sublime
-id: '428'
-categories:
-  - - 教程
-date: 2018-09-12 22:32:42
----
-
-## 插件
-
-- [Sublime Tutor](https://packagecontrol.io/packages/Sublime%20Tutor) ：键盘快捷方式教程
-  Help > Sublime Tutor
-
-- AlignTab ：自定义快捷键
-
-## 快捷键
 
 - `Ctrl + X` 如果已经选中文本，则剪切该文本。如果未选中任何文本，则剪切光标所在行
 - `Ctrl + Z` 撤消
@@ -62,3 +44,5 @@ date: 2018-09-12 22:32:42
 - `Ctrl+K+U` `Ctrl+K+L` 改变大小写
 
 http://sublime.emptystack.net/
+
+ssssssssssssssssssss
