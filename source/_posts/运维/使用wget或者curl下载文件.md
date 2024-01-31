@@ -23,4 +23,5 @@ curl -LJO https://github.com/ctripcorp/apollo/releases/download/v1.5.1/apollo-ad
 下载源码压缩包
 
 wget -q https://github.com/git/git/archive/v${GIT_VERSION}.tar.gz
+
 wget -O git-master.zip https://github.com/git/git/archive/${GIT_BRANCH}.zip
