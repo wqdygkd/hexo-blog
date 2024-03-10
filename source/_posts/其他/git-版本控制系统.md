@@ -1,69 +1,5 @@
 
 
-### git reset
-
-```bash
-git reset -h		'查看帮助'
---mixed				'reset HEAD and index'(默认)
---soft				'reset only HEAD'
---hard  			'reset HEAD, index and working tree'
---merge 			'reset HEAD, index and working tree'
---keep 				'reset HEAD but keep local changes'
-```
-
-> 1.  `HEAD` 表示当前版本，上一个版本就是 `HEAD^` ，上上一个版本就是 `HEAD^^` ，当然往上 100 个版本写 100 个^比较容易数不过来，所以写成 `HEAD~100`
-> 2.  使用 `commit_id` 回退 , `git reflog` 用来记录你的每一次命令和 `commit_id`
-
-```bash
-git reset --soft HEAD^
-git reset --hard commit_id
-git reset HEAD [file]
-```
-
-### git checkout --file
-
-```bash
-git checkout -- README.md
-```
-
-把 README.md 文件在 `工作区的修改全部撤销` ，**用版本库里的版本替换工作区的版本**
-
-这里有两种情况：
-
-1. 一种是 README.md 自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态
-
-2. 一种是 README.md 已经添加到暂存区后，又作了修改，现在撤销修改就回到添加到暂存区后的状态
-
-总之，就是让这个文件回到最近一次 git commit 或 git add 时的状态，可用于**撤销文件修改或恢复误删文件**
-
-### git remote
-
-```bash
-git remote add origin git@github.com:cuilongjin/git_test.git
-```
-
-添加后，远程库的名字就是 origin，这是 Git 默认的叫法，也可以改成别的，但是 origin 这个名字一看就知道是远程库
-
-```bash
-# 查看远程库的信息
-git remote -v
-origin  git@github.com:cuilongjin/git_test.git (fetch)
-origin  git@github.com:cuilongjin/git_test.git (push)
-
-# 查看指定远程库的详细信息
-git remote show <远程库>
-```
-
-上面显示了可以抓取和推送的 origin 的地址。如果没有推送权限，就看不到 push 的地址
-
-```bash
-# 删除已有的 GitHub 远程库
-git remote rm origin
-
-# 修改远程库名称
-git remote rename <原远程库名> <新远程库名>
-```
-
 ### git pull
 
 ```bash
@@ -100,11 +36,6 @@ $ git push origin --delete master
 # 以强制覆盖的方式推送修改后的 repo （重新上传 repo）（不指定分支即所有分支）
 git push origin --force --all
 ```
-
-> remote: error: GH007: Your push would publish a private email address.
-> 解决方法——http://github.com/settings/emails 把 Keep my email address private 这一项去掉勾选即可。
-
-如果推送失败，则因为远程分支比你的本地更新，需要先用 `git pull` 拉取远程的新提交
 
 ### git clone
 
@@ -149,110 +80,6 @@ git fetch 和 git pull 区别
 
 - git fetch 所取回的更新，在本地主机上要用 "远程仓库/分支名" 的形式读取，即不会与本地分支合并
 
-### git 忽视文件
-
-在仓库中，有些文件是不想被 git 管理的，比如数据的配置密码、写代码的一些思路等。git 可以通过配置从而达到忽视掉一些文件，这样这些文件就可以不用提交了
-
-忽略文件的原则是：
-
-- 忽略操作系统自动生成的文件，比如缩略图等
-- 忽略编译生成的中间文件、可执行文件等，也就是如果一个文件是通过另一个文件自动生成的，那自动生成的文件就没必要放进版本库，比如 Java 编译产生的 .class 文件
-- 忽略你自己的带有敏感信息的配置文件，比如存放口令的配置文件
-
-在仓库的根目录创建一个 `.gitignore` 的文件，文件名是固定的
-
-将不需要被 git 管理的文件路径添加到 `.gitignore` 中，把 `.gitignore` 也提交到 Git，Git 就会自动忽略这些文件
-
-```txt
-# 忽视 index.txt 文件
-index.txt
-
-# 忽视 .gitignore 文件
-.gitignore
-
-# 忽视 css 下的 index.css 文件
-css/index.css
-
-# 忽视 css 下的所有的 css 文件
-css/*.css
-
-# 忽视 css 下的所有文件
-css/*.*
-
-# 忽视 css 文件夹
-css
-```
-
-GitHub 已经为我们准备了各种配置文件 [https://github.com/github/gitignore](https://github.com/github/gitignore)
-
-强制添加被 .gitignore 忽略的文件
-
-```bash
-# 强制添加被.gitignore忽略的文件
-git add -f <file>
-
-# 检查哪个规则忽略了此文件，以便修订规则
-git check-ignore -v <file>
-.gitignore:x:xxx.xx    xxxxxx
-```
-
-### git branch
-
-在 git 中，分支实质上仅仅是一个指针，每次代码提交后，这个分支指针就会向后移动，保证一直指向最后一次提交的的版本。git 中使用 HEAD 指向当前分支
-
-```bash
-git branch
-* master
-
--r 参数查看远程分支
--a 查看所有分支(远程分支会用红色表示出来)
-```
-
-`*`（星号）表示当前所在的分支
-
-- git checkout -b 创建、切换分支
-
-```bash
-# 以 branch 为基础创建名为 feature-A 的分支
-git checkout -b feature-A <branch>
-```
-
-连续执行下面两条命令也能收到同样效果
-
-```bash
-# 创建 feature-A 分支
-git branch feature-A
-
-# 将当前分支切换为 feature-A 分支
-git checkout feature-A
-
-# 切换回上一个分支
-git checkout -
-```
-
-- git branch -d 删除分支
-
-```bash
-# 删除本地 feature-A 分支
-git branch -d feature-A
-
-# 强行删除本地 feature-A 分支
-git branch -D feature-A
-
-# 删除远程 feature-A 分支
-git push origin :feature-A
-或 git push origin --delete feature-A
-```
-
-- git branch -m 重命名分支
-
-```bash
-# 重命名本地分支
-git branch -m old_branch new_branch
-
-# 重命名远程分支
-# 重命名本地分支 -> 删除远程分支 -> 推送到远程分支
-```
 
 ### git merge
 
@@ -431,32 +258,6 @@ Commands
 **d**, drop = remove commit：丢弃 commit，（并删除该提交所做的修改）
 
 <https://www.jianshu.com/p/67f20d19605a>
-
-
-## git-bisect
-
-git 有一个以二分法帮助定位问题的命令——bisect。
-
-```bash
-# 开始二分查找问题
-git bisect start
-# 标记当前有问题
-git bisect bad
-# 标记哪个 commit 或 tag 时是没问题的
-git bisect good v1.0.0
-
-# 此时 git 会 checkout 两个点之间的某个 commit，
-# 如果此时还是有问题：
-git bisect bad
-# 如果此时没有问题：
-git bisect good
-# 接着 git 会 checkout 下一个「有问题」和「没问题」之间的 commit
-
-# 直到定位到问题，git 会提示：xxxxxxx is first bad commit
-```
-
-参考：https://git-scm.com/book/zh/v2/Git-工具-使用-Git-调试
-
 
 ## git filter-branch
 
